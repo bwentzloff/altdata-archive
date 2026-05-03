@@ -32,35 +32,47 @@
 </script>
 {% endblock %}
 
+{% set skip_keys = ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+{% set stat_keys = hof.leaders[0].keys() | list | reject('in', skip_keys) | list %}
+{% set max_val = hof.leaders[0][hof.primary_stat] | float %}
+
 {% block content %}
 <h1>{{ hof.category | title }} Leaders</h1>
-<p>All-time leaders sorted by <strong>{{ hof.primary_stat }}</strong> across all tracked leagues.</p>
+<p>All-time leaders sorted by <strong>{{ hof.primary_stat | stat_label }}</strong> across all tracked leagues. Stats combine a player's appearances across leagues into a single career total.</p>
 
-<table>
+<table class="data-table">
   <caption>All-time {{ hof.category }} leaders — AltSports Archive</caption>
   <thead>
     <tr>
-      <th scope="col">#</th><th scope="col">Player</th><th scope="col">Positions</th>
-      {% for key in hof.leaders[0].keys() %}
-        {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
-        <th scope="col">{{ key }}</th>
-        {% endif %}
+      <th scope="col">#</th>
+      <th scope="col">Player</th>
+      <th scope="col">Pos</th>
+      {% for sk in stat_keys %}
+      <th scope="col">{{ sk | stat_label }}</th>
       {% endfor %}
     </tr>
   </thead>
   <tbody>
     {% for p in hof.leaders %}
+    {% set pct = [(p[hof.primary_stat] | float / max_val * 100) | int, 2] | max %}
     <tr>
       <td>{{ p.rank }}</td>
       <td>
         <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
-        {% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}
+        {% if p.ambiguous %}<span class="ambiguous-tag" title="Multiple players may share this identity">?</span>{% endif %}
       </td>
-      <td>{{ p.positions | join(", ") }}</td>
-      {% for key, val in p.items() %}
-        {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
-        <td>{{ val }}</td>
-        {% endif %}
+      <td class="hof-sec">{{ p.positions | join(", ") }}</td>
+      {% for sk in stat_keys %}
+      {% if sk == hof.primary_stat %}
+      <td class="stat-cell">
+        <div class="stat-bar-wrap">
+          <div class="stat-bar-fill" style="width:{{ pct }}%"></div>
+          <span class="stat-bar-text">{{ p[sk] | intcomma }}</span>
+        </div>
+      </td>
+      {% else %}
+      <td class="hof-sec">{{ p[sk] | intcomma }}</td>
+      {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
@@ -69,5 +81,6 @@
 {% endblock %}
 {% block formats %}
 <a href="{{ root }}data/hof/{{ hof.category }}.json">JSON</a> ·
-<a href="{{ root }}data/hof/{{ hof.category }}.xml">XML</a>
+<a href="{{ root }}data/hof/{{ hof.category }}.xml">XML</a> ·
+<a href="{{ root }}data/hof/{{ hof.category }}.csv">CSV</a>
 {% endblock %}

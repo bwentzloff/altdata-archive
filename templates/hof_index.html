@@ -1,46 +1,147 @@
 {% extends "base.html" %}
 {% block title %}Hall of Fame — AltSports Archive{% endblock %}
+{% block description %}All-time career leaders in passing, rushing, receiving, defense, and kicking across every league tracked in the AltSports Archive.{% endblock %}
+{% block og_title %}Hall of Fame — AltSports Archive{% endblock %}
+
 {% block content %}
 <h1>Hall of Fame</h1>
-<p>All-time leaders across all leagues and seasons tracked in this archive.</p>
+<p class="hof-intro">Career leaders across all leagues and seasons in the archive. Stats combine players tracked across multiple leagues into a single career total.</p>
 
+{% set skip_keys = ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+
+<div class="hof-leaders-grid">
 {% for category, leaders in top10s.items() %}
-<section>
-  <h2>{{ category | title }}</h2>
-  {% if leaders %}
-  {% set primary_stat = leaders[0].keys() | list | reject('in', ['rank','canonical_id','canonical_name','positions','ambiguous']) | first %}
-  <table>
+{% if leaders %}
+{% set stat_keys = leaders[0].keys() | list | reject('in', skip_keys) | list %}
+{% set primary = stat_keys[0] %}
+{% set max_val = leaders[0][primary] | float %}
+<section class="hof-section">
+  <h2>
+    {% if category == 'passing' %}<svg class="cat-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    {% elif category == 'rushing' %}<svg class="cat-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    {% elif category == 'receiving' %}<svg class="cat-icon" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    {% elif category == 'defense' %}<svg class="cat-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    {% elif category == 'kicking' %}<svg class="cat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    {% endif %}
+    {{ category | title }}
+  </h2>
+  <table class="hof-table">
     <thead>
       <tr>
-        <th>#</th><th>Player</th>
-        {% for key in leaders[0].keys() %}
-          {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
-          <th>{{ key }}</th>
-          {% endif %}
-        {% endfor %}
+        <th class="hof-rank-th">#</th>
+        <th>Player</th>
+        <th class="hof-stat-th">{{ primary | stat_label }}</th>
+        {% for sk in stat_keys[1:] %}<th class="hof-sec-th">{{ sk | stat_label }}</th>{% endfor %}
       </tr>
     </thead>
     <tbody>
-      {% for p in leaders %}
-      <tr>
-        <td>{{ p.rank }}</td>
-        <td>
-          <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
-          {% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}
-        </td>
-        {% for key, val in p.items() %}
-          {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
-          <td>{{ val }}</td>
-          {% endif %}
-        {% endfor %}
-      </tr>
-      {% endfor %}
+    {% for p in leaders[:5] %}
+    {% set pct = [(p[primary] | float / max_val * 100) | int, 3] | max %}
+    <tr>
+      <td class="hof-rank">{{ p.rank }}</td>
+      <td class="hof-name"><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>{% if p.ambiguous %} <span class="ambiguous-tag" title="Multiple players may share this identity">?</span>{% endif %}</td>
+      <td class="stat-cell">
+        <div class="stat-bar-wrap">
+          <div class="stat-bar-fill" style="width:{{ pct }}%"></div>
+          <span class="stat-bar-text">{{ p[primary] | intcomma }}</span>
+        </div>
+      </td>
+      {% for sk in stat_keys[1:] %}<td class="hof-sec">{{ p[sk] | intcomma }}</td>{% endfor %}
+    </tr>
+    {% endfor %}
     </tbody>
   </table>
-  <p><a href="{{ root }}hof/{{ category }}.html">Full {{ category | title }} leaders →</a></p>
-  {% endif %}
+  <p class="hof-more"><a href="{{ root }}hof/{{ category }}.html">Full {{ category | title }} leaders →</a></p>
 </section>
+{% endif %}
 {% endfor %}
+</div>
+
+{% if extras %}
+<h2>Records &amp; Curiosities</h2>
+<p class="hof-intro">Standout career achievements and notable firsts from across the archive.</p>
+<div class="record-grid">
+
+{% if extras.most_tds and extras.most_tds[0] %}{% set r = extras.most_tds[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <span class="record-label">Touchdown Machine</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">{{ r.detail }}</div>
+</div>{% endif %}
+
+{% if extras.most_distinct_leagues and extras.most_distinct_leagues[0] %}{% set r = extras.most_distinct_leagues[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <span class="record-label">The Nomad</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">{{ r.detail }}</div>
+</div>{% endif %}
+
+{% if extras.most_league_seasons and extras.most_league_seasons[0] %}{% set r = extras.most_league_seasons[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span class="record-label">The Journeyman</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">{{ r.detail }}</div>
+</div>{% endif %}
+
+{% if extras.most_games and extras.most_games[0] %}{% set r = extras.most_games[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span class="record-label">The Ironman</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">Most career games tracked across all leagues</div>
+</div>{% endif %}
+
+{% if extras.best_single_game_passing and extras.best_single_game_passing[0] %}{% set r = extras.best_single_game_passing[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    <span class="record-label">Air Raid</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">Single-game passing record · {{ r.detail }}</div>
+</div>{% endif %}
+
+{% if extras.best_single_game_rushing and extras.best_single_game_rushing[0] %}{% set r = extras.best_single_game_rushing[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+    <span class="record-label">Ground Attack</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">Single-game rushing record · {{ r.detail }}</div>
+</div>{% endif %}
+
+{% if extras.best_single_game_receiving and extras.best_single_game_receiving[0] %}{% set r = extras.best_single_game_receiving[0] %}
+<div class="record-card">
+  <div class="record-card-head">
+    <svg class="record-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="record-label">Route Runner</span>
+  </div>
+  <div class="record-stat">{{ r.display }}</div>
+  <div class="record-player"><a href="{{ root }}players/{{ r.canonical_id }}.html">{{ r.canonical_name }}</a></div>
+  <div class="record-detail">Single-game receiving record · {{ r.detail }}</div>
+</div>{% endif %}
+
+</div>
+{% endif %}
+
 {% endblock %}
 {% block formats %}
 <a href="{{ root }}data/hof/all.json">JSON</a> ·

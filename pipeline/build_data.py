@@ -169,6 +169,20 @@ def parse_game_meta(game_id):
         })
         return result
 
+    # Season-total key from backfill scrapers: FOOTBALL_{LEAGUE}_{SEASON}_SEASON_TOTAL
+    m = re.match(r"FOOTBALL_([A-Z0-9]+)_(\d{4})_SEASON_TOTAL$", gid)
+    if m:
+        league_name = m.group(1)
+        season = int(m.group(2))
+        result.update({
+            "sport_type": "football",
+            "league": league_name,
+            "season": season,
+            "synthetic": True,
+            "display": f"{league_name} {season} Season",
+        })
+        return result
+
     result["display"] = gid
     return result
 
@@ -356,6 +370,30 @@ def main():
         raw_stats.extend(aaf_stat_rows)
         print(f"Injected {len(aaf_raw_players)} AAF players, {len(aaf_stat_rows)} AAF stat rows")
 
+    # ── Inject CFL historical season totals (built by scrape_cfl.py) ─────────
+    _cfl_hist_players_file = RAW / "cfl_historical_players.json"
+    _cfl_hist_stats_file   = RAW / "cfl_historical_stats.json"
+    if _cfl_hist_players_file.exists() and _cfl_hist_stats_file.exists():
+        cfl_hist_players = json.loads(_cfl_hist_players_file.read_text())
+        cfl_hist_stats   = json.loads(_cfl_hist_stats_file.read_text())
+        raw_players.extend(cfl_hist_players)
+        raw_stats.extend(cfl_hist_stats)
+        years_seen = sorted({r.get("_year") for r in cfl_hist_stats if r.get("_year")})
+        print(f"Injected {len(cfl_hist_players)} CFL historical players, "
+              f"{len(cfl_hist_stats)} stat rows (years: {years_seen})")
+
+    # ── Inject ELF historical season totals (built by scrape_elf.py) ──────────
+    _elf_hist_players_file = RAW / "elf_historical_players.json"
+    _elf_hist_stats_file   = RAW / "elf_historical_stats.json"
+    if _elf_hist_players_file.exists() and _elf_hist_stats_file.exists():
+        elf_hist_players = json.loads(_elf_hist_players_file.read_text())
+        elf_hist_stats   = json.loads(_elf_hist_stats_file.read_text())
+        raw_players.extend(elf_hist_players)
+        raw_stats.extend(elf_hist_stats)
+        years_seen = sorted({r.get("_year") for r in elf_hist_stats if r.get("_year")})
+        print(f"Injected {len(elf_hist_players)} ELF historical players, "
+              f"{len(elf_hist_stats)} stat rows (years: {years_seen})")
+
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
@@ -394,6 +432,21 @@ def main():
     canonical_map = {cp["canonical_id"]: cp for cp in players_merged}
     pid_sport_map = {p["id"]: p.get("sport_id") for p in raw_players}
     pid_team_map = {p["id"]: (p.get("team") or "").upper().replace(" ", "") for p in raw_players}
+
+    # ── Dedup raw_stats: take MAX per (player_id, game_id, stat, week) ────────
+    # The source DB stores running cumulative totals — the live tracker inserts a
+    # new row every time a stat updates during a game, so the same (player/game/stat)
+    # can appear hundreds of times with increasing values. MAX = final game total.
+    _orig_count = len(raw_stats)
+    _dedup: dict = {}
+    for _r in raw_stats:
+        _k = (_r.get("player_id"), _r.get("game_id"), _r.get("stat", ""), _r.get("week"))
+        _v = float(_r.get("value") or 0)
+        if _k not in _dedup or _v > _dedup[_k][0]:
+            _dedup[_k] = (_v, _r)
+    raw_stats = [{**_row, "value": _val} for _val, _row in _dedup.values()]
+    print(f"Deduped stat rows: {_orig_count:,} → {len(raw_stats):,} (removed {_orig_count - len(raw_stats):,})")
+    del _dedup, _orig_count
 
     print(f"Aggregating {len(raw_stats)} stat rows ...")
 
@@ -786,11 +839,17 @@ def main():
 
     # ─── Hall of Fame ─────────────────────────────────────────────────────
     print("Building Hall of Fame ...")
+
+    def _has_real_name(cp: dict) -> bool:
+        """Return True if the canonical player has a real name (not a team-code placeholder like 'TOR QB')."""
+        return any(c.islower() for c in cp.get("canonical_name", ""))
+
     hof_stats = {
-        "passing": ["passing_yards", "passing_tds", "completions", "interceptions_lost"],
-        "rushing": ["rushing_yards", "rushing_tds"],
+        "passing":   ["passing_yards", "passing_tds", "completions", "interceptions_lost"],
+        "rushing":   ["rushing_yards", "rushing_tds"],
         "receiving": ["receiving_yards", "receiving_tds", "receptions"],
-        "kicking": ["made_49", "made_50", "extra_points", "missed"],
+        "defense":   ["def_tackles", "def_sacks", "def_int"],
+        "kicking":   ["made_49", "made_50", "extra_points", "missed"],
     }
 
     hof_all = {}
@@ -799,6 +858,8 @@ def main():
         ranked = []
         for cp in players_merged:
             cid = cp["canonical_id"]
+            if not _has_real_name(cp):
+                continue
             t = player_stat_totals.get(cid, {})
             primary_val = t.get(primary_stat, 0)
             if primary_val == 0:
@@ -843,6 +904,140 @@ def main():
 
     write_json_xml(SITE_DATA / "hof" / "all", {"top10s": hof_all}, root_tag="hof")
     print("Written Hall of Fame files")
+
+    # ─── HoF Extras (records & curiosities) ───────────────────────────────────
+    print("Building HoF extras ...")
+
+    # 1. Most distinct league-seasons (e.g. xfl-2020, usfl-2022, cfl-2023 = 3)
+    player_league_seasons: dict = defaultdict(set)
+    for _sl, _pd in league_stats.items():
+        for _cid, _sd in _pd.items():
+            if any(v > 0 for v in _sd.values()):
+                player_league_seasons[_cid].add(_sl)
+
+    most_leagues = []
+    for _cid, _sl_set in player_league_seasons.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp) or len(_sl_set) < 2:
+            continue
+        _fmt = sorted(s.upper().replace("-", " ") for s in _sl_set)
+        most_leagues.append({
+            "canonical_id": _cid,
+            "canonical_name": _cp["canonical_name"],
+            "value": len(_sl_set),
+            "display": f"{len(_sl_set)} seasons",
+            "detail": " · ".join(_fmt),
+        })
+    most_leagues.sort(key=lambda x: x["value"], reverse=True)
+    most_leagues = most_leagues[:10]
+
+    # 2. Most distinct leagues by base name (XFL, USFL, CFL counted once each)
+    player_distinct_leagues: dict = defaultdict(set)
+    for _cp2 in players_merged:
+        _cid2 = _cp2["canonical_id"]
+        for _app in _cp2.get("appearances", []):
+            _sid = _app.get("sport_id")
+            if _sid and _sid in sport_map:
+                _sname = sport_map[_sid].get("name", "")
+                _base = re.sub(r"\s*\d{4}$", "", _sname).strip()
+                if _base:
+                    player_distinct_leagues[_cid2].add(_base)
+
+    most_distinct_leagues = []
+    for _cid2, _ls in player_distinct_leagues.items():
+        _cp2 = canonical_map.get(_cid2)
+        if not _cp2 or not _has_real_name(_cp2) or len(_ls) < 2:
+            continue
+        most_distinct_leagues.append({
+            "canonical_id": _cid2,
+            "canonical_name": _cp2["canonical_name"],
+            "value": len(_ls),
+            "display": f"{len(_ls)} leagues",
+            "detail": ", ".join(sorted(_ls)),
+        })
+    most_distinct_leagues.sort(key=lambda x: x["value"], reverse=True)
+    most_distinct_leagues = most_distinct_leagues[:10]
+
+    # 3. Most career games played (distinct game keys with any stats)
+    most_games = []
+    for _cid3, _gd in player_game_stats.items():
+        _cp3 = canonical_map.get(_cid3)
+        if not _cp3 or not _has_real_name(_cp3) or not _gd:
+            continue
+        most_games.append({
+            "canonical_id": _cid3,
+            "canonical_name": _cp3["canonical_name"],
+            "value": len(_gd),
+            "display": f"{len(_gd)} games",
+            "detail": "",
+        })
+    most_games.sort(key=lambda x: x["value"], reverse=True)
+    most_games = most_games[:10]
+
+    # 4. Most career combined TDs (passing + rushing + receiving)
+    most_tds = []
+    for _cid4, _tot in player_stat_totals.items():
+        _cp4 = canonical_map.get(_cid4)
+        if not _cp4 or not _has_real_name(_cp4):
+            continue
+        _tds = int(_tot.get("passing_tds", 0) + _tot.get("rushing_tds", 0) +
+                   _tot.get("receiving_tds", 0))
+        if _tds <= 0:
+            continue
+        most_tds.append({
+            "canonical_id": _cid4,
+            "canonical_name": _cp4["canonical_name"],
+            "value": _tds,
+            "display": f"{_tds} TDs",
+            "detail": (
+                f"Pass {int(_tot.get('passing_tds',0))} · "
+                f"Rush {int(_tot.get('rushing_tds',0))} · "
+                f"Rec {int(_tot.get('receiving_tds',0))}"
+            ),
+        })
+    most_tds.sort(key=lambda x: x["value"], reverse=True)
+    most_tds = most_tds[:10]
+
+    # 5. Best single-game passing / rushing / receiving yards
+    best_game_pass, best_game_rush, best_game_recv = [], [], []
+    for _cid5, _gd5 in player_game_stats.items():
+        _cp5 = canonical_map.get(_cid5)
+        if not _cp5 or not _has_real_name(_cp5):
+            continue
+        for _gid, _sd in _gd5.items():
+            _meta = player_game_meta_store.get(_gid, {})
+            _disp = _meta.get("display") or _gid or "Unknown game"
+            for _lst, _key in (
+                (best_game_pass, "passing_yards"),
+                (best_game_rush, "rushing_yards"),
+                (best_game_recv, "receiving_yards"),
+            ):
+                _val5 = int(_sd.get(_key, 0))
+                if _val5 > 0:
+                    _lst.append({
+                        "canonical_id": _cid5,
+                        "canonical_name": _cp5["canonical_name"],
+                        "value": _val5,
+                        "display": f"{_val5:,} yds",
+                        "detail": _disp,
+                    })
+    for _lst in (best_game_pass, best_game_rush, best_game_recv):
+        _lst.sort(key=lambda x: x["value"], reverse=True)
+        del _lst[10:]
+
+    hof_extras = {
+        "most_league_seasons": most_leagues,
+        "most_distinct_leagues": most_distinct_leagues,
+        "most_games": most_games,
+        "most_tds": most_tds,
+        "best_single_game_passing": best_game_pass,
+        "best_single_game_rushing": best_game_rush,
+        "best_single_game_receiving": best_game_recv,
+    }
+    (SITE_DATA / "hof" / "extras.json").write_text(
+        json.dumps(hof_extras, indent=2), encoding="utf-8"
+    )
+    print("Written HoF extras")
 
     # ─── Sports index ─────────────────────────────────────────────────────
     write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")

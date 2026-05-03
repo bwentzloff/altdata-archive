@@ -47,6 +47,18 @@ echo "── NFL stats (ESPN API) ───────────────�
 $PYTHON pipeline/scrape_nfl.py --batch 30
 echo ""
 
+# ── 3. CFL historical backfill (2019, 2021, 2022) ────────────────────────────
+echo "── CFL historical (footballdb.com) ─────────────────────"
+$PYTHON pipeline/scrape_cfl.py --batch 5
+echo ""
+
+# ── 3b. ELF historical backfill (2021, 2022) ─────────────────────────────────
+# Data comes from cached Wayback snapshot of sportsmetrics.football
+# Re-run only refreshes from cache (no network call if cache exists)
+echo "── ELF historical (sportsmetrics.football via Wayback) ─"
+$PYTHON pipeline/scrape_elf.py
+echo ""
+
 # NOTE: Arena Football League (arenafan.com) is blocked (403) for all automated
 # requests.  AFL data from the source SQL is already in the system.
 # Revisit if a Playwright-based scraper is added later.

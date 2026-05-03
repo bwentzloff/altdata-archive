@@ -170,6 +170,24 @@ def main():
         players.extend(aaf_players)
         print(f"Injected {len(aaf_players)} AAF players (IDs 100000–{100000+len(aaf_players)-1})")
 
+    # ── Inject CFL historical players from scraper output ─────────────────
+    cfl_historical_file = RAW / "cfl_historical_players.json"
+    if cfl_historical_file.exists():
+        cfl_players = json.loads(cfl_historical_file.read_text())
+        players.extend(cfl_players)
+        if cfl_players:
+            ids = [p["id"] for p in cfl_players]
+            print(f"Injected {len(cfl_players)} CFL historical players (IDs {min(ids)}–{max(ids)})")
+
+    # ── Inject ELF historical players from scraper output ─────────────────
+    elf_historical_file = RAW / "elf_historical_players.json"
+    if elf_historical_file.exists():
+        elf_players = json.loads(elf_historical_file.read_text())
+        players.extend(elf_players)
+        if elf_players:
+            ids = [p["id"] for p in elf_players]
+            print(f"Injected {len(elf_players)} ELF historical players (IDs {min(ids)}–{max(ids)})")
+
     print(f"Loaded {len(players)} player records (including injected)")
 
     # Group by normalized name for fast candidate lookup
@@ -199,6 +217,13 @@ def main():
 
     merged_count = 0
 
+    def positions_compatible(p1, p2):
+        """Return True if the two records could be the same person based on position.
+        'other' (unknown/empty) is treated as compatible with any position."""
+        s1 = skill_position(p1.get("position"))
+        s2 = skill_position(p2.get("position"))
+        return s1 == "other" or s2 == "other" or s1 == s2
+
     # Pass 1: merge records with the exact same normalized name and compatible positions
     for norm, group in by_norm_name.items():
         if len(group) < 2:
@@ -206,7 +231,7 @@ def main():
         for i in range(len(group)):
             for j in range(i + 1, len(group)):
                 p1, p2 = group[i], group[j]
-                if skill_position(p1.get("position")) != skill_position(p2.get("position")):
+                if not positions_compatible(p1, p2):
                     continue
                 i1, i2 = id_to_idx[p1["id"]], id_to_idx[p2["id"]]
                 if find(i1) != find(i2):
@@ -236,7 +261,7 @@ def main():
                     if p1["id"] == p2["id"]:
                         continue
                     # Only merge if same broad position group
-                    if skill_position(p1.get("position")) != skill_position(p2.get("position")):
+                    if not positions_compatible(p1, p2):
                         continue
                     i1 = id_to_idx[p1["id"]]
                     i2 = id_to_idx[p2["id"]]

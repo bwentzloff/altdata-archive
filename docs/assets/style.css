@@ -494,3 +494,132 @@ tr.week-group-row td {
   text-align: center; line-height: 1.1em; margin-left: 0.3rem;
   vertical-align: middle; cursor: help;
 }
+
+/* ── Hall of Fame ──────────────────────────────────────────────────────────── */
+.hof-intro { color: var(--text-dim); margin-bottom: 1.25rem; }
+
+.hof-leaders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.hof-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1rem;
+  margin-top: 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-icon {
+  width: 14px; height: 14px;
+  stroke: var(--accent); fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.hof-table {
+  margin: 0.5rem 0;
+  font-size: 0.88rem;
+}
+
+.hof-rank-th, .hof-rank {
+  width: 1.8rem;
+  text-align: right;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+
+.hof-stat-th { white-space: nowrap; }
+.hof-sec-th  { color: var(--text-dim); font-weight: 500; }
+.hof-sec     { color: var(--text-dim); font-size: 0.85rem; }
+.hof-name    { max-width: 12rem; }
+
+.hof-more { font-size: 0.82rem; margin: 0.4rem 0 0; }
+
+/* Stat bars */
+.stat-cell { padding: 0; }
+.stat-bar-wrap {
+  position: relative;
+  padding: 0.3rem 0.6rem;
+  overflow: hidden;
+}
+.stat-bar-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--accent);
+  opacity: 0.14;
+  pointer-events: none;
+}
+.stat-bar-text {
+  position: relative;
+  z-index: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Records grid */
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.record-card {
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 1rem;
+}
+
+.record-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.record-icon {
+  width: 13px; height: 13px;
+  stroke: var(--accent); fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.record-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.record-stat {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.record-player {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.record-detail {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .hof-leaders-grid { grid-template-columns: 1fr; }
+  .hof-sec-th, .hof-sec { display: none; }
+}

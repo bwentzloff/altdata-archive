@@ -76,6 +76,28 @@ def make_env():
     env.filters["camel_to_label"]  = camel_to_label
     env.filters["smart_num"]       = smart_num
     env.filters["group_nfl_stats"] = group_nfl_stats
+
+    def intcomma(val) -> str:
+        """Format a number with thousands separators, stripping .0 from floats."""
+        try:
+            f = float(val)
+            return f"{int(f):,}" if f == int(f) else f"{f:,.1f}"
+        except (TypeError, ValueError):
+            return str(val) if val is not None else ""
+
+    _STAT_LABELS = {
+        "passing_yards": "Pass Yds", "passing_tds": "TD", "completions": "Comp",
+        "interceptions_lost": "INT", "rushing_yards": "Rush Yds", "rushing_tds": "TD",
+        "receiving_yards": "Rec Yds", "receiving_tds": "TD", "receptions": "Rec",
+        "def_tackles": "Tackles", "def_sacks": "Sacks", "def_int": "INT",
+        "made_49": "FG 40–49", "made_50": "FG 50+", "extra_points": "XP", "missed": "Missed",
+    }
+
+    def stat_label(key: str) -> str:
+        return _STAT_LABELS.get(key, key.replace("_", " ").title())
+
+    env.filters["intcomma"]   = intcomma
+    env.filters["stat_label"] = stat_label
     return env
 
 
@@ -213,7 +235,7 @@ def main():
         )
 
     # ── HoF category pages ──────────────────────────────────────────────
-    hof_categories = ["passing", "rushing", "receiving", "kicking"]
+    hof_categories = ["passing", "rushing", "receiving", "defense", "kicking"]
     print("Rendering HoF pages ...")
     for cat in hof_categories:
         hof_path = DATA_DIR / "hof" / f"{cat}.json"
@@ -231,11 +253,14 @@ def main():
 
     # ── HoF index ───────────────────────────────────────────────────────
     all_hof = json.loads((DATA_DIR / "hof" / "all.json").read_text())
+    extras_path = DATA_DIR / "hof" / "extras.json"
+    hof_extras = json.loads(extras_path.read_text()) if extras_path.exists() else {}
     render(
         env, "hof_index.html",
         SITE_DIR / "hof" / "index.html",
         root="../",
         top10s=all_hof["top10s"],
+        extras=hof_extras,
     )
 
     # ── Game pages ──────────────────────────────────────────────────────
@@ -273,7 +298,7 @@ def main():
     add_url(f"{BASE}/hof/index.html", priority="0.9", changefreq="weekly")
     add_url(f"{BASE}/leagues/index.html", priority="0.8", changefreq="weekly")
 
-    for cat in ["passing", "rushing", "receiving", "kicking"]:
+    for cat in ["passing", "rushing", "receiving", "defense", "kicking"]:
         if (SITE_DIR / "hof" / f"{cat}.html").exists():
             add_url(f"{BASE}/hof/{cat}.html", priority="0.8", changefreq="weekly")
 
