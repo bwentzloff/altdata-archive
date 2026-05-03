@@ -47,7 +47,7 @@ def _build_sport_groups(leagues_index):
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
     SPORT_ORDER = ["Football", "Ultimate Disc", "Basketball", "Other"]
-    HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
+    HIDDEN = {"50 YARD", "50YARD","NLL"}   # leagues to omit from the homepage index
     FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "MLFB"}
     BASKETBALL = {"BIG3", "NLL", "SLAMBALL"}
     DISC = {"AUDL", "UFA"}
