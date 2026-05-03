@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — AltSports Archive</title>
+  <meta name="description" content="Historical player and game statistics from alternative sports leagues including XFL, USFL, UFL, CFL, AUDL, BIG3, and more. Free open data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="AltSports Archive">
+  <meta property="og:description" content="Historical player statistics from alternative football, ultimate, and basketball leagues. Free open data in JSON, XML, and HTML.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archive.altfantasysports.com/">
+
+  <!-- Alternate machine-readable formats -->
+  
+
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Structured data -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com",
+    "description": "Historical player and game statistics from alternative sports leagues. Free open data.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://archive.altfantasysports.com/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="leagues/index.html">Leagues</a>
+        <a href="hof/index.html">Hall of Fame</a>
+        <a href="search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<h1>Player Search</h1>
+
+<div id="search-ui">
+  <input
+    type="search"
+    id="search-input"
+    placeholder="Search players by name..."
+    autofocus
+    autocomplete="off"
+    aria-label="Search players"
+  >
+  <div id="search-meta"></div>
+  <ul id="search-results"></ul>
+</div>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-02.
+      Formats:
+      
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="assets/theme.js"></script>
+  
+<script>
+const ROOT = "";
+</script>
+<script src="assets/search.js"></script>
+
+</body>
+</html>

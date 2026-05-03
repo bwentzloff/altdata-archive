@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Search — AltSports Archive{% endblock %}
+{% block content %}
+<h1>Player Search</h1>
+
+<div id="search-ui">
+  <input
+    type="search"
+    id="search-input"
+    placeholder="Search players by name..."
+    autofocus
+    autocomplete="off"
+    aria-label="Search players"
+  >
+  <div id="search-meta"></div>
+  <ul id="search-results"></ul>
+</div>
+{% endblock %}
+{% block formats %}{% endblock %}
+{% block scripts %}
+<script>
+const ROOT = "{{ root }}";
+</script>
+<script src="{{ root }}assets/search.js"></script>
+{% endblock %}

@@ -1,0 +1,6862 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFL 2023 Stats — AltSports Archive</title>
+  <meta name="description" content="Player statistics for CFL 2023: 539 players with recorded stats. Free historical alternative sports data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="CFL 2023 — Player Stats">
+  <meta property="og:description" content="539 players with stats in CFL 2023. Browse, search, and download as JSON or XML.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archive.altfantasysports.com/">
+
+  <!-- Alternate machine-readable formats -->
+  
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/leagues/cfl-2023.json" title="CFL 2023 stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/leagues/cfl-2023.xml" title="CFL 2023 stats (XML)">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "CFL 2023 Player Statistics",
+  "description": "Complete player statistics for CFL 2023 — 539 players, 173 games. Source: AltSports Archive.",
+  "url": "https://archive.altfantasysports.com/data/leagues/cfl-2023.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/cfl-2023.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/cfl-2023.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/cfl-2023.csv"
+    }
+  ],
+  "hasPart": [
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (HAM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-ham.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (MTL)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-mtl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (OTT)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-ott.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (SSK)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-ssk.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (TOR)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-tor.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 1 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w1-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (HAM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-ham.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (OTT)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-ott.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (SSK)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-ssk.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (TOR)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-tor.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 2 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w2-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (HAM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-ham.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (MTL)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-mtl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (SSK)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-ssk.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (TOR)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-tor.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 3 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w3-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (MTL)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-mtl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (OTT)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-ott.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (TOR)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-tor.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 4 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w4-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (HAM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-ham.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (MTL)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-mtl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (OTT)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-ott.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (SSK)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-ssk.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 5 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w5-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-edm.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (HAM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-ham.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (MTL)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-mtl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (OTT)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-ott.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (SSK)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-ssk.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (TOR)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-tor.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 6 (WPG)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w6-wpg.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 7 (BC)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w7-bc.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 7 (CGY)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w7-cgy.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2023 — Wk 7 (EDM)",
+      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2023-w7-edm.json"
+    }
+    
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isPartOf": {
+    "@type": "DataCatalog",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  }
+}
+</script>
+
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<h1>CFL 2023</h1>
+<p>539 players with recorded stats, 173 games.</p>
+
+
+<section>
+  <h2>Games</h2>
+  <table>
+    <caption>CFL 2023 game log — 173 games</caption>
+    <thead>
+      <tr>
+        <th scope="col">Wk</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Date</th>
+        <th scope="col">Players</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>19</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>20</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>18</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w1-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>19</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>10</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w2-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w3-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>9</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w4-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w5-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>20</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w6-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w7-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>17</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w8-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w9-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>31</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>39</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>21</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>30</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w10-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w11-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>30</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>31</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w12-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w13-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>31</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w14-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>20</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>30</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w15-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>30</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>31</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w16-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>34</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w17-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>34</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>21</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w18-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>30</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>21</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>25</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w19-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>32</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>20</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w20-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-bc.html">BC <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-cgy.html">CGY <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>28</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-edm.html">EDM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-ham.html">HAM <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-mtl.html">MTL <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>29</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-ott.html">OTT <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>23</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-ssk.html">SSK <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-tor.html">TOR <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>31</td>
+      </tr>
+      
+      <tr>
+        <td>21</td>
+        <td>
+          <a href="../games/synthetic-cfl-2023-w21-wpg.html">WPG <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span></a>
+        </td>
+        <td>—</td>
+        <td>24</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+
+
+
+  
+
+
+<table>
+  <caption>CFL 2023 player statistics</caption>
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Positions</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a href="../players/abram-keshunn.html">Abram, Keshunn</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/acheampong-sam.html">Acheampong, Sam</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/acklin-jaelon.html">Acklin, Jaelon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adams-jr-vernon.html">ADAMS JR., Vernon</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adams-tyrie.html">ADAMS, Tyrie</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/addae-alonzo.html">Addae, Alonzo</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/addison-bralon.html">ADDISON, Bralon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adeboboye-daniel.html">ADEBOBOYE, Daniel</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adeleke-tunde.html">Adeleke, Tunde</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adeyemi-berglund-isaac.html">Adeyemi-Berglund, Isaac</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/adjey-peter.html">Adjey, Peter</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/agudosi-carlton.html">Agudosi, Carlton</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/albright-christian.html">Albright, Christian</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/alexander-brandon.html">Alexander, Brandon</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/alexander-davis.html">ALEXANDER, Davis</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/alford-mario.html">ALFORD, Mario</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/allen-aj.html">Allen, A.J.</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/allen-anthony.html">Allen, Anthony</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/allen-dejon.html">Allen, Dejon</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/allen-floyd.html">Allen, Floyd</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ambles-markeith.html">Ambles, Markeith</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/amos-dashaun.html">Amos, DaShaun</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/anthony-johnson-jr.html">Anthony Johnson Jr.</a>
+        
+      </td>
+      <td>S, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/antwi-jeshrun.html">ANTWI, Jeshrun</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/appolon-woodly.html">Appolon, Woodly</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/arbuckle-nick.html">ARBUCKLE, Nick</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/arceneaux-emmanuel.html">Arceneaux, Emmanuel</a>
+        
+      </td>
+      <td>SB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/archibald-joshua.html">Archibald, Joshua</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/auclair-adam.html">Auclair, Adam</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/augustine-johnny.html">AUGUSTINE, Johnny</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/austin-mack.html">Austin Mack</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/awachie-albert.html">Awachie, Albert</a>
+        
+      </td>
+      <td>RB, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/awe-micah.html">Awe, Micah</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bailey-hakeem.html">Bailey, Hakeem</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bailey-rasheed.html">Bailey, Rasheed</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bailey-terrence.html">Bailey, Terrence</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/baltimore-sherrod.html">Baltimore, Sherrod</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bane-jr-shawn.html">Bane Jr., Shawn</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/banks-josh.html">Banks, Josh</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/barlow-brandon.html">Barlow, Brandon</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/barnes-clark.html">BARNES, Clark</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/baron-woody.html">Baron, Woody</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bayless-omar.html">Bayless, Omar</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bc-dst.html">BC DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bc-k.html">BC K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bc-qb.html">BC QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bede-boris.html">Bede, Boris</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/begelton-reggie.html">BEGELTON, Reggie</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/behar-nate.html">Behar, Nate</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bell-bryce.html">Bell, Bryce</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bellamy-levante.html">Bellamy, LeVante</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bemiy-francis.html">Bemiy, Francis</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bennett-anthony.html">Bennett, Anthony</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bennett-bryan.html">Bennett, Bryan</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bennett-jackson.html">Bennett, Jackson</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bennett-mason.html">Bennett, Mason</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bertrand-hudon-thomas.html">Bertrand-Hudon, Thomas</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/beverette-tyrice.html">Beverette, Tyrice</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bighill-adam.html">Bighill, Adam</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/blake-philip.html">Blake, Philip</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bray-quan.html">Bray, Quan</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brescacin-juwan.html">Brescacin, Juwan</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/briggs-jesse.html">Briggs, Jesse</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brinkman-jared.html">Brinkman, Jared</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brissett-dejon.html">BRISSETT, Dejon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brodrique-michael.html">Brodrique, Michael</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brooks-cariel.html">Brooks, Cariel</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brooks-derrius.html">Brooks, Derrius</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brooks-mic39hael.html">Brooks, Mic&amp;#39;hael</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brooks-shannon.html">Brooks, Shannon</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brown-dru.html">Brown, Dru</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brown-elliott.html">Brown, Elliott</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brown-kevin.html">BROWN, Kevin</a>
+        
+      </td>
+      <td>RB, P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brown-miles.html">Brown, Miles</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/broxton-jarell.html">Broxton, Jarell</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bruggeling-keaton.html">BRUGGELING, Keaton</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/bryan-scott.html">Bryan Scott</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/burton-krahn-luke.html">Burton-Krahn, Luke</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/butler-james.html">BUTLER, James</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cadwallader-tanner.html">Cadwallader, Tanner</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cage-isiah.html">Cage, Isiah</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/calver-brandon.html">Calver, Brandon</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cameron-dukes.html">Cameron Dukes</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/carey-kadeem.html">CAREY, Ka\&#39;Deem</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/carney-malik.html">Carney, Malik</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/carter-bryce.html">Carter, Bryce</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/carter-ruben.html">Carter, Ruben</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cassar-jack.html">Cassar, Jack</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/castillo-sergio.html">CASTILLO, Sergio</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ceresna-jake.html">Ceresna, Jake</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cgy-dst.html">CGY DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cgy-k.html">CGY K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cgy-qb.html">CGY QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chagnon-frederic.html">Chagnon, Frederic</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/charles-julian.html">Charles, Julian</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/charles-pierre-olivier.html">Charles-Pierre, Olivier</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cherry-nathan.html">Cherry, Nathan</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/christmas-demarcus.html">Christmas, DeMarcus</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cibasu-regis.html">CIBASU, Regis</a>
+        
+      </td>
+      <td>WR, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/clark-jeremy.html">Clark, Jeremy</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/clements-malik.html">Clements, Malik</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/clemons-rodney.html">Clemons, Rodney</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cobb-gavin.html">COBB, Gavin</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cole-ii-brian.html">Cole II, Brian</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/coleman-thaddeus.html">Coleman, Thaddeus</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/collaros-zach.html">COLLAROS, Zach</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/copeland-tysen-otis.html">Copeland, Tysen-Otis</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cormier-lucas.html">Cormier, Lucas</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cornelius-taylor.html">Cornelius, Taylor</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/costigan-thomas.html">Costigan, Thomas</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cottoy-jevon.html">COTTOY, Jevon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/couture-michael.html">Couture, Michael</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cowan-brad.html">Cowan, Brad</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cox-jr-bryan.html">Cox Jr., Bryan</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/coxie-damonte.html">COXIE, Damonte</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cranston-ty.html">Cranston, Ty</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/crawford-aaron.html">Crawford, Aaron</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cross-declan.html">Cross, Declan</a>
+        
+      </td>
+      <td>FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/crum-dustin.html">CRUM, Dustin</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/curtis-noah.html">Curtis, Noah</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cote-david.html">Côté, David</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dabire-charbel.html">Dabire, Charbel</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dakota-prukop.html">Dakota Prukop</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dalke-jayden.html">Dalke, Jayden</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dallaire-david.html">DALLAIRE, David</a>
+        
+      </td>
+      <td>RB, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dandridge-brandin.html">Dandridge, Brandin</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/daniel-robertson.html">Daniel, Robertson</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/daniels-davaris.html">DANIELS, DaVaris</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/darby-jr-alden.html">Darby Jr., Alden</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/darious-williams.html">Darious Williams</a>
+        
+      </td>
+      <td>CB, LB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/davis-dominique.html">Davis, Dominique</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/davis-ja39gared.html">Davis, Ja&amp;#39;Gared</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/davis-quartney.html">Davis, Quartney</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/demontre-tuggle.html">De\&#39;Montre Tuggle</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dean-larry.html">Dean, Larry</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/debaillie-tibo.html">Debaillie, Tibo</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dedmon-devonte.html">DEDMON, Devonte</a>
+        
+      </td>
+      <td>RB, WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/demery-d39antne.html">Demery, D&amp;#39;Antne</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/demski-nic.html">DEMSKI, Nic</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/deontez-alexander.html">Deontez Alexander</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dequoy-marc-antoine.html">Dequoy, Marc-Antoine</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/desjardins-vincent.html">Desjardins, Vincent</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/desjarlais-drew.html">Desjarlais, Drew</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/devine-scott-bailey.html">Devine-Scott, Bailey</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/devon-williams.html">Devon Williams</a>
+        
+      </td>
+      <td>RB, WR, TE, P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dheilly-nicholas.html">Dheilly, Nicholas</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/diallo-mohamed.html">Diallo, Mohamed</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/doege-jarret.html">DOEGE, Jarret</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dolegala-jake.html">Dolegala, Jake</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/doll-tanner.html">Doll, Tanner</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/domagala-michael.html">Domagala, Michael</a>
+        
+      </td>
+      <td>P, K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dominique-jeremie.html">Dominique, Jeremie</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dozier-branden.html">Dozier, Branden</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dubois-marco.html">DUBOIS, Marco</a>
+        
+      </td>
+      <td>WR, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ealy-kony.html">Ealy, Kony</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/eberhardt-ayden.html">EBERHARDT, Ayden</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edm-dst.html">EDM DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edm-k.html">EDM K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edm-qb.html">EDM QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edouard-jonathan.html">Edouard, Jonathan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edwards-chris.html">Edwards, Chris</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/edwards-cooper-jalon.html">Edwards-Cooper, Jalon</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ellingson-greg.html">Ellingson, Greg</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/elliott-javien.html">Elliott, Javien</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ellis-avery.html">Ellis, Avery</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/emilus-samuel.html">Emilus, Samuel</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ento-kabion.html">Ento, Kabion</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/evans-caleb.html">EVANS, Caleb</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/evans-ciante.html">Evans, Ciante</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/evans-dane.html">Evans, Dane</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/evans-shaq.html">Evans, Shaq</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/exume-kerfalla.html">Exumé, Kerfalla</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/faithfull-dean.html">Faithfull, Dean</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fajardo-cody.html">FAJARDO, Cody</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/federico-anthony.html">Federico, Anthony</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/feltmate-bailey.html">Feltmate, Bailey</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ferland-logan.html">Ferland, Logan</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fervius-shedler.html">FERVIUS, Shedler</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ffrench-maurice.html">FFRENCH, Maurice</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fine-mason.html">Fine, Mason</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fleet-davis-tayon.html">Fleet-Davis, Tayon</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fletcher-walter.html">FLETCHER, Walter</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/flint-bailey.html">Flint, Bailey</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/flintoft-stefan.html">Flintoft, Stefan</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/flowers-lloyd-carthell.html">Flowers-Lloyd, Carthell</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/forbes-mombleau-vincent.html">Forbes-Mombleau, Vincent</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ford-jaxon.html">Ford, Jaxon</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ford-tre.html">Ford, Tre</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/fox-miles.html">Fox, Miles</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/francis-kevin.html">Francis, Kevin</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/franklin-marloshawn.html">Franklin, Marloshawn</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gagne-alexandre.html">Gagné, Alexandre</a>
+        
+      </td>
+      <td>FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gainey-ed.html">Gainey, Ed</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/garand-gauthier-felix.html">Garand-Gauthier, Felix</a>
+        
+      </td>
+      <td>FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gauthier-shayne.html">Gauthier, Shayne</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/george-jr-kenneth.html">George Jr., Kenneth</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gittens-jr-kurleigh.html">GITTENS JR., Kurleigh</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/godber-peter.html">Godber, Peter</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/godwin-ii-terry.html">Godwin II, Terry</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gosselin-anthony.html">GOSSELIN, Anthony</a>
+        
+      </td>
+      <td>RB, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gowanlock-brock.html">Gowanlock, Brock</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/grace-cody.html">Grace, Cody</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/graham-elliot.html">Graham, Elliot</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/graham-james.html">Graham, James</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/grant-janarion.html">GRANT, Janarion</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gray-kurtis.html">Gray, Kurtis</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/green-jonte.html">Green, Jonte</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/green-tanner.html">GREEN, Tanner</a>
+        
+      </td>
+      <td>RB, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/greene-adrian.html">Greene, Adrian</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/greene-khaseem.html">Greene, Khaseem</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/griffin-frankie.html">Griffin, Frankie</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/griffin-michael.html">Griffin, Michael</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/guillemette-adam.html">Guillemette, Adam</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hagerty-josh.html">Hagerty, Josh</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hakunavanhu-luther.html">HAKUNAVANHU, Luther</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hallett-nick.html">Hallett, Nick</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ham-dst.html">HAM DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ham-k.html">HAM K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ham-qb.html">HAM QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hansen-thiadric.html">Hansen, Thiadric</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hardrick-jermarcus.html">Hardrick, Jermarcus</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hardy-justin.html">HARDY, Justin</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/harelimana-brian.html">Harelimana, Brian</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/harris-andrew.html">Harris, Andrew</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/harris-trevor.html">HARRIS, Trevor</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/harry-jamie.html">Harry, Jamie</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/harty-jake.html">Harty, Jake</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hatcher-keon.html">HATCHER, Keon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/haydel-jeremiah.html">Haydel, Jeremiah</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/henderson-amari.html">Henderson, Amari</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/henderson-zaycoven.html">Henderson, Zaycoven</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hendrix-dewayne.html">Hendrix, Dewayne</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/heninger-nick.html">Heninger, Nick</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/henry-marcus.html">Henry, Marcus</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/herdman-reed-jordan.html">Herdman-Reed, Jordan</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/herdman-reed-justin.html">Herdman-Reed, Justin</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hergy-mayala.html">Hergy Mayala</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hickson-frankie.html">Hickson, Frankie</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hinsperger-jack.html">Hinsperger, Jack</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hladik-ben.html">Hladik, Ben</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hogan-saindon-cyrille.html">Hogan-Saindon, Cyrille</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hollins-alexander.html">HOLLINS, Alexander</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/holm-evan.html">Holm, Evan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/houston-demerio.html">Houston, Demerio</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/howell-justin.html">Howell, Justin</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/howsare-julian.html">Howsare, Julian</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hoyte-trevor.html">Hoyte, Trevor</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hunchak-colton.html">Hunchak, Colton</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hunter-monshadrik.html">Hunter, Monshadrik</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hunter-ryan.html">Hunter, Ryan</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hus-jorgen.html">Hus, Jorgen</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/hutter-scott.html">Hutter, Scott</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/israel-antwine.html">Israel Antwine</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ivey-martez.html">Ivey, Martez</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jack-kurdyla-tomas.html">Jack-Kurdyla, Tomas</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jackson-buddy.html">Jackson, Buddy</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jackson-damian.html">Jackson, Damian</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jamerson-natrell.html">Jamerson, Natrell</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeffcoat-jackson.html">Jeffcoat, Jackson</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jefferson-willie.html">Jefferson, Willie</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/john-aidan.html">John, Aidan</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/john-rysen.html">JOHN, Rysen</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/johnson-jeremiah.html">Johnson, Jeremiah</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/johnson-micah.html">Johnson, Micah</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/johnson-mustafa.html">Johnson, Mustafa</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jonathan-jones.html">Jonathan Jones</a>
+        
+      </td>
+      <td>CB, LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jones-mike.html">Jones, Mike</a>
+        
+      </td>
+      <td>RB, WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jones-tevin.html">JONES, Tevin</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jones-tony.html">Jones, Tony</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jones-tre.html">Jones, Tre</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jordan-williams.html">Jordan Williams</a>
+        
+      </td>
+      <td>DE, LB, MLB, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/joseph-vosean.html">Joseph, Vosean</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/josh-valentine-turner.html">Josh Valentine-Turner</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/judge-cameron.html">Judge, Cameron</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/julien-jake.html">Julien, Jake</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/julien-grant-kaion.html">JULIEN-GRANT, Kaion</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kai-gray.html">Kai Gray</a>
+        
+      </td>
+      <td>CB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kai-locksley.html">Kai Locksley</a>
+        
+      </td>
+      <td>WR, QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kanneh-abdul.html">Kanneh, Abdul</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/katsantonis-stavros.html">Katsantonis, Stavros</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kaya-kevin.html">Kaya, Kevin</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kelly-chad.html">KELLY, Chad</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kelly-jake.html">Kelly, Jake</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kelly-jermaine.html">Kelly, Jermaine</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kemp-brandon.html">Kemp, Brandon</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/knight-deionte.html">Knight, Deionte</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/konar-adam.html">Konar, Adam</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kongbo-jonathan.html">Kongbo, Jonathan</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/korte-mark.html">Korte, Mark</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/korte-moore-lake.html">Korte-Moore, Lake</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kramdi-redha.html">Kramdi, Redha</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kwamou-daniel.html">Kwamou, Daniel</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lafrance-kienan.html">LaFrance, Kienan</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/laing-cleyon.html">Laing, Cleyon</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lamont-deandre.html">Lamont, Deandre</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/langlais-william.html">LANGLAIS, William</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lanier-ii-anthony.html">Lanier II, Anthony</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/laurent-ted.html">Laurent, Ted</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lauther-brett.html">LAUTHER, Brett</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lawler-kenny.html">Lawler, Kenny</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lawrence-justin.html">Lawrence, Justin</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lawrence-kendial.html">Lawrence, Kendial</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lawrence-simoni.html">Lawrence, Simoni</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lawson-cameron.html">Lawson, Cameron</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/leake-javon.html">LEAKE, Javon</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lee-tj.html">Lee, T.J.</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lemon-shawn.html">Lemon, Shawn</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lenius-brayden.html">Lenius, Brayden</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/leonard-ac.html">Leonard, A.C.</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/leonard-richard.html">Leonard, Richard</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/leone-richie.html">Leone, Richie</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lewis-cj.html">Lewis, CJ</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lewis-eugene.html">LEWIS, Eugene</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lewis-tommylee.html">Lewis, Tommylee</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/liegghio-marc.html">LIEGGHIO, Marc</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lindley-zach.html">Lindley, Zach</a>
+        
+      </td>
+      <td>S, LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lofton-eric.html">Lofton, Eric</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/logan-peyton.html">Logan, Peyton</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lokombo-boseko.html">Lokombo, Boseko</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lokombo-nelson.html">Lokombo, Nelson</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lorenzo-mauldin.html">Lorenzo Mauldin</a>
+        
+      </td>
+      <td>DE, MLB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lyon-nafees.html">Lyon, Nafees</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mackie-david.html">Mackie, David</a>
+        
+      </td>
+      <td>FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/maier-jake.html">Maier, Jake</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/makonzo-enock.html">Makonzo, Enock</a>
+        
+      </td>
+      <td>LB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/malik-henry.html">Malik Henry</a>
+        
+      </td>
+      <td>WR, QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/maltos-jose.html">MALTOS, Jose</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marcus-lewis.html">Marcus Lewis</a>
+        
+      </td>
+      <td>CB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marion-benoit.html">Marion, Benoit</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marshall-andrew.html">Marshall, Andrew</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marshall-nick.html">Marshall, Nick</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/maruo-les.html">Maruo, Les</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/masoli-jeremiah.html">MASOLI, Jeremiah</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mathieu-betts.html">Mathieu Betts</a>
+        
+      </td>
+      <td>DE, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/matte-kristian.html">Matte, Kristian</a>
+        
+      </td>
+      <td>G</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mauger-quincy.html">Mauger, Quincy</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcclain-terrell.html">McClain, Terrell</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mccrae-greg.html">McCrae, Greg</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcfadden-tarvarus.html">McFadden, Tarvarus</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcghee-tyrique.html">McGhee, Tyrique</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcinnis-justin.html">MCINNIS, Justin</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mclaurin-mark.html">McLaurin, Mark</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcmahon-deonta.html">MCMAHON, Deonta</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcmanis-wynton.html">McManis, Wynton</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcnary-dishon.html">McNary, Dishon</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/menard-david.html">Menard, David</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mencer-eli.html">Mencer, Eli</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/meskell-ryan.html">Meskell, Ryan</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/messam-isaiah.html">Messam, Isaiah</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/metchie-royce.html">Metchie, Royce</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/michel-marken.html">Michel, Marken</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/middlemost-tyson.html">MIDDLEMOST, Tyson</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mike-rose.html">Mike Rose</a>
+        
+      </td>
+      <td>LB, MLB, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/milligan-rolan.html">Milligan, Rolan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mills-dedrick.html">MILLS, Dedrick</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mitchell-bo-levi.html">Mitchell, Bo Levi</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mitchell-dillon.html">MITCHELL, Dillon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mizzell-taquan.html">Mizzell, Taquan</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moncrief-derrick.html">Moncrief, Derrick</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-charlie.html">Moore, Charlie</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-chris.html">Moore, Chris</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-damontre.html">Moore, Damontre</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-hayden.html">Moore, Hayden</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-kyran.html">Moore, Kyran</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moore-mike.html">Moore, Mike</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/morgan-brendan.html">Morgan, Brendan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/morgan-nyles.html">Morgan, Nyles</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/morrow-jamal.html">Morrow, Jamal</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/moxey-jonathan.html">Moxey, Jonathan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mtl-dst.html">MTL DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mtl-k.html">MTL K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mtl-qb.html">MTL QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/muhammad-brad.html">Muhammad, Brad</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/murphy-jeremy.html">Murphy, Jeremy</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/murray-najee.html">Murray, Najee</a>
+        
+      </td>
+      <td>CB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nelson-cole.html">Nelson, Cole</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nicastro-peter.html">Nicastro, Peter</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nichols-deatrick.html">Nichols, Deatrick</a>
+        
+      </td>
+      <td>CB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nick-moore.html">Nick Moore</a>
+        
+      </td>
+      <td>WR, LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nield-tommy.html">Nield, Tommy</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/notree-bryce.html">Notree, Bryce</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/oakman-shawn.html">Oakman, Shawn</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/odoms-dukes-tre.html">Odoms-Dukes, Tre</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/oladejo-daniel.html">OLADEJO, Daniel</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/oliveira-brady.html">OLIVEIRA, Brady</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/olumba-donovan.html">Olumba, Donovan</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/onyeka-godfrey.html">Onyeka, Godfrey</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/onyeka-kene.html">Onyeka, Kene</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/onyeka-kosi.html">Onyeka, Kosi</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/onyeka-nakas.html">Onyeka, Nakas</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/orimolade-folarin.html">Orimolade, Folarin</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/osei-kusi-chris.html">Osei-Kusi, Chris</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ott-dst.html">OTT DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ott-k.html">OTT K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ott-qb.html">OTT QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ouellette-aj.html">OUELLETTE, A.J.</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/oleary-orange-brendan.html">O’Leary-Orange, Brendan</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/paredes-rene.html">PAREDES, Rene</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/parker-brooks.html">Parker, Brooks</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/parker-jamal.html">Parker, Jamal</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pavihi-penei.html">Pavihi, Penei</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/peirson-andrew.html">Peirson, Andrew</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pelehos-zack.html">Pelehos, Zack</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pelley-j-min.html">Pelley, J-Min</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/penney-laryea-enoch.html">Penney-Laryea, Enoch</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/peter-james.html">Peter, James</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/petermann-daniel.html">Petermann, Daniel</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/peters-garry.html">Peters, Garry</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/peters-jamal.html">Peters, Jamal</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/phillips-cam.html">Phillips, Cam</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/philpot-tyson.html">PHILPOT, Tyson</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pickett-adarius.html">Pickett, Adarius</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pickett-riley.html">Pickett, Riley</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/picton-mitchell.html">PICTON, Mitchell</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pierce-mason.html">Pierce, Mason</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pigrome-tyrrell.html">Pigrome, Tyrrell</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/pipkin-antonio.html">Pipkin, Antonio</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/plamondon-jacob.html">Plamondon, Jacob</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/power-charlie.html">Power, Charlie</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/priester-robert.html">Priester, Robert</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/purifoy-loucheiz.html">Purifoy, Loucheiz</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rayam-tj.html">Rayam, T.J.</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/reaves-jordan.html">Reaves, Jordan</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/reavis-cj.html">Reavis, C.J.</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rene-patrice.html">Rene, Patrice</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/revenberg-brandon.html">Revenberg, Brandon</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/reynolds-chris.html">Reynolds, Chris</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rhymes-dominique.html">RHYMES, Dominique</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/richards-tyrell.html">Richards, Tyrell</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/richardson-shaquille.html">Richardson, Shaquille</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/richie-sindani.html">Richie Sindani</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/roberson-tre.html">Roberson, Tre</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/robertson-pete.html">Robertson, Pete</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rodgers-kordell.html">Rodgers, Kordell</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/romick-nigel.html">Romick, Nigel</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/roscoe-cody.html">Roscoe, Cody</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rose-winston.html">Rose, Winston</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ross-daniel.html">Ross, Daniel</a>
+        
+      </td>
+      <td>DE</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rouyer-maxime.html">Rouyer, Maxime</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ruby-jacob.html">Ruby, Jacob</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ruffin-dionte.html">Ruffin, Dionté</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rugamba-emmanuel.html">Rugamba, Emmanuel</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sankey-darnell.html">Sankey, Darnell</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sankoh-tigie.html">Sankoh, Tigie</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/santos-knox-jovan.html">Santos-Knox, Jovan</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sayles-casey.html">Sayles, Casey</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sayles-marcus.html">Sayles, Marcus</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/scarver-savon.html">Scarver, Savon</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/schaffer-thomas.html">Schaffer, Thomas</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/schaffer-baker-kian.html">SCHAFFER-BAKER, Kian</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/schakel-josiah.html">Schakel, Josiah</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/schmekel-tanner.html">Schmekel, Tanner</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/schoen-dalton.html">SCHOEN, Dalton</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sewell-almondo.html">Sewell, Almondo</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shawn-shivers.html">Shawn Shivers</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shea-patterson.html">Shea Patterson</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shiltz-matt.html">SHILTZ, Matt</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/siaosi-mariner.html">Siaosi Mariner</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/small-seth.html">Small, Seth</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/smith-kiondre.html">SMITH, Kiondre</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/smith-robbie.html">Smith, Robbie</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/smith-tevaun.html">Smith, Tevaun</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/snead-tyler.html">SNEAD, Tyler</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sopik-fraser.html">Sopik, Fraser</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/spieker-cole.html">SPIEKER, Cole</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ssk-dst.html">SSK DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ssk-k.html">SSK K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ssk-qb.html">SSK QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/st-lot-shaquille.html">St-Lot, Shaquille</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stanback-william.html">STANBACK, William</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/statz-nick.html">Statz, Nick</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/steven-dunbar-jr.html">Steven Dunbar Jr.</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stevens-deshawn.html">Stevens, Deshawn</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stevens-tommy.html">STEVENS, Tommy</a>
+        
+      </td>
+      <td>WR, QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/steward-hunter.html">Steward, Hunter</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stewart-josh.html">Stewart, Josh</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stewart-silas.html">Stewart, Silas</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/stubblefield-reggie.html">Stubblefield, Reggie</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sunderland-will.html">Sunderland, Will</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sutton-wesley.html">Sutton, Wesley</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tate-khalil.html">Tate, Khalil</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/taylor-larry.html">Taylor, Larry</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/taylor-nick.html">Taylor, Nick</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tchangam-alex.html">Tchangam, Alex</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/teitz-micah.html">Teitz, Micah</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ternowski-tyler.html">TERNOWSKI, Tyler</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/teuhema-sione.html">Teuhema, Sione</a>
+        
+      </td>
+      <td>DT, DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thomas-jake.html">Thomas, Jake</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thomas-kelon.html">Thomas, Kelon</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thompson-brandyn.html">Thompson, Brandyn</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thompson-demarcus.html">Thompson, DeMarcus</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thompson-malcolm.html">Thompson, Malcolm</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thurman-jameer.html">Thurman, Jameer</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tor-dst.html">TOR DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tor-k.html">TOR K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tor-qb.html">TOR QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/trey-williams.html">Trey Williams</a>
+        
+      </td>
+      <td>RB, WR, QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tuck-james.html">Tuck, James</a>
+        
+      </td>
+      <td>FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/umunakwe-chizi.html">Umunakwe, Chizi</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ungerer-iii-david.html">UNGERER III, David</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/usher-nick.html">Usher, Nick</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/varga-ryder.html">Varga, Ryder</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/vaughters-james.html">Vaughters, James</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/vedvik-kaare.html">Vedvik, Kaare</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/vrede-tyron.html">Vrede, Tyron</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wakefield-michael.html">Wakefield, Michael</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/walker-derel.html">Walker, Derel</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/walker-ricky.html">Walker, Ricky</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wall-titus.html">Wall, Titus</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ward-lewis.html">Ward, Lewis</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/washington-trumaine.html">Washington, Trumaine</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/watson-kendall.html">Watson, Kendall</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/webb-damon.html">Webb, Damon</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/white-mitchell.html">White, Mitchell</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/white-tim.html">White, Tim</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/whitehead-lucky.html">Whitehead, Lucky</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/whyte-gordon.html">Whyte, Gordon</a>
+        
+      </td>
+      <td>LS</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/whyte-sean.html">WHYTE, Sean</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wieneke-jake.html">Wieneke, Jake</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wiggan-derek.html">Wiggan, Derek</a>
+        
+      </td>
+      <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-avery.html">Williams, Avery</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-dhaquille.html">Williams, D\&#39;haquille</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-deontai.html">Williams, Deontai</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-ed.html">Williams, Ed</a>
+        
+      </td>
+      <td>RB, WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-frankie.html">Williams, Frankie</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-kobe.html">Williams, Kobe</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/williams-ucambre.html">Williams, Ucambre</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wilson-kyrie.html">Wilson, Kyrie</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wilson-raheem.html">Wilson, Raheem</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wolitarsky-drew.html">WOLITARSKY, Drew</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/woodmansey-coulter.html">Woodmansey, Coulter</a>
+        
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/woods-josh.html">Woods, Josh</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/worthy-chandler.html">Worthy, Chandler</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wpg-dst.html">WPG DST</a>
+        
+      </td>
+      <td>DST</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wpg-k.html">WPG K</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wpg-qb.html">WPG QB</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/wynn-dylan.html">Wynn, Dylan</a>
+        
+      </td>
+      <td>DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/young-perry.html">Young, Perry</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/zema-joseph.html">Zema, Joseph</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-02.
+      Formats:
+      
+<a href="../data/leagues/cfl-2023.json">JSON</a> ·
+<a href="../data/leagues/cfl-2023.xml">XML</a> ·
+<a href="../data/leagues/cfl-2023.csv">CSV</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  
+</body>
+</html>

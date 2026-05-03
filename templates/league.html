@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}{{ league.display_name }} Stats — AltSports Archive{% endblock %}
+{% block description %}Player statistics for {{ league.display_name }}: {{ league.player_count }} players with recorded stats. Free historical alternative sports data.{% endblock %}
+{% block og_title %}{{ league.display_name }} — Player Stats{% endblock %}
+{% block og_description %}{{ league.player_count }} players with stats in {{ league.display_name }}. Browse, search, and download as JSON or XML.{% endblock %}
+
+{% block alternate_links %}
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json" title="{{ league.display_name }} stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.xml" title="{{ league.display_name }} stats (XML)">
+{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "{{ league.display_name }} Player Statistics",
+  "description": "Complete player statistics for {{ league.display_name }} — {{ league.player_count }} players, {{ league.game_count }} games. Source: AltSports Archive.",
+  "url": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.csv"
+    }
+  ],
+  "hasPart": [
+    {% for g in (league.get('games') or [])[:50] %}
+    {
+      "@type": "Dataset",
+      "name": "{{ g.display }}",
+      "url": "https://archive.altfantasysports.com/data/games/{{ g.slug }}.json"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isPartOf": {
+    "@type": "DataCatalog",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>{{ league.display_name }}</h1>
+<p>{{ league.player_count }} players with recorded stats{% if league.game_count %}, {{ league.game_count }} games{% endif %}.</p>
+
+{% if league.get('games') %}
+<section>
+  <h2>Games</h2>
+  <table>
+    <caption>{{ league.display_name }} game log — {{ league.game_count or 0 }} games</caption>
+    <thead>
+      <tr>
+        <th scope="col">Wk</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Date</th>
+        <th scope="col">Players</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for g in (league.get('games') or []) %}
+      <tr>
+        <td>{{ g.week or "—" }}</td>
+        <td>
+          <a href="{{ root }}games/{{ g.slug }}.html">
+            {%- if g.away_team and g.home_team -%}
+              {{ g.away_team }} @ {{ g.home_team }}
+            {%- elif g.team -%}
+              {{ g.team }}{% if g.synthetic %} <span class="ambiguous-tag" title="Week aggregate — no per-game data in source">wk</span>{% endif %}
+            {%- else -%}
+              {{ g.display }}
+            {%- endif -%}
+          </a>
+        </td>
+        <td>{{ g.date_str or "—" }}</td>
+        <td>{{ g.player_count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+{% set stat_keys = [] %}
+{% for p in league.players[:1] %}
+  {% set stat_keys = p.stats.keys() | list | sort %}
+{% endfor %}
+
+<table>
+  <caption>{{ league.display_name }} player statistics</caption>
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Positions</th>
+      {% for sk in stat_keys %}
+      <th scope="col">{{ sk }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in league.players | sort(attribute='canonical_name') %}
+    <tr>
+      <td>
+        <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
+        {% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}
+      </td>
+      <td>{{ p.positions | join(", ") }}</td>
+      {% for sk in stat_keys %}
+      <td>{{ p.stats.get(sk, "") }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+{% block formats %}
+<a href="{{ root }}data/leagues/{{ league.slug }}.json">JSON</a> ·
+<a href="{{ root }}data/leagues/{{ league.slug }}.xml">XML</a> ·
+<a href="{{ root }}data/leagues/{{ league.slug }}.csv">CSV</a>
+{% endblock %}

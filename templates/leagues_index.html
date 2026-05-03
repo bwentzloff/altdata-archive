@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Leagues — AltSports Archive{% endblock %}
+{% block content %}
+<h1>All Leagues &amp; Seasons</h1>
+<table>
+  <thead><tr><th>League / Season</th><th>Players</th></tr></thead>
+  <tbody>
+    {% for league in leagues %}
+    <tr>
+      <td><a href="{{ root }}leagues/{{ league.slug }}.html">{{ league.display_name }}</a></td>
+      <td>{{ league.player_count }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block formats %}
+<a href="{{ root }}data/leagues/index.json">JSON</a> ·
+<a href="{{ root }}data/leagues/index.xml">XML</a>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Hall of Fame — AltSports Archive{% endblock %}
+{% block content %}
+<h1>Hall of Fame</h1>
+<p>All-time leaders across all leagues and seasons tracked in this archive.</p>
+
+{% for category, leaders in top10s.items() %}
+<section>
+  <h2>{{ category | title }}</h2>
+  {% if leaders %}
+  {% set primary_stat = leaders[0].keys() | list | reject('in', ['rank','canonical_id','canonical_name','positions','ambiguous']) | first %}
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>Player</th>
+        {% for key in leaders[0].keys() %}
+          {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+          <th>{{ key }}</th>
+          {% endif %}
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in leaders %}
+      <tr>
+        <td>{{ p.rank }}</td>
+        <td>
+          <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
+          {% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}
+        </td>
+        {% for key, val in p.items() %}
+          {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+          <td>{{ val }}</td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p><a href="{{ root }}hof/{{ category }}.html">Full {{ category | title }} leaders →</a></p>
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}
+{% block formats %}
+<a href="{{ root }}data/hof/all.json">JSON</a> ·
+<a href="{{ root }}data/hof/all.xml">XML</a>
+{% endblock %}

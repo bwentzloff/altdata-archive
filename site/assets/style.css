@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/*  AltSports Archive ─
+   Three themes: dark (default), light, cool (cyan easter egg)
+   Toggle via data-theme attribute on <html>
+ */
+
+:root {
+  --font: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-size: 14px;
+  --line-height: 1.5;
+  --max-width: 960px;
+}
+
+/*  Dark theme  */
+[data-theme="dark"] {
+  --bg: #0d0d0d;
+  --bg2: #1a1a1a;
+  --border: #333;
+  --text: #d4d4d4;
+  --text-dim: #777;
+  --link: #88aaff;
+  --link-hover: #bbccff;
+  --accent: #88aaff;
+  --tag-bg: #2a1a00;
+  --tag-text: #ff9944;
+  --th-bg: #1a1a1a;
+  --tr-even: #141414;
+}
+
+/*  Light theme  */
+[data-theme="light"] {
+  --bg: #f8f8f8;
+  --bg2: #eeeeee;
+  --border: #ccc;
+  --text: #111;
+  --text-dim: #666;
+  --link: #0044cc;
+  --link-hover: #002288;
+  --accent: #0044cc;
+  --tag-bg: #fff3cd;
+  --tag-text: #856404;
+  --th-bg: #e0e0e0;
+  --tr-even: #f2f2f2;
+}
+
+/*  Cool theme (cyan easter egg)  */
+[data-theme="cool"] {
+  --bg: #001a1a;
+  --bg2: #002222;
+  --border: #004444;
+  --text: #a0ffee;
+  --text-dim: #00aaaa;
+  --link: #00ffcc;
+  --link-hover: #88ffee;
+  --accent: #00ffcc;
+  --tag-bg: #001100;
+  --tag-text: #00ffaa;
+  --th-bg: #002233;
+  --tr-even: #001c1c;
+}
+
+/*  Base  */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+h1, h2, h3 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+  margin-top: 2rem;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; }
+
+/*  Header  */
+header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+}
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+nav { display: flex; gap: 1rem; }
+nav a { text-decoration: none; font-size: 0.9rem; }
+
+.header-controls { margin-left: auto; }
+
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font);
+  font-size: 1rem;
+}
+#theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/*  Footer  */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer a { color: var(--link); }
+
+.disclaimer { font-size: 0.8rem; }
+
+/*  Tables  */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  display: block;
+}
+
+th {
+  background: var(--th-bg);
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.3rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:nth-child(even) { background: var(--tr-even); }
+
+/*  Info table  */
+.info-table th {
+  width: 8rem;
+  background: none;
+  font-weight: bold;
+  border-bottom: 1px solid var(--border);
+}
+
+/*  Tags  */
+.ambiguous-tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.75rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: help;
+}
+
+.meta { color: var(--text-dim); font-size: 0.85rem; margin-left: 0.3rem; }
+
+/*  Game ID  */
+.game-id {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: var(--font);
+}
+
+/*  League list  */
+.league-list {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+.league-list li { padding: 0.2rem 0; }
+
+/*  Search  */
+#search-input {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#search-meta {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+  min-height: 1.2rem;
+}
+
+#search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#search-results li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+#search-results .result-meta {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-left: 0.5rem;
+}
+
+/*  Saved searches  */
+#saved-searches {
+  margin-top: 1.5rem;
+}
+
+.saved-search-item {
+  display: inline-block;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.5rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.85rem;
+}
+
+.saved-search-item:hover { border-color: var(--accent); }
+.saved-search-delete { margin-left: 0.4rem; color: var(--text-dim); }
+
+@media (max-width: 600px) {
+  .league-list { columns: 1; }
+  table { font-size: 0.8rem; }
+}

@@ -1,0 +1,315 @@
+"""
+build_data.py
+Aggregates player_stats by canonical player and by sport/season,
+then writes all static JSON and XML data files used by the site.
+
+Output structure (under site/data/):
+  players/<canonical_id>.json
+  players/<canonical_id>.xml
+  leagues/<sport_slug>.json
+  leagues/<sport_slug>.xml
+  hof/passing.json  hof/rushing.json  hof/receiving.json  hof/all.json
+  search_index.json
+  sports.json
+"""
+
+import json
+import re
+import xml.etree.ElementTree as ET
+from collections import defaultdict
+from pathlib import Path
+
+RAW = Path(__file__).parent / "raw"
+MERGED = Path(__file__).parent / "merged"
+SITE_DATA = Path(__file__).parent.parent / "site" / "data"
+
+SITE_DATA.mkdir(parents=True, exist_ok=True)
+(SITE_DATA / "players").mkdir(exist_ok=True)
+(SITE_DATA / "leagues").mkdir(exist_ok=True)
+(SITE_DATA / "hof").mkdir(exist_ok=True)
+
+
+# ─── helpers ────────────────────────────────────────────────────────────────
+
+def slugify(s):
+    s = re.sub(r"[^\w\s-]", "", str(s)).strip().lower()
+    return re.sub(r"[\s_]+", "-", s)
+
+
+def to_xml(tag, data, parent=None):
+    """Recursively convert dict/list to XML elements."""
+    if parent is None:
+        el = ET.Element(tag)
+    else:
+        el = ET.SubElement(parent, tag)
+    if isinstance(data, dict):
+        for k, v in data.items():
+            safe_key = re.sub(r"[^a-zA-Z0-9_]", "_", str(k))
+            to_xml(safe_key, v, el)
+    elif isinstance(data, list):
+        for item in data:
+            to_xml("item", item, el)
+    else:
+        el.text = "" if data is None else str(data)
+    return el
+
+
+def write_json_xml(path_no_ext, data, root_tag="data"):
+    json_path = Path(str(path_no_ext) + ".json")
+    xml_path = Path(str(path_no_ext) + ".xml")
+    json_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    root = to_xml(root_tag, data)
+    tree = ET.ElementTree(root)
+    ET.indent(tree, space="  ")
+    tree.write(xml_path, encoding="unicode", xml_declaration=True)
+
+
+def parse_game_id(game_id):
+    """
+    Parse game_id like FOOTBALL_XFL_2023_2_18_VGS@ARL into components.
+    Returns dict with sport_type, league, season, etc.
+    """
+    if not game_id:
+        return {}
+    game_id = str(game_id)
+    parts = game_id.split("_")
+    result = {}
+    if len(parts) >= 1:
+        result["sport_type"] = parts[0]
+    if len(parts) >= 2:
+        result["league"] = parts[1]
+    if len(parts) >= 3:
+        try:
+            result["season"] = int(parts[2])
+        except ValueError:
+            pass
+    # Last part may be AWAY@HOME
+    if "@" in game_id:
+        matchup = game_id.split("_")[-1]
+        teams = matchup.split("@")
+        if len(teams) == 2:
+            result["away_team"] = teams[0]
+            result["home_team"] = teams[1]
+    return result
+
+
+# ─── main ───────────────────────────────────────────────────────────────────
+
+def main():
+    print("Loading data ...")
+    players_merged = json.loads((MERGED / "players_merged.json").read_text())
+    id_lookup = json.loads((MERGED / "id_to_canonical.json").read_text())
+    raw_stats = json.loads((RAW / "player_stats.json").read_text())
+    sports = json.loads((RAW / "sports.json").read_text())
+
+    # Build sport lookup
+    sport_map = {s["id"]: s for s in sports}
+
+    # Map canonical_id -> canonical player object
+    canonical_map = {cp["canonical_id"]: cp for cp in players_merged}
+
+    print(f"Aggregating {len(raw_stats)} stat rows ...")
+
+    # Per-canonical-player stats: {canonical_id: {stat: total, by_game: [...]}}
+    player_stat_totals = defaultdict(lambda: defaultdict(float))
+    player_game_logs = defaultdict(list)  # {canonical_id: [{game_id, week, stat, value}]}
+
+    # Per sport/season stats: {sport_slug: {canonical_id: {stat: total}}}
+    league_stats = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+    league_game_logs = defaultdict(list)  # {sport_slug: [{...}]}
+
+    for row in raw_stats:
+        pid = str(row.get("player_id", ""))
+        canonical_id = id_lookup.get(pid)
+        if not canonical_id:
+            continue
+
+        stat = row.get("stat", "")
+        value = float(row.get("value") or 0)
+        week = row.get("week")
+        game_id = row.get("game_id")
+        game_info = parse_game_id(game_id)
+
+        # Determine sport/season slug from game_id or player's sport_id
+        league_name = game_info.get("league", "")
+        season = game_info.get("season", "")
+        if league_name and season:
+            sport_slug = slugify(f"{league_name}-{season}")
+        elif league_name:
+            sport_slug = slugify(league_name)
+        else:
+            # Fall back to player's sport_id
+            cp = canonical_map.get(canonical_id, {})
+            sport_ids = cp.get("sport_ids", [])
+            if sport_ids:
+                s = sport_map.get(sport_ids[0], {})
+                sname = s.get("name", "unknown")
+                sse = s.get("season", "")
+                sport_slug = slugify(f"{sname}-{sse}" if sse else sname)
+            else:
+                sport_slug = "unknown"
+
+        # Accumulate
+        player_stat_totals[canonical_id][stat] += value
+        player_game_logs[canonical_id].append({
+            "week": week,
+            "stat": stat,
+            "value": value,
+            "game_id": game_id,
+            "league": game_info.get("league", ""),
+            "season": game_info.get("season", ""),
+            "sport_slug": sport_slug,
+        })
+        league_stats[sport_slug][canonical_id][stat] += value
+
+    print("Writing player files ...")
+    player_count = 0
+    search_index = []
+
+    for cp in players_merged:
+        cid = cp["canonical_id"]
+        totals = dict(player_stat_totals.get(cid, {}))
+        game_log = player_game_logs.get(cid, [])
+
+        # Group game log by season/league
+        by_season = defaultdict(list)
+        for entry in game_log:
+            key = f"{entry['league']}-{entry['season']}" if entry.get("league") else "unknown"
+            by_season[key].append(entry)
+
+        # Aggregate per-season totals
+        season_totals = {}
+        for season_key, entries in by_season.items():
+            st = defaultdict(float)
+            for e in entries:
+                st[e["stat"]] += e["value"]
+            season_totals[season_key] = dict(st)
+
+        player_data = {
+            "canonical_id": cid,
+            "canonical_name": cp["canonical_name"],
+            "positions": cp["positions"],
+            "leagues": cp["leagues"],
+            "sport_names": cp["sport_names"],
+            "ambiguous": cp["ambiguous"],
+            "appearances": cp["appearances"],
+            "career_totals": totals,
+            "season_totals": season_totals,
+            "game_log": sorted(game_log, key=lambda x: (x.get("season") or 0, x.get("week") or 0)),
+        }
+
+        write_json_xml(SITE_DATA / "players" / cid, player_data, root_tag="player")
+
+        # Search index entry (compact)
+        if totals:  # only index players with stats
+            search_index.append({
+                "id": cid,
+                "name": cp["canonical_name"],
+                "positions": cp["positions"],
+                "leagues": cp["leagues"],
+                "ambiguous": cp["ambiguous"],
+            })
+        player_count += 1
+
+    print(f"Written {player_count} player files")
+
+    # ─── League/season pages ───────────────────────────────────────────────
+    print("Writing league files ...")
+    league_index = []
+
+    for sport_slug, player_totals in league_stats.items():
+        # Resolve a display name from the slug
+        display = sport_slug.replace("-", " ").upper()
+
+        # Build sorted player list for this league
+        league_players = []
+        for cid, stats in player_totals.items():
+            cp = canonical_map.get(cid, {})
+            league_players.append({
+                "canonical_id": cid,
+                "canonical_name": cp.get("canonical_name", cid),
+                "positions": cp.get("positions", []),
+                "ambiguous": cp.get("ambiguous", False),
+                "stats": stats,
+            })
+
+        league_data = {
+            "slug": sport_slug,
+            "display_name": display,
+            "player_count": len(league_players),
+            "players": league_players,
+        }
+        write_json_xml(SITE_DATA / "leagues" / sport_slug, league_data, root_tag="league")
+
+        league_index.append({
+            "slug": sport_slug,
+            "display_name": display,
+            "player_count": len(league_players),
+        })
+
+    # Sort league index by display name
+    league_index.sort(key=lambda x: x["display_name"])
+    write_json_xml(SITE_DATA / "leagues" / "index", {"leagues": league_index}, root_tag="leagues")
+    print(f"Written {len(league_index)} league files")
+
+    # ─── Hall of Fame ──────────────────────────────────────────────────────
+    print("Building Hall of Fame ...")
+
+    # Stat categories to rank
+    hof_stats = {
+        "passing": ["passing_yards", "passing_tds"],
+        "rushing": ["rushing_yards", "rushing_tds"],
+        "receiving": ["receiving_yards", "receiving_tds", "receptions"],
+        "kicking": ["fg_made", "xp_made", "fg_long"],
+    }
+
+    hof_all = {}
+    for category, stat_keys in hof_stats.items():
+        primary_stat = stat_keys[0]
+        ranked = []
+        for cp in players_merged:
+            cid = cp["canonical_id"]
+            totals = player_stat_totals.get(cid, {})
+            primary_val = totals.get(primary_stat, 0)
+            if primary_val == 0:
+                continue
+            entry = {
+                "rank": 0,
+                "canonical_id": cid,
+                "canonical_name": cp["canonical_name"],
+                "positions": cp["positions"],
+                "ambiguous": cp["ambiguous"],
+            }
+            for sk in stat_keys:
+                entry[sk] = totals.get(sk, 0)
+            ranked.append(entry)
+
+        ranked.sort(key=lambda x: x[primary_stat], reverse=True)
+        for i, r in enumerate(ranked):
+            r["rank"] = i + 1
+
+        top100 = ranked[:100]
+        hof_data = {
+            "category": category,
+            "primary_stat": primary_stat,
+            "leaders": top100,
+        }
+        write_json_xml(SITE_DATA / "hof" / category, hof_data, root_tag="hof")
+        hof_all[category] = top100[:10]
+
+    write_json_xml(SITE_DATA / "hof" / "all", {"top10s": hof_all}, root_tag="hof")
+    print("Written Hall of Fame files")
+
+    # ─── Sports index ──────────────────────────────────────────────────────
+    write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")
+
+    # ─── Search index ─────────────────────────────────────────────────────
+    (SITE_DATA / "search_index.json").write_text(
+        json.dumps(search_index), encoding="utf-8"
+    )
+    print(f"Written search index with {len(search_index)} players")
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()

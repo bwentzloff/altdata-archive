@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}{{ hof.category | title }} Leaders — AltSports Archive{% endblock %}
+{% block description %}All-time alternative sports {{ hof.category }} leaders ranked by {{ hof.primary_stat }}. Covers XFL, USFL, UFL, CFL, AUDL, BIG3 and more.{% endblock %}
+{% block og_title %}All-Time {{ hof.category | title }} Leaders — AltSports{% endblock %}
+
+{% block alternate_links %}
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/hof/{{ hof.category }}.json" title="{{ hof.category | title }} leaders (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/hof/{{ hof.category }}.xml" title="{{ hof.category | title }} leaders (XML)">
+{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "All-Time {{ hof.category | title }} Leaders — AltSports Archive",
+  "description": "All-time alternative sports leaders in {{ hof.primary_stat }}, ranked across all tracked leagues and seasons.",
+  "url": "https://archive.altfantasysports.com/hof/{{ hof.category }}.html",
+  "numberOfItems": {{ hof.leaders | length }},
+  "itemListElement": [
+    {% for p in hof.leaders[:25] %}
+    {
+      "@type": "ListItem",
+      "position": {{ p.rank }},
+      "url": "https://archive.altfantasysports.com/players/{{ p.canonical_id }}.html",
+      "name": "{{ p.canonical_name }}",
+      "description": "{{ p.canonical_name }}: {{ hof.primary_stat }} {{ p[hof.primary_stat] }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>{{ hof.category | title }} Leaders</h1>
+<p>All-time leaders sorted by <strong>{{ hof.primary_stat }}</strong> across all tracked leagues.</p>
+
+<table>
+  <caption>All-time {{ hof.category }} leaders — AltSports Archive</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th><th scope="col">Player</th><th scope="col">Positions</th>
+      {% for key in hof.leaders[0].keys() %}
+        {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+        <th scope="col">{{ key }}</th>
+        {% endif %}
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in hof.leaders %}
+    <tr>
+      <td>{{ p.rank }}</td>
+      <td>
+        <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
+        {% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}
+      </td>
+      <td>{{ p.positions | join(", ") }}</td>
+      {% for key, val in p.items() %}
+        {% if key not in ['rank','canonical_id','canonical_name','positions','ambiguous'] %}
+        <td>{{ val }}</td>
+        {% endif %}
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block formats %}
+<a href="{{ root }}data/hof/{{ hof.category }}.json">JSON</a> ·
+<a href="{{ root }}data/hof/{{ hof.category }}.xml">XML</a>
+{% endblock %}

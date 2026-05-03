@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block title %}{{ player.canonical_name }} Stats — AltSports Archive{% endblock %}
+{% block description %}Career and season stats for {{ player.canonical_name }} ({{ player.positions | join(", ") }}) across {{ player.sport_names | join(", ") }}. Free historical alternative sports data.{% endblock %}
+{% block og_title %}{{ player.canonical_name }} — AltSports Stats{% endblock %}
+{% block og_description %}Career stats for {{ player.canonical_name }}: {% for stat, val in player.career_totals.items() | sort %}{{ stat }} {{ val | round(1) }}{% if not loop.last %}, {% endif %}{% endfor %}{% endblock %}
+{% block og_type %}profile{% endblock %}
+
+{% block alternate_links %}
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.json" title="{{ player.canonical_name }} stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.xml" title="{{ player.canonical_name }} stats (XML)">
+{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ player.canonical_name }}",
+  "description": "{{ player.canonical_name }} played {{ player.positions | join(', ') }} in {{ player.sport_names | join(', ') }}.",
+  "url": "https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html",
+  "sameAs": [
+    {% for a in player.appearances %}{% if a.college_stats %}"{{ a.college_stats }}"{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Professional {{ player.positions[0] if player.positions else 'Athlete' }}",
+    "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "{{ player.canonical_name }} Career Statistics",
+  "description": "Complete game-by-game and career statistics for {{ player.canonical_name }} across alternative sports leagues.",
+  "url": "https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.csv"
+    }
+  ],
+  "isPartOf": [
+    {% set seen_slugs = [] %}
+    {% for g in player.game_log %}{% if g.sport_slug and g.sport_slug not in seen_slugs %}{% set _ = seen_slugs.append(g.sport_slug) %}
+    {
+      "@type": "Dataset",
+      "name": "{{ g.sport_slug.replace('-', ' ').upper() }}",
+      "url": "https://archive.altfantasysports.com/data/leagues/{{ g.sport_slug }}.json"
+    }{% if not loop.last %},{% endif %}
+    {% endif %}{% endfor %}
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>
+  {{ player.canonical_name }}
+  {% if player.ambiguous %}<span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>{% endif %}
+</h1>
+
+<table class="info-table">
+  <tr><th>Positions</th><td>{{ player.positions | join(", ") }}</td></tr>
+  <tr><th>Leagues</th><td>{{ player.sport_names | join(", ") }}</td></tr>
+</table>
+
+<section>
+  <h2>Career Totals</h2>
+  {% if player.career_totals %}
+  <table>
+    <caption>{{ player.canonical_name }} career totals across all leagues</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      {% for stat, val in player.career_totals.items() | sort %}
+      <tr><td>{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No recorded stats.</p>
+  {% endif %}
+</section>
+
+<section>
+  <h2>By Season</h2>
+  {% for season_key, stats in player.season_totals.items() | sort %}
+  <h3>{{ season_key.replace("-", " ").upper() }}</h3>
+  <table>
+    <caption>{{ player.canonical_name }} stats — {{ season_key.replace("-", " ").upper() }}</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      {% for stat, val in stats.items() | sort %}
+      <tr><td>{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</section>
+
+{% if player.appearances | length > 1 %}
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for {{ player.canonical_name }}</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      {% for a in player.appearances %}
+      <tr>
+        <td>{{ a.full_name }}</td>
+        <td>{{ a.team or "—" }}</td>
+        <td>{{ a.position or "—" }}</td>
+        <td>{{ a.league or "—" }}</td>
+        <td>
+          {% if a.college_stats %}
+          <a href="{{ a.college_stats }}" target="_blank" rel="noopener">{{ a.college or "—" }}</a>
+          {% else %}
+          {{ a.college or "—" }}
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+<section>
+  <h2>Game Log</h2>
+  {% if player.game_log %}
+  {% set all_stat_keys = [] %}
+  {% for g in player.game_log %}{% for sk in g.stats.keys() %}{% if sk not in all_stat_keys %}{% set _ = all_stat_keys.append(sk) %}{% endif %}{% endfor %}{% endfor %}
+  {% set all_stat_keys = all_stat_keys | sort %}
+  <table>
+    <caption>{{ player.canonical_name }} game-by-game statistics</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Wk</th>
+        <th scope="col">League</th>
+        <th scope="col">Matchup</th>
+        {% for sk in all_stat_keys %}
+        <th scope="col">{{ sk }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for g in player.game_log %}
+      <tr>
+        <td>{{ g.season or "—" }}</td>
+        <td>{{ g.week or "—" }}</td>
+        <td>{% if g.sport_slug %}<a href="{{ root }}leagues/{{ g.sport_slug }}.html">{{ g.league or g.sport_slug }}</a>{% else %}{{ g.league or "—" }}{% endif %}</td>
+        <td><a href="{{ root }}games/{{ g.game_slug }}.html" class="game-id">{% if g.away_team and g.home_team %}{{ g.away_team }} @ {{ g.home_team }}{% elif g.display %}{{ g.display }}{% else %}{{ g.game_id }}{% endif %}</a></td>
+        {% for sk in all_stat_keys %}
+        <td>{{ g.stats.get(sk, "") }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No game log recorded.</p>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block formats %}
+<a href="{{ root }}data/players/{{ player.canonical_id }}.json">JSON</a> ·
+<a href="{{ root }}data/players/{{ player.canonical_id }}.xml">XML</a> ·
+<a href="{{ root }}data/players/{{ player.canonical_id }}.csv">CSV</a>
+{% endblock %}

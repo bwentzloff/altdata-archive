@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}AltSports Archive — Alternative Sports Stats{% endblock %}
+{% block description %}The definitive source for historical player and game statistics from alternative sports leagues: XFL, USFL, UFL, CFL, AUDL, BIG3, SlamBall, IFL, AFL, and more. Free open data in JSON, XML, and HTML.{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "name": "AltSports Archive",
+  "description": "The definitive historical statistics archive for alternative sports leagues including XFL, USFL, UFL, CFL, AUDL, BIG3, SlamBall, AFL, and more. Covers player game logs, career totals, and Hall of Fame rankings.",
+  "url": "https://archive.altfantasysports.com",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "dataset": [
+    {% for league in leagues %}
+    {
+      "@type": "Dataset",
+      "name": "{{ league.display_name }} Player Statistics",
+      "url": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AltSports Archive",
+  "url": "https://archive.altfantasysports.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://archive.altfantasysports.com/search.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1>AltSports Archive</h1>
+<p>Historical player and game stats from alternative football leagues, ultimate disc, basketball 3-on-3, and more.</p>
+
+<section>
+  <h2>Browse by League / Season</h2>
+  <ul class="league-list">
+    {% for league in leagues %}
+    <li>
+      <a href="{{ root }}leagues/{{ league.slug }}.html">{{ league.display_name }}</a>
+      <span class="meta">({{ league.player_count }} players)</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Hall of Fame</h2>
+  <ul>
+    <li><a href="{{ root }}hof/passing.html">Passing Leaders</a></li>
+    <li><a href="{{ root }}hof/rushing.html">Rushing Leaders</a></li>
+    <li><a href="{{ root }}hof/receiving.html">Receiving Leaders</a></li>
+    <li><a href="{{ root }}hof/kicking.html">Kicking Leaders</a></li>
+    <li><a href="{{ root }}hof/index.html">All-Time Top 10s</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Search</h2>
+  <p><a href="{{ root }}search.html">Search players across all leagues →</a></p>
+</section>
+
+<section>
+  <h2>Data</h2>
+  <ul>
+    <li><a href="{{ root }}data/sports.json">sports.json</a></li>
+    <li><a href="{{ root }}data/sports.xml">sports.xml</a></li>
+    <li><a href="{{ root }}data/leagues/index.json">leagues index (JSON)</a></li>
+    <li><a href="{{ root }}data/search_index.json">player search index (JSON)</a></li>
+  </ul>
+</section>
+{% endblock %}
+{% block formats %}{% endblock %}
