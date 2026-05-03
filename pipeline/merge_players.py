@@ -61,12 +61,65 @@ def skill_position(pos):
     return "other"
 
 
+def _infer_aaf_position(stats):
+    """Infer a rough position from scraped AAF season stat totals."""
+    py   = float(stats.get("passing_yards",   0) or 0)
+    ry   = float(stats.get("rushing_yards",   0) or 0)
+    recy = float(stats.get("receiving_yards", 0) or 0)
+    tack = float(stats.get("tackles",         0) or 0)
+    if py > ry and py > recy:
+        return "QB"
+    if recy > 0 and recy >= ry:
+        return "WR"
+    if ry > 0:
+        return "RB"
+    if tack > 0:
+        return "DB"
+    return ""
+
+
 def main():
     players = json.loads((RAW / "players.json").read_text())
     sports = json.loads((RAW / "sports.json").read_text())
     sport_map = {s["id"]: s for s in sports}
 
-    print(f"Loaded {len(players)} player records")
+    # ── Inject AAF 2019 players from scraper output ──────────────────────
+    aaf_season_file = RAW / "aaf_2019_season.json"
+    if aaf_season_file.exists():
+        aaf_season = json.loads(aaf_season_file.read_text())
+        # Deduplicate by player URL (the stable footballdb key)
+        seen_urls: dict = {}
+        for entry in aaf_season:
+            url = entry.get("player_url", "")
+            if url and url not in seen_urls:
+                seen_urls[url] = entry
+        aaf_players = []
+        for i, (url, entry) in enumerate(sorted(seen_urls.items())):
+            pos = _infer_aaf_position(entry.get("stats", {}))
+            synthetic_id = 100000 + i
+            aaf_players.append({
+                "id":         synthetic_id,
+                "full_name":  entry["name"],
+                "short_name": entry["name"],
+                "first_name": entry["name"].split()[0] if entry["name"] else "",
+                "last_name":  " ".join(entry["name"].split()[1:]) if entry["name"] else "",
+                "position":   pos,
+                "team":       entry.get("team_abbr", ""),
+                "sport_id":   8,   # AAF
+                "league":     "AAF",
+                "_aaf_url":   url,
+                # unused fields set to None so format matches SQL players
+                "sportradar_id": None, "college": None, "jersey": None,
+                "height": None, "weight": None, "college_stats": None,
+            })
+        # Write for build_data.py to pick up the URL→ID mapping
+        (RAW / "aaf_players.json").write_text(
+            json.dumps(aaf_players, indent=2), encoding="utf-8"
+        )
+        players.extend(aaf_players)
+        print(f"Injected {len(aaf_players)} AAF players (IDs 100000–{100000+len(aaf_players)-1})")
+
+    print(f"Loaded {len(players)} player records (including injected)")
 
     # Group by normalized name for fast candidate lookup
     by_norm_name = defaultdict(list)

@@ -218,6 +218,70 @@ def main():
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
 
+    # ── Inject AAF 2019 players and box-score stats ───────────────────────
+    _AAF_MONTH = {
+        "january":1,"february":2,"march":3,"april":4,"may":5,"june":6,
+        "july":7,"august":8,"september":9,"october":10,"november":11,"december":12,
+    }
+    _AAF_ABBR = {
+        "atlanta":"ATL","birmingham":"BIR","memphis":"MEM","orlando":"ORL",
+        "arizona":"ARI","san antonio":"SA","san diego":"SD","salt lake":"SL",
+    }
+    # Stats to include from box scores (skip derived/rate stats and scraper artefacts)
+    _AAF_SKIP = {
+        "completion_pct","yards_per_attempt","pass_td_pct","int_pct","passer_rating",
+        "rush_avg","rush_avg_game","rush_long","rec_avg","rec_avg_game","rec_long",
+        "pass_long","games_played",
+        # kick/punt return columns for QBs are a known scraper duplication bug
+        "kick_returns","kr_yards","kr_avg","kr_long","kr_tds",
+        "punt_returns","pr_yards","pr_avg","pr_long","pr_tds",
+    }
+    _AAF_RENAME = {"interceptions_thrown": "interceptions_lost"}
+
+    aaf_players_file = RAW / "aaf_players.json"
+    aaf_bs_file      = RAW / "aaf_2019_boxscores.json"
+    if aaf_players_file.exists() and aaf_bs_file.exists():
+        aaf_raw_players = json.loads(aaf_players_file.read_text())
+        raw_players.extend(aaf_raw_players)           # extend before pid maps are built
+
+        aaf_url_to_id = {p["_aaf_url"]: p["id"] for p in aaf_raw_players}
+
+        boxscores = json.loads(aaf_bs_file.read_text())
+        aaf_stat_rows = []
+        for bs in boxscores:
+            week = bs.get("week", 1)
+            date_str = bs.get("date", "")
+            # Parse "Saturday, February 9, 2019" → month, day
+            parts = date_str.replace(",", "").split()
+            try:
+                month = _AAF_MONTH[parts[1].lower()]
+                day   = int(parts[2])
+            except (IndexError, KeyError, ValueError):
+                month, day = 1, 1
+            # Build FOOTBALL_AAF_2019_M_D_AWAY@HOME game id
+            away_abbr = _AAF_ABBR.get(bs.get("away_team","").lower(), bs.get("away_team","UNK").upper()[:3])
+            home_abbr = _AAF_ABBR.get(bs.get("home_team","").lower(), bs.get("home_team","UNK").upper()[:3])
+            game_id = f"FOOTBALL_AAF_2019_{month}_{day}_{away_abbr}@{home_abbr}"
+
+            for player in bs.get("players", []):
+                url = player.get("url", "")
+                pid = aaf_url_to_id.get(url)
+                if pid is None:
+                    continue
+                for stat, val in player.get("stats", {}).items():
+                    if stat in _AAF_SKIP:
+                        continue
+                    stat = _AAF_RENAME.get(stat, stat)
+                    aaf_stat_rows.append({
+                        "player_id": pid,
+                        "week":      week,
+                        "stat":      stat,
+                        "value":     float(val or 0),
+                        "game_id":   game_id,
+                    })
+        raw_stats.extend(aaf_stat_rows)
+        print(f"Injected {len(aaf_raw_players)} AAF players, {len(aaf_stat_rows)} AAF stat rows")
+
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching

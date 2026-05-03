@@ -81,7 +81,7 @@ const ROOT = "{{ root }}";
 <script>
 // ── Report Builder ────────────────────────────────────────────────────────────
 
-const STAT_LABELS = {
+const REPORT_LABELS = {
   passing_yards:       "Passing Yards",
   passing_tds:         "Passing TDs",
   completions:         "Completions",
@@ -199,7 +199,7 @@ function addConditionRow() {
   const statSel = document.createElement("select");
   statSel.className = "cond-stat";
   statSel.innerHTML = '<option value="">— Choose stat —</option>';
-  Object.entries(STAT_LABELS).forEach(([k, v]) => {
+  Object.entries(REPORT_LABELS).forEach(([k, v]) => {
     const o = document.createElement("option");
     o.value = k;
     o.textContent = v;
@@ -288,7 +288,7 @@ async function runReport() {
   if (activeStatKeys.length === 0) {
     const allKeys = new Set();
     results.forEach(p => Object.keys(p.totals || {}).forEach(k => allKeys.add(k)));
-    activeStatKeys = [...allKeys].filter(k => STAT_LABELS[k]).slice(0, 8);
+    activeStatKeys = [...allKeys].filter(k => REPORT_LABELS[k]).slice(0, 8);
   }
 
   renderResults(results, activeStatKeys);
@@ -305,7 +305,7 @@ function renderResults(results, statKeys) {
   countEl.textContent = `${results.length.toLocaleString()} player${results.length !== 1 ? "s" : ""} matched`;
 
   const headerRow = document.createElement("tr");
-  ["Player", "Leagues", "Pos", ...statKeys.map(k => STAT_LABELS[k] || k)].forEach((label, i) => {
+  ["Player", "Leagues", "Pos", ...statKeys.map(k => REPORT_LABELS[k] || k)].forEach((label, i) => {
     const th = document.createElement("th");
     th.scope = "col";
     th.textContent = label;
@@ -397,7 +397,7 @@ function sortByCol(colIdx, statKeys) {
 
 function exportCSV() {
   if (!reportData) return;
-  const headers = ["Player", "Player ID", "Leagues", "Positions", ...activeStatKeys.map(k => STAT_LABELS[k] || k)];
+  const headers = ["Player", "Player ID", "Leagues", "Positions", ...activeStatKeys.map(k => REPORT_LABELS[k] || k)];
   const rows = reportData.map(p => [
     p.name, p.id,
     (p.leagues || []).join("|"),

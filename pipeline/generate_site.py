@@ -47,7 +47,7 @@ def _build_sport_groups(leagues_index):
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
     SPORT_ORDER = ["Football", "Ultimate Disc", "Basketball", "Other"]
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "50YARD", "50 YARD"}
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "50YARD", "50 YARD", "AAF", "ELF", "AFL", "IFL", "MLFB"}
     BASKETBALL = {"BIG3", "NLL", "SLAMBALL"}
     DISC = {"AUDL", "UFA"}
 
