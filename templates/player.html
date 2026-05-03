@@ -100,6 +100,37 @@
   {% endif %}
 </section>
 
+{% set _ct = player.career_totals %}
+{% set _chart_stat =
+  'passing_yards'   if _ct.get('passing_yards',   0) > 0 else
+  'rushing_yards'   if _ct.get('rushing_yards',   0) > 0 else
+  'receiving_yards' if _ct.get('receiving_yards', 0) > 0 else
+  'yardsThrown'     if _ct.get('yardsThrown',     0) > 0 else
+  'yardsReceived'   if _ct.get('yardsReceived',   0) > 0 else '' %}
+{% if _chart_stat and player.season_totals | length >= 2 %}
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {{ player.season_totals | tojson | safe }};
+    var stat    = {{ _chart_stat | tojson | safe }};
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+{% endif %}
+
 <section>
   <h2>By Season</h2>
   {% for season_key, stats in player.season_totals.items() | sort %}
@@ -267,4 +298,11 @@
 <a href="{{ root }}data/players/{{ player.canonical_id }}.json">JSON</a> ·
 <a href="{{ root }}data/players/{{ player.canonical_id }}.xml">XML</a> ·
 <a href="{{ root }}data/players/{{ player.canonical_id }}.csv">CSV</a>
+{% endblock %}
+
+{% block scripts %}
+{% if _chart_stat and player.season_totals | length >= 2 %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="{{ root }}assets/charts.js"></script>
+{% endif %}
 {% endblock %}

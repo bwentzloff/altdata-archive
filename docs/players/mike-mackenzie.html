@@ -158,6 +158,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AUDL-2023": {"yardsThrown": 984.0, "yardsReceived": 1594.0, "goals": 14.0, "hockeyAssists": 16.0, "completions": 92.0, "throwAttempts": 108.0, "catches": 117.0, "assists": 16.0, "hucksCompleted": 7.0, "throwaways": 15.0, "drops": 5.0, "blocks": 10.0, "pulls": 48.0}, "UFA-2025": {"goals": 8.0, "assists": 3.0, "yardsThrown": 375.0, "yardsReceived": 563.0, "blocks": 4.0, "throwaways": 5.0, "drops": 1.0}};
+    var stat    = "yardsThrown";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -1170,5 +1196,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

@@ -148,6 +148,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-": {"lost_fumbles": 0.0, "rushing_yards": 0.0, "rushing_tds": 0.0, "receiving_yards": 22.0, "receptions": 1.0, "receiving_tds": 0.0}, "UFL-2024": {"conversions": 6.0, "1pt_conversion": 2.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -535,5 +561,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

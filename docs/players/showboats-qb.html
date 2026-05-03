@@ -158,6 +158,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"passing_yards": 1855.0, "passing_tds": 10.0, "interceptions_lost": 9.0, "rushing_yards": 148.0, "rushing_tds": 2.0, "conversions": 1.0, "receiving_yards": -13.0, "lost_fumbles": 1.0}, "UFL-2024": {"passing_yards": 1894.0, "passing_tds": 14.0, "rushing_yards": 170.0, "rushing_tds": 2.0, "interceptions_lost": 12.0, "lost_fumbles": 6.0, "1pt_conversion": 3.0, "conversions": 3.0, "3pt_pass": 1.0}, "UFL-2025": {"passing_yards": 1652.0, "passing_tds": 5.0, "rushing_yards": 198.0, "rushing_tds": 3.0, "interceptions_lost": 10.0, "conversions": 6.0, "lost_fumbles": 3.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -1382,5 +1408,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

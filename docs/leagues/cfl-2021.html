@@ -94,6 +94,18 @@
 <p>190 players with recorded stats, 1 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — Rush Att</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["William Stanback", "William Powell", "Ka'Deem Carey", "James Wilder Jr.", "Andrew Harris", "James Butler", "Brady Oliveira", "Josh White", "Tim Flanders", "D.J. Foster"], "values": [193.0, 168.0, 164.0, 142.0, 116.0, 101.0, 94.0, 92.0, 88.0, 82.0], "stat": "rush_att"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -1883,5 +1895,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

@@ -1072,6 +1072,118 @@ def main():
     )
     print("Written HoF extras")
 
+    # ─── Fun Stats ────────────────────────────────────────────────────────────
+    print("Building fun stats ...")
+    from datetime import datetime as _datetime
+
+    # Collect game keys that fell on a Thursday
+    _thu_game_keys: set = set()
+    for _gk, _gm in player_game_meta_store.items():
+        _ds = _gm.get("date_str", "")
+        if len(_ds) == 10:
+            try:
+                if _datetime.strptime(_ds, "%Y-%m-%d").weekday() == 3:
+                    _thu_game_keys.add(_gk)
+            except ValueError:
+                pass
+
+    # Aggregate per-player stats across all Thursday games
+    thursday_totals: dict = defaultdict(lambda: defaultdict(float))
+    thursday_game_counts: dict = defaultdict(int)
+    for _cid, _gd in player_game_stats.items():
+        for _gk, _sd in _gd.items():
+            if _gk in _thu_game_keys:
+                for _sk, _sv in _sd.items():
+                    thursday_totals[_cid][_sk] += _sv
+                thursday_game_counts[_cid] += 1
+
+    # Thursday Night Dream Lineup — best at each slot across all Thursday games
+    # Note: CFL uses "extra_point" (not "extra_points") and "tackles" (not "def_tackles")
+    LINEUP_SLOTS = [
+        ("QB",   ["QB"],                         "passing_yards",  "Pass Yds"),
+        ("RB",   ["RB", "FB"],                   "rushing_yards",  "Rush Yds"),
+        ("WR",   ["WR"],                         "receiving_yards","Rec Yds"),
+        ("TE",   ["TE"],                         "receiving_yards","Rec Yds"),
+        ("K",    ["K", "PK"],                    "extra_point",    "XP Made"),
+        ("LB",   ["LB", "ILB", "OLB", "MLB"],   "tackles",        "Tackles"),
+        ("DB",   ["DB", "CB", "S", "FS", "SS"],  "tackles",        "Tackles"),
+    ]
+    thursday_lineup: dict = {}
+    for _slot, _positions, _primary, _plabel in LINEUP_SLOTS:
+        _pos_set = set(_positions)
+        _candidates = []
+        for _cid, _tot in thursday_totals.items():
+            _cp = canonical_map.get(_cid)
+            if not _cp or not _has_real_name(_cp):
+                continue
+            if not set(_cp.get("positions", [])).intersection(_pos_set):
+                continue
+            _val = _tot.get(_primary, 0)
+            if _val <= 0:
+                continue
+            _candidates.append({
+                "canonical_id": _cid,
+                "canonical_name": _cp["canonical_name"],
+                "positions": list(_cp.get("positions", [])),
+                "value": int(_val),
+                "stat_key": _primary,
+                "stat_label": _plabel,
+                "games": thursday_game_counts.get(_cid, 0),
+            })
+        _candidates.sort(key=lambda x: x["value"], reverse=True)
+        thursday_lineup[_slot] = _candidates[:5]
+
+    # Two-Way TD Machine — players who scored BOTH a rushing TD and receiving TD
+    # in the same game (aggregated across all such games)
+    _two_way_map: dict = defaultdict(lambda: {"rush_td": 0, "recv_td": 0, "games": 0, "game_slugs": []})
+    for _cid, _gd in player_game_stats.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        for _gk, _sd in _gd.items():
+            _rtd = int(_sd.get("rushing_tds", 0))
+            _cvtd = int(_sd.get("receiving_tds", 0))
+            if _rtd > 0 and _cvtd > 0:
+                _entry = _two_way_map[_cid]
+                _entry["rush_td"]  += _rtd
+                _entry["recv_td"]  += _cvtd
+                _entry["games"]    += 1
+                if len(_entry["game_slugs"]) < 3:
+                    _gmeta = player_game_meta_store.get(_gk, {})
+                    _entry["game_slugs"].append({
+                        "slug":    game_id_slug(_gk),
+                        "display": _gmeta.get("display", _gk),
+                        "rush_td": _rtd,
+                        "recv_td": _cvtd,
+                    })
+    two_way_td = []
+    for _cid, _s in _two_way_map.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp:
+            continue
+        two_way_td.append({
+            "canonical_id":   _cid,
+            "canonical_name": _cp["canonical_name"],
+            "games":          _s["games"],
+            "rush_td":        _s["rush_td"],
+            "recv_td":        _s["recv_td"],
+            "game_slugs":     _s["game_slugs"],
+        })
+    two_way_td.sort(key=lambda x: x["games"], reverse=True)
+    two_way_td = two_way_td[:20]
+
+    funstats = {
+        "thursday_game_count": len(_thu_game_keys),
+        "thursday_lineup":     thursday_lineup,
+        "two_way_td":          two_way_td,
+    }
+    (SITE_DATA / "hof" / "funstats.json").write_text(
+        json.dumps(funstats, indent=2), encoding="utf-8"
+    )
+    print(f"Written fun stats ({len(_thu_game_keys)} Thursday games, "
+          f"{sum(bool(thursday_lineup.get(s)) for s in [x[0] for x in LINEUP_SLOTS])} lineup slots filled, "
+          f"{len(two_way_td)} two-way TD players)")
+
     # ─── Sports index ─────────────────────────────────────────────────────
     write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")
 

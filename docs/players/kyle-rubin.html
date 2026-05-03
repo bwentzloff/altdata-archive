@@ -182,6 +182,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AUDL-": {"goals": 0.0, "assists": 0.0, "yardsThrown": 70.0, "yardsReceived": 101.0, "blocks": 0.0, "throwaways": 1.0, "drops": 0.0}, "unknown": {"goals": 7.0, "assists": 4.0, "yardsThrown": 287.0, "yardsReceived": 474.0, "blocks": 0.0, "throwaways": 4.0, "drops": 0.0}, "AUDL-2022": {"goals": 7.0, "assists": 6.0, "yardsThrown": 437.0, "yardsReceived": 532.0, "blocks": 1.0, "throwaways": 2.0, "drops": 0.0}, "AUDL-2023": {"yardsReceived": 950.0, "throwAttempts": 123.0, "throwaways": 12.0, "catches": 127.0, "yardsThrown": 812.0, "goals": 9.0, "hockeyAssists": 11.0, "completions": 109.0, "assists": 9.0, "drops": 1.0, "hucksCompleted": 3.0, "blocks": 3.0, "callahans": 1.0}, "UFA-2024": {"goals": 8.0, "assists": 15.0, "yardsThrown": 1396.0, "yardsReceived": 1379.0, "blocks": 0.0, "throwaways": 10.0, "drops": 0.0}, "UFA-2025": {"goals": 5.0, "assists": 12.0, "yardsThrown": 1126.0, "yardsReceived": 811.0, "blocks": 3.0, "throwaways": 4.0, "drops": 2.0}, "UFA-2026": {"goals": 0.0, "assists": 2.0, "yardsThrown": 181.0, "yardsReceived": 92.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
+    var stat    = "yardsThrown";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -2130,5 +2156,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

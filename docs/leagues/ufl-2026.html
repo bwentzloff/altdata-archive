@@ -226,6 +226,18 @@
 <p>147 players with recorded stats, 23 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — TD</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["Tyler Vaughns", "Briley Moore", "Deon Cain", "Emmanuel Butler", "Ty Scott", "Tyler Neville", "Antwane Wells", "Chris Rowland", "Elijhah Badger", "Greg Ward"], "values": [5.0, 3.0, 3.0, 3.0, 3.0, 3.0, 2.0, 2.0, 2.0, 2.0], "stat": "receiving_tds"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -1885,5 +1897,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Fun Stats — AltSports Archive{% endblock %}
+{% block description %}Thursday Night Dream Lineup, Two-Way TD Club, and other oddball career records from the AltSports Archive.{% endblock %}
+{% block og_title %}Fun Stats — AltSports Archive{% endblock %}
+
+{% block content %}
+<h1>Fun Stats</h1>
+<p class="hof-intro">Oddball records and curiosities drawn from every game in the archive. Recalculates automatically as data grows.</p>
+
+<!-- ── Thursday Night Dream Lineup ──────────────────────────────────────── -->
+<h2>Thursday Night Dream Lineup</h2>
+<p class="hof-intro">The best all-time performer at each position across all
+  <strong>{{ funstats.thursday_game_count }}</strong> Thursday games in the archive.
+  Career totals in Thursday games only.</p>
+
+{% set lineup = funstats.thursday_lineup %}
+{% set SLOTS = ['QB', 'RB', 'WR', 'TE', 'K', 'LB', 'DB'] %}
+
+<div class="lineup-grid">
+{% for slot in SLOTS %}
+{% set players = lineup.get(slot, []) %}
+<div class="lineup-slot">
+  <div class="lineup-pos">{{ slot }}</div>
+  {% if players %}
+  {% set starter = players[0] %}
+  <div class="lineup-starter">
+    <a href="{{ root }}players/{{ starter.canonical_id }}.html">{{ starter.canonical_name }}</a>
+  </div>
+  <div class="lineup-stat">{{ starter.value | intcomma }} {{ starter.stat_label }}</div>
+  <div class="lineup-games">{{ starter.games }} game{{ 's' if starter.games != 1 else '' }}</div>
+  {% if players | length > 1 %}
+  <details class="lineup-alts">
+    <summary>Alternates</summary>
+    <ol>
+    {% for p in players[1:] %}
+    <li><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
+      — {{ p.value | intcomma }}</li>
+    {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+  {% else %}
+  <div class="lineup-empty">No data yet</div>
+  {% endif %}
+</div>
+{% endfor %}
+</div>
+
+<!-- ── Two-Way TD Club ───────────────────────────────────────────────────── -->
+<h2>Two-Way TD Club</h2>
+<p class="hof-intro">Players who scored both a rushing TD and a receiving TD in the same game.
+  Sorted by number of games with the double-dip. A very short list.</p>
+
+{% if funstats.two_way_td %}
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Player</th>
+      <th title="Games with both a rush TD and recv TD">Games</th>
+      <th title="Total rushing TDs in those games">Rush TD</th>
+      <th title="Total receiving TDs in those games">Rec TD</th>
+      <th>Sample Games</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in funstats.two_way_td %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a></td>
+      <td>{{ p.games }}</td>
+      <td>{{ p.rush_td }}</td>
+      <td>{{ p.recv_td }}</td>
+      <td class="hof-sec">
+        {% for g in p.game_slugs %}
+        <a href="{{ root }}games/{{ g.slug }}.html">{{ g.display }}</a>
+        ({{ g.rush_td }}r+{{ g.recv_td }}c){% if not loop.last %},&nbsp;{% endif %}
+        {% endfor %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Not enough game-level data yet to populate this list.</p>
+{% endif %}
+
+<p style="margin-top:2rem"><a href="{{ root }}hof/index.html">← Hall of Fame</a></p>
+{% endblock %}
+
+{% block formats %}
+<a href="{{ root }}data/hof/funstats.json">JSON</a>
+{% endblock %}

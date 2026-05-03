@@ -328,6 +328,18 @@
 <p>161 players with recorded stats, 40 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — TD</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["Cornell Powell", "Deon Cain", "Hakeem Butler", "Keke Chism", "Malik Turner", "Tyler Vaughns", "Braylon Sanders", "Chris Rowland", "Deontay Burnett", "Justin Hall"], "values": [7.0, 6.0, 4.0, 4.0, 4.0, 4.0, 3.0, 3.0, 3.0, 3.0], "stat": "receiving_tds"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -2312,5 +2324,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

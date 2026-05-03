@@ -174,6 +174,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"XFL-2023": {"passing_tds": 18.0, "lost_fumbles": 5.0, "passing_yards": 2062.0, "interceptions_lost": 4.0, "rushing_yards": 407.0, "rushing_tds": 8.0, "conversions": 17.0, "field_goal_yards": 413.0, "missed": 4.0, "1pt_conversion": 2.0}, "UFL-2024": {"passing_yards": 1983.0, "passing_tds": 15.0, "rushing_yards": 231.0, "rushing_tds": 2.0, "interceptions_lost": 9.0, "field_goal_yards": 716.0, "conversions": 7.0, "missed": 4.0, "lost_fumbles": 1.0, "1pt_conversion": 1.0}, "UFL-2025": {"passing_yards": 2515.0, "passing_tds": 19.0, "rushing_yards": 246.0, "rushing_tds": 2.0, "interceptions_lost": 4.0, "field_goal_yards": 492.0, "missed": 6.0, "conversions": 2.0, "1pt_conversion": 2.0, "receptions": 1.0, "receiving_yards": 9.0, "receiving_tds": 1.0, "lost_fumbles": 1.0}, "UFL-2026": {"passing_yards": 1101.0, "passing_tds": 11.0, "rushing_yards": 171.0, "rushing_tds": 0.0, "interceptions_lost": 5.0, "4pt_fg": 2.0, "field_goal_yards": 561.0, "missed": 4.0, "extra_point": 21.0, "receptions": 3.0, "receiving_yards": 13.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -2532,5 +2558,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

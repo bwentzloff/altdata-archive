@@ -364,6 +364,18 @@
 <p>168 players with recorded stats, 46 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — TD</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["Jace Sternberger", "Alonzo Moore", "Cole Hikutini", "Davion Davis", "Deon Cain", "Johnnie Dixon", "Trey Quinn", "Corey Coleman", "Justin Hall", "Anthony Ratliff-Williams"], "values": [8.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 4.0, 4.0, 3.0], "stat": "receiving_tds"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -2483,5 +2495,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

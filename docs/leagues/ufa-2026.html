@@ -160,6 +160,18 @@
 <p>619 players with recorded stats, 12 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — Assists</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["Tobe Decraene", "Austin Taylor", "Adam Miller", "Jeremy Langdon", "Kyle Henke", "Matt LaBar", "Alex Atkins", "Brayden Morrison", "Brett Hulsmeyer", "Chad Yorgason"], "values": [13.0, 10.0, 6.0, 6.0, 6.0, 6.0, 5.0, 5.0, 5.0, 5.0], "stat": "assists"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -5934,5 +5946,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

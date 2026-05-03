@@ -154,6 +154,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-": {"receiving_yards": 337.0, "receiving_tds": 0.0, "receptions": 35.0, "rushing_yards": 56.0, "rushing_tds": 0.0}, "CFL-2023": {"receiving_yards": 272.0, "receiving_tds": 2.0, "receptions": 26.0}, "CFL-2024": {"rushing_yards": 151.0, "rushing_tds": 0.0, "receiving_yards": 433.0, "receiving_tds": 3.0, "receptions": 41.0}, "CFL-2025": {"rushing_yards": 58.0, "rushing_tds": 0.0, "receiving_yards": 825.0, "receiving_tds": 3.0, "receptions": 72.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -1293,5 +1319,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

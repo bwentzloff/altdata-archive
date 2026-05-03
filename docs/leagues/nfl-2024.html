@@ -88,6 +88,18 @@
 <p>25 players with recorded stats.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — Lost Fumbles</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["E.J. Perry", "DJ Turner", "Taulia Tagovailoa", "Cavon Walker", "Ryan Wallace", "Hunter Lang", "Jonah Taylor", "Kyle Johnson", "JARED JOHNSON", "Martavis Bryant"], "values": [2.0, 1.0, 1.0, 0.0, 0, 0, 0, 0, 0, 0], "stat": "lost_fumbles"};
+  </script>
+</section>
+
+
+
 
 
 
@@ -358,5 +370,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

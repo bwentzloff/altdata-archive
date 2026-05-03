@@ -98,6 +98,22 @@ def make_env():
 
     env.filters["intcomma"]   = intcomma
     env.filters["stat_label"] = stat_label
+
+    import json as _json
+
+    def tojson(v) -> str:
+        return _json.dumps(v, ensure_ascii=False)
+
+    def sort_seasons(items):
+        """Sort (season_slug, stats_dict) pairs chronologically by trailing year."""
+        def _key(kv):
+            k = kv[0]
+            yr = k[-4:] if len(k) >= 4 and k[-4:].isdigit() else "0000"
+            return (yr, k)
+        return sorted(items, key=_key)
+
+    env.filters["tojson"]       = tojson
+    env.filters["sort_seasons"] = sort_seasons
     return env
 
 
@@ -213,11 +229,26 @@ def main():
     print(f"Rendering {len(league_files)} league pages ...")
     for lf in league_files:
         league_data = json.loads(lf.read_text())
+        # Pre-compute top-10 chart data (primary stat, sorted descending)
+        chart_top10 = None
+        if league_data.get("players"):
+            _stat_keys = sorted(league_data["players"][0].get("stats", {}).keys())
+            _primary = _stat_keys[0] if _stat_keys else None
+            if _primary and len(league_data["players"]) >= 4:
+                _sorted = sorted(league_data["players"],
+                                 key=lambda p: p.get("stats", {}).get(_primary, 0),
+                                 reverse=True)[:10]
+                chart_top10 = {
+                    "labels": [p["canonical_name"] for p in _sorted],
+                    "values": [p.get("stats", {}).get(_primary, 0) for p in _sorted],
+                    "stat":   _primary,
+                }
         render(
             env, "league.html",
             SITE_DIR / "leagues" / f"{league_data['slug']}.html",
             root="../",
             league=league_data,
+            chart_top10=chart_top10,
         )
 
     # ── Player pages ────────────────────────────────────────────────────
@@ -263,6 +294,17 @@ def main():
         extras=hof_extras,
     )
 
+    # ── HoF fun stats page ──────────────────────────────────────────────
+    funstats_path = DATA_DIR / "hof" / "funstats.json"
+    if funstats_path.exists():
+        funstats_data = json.loads(funstats_path.read_text())
+        render(
+            env, "hof_funstats.html",
+            SITE_DIR / "hof" / "funstats.html",
+            root="../",
+            funstats=funstats_data,
+        )
+
     # ── Game pages ──────────────────────────────────────────────────────
     games_index_path = DATA_DIR / "games" / "index.json"
     game_files = list((DATA_DIR / "games").glob("*.json"))
@@ -301,6 +343,8 @@ def main():
     for cat in ["passing", "rushing", "receiving", "defense", "kicking"]:
         if (SITE_DIR / "hof" / f"{cat}.html").exists():
             add_url(f"{BASE}/hof/{cat}.html", priority="0.8", changefreq="weekly")
+    if (SITE_DIR / "hof" / "funstats.html").exists():
+        add_url(f"{BASE}/hof/funstats.html", priority="0.8", changefreq="weekly")
 
     for lf in league_files:
         slug = json.loads(lf.read_text())["slug"]

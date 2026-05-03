@@ -184,6 +184,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AUDL-": {"goals": 4.0, "assists": 2.0, "yardsThrown": 184.0, "yardsReceived": 222.0, "blocks": 1.0, "throwaways": 0.0, "drops": 0.0}, "unknown": {"goals": 6.0, "assists": 20.0, "yardsThrown": 882.0, "yardsReceived": 558.0, "blocks": 5.0, "throwaways": 4.0, "drops": 0.0}, "AUDL-2022": {"goals": 8.0, "assists": 7.0, "yardsThrown": 471.0, "yardsReceived": 621.0, "blocks": 1.0, "throwaways": 3.0, "drops": 2.0}, "AUDL-2023": {"yardsThrown": 1245.0, "yardsReceived": 2367.0, "assists": 15.0, "completions": 197.0, "throwAttempts": 216.0, "catches": 225.0, "drops": 5.0, "blocks": 8.0, "goals": 25.0, "hockeyAssists": 23.0, "throwaways": 14.0, "hucksCompleted": 6.0, "pulls": 4.0, "callahans": 1.0}, "UFA-2024": {"goals": 17.0, "assists": 26.0, "yardsThrown": 2797.0, "yardsReceived": 2206.0, "blocks": 6.0, "throwaways": 26.0, "drops": 0.0}, "UFA-2025": {"goals": 27.0, "assists": 26.0, "yardsThrown": 2932.0, "yardsReceived": 2951.0, "blocks": 12.0, "throwaways": 30.0, "drops": 0.0}, "UFA-2026": {"goals": 5.0, "assists": 6.0, "yardsThrown": 171.0, "yardsReceived": 494.0, "blocks": 0.0, "throwaways": 2.0, "drops": 0.0}};
+    var stat    = "yardsThrown";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -2386,5 +2412,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>

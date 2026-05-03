@@ -388,6 +388,18 @@
 <p>364 players with recorded stats, 109 games.</p>
 
 
+<section class="chart-section">
+  <h2>Top Performers — Interceptions Made</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["HAM DST", "SSK DST", "CGY DST", "TOR DST", "BC DST", "EDM DST", "MTL DST", "WPG DST", "OTT DST", "Brian Cole"], "values": [33.0, 30.0, 21.0, 21.0, 19.0, 17.0, 17.0, 16.0, 15.0, 1.0], "stat": "interceptions_made"};
+  </script>
+</section>
+
+
+
 <section>
   <h2>Games</h2>
   
@@ -4991,5 +5003,10 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
 </body>
 </html>

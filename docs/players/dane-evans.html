@@ -188,6 +188,32 @@
   
 </section>
 
+
+
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-": {"passing_yards": 3097.0, "passing_tds": 13.0, "interceptions_lost": 11.0, "rushing_yards": 149.0, "rushing_tds": 4.0}, "CFL-2019": {"pass_gp": 18.0, "pass_att": 413.0, "pass_cmp": 298.0, "pass_yds": 3753.0, "pass_td": 21.0, "pass_int": 13.0, "rush_gp": 18.0, "rush_att": 34.0, "rush_yds": 161.0, "rush_td": 3.0, "recv_gp": 18.0, "recv_rec": 1.0, "recv_yds": 13.0, "ret_gp": 18.0}, "CFL-2021": {"rush_gp": 10.0, "rush_att": 20.0, "rush_yds": 114.0, "rush_td": 3.0}, "CFL-2022": {"pass_gp": 17.0, "pass_att": 457.0, "pass_cmp": 305.0, "pass_yds": 3883.0, "pass_td": 16.0, "pass_int": 16.0, "rush_gp": 17.0, "rush_att": 59.0, "rush_yds": 202.0, "rush_td": 4.0, "ret_gp": 17.0}, "CFL-2023": {"passing_yards": 829.0, "passing_tds": 4.0, "interceptions_lost": 6.0, "rushing_yards": 30.0, "rushing_tds": 0.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
 <section>
   <h2>By Season</h2>
   
@@ -1550,5 +1576,7 @@
   <script src="../assets/theme.js"></script>
   <script src="../assets/tables.js"></script>
   
+
+
 </body>
 </html>
