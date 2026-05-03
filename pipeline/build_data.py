@@ -23,7 +23,7 @@ from pathlib import Path
 
 RAW = Path(__file__).parent / "raw"
 MERGED = Path(__file__).parent / "merged"
-SITE_DATA = Path(__file__).parent.parent / "site" / "data"
+SITE_DATA = Path(__file__).parent.parent / "docs" / "data"
 
 for d in ["players", "leagues", "hof", "games"]:
     (SITE_DATA / d).mkdir(parents=True, exist_ok=True)

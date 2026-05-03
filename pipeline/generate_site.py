@@ -15,7 +15,7 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree, indent as xm
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 ROOT_DIR = Path(__file__).parent.parent
-SITE_DIR = ROOT_DIR / "site"
+SITE_DIR = ROOT_DIR / "docs"
 DATA_DIR = SITE_DIR / "data"
 TEMPLATES_DIR = ROOT_DIR / "templates"
 
