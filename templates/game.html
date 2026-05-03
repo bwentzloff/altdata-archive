@@ -113,35 +113,140 @@
   <tr><th>Players</th><td>{{ game.player_count }}</td></tr>
 </table>
 
-<section>
+{% set ABBR = {
+  "completions": "CMP", "passing_yards": "YDS", "passing_tds": "TD",
+  "interceptions_lost": "INT", "intereceptions_lost": "INT",
+  "rushing_yards": "YDS", "rushing_tds": "TD",
+  "lost_fumbles": "FUM", "fumbles_lost": "FUM",
+  "receptions": "REC", "receiving_yards": "YDS", "receiving_tds": "TD",
+  "recceiving_yards": "YDS",
+  "tackles": "TKL", "sacks": "SCK", "sack": "SCK",
+  "pass_defended": "PD", "fumble_recoveries": "FR",
+  "interceptions_made": "INT", "blocked_punt": "BLK",
+  "dst_touchdowns": "TD", "dst_touchdown": "TD",
+  "safety": "SAF", "fumble_td": "FUM TD",
+  "extra_points": "XP", "extra_point": "XP",
+  "field_goal_yards": "FG YDS", "made_19": "≤19", "made_29": "20-29",
+  "made_39": "30-39", "made_49": "40-49", "made_50": "50+",
+  "missed": "MISS", "punt_return": "PR YDS",
+  "1pt_conversion": "1PT", "2_pointer": "2PT",
+  "3_pointer": "3PT", "4_pointer": "4PT", "4pt_fg": "4PT FG",
+  "3pt_pass": "3PT PASS", "3pt_other": "3PT OTHER",
+  "assists": "AST", "assist": "AST", "rebound": "REB",
+  "blocks": "BLK", "blk": "BLK", "steal": "STL", "blockedShot": "BLKD",
+  "throwAttempts": "ATT", "yardsThrown": "YDS", "hucksCompleted": "HUCKS",
+  "throwaways": "AWAY", "callahans": "CAL",
+  "yardsReceived": "YDS", "catches": "CAT", "drops": "DROP",
+  "pulls": "PULLS", "cto": "CTO", "stalls": "STALL", "to": "TO",
+  "goals": "G", "hockeyAssists": "A", "pim": "PIM", "sog": "SOG",
+  "conversions": "CONV", "lb": "LB", "points_against": "PA"
+} %}
+
+{% set GROUPS = [
+  {"label": "Passing",    "skeys": ["completions","passing_yards","passing_tds","interceptions_lost","intereceptions_lost"]},
+  {"label": "Rushing",    "skeys": ["rushing_yards","rushing_tds","lost_fumbles","fumbles_lost"]},
+  {"label": "Receiving",  "skeys": ["receptions","receiving_yards","receiving_tds","recceiving_yards"]},
+  {"label": "Defense",    "skeys": ["tackles","sacks","sack","pass_defended","fumble_recoveries","interceptions_made","blocked_punt","dst_touchdowns","dst_touchdown","safety","fumble_td"]},
+  {"label": "Kicking",    "skeys": ["extra_points","extra_point","field_goal_yards","made_19","made_29","made_39","made_49","made_50","missed","punt_return","1pt_conversion"]},
+  {"label": "Scoring",    "skeys": ["2_pointer","3_pointer","4_pointer","4pt_fg","3pt_pass","3pt_other","goals"]},
+  {"label": "Assists & Rebounds", "skeys": ["assists","assist","rebound"]},
+  {"label": "Blocks & Steals", "skeys": ["blocks","blk","steal","blockedShot","pim"]},
+  {"label": "Throwing",   "skeys": ["throwAttempts","yardsThrown","hucksCompleted","throwaways","callahans"]},
+  {"label": "Receiving",  "skeys": ["yardsReceived","catches","drops"]},
+  {"label": "Field Play", "skeys": ["pulls","cto","stalls","to","conversions","lb","hockeyAssists","sog","points_against"]}
+] %}
+
+{# Build per-group key lists and track which keys are covered #}
+{% set covered = namespace(ckeys=[]) %}
+
+<section class="box-score">
   <h2>Box Score</h2>
+
   {% if game.players %}
-  <table class="data-table">
-    <caption>{{ game.display }} player statistics</caption>
-    <thead>
-      <tr>
-        <th scope="col">Player</th>
-        <th scope="col">Pos</th>
-        {% for sk in game.stat_keys %}
-        <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
+
+  {% for group in GROUPS %}
+    {% set ns = namespace(gkeys=[]) %}
+    {% for k in group.skeys %}
+      {% if k in game.stat_keys and k not in covered.ckeys %}
+        {% set ns.gkeys = ns.gkeys + [k] %}
+        {% set covered.ckeys = covered.ckeys + [k] %}
+      {% endif %}
+    {% endfor %}
+
+    {% if ns.gkeys %}
+    <div class="box-score-section">
+      <h3 class="box-score-category">{{ group.label }}</h3>
+      <table class="data-table box-score-table sortable">
+        <thead>
+          <tr>
+            <th scope="col">Player</th>
+            <th scope="col">Pos</th>
+            {% for k in ns.gkeys %}
+            <th scope="col" data-stat="{{ k }}" title="{{ k }}">{{ ABBR.get(k, k) }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in game.players %}
+            {% set pns = namespace(has=false) %}
+            {% for k in ns.gkeys %}
+              {% if p.stats.get(k) is not none and p.stats.get(k) != '' %}
+                {% set pns.has = true %}
+              {% endif %}
+            {% endfor %}
+            {% if pns.has %}
+            <tr>
+              <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>{% if p.ambiguous %}<span class="ambiguous-tag" title="May represent multiple individuals">?</span>{% endif %}</td>
+              <td>{{ p.positions | join(", ") }}</td>
+              {% for k in ns.gkeys %}
+              <td>{{ p.stats.get(k, "—") }}</td>
+              {% endfor %}
+            </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  {# Fallback: any stat_keys not matched by a group #}
+  {% set rem = namespace(rkeys=[]) %}
+  {% for k in game.stat_keys %}
+    {% if k not in covered.ckeys %}
+      {% set rem.rkeys = rem.rkeys + [k] %}
+    {% endif %}
+  {% endfor %}
+  {% if rem.rkeys %}
+  <div class="box-score-section">
+    <h3 class="box-score-category">Other Stats</h3>
+    <table class="data-table box-score-table sortable">
+      <thead>
+        <tr>
+          <th scope="col">Player</th>
+          <th scope="col">Pos</th>
+          {% for k in rem.rkeys %}<th scope="col" data-stat="{{ k }}">{{ ABBR.get(k, k) }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in game.players %}
+          {% set pns = namespace(has=false) %}
+          {% for k in rem.rkeys %}
+            {% if p.stats.get(k) is not none and p.stats.get(k) != '' %}{% set pns.has = true %}{% endif %}
+          {% endfor %}
+          {% if pns.has %}
+          <tr>
+            <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>{% if p.ambiguous %}<span class="ambiguous-tag">?</span>{% endif %}</td>
+            <td>{{ p.positions | join(", ") }}</td>
+            {% for k in rem.rkeys %}<td>{{ p.stats.get(k, "—") }}</td>{% endfor %}
+          </tr>
+          {% endif %}
         {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for p in game.players %}
-      <tr>
-        <td>
-          <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
-          {% if p.ambiguous %}<span class="ambiguous-tag" title="May represent multiple individuals">?</span>{% endif %}
-        </td>
-        <td>{{ p.positions | join(", ") }}</td>
-        {% for sk in game.stat_keys %}
-        <td>{{ p.stats.get(sk, "") }}</td>
-        {% endfor %}
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
   {% else %}
   <p>No player stats recorded for this game.</p>
   {% endif %}

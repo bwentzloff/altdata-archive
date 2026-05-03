@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search — AltSports Archive</title>
+  <title>Search &amp; Reports — AltSports Archive</title>
   <meta name="description" content="Historical player and game statistics from alternative sports leagues including XFL, USFL, UFL, CFL, AUDL, BIG3, and more. Free open data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
@@ -55,19 +55,75 @@
 
   <main>
     
-<h1>Player Search</h1>
+<h1>Player Search &amp; Reports</h1>
 
-<div id="search-ui">
-  <input
-    type="search"
-    id="search-input"
-    placeholder="Search players by name..."
-    autofocus
-    autocomplete="off"
-    aria-label="Search players"
-  >
-  <div id="search-meta"></div>
-  <ul id="search-results"></ul>
+<div class="search-tabs" role="tablist">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-tab="name-search">Name Search</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-tab="report-builder">Report Builder</button>
+</div>
+
+<!-- ── Name Search ── -->
+<div id="name-search" class="tab-panel active">
+  <div id="search-ui">
+    <input
+      type="search"
+      id="search-input"
+      placeholder="Search players by name..."
+      autofocus
+      autocomplete="off"
+      aria-label="Search players"
+    >
+    <div id="search-meta"></div>
+    <ul id="search-results"></ul>
+  </div>
+</div>
+
+<!-- ── Report Builder ── -->
+<div id="report-builder" class="tab-panel" hidden>
+  <p class="report-intro">Filter players by league, position, and career stat thresholds. Example: <em>XFL/AAF receivers with 500+ receiving yards</em>.</p>
+
+  <div class="report-filters">
+
+    <div class="filter-group">
+      <label class="filter-label">Leagues <span class="filter-hint">(hold ⌘/Ctrl for multiple)</span></label>
+      <select id="rb-leagues" multiple size="8" class="multi-select">
+        <!-- Populated by JS -->
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label">Positions <span class="filter-hint">(hold ⌘/Ctrl for multiple)</span></label>
+      <select id="rb-positions" multiple size="6" class="multi-select">
+        <!-- Populated by JS -->
+      </select>
+    </div>
+
+    <div class="filter-group filter-group--wide">
+      <label class="filter-label">Stat Conditions</label>
+      <div id="stat-conditions"></div>
+      <button id="add-condition" class="btn-secondary" type="button">+ Add Condition</button>
+    </div>
+
+  </div>
+
+  <div class="report-actions">
+    <button id="run-report" class="btn-primary" type="button">Run Report</button>
+    <button id="clear-report" class="btn-secondary" type="button">Clear All</button>
+    <span id="report-status"></span>
+  </div>
+
+  <div id="report-results" hidden>
+    <div class="report-result-header">
+      <span id="result-count"></span>
+      <button id="export-csv" class="btn-secondary btn-sm" type="button">Export CSV</button>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table sortable" id="report-table">
+        <thead id="report-thead"></thead>
+        <tbody id="report-tbody"></tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
   </main>
@@ -95,6 +151,381 @@
 const ROOT = "";
 </script>
 <script src="assets/search.js"></script>
+<script>
+// ── Report Builder ────────────────────────────────────────────────────────────
+
+const STAT_LABELS = {
+  passing_yards:       "Passing Yards",
+  passing_tds:         "Passing TDs",
+  completions:         "Completions",
+  interceptions_lost:  "INT Thrown",
+  intereceptions_lost: "INT Thrown (alt)",
+  rushing_yards:       "Rushing Yards",
+  rushing_tds:         "Rushing TDs",
+  receptions:          "Receptions",
+  receiving_yards:     "Receiving Yards",
+  recceiving_yards:    "Receiving Yards (alt)",
+  receiving_tds:       "Receiving TDs",
+  tackles:             "Tackles",
+  sacks:               "Sacks",
+  sack:                "Sacks (alt)",
+  pass_defended:       "Pass Defended",
+  fumble_recoveries:   "Fumble Recoveries",
+  interceptions_made:  "INT Made",
+  blocked_punt:        "Blocked Punts",
+  dst_touchdowns:      "DST Touchdowns",
+  dst_touchdown:       "DST TD (alt)",
+  safety:              "Safeties",
+  fumble_td:           "Fumble Return TD",
+  extra_points:        "Extra Points",
+  extra_point:         "Extra Points (alt)",
+  field_goal_yards:    "FG Yards",
+  made_19:             "FG Made ≤19",
+  made_29:             "FG Made 20-29",
+  made_39:             "FG Made 30-39",
+  made_49:             "FG Made 40-49",
+  made_50:             "FG Made 50+",
+  missed:              "FG Missed",
+  punt_return:         "Punt Return Yards",
+  lost_fumbles:        "Fumbles Lost",
+  fumbles_lost:        "Fumbles Lost (alt)",
+  "1pt_conversion":    "1-Pt Conversions",
+  "2_pointer":         "2-Pointers",
+  "3_pointer":         "3-Pointers",
+  "4_pointer":         "4-Pointers",
+  "4pt_fg":            "4-Pt FGs",
+  "3pt_pass":          "3-Pt Passes",
+  "3pt_other":         "3-Pt Other",
+  assists:             "Assists",
+  assist:              "Assists (alt)",
+  rebound:             "Rebounds",
+  blocks:              "Blocks",
+  blk:                 "Blocks (alt)",
+  steal:               "Steals",
+  blockedShot:         "Blocked Shots",
+  throwAttempts:       "Throw Attempts",
+  yardsThrown:         "Yards Thrown",
+  hucksCompleted:      "Hucks Completed",
+  throwaways:          "Throwaways",
+  callahans:           "Callahans",
+  yardsReceived:       "Yards Received",
+  catches:             "Catches",
+  drops:               "Drops",
+  pulls:               "Pulls",
+  cto:                 "Called Turnovers",
+  stalls:              "Stalls",
+  to:                  "Turnovers",
+  goals:               "Goals",
+  hockeyAssists:       "Hockey Assists",
+  pim:                 "Penalty Minutes",
+  sog:                 "Shots on Goal",
+  conversions:         "Conversions",
+  lb:                  "LB",
+  points_against:      "Points Against",
+  interceptions:       "Interceptions",
+};
+
+let searchIndex = null;
+let reportData  = null;
+let sortState   = { col: null, dir: 1 };
+let activeStatKeys = [];
+
+async function loadIndex() {
+  if (searchIndex) return searchIndex;
+  const resp = await fetch(ROOT + "data/search_index.json");
+  searchIndex = await resp.json();
+  return searchIndex;
+}
+
+async function initReportBuilder() {
+  const idx = await loadIndex();
+
+  const leagues   = new Set();
+  const positions = new Set();
+  idx.forEach(p => {
+    (p.leagues || []).forEach(l => leagues.add(l));
+    (p.positions || []).forEach(pos => positions.add(pos));
+  });
+
+  const lgSel = document.getElementById("rb-leagues");
+  [...leagues].sort().forEach(l => {
+    const opt = document.createElement("option");
+    opt.value = opt.textContent = l;
+    lgSel.appendChild(opt);
+  });
+
+  const posSel = document.getElementById("rb-positions");
+  [...positions].sort().forEach(pos => {
+    const opt = document.createElement("option");
+    opt.value = opt.textContent = pos;
+    posSel.appendChild(opt);
+  });
+
+  addConditionRow();
+}
+
+function addConditionRow() {
+  const container = document.getElementById("stat-conditions");
+  const row = document.createElement("div");
+  row.className = "condition-row";
+
+  const statSel = document.createElement("select");
+  statSel.className = "cond-stat";
+  statSel.innerHTML = '<option value="">— Choose stat —</option>';
+  Object.entries(STAT_LABELS).forEach(([k, v]) => {
+    const o = document.createElement("option");
+    o.value = k;
+    o.textContent = v;
+    statSel.appendChild(o);
+  });
+
+  const opSel = document.createElement("select");
+  opSel.className = "cond-op";
+  [["≥","gte"],["≤","lte"],[">","gt"],["<","lt"],["=","eq"]].forEach(([label, val]) => {
+    const o = document.createElement("option");
+    o.value = val; o.textContent = label;
+    opSel.appendChild(o);
+  });
+
+  const valInput = document.createElement("input");
+  valInput.type = "number";
+  valInput.className = "cond-val";
+  valInput.placeholder = "value";
+  valInput.min = "0";
+
+  const removeBtn = document.createElement("button");
+  removeBtn.type = "button";
+  removeBtn.className = "cond-remove";
+  removeBtn.textContent = "✕";
+  removeBtn.title = "Remove condition";
+  removeBtn.addEventListener("click", () => row.remove());
+
+  row.append(statSel, opSel, valInput, removeBtn);
+  container.appendChild(row);
+}
+
+function evalCondition(player, statKey, op, val) {
+  const pval = player.totals ? (player.totals[statKey] || 0) : 0;
+  if (op === "gte") return pval >= val;
+  if (op === "lte") return pval <= val;
+  if (op === "gt")  return pval > val;
+  if (op === "lt")  return pval < val;
+  if (op === "eq")  return pval === val;
+  return true;
+}
+
+async function runReport() {
+  const status = document.getElementById("report-status");
+  status.textContent = "Loading…";
+
+  const idx = await loadIndex();
+
+  const selectedLeagues = [...document.getElementById("rb-leagues").selectedOptions].map(o => o.value);
+  const selectedPos     = [...document.getElementById("rb-positions").selectedOptions].map(o => o.value);
+
+  const conditions = [];
+  document.querySelectorAll(".condition-row").forEach(row => {
+    const statKey = row.querySelector(".cond-stat").value;
+    const op      = row.querySelector(".cond-op").value;
+    const val     = parseFloat(row.querySelector(".cond-val").value);
+    if (statKey && !isNaN(val)) {
+      conditions.push({ statKey, op, val });
+    }
+  });
+
+  const results = idx.filter(p => {
+    if (selectedLeagues.length > 0) {
+      const pLeagues = p.leagues || [];
+      if (!selectedLeagues.some(l => pLeagues.includes(l))) return false;
+    }
+    if (selectedPos.length > 0) {
+      const pPos = p.positions || [];
+      if (!selectedPos.some(pos => pPos.includes(pos))) return false;
+    }
+    for (const cond of conditions) {
+      if (!evalCondition(p, cond.statKey, cond.op, cond.val)) return false;
+    }
+    return true;
+  });
+
+  const primaryStat = conditions[0]?.statKey;
+  if (primaryStat) {
+    results.sort((a, b) => (b.totals?.[primaryStat] || 0) - (a.totals?.[primaryStat] || 0));
+  } else {
+    results.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  reportData = results;
+  activeStatKeys = conditions.map(c => c.statKey);
+
+  if (activeStatKeys.length === 0) {
+    const allKeys = new Set();
+    results.forEach(p => Object.keys(p.totals || {}).forEach(k => allKeys.add(k)));
+    activeStatKeys = [...allKeys].filter(k => STAT_LABELS[k]).slice(0, 8);
+  }
+
+  renderResults(results, activeStatKeys);
+  status.textContent = "";
+  sortState = { col: null, dir: 1 };
+}
+
+function renderResults(results, statKeys) {
+  const container = document.getElementById("report-results");
+  const thead     = document.getElementById("report-thead");
+  const tbody     = document.getElementById("report-tbody");
+  const countEl   = document.getElementById("result-count");
+
+  countEl.textContent = `${results.length.toLocaleString()} player${results.length !== 1 ? "s" : ""} matched`;
+
+  const headerRow = document.createElement("tr");
+  ["Player", "Leagues", "Pos", ...statKeys.map(k => STAT_LABELS[k] || k)].forEach((label, i) => {
+    const th = document.createElement("th");
+    th.scope = "col";
+    th.textContent = label;
+    th.style.cursor = "pointer";
+    th.dataset.col = i;
+    th.addEventListener("click", () => sortByCol(i, statKeys));
+    headerRow.appendChild(th);
+  });
+  thead.innerHTML = "";
+  thead.appendChild(headerRow);
+
+  tbody.innerHTML = "";
+  const capped = results.slice(0, 500);
+  capped.forEach(p => {
+    const tr = document.createElement("tr");
+
+    const nameTd = document.createElement("td");
+    const a = document.createElement("a");
+    a.href = ROOT + "players/" + p.id + ".html";
+    a.textContent = p.name;
+    nameTd.appendChild(a);
+    if (p.ambiguous) {
+      const tag = document.createElement("span");
+      tag.className = "ambiguous-tag";
+      tag.title = "May represent multiple individuals";
+      tag.textContent = " ?";
+      nameTd.appendChild(tag);
+    }
+    tr.appendChild(nameTd);
+
+    const lgTd = document.createElement("td");
+    lgTd.textContent = (p.leagues || []).join(", ");
+    tr.appendChild(lgTd);
+
+    const posTd = document.createElement("td");
+    posTd.textContent = (p.positions || []).join(", ");
+    tr.appendChild(posTd);
+
+    statKeys.forEach(k => {
+      const td = document.createElement("td");
+      td.style.textAlign = "right";
+      td.style.fontVariantNumeric = "tabular-nums";
+      const val = p.totals?.[k];
+      td.textContent = val != null ? Number(val).toLocaleString(undefined, {maximumFractionDigits: 1}) : "—";
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  if (results.length > 500) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 3 + statKeys.length;
+    td.style.textAlign = "center";
+    td.style.color = "var(--text-dim)";
+    td.textContent = `… ${(results.length - 500).toLocaleString()} more rows not shown — add more filters to narrow results.`;
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  }
+
+  container.hidden = false;
+}
+
+function sortByCol(colIdx, statKeys) {
+  if (!reportData) return;
+  if (sortState.col === colIdx) {
+    sortState.dir *= -1;
+  } else {
+    sortState.col = colIdx;
+    sortState.dir = colIdx >= 3 ? -1 : 1;
+  }
+
+  reportData.sort((a, b) => {
+    if (colIdx === 0) return sortState.dir * a.name.localeCompare(b.name);
+    if (colIdx === 1) return sortState.dir * (a.leagues||[]).join(",").localeCompare((b.leagues||[]).join(","));
+    if (colIdx === 2) return sortState.dir * (a.positions||[]).join(",").localeCompare((b.positions||[]).join(","));
+    const k = statKeys[colIdx - 3];
+    return sortState.dir * ((a.totals?.[k] || 0) - (b.totals?.[k] || 0));
+  });
+
+  renderResults(reportData, activeStatKeys);
+
+  document.querySelectorAll("#report-thead th").forEach((th, i) => {
+    th.textContent = th.textContent.replace(" ▲","").replace(" ▼","");
+    if (i === colIdx) th.textContent += sortState.dir === 1 ? " ▲" : " ▼";
+  });
+}
+
+function exportCSV() {
+  if (!reportData) return;
+  const headers = ["Player", "Player ID", "Leagues", "Positions", ...activeStatKeys.map(k => STAT_LABELS[k] || k)];
+  const rows = reportData.map(p => [
+    p.name, p.id,
+    (p.leagues || []).join("|"),
+    (p.positions || []).join("|"),
+    ...activeStatKeys.map(k => p.totals?.[k] != null ? p.totals[k] : ""),
+  ]);
+  const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a"); a.href = url; a.download = "altsports-report.csv"; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Tab switching
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => {
+      b.classList.remove("active");
+      b.setAttribute("aria-selected", "false");
+    });
+    document.querySelectorAll(".tab-panel").forEach(p => {
+      p.classList.remove("active");
+      p.hidden = true;
+    });
+    btn.classList.add("active");
+    btn.setAttribute("aria-selected", "true");
+    const panel = document.getElementById(btn.dataset.tab);
+    panel.classList.add("active");
+    panel.hidden = false;
+
+    if (btn.dataset.tab === "name-search") {
+      document.getElementById("search-input").focus();
+    }
+    if (btn.dataset.tab === "report-builder" && !searchIndex) {
+      initReportBuilder();
+    }
+  });
+});
+
+document.getElementById("add-condition").addEventListener("click", addConditionRow);
+document.getElementById("run-report").addEventListener("click", runReport);
+document.getElementById("clear-report").addEventListener("click", () => {
+  document.getElementById("rb-leagues").selectedIndex = -1;
+  document.getElementById("rb-positions").selectedIndex = -1;
+  document.getElementById("stat-conditions").innerHTML = "";
+  addConditionRow();
+  document.getElementById("report-results").hidden = true;
+  document.getElementById("report-status").textContent = "";
+  reportData = null;
+});
+document.getElementById("export-csv").addEventListener("click", exportCSV);
+document.getElementById("stat-conditions").addEventListener("keydown", e => {
+  if (e.key === "Enter") runReport();
+});
+</script>
 
 </body>
 </html>
