@@ -47,7 +47,8 @@ def _build_sport_groups(leagues_index):
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
     SPORT_ORDER = ["Football", "Ultimate Disc", "Basketball", "Other"]
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "50YARD", "50 YARD", "AAF", "ELF", "AFL", "IFL", "MLFB"}
+    HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "MLFB"}
     BASKETBALL = {"BIG3", "NLL", "SLAMBALL"}
     DISC = {"AUDL", "UFA"}
 
@@ -80,6 +81,9 @@ def _build_sport_groups(leagues_index):
     from collections import defaultdict
     buckets = defaultdict(list)
     for lg in leagues_index:
+        if lg["display_name"].upper().replace("-", " ").split()[0] in HIDDEN or \
+           any(h in lg["display_name"].upper() for h in HIDDEN):
+            continue
         sport = classify(lg["slug"], lg["display_name"])
         name = league_name(lg["slug"], lg["display_name"])
         season = season_of(lg["slug"], lg["display_name"])
