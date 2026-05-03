@@ -840,6 +840,37 @@ def main():
     # ─── Hall of Fame ─────────────────────────────────────────────────────
     print("Building Hall of Fame ...")
 
+    # Leagues excluded from all HoF calculations (main rankings + extras).
+    HOF_EXCLUDED_BASES = {"50 Yard"}
+
+    # Sport IDs whose stats should not count toward HoF totals.
+    _hof_excl_sport_ids = {
+        sid for sid, s in sport_map.items()
+        if re.sub(r"\s*\d{4}$", "", s.get("name", "")).strip() in HOF_EXCLUDED_BASES
+    }
+    # Slugified versions for the league_stats / player_league_seasons keys.
+    _hof_excl_slugs = {
+        slugify(f"{s.get('name','')}-{s.get('season','')}" if s.get("season") else s.get("name",""))
+        for sid, s in sport_map.items()
+        if re.sub(r"\s*\d{4}$", "", s.get("name", "")).strip() in HOF_EXCLUDED_BASES
+    }
+
+    # Recompute stat totals with excluded leagues removed.
+    # (player_stat_totals still includes them for player pages; hof_stat_totals does not.)
+    hof_stat_totals: dict = defaultdict(lambda: defaultdict(float))
+    for _r in raw_stats:
+        _pid_int = _r.get("player_id")
+        if _hof_excl_sport_ids and pid_sport_map.get(_pid_int) in _hof_excl_sport_ids:
+            continue
+        _pid = str(_pid_int) if _pid_int is not None else ""
+        _cid = id_lookup.get(_pid)
+        if not _cid:
+            continue
+        _st = _r.get("stat", "")
+        if not _st:
+            continue
+        hof_stat_totals[_cid][_st] += float(_r.get("value") or 0)
+
     def _has_real_name(cp: dict) -> bool:
         """Return True if the canonical player has a real name (not a team-code placeholder like 'TOR QB')."""
         return any(c.islower() for c in cp.get("canonical_name", ""))
@@ -860,7 +891,7 @@ def main():
             cid = cp["canonical_id"]
             if not _has_real_name(cp):
                 continue
-            t = player_stat_totals.get(cid, {})
+            t = hof_stat_totals.get(cid, {})
             primary_val = t.get(primary_stat, 0)
             if primary_val == 0:
                 continue
@@ -911,6 +942,8 @@ def main():
     # 1. Most distinct league-seasons (e.g. xfl-2020, usfl-2022, cfl-2023 = 3)
     player_league_seasons: dict = defaultdict(set)
     for _sl, _pd in league_stats.items():
+        if _sl in _hof_excl_slugs:
+            continue
         for _cid, _sd in _pd.items():
             if any(v > 0 for v in _sd.values()):
                 player_league_seasons[_cid].add(_sl)
@@ -940,7 +973,7 @@ def main():
             if _sid and _sid in sport_map:
                 _sname = sport_map[_sid].get("name", "")
                 _base = re.sub(r"\s*\d{4}$", "", _sname).strip()
-                if _base:
+                if _base and _base not in HOF_EXCLUDED_BASES:
                     player_distinct_leagues[_cid2].add(_base)
 
     most_distinct_leagues = []
@@ -976,7 +1009,7 @@ def main():
 
     # 4. Most career combined TDs (passing + rushing + receiving)
     most_tds = []
-    for _cid4, _tot in player_stat_totals.items():
+    for _cid4, _tot in hof_stat_totals.items():
         _cp4 = canonical_map.get(_cid4)
         if not _cp4 or not _has_real_name(_cp4):
             continue
