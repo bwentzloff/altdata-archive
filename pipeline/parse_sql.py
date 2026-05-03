@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 SQL_FILE = Path(__file__).parent.parent / "forarchive.sql"
+GAMES_SQL_FILE = Path(__file__).parent.parent / "forarchiveGAMES.sql"
 OUT_DIR = Path(__file__).parent / "raw"
 OUT_DIR.mkdir(exist_ok=True)
 
@@ -174,6 +175,17 @@ def main():
         out_path = OUT_DIR / f"{table}.json"
         out_path.write_text(json.dumps(rows, indent=2, default=str), encoding="utf-8")
         print(f"  -> {len(rows)} rows written to {out_path}")
+
+    if GAMES_SQL_FILE.exists():
+        print(f"Reading {GAMES_SQL_FILE} ...")
+        games_sql_text = GAMES_SQL_FILE.read_text(encoding="utf-8")
+        print("Parsing games ...")
+        games_rows = parse_insert_block(games_sql_text, "games")
+        out_path = OUT_DIR / "games.json"
+        out_path.write_text(json.dumps(games_rows, indent=2, default=str), encoding="utf-8")
+        print(f"  -> {len(games_rows)} rows written to {out_path}")
+    else:
+        print(f"No games SQL file found at {GAMES_SQL_FILE}, skipping.")
 
 
 if __name__ == "__main__":

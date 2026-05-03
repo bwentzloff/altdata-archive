@@ -172,6 +172,42 @@ def parse_game_meta(game_id):
     return result
 
 
+def enrich_from_db(meta, db_game):
+    """Overlay a games-table row onto a parsed game-meta dict."""
+    home = (db_game.get("team_home") or "").strip()
+    away = (db_game.get("team_away") or "").strip()
+    if home:
+        meta["home_team"] = home
+    if away:
+        meta["away_team"] = away
+    sh = db_game.get("score_home")
+    sa = db_game.get("score_away")
+    if sh is not None:
+        meta["score_home"] = sh
+    if sa is not None:
+        meta["score_away"] = sa
+    start_time = db_game.get("start_time")
+    if start_time and isinstance(start_time, str):
+        meta["date_str"] = start_time[:10]
+        meta["start_time"] = start_time
+    channel = db_game.get("channel")
+    if channel and str(channel).strip():
+        meta["channel"] = str(channel).strip()
+    if db_game.get("record_home"):
+        meta["record_home"] = db_game["record_home"]
+    if db_game.get("record_away"):
+        meta["record_away"] = db_game["record_away"]
+    # Rebuild display: "AWAY @ HOME" + score if game is final (both scores > 0 or one > 0)
+    if home and away:
+        sh_v = meta.get("score_home")
+        sa_v = meta.get("score_away")
+        if sh_v is not None and sa_v is not None and (sh_v > 0 or sa_v > 0):
+            meta["display"] = f"{away} @ {home} ({sa_v}–{sh_v})"
+        else:
+            meta["display"] = f"{away} @ {home}"
+    return meta
+
+
 # ─── main ───────────────────────────────────────────────────────────────────
 
 def main():
@@ -181,6 +217,26 @@ def main():
     raw_stats = json.loads((RAW / "player_stats.json").read_text())
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
+
+    # Load games table if available
+    raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
+    # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
+    db_game_by_id = {}
+    db_game_by_sport_week_team = {}
+    for g in raw_games:
+        gid = g.get("game_id")
+        if gid is not None:
+            db_game_by_id[str(gid)] = g
+        sid = g.get("sport_id")
+        wk = g.get("week")
+        if sid and wk:
+            for team_field in ("team_home", "team_away"):
+                t = (g.get(team_field) or "").upper().replace(" ", "")
+                if t:
+                    key = (sid, wk, t)
+                    if key not in db_game_by_sport_week_team:
+                        db_game_by_sport_week_team[key] = g
+    print(f"Loaded {len(raw_games)} games, {len(db_game_by_id)} with direct game_id")
 
     sport_map = {s["id"]: s for s in sports}
     canonical_map = {cp["canonical_id"]: cp for cp in players_merged}
@@ -233,6 +289,38 @@ def main():
 
         if gid_str and gid_str not in player_game_meta_store:
             player_game_meta_store[gid_str] = parse_game_meta(gid_str)
+            # Enrich with DB game data: try direct match first, then sport+week+team
+            meta = player_game_meta_store[gid_str]
+            db_game = db_game_by_id.get(gid_str)
+            if db_game is None and meta.get("synthetic"):
+                pid_int = int(pid) if pid.isdigit() else -1
+                sport_id_val = pid_sport_map.get(pid_int)
+                team_val = pid_team_map.get(pid_int, "")
+                if sport_id_val and week is not None and team_val:
+                    db_game = db_game_by_sport_week_team.get((sport_id_val, week, team_val))
+            if db_game:
+                enrich_from_db(meta, db_game)
+                # Fill in league/season from sports map if missing (e.g. numeric game_ids)
+                if not meta.get("league") or not meta.get("season"):
+                    sid_val = db_game.get("sport_id")
+                    if sid_val and sid_val in sport_map:
+                        s = sport_map[sid_val]
+                        if not meta.get("league"):
+                            meta["league"] = s.get("name", "")
+                        if not meta.get("season"):
+                            meta["season"] = s.get("season") or ""
+                        if not meta.get("week") and db_game.get("week") is not None:
+                            meta["week"] = db_game["week"]
+                        # Rebuild display if we now have better info
+                        away = meta.get("away_team", "")
+                        home = meta.get("home_team", "")
+                        if away and home:
+                            sh_v = meta.get("score_home")
+                            sa_v = meta.get("score_away")
+                            if sh_v is not None and sa_v is not None and (sh_v > 0 or sa_v > 0):
+                                meta["display"] = f"{away} @ {home} ({sa_v}–{sh_v})"
+                            else:
+                                meta["display"] = f"{away} @ {home}"
 
         meta = player_game_meta_store.get(gid_str, {}) if gid_str else {}
 
@@ -303,6 +391,8 @@ def main():
                 "away_team": meta.get("away_team", ""),
                 "home_team": meta.get("home_team", ""),
                 "date_str": meta.get("date_str", ""),
+                "score_home": meta.get("score_home", ""),
+                "score_away": meta.get("score_away", ""),
                 "stats": dict(stats_dict),
             })
 
@@ -383,12 +473,14 @@ def main():
             })
         league_players.sort(key=lambda p: p["canonical_name"])
 
-        # Build game list for this league with full metadata for the template
-        league_games = []
+        # Build game list for this league with full metadata for the template.
+        # Deduplicate synthetic games: two per-team slugs often resolve to the same real
+        # matchup after DB enrichment — keep one entry, combining player counts.
+        league_games_raw = []
         for gs, ss in game_sport_slug.items():
             if ss == sport_slug:
                 gm = game_meta.get(gs, {})
-                league_games.append({
+                league_games_raw.append({
                     "slug": gs,
                     "display": gm.get("display", gs),
                     "week": gm.get("week", ""),
@@ -397,14 +489,28 @@ def main():
                     "away_team": gm.get("away_team", ""),
                     "home_team": gm.get("home_team", ""),
                     "team": gm.get("team", ""),
+                    "score_home": gm.get("score_home", ""),
+                    "score_away": gm.get("score_away", ""),
+                    "channel": gm.get("channel", ""),
                     "synthetic": gm.get("synthetic", False),
                     "player_count": len(game_players_seen.get(gs, set())),
                 })
-        league_games.sort(key=lambda g: (
-            g.get("season") or 0,
-            g.get("week") or 0,
-            g.get("slug", ""),
-        ))
+        # Deduplicate: if two entries share (away_team, home_team, week, season), merge them
+        seen_matchups = {}
+        league_games = []
+        for g in sorted(league_games_raw, key=lambda x: (x.get("season") or 0, x.get("week") or 0, x.get("slug", ""))):
+            away = (g.get("away_team") or "").upper()
+            home = (g.get("home_team") or "").upper()
+            wk = g.get("week")
+            ssn = g.get("season")
+            if away and home:
+                dedup_key = (away, home, wk, ssn)
+                if dedup_key in seen_matchups:
+                    # Merge player_count into existing entry
+                    seen_matchups[dedup_key]["player_count"] += g["player_count"]
+                    continue
+                seen_matchups[dedup_key] = g
+            league_games.append(g)
 
         league_data = {
             "slug": sport_slug,
@@ -473,8 +579,14 @@ def main():
             "week": meta.get("week", ""),
             "away_team": meta.get("away_team", ""),
             "home_team": meta.get("home_team", ""),
+            "score_away": meta.get("score_away", ""),
+            "score_home": meta.get("score_home", ""),
             "date_str": meta.get("date_str", ""),
+            "channel": meta.get("channel", ""),
+            "record_home": meta.get("record_home", ""),
+            "record_away": meta.get("record_away", ""),
             "sport_slug": meta.get("sport_slug", ""),
+            "synthetic": meta.get("synthetic", False),
             "player_count": len(player_entries),
             "stat_keys": all_stat_keys,
             "players": player_entries,

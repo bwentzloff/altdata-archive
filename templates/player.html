@@ -157,6 +157,7 @@
         <th scope="col">Wk</th>
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
+        <th scope="col">Score</th>
         {% for sk in all_stat_keys %}
         <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
         {% endfor %}
@@ -168,13 +169,18 @@
       {% set week_label = (g.season ~ " Wk " ~ g.week) if g.week else (g.season ~ "") %}
       {% if week_label != ns.cur_week %}
       {% set ns.cur_week = week_label %}
-      <tr class="week-group-row"><td colspan="{{ 4 + all_stat_keys | length }}">{{ week_label or "—" }}</td></tr>
+      <tr class="week-group-row"><td colspan="{{ 5 + all_stat_keys | length }}">{{ week_label or "—" }}</td></tr>
       {% endif %}
       <tr>
         <td>{{ g.season or "—" }}</td>
         <td>{{ g.week or "—" }}</td>
         <td>{% if g.sport_slug %}<a href="{{ root }}leagues/{{ g.sport_slug }}.html">{{ g.league or g.sport_slug }}</a>{% else %}{{ g.league or "—" }}{% endif %}</td>
         <td><a href="{{ root }}games/{{ g.game_slug }}.html" class="game-id">{% if g.away_team and g.home_team %}{{ g.away_team }} @ {{ g.home_team }}{% elif g.display %}{{ g.display }}{% else %}{{ g.game_id }}{% endif %}</a></td>
+        <td>
+          {%- if g.score_away != "" and g.score_home != "" -%}
+            {{ g.score_away }}–{{ g.score_home }}
+          {%- else -%}—{%- endif -%}
+        </td>
         {% for sk in all_stat_keys %}
         <td>{{ g.stats.get(sk, "") }}</td>
         {% endfor %}

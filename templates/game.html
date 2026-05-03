@@ -75,6 +75,16 @@
 {% block content %}
 <h1>{{ game.display }}</h1>
 
+{% if game.away_team and game.home_team and game.score_away != "" and game.score_home != "" %}
+<div class="score-banner">
+  <span class="score-team">{{ game.away_team }}</span>
+  <span class="score-num">{{ game.score_away }}</span>
+  <span class="score-sep">–</span>
+  <span class="score-num">{{ game.score_home }}</span>
+  <span class="score-team">{{ game.home_team }}</span>
+</div>
+{% endif %}
+
 <table class="info-table">
   {% if game.league %}
   <tr>
@@ -85,11 +95,20 @@
   {% if game.away_team and game.home_team %}
   <tr><th>Matchup</th><td>{{ game.away_team }} @ {{ game.home_team }}</td></tr>
   {% endif %}
+  {% if game.record_away or game.record_home %}
+  <tr><th>Records</th><td>{{ game.away_team }} {{ game.record_away or "—" }} / {{ game.home_team }} {{ game.record_home or "—" }}</td></tr>
+  {% endif %}
   {% if game.date_str %}
   <tr><th>Date</th><td>{{ game.date_str }}</td></tr>
   {% endif %}
   {% if game.week %}
   <tr><th>Week</th><td>{{ game.week }}</td></tr>
+  {% endif %}
+  {% if game.channel %}
+  <tr><th>Channel</th><td>{{ game.channel }}</td></tr>
+  {% endif %}
+  {% if game.synthetic %}
+  <tr><th>Note</th><td>Stats aggregated by week — no per-game ID in source data</td></tr>
   {% endif %}
   <tr><th>Players</th><td>{{ game.player_count }}</td></tr>
 </table>
