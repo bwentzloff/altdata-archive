@@ -109,10 +109,10 @@
   'yardsReceived'   if _ct.get('yardsReceived',   0) > 0 else '' %}
 {% if _chart_stat and player.season_totals | length >= 2 %}
 <section class="chart-section">
-  <h2>Career Progression</h2>
+  <!-- <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div>
+  </div> -->
   <script>
   (function(){
     var seasons = {{ player.season_totals | tojson | safe }};

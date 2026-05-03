@@ -286,24 +286,16 @@ def main():
     all_hof = json.loads((DATA_DIR / "hof" / "all.json").read_text())
     extras_path = DATA_DIR / "hof" / "extras.json"
     hof_extras = json.loads(extras_path.read_text()) if extras_path.exists() else {}
+    funstats_path = DATA_DIR / "hof" / "funstats.json"
+    hof_funstats = json.loads(funstats_path.read_text()) if funstats_path.exists() else {}
     render(
         env, "hof_index.html",
         SITE_DIR / "hof" / "index.html",
         root="../",
         top10s=all_hof["top10s"],
         extras=hof_extras,
+        funstats=hof_funstats,
     )
-
-    # ── HoF fun stats page ──────────────────────────────────────────────
-    funstats_path = DATA_DIR / "hof" / "funstats.json"
-    if funstats_path.exists():
-        funstats_data = json.loads(funstats_path.read_text())
-        render(
-            env, "hof_funstats.html",
-            SITE_DIR / "hof" / "funstats.html",
-            root="../",
-            funstats=funstats_data,
-        )
 
     # ── Game pages ──────────────────────────────────────────────────────
     games_index_path = DATA_DIR / "games" / "index.json"
@@ -343,8 +335,6 @@ def main():
     for cat in ["passing", "rushing", "receiving", "defense", "kicking"]:
         if (SITE_DIR / "hof" / f"{cat}.html").exists():
             add_url(f"{BASE}/hof/{cat}.html", priority="0.8", changefreq="weekly")
-    if (SITE_DIR / "hof" / "funstats.html").exists():
-        add_url(f"{BASE}/hof/funstats.html", priority="0.8", changefreq="weekly")
 
     for lf in league_files:
         slug = json.loads(lf.read_text())["slug"]

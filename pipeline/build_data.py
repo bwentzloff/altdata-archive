@@ -1172,17 +1172,98 @@ def main():
     two_way_td.sort(key=lambda x: x["games"], reverse=True)
     two_way_td = two_way_td[:20]
 
+    # Dual-threat: passing TD + rushing TD in the same game
+    _dual_qb_map: dict = defaultdict(lambda: {"pass_td": 0, "rush_td": 0, "games": 0, "game_slugs": []})
+    for _cid, _gd in player_game_stats.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        for _gk, _sd in _gd.items():
+            _ptd = int(_sd.get("passing_tds", 0))
+            _rtd = int(_sd.get("rushing_tds", 0))
+            if _ptd > 0 and _rtd > 0:
+                _entry = _dual_qb_map[_cid]
+                _entry["pass_td"] += _ptd
+                _entry["rush_td"] += _rtd
+                _entry["games"]   += 1
+                if len(_entry["game_slugs"]) < 3:
+                    _gmeta = player_game_meta_store.get(_gk, {})
+                    _entry["game_slugs"].append({
+                        "slug":    game_id_slug(_gk),
+                        "display": _gmeta.get("display", _gk),
+                        "pass_td": _ptd,
+                        "rush_td": _rtd,
+                    })
+    dual_threat_qb = []
+    for _cid, _s in _dual_qb_map.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp:
+            continue
+        dual_threat_qb.append({
+            "canonical_id":   _cid,
+            "canonical_name": _cp["canonical_name"],
+            "games":          _s["games"],
+            "pass_td":        _s["pass_td"],
+            "rush_td":        _s["rush_td"],
+            "game_slugs":     _s["game_slugs"],
+        })
+    dual_threat_qb.sort(key=lambda x: x["games"], reverse=True)
+    dual_threat_qb = dual_threat_qb[:20]
+
+    # Three or more combined TDs (rushing + receiving + passing) in a single game
+    _three_td_map: dict = defaultdict(lambda: {"games": 0, "max_tds": 0, "game_slugs": []})
+    for _cid, _gd in player_game_stats.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        for _gk, _sd in _gd.items():
+            _rtd  = int(_sd.get("rushing_tds",  0))
+            _cvtd = int(_sd.get("receiving_tds", 0))
+            _ptd  = int(_sd.get("passing_tds",   0))
+            _total = _rtd + _cvtd + _ptd
+            if _total >= 3:
+                _entry = _three_td_map[_cid]
+                _entry["games"]  += 1
+                _entry["max_tds"] = max(_entry["max_tds"], _total)
+                if len(_entry["game_slugs"]) < 3:
+                    _gmeta = player_game_meta_store.get(_gk, {})
+                    _entry["game_slugs"].append({
+                        "slug":    game_id_slug(_gk),
+                        "display": _gmeta.get("display", _gk),
+                        "total":   _total,
+                        "rush_td": _rtd,
+                        "recv_td": _cvtd,
+                        "pass_td": _ptd,
+                    })
+    three_td_game = []
+    for _cid, _s in _three_td_map.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp:
+            continue
+        three_td_game.append({
+            "canonical_id":   _cid,
+            "canonical_name": _cp["canonical_name"],
+            "games":          _s["games"],
+            "max_tds":        _s["max_tds"],
+            "game_slugs":     _s["game_slugs"],
+        })
+    three_td_game.sort(key=lambda x: (x["games"], x["max_tds"]), reverse=True)
+    three_td_game = three_td_game[:20]
+
     funstats = {
         "thursday_game_count": len(_thu_game_keys),
         "thursday_lineup":     thursday_lineup,
         "two_way_td":          two_way_td,
+        "dual_threat_qb":      dual_threat_qb,
+        "three_td_game":       three_td_game,
     }
     (SITE_DATA / "hof" / "funstats.json").write_text(
         json.dumps(funstats, indent=2), encoding="utf-8"
     )
     print(f"Written fun stats ({len(_thu_game_keys)} Thursday games, "
-          f"{sum(bool(thursday_lineup.get(s)) for s in [x[0] for x in LINEUP_SLOTS])} lineup slots filled, "
-          f"{len(two_way_td)} two-way TD players)")
+          f"{sum(bool(thursday_lineup.get(s)) for s in [x[0] for x in LINEUP_SLOTS])} lineup slots, "
+          f"{len(two_way_td)} rush+recv TD, {len(dual_threat_qb)} dual-threat QB, "
+          f"{len(three_td_game)} 3-TD games)")
 
     # ─── Sports index ─────────────────────────────────────────────────────
     write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")
