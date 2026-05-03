@@ -27,49 +27,14 @@ if [[ ! -x "$PYTHON" ]]; then
     exit 1
 fi
 
-# ── Load credentials from .env ────────────────────────────────────────────────
-if [[ ! -f ".env" ]]; then
-    echo "ERROR: .env file not found at $PROJECT_DIR/.env" >&2
-    echo "       Create it with DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS" >&2
-    exit 1
-fi
-set -o allexport
-source .env
-set +o allexport
-
 echo "╔══════════════════════════════════════════════════════╗"
 echo "║  AltSports Archive — daily build  $(date '+%Y-%m-%d %H:%M:%S')  ║"
 echo "╚══════════════════════════════════════════════════════╝"
 echo ""
 
 # ── 0. Export fresh SQL from the database ─────────────────────────────────────
-# Write a short-lived MySQL options file so the password never appears in ps(1).
 echo "── Database export ─────────────────────────────────────"
-_MYCNF="$(mktemp /tmp/altarchive_my.XXXXXX.cnf)"
-trap 'rm -f "$_MYCNF"' EXIT
-
-cat > "$_MYCNF" <<INI
-[client]
-host=${DB_HOST}
-port=${DB_PORT}
-user=${DB_USER}
-password=${DB_PASS}
-INI
-chmod 600 "$_MYCNF"
-
-# players/stats/sports → forarchive.sql
-mysqldump --defaults-extra-file="$_MYCNF" \
-    --single-transaction --quick --no-tablespaces \
-    "${DB_NAME}" players player_stats sports \
-    > forarchive.sql
-echo "  forarchive.sql written"
-
-# games → forarchiveGAMES.sql
-mysqldump --defaults-extra-file="$_MYCNF" \
-    --single-transaction --quick --no-tablespaces \
-    "${DB_NAME}" games \
-    > forarchiveGAMES.sql
-echo "  forarchiveGAMES.sql written"
+$PYTHON pipeline/export_db.py
 echo ""
 
 # ── 1. College stats backfill ────────────────────────────────────────────────
