@@ -277,3 +277,86 @@ tr:nth-child(even) { background: var(--tr-even); }
   .league-list { columns: 1; }
   table { font-size: 0.8rem; }
 }
+
+/* ── Table controls (filter + column chooser) ──────────────────────────────── */
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.table-filter {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  width: 180px;
+}
+.table-filter:focus { outline: 1px solid var(--accent); }
+
+/* Sortable column headers */
+table.data-table thead th {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+table.data-table thead th:hover { color: var(--accent); }
+table.data-table thead th.sort-asc::after  { content: " ▲"; font-size: 0.7em; }
+table.data-table thead th.sort-desc::after { content: " ▼"; font-size: 0.7em; }
+
+/* Column chooser */
+.col-chooser-btn {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.col-chooser-btn:hover { border-color: var(--accent); }
+
+.col-chooser-panel {
+  position: absolute;
+  z-index: 100;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  min-width: 160px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.col-chooser-panel.hidden { display: none; }
+.col-chooser-panel label {
+  display: block;
+  font-size: 0.82rem;
+  padding: 0.15rem 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.col-chooser-panel label:hover { color: var(--accent); }
+.col-chooser-panel input[type="checkbox"] { margin-right: 0.35rem; }
+
+/* Week group rows */
+tr.week-group-row td {
+  background: var(--bg2);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+/* League index table on homepage */
+.league-index-table td:first-child { font-weight: 500; }
+.league-index-table { margin-bottom: 1.5rem; }

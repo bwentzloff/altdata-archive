@@ -116,12 +116,12 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Roman Tatum career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>pass_defended</td><td>1.0</td></tr>
+      <tr><td data-stat="pass_defended">pass_defended</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -132,12 +132,12 @@
   <h2>By Season</h2>
   
   <h3>XFL 2023</h3>
-  <table>
+  <table class="data-table">
     <caption>Roman Tatum stats — XFL 2023</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>pass_defended</td><td>1.0</td></tr>
+      <tr><td data-stat="pass_defended">pass_defended</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -152,7 +152,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Roman Tatum game-by-game statistics</caption>
     <thead>
       <tr>
@@ -161,11 +161,17 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">pass_defended</th>
+        <th scope="col" data-stat="pass_defended">pass_defended</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="5">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -186,7 +192,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/roman-tatum.json">JSON</a> ·
@@ -205,6 +211,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

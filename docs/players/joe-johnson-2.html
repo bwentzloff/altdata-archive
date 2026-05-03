@@ -122,24 +122,24 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Joe Johnson career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>2_pointer</td><td>49.0</td></tr>
+      <tr><td data-stat="2_pointer">2_pointer</td><td>49.0</td></tr>
       
-      <tr><td>3_pointer</td><td>12.0</td></tr>
+      <tr><td data-stat="3_pointer">3_pointer</td><td>12.0</td></tr>
       
-      <tr><td>4_pointer</td><td>0.0</td></tr>
+      <tr><td data-stat="4_pointer">4_pointer</td><td>0.0</td></tr>
       
-      <tr><td>assist</td><td>17.0</td></tr>
+      <tr><td data-stat="assist">assist</td><td>17.0</td></tr>
       
-      <tr><td>blockedShot</td><td>1.0</td></tr>
+      <tr><td data-stat="blockedShot">blockedShot</td><td>1.0</td></tr>
       
-      <tr><td>rebound</td><td>51.0</td></tr>
+      <tr><td data-stat="rebound">rebound</td><td>51.0</td></tr>
       
-      <tr><td>steal</td><td>3.0</td></tr>
+      <tr><td data-stat="steal">steal</td><td>3.0</td></tr>
       
     </tbody>
   </table>
@@ -150,24 +150,24 @@
   <h2>By Season</h2>
   
   <h3>UNKNOWN</h3>
-  <table>
+  <table class="data-table">
     <caption>Joe Johnson stats — UNKNOWN</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>2_pointer</td><td>49.0</td></tr>
+      <tr><td data-stat="2_pointer">2_pointer</td><td>49.0</td></tr>
       
-      <tr><td>3_pointer</td><td>12.0</td></tr>
+      <tr><td data-stat="3_pointer">3_pointer</td><td>12.0</td></tr>
       
-      <tr><td>4_pointer</td><td>0.0</td></tr>
+      <tr><td data-stat="4_pointer">4_pointer</td><td>0.0</td></tr>
       
-      <tr><td>assist</td><td>17.0</td></tr>
+      <tr><td data-stat="assist">assist</td><td>17.0</td></tr>
       
-      <tr><td>blockedShot</td><td>1.0</td></tr>
+      <tr><td data-stat="blockedShot">blockedShot</td><td>1.0</td></tr>
       
-      <tr><td>rebound</td><td>51.0</td></tr>
+      <tr><td data-stat="rebound">rebound</td><td>51.0</td></tr>
       
-      <tr><td>steal</td><td>3.0</td></tr>
+      <tr><td data-stat="steal">steal</td><td>3.0</td></tr>
       
     </tbody>
   </table>
@@ -182,7 +182,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Joe Johnson game-by-game statistics</caption>
     <thead>
       <tr>
@@ -191,23 +191,29 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">2_pointer</th>
+        <th scope="col" data-stat="2_pointer">2_pointer</th>
         
-        <th scope="col">3_pointer</th>
+        <th scope="col" data-stat="3_pointer">3_pointer</th>
         
-        <th scope="col">4_pointer</th>
+        <th scope="col" data-stat="4_pointer">4_pointer</th>
         
-        <th scope="col">assist</th>
+        <th scope="col" data-stat="assist">assist</th>
         
-        <th scope="col">blockedShot</th>
+        <th scope="col" data-stat="blockedShot">blockedShot</th>
         
-        <th scope="col">rebound</th>
+        <th scope="col" data-stat="rebound">rebound</th>
         
-        <th scope="col">steal</th>
+        <th scope="col" data-stat="steal">steal</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11"> Wk 2</td></tr>
       
       <tr>
         <td>—</td>
@@ -231,6 +237,11 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11"> Wk 3</td></tr>
+      
       <tr>
         <td>—</td>
         <td>3</td>
@@ -252,6 +263,11 @@
         <td>0.0</td>
         
       </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11"> Wk 4</td></tr>
       
       <tr>
         <td>—</td>
@@ -275,6 +291,11 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11"> Wk 5</td></tr>
+      
       <tr>
         <td>—</td>
         <td>5</td>
@@ -297,6 +318,11 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11"> Wk 6</td></tr>
+      
       <tr>
         <td>—</td>
         <td>6</td>
@@ -318,6 +344,8 @@
         <td>1.0</td>
         
       </tr>
+      
+      
       
       <tr>
         <td>—</td>
@@ -350,7 +378,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/joe-johnson-2.json">JSON</a> ·
@@ -369,6 +397,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

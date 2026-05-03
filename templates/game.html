@@ -97,14 +97,14 @@
 <section>
   <h2>Box Score</h2>
   {% if game.players %}
-  <table>
+  <table class="data-table">
     <caption>{{ game.display }} player statistics</caption>
     <thead>
       <tr>
         <th scope="col">Player</th>
         <th scope="col">Pos</th>
         {% for sk in game.stat_keys %}
-        <th scope="col">{{ sk }}</th>
+        <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
         {% endfor %}
       </tr>
     </thead>

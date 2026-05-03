@@ -52,15 +52,34 @@
 <p>Historical player and game stats from alternative football leagues, ultimate disc, basketball 3-on-3, and more.</p>
 
 <section>
-  <h2>Browse by League / Season</h2>
-  <ul class="league-list">
-    {% for league in leagues %}
-    <li>
-      <a href="{{ root }}leagues/{{ league.slug }}.html">{{ league.display_name }}</a>
-      <span class="meta">({{ league.player_count }} players)</span>
-    </li>
-    {% endfor %}
-  </ul>
+  <h2>Browse by League</h2>
+  {% for group in sport_groups %}
+  <h3>{{ group.sport }}</h3>
+  <table class="league-index-table data-table">
+    <thead>
+      <tr>
+        <th scope="col">League</th>
+        <th scope="col">Seasons</th>
+        <th scope="col">Players</th>
+        <th scope="col">Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lg in group.leagues %}
+      <tr>
+        <td>{{ lg.name }}</td>
+        <td>
+          {% for y in lg.years %}
+          <a href="{{ root }}leagues/{{ y.slug }}.html">{{ y.season or "All" }}</a>{% if not loop.last %} · {% endif %}
+          {% endfor %}
+        </td>
+        <td>{{ lg.years | sum(attribute='player_count') }}</td>
+        <td>{{ lg.years | sum(attribute='game_count') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
 </section>
 
 <section>

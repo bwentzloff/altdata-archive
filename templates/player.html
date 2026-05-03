@@ -86,12 +86,12 @@
 <section>
   <h2>Career Totals</h2>
   {% if player.career_totals %}
-  <table>
+  <table class="data-table">
     <caption>{{ player.canonical_name }} career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       {% for stat, val in player.career_totals.items() | sort %}
-      <tr><td>{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
+      <tr><td data-stat="{{ stat }}">{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
       {% endfor %}
     </tbody>
   </table>
@@ -104,12 +104,12 @@
   <h2>By Season</h2>
   {% for season_key, stats in player.season_totals.items() | sort %}
   <h3>{{ season_key.replace("-", " ").upper() }}</h3>
-  <table>
+  <table class="data-table">
     <caption>{{ player.canonical_name }} stats — {{ season_key.replace("-", " ").upper() }}</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       {% for stat, val in stats.items() | sort %}
-      <tr><td>{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
+      <tr><td data-stat="{{ stat }}">{{ stat }}</td><td>{{ val | round(1) }}</td></tr>
       {% endfor %}
     </tbody>
   </table>
@@ -149,7 +149,7 @@
   {% set all_stat_keys = [] %}
   {% for g in player.game_log %}{% for sk in g.stats.keys() %}{% if sk not in all_stat_keys %}{% set _ = all_stat_keys.append(sk) %}{% endif %}{% endfor %}{% endfor %}
   {% set all_stat_keys = all_stat_keys | sort %}
-  <table>
+  <table class="data-table">
     <caption>{{ player.canonical_name }} game-by-game statistics</caption>
     <thead>
       <tr>
@@ -158,12 +158,18 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         {% for sk in all_stat_keys %}
-        <th scope="col">{{ sk }}</th>
+        <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
         {% endfor %}
       </tr>
     </thead>
     <tbody>
+      {% set ns = namespace(cur_week=none) %}
       {% for g in player.game_log %}
+      {% set week_label = (g.season ~ " Wk " ~ g.week) if g.week else (g.season ~ "") %}
+      {% if week_label != ns.cur_week %}
+      {% set ns.cur_week = week_label %}
+      <tr class="week-group-row"><td colspan="{{ 4 + all_stat_keys | length }}">{{ week_label or "—" }}</td></tr>
+      {% endif %}
       <tr>
         <td>{{ g.season or "—" }}</td>
         <td>{{ g.week or "—" }}</td>

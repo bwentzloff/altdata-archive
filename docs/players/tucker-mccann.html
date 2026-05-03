@@ -116,16 +116,16 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Tucker McCann career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>extra_point</td><td>6.0</td></tr>
+      <tr><td data-stat="extra_point">extra_point</td><td>6.0</td></tr>
       
-      <tr><td>field_goal_yards</td><td>374.0</td></tr>
+      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>374.0</td></tr>
       
-      <tr><td>missed</td><td>1.0</td></tr>
+      <tr><td data-stat="missed">missed</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -136,16 +136,16 @@
   <h2>By Season</h2>
   
   <h3>UFL 2026</h3>
-  <table>
+  <table class="data-table">
     <caption>Tucker McCann stats — UFL 2026</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>extra_point</td><td>6.0</td></tr>
+      <tr><td data-stat="extra_point">extra_point</td><td>6.0</td></tr>
       
-      <tr><td>field_goal_yards</td><td>374.0</td></tr>
+      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>374.0</td></tr>
       
-      <tr><td>missed</td><td>1.0</td></tr>
+      <tr><td data-stat="missed">missed</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -160,7 +160,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Tucker McCann game-by-game statistics</caption>
     <thead>
       <tr>
@@ -169,15 +169,21 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">extra_point</th>
+        <th scope="col" data-stat="extra_point">extra_point</th>
         
-        <th scope="col">field_goal_yards</th>
+        <th scope="col" data-stat="field_goal_yards">field_goal_yards</th>
         
-        <th scope="col">missed</th>
+        <th scope="col" data-stat="missed">missed</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -193,6 +199,11 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2026 Wk 2</td></tr>
+      
       <tr>
         <td>2026</td>
         <td>2</td>
@@ -207,6 +218,11 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2026 Wk 3</td></tr>
+      
       <tr>
         <td>2026</td>
         <td>3</td>
@@ -220,6 +236,11 @@
         <td></td>
         
       </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -244,7 +265,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/tucker-mccann.json">JSON</a> ·
@@ -263,6 +284,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

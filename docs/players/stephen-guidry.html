@@ -116,14 +116,14 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Stephen Guidry career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>receiving_yards</td><td>2.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>2.0</td></tr>
       
-      <tr><td>receptions</td><td>2.0</td></tr>
+      <tr><td data-stat="receptions">receptions</td><td>2.0</td></tr>
       
     </tbody>
   </table>
@@ -134,14 +134,14 @@
   <h2>By Season</h2>
   
   <h3>XFL 2023</h3>
-  <table>
+  <table class="data-table">
     <caption>Stephen Guidry stats — XFL 2023</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>receiving_yards</td><td>2.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>2.0</td></tr>
       
-      <tr><td>receptions</td><td>2.0</td></tr>
+      <tr><td data-stat="receptions">receptions</td><td>2.0</td></tr>
       
     </tbody>
   </table>
@@ -156,7 +156,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Stephen Guidry game-by-game statistics</caption>
     <thead>
       <tr>
@@ -165,13 +165,19 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">receiving_yards</th>
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
-        <th scope="col">receptions</th>
+        <th scope="col" data-stat="receptions">receptions</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="6">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -194,7 +200,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/stephen-guidry.json">JSON</a> ·
@@ -213,6 +219,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

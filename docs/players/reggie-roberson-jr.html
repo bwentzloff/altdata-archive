@@ -116,12 +116,12 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Reggie Roberson Jr. career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>lost_fumbles</td><td>1.0</td></tr>
+      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -132,12 +132,12 @@
   <h2>By Season</h2>
   
   <h3>UFL 2024</h3>
-  <table>
+  <table class="data-table">
     <caption>Reggie Roberson Jr. stats — UFL 2024</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>lost_fumbles</td><td>1.0</td></tr>
+      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>1.0</td></tr>
       
     </tbody>
   </table>
@@ -199,7 +199,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Reggie Roberson Jr. game-by-game statistics</caption>
     <thead>
       <tr>
@@ -208,11 +208,17 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">lost_fumbles</th>
+        <th scope="col" data-stat="lost_fumbles">lost_fumbles</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="5">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -233,7 +239,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/reggie-roberson-jr.json">JSON</a> ·
@@ -252,6 +258,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

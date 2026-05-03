@@ -41,15 +41,83 @@ def render(env, template_name, out_path, root="../", **kwargs):
     write_page(out_path, html)
 
 
+def _build_sport_groups(leagues_index):
+    """
+    Classify each league into a sport group and collapse AUDL/UFA as one league.
+    Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
+    """
+    SPORT_ORDER = ["Football", "Ultimate Disc", "Basketball", "Other"]
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "50YARD", "50 YARD"}
+    BASKETBALL = {"BIG3", "NLL", "SLAMBALL"}
+    DISC = {"AUDL", "UFA"}
+
+    def classify(slug, display):
+        up = display.upper()
+        name = up.split()[0]
+        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD")):
+            return "Football"
+        if name in DISC or "AUDL" in up or "UFA" in up:
+            return "Ultimate Disc"
+        if name in BASKETBALL or "BIG3" in up or "NLL" in up or "SLAMBALL" in up:
+            return "Basketball"
+        return "Other"
+
+    def league_name(slug, display):
+        """Canonical league name without year (and AUDL/UFA unified)."""
+        up = display.upper()
+        if "AUDL" in up or "UFA" in up:
+            return "AUDL / UFA"
+        # strip trailing year
+        import re
+        return re.sub(r"\s*\d{4}\s*$", "", display).strip() or display
+
+    def season_of(slug, display):
+        import re
+        m = re.search(r"\d{4}", display)
+        return int(m.group()) if m else 0
+
+    # bucket by (sport_group, league_canonical_name)
+    from collections import defaultdict
+    buckets = defaultdict(list)
+    for lg in leagues_index:
+        sport = classify(lg["slug"], lg["display_name"])
+        name = league_name(lg["slug"], lg["display_name"])
+        season = season_of(lg["slug"], lg["display_name"])
+        buckets[(sport, name)].append({
+            "slug": lg["slug"],
+            "season": season,
+            "player_count": lg["player_count"],
+            "game_count": lg["game_count"],
+        })
+
+    sport_groups = {}
+    for (sport, name), entries in buckets.items():
+        entries.sort(key=lambda e: e["season"])
+        if sport not in sport_groups:
+            sport_groups[sport] = {}
+        sport_groups[sport][name] = entries
+
+    result = []
+    for sport in SPORT_ORDER:
+        if sport not in sport_groups:
+            continue
+        leagues_in_sport = []
+        for name, years in sorted(sport_groups[sport].items()):
+            leagues_in_sport.append({"name": name, "years": years})
+        result.append({"sport": sport, "leagues": leagues_in_sport})
+    return result
+
+
 def main():
     env = make_env()
 
     # ── Load shared data ────────────────────────────────────────────────
     leagues_index = json.loads((DATA_DIR / "leagues" / "index.json").read_text())["leagues"]
+    sport_groups = _build_sport_groups(leagues_index)
 
     # ── Index page ──────────────────────────────────────────────────────
     print("Rendering index ...")
-    render(env, "index.html", SITE_DIR / "index.html", root="", leagues=leagues_index)
+    render(env, "index.html", SITE_DIR / "index.html", root="", leagues=leagues_index, sport_groups=sport_groups)
 
     # ── Search page ─────────────────────────────────────────────────────
     print("Rendering search ...")

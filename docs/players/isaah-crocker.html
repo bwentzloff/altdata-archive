@@ -116,14 +116,14 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Isaah Crocker career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>receiving_tds</td><td>1.0</td></tr>
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
       
-      <tr><td>receiving_yards</td><td>34.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>34.0</td></tr>
       
     </tbody>
   </table>
@@ -134,14 +134,14 @@
   <h2>By Season</h2>
   
   <h3>UNKNOWN</h3>
-  <table>
+  <table class="data-table">
     <caption>Isaah Crocker stats — UNKNOWN</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>receiving_tds</td><td>1.0</td></tr>
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
       
-      <tr><td>receiving_yards</td><td>34.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>34.0</td></tr>
       
     </tbody>
   </table>
@@ -156,7 +156,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Isaah Crocker game-by-game statistics</caption>
     <thead>
       <tr>
@@ -165,13 +165,19 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">receiving_tds</th>
+        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
         
-        <th scope="col">receiving_yards</th>
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="6"> Wk 1</td></tr>
       
       <tr>
         <td>—</td>
@@ -194,7 +200,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/isaah-crocker.json">JSON</a> ·
@@ -213,6 +219,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>

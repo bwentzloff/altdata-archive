@@ -65,7 +65,8 @@
 {% if league.get('games') %}
 <section>
   <h2>Games</h2>
-  <table>
+  {% set ns = namespace(cur_week=none) %}
+  <table class="data-table">
     <caption>{{ league.display_name }} game log — {{ league.game_count or 0 }} games</caption>
     <thead>
       <tr>
@@ -77,6 +78,10 @@
     </thead>
     <tbody>
       {% for g in (league.get('games') or []) %}
+      {% if g.week != ns.cur_week %}
+      {% set ns.cur_week = g.week %}
+      <tr class="week-group-row"><td colspan="4">{% if g.week %}Week {{ g.week }}{% else %}—{% endif %}</td></tr>
+      {% endif %}
       <tr>
         <td>{{ g.week or "—" }}</td>
         <td>
@@ -104,14 +109,14 @@
   {% set stat_keys = p.stats.keys() | list | sort %}
 {% endfor %}
 
-<table>
+<table class="data-table">
   <caption>{{ league.display_name }} player statistics</caption>
   <thead>
     <tr>
       <th scope="col">Player</th>
-      <th scope="col">Positions</th>
+      <th scope="col">Pos</th>
       {% for sk in stat_keys %}
-      <th scope="col">{{ sk }}</th>
+      <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
       {% endfor %}
     </tr>
   </thead>

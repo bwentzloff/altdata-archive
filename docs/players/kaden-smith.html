@@ -116,14 +116,14 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table>
+  <table class="data-table">
     <caption>Kaden Smith career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td>1pt_conversion</td><td>1.0</td></tr>
+      <tr><td data-stat="1pt_conversion">1pt_conversion</td><td>1.0</td></tr>
       
-      <tr><td>conversions</td><td>2.0</td></tr>
+      <tr><td data-stat="conversions">conversions</td><td>2.0</td></tr>
       
     </tbody>
   </table>
@@ -134,14 +134,14 @@
   <h2>By Season</h2>
   
   <h3>UFL 2024</h3>
-  <table>
+  <table class="data-table">
     <caption>Kaden Smith stats — UFL 2024</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
     <tbody>
       
-      <tr><td>1pt_conversion</td><td>1.0</td></tr>
+      <tr><td data-stat="1pt_conversion">1pt_conversion</td><td>1.0</td></tr>
       
-      <tr><td>conversions</td><td>2.0</td></tr>
+      <tr><td data-stat="conversions">conversions</td><td>2.0</td></tr>
       
     </tbody>
   </table>
@@ -191,7 +191,7 @@
   
   
   
-  <table>
+  <table class="data-table">
     <caption>Kaden Smith game-by-game statistics</caption>
     <thead>
       <tr>
@@ -200,13 +200,19 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         
-        <th scope="col">1pt_conversion</th>
+        <th scope="col" data-stat="1pt_conversion">1pt_conversion</th>
         
-        <th scope="col">conversions</th>
+        <th scope="col" data-stat="conversions">conversions</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="6">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -219,6 +225,11 @@
         <td></td>
         
       </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="6">2024 Wk 9</td></tr>
       
       <tr>
         <td>2024</td>
@@ -241,7 +252,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-02.
+      Data updated: 2026-05-03.
       Formats:
       
 <a href="../data/players/kaden-smith.json">JSON</a> ·
@@ -260,6 +271,7 @@
   </footer>
 
   <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
   
 </body>
 </html>
