@@ -36,10 +36,61 @@ def slugify(name):
     return name
 
 
+def _is_suffix(token):
+    """True for name suffixes like Jr., Sr., II, III, IV, V — but NOT bare 'JR'/'SR' (those are first names)."""
+    t = token.strip()
+    # Roman numeral suffixes
+    if t in ("II", "III", "IV", "V"):
+        return True
+    # Must end with period to count as Jr./Sr. abbreviation
+    t_lower = t.lower()
+    return t_lower in ("jr.", "sr.")
+
+
+def flip_name(name):
+    """
+    Normalize inverted CFL-style names to 'FirstName LastName [Suffix]'.
+
+    Handles:
+      'Abbott, Samson'          → 'Samson Abbott'
+      'Adams Jr., Vernon'       → 'Vernon Adams Jr.'
+      'Allen, Jr., Will'        → 'Will Allen Jr.'
+      'Steven Mitchell, Jr.'    → 'Steven Mitchell Jr.'  (comma-before-suffix strip)
+    Leaves names without a comma unchanged.
+    """
+    if "," not in name:
+        return name
+
+    parts = [p.strip() for p in name.split(",")]
+
+    # Separate suffix tokens from name tokens
+    suffixes   = [p for p in parts if _is_suffix(p)]
+    non_suffix = [p for p in parts if not _is_suffix(p)]
+
+    suffix_str = " ".join(suffixes)
+
+    if len(non_suffix) == 2:
+        # Standard "Last, First" inversion — flip it
+        last, first = non_suffix[0], non_suffix[1]
+        result = f"{first} {last}"
+    elif len(non_suffix) == 1:
+        # "FirstName LastName, Jr." — name already correct, just drop the comma
+        result = non_suffix[0]
+    else:
+        # Multi-part ambiguous — join non-suffix tokens, first is last item
+        last  = non_suffix[0]
+        first = " ".join(non_suffix[1:])
+        result = f"{first} {last}"
+
+    if suffix_str:
+        result += f" {suffix_str}"
+    return result
+
+
 def normalize_name(name):
     """Lowercase, strip punctuation, collapse whitespace."""
-    n = name.lower()
-    n = re.sub(r"['\.\-]", " ", n)
+    n = flip_name(name).lower()
+    n = re.sub(r"[',\.\-]", " ", n)
     n = re.sub(r"\s+", " ", n).strip()
     return n
 
@@ -220,7 +271,7 @@ def main():
             return score
 
         best = max(records, key=record_score)
-        canonical_name = best["full_name"]
+        canonical_name = flip_name(best["full_name"])   # ensure "First Last" order
         base_slug = slugify(canonical_name)
         slug_counts[base_slug] += 1
         count = slug_counts[base_slug]
