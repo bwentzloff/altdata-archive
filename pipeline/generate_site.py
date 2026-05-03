@@ -27,6 +27,55 @@ def make_env():
         loader=FileSystemLoader(str(TEMPLATES_DIR)),
         autoescape=select_autoescape(["html"]),
     )
+
+    def camel_to_label(s: str) -> str:
+        """Convert an ESPN stat key to a readable label.
+
+        nfl_p_completions  → 'Completions'
+        nfl_r_rushingYards → 'Rushing Yards'
+        nfl_di_interceptions → 'Interceptions'
+        """
+        import re as _re
+        # Strip leading nfl_{prefix}_ namespace
+        s = _re.sub(r"^nfl_[a-z]+_", "", str(s))
+        # Split camelCase into words
+        s = _re.sub(r"([A-Z])", r" \1", s).strip()
+        return s.title()
+
+    def smart_num(val) -> str:
+        """Display floats as ints when they are whole numbers."""
+        try:
+            f = float(val)
+            return str(int(f)) if f == int(f) else str(round(f, 1))
+        except (TypeError, ValueError):
+            return str(val) if val is not None else ""
+
+    def group_nfl_stats(stats: dict) -> list:
+        """Group an NFL stats dict by category prefix.
+
+        Returns [{label: str, items: [(key, value), ...]}, ...]
+        only for groups that have at least one stat.
+        """
+        groups_def = [
+            ("Passing",      "nfl_p_"),
+            ("Rushing",      "nfl_r_"),
+            ("Receiving",    "nfl_re_"),
+            ("Defense",      "nfl_d_"),
+            ("Int. Returns", "nfl_di_"),
+            ("Kicking",      "nfl_k_"),
+            ("Punting",      "nfl_pn_"),
+            ("General",      "nfl_g_"),
+        ]
+        result = []
+        for label, prefix in groups_def:
+            items = sorted((k, v) for k, v in stats.items() if k.startswith(prefix))
+            if items:
+                result.append({"label": label, "rows": items})
+        return result
+
+    env.filters["camel_to_label"]  = camel_to_label
+    env.filters["smart_num"]       = smart_num
+    env.filters["group_nfl_stats"] = group_nfl_stats
     return env
 
 

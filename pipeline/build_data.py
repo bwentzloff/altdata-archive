@@ -17,6 +17,7 @@ import csv
 import io
 import json
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
@@ -208,6 +209,79 @@ def enrich_from_db(meta, db_game):
     return meta
 
 
+# ─── College stats helpers ──────────────────────────────────────────────────
+
+def _norm_cname(name: str) -> str:
+    """Normalise a name for college stats lookup: lowercase, strip diacritics."""
+    nfkd = unicodedata.normalize("NFD", str(name))
+    ascii_n = "".join(c for c in nfkd if unicodedata.category(c) != "Mn")
+    return re.sub(r"\s+", " ", ascii_n).strip().lower()
+
+
+def _match_college(cp, college_name_index, college_stats_data):
+    """
+    Find college stats for a canonical player.
+
+    Strategy:
+      1. Look up normalised canonical name in the name index.
+      2. If exactly one URL found, use it.
+      3. If multiple URLs found, try to disambiguate using any college name
+         stored in the player's appearances.  Skip if still ambiguous.
+
+    Returns a college data dict or None.
+    """
+    if not college_name_index or not college_stats_data:
+        return None
+
+    norm = _norm_cname(cp["canonical_name"])
+    candidates = college_name_index.get(norm, [])
+    if not candidates:
+        return None
+
+    url = None
+    if len(candidates) == 1:
+        url = candidates[0]
+    else:
+        # Disambiguate using college names stored in roster appearances.
+        known_colleges = {
+            a.get("college", "").lower()
+            for a in cp.get("appearances", [])
+            if a.get("college")
+        }
+        if known_colleges:
+            for cand_url in candidates:
+                entry = college_stats_data.get(cand_url, {})
+                school_abbr = entry.get("school", "").lower()
+                for college in known_colleges:
+                    if school_abbr and (
+                        school_abbr in college or college.startswith(school_abbr)
+                    ):
+                        url = cand_url
+                        break
+                if url:
+                    break
+        # If still ambiguous, skip — wrong data is worse than missing data.
+
+    if not url:
+        return None
+    entry = college_stats_data.get(url, {})
+    if not entry:
+        return None
+
+    seasons = entry.get("seasons", {})
+    career: dict = {}
+    for yr_stats in seasons.values():
+        for stat, val in yr_stats.items():
+            career[stat] = career.get(stat, 0) + val
+
+    return {
+        "school": entry.get("school", ""),
+        "fdb_url": url,
+        "seasons": seasons,
+        "career": career,
+    }
+
+
 # ─── main ───────────────────────────────────────────────────────────────────
 
 def main():
@@ -301,6 +375,20 @@ def main():
                     if key not in db_game_by_sport_week_team:
                         db_game_by_sport_week_team[key] = g
     print(f"Loaded {len(raw_games)} games, {len(db_game_by_id)} with direct game_id")
+
+    # ── Load college stats index if available (built by scrape_college.py) ──
+    _college_stats_file = RAW / "college_stats_raw.json"
+    _college_index_file = RAW / "college_name_index.json"
+    college_stats_data   = json.loads(_college_stats_file.read_text()) if _college_stats_file.exists() else {}
+    college_name_index   = json.loads(_college_index_file.read_text()) if _college_index_file.exists() else {}
+    if college_stats_data:
+        print(f"Loaded college index: {len(college_stats_data)} players, {len(college_name_index)} name entries")
+
+    # ── Load NFL stats if available (built by scrape_nfl.py) ─────────────────
+    _nfl_stats_file = RAW / "nfl_stats_raw.json"
+    nfl_stats_data  = json.loads(_nfl_stats_file.read_text()) if _nfl_stats_file.exists() else {}
+    if nfl_stats_data:
+        print(f"Loaded NFL stats: {len(nfl_stats_data)} players")
 
     sport_map = {s["id"]: s for s in sports}
     canonical_map = {cp["canonical_id"]: cp for cp in players_merged}
@@ -478,6 +566,8 @@ def main():
             "career_totals": totals,
             "season_totals": season_totals,
             "game_log": game_log_by_game,
+            "college": _match_college(cp, college_name_index, college_stats_data),
+            "nfl":     nfl_stats_data.get(cid),
         }
 
         write_json_xml(SITE_DATA / "players" / cid, player_data, root_tag="player")

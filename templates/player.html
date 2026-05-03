@@ -116,6 +116,75 @@
   {% endfor %}
 </section>
 
+{% if player.college %}
+<section class="college-section">
+  <h2>College Career
+    <small>— <a href="https://www.footballdb.com{{ player.college.fdb_url }}"
+        target="_blank" rel="noopener noreferrer">{{ player.college.school }}</a></small>
+  </h2>
+  {% set col_keys = player.college.career.keys() | list | sort %}
+  {% if col_keys %}
+  <table class="data-table" id="college-stats-table">
+    <caption>{{ player.canonical_name }} college season statistics</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        {% for k in col_keys %}
+        <th scope="col" data-stat="{{ k }}">{{ k }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for yr, yr_stats in player.college.seasons.items() | sort %}
+      <tr>
+        <td>{{ yr }}</td>
+        {% for k in col_keys %}
+        <td>{% if yr_stats.get(k) is not none %}{{ yr_stats.get(k) | round(1) | int if yr_stats.get(k) == (yr_stats.get(k) | round(1) | int) else yr_stats.get(k) | round(1) }}{% endif %}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Career</th>
+        {% for k in col_keys %}
+        <td>{{ player.college.career.get(k, 0) | round(1) | int if player.college.career.get(k, 0) == (player.college.career.get(k, 0) | round(1) | int) else player.college.career.get(k, 0) | round(1) }}</td>
+        {% endfor %}
+      </tr>
+    </tfoot>
+  </table>
+  {% endif %}
+  <p class="data-note">College statistics sourced from <a href="https://www.footballdb.com{{ player.college.fdb_url }}" target="_blank" rel="noopener noreferrer">The Football Database</a>.</p>
+</section>
+{% endif %}
+
+{% if player.nfl and player.nfl.stats %}
+<section class="nfl-section">
+  <h2>NFL Career
+    <small>— <a href="https://www.espn.com/nfl/player/_/id/{{ player.nfl.espn_id }}"
+        target="_blank" rel="noopener noreferrer">ESPN</a></small>
+  </h2>
+  <table class="data-table" id="nfl-career-table">
+    <caption>{{ player.canonical_name }} NFL career statistics</caption>
+    <thead>
+      <tr><th scope="col">Group</th><th scope="col">Stat</th><th scope="col">Total</th></tr>
+    </thead>
+    <tbody>
+      {% for group in player.nfl.stats | group_nfl_stats %}
+      {% for k, v in group.rows %}
+      <tr>
+        <td>{% if loop.first %}{{ group.label }}{% endif %}</td>
+        <td>{{ k | camel_to_label }}</td>
+        <td>{{ v | smart_num }}</td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="data-note">NFL career statistics sourced from <a href="https://www.espn.com/nfl/player/_/id/{{ player.nfl.espn_id }}" target="_blank" rel="noopener noreferrer">ESPN</a>.</p>
+</section>
+{% endif %}
+
 {% if player.appearances | length > 1 %}
 <section>
   <h2>Roster Appearances</h2>
