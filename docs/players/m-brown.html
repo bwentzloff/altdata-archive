@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="M. Brown — AltSports Stats">
-  <meta property="og:description" content="Career stats for M. Brown: events_played 38.0, pdga_points 1928.0, pdga_rating 2854.0">
+  <meta property="og:description" content="Career stats for M. Brown: events_played 38.0, pdga_points 3934.0, pdga_rating 2896.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   <meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/m-brown.png">
@@ -120,55 +120,7 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
-      <button class="share-btn share-twitter" data-player="M. Brown" data-url="https://archive.altfantasysports.com/players/m-brown.html" aria-label="Share on Twitter/X">𝕏</button>
-      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/m-brown.html" aria-label="Share on Facebook">f</button>
-      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/m-brown.html" aria-label="Share on LinkedIn">in</button>
-      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/m-brown.html" aria-label="Copy link">🔗</button>
-    </div>
-
-    <script>
-    (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/m-brown.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
-      // Handle share button clicks
-      document.querySelectorAll('.share-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const url = this.dataset.url;
-          const playerName = this.dataset.player || 'M. Brown';
-          
-          if (this.classList.contains('share-twitter')) {
-            const text = `Check out stats for ${playerName} on AltSports Archive`;
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-facebook')) {
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-linkedin')) {
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-copy')) {
-            navigator.clipboard.writeText(url).then(() => {
-              const original = this.textContent;
-              this.textContent = '✓';
-              setTimeout(() => this.textContent = original, 2000);
-            });
-          }
-        });
-      });
-    })();
-    </script>
+    
 
     
   </div>
@@ -189,12 +141,12 @@
       
       <tr>
         <td data-stat="pdga_points">Pdga Points</td>
-        <td>1,928</td>
+        <td>3,934</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_rating">Pdga Rating</td>
-        <td>2,854</td>
+        <td>2,896</td>
       </tr>
       
     </tbody>
@@ -241,9 +193,9 @@
         
         <td>38</td>
         
-        <td>1928</td>
+        <td>3934</td>
         
-        <td>2854</td>
+        <td>2896</td>
         
       </tr>
       
@@ -346,9 +298,9 @@
         
         <td>38.0</td>
         
-        <td>1928.0</td>
+        <td>3934.0</td>
         
-        <td>2854.0</td>
+        <td>2896.0</td>
         
       </tr>
       

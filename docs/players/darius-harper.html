@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Darius Harper Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Darius Harper (OT, RB, T) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Darius Harper (T, RB, OT) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,14 +32,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Darius Harper",
-  "description": "Darius Harper played OT, RB, T in USFL, UFL.",
+  "description": "Darius Harper played T, RB, OT in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/darius-harper.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional OT",
+    "name": "Professional T",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -114,61 +114,13 @@
       <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      OT / RB / T
+      T / RB / OT
       <span class="sep">·</span>
-      USFL, UFL
+      UFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
-      <button class="share-btn share-twitter" data-player="Darius Harper" data-url="https://archive.altfantasysports.com/players/darius-harper.html" aria-label="Share on Twitter/X">𝕏</button>
-      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/darius-harper.html" aria-label="Share on Facebook">f</button>
-      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/darius-harper.html" aria-label="Share on LinkedIn">in</button>
-      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/darius-harper.html" aria-label="Copy link">🔗</button>
-    </div>
-
-    <script>
-    (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/darius-harper.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
-      // Handle share button clicks
-      document.querySelectorAll('.share-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const url = this.dataset.url;
-          const playerName = this.dataset.player || 'Darius Harper';
-          
-          if (this.classList.contains('share-twitter')) {
-            const text = `Check out stats for ${playerName} on AltSports Archive`;
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-facebook')) {
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-linkedin')) {
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-copy')) {
-            navigator.clipboard.writeText(url).then(() => {
-              const original = this.textContent;
-              this.textContent = '✓';
-              setTimeout(() => this.textContent = original, 2000);
-            });
-          }
-        });
-      });
-    })();
-    </script>
+    
 
     
   </div>

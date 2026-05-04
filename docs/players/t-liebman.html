@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="T. Liebman — AltSports Stats">
-  <meta property="og:description" content="Career stats for T. Liebman: events_played 6.0, pdga_points 690.0, pdga_rating 979.0">
+  <meta property="og:description" content="Career stats for T. Liebman: events_played 19.0, pdga_points 4677.0, pdga_rating 1008.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   <meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/t-liebman.png">
@@ -120,7 +120,8 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
+    
+    <div class="share-buttons">
       <button class="share-btn share-twitter" data-player="T. Liebman" data-url="https://archive.altfantasysports.com/players/t-liebman.html" aria-label="Share on Twitter/X">𝕏</button>
       <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/t-liebman.html" aria-label="Share on Facebook">f</button>
       <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/t-liebman.html" aria-label="Share on LinkedIn">in</button>
@@ -129,21 +130,6 @@
 
     <script>
     (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/t-liebman.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
       // Handle share button clicks
       document.querySelectorAll('.share-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -169,6 +155,7 @@
       });
     })();
     </script>
+    
 
     
   </div>
@@ -184,17 +171,17 @@
       
       <tr>
         <td data-stat="events_played">Events Played</td>
-        <td>6</td>
+        <td>19</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_points">Pdga Points</td>
-        <td>690</td>
+        <td>4,677</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_rating">Pdga Rating</td>
-        <td>979</td>
+        <td>1,008</td>
       </tr>
       
     </tbody>
@@ -239,11 +226,11 @@
       <tr>
         <td>DGPT 2019</td>
         
-        <td>6</td>
+        <td>19</td>
         
-        <td>690</td>
+        <td>4677</td>
         
-        <td>979</td>
+        <td>1008</td>
         
       </tr>
       
@@ -297,11 +284,11 @@
         <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT 2019 Season</a></td>
         <td>—</td>
         
-        <td>6.0</td>
+        <td>19.0</td>
         
-        <td>690.0</td>
+        <td>4677.0</td>
         
-        <td>979.0</td>
+        <td>1008.0</td>
         
       </tr>
       

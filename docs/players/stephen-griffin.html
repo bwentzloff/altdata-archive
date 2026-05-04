@@ -101,6 +101,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Stephen Griffin"
+            data-src="../assets/player-images/stephen-griffin.jpg"
+            data-caption="original:dbkingderivative:diddykong1130 / Wikimedia Commons (CC BY 2.0)">
+      <img src="../assets/player-images/stephen-griffin.jpg"
+           alt="Stephen Griffin"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      original:dbkingderivative:diddykong1130 /
+      <a href="https://commons.wikimedia.org/wiki/File:Stephen_bowen_redskins.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY 2.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -114,55 +166,7 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
-      <button class="share-btn share-twitter" data-player="Stephen Griffin" data-url="https://archive.altfantasysports.com/players/stephen-griffin.html" aria-label="Share on Twitter/X">𝕏</button>
-      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/stephen-griffin.html" aria-label="Share on Facebook">f</button>
-      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/stephen-griffin.html" aria-label="Share on LinkedIn">in</button>
-      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/stephen-griffin.html" aria-label="Copy link">🔗</button>
-    </div>
-
-    <script>
-    (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/stephen-griffin.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
-      // Handle share button clicks
-      document.querySelectorAll('.share-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const url = this.dataset.url;
-          const playerName = this.dataset.player || 'Stephen Griffin';
-          
-          if (this.classList.contains('share-twitter')) {
-            const text = `Check out stats for ${playerName} on AltSports Archive`;
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-facebook')) {
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-linkedin')) {
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
-          } else if (this.classList.contains('share-copy')) {
-            navigator.clipboard.writeText(url).then(() => {
-              const original = this.textContent;
-              this.textContent = '✓';
-              setTimeout(() => this.textContent = original, 2000);
-            });
-          }
-        });
-      });
-    })();
-    </script>
+    
 
     
   </div>

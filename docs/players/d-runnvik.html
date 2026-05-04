@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="D. Runnvik — AltSports Stats">
-  <meta property="og:description" content="Career stats for D. Runnvik: events_played 6.0, pdga_points 3400.0, pdga_rating 974.0">
+  <meta property="og:description" content="Career stats for D. Runnvik: events_played 9.0, pdga_points 492.0, pdga_rating 928.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   <meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/d-runnvik.png">
@@ -120,7 +120,8 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
+    
+    <div class="share-buttons">
       <button class="share-btn share-twitter" data-player="D. Runnvik" data-url="https://archive.altfantasysports.com/players/d-runnvik.html" aria-label="Share on Twitter/X">𝕏</button>
       <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/d-runnvik.html" aria-label="Share on Facebook">f</button>
       <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/d-runnvik.html" aria-label="Share on LinkedIn">in</button>
@@ -129,21 +130,6 @@
 
     <script>
     (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/d-runnvik.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
       // Handle share button clicks
       document.querySelectorAll('.share-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -169,6 +155,7 @@
       });
     })();
     </script>
+    
 
     
   </div>
@@ -184,17 +171,17 @@
       
       <tr>
         <td data-stat="events_played">Events Played</td>
-        <td>6</td>
+        <td>9</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_points">Pdga Points</td>
-        <td>3,400</td>
+        <td>492</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_rating">Pdga Rating</td>
-        <td>974</td>
+        <td>928</td>
       </tr>
       
     </tbody>
@@ -239,11 +226,11 @@
       <tr>
         <td>DGPT 2019</td>
         
-        <td>6</td>
+        <td>9</td>
         
-        <td>3400</td>
+        <td>492</td>
         
-        <td>974</td>
+        <td>928</td>
         
       </tr>
       
@@ -297,11 +284,11 @@
         <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT 2019 Season</a></td>
         <td>—</td>
         
-        <td>6.0</td>
+        <td>9.0</td>
         
-        <td>3400.0</td>
+        <td>492.0</td>
         
-        <td>974.0</td>
+        <td>928.0</td>
         
       </tr>
       

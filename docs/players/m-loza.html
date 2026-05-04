@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="M. Loza — AltSports Stats">
-  <meta property="og:description" content="Career stats for M. Loza: events_played 8.0, pdga_points 2865.0, pdga_rating 965.0">
+  <meta property="og:description" content="Career stats for M. Loza: events_played 8.0, pdga_points 717.0, pdga_rating 927.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   <meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/m-loza.png">
@@ -120,7 +120,8 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    <div class="share-buttons" style="display: flex;">
+    
+    <div class="share-buttons">
       <button class="share-btn share-twitter" data-player="M. Loza" data-url="https://archive.altfantasysports.com/players/m-loza.html" aria-label="Share on Twitter/X">𝕏</button>
       <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/m-loza.html" aria-label="Share on Facebook">f</button>
       <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/m-loza.html" aria-label="Share on LinkedIn">in</button>
@@ -129,21 +130,6 @@
 
     <script>
     (function() {
-      const shareButtons = document.querySelector('.share-buttons');
-      if (!shareButtons) return;
-      
-      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/m-loza.png';
-      
-      // Check if image exists via a simple image load (more reliable than HEAD)
-      const img = new Image();
-      img.onload = () => {
-        shareButtons.style.display = 'flex';
-      };
-      img.onerror = () => {
-        shareButtons.style.display = 'none';
-      };
-      img.src = imageUrl;
-      
       // Handle share button clicks
       document.querySelectorAll('.share-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -169,6 +155,7 @@
       });
     })();
     </script>
+    
 
     
   </div>
@@ -189,12 +176,12 @@
       
       <tr>
         <td data-stat="pdga_points">Pdga Points</td>
-        <td>2,865</td>
+        <td>717</td>
       </tr>
       
       <tr>
         <td data-stat="pdga_rating">Pdga Rating</td>
-        <td>965</td>
+        <td>927</td>
       </tr>
       
     </tbody>
@@ -241,9 +228,9 @@
         
         <td>8</td>
         
-        <td>2865</td>
+        <td>717</td>
         
-        <td>965</td>
+        <td>927</td>
         
       </tr>
       
@@ -299,9 +286,9 @@
         
         <td>8.0</td>
         
-        <td>2865.0</td>
+        <td>717.0</td>
         
-        <td>965.0</td>
+        <td>927.0</td>
         
       </tr>
       
