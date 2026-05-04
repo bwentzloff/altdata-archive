@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Martin Le Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Martin Le (P) across AUDL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Martin Le (MPO, P) across AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Martin Le — AltSports Stats">
-  <meta property="og:description" content="Career stats for Martin Le: assists 7.0, blocks 2.0, drops 5.0, goals 6.0, throwaways 6.0, yardsReceived 377.0, yardsThrown 494.0">
+  <meta property="og:description" content="Career stats for Martin Le: assists 7.0, blocks 2.0, drops 5.0, events_played 14.0, goals 6.0, pdga_points 2417.0, pdga_rating 2739.0, throwaways 6.0, yardsReceived 377.0, yardsThrown 494.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -30,14 +30,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Martin Le",
-  "description": "Martin Le played P in AUDL.",
+  "description": "Martin Le played MPO, P in AUDL.",
   "url": "https://archive.altfantasysports.com/players/martin-le.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional P",
+    "name": "Professional MPO",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -68,6 +68,12 @@
   ],
   "isPartOf": [
     
+    
+    {
+      "@type": "Dataset",
+      "name": "UNKNOWN",
+      "url": "https://archive.altfantasysports.com/data/leagues/unknown.json"
+    },
     
     {
       "@type": "Dataset",
@@ -115,10 +121,10 @@
   <div class="player-header-text">
     <h1>
       Martin Le
-      
+      <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      P
+      MPO / P
       <span class="sep">·</span>
       AUDL
     </p>
@@ -151,8 +157,23 @@
       </tr>
       
       <tr>
+        <td data-stat="events_played">Events Played</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
         <td data-stat="goals">Goals</td>
         <td>6</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="pdga_points">Pdga Points</td>
+        <td>2,417</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="pdga_rating">Pdga Rating</td>
+        <td>2,739</td>
       </tr>
       
       <tr>
@@ -185,7 +206,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "unknown": {"goals": 6.0, "assists": 7.0, "yardsThrown": 494.0, "yardsReceived": 377.0, "blocks": 2.0, "throwaways": 6.0, "drops": 5.0}, "AUDL-2022": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
+    var seasons = {"unknown": {"events_played": 14.0, "pdga_points": 2417.0, "pdga_rating": 2739.0, "goals": 6.0, "assists": 7.0, "yardsThrown": 494.0, "yardsReceived": 377.0, "blocks": 2.0, "throwaways": 6.0, "drops": 5.0}, "AUDL-": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "AUDL-2022": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -208,6 +229,12 @@
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
     
       
     
@@ -269,7 +296,13 @@
         
         <th scope="col" data-stat="drops">Drops</th>
         
+        <th scope="col" data-stat="events_played">Events Played</th>
+        
         <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="pdga_points">Pdga Points</th>
+        
+        <th scope="col" data-stat="pdga_rating">Pdga Rating</th>
         
         <th scope="col" data-stat="throwaways">Throwaways</th>
         
@@ -290,7 +323,13 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -309,7 +348,13 @@
         
         <td>5</td>
         
+        <td>14</td>
+        
         <td>6</td>
+        
+        <td>2417</td>
+        
+        <td>2739</td>
         
         <td>6</td>
         
@@ -328,7 +373,13 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -347,6 +398,65 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Martin Le</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Martin Le</td>
+        <td>cascades</td>
+        <td>P</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>L. Martin</td>
+        <td>—</td>
+        <td>MPO</td>
+        <td>DGPT</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>E. Martin</td>
+        <td>—</td>
+        <td>MPO</td>
+        <td>DGPT</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>L. Martin</td>
+        <td>—</td>
+        <td>MPO</td>
+        <td>DGPT</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -371,7 +481,13 @@
         
         <th scope="col" data-stat="drops">drops</th>
         
+        <th scope="col" data-stat="events_played">events_played</th>
+        
         <th scope="col" data-stat="goals">goals</th>
+        
+        <th scope="col" data-stat="pdga_points">pdga_points</th>
+        
+        <th scope="col" data-stat="pdga_rating">pdga_rating</th>
         
         <th scope="col" data-stat="throwaways">throwaways</th>
         
@@ -387,7 +503,38 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="15"> Wk 1</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>1</td>
+        <td><a href="../leagues/unknown.html">unknown</a></td>
+        <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT_2019_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>2417.0</td>
+        
+        <td>2739.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>—</td>
@@ -402,7 +549,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -415,7 +568,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12"> Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="15"> Wk 2</td></tr>
       
       <tr>
         <td>—</td>
@@ -430,7 +583,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -443,7 +602,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -458,7 +617,13 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -483,7 +648,13 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -496,7 +667,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -511,7 +682,13 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -524,7 +701,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -539,7 +716,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -552,7 +735,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -567,7 +750,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -586,7 +775,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-03.
+      Data updated: 2026-05-04.
       Formats:
       
 <a href="../data/players/martin-le.json">JSON</a> ·

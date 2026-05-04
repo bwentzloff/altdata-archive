@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birmingham QB Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Birmingham QB (QB) across USFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Birmingham QB (MPO, QB, K) across USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Birmingham QB — AltSports Stats">
-  <meta property="og:description" content="Career stats for Birmingham QB: interceptions_lost 7.0, passing_tds 14.0, passing_yards 2223.0, rushing_tds 5.0, rushing_yards 345.0">
+  <meta property="og:description" content="Career stats for Birmingham QB: events_played 12.0, extra_point 26.0, interceptions_lost 7.0, made_19 0.0, made_29 7.0, made_39 8.0, made_49 4.0, made_50 0.0, missed 5.0, passing_tds 14.0, passing_yards 2223.0, pdga_points 1150.0, pdga_rating 1870.0, rushing_tds 5.0, rushing_yards 345.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -30,14 +30,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Birmingham QB",
-  "description": "Birmingham QB played QB in USFL.",
+  "description": "Birmingham QB played MPO, QB, K in USFL.",
   "url": "https://archive.altfantasysports.com/players/birmingham-qb.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional QB",
+    "name": "Professional MPO",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -68,6 +68,12 @@
   ],
   "isPartOf": [
     
+    
+    {
+      "@type": "Dataset",
+      "name": "UNKNOWN",
+      "url": "https://archive.altfantasysports.com/data/leagues/unknown.json"
+    },
     
     {
       "@type": "Dataset",
@@ -109,10 +115,10 @@
   <div class="player-header-text">
     <h1>
       Birmingham QB
-      
+      <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      QB
+      MPO / QB / K
       <span class="sep">·</span>
       USFL
     </p>
@@ -130,8 +136,48 @@
     <tbody>
       
       <tr>
+        <td data-stat="events_played">Events Played</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="extra_point">Extra Point</td>
+        <td>26</td>
+      </tr>
+      
+      <tr>
         <td data-stat="interceptions_lost">INT</td>
         <td>7</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="made_19">Made 19</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="made_29">Made 29</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="made_39">Made 39</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="made_49">FG 40–49</td>
+        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="made_50">FG 50+</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="missed">Missed</td>
+        <td>5</td>
       </tr>
       
       <tr>
@@ -142,6 +188,16 @@
       <tr>
         <td data-stat="passing_yards">Pass Yds</td>
         <td>2,223</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="pdga_points">Pdga Points</td>
+        <td>1,150</td>
+      </tr>
+      
+      <tr>
+        <td data-stat="pdga_rating">Pdga Rating</td>
+        <td>1,870</td>
       </tr>
       
       <tr>
@@ -162,12 +218,58 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"unknown": {"events_played": 12.0, "pdga_points": 1150.0, "pdga_rating": 1870.0}, "USFL-": {"passing_yards": 2223.0, "passing_tds": 14.0, "extra_point": 26.0, "rushing_yards": 345.0, "interceptions_lost": 7.0, "made_19": 0.0, "made_29": 7.0, "made_39": 8.0, "made_49": 4.0, "made_50": 0.0, "missed": 5.0, "rushing_tds": 5.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -187,11 +289,31 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="events_played">Events Played</th>
+        
+        <th scope="col" data-stat="extra_point">Extra Point</th>
+        
         <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="made_19">Made 19</th>
+        
+        <th scope="col" data-stat="made_29">Made 29</th>
+        
+        <th scope="col" data-stat="made_39">Made 39</th>
+        
+        <th scope="col" data-stat="made_49">FG 40–49</th>
+        
+        <th scope="col" data-stat="made_50">FG 50+</th>
+        
+        <th scope="col" data-stat="missed">Missed</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="pdga_points">Pdga Points</th>
+        
+        <th scope="col" data-stat="pdga_rating">Pdga Rating</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
@@ -204,15 +326,70 @@
       <tr>
         <td>USFL </td>
         
+        <td>—</td>
+        
+        <td>26</td>
+        
         <td>7</td>
+        
+        <td>0</td>
+        
+        <td>7</td>
+        
+        <td>8</td>
+        
+        <td>4</td>
+        
+        <td>0</td>
+        
+        <td>5</td>
         
         <td>14</td>
         
         <td>2223</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>5</td>
         
         <td>345</td>
+        
+      </tr>
+      
+      <tr>
+        <td>unknown</td>
+        
+        <td>12</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1150</td>
+        
+        <td>1870</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -225,6 +402,65 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Birmingham QB</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Birmingham QB</td>
+        <td>BHAM</td>
+        <td>QB</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Birmingham K</td>
+        <td>BHAM</td>
+        <td>K</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>C. Birmingham</td>
+        <td>—</td>
+        <td>MPO</td>
+        <td>DGPT</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>J. Birmingham</td>
+        <td>—</td>
+        <td>MPO</td>
+        <td>DGPT</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -243,11 +479,31 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="events_played">events_played</th>
+        
+        <th scope="col" data-stat="extra_point">extra_point</th>
+        
         <th scope="col" data-stat="interceptions_lost">interceptions_lost</th>
+        
+        <th scope="col" data-stat="made_19">made_19</th>
+        
+        <th scope="col" data-stat="made_29">made_29</th>
+        
+        <th scope="col" data-stat="made_39">made_39</th>
+        
+        <th scope="col" data-stat="made_49">made_49</th>
+        
+        <th scope="col" data-stat="made_50">made_50</th>
+        
+        <th scope="col" data-stat="missed">missed</th>
         
         <th scope="col" data-stat="passing_tds">passing_tds</th>
         
         <th scope="col" data-stat="passing_yards">passing_yards</th>
+        
+        <th scope="col" data-stat="pdga_points">pdga_points</th>
+        
+        <th scope="col" data-stat="pdga_rating">pdga_rating</th>
         
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
@@ -261,7 +517,48 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 1</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>1</td>
+        <td><a href="../leagues/unknown.html">unknown</a></td>
+        <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT_2019_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1150.0</td>
+        
+        <td>1870.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>—</td>
@@ -270,11 +567,31 @@
         <td><a href="../games/synthetic-usfl-w1-bham.html" class="game-id">USFL — Wk 1 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>4.0</td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
         <td>211.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -285,7 +602,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 2</td></tr>
       
       <tr>
         <td>—</td>
@@ -296,9 +613,29 @@
         
         <td></td>
         
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
         <td>2.0</td>
         
         <td>229.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -309,7 +646,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 3</td></tr>
       
       <tr>
         <td>—</td>
@@ -322,7 +659,27 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
         <td>197.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -333,7 +690,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 4</td></tr>
       
       <tr>
         <td>—</td>
@@ -344,9 +701,29 @@
         
         <td></td>
         
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
         <td>0.0</td>
         
         <td>126.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -357,7 +734,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 5</td></tr>
       
       <tr>
         <td>—</td>
@@ -366,11 +743,31 @@
         <td><a href="../games/synthetic-usfl-w5-bham.html" class="game-id">USFL — Wk 5 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
         <td>1.0</td>
         
         <td>2.0</td>
         
         <td>253.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -381,7 +778,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 6</td></tr>
       
       <tr>
         <td>—</td>
@@ -390,11 +787,31 @@
         <td><a href="../games/synthetic-usfl-w6-bham.html" class="game-id">USFL — Wk 6 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
         <td>0.0</td>
         
         <td>2.0</td>
         
         <td>181.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -405,7 +822,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 7</td></tr>
       
       <tr>
         <td>—</td>
@@ -414,11 +831,31 @@
         <td><a href="../games/synthetic-usfl-w7-bham.html" class="game-id">USFL — Wk 7 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>2.0</td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
         
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
         <td>138.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -429,7 +866,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 8</td></tr>
       
       <tr>
         <td>—</td>
@@ -438,11 +875,31 @@
         <td><a href="../games/synthetic-usfl-w8-bham.html" class="game-id">USFL — Wk 8 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
         
         <td>1.0</td>
         
         <td>183.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -453,7 +910,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 9</td></tr>
       
       <tr>
         <td>—</td>
@@ -462,11 +919,31 @@
         <td><a href="../games/synthetic-usfl-w9-bham.html" class="game-id">USFL — Wk 9 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>1.0</td>
         
         <td>260.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -477,7 +954,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 10</td></tr>
       
       <tr>
         <td>—</td>
@@ -486,11 +963,31 @@
         <td><a href="../games/synthetic-usfl-w10-bham.html" class="game-id">USFL — Wk 10 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>3.0</td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
         <td>255.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -501,7 +998,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="20"> Wk 11</td></tr>
       
       <tr>
         <td>—</td>
@@ -510,11 +1007,31 @@
         <td><a href="../games/synthetic-usfl-w11-bham.html" class="game-id">USFL — Wk 11 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
         
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
         <td>190.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -531,7 +1048,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-03.
+      Data updated: 2026-05-04.
       Formats:
       
 <a href="../data/players/birmingham-qb.json">JSON</a> ·
