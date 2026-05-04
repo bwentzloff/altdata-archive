@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deshon  Williams Stats — AltSports Archive</title>
+  <meta name="description" content="Career and season stats for Deshon  Williams (WR, TE) across AFL, AF1. Free historical alternative sports data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="Deshon  Williams — AltSports Stats">
+  <meta property="og:description" content="Career stats for Deshon  Williams: receiving_tds 8.0, receiving_yards 529.0, receptions 54.0, rushing_tds 0.0, rushing_yards 17.0">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://archive.altfantasysports.com/">
+
+  <!-- Alternate machine-readable formats -->
+  
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/players/deshon-williams.json" title="Deshon  Williams stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/players/deshon-williams.xml" title="Deshon  Williams stats (XML)">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Deshon  Williams",
+  "description": "Deshon  Williams played WR, TE in AFL, AF1.",
+  "url": "https://archive.altfantasysports.com/players/deshon-williams.html",
+  "sameAs": [
+    
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Professional WR",
+    "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Deshon  Williams Career Statistics",
+  "description": "Complete game-by-game and career statistics for Deshon  Williams across alternative sports leagues.",
+  "url": "https://archive.altfantasysports.com/data/players/deshon-williams.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/deshon-williams.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/deshon-williams.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/deshon-williams.csv"
+    }
+  ],
+  "isPartOf": [
+    
+    
+    {
+      "@type": "Dataset",
+      "name": "AF1 2025",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json"
+    },
+    
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<h1>
+  Deshon  Williams
+  
+</h1>
+
+<table class="info-table">
+  <tr><th>Positions</th><td>WR, TE</td></tr>
+  <tr><th>Leagues</th><td>AFL, AF1</td></tr>
+</table>
+
+<section>
+  <h2>Career Totals</h2>
+  
+  <table class="data-table">
+    <caption>Deshon  Williams career totals across all leagues</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>8.0</td></tr>
+      
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>529.0</td></tr>
+      
+      <tr><td data-stat="receptions">receptions</td><td>54.0</td></tr>
+      
+      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="rushing_yards">rushing_yards</td><td>17.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+
+
+
+<section class="chart-section">
+  <!-- <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div> -->
+  <script>
+  (function(){
+    var seasons = {"unknown": {"rushing_yards": 10.0, "rushing_tds": 0.0, "receptions": 4.0, "receiving_yards": 31.0, "receiving_tds": 1.0}, "AF1-2025": {"receptions": 50.0, "receiving_yards": 498.0, "receiving_tds": 7.0, "rushing_yards": 7.0, "rushing_tds": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
+<section>
+  <h2>By Season</h2>
+  
+  <h3>AF1 2025</h3>
+  <table class="data-table">
+    <caption>Deshon  Williams stats — AF1 2025</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>7.0</td></tr>
+      
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>498.0</td></tr>
+      
+      <tr><td data-stat="receptions">receptions</td><td>50.0</td></tr>
+      
+      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="rushing_yards">rushing_yards</td><td>7.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+  <h3>UNKNOWN</h3>
+  <table class="data-table">
+    <caption>Deshon  Williams stats — UNKNOWN</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
+      
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>31.0</td></tr>
+      
+      <tr><td data-stat="receptions">receptions</td><td>4.0</td></tr>
+      
+      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="rushing_yards">rushing_yards</td><td>10.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+
+
+
+
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Deshon  Williams</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Deshon  Williams</td>
+        <td>WOLFPACK</td>
+        <td>TE</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Deshon Williams</td>
+        <td>Washington</td>
+        <td>WR</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+
+<section>
+  <h2>Game Log</h2>
+  
+  
+  
+  
+  <table class="data-table">
+    <caption>Deshon  Williams game-by-game statistics</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Wk</th>
+        <th scope="col">League</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Score</th>
+        
+        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
+        
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
+        
+        <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="rushing_tds">rushing_tds</th>
+        
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10"> Wk 1</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>1</td>
+        <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
+        <td><a href="../games/salina-corpus.html" class="game-id">SALINA-CORPUS</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10"> Wk 2</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>2</td>
+        <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
+        <td><a href="../games/lightning-wolfpack-mar22.html" class="game-id">LIGHTNING-WOLFPACK-MAR22</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>31.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>—</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/swkansas-nashville.html" class="game-id">NASHVILLE @ SW KANSAS</a></td>
+        <td>0–0</td>
+        
+        <td>1.0</td>
+        
+        <td>137.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/synthetic-af1-2025-w4-washington.html" class="game-id">BILLINGS @ WASHINGTON</a></td>
+        <td>61–23</td>
+        
+        <td>1.0</td>
+        
+        <td>30.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/washington-billings-0403.html" class="game-id">BILLINGS @ WASHINGTON</a></td>
+        <td>61–23</td>
+        
+        <td>1.0</td>
+        
+        <td>30.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 5</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/corpuschristi-washington-0413.html" class="game-id">CORPUS CHRISTI @ WASHINGTON</a></td>
+        <td>61–21</td>
+        
+        <td>1.0</td>
+        
+        <td>58.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/synthetic-af1-2025-w5-washington.html" class="game-id">CORPUS CHRISTI @ WASHINGTON</a></td>
+        <td>61–21</td>
+        
+        <td>1.0</td>
+        
+        <td>58.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 6</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>6</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/synthetic-af1-2025-w6-washington.html" class="game-id">NASHVILLE @ WASHINGTON</a></td>
+        <td>68–20</td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>-1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 7</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/oregon-washington-0425.html" class="game-id">WASHINGTON @ OREGON</a></td>
+        <td>41–30</td>
+        
+        <td>1.0</td>
+        
+        <td>34.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/washington-oregon-0504.html" class="game-id">OREGON @ WASHINGTON</a></td>
+        <td>37–9</td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 9</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/billings-washington-0510.html" class="game-id">WASHINGTON @ BILLINGS</a></td>
+        <td>10–69</td>
+        
+        <td>0.0</td>
+        
+        <td>34.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 10</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/washington-oregon-0518.html" class="game-id">OREGON @ WASHINGTON</a></td>
+        <td>52–20</td>
+        
+        <td>0.0</td>
+        
+        <td>52.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 11</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>11</td>
+        <td><a href="../leagues/af1-2025.html">AF1</a></td>
+        <td><a href="../games/washington-swkansas-05-25.html" class="game-id">SW KANSAS @ WASHINGTON</a></td>
+        <td>63–7</td>
+        
+        <td>0.0</td>
+        
+        <td>48.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-03.
+      Formats:
+      
+<a href="../data/players/deshon-williams.json">JSON</a> ·
+<a href="../data/players/deshon-williams.xml">XML</a> ·
+<a href="../data/players/deshon-williams.csv">CSV</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+
+
+</body>
+</html>

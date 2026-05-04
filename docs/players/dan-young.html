@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dan Young Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Dan Young (P) across AUDL, UFA. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Dan Young (P) across AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Dan Young — AltSports Stats">
-  <meta property="og:description" content="Career stats for Dan Young: assists 2.0, blocks 5.0, drops 3.0, goals 4.0, throwaways 9.0, yardsReceived 194.0, yardsThrown 321.0">
+  <meta property="og:description" content="Career stats for Dan Young: assists 0.0, blocks 0.0, drops 0.0, goals 0.0, throwaways 1.0, yardsReceived 0.0, yardsThrown 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Dan Young",
-  "description": "Dan Young played P in AUDL, UFA.",
+  "description": "Dan Young played P in AUDL.",
   "url": "https://archive.altfantasysports.com/players/dan-young.html",
   "sameAs": [
     
@@ -81,12 +81,6 @@
       "url": "https://archive.altfantasysports.com/data/leagues/audl-2022.json"
     },
     
-    {
-      "@type": "Dataset",
-      "name": "UFA 2025",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2025.json"
-    },
-    
   ],
   "creator": {
     "@type": "Organization",
@@ -122,7 +116,7 @@
 
 <table class="info-table">
   <tr><th>Positions</th><td>P</td></tr>
-  <tr><th>Leagues</th><td>AUDL, UFA</td></tr>
+  <tr><th>Leagues</th><td>AUDL</td></tr>
 </table>
 
 <section>
@@ -133,19 +127,19 @@
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>2.0</td></tr>
+      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>5.0</td></tr>
+      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
       
-      <tr><td data-stat="drops">drops</td><td>3.0</td></tr>
+      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
       
-      <tr><td data-stat="goals">goals</td><td>4.0</td></tr>
+      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
       
-      <tr><td data-stat="throwaways">throwaways</td><td>9.0</td></tr>
+      <tr><td data-stat="throwaways">throwaways</td><td>1.0</td></tr>
       
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>194.0</td></tr>
+      <tr><td data-stat="yardsReceived">yardsReceived</td><td>0.0</td></tr>
       
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>321.0</td></tr>
+      <tr><td data-stat="yardsThrown">yardsThrown</td><td>0.0</td></tr>
       
     </tbody>
   </table>
@@ -154,28 +148,6 @@
 
 
 
-
-<section class="chart-section">
-  <!-- <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div> -->
-  <script>
-  (function(){
-    var seasons = {"AUDL-": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 1.0, "drops": 0.0}, "unknown": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "AUDL-2022": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "UFA-2025": {"goals": 4.0, "assists": 2.0, "yardsThrown": 321.0, "yardsReceived": 194.0, "blocks": 5.0, "throwaways": 8.0, "drops": 3.0}};
-    var stat    = "yardsThrown";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-</section>
 
 
 <section>
@@ -227,29 +199,6 @@
     </tbody>
   </table>
   
-  <h3>UFA 2025</h3>
-  <table class="data-table">
-    <caption>Dan Young stats — UFA 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>5.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>8.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>194.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>321.0</td></tr>
-      
-    </tbody>
-  </table>
-  
   <h3>UNKNOWN</h3>
   <table class="data-table">
     <caption>Dan Young stats — UNKNOWN</caption>
@@ -279,41 +228,6 @@
 
 
 
-
-<section>
-  <h2>Roster Appearances</h2>
-  <table>
-    <caption>Roster appearances for Dan Young</caption>
-    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
-    <tbody>
-      
-      <tr>
-        <td>Dan Young</td>
-        <td>nitro</td>
-        <td>P</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Kydan Young</td>
-        <td>alleycats</td>
-        <td>P</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</section>
 
 
 <section>
@@ -527,339 +441,6 @@
         <td><a href="../leagues/audl-2022.html">AUDL</a></td>
         <td><a href="../games/2022-07-30-por-col.html" class="game-id">nitro @ summit</a></td>
         <td>18–34</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 2</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>2</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-05-02-ind-pit.html" class="game-id">alleycats @ thunderbirds</a></td>
-        <td>21–25</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 3</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>3</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-05-10-min-ind.html" class="game-id">windchill @ alleycats</a></td>
-        <td>32–17</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
-        
-        <td>1.0</td>
-        
-        <td>88.0</td>
-        
-        <td>81.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 5</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>5</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-05-24-det-ind.html" class="game-id">mechanix @ alleycats</a></td>
-        <td>18–21</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>122.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 6</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>6</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-05-30-ind-mad.html" class="game-id">alleycats @ radicals</a></td>
-        <td>11–22</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>-17.0</td>
-        
-        <td>49.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 7</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>7</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-06-07-ind-det.html" class="game-id">alleycats @ mechanix</a></td>
-        <td>25–16</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>32.0</td>
-        
-        <td>33.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 8</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>8</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-06-14-chi-ind.html" class="game-id">union @ alleycats</a></td>
-        <td>26–14</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>25.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 9</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>9</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-06-21-ind-min.html" class="game-id">alleycats @ windchill</a></td>
-        <td>14–31</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 10</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>10</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-06-27-ind-chi.html" class="game-id">alleycats @ union</a></td>
-        <td>12–22</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>3.0</td>
-        
-        <td>66.0</td>
-        
-        <td>36.0</td>
-        
-      </tr>
-      
-      
-      
-      <tr>
-        <td>2025</td>
-        <td>10</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-06-28-mad-ind.html" class="game-id">radicals @ alleycats</a></td>
-        <td>24–19</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 11</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>11</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-07-05-ind-mad.html" class="game-id">alleycats @ radicals</a></td>
-        <td>12–28</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 12</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>12</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-07-12-det-ind.html" class="game-id">mechanix @ alleycats</a></td>
-        <td>18–25</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2025 Wk 13</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>13</td>
-        <td><a href="../leagues/ufa-2025.html">UFA</a></td>
-        <td><a href="../games/2025-07-19-pit-ind.html" class="game-id">thunderbirds @ alleycats</a></td>
-        <td>18–25</td>
         
         <td>0.0</td>
         

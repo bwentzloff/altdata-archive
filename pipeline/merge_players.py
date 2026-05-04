@@ -96,18 +96,18 @@ def normalize_name(name):
 
 
 def skill_position(pos):
-    """Broad category for position — helps avoid merging same-name DE and WR."""
-    offense_skill = {"QB", "RB", "FB", "WR", "TE", "K", "P", "LS"}
-    offense_line = {"OL", "T", "G", "C"}
-    defense = {"DL", "DE", "DT", "NT", "LB", "OLB", "ILB", "MLB",
-                "CB", "SAF", "S", "FS", "SS", "DB"}
-    special = {"K", "P", "LS"}
+    """Broad category for position — helps avoid merging same-name players from incompatible roles."""
     p = (pos or "").upper()
-    if p in offense_skill:
+    if p == "QB":
+        return "quarterback"
+    if p in {"RB", "FB", "WR", "TE"}:
         return "offense_skill"
-    if p in offense_line:
+    if p in {"K", "P", "LS"}:
+        return "kicker_special"
+    if p in {"OL", "T", "G", "C"}:
         return "offense_line"
-    if p in defense:
+    if p in {"DL", "DE", "DT", "NT", "LB", "OLB", "ILB", "MLB",
+             "CB", "SAF", "S", "FS", "SS", "DB"}:
         return "defense"
     return "other"
 
@@ -255,6 +255,16 @@ def main():
                 continue
             if score < MERGE_THRESHOLD:
                 continue
+            # When last names are identical, the full-name score is inflated by the
+            # shared suffix — apply a stricter first-name similarity check.
+            norm_tokens   = norm.split()
+            match_tokens  = match_name.split()
+            if (len(norm_tokens) >= 2 and len(match_tokens) >= 2
+                    and norm_tokens[-1] == match_tokens[-1]):
+                first_a = " ".join(norm_tokens[:-1])
+                first_b = " ".join(match_tokens[:-1])
+                if fuzz.ratio(first_a, first_b) < 85:
+                    continue  # first names too different — skip
             # Candidate records
             for p1 in group:
                 for p2 in by_norm_name[match_name]:

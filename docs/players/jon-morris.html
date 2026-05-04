@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jon Morris Stats — AltSports Archive</title>
+  <meta name="description" content="Career and season stats for Jon Morris (P) across AUDL. Free historical alternative sports data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="Jon Morris — AltSports Stats">
+  <meta property="og:description" content="Career stats for Jon Morris: assists 0.0, blocks 5.0, drops 0.0, goals 1.0, throwaways 0.0, yardsReceived 3.0, yardsThrown 14.0">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://archive.altfantasysports.com/">
+
+  <!-- Alternate machine-readable formats -->
+  
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/players/jon-morris.json" title="Jon Morris stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/players/jon-morris.xml" title="Jon Morris stats (XML)">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jon Morris",
+  "description": "Jon Morris played P in AUDL.",
+  "url": "https://archive.altfantasysports.com/players/jon-morris.html",
+  "sameAs": [
+    
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Professional P",
+    "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Jon Morris Career Statistics",
+  "description": "Complete game-by-game and career statistics for Jon Morris across alternative sports leagues.",
+  "url": "https://archive.altfantasysports.com/data/players/jon-morris.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/jon-morris.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/jon-morris.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/players/jon-morris.csv"
+    }
+  ],
+  "isPartOf": [
+    
+    
+    {
+      "@type": "Dataset",
+      "name": "AUDL",
+      "url": "https://archive.altfantasysports.com/data/leagues/audl.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "AUDL 2022",
+      "url": "https://archive.altfantasysports.com/data/leagues/audl-2022.json"
+    },
+    
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<h1>
+  Jon Morris
+  
+</h1>
+
+<table class="info-table">
+  <tr><th>Positions</th><td>P</td></tr>
+  <tr><th>Leagues</th><td>AUDL</td></tr>
+</table>
+
+<section>
+  <h2>Career Totals</h2>
+  
+  <table class="data-table">
+    <caption>Jon Morris career totals across all leagues</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="blocks">blocks</td><td>5.0</td></tr>
+      
+      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="goals">goals</td><td>1.0</td></tr>
+      
+      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsReceived">yardsReceived</td><td>3.0</td></tr>
+      
+      <tr><td data-stat="yardsThrown">yardsThrown</td><td>14.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+
+
+
+<section class="chart-section">
+  <!-- <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div> -->
+  <script>
+  (function(){
+    var seasons = {"AUDL-": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "unknown": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "AUDL-2022": {"goals": 1.0, "assists": 0.0, "yardsThrown": 14.0, "yardsReceived": 3.0, "blocks": 5.0, "throwaways": 0.0, "drops": 0.0}};
+    var stat    = "yardsThrown";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
+
+
+<section>
+  <h2>By Season</h2>
+  
+  <h3>AUDL </h3>
+  <table class="data-table">
+    <caption>Jon Morris stats — AUDL </caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsReceived">yardsReceived</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsThrown">yardsThrown</td><td>0.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+  <h3>AUDL 2022</h3>
+  <table class="data-table">
+    <caption>Jon Morris stats — AUDL 2022</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="blocks">blocks</td><td>5.0</td></tr>
+      
+      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="goals">goals</td><td>1.0</td></tr>
+      
+      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsReceived">yardsReceived</td><td>3.0</td></tr>
+      
+      <tr><td data-stat="yardsThrown">yardsThrown</td><td>14.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+  <h3>UNKNOWN</h3>
+  <table class="data-table">
+    <caption>Jon Morris stats — UNKNOWN</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsReceived">yardsReceived</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="yardsThrown">yardsThrown</td><td>0.0</td></tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+
+
+
+
+
+
+<section>
+  <h2>Game Log</h2>
+  
+  
+  
+  
+  <table class="data-table">
+    <caption>Jon Morris game-by-game statistics</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Wk</th>
+        <th scope="col">League</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Score</th>
+        
+        <th scope="col" data-stat="assists">assists</th>
+        
+        <th scope="col" data-stat="blocks">blocks</th>
+        
+        <th scope="col" data-stat="drops">drops</th>
+        
+        <th scope="col" data-stat="goals">goals</th>
+        
+        <th scope="col" data-stat="throwaways">throwaways</th>
+        
+        <th scope="col" data-stat="yardsReceived">yardsReceived</th>
+        
+        <th scope="col" data-stat="yardsThrown">yardsThrown</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12"> Wk 2</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>2</td>
+        <td><a href="../leagues/audl.html">AUDL</a></td>
+        <td><a href="../games/synthetic-audl-w2-summit.html" class="game-id">AUDL — Wk 2 (SUMMIT)</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12"> Wk 3</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>3</td>
+        <td><a href="../leagues/audl.html">AUDL</a></td>
+        <td><a href="../games/synthetic-audl-w3-summit.html" class="game-id">AUDL — Wk 3 (SUMMIT)</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2022 Wk 4</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>4</td>
+        <td><a href="../leagues/audl.html">audl</a></td>
+        <td><a href="../games/2022-06-18-sea-col.html" class="game-id">SEA @ COL</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2022 Wk 5</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>5</td>
+        <td><a href="../leagues/audl.html">audl</a></td>
+        <td><a href="../games/2022-06-25-sd-col.html" class="game-id">SD @ COL</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2022 Wk 6</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>6</td>
+        <td><a href="../leagues/audl.html">audl</a></td>
+        <td><a href="../games/2022-07-02-la-col.html" class="game-id">LA @ COL</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2022 Wk 8</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>8</td>
+        <td><a href="../leagues/audl-2022.html">AUDL</a></td>
+        <td><a href="../games/2022-07-15-col-sd.html" class="game-id">summit @ growlers</a></td>
+        <td>20–23</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>8</td>
+        <td><a href="../leagues/audl-2022.html">AUDL</a></td>
+        <td><a href="../games/2022-07-16-col-la.html" class="game-id">summit @ aviators</a></td>
+        <td>27–21</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2022 Wk 10</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>10</td>
+        <td><a href="../leagues/audl-2022.html">AUDL</a></td>
+        <td><a href="../games/2022-07-30-por-col.html" class="game-id">nitro @ summit</a></td>
+        <td>18–34</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>14.0</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-03.
+      Formats:
+      
+<a href="../data/players/jon-morris.json">JSON</a> ·
+<a href="../data/players/jon-morris.xml">XML</a> ·
+<a href="../data/players/jon-morris.csv">CSV</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+
+
+</body>
+</html>

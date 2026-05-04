@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Matt SHILTZ — AltSports Stats">
-  <meta property="og:description" content="Career stats for Matt SHILTZ: interceptions_lost 15.0, passing_tds 11.0, passing_yards 2486.0, receiving_tds 0.0, receiving_yards 37.0, receptions 3.0, rushing_tds 3.0, rushing_yards 338.0">
+  <meta property="og:description" content="Career stats for Matt SHILTZ: interceptions_lost 7.0, passing_tds 1.0, passing_yards 283.0, rushing_tds 1.0, rushing_yards 31.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -71,18 +71,6 @@
     
     {
       "@type": "Dataset",
-      "name": "CFL",
-      "url": "https://archive.altfantasysports.com/data/leagues/cfl.json"
-    },
-    
-    {
-      "@type": "Dataset",
-      "name": "CFL 2023",
-      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2023.json"
-    },
-    
-    {
-      "@type": "Dataset",
       "name": "CFL 2025",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2025.json"
     },
@@ -133,21 +121,15 @@
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>15.0</td></tr>
+      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>7.0</td></tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>11.0</td></tr>
+      <tr><td data-stat="passing_tds">passing_tds</td><td>1.0</td></tr>
       
-      <tr><td data-stat="passing_yards">passing_yards</td><td>2486.0</td></tr>
+      <tr><td data-stat="passing_yards">passing_yards</td><td>283.0</td></tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>37.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>338.0</td></tr>
+      <tr><td data-stat="rushing_yards">rushing_yards</td><td>31.0</td></tr>
       
     </tbody>
   </table>
@@ -156,76 +138,10 @@
 
 
 
-
-<section class="chart-section">
-  <!-- <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div> -->
-  <script>
-  (function(){
-    var seasons = {"CFL-": {"rushing_yards": 147.0, "rushing_tds": 1.0, "passing_yards": 647.0, "passing_tds": 3.0, "interceptions_lost": 2.0, "receiving_yards": 37.0, "receiving_tds": 0.0, "receptions": 3.0}, "CFL-2023": {"passing_yards": 1556.0, "passing_tds": 7.0, "interceptions_lost": 6.0, "rushing_yards": 160.0, "rushing_tds": 1.0}, "CFL-2025": {"passing_yards": 283.0, "passing_tds": 1.0, "interceptions_lost": 7.0, "rushing_yards": 31.0, "rushing_tds": 1.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-</section>
 
 
 <section>
   <h2>By Season</h2>
-  
-  <h3>CFL </h3>
-  <table class="data-table">
-    <caption>Matt SHILTZ stats — CFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="passing_tds">passing_tds</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>647.0</td></tr>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>37.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>147.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Matt SHILTZ stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="passing_tds">passing_tds</td><td>7.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>1556.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>160.0</td></tr>
-      
-    </tbody>
-  </table>
   
   <h3>CFL 2025</h3>
   <table class="data-table">
@@ -259,30 +175,6 @@
     <caption>Roster appearances for Matt SHILTZ</caption>
     <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
     <tbody>
-      
-      <tr>
-        <td>Shiltz, Matthew</td>
-        <td>HAM</td>
-        <td>QB</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Shiltz, Matthew</td>
-        <td>HAM</td>
-        <td>QB</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
       
       <tr>
         <td>Shiltz, Matt</td>
@@ -335,12 +227,6 @@
         
         <th scope="col" data-stat="passing_yards">passing_yards</th>
         
-        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
-        
-        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
-        
-        <th scope="col" data-stat="receptions">receptions</th>
-        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -353,517 +239,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13"> Wk 1</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>1</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w1-ham.html" class="game-id">CFL — Wk 1 (HAM)</a></td>
-        <td>—</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>48.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>4.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 4</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>4</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w4-ham.html" class="game-id">CFL — Wk 4 (HAM)</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>20.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 6</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>6</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w6-ham.html" class="game-id">OTT @ HAM</a></td>
-        <td>23–25</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>27.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>33.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 7</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>7</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w7-ham.html" class="game-id">HAM @ BC</a></td>
-        <td>12–17</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>9.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>4.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 8</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>8</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w8-ham.html" class="game-id">MTL @ HAM</a></td>
-        <td>17–24</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>44.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>42.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 9</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>9</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w9-ham.html" class="game-id">HAM @ TOR</a></td>
-        <td>20–34</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>6.0</td>
-        
-        <td>0.0</td>
-        
-        <td>20.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 10</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>10</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w10-ham.html" class="game-id">TOR @ HAM</a></td>
-        <td>27–34</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>176.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>15.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 11</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>11</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w11-ham.html" class="game-id">HAM @ MTL</a></td>
-        <td>28–29</td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
-        
-        <td>303.0</td>
-        
-        <td>0.0</td>
-        
-        <td>8.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13"> Wk 20</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>20</td>
-        <td><a href="../leagues/cfl.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-w20-ham.html" class="game-id">OTT @ HAM</a></td>
-        <td>27–30</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>43.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>25.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>1</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w1-ham.html" class="game-id">HAM @ WPG</a></td>
-        <td>31–42</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w2-ham.html" class="game-id">HAM @ TOR</a></td>
-        <td>14–32</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>118.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>3</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w3-ham.html" class="game-id">MTL @ HAM</a></td>
-        <td>38–12</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>345.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>24.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>5</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w5-ham.html" class="game-id">OTT @ HAM</a></td>
-        <td>13–21</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>233.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>30.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 6</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>6</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w6-ham.html" class="game-id">HAM @ EDM</a></td>
-        <td>37–29</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>184.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>10.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 17</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>17</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w17-ham.html" class="game-id">CGY @ HAM</a></td>
-        <td>15–22</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>225.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>30.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 18</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>18</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w18-ham.html" class="game-id">HAM @ SSK</a></td>
-        <td>38–13</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>271.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>38.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 19</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>19</td>
-        <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w19-ham.html" class="game-id">BC @ HAM</a></td>
-        <td>33–30</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>180.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>26.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="10">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -880,12 +256,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>6.0</td>
         
       </tr>
@@ -893,7 +263,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="10">2025 Wk 21</td></tr>
       
       <tr>
         <td>2025</td>
@@ -907,12 +277,6 @@
         <td></td>
         
         <td>78.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td>1.0</td>
         
