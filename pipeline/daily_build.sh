@@ -98,6 +98,21 @@ echo "── IFL (Wikipedia season articles) ───────────�
 $PYTHON pipeline/scrape_ifl.py --batch 2
 echo ""
 
+# ── 3j. NAL (National Arena League, Wikipedia season articles) ───────────────
+echo "── NAL (Wikipedia season articles) ──────────────────────"
+$PYTHON pipeline/scrape_nal.py --batch 2
+echo ""
+
+# ── 3k. LFA (Liga de Fútbol Americano Mexico, embedded Google Sheets) ────────
+echo "── LFA (lfa.mx stats pages) ────────────────────────────"
+$PYTHON pipeline/scrape_lfa.py --batch 2
+echo ""
+
+# ── 3l. X-League Japan (Wikipedia) ───────────────────────────────────────────
+echo "── X-League Japan (Wikipedia) ──────────────────────────"
+$PYTHON pipeline/scrape_xleague.py
+echo ""
+
 # ── 3. Merge players ─────────────────────────────────────────────────────────
 echo "── Player images (Wikimedia Commons, ~1 min) ───────────"
 $PYTHON pipeline/scrape_images.py --max-seconds 60

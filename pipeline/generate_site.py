@@ -135,7 +135,7 @@ def _build_sport_groups(leagues_index):
     """
     SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "MLFB", "FCF"}
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}

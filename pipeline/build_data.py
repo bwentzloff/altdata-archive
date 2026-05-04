@@ -573,6 +573,9 @@ def main():
         ("pul_players.json",            "pul_stats.json",            "PUL"),
         ("fcf_players.json",            "fcf_stats.json",            "FCF"),
         ("ifl_players.json",            "ifl_stats.json",            "IFL"),
+        ("nal_players.json",            "nal_stats.json",            "NAL"),
+        ("lfa_players.json",            "lfa_stats.json",            "LFA"),
+        ("xleague_players.json",        "xleague_stats.json",        "X-League"),
         ("au_players.json",             "au_stats.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "dgpt_stats.json",           "DGPT"),
     ]
