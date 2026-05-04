@@ -90,6 +90,9 @@ def flip_name(name):
 def normalize_name(name):
     """Lowercase, strip punctuation, collapse whitespace."""
     n = flip_name(name).lower()
+    # Normalize typographic/curly apostrophes and quotes to straight apostrophe
+    # so "Ta\u2019amu" and "Ta'amu" merge into the same cluster.
+    n = n.replace('\u2019', "'").replace('\u2018', "'").replace('\u02bc', "'")
     # Collapse dotted initials before general punctuation strip so
     # "C.J." → "cj" (not "c j") and "T.J." → "tj"
     n = re.sub(r"\b([a-z])\.([a-z])\.", r"\1\2", n)

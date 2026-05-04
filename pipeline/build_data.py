@@ -183,6 +183,20 @@ def parse_game_meta(game_id):
         })
         return result
 
+    # Generic season-total key: {LEAGUE}_{SEASON}_SEASON_TOTAL  (NLL, DGPT, PLL, etc.)
+    m = re.match(r"([A-Z][A-Z0-9]+)_(\d{4})_SEASON_TOTAL$", gid)
+    if m:
+        league_name = m.group(1)
+        season = int(m.group(2))
+        result.update({
+            "sport_type": "other",
+            "league": league_name,
+            "season": season,
+            "synthetic": True,
+            "display": f"{league_name} {season} Season",
+        })
+        return result
+
     result["display"] = gid
     return result
 
