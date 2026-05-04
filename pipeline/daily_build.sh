@@ -69,9 +69,9 @@ echo "── PLL (stats.premierlacrosseleague.com / Wayback) ─────"
 $PYTHON pipeline/scrape_pll.py
 echo ""
 
-# ── 3e. PUL (Premier Ultimate League, 2019-2023) ─────────────────────────────
-echo "── PUL (premierultimate.org / Wayback) ─────────────────"
-$PYTHON pipeline/scrape_pul.py
+# ── 3e. PUL (Premier Ultimate League, 2022-present) ──────────────────────────
+echo "── PUL (pul-stats-hub.pages.dev player pages) ──────────"
+$PYTHON pipeline/scrape_pul.py --batch 10
 echo ""
 
 # ── 3f. FCF (Fan Controlled Football, 2021-2023) ─────────────────────────────
@@ -92,6 +92,11 @@ echo ""
 # NOTE: Arena Football League (arenafan.com) is blocked (403) for all automated
 # requests.  AFL data from the source SQL is already in the system.
 # Revisit if a Playwright-based scraper is added later.
+
+# ── 3i. IFL (Indoor Football League, Wikipedia season articles) ──────────────
+echo "── IFL (Wikipedia season articles) ──────────────────────"
+$PYTHON pipeline/scrape_ifl.py --batch 2
+echo ""
 
 # ── 3. Merge players ─────────────────────────────────────────────────────────
 echo "── Player images (Wikimedia Commons, ~1 min) ───────────"
