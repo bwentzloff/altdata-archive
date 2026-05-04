@@ -14,6 +14,8 @@
   <meta property="og:description" content="Historical player statistics from alternative football, ultimate, and basketball leagues. Free open data in JSON, XML, and HTML.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
+  
+
 
   <!-- Alternate machine-readable formats -->
   
@@ -116,6 +118,7 @@
     <div class="report-result-header">
       <span id="result-count"></span>
       <button id="export-csv" class="btn-secondary btn-sm" type="button">Export CSV</button>
+      <button id="export-image" class="btn-secondary btn-sm" type="button">📸 Export as Image</button>
     </div>
     <div class="table-scroll">
       <table class="data-table sortable" id="report-table">
@@ -147,6 +150,7 @@
   <script src="assets/theme.js"></script>
   <script src="assets/tables.js"></script>
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 const ROOT = "";
 </script>
@@ -484,6 +488,152 @@ function exportCSV() {
   URL.revokeObjectURL(url);
 }
 
+async function exportImage() {
+  if (!reportData) return;
+  const btn = document.getElementById("export-image");
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Generating…";
+  
+  try {
+    // Create a temporary container for the listicle
+    const listicle = document.createElement("div");
+    listicle.className = "listicle-export";
+    listicle.style.width = "1200px";
+    listicle.style.background = "linear-gradient(135deg, #0f1722 0%, #1a2844 100%)";
+    listicle.style.padding = "40px";
+    listicle.style.fontFamily = "system-ui, -apple-system, sans-serif";
+    listicle.style.color = "#fff";
+    listicle.style.display = "none";
+    
+    // Title
+    const title = document.createElement("h1");
+    title.textContent = "AltSports Player Report";
+    title.style.fontSize = "48px";
+    title.style.fontWeight = "bold";
+    title.style.marginBottom = "30px";
+    title.style.textAlign = "center";
+    listicle.appendChild(title);
+    
+    // Summary
+    const summary = document.createElement("p");
+    summary.textContent = `${reportData.length} Players Matched`;
+    summary.style.fontSize = "20px";
+    summary.style.textAlign = "center";
+    summary.style.color = "#aaa";
+    summary.style.marginBottom = "40px";
+    listicle.appendChild(summary);
+    
+    // Top 10 table
+    const tableContainer = document.createElement("div");
+    tableContainer.style.background = "rgba(255,255,255,0.05)";
+    tableContainer.style.borderRadius = "8px";
+    tableContainer.style.padding = "20px";
+    tableContainer.style.marginBottom = "40px";
+    
+    const table = document.createElement("table");
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
+    table.style.fontSize = "16px";
+    
+    // Header row
+    const headerRow = document.createElement("tr");
+    const headers = ["Player", "Leagues", "Position", ...activeStatKeys.map(k => REPORT_LABELS[k] || k)];
+    headers.forEach(h => {
+      const th = document.createElement("th");
+      th.textContent = h;
+      th.style.textAlign = "left";
+      th.style.paddingBottom = "10px";
+      th.style.borderBottom = "1px solid rgba(255,255,255,0.2)";
+      th.style.fontWeight = "bold";
+      headerRow.appendChild(th);
+    });
+    table.appendChild(headerRow);
+    
+    // Data rows (top 10)
+    const capped = reportData.slice(0, 10);
+    capped.forEach((p, idx) => {
+      const tr = document.createElement("tr");
+      tr.style.borderBottom = "1px solid rgba(255,255,255,0.1)";
+      
+      const nameCell = document.createElement("td");
+      nameCell.textContent = `${idx + 1}. ${p.name}${p.ambiguous ? " ?" : ""}`;
+      nameCell.style.paddingTop = "12px";
+      nameCell.style.paddingBottom = "12px";
+      nameCell.style.paddingRight = "15px";
+      tr.appendChild(nameCell);
+      
+      const lgCell = document.createElement("td");
+      lgCell.textContent = (p.leagues || []).join(", ");
+      lgCell.style.padding = "12px 15px";
+      tr.appendChild(lgCell);
+      
+      const posCell = document.createElement("td");
+      posCell.textContent = (p.positions || []).join(", ");
+      posCell.style.padding = "12px 15px";
+      tr.appendChild(posCell);
+      
+      activeStatKeys.forEach(k => {
+        const cell = document.createElement("td");
+        const val = p.totals?.[k];
+        cell.textContent = val != null ? Number(val).toLocaleString(undefined, {maximumFractionDigits: 1}) : "—";
+        cell.style.padding = "12px 15px";
+        cell.style.textAlign = "right";
+        cell.style.color = "#3b82f6";
+        cell.style.fontWeight = "600";
+        tr.appendChild(cell);
+      });
+      
+      table.appendChild(tr);
+    });
+    
+    tableContainer.appendChild(table);
+    listicle.appendChild(tableContainer);
+    
+    // Footer
+    const footer = document.createElement("p");
+    footer.textContent = "Generated by AltSports Archive • archive.altfantasysports.com";
+    footer.style.textAlign = "center";
+    footer.style.fontSize = "12px";
+    footer.style.color = "#666";
+    footer.style.marginTop = "30px";
+    listicle.appendChild(footer);
+    
+    // Add to document temporarily
+    document.body.appendChild(listicle);
+    
+    // Generate canvas
+    const canvas = await html2canvas(listicle, {
+      backgroundColor: null,
+      scale: 2,
+      logging: false,
+      useCORS: true,
+    });
+    
+    // Remove temporary element
+    document.body.removeChild(listicle);
+    
+    // Download as PNG
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "altsports-report.png";
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      btn.disabled = false;
+      btn.textContent = originalText;
+    });
+  } catch (e) {
+    console.error("Export failed:", e);
+    alert("Failed to generate image. Please try again.");
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+
 // Tab switching
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -522,9 +672,11 @@ document.getElementById("clear-report").addEventListener("click", () => {
   reportData = null;
 });
 document.getElementById("export-csv").addEventListener("click", exportCSV);
+document.getElementById("export-image").addEventListener("click", exportImage);
 document.getElementById("stat-conditions").addEventListener("keydown", e => {
   if (e.key === "Enter") runReport();
 });
+
 </script>
 
 </body>

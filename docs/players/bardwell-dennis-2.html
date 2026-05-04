@@ -14,6 +14,8 @@
   <meta property="og:description" content="Career stats for Bardwell, Dennis: ">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
+  <meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/bardwell-dennis-2.png">
+
 
   <!-- Alternate machine-readable formats -->
   
@@ -110,6 +112,57 @@
       <span class="sep">·</span>
       CFL
     </p>
+
+    <!-- Share buttons (only show if OG image exists) -->
+    <div class="share-buttons" style="display: flex;">
+      <button class="share-btn share-twitter" data-player="Bardwell, Dennis" data-url="https://archive.altfantasysports.com/players/bardwell-dennis-2.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/bardwell-dennis-2.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/bardwell-dennis-2.html" aria-label="Share on LinkedIn">in</button>
+      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/bardwell-dennis-2.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      const shareButtons = document.querySelector('.share-buttons');
+      if (!shareButtons) return;
+      
+      const imageUrl = 'https://archive.altfantasysports.com/assets/og-images/bardwell-dennis-2.png';
+      
+      // Check if image exists via a simple image load (more reliable than HEAD)
+      const img = new Image();
+      img.onload = () => {
+        shareButtons.style.display = 'flex';
+      };
+      img.onerror = () => {
+        shareButtons.style.display = 'none';
+      };
+      img.src = imageUrl;
+      
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Bardwell, Dennis';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
   </div>

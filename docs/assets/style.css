@@ -989,3 +989,42 @@ details[open].lineup-alts summary::before { content: '– '; }
   .funstats-cta { flex-wrap: wrap; }
   .funstats-cta svg { display: none; }
 }
+
+/* ── Player Share Buttons ─────────────────────────────────────────────── */
+.share-buttons {
+  display: none;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+.share-buttons.visible {
+  display: flex;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.share-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.share-twitter { --accent: #1DA1F2; }
+.share-twitter:hover { background: #1DA1F2; }
+.share-facebook { --accent: #1877F2; }
+.share-facebook:hover { background: #1877F2; }
+.share-linkedin { --accent: #0A66C2; }
+.share-linkedin:hover { background: #0A66C2; }
+.share-copy { --accent: #10B981; }
+.share-copy:hover { background: #10B981; }

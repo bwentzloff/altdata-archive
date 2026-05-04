@@ -267,6 +267,150 @@ def build_player_timeline(player_data: dict) -> dict | None:
     return {"year_range": year_range, "rows": rows}
 
 
+def generate_player_og_image(player_data: dict, output_path: Path) -> bool:
+    """
+    Generate an OG image for social media sharing with career timeline grid.
+    Returns True if image was generated, False otherwise.
+    """
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError:
+        return False
+
+    # Image dimensions (standard OG size: 1200x630)
+    width, height = 1200, 630
+    bg_color = (15, 23, 42)  # Dark blue
+    text_color = (255, 255, 255)
+    grid_color = (30, 41, 59)  # Slightly lighter for grid
+
+    img = Image.new("RGB", (width, height), bg_color)
+    draw = ImageDraw.Draw(img)
+
+    # Try to use a nice font, fallback to default
+    try:
+        title_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 56)
+        stat_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 32)
+        label_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 20)
+        footer_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 14)
+    except (OSError, IOError):
+        title_font = stat_font = label_font = footer_font = ImageFont.load_default()
+
+    # Extract player info
+    name = player_data.get("canonical_name", "Player")
+    position = ", ".join(player_data.get("positions", ["Unknown"]))
+    career_totals = player_data.get("career_totals", {})
+    season_totals = player_data.get("season_totals", {})
+
+    # Find top stat
+    top_stat_key = None
+    top_stat_value = 0
+    if career_totals:
+        for key, value in career_totals.items():
+            try:
+                if float(value) > top_stat_value:
+                    top_stat_value = float(value)
+                    top_stat_key = key
+            except (TypeError, ValueError):
+                pass
+
+    # Extract league-year timeline
+    league_years = {}
+    all_years = set()
+    for key in season_totals:
+        dash = key.rfind("-")
+        if dash < 0:
+            continue
+        yr_str = key[dash + 1:]
+        if not yr_str.isdigit():
+            continue
+        league = key[:dash]
+        yr = int(yr_str)
+        all_years.add(yr)
+        league_years.setdefault(league, set()).add(yr)
+
+    # Draw accent bar at top
+    accent_color = (59, 130, 246)
+    draw.rectangle([(0, 0), (width, 60)], fill=accent_color)
+    draw.text((30, 15), name, font=title_font, fill=text_color)
+
+    # Position and top stat info (left side)
+    y_pos = 80
+    draw.text((30, y_pos), f"{position}", font=label_font, fill=(180, 180, 180))
+
+    if top_stat_key:
+        top_stat_label = top_stat_key.replace("_", " ").title()
+        top_stat_display = f"{int(top_stat_value):,}" if top_stat_value == int(top_stat_value) else f"{top_stat_value:,.1f}"
+        y_pos += 30
+        draw.text((30, y_pos), top_stat_label, font=label_font, fill=text_color)
+        y_pos += 25
+        draw.text((30, y_pos), top_stat_display, font=stat_font, fill=accent_color)
+
+    # Timeline grid section
+    if league_years and all_years:
+        timeline_y = 240
+        
+        # Sort years and leagues
+        year_range = sorted(all_years)
+        sorted_leagues = sorted(league_years.items(), 
+                               key=lambda x: min(x[1]) if x[1] else 9999)
+
+        # Grid parameters
+        cell_width = 28
+        label_width = 80
+        grid_start_x = label_width + 30
+        
+        # Draw year headers
+        year_y = timeline_y
+        draw.text((30, year_y), "Career Timeline", font=label_font, fill=text_color)
+        year_y += 28
+        
+        for year in year_range:
+            yr_text = f"'{str(year)[-2:]}"
+            x = grid_start_x + (year_range.index(year) * cell_width)
+            draw.text((x - 8, year_y), yr_text, font=footer_font, fill=(120, 120, 120))
+        
+        # Draw league rows with colored cells
+        league_colors = [
+            (74, 222, 128),    # green
+            (96, 165, 250),    # blue
+            (249, 115, 22),    # orange
+            (236, 72, 153),    # pink
+            (168, 85, 247),    # purple
+            (34, 197, 94),     # darker green
+            (59, 130, 246),    # darker blue
+            (217, 119, 6),     # darker orange
+        ]
+        
+        row_y = year_y + 25
+        for league_idx, (league, years) in enumerate(sorted_leagues):
+            color = league_colors[league_idx % len(league_colors)]
+            
+            # League label
+            draw.text((30, row_y + 5), league[:10], font=footer_font, fill=color)
+            
+            # Draw cells for years
+            for year in year_range:
+                x = grid_start_x + (year_range.index(year) * cell_width)
+                if year in years:
+                    # Draw filled cell
+                    draw.rectangle([(x, row_y), (x + cell_width - 3, row_y + 18)], 
+                                 fill=color, outline=(255, 255, 255))
+            
+            row_y += 22
+
+    # Footer branding
+    footer_y = height - 25
+    draw.text((30, footer_y), "AltSports Archive", font=footer_font, fill=(100, 100, 100))
+    draw.text((width - 290, footer_y), "archive.altfantasysports.com", font=footer_font, fill=(100, 100, 100))
+
+    # Save image
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(str(output_path), "PNG")
+    return True
+
+
+
+
 def main():
     env = make_env()
 
@@ -331,14 +475,38 @@ def main():
         else {}
     )
 
+    # Track which OG images have been generated
+    og_images_manifest_path = SITE_DIR / "assets" / "og-images" / ".manifest.json"
+    og_images_generated: set = set()
+    if og_images_manifest_path.exists():
+        try:
+            og_images_generated = set(json.loads(og_images_manifest_path.read_text()).get("generated", []))
+        except (json.JSONDecodeError, KeyError):
+            pass
+
     player_files = list((DATA_DIR / "players").glob("*.json"))
     print(f"Rendering {len(player_files)} player pages ...")
+    
+    # Batch-generate OG images (limit to 50 per build to keep build time reasonable)
+    og_images_to_generate = [pf for pf in player_files 
+                              if pf.stem not in og_images_generated]
+    og_images_batch_limit = 50
+    og_images_generated_count = 0
+    
     for i, pf in enumerate(player_files):
         if i % 2000 == 0:
             print(f"  ... {i}/{len(player_files)}")
         player_data = json.loads(pf.read_text())
         cid = player_data["canonical_id"]
         img_meta = player_images.get(cid)  # None if no image
+        
+        # Generate OG image if not yet generated and under batch limit
+        og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
+        if cid not in og_images_generated and og_images_generated_count < og_images_batch_limit:
+            if generate_player_og_image(player_data, og_image_path):
+                og_images_generated.add(cid)
+                og_images_generated_count += 1
+        
         render(
             env, "player.html",
             SITE_DIR / "players" / f"{cid}.html",
@@ -347,6 +515,16 @@ def main():
             player_image=img_meta,
             player_timeline=build_player_timeline(player_data),
         )
+    
+    # Save OG images manifest
+    if og_images_generated_count > 0:
+        og_images_manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        og_images_manifest_path.write_text(
+            json.dumps({"generated": sorted(list(og_images_generated))}, indent=2),
+            encoding="utf-8"
+        )
+        print(f"Generated {og_images_generated_count} OG images ({len(og_images_generated)} total)")
+
 
     # ── HoF category pages ──────────────────────────────────────────────
     hof_categories = ["passing", "rushing", "receiving", "defense", "kicking"]
