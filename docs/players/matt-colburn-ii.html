@@ -294,7 +294,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"rushing_tds": 8.0, "receiving_yards": 154.0, "receptions": 19.0, "receiving_tds": 1.0, "rushing_yards": 481.0, "lost_fumbles": 2.0, "conversions": 1.0}, "USFL-2023": {"rushing_yards": 265.0, "rushing_tds": 4.0, "receptions": 15.0, "receiving_yards": 98.0, "receiving_tds": 1.0}, "UFL-2024": {"rushing_yards": 416.0, "rushing_tds": 4.0, "receptions": 16.0, "receiving_yards": 84.0, "receiving_tds": 0.0, "1pt_conversion": 2.0, "conversions": 1.0}, "UFL-2025": {"rushing_yards": 101.0, "rushing_tds": 1.0, "receptions": 7.0, "receiving_yards": 43.0, "receiving_tds": 0.0, "1pt_conversion": 1.0}};
+    var seasons = {"USFL-2023": {"rushing_yards": 265.0, "rushing_tds": 4.0, "receptions": 15.0, "receiving_yards": 98.0, "receiving_tds": 1.0}, "UFL-2024": {"rushing_yards": 416.0, "rushing_tds": 4.0, "receptions": 16.0, "receiving_yards": 84.0, "receiving_tds": 0.0, "1pt_conversion": 2.0, "conversions": 1.0}, "UFL-2025": {"rushing_yards": 101.0, "rushing_tds": 1.0, "receptions": 7.0, "receiving_yards": 43.0, "receiving_tds": 0.0, "1pt_conversion": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -316,22 +316,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -386,8 +370,6 @@
         
         <th scope="col" data-stat="conversions">Conversions</th>
         
-        <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
-        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -403,30 +385,7 @@
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>2</td>
-        
-        <td>1</td>
-        
-        <td>154</td>
-        
-        <td>19</td>
-        
-        <td>8</td>
-        
-        <td>481</td>
-        
-      </tr>
-      
-      <tr>
         <td>USFL 2023</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -451,8 +410,6 @@
         
         <td>1</td>
         
-        <td>—</td>
-        
         <td>0</td>
         
         <td>84</td>
@@ -469,8 +426,6 @@
         <td>UFL 2025</td>
         
         <td>1</td>
-        
-        <td>—</td>
         
         <td>—</td>
         

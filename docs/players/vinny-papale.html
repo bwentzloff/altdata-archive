@@ -225,7 +225,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"receiving_yards": 244.0, "receptions": 19.0, "receiving_tds": 0.0, "rushing_yards": -5.0, "rushing_tds": 0.0, "conversions": 0.0}, "USFL-2023": {"receptions": 33.0, "receiving_yards": 345.0, "receiving_tds": 3.0, "lost_fumbles": 1.0}, "UFL-2024": {"receptions": 36.0, "receiving_yards": 304.0, "receiving_tds": 5.0, "rushing_yards": -5.0, "rushing_tds": 0.0}};
+    var seasons = {"USFL-2023": {"receptions": 33.0, "receiving_yards": 345.0, "receiving_tds": 3.0, "lost_fumbles": 1.0}, "UFL-2024": {"receptions": 36.0, "receiving_yards": 304.0, "receiving_tds": 5.0, "rushing_yards": -5.0, "rushing_tds": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -257,20 +257,6 @@
     
       
     
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -291,8 +277,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="conversions">Conversions</th>
-        
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
@@ -310,28 +294,7 @@
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>244</td>
-        
-        <td>19</td>
-        
-        <td>0</td>
-        
-        <td>-5</td>
-        
-      </tr>
-      
-      <tr>
         <td>USFL 2023</td>
-        
-        <td>—</td>
         
         <td>1</td>
         
@@ -349,8 +312,6 @@
       
       <tr>
         <td>UFL 2024</td>
-        
-        <td>—</td>
         
         <td>—</td>
         

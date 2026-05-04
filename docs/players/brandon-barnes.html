@@ -249,7 +249,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"receiving_yards": 75.0, "receptions": 8.0, "receiving_tds": 1.0, "lost_fumbles": 0.0}, "CFL-": {"rushing_yards": 7.0, "rushing_tds": 0.0, "receiving_yards": 214.0, "receiving_tds": 1.0, "receptions": 22.0}, "AAF-2019": {"receptions": 9.0, "receiving_yards": 75.0, "receiving_tds": 0.0, "targets": 12.0}, "USFL-2023": {"receptions": 3.0, "receiving_yards": 16.0, "receiving_tds": 0.0}};
+    var seasons = {"AAF-2019": {"receptions": 9.0, "receiving_yards": 75.0, "receiving_tds": 0.0, "targets": 12.0}, "USFL-2023": {"receptions": 3.0, "receiving_yards": 16.0, "receiving_tds": 0.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -289,28 +289,6 @@
     
       
     
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
   
   
   <table class="data-table">
@@ -319,17 +297,11 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
-        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="targets">Targets</th>
         
@@ -338,57 +310,13 @@
     <tbody>
       
       <tr>
-        <td>CFL </td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>214</td>
-        
-        <td>22</td>
-        
-        <td>0</td>
-        
-        <td>7</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
-        <td>USFL </td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>75</td>
-        
-        <td>8</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>AAF 2019</td>
-        
-        <td>—</td>
         
         <td>0</td>
         
         <td>75</td>
         
         <td>9</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>12</td>
         
@@ -397,17 +325,11 @@
       <tr>
         <td>USFL 2023</td>
         
-        <td>—</td>
-        
         <td>0</td>
         
         <td>16</td>
         
         <td>3</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         

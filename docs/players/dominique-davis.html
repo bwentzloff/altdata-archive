@@ -374,7 +374,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-": {"rushing_yards": 98.0, "rushing_tds": 12.0, "passing_yards": 87.0, "passing_tds": 1.0, "interceptions_lost": 1.0, "receiving_yards": 0.0, "receiving_tds": 0.0, "receptions": 0.0}, "CFL-2019": {"pass_gp": 17.0, "pass_att": 312.0, "pass_cmp": 200.0, "pass_yds": 2216.0, "pass_td": 5.0, "pass_int": 14.0, "rush_gp": 17.0, "rush_att": 31.0, "rush_yds": 115.0, "rush_td": 6.0, "ret_gp": 17.0}, "CFL-2021": {"rush_gp": 6.0, "rush_att": 17.0, "rush_yds": 69.0, "rush_td": 1.0}, "CFL-2022": {"rush_gp": 18.0, "rush_att": 63.0, "rush_yds": 111.0, "rush_td": 13.0, "recv_gp": 18.0}, "CFL-2023": {"rushing_yards": 77.0, "rushing_tds": 4.0, "passing_yards": 74.0, "passing_tds": 0.0, "interceptions_lost": 0.0}};
+    var seasons = {"CFL-2019": {"pass_gp": 17.0, "pass_att": 312.0, "pass_cmp": 200.0, "pass_yds": 2216.0, "pass_td": 5.0, "pass_int": 14.0, "rush_gp": 17.0, "rush_att": 31.0, "rush_yds": 115.0, "rush_td": 6.0, "ret_gp": 17.0}, "CFL-2021": {"rush_gp": 6.0, "rush_att": 17.0, "rush_yds": 69.0, "rush_td": 1.0}, "CFL-2022": {"rush_gp": 18.0, "rush_att": 63.0, "rush_yds": 111.0, "rush_td": 13.0, "recv_gp": 18.0}, "CFL-2023": {"rushing_yards": 77.0, "rushing_tds": 4.0, "passing_yards": 74.0, "passing_tds": 0.0, "interceptions_lost": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -396,24 +396,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -498,12 +480,6 @@
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
         <th scope="col" data-stat="recv_gp">Recv Gp</th>
         
         <th scope="col" data-stat="ret_gp">Ret Gp</th>
@@ -525,51 +501,6 @@
     <tbody>
       
       <tr>
-        <td>CFL </td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>87</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>12</td>
-        
-        <td>98</td>
-        
-      </tr>
-      
-      <tr>
         <td>CFL 2019</td>
         
         <td>—</td>
@@ -585,12 +516,6 @@
         <td>5</td>
         
         <td>2216</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -616,12 +541,6 @@
       
       <tr>
         <td>CFL 2021</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -680,12 +599,6 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
         <td>18</td>
         
         <td>—</td>
@@ -724,12 +637,6 @@
         <td>0</td>
         
         <td>74</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         

@@ -219,7 +219,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-": {"receiving_yards": 865.0, "receiving_tds": 4.0, "receptions": 61.0, "rushing_yards": 19.0, "rushing_tds": 0.0}, "CFL-2023": {"rushing_yards": 19.0, "receptions": 27.0, "receiving_yards": 294.0, "receiving_tds": 1.0}, "CFL-2024": {"tackles": 1.0, "receptions": 92.0, "receiving_yards": 1037.0, "receiving_tds": 3.0}, "CFL-2025": {"receptions": 62.0, "receiving_yards": 777.0, "receiving_tds": 4.0, "rushing_yards": 5.0}};
+    var seasons = {"CFL-2023": {"rushing_yards": 19.0, "receptions": 27.0, "receiving_yards": 294.0, "receiving_tds": 1.0}, "CFL-2024": {"tackles": 1.0, "receptions": 92.0, "receiving_yards": 1037.0, "receiving_tds": 3.0}, "CFL-2025": {"receptions": 62.0, "receiving_yards": 777.0, "receiving_tds": 4.0, "rushing_yards": 5.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -241,18 +241,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -297,8 +285,6 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
@@ -308,23 +294,6 @@
     <tbody>
       
       <tr>
-        <td>CFL </td>
-        
-        <td>4</td>
-        
-        <td>865</td>
-        
-        <td>61</td>
-        
-        <td>0</td>
-        
-        <td>19</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>CFL 2023</td>
         
         <td>1</td>
@@ -332,8 +301,6 @@
         <td>294</td>
         
         <td>27</td>
-        
-        <td>—</td>
         
         <td>19</td>
         
@@ -352,8 +319,6 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
         <td>1</td>
         
       </tr>
@@ -366,8 +331,6 @@
         <td>777</td>
         
         <td>62</td>
-        
-        <td>—</td>
         
         <td>5</td>
         

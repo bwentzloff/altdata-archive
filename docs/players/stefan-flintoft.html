@@ -173,43 +173,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"CFL-": {"passing_yards": 3.0, "passing_tds": 0.0, "interceptions_lost": 0.0}, "CFL-2023": {"tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -226,13 +194,7 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="interceptions_lost">INT</th>
-        
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
-        
-        <th scope="col" data-stat="passing_tds">TD</th>
-        
-        <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -243,32 +205,9 @@
     <tbody>
       
       <tr>
-        <td>CFL </td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>CFL 2023</td>
         
-        <td>—</td>
-        
         <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>0</td>
         

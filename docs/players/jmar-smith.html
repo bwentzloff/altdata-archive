@@ -242,7 +242,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"passing_yards": 1763.0, "passing_tds": 11.0, "rushing_tds": 3.0, "interceptions_lost": 6.0, "rushing_yards": 241.0, "lost_fumbles": 1.0, "conversions": 0.0}, "USFL-2023": {"passing_yards": 160.0, "passing_tds": 1.0, "interceptions_lost": 1.0, "rushing_yards": 1.0}, "UFL-2024": {"1pt_conversion": 2.0}, "UFL-2025": {"passing_yards": 759.0, "passing_tds": 6.0, "interceptions_lost": 1.0, "rushing_yards": 86.0, "rushing_tds": 1.0, "lost_fumbles": 1.0, "1pt_conversion": 4.0}};
+    var seasons = {"USFL-2023": {"passing_yards": 160.0, "passing_tds": 1.0, "interceptions_lost": 1.0, "rushing_yards": 1.0}, "UFL-2024": {"1pt_conversion": 2.0}, "UFL-2025": {"passing_yards": 759.0, "passing_tds": 6.0, "interceptions_lost": 1.0, "rushing_yards": 86.0, "rushing_tds": 1.0, "lost_fumbles": 1.0, "1pt_conversion": 4.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -264,22 +264,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -320,8 +304,6 @@
         
         <th scope="col" data-stat="1pt_conversion">1Pt Conversion</th>
         
-        <th scope="col" data-stat="conversions">Conversions</th>
-        
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
@@ -339,30 +321,7 @@
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>6</td>
-        
-        <td>1</td>
-        
-        <td>11</td>
-        
-        <td>1763</td>
-        
-        <td>3</td>
-        
-        <td>241</td>
-        
-      </tr>
-      
-      <tr>
         <td>USFL 2023</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -397,16 +356,12 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
       </tr>
       
       <tr>
         <td>UFL 2025</td>
         
         <td>4</td>
-        
-        <td>—</td>
         
         <td>1</td>
         

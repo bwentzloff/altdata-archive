@@ -231,7 +231,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"rushing_tds": 3.0, "receiving_yards": 106.0, "receptions": 9.0, "receiving_tds": 0.0, "conversions": 2.0, "rushing_yards": 309.0}, "USFL-2023": {"rushing_yards": 297.0, "rushing_tds": 1.0, "receptions": 6.0, "receiving_yards": 59.0, "passing_yards": 9.0, "receiving_tds": 0.0}, "CFL-2025": {"rushing_yards": 418.0, "receptions": 15.0, "receiving_yards": 116.0, "rushing_tds": 1.0}};
+    var seasons = {"USFL-2023": {"rushing_yards": 297.0, "rushing_tds": 1.0, "receptions": 6.0, "receiving_yards": 59.0, "passing_yards": 9.0, "receiving_tds": 0.0}, "CFL-2025": {"rushing_yards": 418.0, "receptions": 15.0, "receiving_yards": 116.0, "rushing_tds": 1.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -277,20 +277,6 @@
     
       
     
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
   
   <table class="data-table">
@@ -298,8 +284,6 @@
     <thead>
       <tr>
         <th scope="col">Season</th>
-        
-        <th scope="col" data-stat="conversions">Conversions</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
@@ -318,28 +302,7 @@
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>2</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>106</td>
-        
-        <td>9</td>
-        
-        <td>3</td>
-        
-        <td>309</td>
-        
-      </tr>
-      
-      <tr>
         <td>USFL 2023</td>
-        
-        <td>—</td>
         
         <td>9</td>
         
@@ -357,8 +320,6 @@
       
       <tr>
         <td>CFL 2025</td>
-        
-        <td>—</td>
         
         <td>—</td>
         

@@ -878,9 +878,14 @@ def main():
 
         by_season = defaultdict(lambda: defaultdict(float))
         for entry in game_log_by_game:
-            skey = f"{entry['league']}-{entry['season']}" if entry.get("league") else "unknown"
-            for stat, val in entry["stats"].items():
-                by_season[skey][stat] += val
+            league = entry.get("league", "")
+            season = entry.get("season", "")
+            # Only aggregate into season_totals if both league and season are present
+            # Skip synthetic games with missing seasons to avoid "USFL-" keys
+            if league and season:
+                skey = f"{league}-{season}"
+                for stat, val in entry["stats"].items():
+                    by_season[skey][stat] += val
         season_totals = {k: dict(v) for k, v in by_season.items()}
 
         player_data = {

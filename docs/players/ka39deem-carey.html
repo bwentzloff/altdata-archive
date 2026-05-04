@@ -168,47 +168,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"CFL-": {"rushing_yards": 895.0, "rushing_tds": 8.0, "receiving_yards": 190.0, "receiving_tds": 0.0, "receptions": 23.0}, "CFL-2024": {"rushing_yards": 941.0, "receptions": 38.0, "receiving_yards": 365.0, "receiving_tds": 1.0, "rushing_tds": 6.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -242,21 +206,6 @@
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td>CFL </td>
-        
-        <td>0</td>
-        
-        <td>190</td>
-        
-        <td>23</td>
-        
-        <td>8</td>
-        
-        <td>895</td>
-        
-      </tr>
       
       <tr>
         <td>CFL 2024</td>

@@ -250,57 +250,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"USFL-": {"receiving_yards": 0.0, "receptions": 1.0, "receiving_tds": 0.0, "rushing_tds": 1.0, "passing_yards": 2108.0, "passing_tds": 10.0, "interceptions_lost": 13.0, "conversions": 5.0, "rushing_yards": 58.0, "lost_fumbles": 2.0}, "XFL-2023": {"passing_yards": 499.0, "rushing_yards": 27.0, "passing_tds": 1.0, "interceptions_lost": 4.0, "lost_fumbles": 1.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -321,8 +275,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="conversions">Conversions</th>
-        
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
@@ -331,14 +283,6 @@
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
@@ -346,34 +290,7 @@
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>5</td>
-        
-        <td>13</td>
-        
-        <td>2</td>
-        
-        <td>10</td>
-        
-        <td>2108</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>1</td>
-        
-        <td>58</td>
-        
-      </tr>
-      
-      <tr>
         <td>XFL 2023</td>
-        
-        <td>—</td>
         
         <td>4</td>
         
@@ -382,14 +299,6 @@
         <td>1</td>
         
         <td>499</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>27</td>
         

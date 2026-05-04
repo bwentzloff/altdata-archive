@@ -248,51 +248,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"USFL-": {"rushing_tds": 2.0, "lost_fumbles": 1.0, "receiving_yards": 81.0, "receptions": 15.0, "receiving_tds": 1.0, "rushing_yards": 216.0, "conversions": 3.0}, "CFL-2021": {"rush_gp": 1.0, "rush_att": 10.0, "rush_yds": 57.0, "recv_gp": 1.0, "recv_rec": 1.0, "recv_yds": 8.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -315,16 +275,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="conversions">Conversions</th>
-        
-        <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
         <th scope="col" data-stat="recv_gp">Recv Gp</th>
         
         <th scope="col" data-stat="recv_rec">Recv Rec</th>
@@ -337,57 +287,12 @@
         
         <th scope="col" data-stat="rush_yds">Rush Yds</th>
         
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
       </tr>
     </thead>
     <tbody>
       
       <tr>
-        <td>USFL </td>
-        
-        <td>3</td>
-        
-        <td>1</td>
-        
-        <td>1</td>
-        
-        <td>81</td>
-        
-        <td>15</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>2</td>
-        
-        <td>216</td>
-        
-      </tr>
-      
-      <tr>
         <td>CFL 2021</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>1</td>
         
@@ -400,10 +305,6 @@
         <td>1</td>
         
         <td>57</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       

@@ -204,7 +204,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-": {"receiving_yards": 161.0, "receiving_tds": 0.0, "receptions": 15.0}, "CFL-2023": {"receptions": 3.0, "receiving_yards": 40.0}, "CFL-2024": {"receptions": 4.0, "receiving_yards": 62.0}, "CFL-2025": {"receiving_yards": 337.0, "receiving_tds": 5.0, "receptions": 23.0}};
+    var seasons = {"CFL-2023": {"receptions": 3.0, "receiving_yards": 40.0}, "CFL-2024": {"receptions": 4.0, "receiving_yards": 62.0}, "CFL-2025": {"receiving_yards": 337.0, "receiving_tds": 5.0, "receptions": 23.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -226,14 +226,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -271,17 +263,6 @@
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td>CFL </td>
-        
-        <td>0</td>
-        
-        <td>161</td>
-        
-        <td>15</td>
-        
-      </tr>
       
       <tr>
         <td>CFL 2023</td>

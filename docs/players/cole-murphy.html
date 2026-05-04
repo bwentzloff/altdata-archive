@@ -198,57 +198,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"USFL-": {"extra_point": 9.0, "passing_yards": 9.0, "passing_tds": 0.0, "interceptions_lost": 0.0, "made_19": 0.0, "made_29": 3.0, "made_39": 3.0, "made_49": 3.0, "made_50": 2.0, "missed": 1.0}, "USFL-2023": {"field_goal_yards": 561.0, "extra_point": 15.0, "missed": 5.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -269,54 +223,11 @@
         
         <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
         
-        <th scope="col" data-stat="interceptions_lost">INT</th>
-        
-        <th scope="col" data-stat="made_19">Made 19</th>
-        
-        <th scope="col" data-stat="made_29">Made 29</th>
-        
-        <th scope="col" data-stat="made_39">Made 39</th>
-        
-        <th scope="col" data-stat="made_49">FG 40–49</th>
-        
-        <th scope="col" data-stat="made_50">FG 50+</th>
-        
         <th scope="col" data-stat="missed">Missed</th>
-        
-        <th scope="col" data-stat="passing_tds">TD</th>
-        
-        <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td>USFL </td>
-        
-        <td>9</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>3</td>
-        
-        <td>3</td>
-        
-        <td>3</td>
-        
-        <td>2</td>
-        
-        <td>1</td>
-        
-        <td>0</td>
-        
-        <td>9</td>
-        
-      </tr>
       
       <tr>
         <td>USFL 2023</td>
@@ -325,23 +236,7 @@
         
         <td>561</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
         <td>5</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       

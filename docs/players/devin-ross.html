@@ -306,7 +306,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-": {"lost_fumbles": 0.0, "receiving_yards": 312.0, "receptions": 28.0, "receiving_tds": 1.0, "rushing_yards": 8.0, "rushing_tds": 0.0}, "USFL-2023": {"receptions": 0.0, "receiving_yards": 0.0, "receiving_tds": 0.0}, "UFL-2024": {"receptions": 9.0, "receiving_yards": 134.0, "receiving_tds": 0.0, "conversions": 1.0}, "UFL-2025": {"receptions": 6.0, "receiving_yards": 91.0, "receiving_tds": 1.0, "lost_fumbles": 1.0}};
+    var seasons = {"USFL-2023": {"receptions": 0.0, "receiving_yards": 0.0, "receiving_tds": 0.0}, "UFL-2024": {"receptions": 9.0, "receiving_yards": 134.0, "receiving_tds": 0.0, "conversions": 1.0}, "UFL-2025": {"receptions": 6.0, "receiving_yards": 91.0, "receiving_tds": 1.0, "lost_fumbles": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -328,20 +328,6 @@
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -388,32 +374,9 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td>USFL </td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>312</td>
-        
-        <td>28</td>
-        
-        <td>0</td>
-        
-        <td>8</td>
-        
-      </tr>
       
       <tr>
         <td>USFL 2023</td>
@@ -427,10 +390,6 @@
         <td>0</td>
         
         <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
@@ -447,10 +406,6 @@
         
         <td>9</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
       </tr>
       
       <tr>
@@ -465,10 +420,6 @@
         <td>91</td>
         
         <td>6</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
