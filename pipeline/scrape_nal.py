@@ -272,6 +272,7 @@ def build_outputs(data: dict) -> tuple[list[dict], list[dict], dict]:
                         "stat": stat_name,
                         "value": float(value),
                         "game_id": game_id,
+                        "league": "NAL",
                         "_year": year,
                     }
                 )

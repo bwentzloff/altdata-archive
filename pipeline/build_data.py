@@ -478,6 +478,53 @@ def main():
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
 
+    # ── Register new league players in id_lookup (before any aggregation) ──────
+    # New league players (IFL, NAL, X-League, etc.) have synthetic IDs that
+    # need to map to canonical IDs. Since they're new, create canonical IDs
+    # and register them so stats can be aggregated.
+    _new_league_player_files = [
+        "ifl_players.json", "nal_players.json", "xleague_players.json", "lfa_players.json",
+    ]
+    for _nlf in _new_league_player_files:
+        _nlf_path = RAW / _nlf
+        if _nlf_path.exists():
+            _nl_players = json.loads(_nlf_path.read_text())
+            for _nl_player in _nl_players:
+                _pid = str(_nl_player.get("id", ""))
+                _full_name = _nl_player.get("full_name", "")
+                if _pid and _full_name:
+                    # Create canonical_id from name (slugified)
+                    _cid = slugify(_full_name)
+                    # Register in id_lookup
+                    id_lookup[_pid] = _cid
+                    # Add to players_merged if not already there
+                    if not any(p.get("canonical_id") == _cid for p in players_merged):
+                        players_merged.append({
+                            "canonical_id": _cid,
+                            "canonical_name": _full_name,
+                            "positions": [],
+                            "leagues": [_nl_player.get("league", "")],
+                            "sport_ids": [],
+                            "sport_names": [],
+                            "ambiguous": False,
+                            "record_count": 1,
+                            "appearances": [{
+                                "id": int(_pid),
+                                "full_name": _full_name,
+                                "team": _nl_player.get("team", ""),
+                                "position": _nl_player.get("position", ""),
+                                "sport_id": None,
+                                "league": _nl_player.get("league", ""),
+                                "jersey": _nl_player.get("jersey"),
+                                "college": _nl_player.get("college"),
+                                "college_stats": None,
+                                "height": _nl_player.get("height"),
+                                "weight": _nl_player.get("weight"),
+                            }],
+                            "_raw_ids": [int(_pid)],
+                        })
+
+
     # ── Inject AAF 2019 players and box-score stats ───────────────────────
     _AAF_MONTH = {
         "january":1,"february":2,"march":3,"april":4,"may":5,"june":6,
@@ -727,7 +774,7 @@ def main():
 
         meta = player_game_meta_store.get(gid_str, {}) if gid_str else {}
 
-        league_name = meta.get("league", "")
+        league_name = meta.get("league", "") or row.get("league", "")
         season = meta.get("season", "")
         if league_name and season:
             sport_slug = slugify(f"{league_name}-{season}")

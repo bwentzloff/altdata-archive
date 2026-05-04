@@ -78,69 +78,79 @@ def parse_mvp_table(soup: BeautifulSoup) -> list[dict]:
 
     tables = soup.find_all("table", {"class": "wikitable"})
 
-    for table in tables:
+    # Find the MVP section heading to know which tables to look at
+    mvp_found = False
+    roy_found = False
+
+    for i, table in enumerate(tables):
         headers = [th.get_text(strip=True).lower() for th in table.find_all("th")]
-        table_text = table.get_text().lower()
 
-        # Look for MVP table (has "year", "division" or "winner", "position")
-        if "mvp" not in table_text:
-            continue
+        # Check if this table is in MVP section (look backward for MVP heading)
+        # For now, just detect tables with year+winner+position+team structure
+        has_year = "year" in headers
+        has_winner = "winner" in headers
+        has_position = "position" in headers
+        has_team = "team" in headers
 
-        # Parse rows
-        for tr in table.find_all("tr")[1:]:  # skip header row
-            tds = tr.find_all("td")
-            if len(tds) < 2:
-                continue
+        # This could be MVP or ROY - we'll parse both and let the context determine
+        if has_year and has_winner and has_position and has_team:
+            # Parse rows
+            for tr in table.find_all("tr")[1:]:  # skip header row
+                tds = tr.find_all("td")
+                if len(tds) < 3:
+                    continue
 
-            row_text = [td.get_text(strip=True) for td in tds]
+                row_text = [td.get_text(strip=True) for td in tds]
 
-            # Try to extract year from first column
-            year = None
-            name = ""
-            position = ""
-            team = ""
+                year = None
+                name = ""
+                position = ""
+                team = ""
 
-            # Expected column order: Year | [Division] | Winner | Position | Team
-            col_idx = 0
+                col_idx = 0
 
-            # First try: column 0 is year
-            if col_idx < len(row_text):
-                try:
-                    year = int(row_text[col_idx])
+                # Column 0: Year
+                if col_idx < len(row_text):
+                    try:
+                        year = int(row_text[col_idx])
+                        col_idx += 1
+                    except (ValueError, IndexError):
+                        # If first column isn't a year, skip this row
+                        continue
+
+                # Skip division/classification column if present
+                if col_idx < len(row_text):
+                    test_val = row_text[col_idx].lower()
+                    if any(
+                        kw in test_val
+                        for kw in ["x1", "east", "central", "west", "area", "division"]
+                    ):
+                        col_idx += 1
+
+                # Next should be winner name
+                if col_idx < len(row_text):
+                    name = row_text[col_idx].strip()
                     col_idx += 1
-                except (ValueError, IndexError):
-                    pass
 
-            # Skip division if present (look for x1, east, central, west)
-            if col_idx < len(row_text):
-                test_val = row_text[col_idx].lower()
-                if "x1" in test_val or test_val in ["east", "central", "west"]:
+                # Next is position
+                if col_idx < len(row_text):
+                    position = row_text[col_idx].strip()
                     col_idx += 1
 
-            # Next should be winner name
-            if col_idx < len(row_text):
-                name = row_text[col_idx].strip()
-                col_idx += 1
+                # Next is team
+                if col_idx < len(row_text):
+                    team = row_text[col_idx].strip()
 
-            # Next is position
-            if col_idx < len(row_text):
-                position = row_text[col_idx].strip()
-                col_idx += 1
-
-            # Next is team
-            if col_idx < len(row_text):
-                team = row_text[col_idx].strip()
-
-            if year and name and len(name) > 2:
-                results.append(
-                    {
-                        "name": name,
-                        "position": position,
-                        "team": team,
-                        "_year": year,
-                        "award": "award_mvp",
-                    }
-                )
+                if year and name and len(name) > 2:
+                    results.append(
+                        {
+                            "name": name,
+                            "position": position,
+                            "team": team,
+                            "_year": year,
+                            "award": "award_mvp",
+                        }
+                    )
 
     return results
 
@@ -152,70 +162,100 @@ def parse_roy_table(soup: BeautifulSoup) -> list[dict]:
     """
     results = []
 
-    tables = soup.find_all("table", {"class": "wikitable"})
+    # Find the ROY award section heading
+    # The page has: MVP section, then ROY section with similar table structures
+    # We need to find tables that come after the ROY heading
 
-    for table in tables:
-        headers = [th.get_text(strip=True).lower() for th in table.find_all("th")]
-        table_text = table.get_text().lower()
+    all_elements = soup.find_all(["h2", "h3", "h4", "table"])
 
-        # Look for ROY table
-        if "rookie" not in table_text and "roy" not in table_text:
-            continue
+    in_roy_section = False
+    roy_table_count = 0
 
-        # Parse rows
-        for tr in table.find_all("tr")[1:]:  # skip header row
-            tds = tr.find_all("td")
-            if len(tds) < 2:
+    for elem in all_elements:
+        # Check for ROY heading
+        if elem.name in ["h2", "h3", "h4"]:
+            text = elem.get_text().lower()
+            if "rookie" in text and "year" in text:
+                in_roy_section = True
+                roy_table_count = 0
+                continue
+            elif "award" in text and "mvp" not in text and in_roy_section:
+                # Another award section started
+                in_roy_section = False
                 continue
 
-            row_text = [td.get_text(strip=True) for td in tds]
+        # Parse tables in ROY section
+        if elem.name == "table" and in_roy_section:
+            roy_table_count += 1
+            # Only take the first few ROY tables (there might be multiple for different years)
+            if roy_table_count > 3:
+                continue
 
-            # Extract fields from columns (similar to MVP table)
-            year = None
-            name = ""
-            position = ""
-            team = ""
+            headers = [th.get_text(strip=True).lower() for th in elem.find_all("th")]
 
-            col_idx = 0
+            # Check if this table has the right structure
+            has_year = "year" in headers
+            has_winner = "winner" in headers
+            has_position = "position" in headers
+            has_team = "team" in headers
 
-            # Try to extract year from first column
-            if col_idx < len(row_text):
-                try:
-                    year = int(row_text[col_idx])
-                    col_idx += 1
-                except (ValueError, IndexError):
-                    pass
+            if has_year and has_winner and has_position and has_team:
+                # Parse rows
+                for tr in elem.find_all("tr")[1:]:
+                    tds = tr.find_all("td")
+                    if len(tds) < 3:
+                        continue
 
-            # Skip division if present
-            if col_idx < len(row_text):
-                test_val = row_text[col_idx].lower()
-                if "x1" in test_val or test_val in ["east", "central", "west"]:
-                    col_idx += 1
+                    row_text = [td.get_text(strip=True) for td in tds]
 
-            # Winner (player name)
-            if col_idx < len(row_text):
-                name = row_text[col_idx].strip()
-                col_idx += 1
+                    year = None
+                    name = ""
+                    position = ""
+                    team = ""
 
-            # Position
-            if col_idx < len(row_text):
-                position = row_text[col_idx].strip()
-                col_idx += 1
+                    col_idx = 0
 
-            # Team
-            if col_idx < len(row_text):
-                team = row_text[col_idx].strip()
+                    # Column 0: Year
+                    if col_idx < len(row_text):
+                        try:
+                            year = int(row_text[col_idx])
+                            col_idx += 1
+                        except (ValueError, IndexError):
+                            continue
 
-            if year and name and len(name) > 2:
-                results.append(
-                    {
-                        "name": name,
-                        "position": position,
-                        "team": team,
-                        "_year": year,
-                        "award": "award_roty",
-                    }
-                )
+                    # Skip classification/division column if present
+                    if col_idx < len(row_text):
+                        test_val = row_text[col_idx].lower()
+                        if any(
+                            kw in test_val
+                            for kw in ["x1", "east", "central", "west", "area", "division"]
+                        ):
+                            col_idx += 1
+
+                    # Next should be winner name
+                    if col_idx < len(row_text):
+                        name = row_text[col_idx].strip()
+                        col_idx += 1
+
+                    # Next is position
+                    if col_idx < len(row_text):
+                        position = row_text[col_idx].strip()
+                        col_idx += 1
+
+                    # Next is team
+                    if col_idx < len(row_text):
+                        team = row_text[col_idx].strip()
+
+                    if year and name and len(name) > 2:
+                        results.append(
+                            {
+                                "name": name,
+                                "position": position,
+                                "team": team,
+                                "_year": year,
+                                "award": "award_roty",
+                            }
+                        )
 
     return results
 
@@ -356,6 +396,7 @@ def build_outputs(data: dict) -> tuple[list[dict], list[dict], dict]:
                         "stat": stat_name,
                         "value": float(value),
                         "game_id": game_id,
+                        "league": "X-League",
                         "_year": year,
                     }
                 )

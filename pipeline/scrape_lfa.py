@@ -324,6 +324,7 @@ def build_outputs(data: dict) -> tuple[list[dict], list[dict], dict]:
                             "stat": f"{stat_type}_{stat_col.lower()}",
                             "value": val,
                             "game_id": game_id,
+                            "league": "LFA",
                             "_year": year,
                         }
                     )
