@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="EJ Bibbs — AltSports Stats">
-  <meta property="og:description" content="Career stats for EJ Bibbs: receiving_tds 0.0, receiving_yards 2.0, receptions 1.0">
+  <meta property="og:description" content="Career stats for EJ Bibbs: receiving_tds 0.0, receiving_yards 11.0, receptions 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -33,7 +33,7 @@
   "description": "EJ Bibbs played TE in USFL.",
   "url": "https://archive.altfantasysports.com/players/ej-bibbs.html",
   "sameAs": [
-    "https://www.sports-reference.com/cfb/players/ej-bibbs-1.html"
+    "https://www.sports-reference.com/cfb/players/ej-bibbs-1.html", 
   ],
   "hasOccupation": {
     "@type": "Occupation",
@@ -75,6 +75,12 @@
       "url": "https://archive.altfantasysports.com/data/leagues/usfl.json"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "USFL 2023",
+      "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -108,6 +114,8 @@
   
 </h1>
 
+
+
 <table class="info-table">
   <tr><th>Positions</th><td>TE</td></tr>
   <tr><th>Leagues</th><td>USFL</td></tr>
@@ -123,9 +131,9 @@
       
       <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>2.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>11.0</td></tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>1.0</td></tr>
+      <tr><td data-stat="receptions">receptions</td><td>2.0</td></tr>
       
     </tbody>
   </table>
@@ -134,6 +142,28 @@
 
 
 
+
+<section class="chart-section">
+  <!-- <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div> -->
+  <script>
+  (function(){
+    var seasons = {"USFL-": {"receiving_yards": 2.0, "receptions": 1.0, "receiving_tds": 0.0}, "USFL-2023": {"receptions": 1.0, "receiving_yards": 9.0, "receiving_tds": 0.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+</section>
 
 
 <section>
@@ -154,12 +184,62 @@
     </tbody>
   </table>
   
+  <h3>USFL 2023</h3>
+  <table class="data-table">
+    <caption>EJ Bibbs stats — USFL 2023</caption>
+    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <tbody>
+      
+      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>9.0</td></tr>
+      
+      <tr><td data-stat="receptions">receptions</td><td>1.0</td></tr>
+      
+    </tbody>
+  </table>
+  
 </section>
 
 
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for EJ Bibbs</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>EJ Bibbs</td>
+        <td>NO</td>
+        <td>TE</td>
+        <td>—</td>
+        <td>
+          
+          <a href="https://www.sports-reference.com/cfb/players/ej-bibbs-1.html" target="_blank" rel="noopener">Iowa State</a>
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>E.J. Bibbs</td>
+        <td>BREAKERS</td>
+        <td>TE</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -226,6 +306,26 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="8">2023 Wk 10</td></tr>
+      
+      <tr>
+        <td>2023</td>
+        <td>10</td>
+        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
+        <td><a href="../games/synthetic-usfl-2023-w10-breakers.html" class="game-id">GAMBLERS @ BREAKERS</a></td>
+        <td>10–17</td>
+        
+        <td>0.0</td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
         
       </tr>
       

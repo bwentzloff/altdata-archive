@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T.J. Pledger Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for T.J. Pledger (RB) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for T.J. Pledger (RB) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="T.J. Pledger — AltSports Stats">
-  <meta property="og:description" content="Career stats for T.J. Pledger: receiving_tds 0.0, receiving_yards 154.0, receptions 23.0, rushing_tds 3.0, rushing_yards 450.0">
+  <meta property="og:description" content="Career stats for T.J. Pledger: receiving_tds 0.0, receiving_yards 58.0, receptions 7.0, rushing_tds 3.0, rushing_yards 197.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
 
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "T.J. Pledger",
-  "description": "T.J. Pledger played RB in USFL, UFL.",
+  "description": "T.J. Pledger played RB in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/tj-pledger.html",
   "sameAs": [
     
@@ -75,12 +75,6 @@
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json"
     },
     
-    {
-      "@type": "Dataset",
-      "name": "UFL 2024",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2024.json"
-    },
-    
   ],
   "creator": {
     "@type": "Organization",
@@ -114,9 +108,11 @@
   
 </h1>
 
+
+
 <table class="info-table">
   <tr><th>Positions</th><td>RB</td></tr>
-  <tr><th>Leagues</th><td>USFL, UFL</td></tr>
+  <tr><th>Leagues</th><td>UFL, USFL</td></tr>
 </table>
 
 <section>
@@ -129,13 +125,13 @@
       
       <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>154.0</td></tr>
+      <tr><td data-stat="receiving_yards">receiving_yards</td><td>58.0</td></tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>23.0</td></tr>
+      <tr><td data-stat="receptions">receptions</td><td>7.0</td></tr>
       
       <tr><td data-stat="rushing_tds">rushing_tds</td><td>3.0</td></tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>450.0</td></tr>
+      <tr><td data-stat="rushing_yards">rushing_yards</td><td>197.0</td></tr>
       
     </tbody>
   </table>
@@ -144,51 +140,10 @@
 
 
 
-
-<section class="chart-section">
-  <!-- <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div> -->
-  <script>
-  (function(){
-    var seasons = {"USFL-2023": {"rushing_yards": 197.0, "rushing_tds": 3.0, "receptions": 7.0, "receiving_yards": 58.0, "receiving_tds": 0.0}, "UFL-2024": {"rushing_yards": 253.0, "rushing_tds": 0.0, "receptions": 16.0, "receiving_yards": 96.0, "receiving_tds": 0.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-</section>
 
 
 <section>
   <h2>By Season</h2>
-  
-  <h3>UFL 2024</h3>
-  <table class="data-table">
-    <caption>T.J. Pledger stats — UFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>96.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>16.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>253.0</td></tr>
-      
-    </tbody>
-  </table>
   
   <h3>USFL 2023</h3>
   <table class="data-table">
@@ -238,18 +193,6 @@
       <tr>
         <td>T.J. Pledger</td>
         <td>GAMBLERS</td>
-        <td>RB</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>T.J. Pledger IV</td>
-        <td>ROUGHNECKS</td>
         <td>RB</td>
         <td>—</td>
         <td>
@@ -412,222 +355,6 @@
         <td>0.0</td>
         
         <td>18.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 1</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>1</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w1-roughnecks.html" class="game-id">ROUGHNECKS @ SHOWBOATS</a></td>
-        <td>12–18</td>
-        
-        <td>0.0</td>
-        
-        <td>14.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>15.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 2</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>2</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w2-roughnecks.html" class="game-id">DEFENDERS @ ROUGHNECKS</a></td>
-        <td>23–18</td>
-        
-        <td>0.0</td>
-        
-        <td>10.0</td>
-        
-        <td>3.0</td>
-        
-        <td>0.0</td>
-        
-        <td>47.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 3</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>3</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w3-roughnecks.html" class="game-id">PANTHERS @ ROUGHNECKS</a></td>
-        <td>34–20</td>
-        
-        <td>0.0</td>
-        
-        <td>35.0</td>
-        
-        <td>4.0</td>
-        
-        <td>0.0</td>
-        
-        <td>34.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 4</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>4</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w4-roughnecks.html" class="game-id">ROUGHNECKS @ RENEGADES</a></td>
-        <td>17–9</td>
-        
-        <td>0.0</td>
-        
-        <td>11.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>30.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 5</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>5</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w5-roughnecks.html" class="game-id">ROUGHNECKS @ STALLIONS</a></td>
-        <td>9–32</td>
-        
-        <td>0.0</td>
-        
-        <td>15.0</td>
-        
-        <td>4.0</td>
-        
-        <td>0.0</td>
-        
-        <td>15.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 6</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>6</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w6-roughnecks.html" class="game-id">BATTLEHAWKS @ ROUGHNECKS</a></td>
-        <td>22–6</td>
-        
-        <td>0.0</td>
-        
-        <td>6.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>38.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 7</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>7</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w7-roughnecks.html" class="game-id">ROUGHNECKS @ BRAHMAS</a></td>
-        <td>12–12</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>30.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 8</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>8</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w8-roughnecks.html" class="game-id">STALLIONS @ ROUGHNECKS</a></td>
-        <td>35–28</td>
-        
-        <td>0.0</td>
-        
-        <td>5.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>39.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2024 Wk 9</td></tr>
-      
-      <tr>
-        <td>2024</td>
-        <td>9</td>
-        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w9-roughnecks.html" class="game-id">ROUGHNECKS @ PANTHERS</a></td>
-        <td>22–26</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>5.0</td>
         
       </tr>
       
