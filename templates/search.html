@@ -30,6 +30,11 @@
 
   <div class="report-filters">
 
+    <div class="filter-group filter-group--wide">
+      <label class="filter-label">Report Title <span class="filter-hint">(optional, auto-generated if blank)</span></label>
+      <input type="text" id="rb-title" placeholder="e.g., XFL Receivers with 500+ Yards" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg2); color: var(--text);">
+    </div>
+
     <div class="filter-group">
       <label class="filter-label">Leagues <span class="filter-hint">(hold ⌘/Ctrl for multiple)</span></label>
       <select id="rb-leagues" multiple size="8" class="multi-select">
@@ -50,6 +55,17 @@
       <button id="add-condition" class="btn-secondary" type="button">+ Add Condition</button>
     </div>
 
+  </div>
+
+  <div class="saved-reports-section">
+    <button id="toggle-saved-reports" class="btn-secondary btn-sm" type="button">💾 Saved Reports</button>
+    <div id="saved-reports-panel" hidden style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid var(--border);">
+      <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <input type="text" id="report-name-input" placeholder="Report name (e.g., 'QBs with 3000+ yards')" style="flex: 1; padding: 8px; border: 1px solid var(--border); border-radius: 4px; background: var(--bg2); color: var(--text);">
+        <button id="save-report-btn" class="btn-primary" type="button" style="padding: 8px 16px;">Save</button>
+      </div>
+      <div id="saved-reports-list" style="max-height: 250px; overflow-y: auto;"></div>
+    </div>
   </div>
 
   <div class="report-actions">
@@ -158,12 +174,191 @@ let searchIndex = null;
 let reportData  = null;
 let sortState   = { col: null, dir: 1 };
 let activeStatKeys = [];
+const STORAGE_KEY = "altsports_saved_reports";
 
 async function loadIndex() {
   if (searchIndex) return searchIndex;
   const resp = await fetch(ROOT + "data/search_index.json");
   searchIndex = await resp.json();
   return searchIndex;
+}
+
+function captureReportState() {
+  const conditions = [];
+  document.querySelectorAll(".condition-row").forEach(row => {
+    const statKey = row.querySelector(".cond-stat").value;
+    const op = row.querySelector(".cond-op").value;
+    const val = row.querySelector(".cond-val").value;
+    if (statKey && val) {
+      conditions.push({ statKey, op, val });
+    }
+  });
+  return {
+    title: document.getElementById("rb-title").value,
+    leagues: [...document.getElementById("rb-leagues").selectedOptions].map(o => o.value),
+    positions: [...document.getElementById("rb-positions").selectedOptions].map(o => o.value),
+    conditions: conditions
+  };
+}
+
+function restoreReportState(state) {
+  document.getElementById("rb-title").value = state.title || "";
+  
+  const lgSel = document.getElementById("rb-leagues");
+  [...lgSel.options].forEach(opt => opt.selected = state.leagues?.includes(opt.value) || false);
+  
+  const posSel = document.getElementById("rb-positions");
+  [...posSel.options].forEach(opt => opt.selected = state.positions?.includes(opt.value) || false);
+  
+  const condContainer = document.getElementById("stat-conditions");
+  condContainer.innerHTML = "";
+  if (state.conditions && state.conditions.length > 0) {
+    state.conditions.forEach(cond => {
+      const row = document.createElement("div");
+      row.className = "condition-row";
+      
+      const statSel = document.createElement("select");
+      statSel.className = "cond-stat";
+      statSel.innerHTML = '<option value="">— Choose stat —</option>';
+      Object.entries(REPORT_LABELS).forEach(([k, v]) => {
+        const o = document.createElement("option");
+        o.value = k;
+        o.textContent = v;
+        statSel.appendChild(o);
+      });
+      statSel.value = cond.statKey;
+      
+      const opSel = document.createElement("select");
+      opSel.className = "cond-op";
+      [["≥","gte"],["≤","lte"],[">","gt"],["<","lt"],["=","eq"]].forEach(([label, val]) => {
+        const o = document.createElement("option");
+        o.value = val; o.textContent = label;
+        opSel.appendChild(o);
+      });
+      opSel.value = cond.op;
+      
+      const valInput = document.createElement("input");
+      valInput.type = "number";
+      valInput.className = "cond-val";
+      valInput.placeholder = "value";
+      valInput.min = "0";
+      valInput.value = cond.val;
+      
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.className = "cond-remove";
+      removeBtn.textContent = "✕";
+      removeBtn.title = "Remove condition";
+      removeBtn.addEventListener("click", () => row.remove());
+      
+      row.append(statSel, opSel, valInput, removeBtn);
+      condContainer.appendChild(row);
+    });
+  } else {
+    addConditionRow();
+  }
+}
+
+function getSavedReports() {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch (e) {
+    console.error("Error reading saved reports:", e);
+    return {};
+  }
+}
+
+function setSavedReports(reports) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports));
+  } catch (e) {
+    console.error("Error saving reports:", e);
+  }
+}
+
+function saveReport(name) {
+  if (!name.trim()) {
+    alert("Please enter a report name.");
+    return;
+  }
+  const reports = getSavedReports();
+  const state = captureReportState();
+  reports[name] = {
+    state: state,
+    created: new Date().toISOString()
+  };
+  setSavedReports(reports);
+  document.getElementById("report-name-input").value = "";
+  updateSavedReportsList();
+  alert(`Report "${name}" saved!`);
+}
+
+function deleteReport(name) {
+  if (!confirm(`Delete report "${name}"?`)) return;
+  const reports = getSavedReports();
+  delete reports[name];
+  setSavedReports(reports);
+  updateSavedReportsList();
+}
+
+function loadReport(name) {
+  const reports = getSavedReports();
+  if (!reports[name]) return;
+  restoreReportState(reports[name].state);
+  runReport();
+}
+
+function updateSavedReportsList() {
+  const list = document.getElementById("saved-reports-list");
+  const reports = getSavedReports();
+  const names = Object.keys(reports).sort();
+  
+  list.innerHTML = "";
+  if (names.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = "No saved reports yet.";
+    empty.style.color = "var(--text-dim)";
+    empty.style.fontSize = "14px";
+    empty.style.margin = "0";
+    list.appendChild(empty);
+    return;
+  }
+  
+  names.forEach(name => {
+    const item = document.createElement("div");
+    item.style.display = "flex";
+    item.style.justifyContent = "space-between";
+    item.style.alignItems = "center";
+    item.style.padding = "10px";
+    item.style.marginBottom = "8px";
+    item.style.background = "rgba(255,255,255,0.05)";
+    item.style.borderRadius = "4px";
+    item.style.fontSize = "14px";
+    
+    const nameSpan = document.createElement("button");
+    nameSpan.textContent = name;
+    nameSpan.style.background = "none";
+    nameSpan.style.border = "none";
+    nameSpan.style.color = "#3b82f6";
+    nameSpan.style.cursor = "pointer";
+    nameSpan.style.padding = "0";
+    nameSpan.style.textAlign = "left";
+    nameSpan.style.flex = "1";
+    nameSpan.style.textDecoration = "underline";
+    nameSpan.addEventListener("click", () => loadReport(name));
+    
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.className = "btn-secondary";
+    deleteBtn.style.padding = "4px 12px";
+    deleteBtn.style.fontSize = "12px";
+    deleteBtn.addEventListener("click", () => deleteReport(name));
+    
+    item.appendChild(nameSpan);
+    item.appendChild(deleteBtn);
+    list.appendChild(item);
+  });
 }
 
 async function initReportBuilder() {
@@ -191,6 +386,7 @@ async function initReportBuilder() {
   });
 
   addConditionRow();
+  updateSavedReportsList();
 }
 
 function addConditionRow() {
@@ -421,99 +617,128 @@ async function exportImage() {
   btn.textContent = "Generating…";
   
   try {
+    // Build title from filters or use custom title
+    let customTitle = document.getElementById("rb-title").value.trim();
+    
+    let autoTitle = "";
+    if (!customTitle) {
+      const selectedLeagues = [...document.getElementById("rb-leagues").selectedOptions].map(o => o.textContent);
+      const selectedPos = [...document.getElementById("rb-positions").selectedOptions].map(o => o.textContent);
+      const conditions = [];
+      document.querySelectorAll(".condition-row").forEach(row => {
+        const statKey = row.querySelector(".cond-stat").value;
+        const op = row.querySelector(".cond-op").value;
+        const val = row.querySelector(".cond-val").value;
+        if (statKey && val) {
+          const statLabel = REPORT_LABELS[statKey] || statKey;
+          const opText = {"gte": "≥", "lte": "≤", "gt": ">", "lt": "<", "eq": "="}[op] || op;
+          conditions.push(`${statLabel} ${opText} ${val}`);
+        }
+      });
+      
+      const parts = [];
+      if (selectedLeagues.length > 0) {
+        parts.push(selectedLeagues.join(" / "));
+      }
+      if (selectedPos.length > 0) {
+        parts.push(selectedPos.join(" / "));
+      }
+      if (conditions.length > 0) {
+        parts.push(conditions.join(", "));
+      }
+      
+      autoTitle = parts.length > 0 ? parts.join(" • ") : "Player Report";
+    }
+    
+    const reportTitle = customTitle || autoTitle;
+    
     // Create a temporary container for the listicle
     const listicle = document.createElement("div");
     listicle.className = "listicle-export";
     listicle.style.width = "1200px";
     listicle.style.background = "linear-gradient(135deg, #0f1722 0%, #1a2844 100%)";
-    listicle.style.padding = "40px";
+    listicle.style.padding = "50px";
     listicle.style.fontFamily = "system-ui, -apple-system, sans-serif";
     listicle.style.color = "#fff";
     listicle.style.display = "none";
     
-    // Title
+    // Title section
+    const titleSection = document.createElement("div");
+    titleSection.style.marginBottom = "40px";
+    titleSection.style.borderBottom = "3px solid #3b82f6";
+    titleSection.style.paddingBottom = "30px";
+    
     const title = document.createElement("h1");
-    title.textContent = "AltSports Player Report";
-    title.style.fontSize = "48px";
+    title.textContent = reportTitle;
+    title.style.fontSize = "52px";
     title.style.fontWeight = "bold";
-    title.style.marginBottom = "30px";
-    title.style.textAlign = "center";
-    listicle.appendChild(title);
+    title.style.margin = "0 0 20px 0";
+    title.style.lineHeight = "1.2";
+    titleSection.appendChild(title);
     
-    // Summary
+    // Summary with count and filters
     const summary = document.createElement("p");
-    summary.textContent = `${reportData.length} Players Matched`;
-    summary.style.fontSize = "20px";
-    summary.style.textAlign = "center";
+    summary.innerHTML = `<strong>${reportData.length.toLocaleString()} players matched</strong> • Top ${Math.min(20, reportData.length)} shown`;
+    summary.style.fontSize = "18px";
     summary.style.color = "#aaa";
-    summary.style.marginBottom = "40px";
-    listicle.appendChild(summary);
+    summary.style.margin = "0";
+    titleSection.appendChild(summary);
     
-    // Top 10 table
-    const tableContainer = document.createElement("div");
-    tableContainer.style.background = "rgba(255,255,255,0.05)";
-    tableContainer.style.borderRadius = "8px";
-    tableContainer.style.padding = "20px";
-    tableContainer.style.marginBottom = "40px";
+    listicle.appendChild(titleSection);
     
-    const table = document.createElement("table");
-    table.style.width = "100%";
-    table.style.borderCollapse = "collapse";
-    table.style.fontSize = "16px";
+    // Top 20 ranked list (numbered)
+    const listContainer = document.createElement("div");
+    listContainer.style.marginBottom = "40px";
     
-    // Header row
-    const headerRow = document.createElement("tr");
-    const headers = ["Player", "Leagues", "Position", ...activeStatKeys.map(k => REPORT_LABELS[k] || k)];
-    headers.forEach(h => {
-      const th = document.createElement("th");
-      th.textContent = h;
-      th.style.textAlign = "left";
-      th.style.paddingBottom = "10px";
-      th.style.borderBottom = "1px solid rgba(255,255,255,0.2)";
-      th.style.fontWeight = "bold";
-      headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
+    const listTitle = document.createElement("h2");
+    listTitle.textContent = `Top ${Math.min(20, reportData.length)} by ${activeStatKeys.length > 0 ? (REPORT_LABELS[activeStatKeys[0]] || activeStatKeys[0]) : 'Stats'}`;
+    listTitle.style.fontSize = "28px";
+    listTitle.style.fontWeight = "600";
+    listTitle.style.marginBottom = "30px";
+    listTitle.style.color = "#3b82f6";
+    listContainer.appendChild(listTitle);
     
-    // Data rows (top 10)
-    const capped = reportData.slice(0, 10);
+    const list = document.createElement("ol");
+    list.style.margin = "0";
+    list.style.padding = "0 0 0 30px";
+    
+    const capped = reportData.slice(0, 20);
     capped.forEach((p, idx) => {
-      const tr = document.createElement("tr");
-      tr.style.borderBottom = "1px solid rgba(255,255,255,0.1)";
+      const li = document.createElement("li");
+      li.style.marginBottom = "18px";
+      li.style.fontSize = "16px";
+      li.style.lineHeight = "1.6";
       
-      const nameCell = document.createElement("td");
-      nameCell.textContent = `${idx + 1}. ${p.name}${p.ambiguous ? " ?" : ""}`;
-      nameCell.style.paddingTop = "12px";
-      nameCell.style.paddingBottom = "12px";
-      nameCell.style.paddingRight = "15px";
-      tr.appendChild(nameCell);
+      // Player name and leagues
+      const playerInfo = document.createElement("span");
+      playerInfo.innerHTML = `<strong>${p.name}</strong>${p.ambiguous ? ' <span style="color:#fbbf24; font-size:12px;">(ambiguous)</span>' : ''}<br>` +
+                             `<span style="color:#aaa; font-size:14px;">${(p.leagues || []).join(' • ')} • ${(p.positions || []).join(', ')}</span>`;
+      playerInfo.style.display = "block";
+      playerInfo.style.marginBottom = "6px";
+      li.appendChild(playerInfo);
       
-      const lgCell = document.createElement("td");
-      lgCell.textContent = (p.leagues || []).join(", ");
-      lgCell.style.padding = "12px 15px";
-      tr.appendChild(lgCell);
+      // Stats
+      const statsStr = activeStatKeys
+        .map(k => {
+          const val = p.totals?.[k];
+          const display = val != null ? Number(val).toLocaleString(undefined, {maximumFractionDigits: 1}) : "—";
+          return `${REPORT_LABELS[k] || k}: <strong style="color:#3b82f6;">${display}</strong>`;
+        })
+        .join(' • ');
       
-      const posCell = document.createElement("td");
-      posCell.textContent = (p.positions || []).join(", ");
-      posCell.style.padding = "12px 15px";
-      tr.appendChild(posCell);
+      if (statsStr) {
+        const statsSpan = document.createElement("span");
+        statsSpan.innerHTML = statsStr;
+        statsSpan.style.color = "#ccc";
+        statsSpan.style.fontSize = "14px";
+        li.appendChild(statsSpan);
+      }
       
-      activeStatKeys.forEach(k => {
-        const cell = document.createElement("td");
-        const val = p.totals?.[k];
-        cell.textContent = val != null ? Number(val).toLocaleString(undefined, {maximumFractionDigits: 1}) : "—";
-        cell.style.padding = "12px 15px";
-        cell.style.textAlign = "right";
-        cell.style.color = "#3b82f6";
-        cell.style.fontWeight = "600";
-        tr.appendChild(cell);
-      });
-      
-      table.appendChild(tr);
+      list.appendChild(li);
     });
     
-    tableContainer.appendChild(table);
-    listicle.appendChild(tableContainer);
+    listContainer.appendChild(list);
+    listicle.appendChild(listContainer);
     
     // Footer
     const footer = document.createElement("p");
@@ -521,7 +746,9 @@ async function exportImage() {
     footer.style.textAlign = "center";
     footer.style.fontSize = "12px";
     footer.style.color = "#666";
-    footer.style.marginTop = "30px";
+    footer.style.marginTop = "40px";
+    footer.style.paddingTop = "30px";
+    footer.style.borderTop = "1px solid rgba(255,255,255,0.1)";
     listicle.appendChild(footer);
     
     // Add to document temporarily
@@ -543,7 +770,11 @@ async function exportImage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "altsports-report.png";
+      const filename = reportTitle
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+      a.download = `${filename || 'report'}.png`;
       a.click();
       URL.revokeObjectURL(url);
       
@@ -585,9 +816,24 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   });
 });
 
+document.getElementById("toggle-saved-reports").addEventListener("click", () => {
+  const panel = document.getElementById("saved-reports-panel");
+  panel.hidden = !panel.hidden;
+});
+document.getElementById("save-report-btn").addEventListener("click", () => {
+  const name = document.getElementById("report-name-input").value.trim();
+  if (name) saveReport(name);
+});
+document.getElementById("report-name-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    const name = document.getElementById("report-name-input").value.trim();
+    if (name) saveReport(name);
+  }
+});
 document.getElementById("add-condition").addEventListener("click", addConditionRow);
 document.getElementById("run-report").addEventListener("click", runReport);
 document.getElementById("clear-report").addEventListener("click", () => {
+  document.getElementById("rb-title").value = "";
   document.getElementById("rb-leagues").selectedIndex = -1;
   document.getElementById("rb-positions").selectedIndex = -1;
   document.getElementById("stat-conditions").innerHTML = "";
@@ -600,6 +846,30 @@ document.getElementById("export-csv").addEventListener("click", exportCSV);
 document.getElementById("export-image").addEventListener("click", exportImage);
 document.getElementById("stat-conditions").addEventListener("keydown", e => {
   if (e.key === "Enter") runReport();
+});
+
+// Auto-run any saved reports when page loads
+document.addEventListener("DOMContentLoaded", async () => {
+  const reports = getSavedReports();
+  const reportNames = Object.keys(reports);
+  
+  if (reportNames.length > 0) {
+    // Switch to report builder tab
+    const reportTabBtn = document.querySelector('[data-tab="report-builder"]');
+    if (reportTabBtn && !searchIndex) {
+      reportTabBtn.click();
+    }
+    
+    // Auto-run the most recently modified report
+    try {
+      const lastReport = reportNames[0];
+      setTimeout(() => {
+        loadReport(lastReport);
+      }, 300);
+    } catch (e) {
+      console.error("Failed to auto-run saved report:", e);
+    }
+  }
 });
 
 </script>
