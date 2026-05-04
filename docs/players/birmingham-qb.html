@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birmingham QB Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Birmingham QB (MPO, QB, K) across USFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Birmingham QB (MPO, K, QB) across USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -30,7 +30,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Birmingham QB",
-  "description": "Birmingham QB played MPO, QB, K in USFL.",
+  "description": "Birmingham QB played MPO, K, QB in USFL.",
   "url": "https://archive.altfantasysports.com/players/birmingham-qb.html",
   "sameAs": [
     
@@ -71,15 +71,15 @@
     
     {
       "@type": "Dataset",
-      "name": "UNKNOWN",
-      "url": "https://archive.altfantasysports.com/data/leagues/unknown.json"
+      "name": "USFL",
+      "url": "https://archive.altfantasysports.com/data/leagues/usfl.json"
     },
     
     {
       "@type": "Dataset",
-      "name": "USFL",
-      "url": "https://archive.altfantasysports.com/data/leagues/usfl.json"
-    },
+      "name": "DGPT 2019",
+      "url": "https://archive.altfantasysports.com/data/leagues/dgpt-2019.json"
+    }
     
   ],
   "creator": {
@@ -118,7 +118,7 @@
       <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      MPO / QB / K
+      MPO / K / QB
       <span class="sep">·</span>
       USFL
     </p>
@@ -225,7 +225,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"unknown": {"events_played": 12.0, "pdga_points": 1150.0, "pdga_rating": 1870.0}, "USFL-": {"passing_yards": 2223.0, "passing_tds": 14.0, "extra_point": 26.0, "rushing_yards": 345.0, "interceptions_lost": 7.0, "made_19": 0.0, "made_29": 7.0, "made_39": 8.0, "made_49": 4.0, "made_50": 0.0, "missed": 5.0, "rushing_tds": 5.0}};
+    var seasons = {"USFL-": {"passing_yards": 2223.0, "passing_tds": 14.0, "extra_point": 26.0, "rushing_yards": 345.0, "interceptions_lost": 7.0, "made_19": 0.0, "made_29": 7.0, "made_39": 8.0, "made_49": 4.0, "made_50": 0.0, "missed": 5.0, "rushing_tds": 5.0}, "DGPT-2019": {"events_played": 12.0, "pdga_points": 1150.0, "pdga_rating": 1870.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -255,25 +255,25 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -359,7 +359,7 @@
       </tr>
       
       <tr>
-        <td>unknown</td>
+        <td>DGPT 2019</td>
         
         <td>12</td>
         
@@ -518,47 +518,6 @@
       
       
       <tr class="week-group-row"><td colspan="20"> Wk 1</td></tr>
-      
-      <tr>
-        <td>—</td>
-        <td>1</td>
-        <td><a href="../leagues/unknown.html">unknown</a></td>
-        <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT_2019_SEASON_TOTAL</a></td>
-        <td>—</td>
-        
-        <td>12.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1150.0</td>
-        
-        <td>1870.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
       
       <tr>
         <td>—</td>
@@ -1036,6 +995,50 @@
         <td>1.0</td>
         
         <td>48.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="20">2019 Wk 1</td></tr>
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/dgpt-2019.html">DGPT</a></td>
+        <td><a href="../games/dgpt-2019-season-total.html" class="game-id">DGPT 2019 Season</a></td>
+        <td>—</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1150.0</td>
+        
+        <td>1870.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       

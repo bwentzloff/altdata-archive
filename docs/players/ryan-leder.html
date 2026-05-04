@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryan Leder Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Ryan Leder (DL, P) across NLL, CFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Ryan Leder (P, DL) across CFL, NLL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -30,14 +30,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ryan Leder",
-  "description": "Ryan Leder played DL, P in NLL, CFL.",
+  "description": "Ryan Leder played P, DL in CFL, NLL.",
   "url": "https://archive.altfantasysports.com/players/ryan-leder.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional DL",
+    "name": "Professional P",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -71,8 +71,20 @@
     
     {
       "@type": "Dataset",
-      "name": "UNKNOWN",
-      "url": "https://archive.altfantasysports.com/data/leagues/unknown.json"
+      "name": "NLL 2019",
+      "url": "https://archive.altfantasysports.com/data/leagues/nll-2019.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "NLL 2021",
+      "url": "https://archive.altfantasysports.com/data/leagues/nll-2021.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "NLL 2022",
+      "url": "https://archive.altfantasysports.com/data/leagues/nll-2022.json"
     },
     
     {
@@ -124,15 +136,25 @@
       <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      DL / P
+      P / DL
       <span class="sep">·</span>
-      NLL, CFL
+      CFL, NLL
     </p>
 
     
     <div class="career-timeline" aria-label="Career timeline">
       <div class="ct-years">
         <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
         
         <span class="ct-yr">'24</span>
         
@@ -141,23 +163,43 @@
       </div>
       
       <div class="ct-row" data-type="alt">
-        <span class="ct-label">CFL</span>
+        <span class="ct-label">NLL</span>
         
           
           <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
           
         
       </div>
       
       <div class="ct-row" data-type="alt">
-        <span class="ct-label">NLL</span>
+        <span class="ct-label">CFL</span>
         
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
           
         
       </div>
@@ -285,7 +327,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"unknown": {"games_played": 37.0, "goals": 65.0, "assists": 153.0, "points": 218.0, "penalty_minutes": 19.0, "pp_goals": 2.0, "pp_assists": 8.0}, "CFL-2024": {"tackles": 2.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 4.0, "receiving_tds": 0.0, "receptions": 1.0}, "NLL-2025": {"goals": 1.0, "assists": 6.0, "pim": 6.0, "sog": 6.0, "lb": 6.0, "blk": 6.0, "to": 6.0, "cto": 6.0}};
+    var seasons = {"NLL-2019": {"games_played": 13.0, "goals": 25.0, "assists": 35.0, "points": 60.0, "penalty_minutes": 4.0}, "NLL-2021": {"games_played": 18.0, "goals": 34.0, "assists": 85.0, "points": 119.0, "penalty_minutes": 13.0}, "NLL-2022": {"games_played": 6.0, "goals": 6.0, "assists": 33.0, "points": 39.0, "pp_goals": 2.0, "pp_assists": 8.0, "penalty_minutes": 2.0}, "CFL-2024": {"tackles": 2.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 4.0, "receiving_tds": 0.0, "receptions": 1.0}, "NLL-2025": {"goals": 1.0, "assists": 6.0, "pim": 6.0, "sog": 6.0, "lb": 6.0, "blk": 6.0, "to": 6.0, "cto": 6.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -307,6 +349,30 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -406,27 +472,113 @@
     <tbody>
       
       <tr>
-        <td>unknown</td>
+        <td>NLL 2019</td>
         
-        <td>153</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>37</td>
-        
-        <td>65</td>
+        <td>35</td>
         
         <td>—</td>
         
         <td>—</td>
         
-        <td>19</td>
+        <td>13</td>
+        
+        <td>25</td>
         
         <td>—</td>
         
-        <td>218</td>
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>60</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>NLL 2021</td>
+        
+        <td>85</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>18</td>
+        
+        <td>34</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>13</td>
+        
+        <td>—</td>
+        
+        <td>119</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>NLL 2022</td>
+        
+        <td>33</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>39</td>
         
         <td>8</td>
         
@@ -666,13 +818,13 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="24">2019 Wk 1</td></tr>
       
       <tr>
-        <td>—</td>
+        <td>2019</td>
         <td>1</td>
-        <td><a href="../leagues/unknown.html">unknown</a></td>
-        <td><a href="../games/nll-2019-season-total.html" class="game-id">NLL_2019_SEASON_TOTAL</a></td>
+        <td><a href="../leagues/nll-2019.html">NLL</a></td>
+        <td><a href="../games/nll-2019-season-total.html" class="game-id">NLL 2019 Season</a></td>
         <td>—</td>
         
         <td>35.0</td>
@@ -717,11 +869,14 @@
       
       
       
+      
+      <tr class="week-group-row"><td colspan="24">2021 Wk 1</td></tr>
+      
       <tr>
-        <td>—</td>
+        <td>2021</td>
         <td>1</td>
-        <td><a href="../leagues/unknown.html">unknown</a></td>
-        <td><a href="../games/nll-2021-season-total.html" class="game-id">NLL_2021_SEASON_TOTAL</a></td>
+        <td><a href="../leagues/nll-2021.html">NLL</a></td>
+        <td><a href="../games/nll-2021-season-total.html" class="game-id">NLL 2021 Season</a></td>
         <td>—</td>
         
         <td>85.0</td>
@@ -766,11 +921,14 @@
       
       
       
+      
+      <tr class="week-group-row"><td colspan="24">2022 Wk 1</td></tr>
+      
       <tr>
-        <td>—</td>
+        <td>2022</td>
         <td>1</td>
-        <td><a href="../leagues/unknown.html">unknown</a></td>
-        <td><a href="../games/nll-2022-season-total.html" class="game-id">NLL_2022_SEASON_TOTAL</a></td>
+        <td><a href="../leagues/nll-2022.html">NLL</a></td>
+        <td><a href="../games/nll-2022-season-total.html" class="game-id">NLL 2022 Season</a></td>
         <td>—</td>
         
         <td>33.0</td>
