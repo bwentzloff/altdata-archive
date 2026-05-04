@@ -30,6 +30,35 @@ for d in ["players", "leagues", "hof", "games"]:
     (SITE_DATA / d).mkdir(parents=True, exist_ok=True)
 
 
+# ─── Sport classification ───────────────────────────────────────────────────
+
+FOOTBALL_LEAGUES = {
+    "UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", 
+    "IFL", "NAL", "LFA", "X-League", "MLFB", "FCF"
+}
+DISC_GOLF_LEAGUES = {"DGPT"}
+LACROSSE_LEAGUES = {"NLL", "PLL"}
+ULTIMATE_LEAGUES = {"AUDL", "UFA", "PUL"}
+BASSETBALL_LEAGUES = {"BIG3", "SLAMBALL"}
+
+
+def classify_sport(league_name: str) -> str:
+    """Classify league name to sport type."""
+    league_upper = (league_name or "").upper()
+    
+    if league_upper in LACROSSE_LEAGUES:
+        return "lacrosse"
+    if league_upper in DISC_GOLF_LEAGUES:
+        return "disc"
+    if league_upper in FOOTBALL_LEAGUES:
+        return "football"
+    if league_upper in ULTIMATE_LEAGUES:
+        return "ultimate"
+    if league_upper in BASSKETBALL_LEAGUES:
+        return "basketball"
+    return "other"
+
+
 # ─── helpers ────────────────────────────────────────────────────────────────
 
 def slugify(s):
@@ -183,13 +212,14 @@ def parse_game_meta(game_id):
         })
         return result
 
-    # Generic season-total key: {LEAGUE}_{SEASON}_SEASON_TOTAL  (NLL, DGPT, PLL, etc.)
-    m = re.match(r"([A-Z][A-Z0-9]+)_(\d{4})_SEASON_TOTAL$", gid)
+    # Generic season-total key: {LEAGUE}_{SEASON}_SEASON_TOTAL  (NLL, DGPT, PLL, X-League, etc.)
+    m = re.match(r"([A-Z][A-Z0-9-]+)_(\d{4})_SEASON_TOTAL$", gid)
     if m:
         league_name = m.group(1)
         season = int(m.group(2))
+        sport_type = classify_sport(league_name)
         result.update({
-            "sport_type": "other",
+            "sport_type": sport_type,
             "league": league_name,
             "season": season,
             "synthetic": True,
