@@ -296,6 +296,158 @@ def _match_college(cp, college_name_index, college_stats_data):
     }
 
 
+# ─── this week in history ────────────────────────────────────────────────────
+
+def build_this_week(game_index: list) -> None:
+    """Build docs/data/this-week.json: games from each day of the current calendar
+    week (Mon–Sun) across all historical years, plus top stat highlights."""
+    from datetime import date, timedelta
+
+    today = date.today()
+    monday = today - timedelta(days=today.weekday())  # weekday() 0=Mon, 6=Sun
+    week_days = [monday + timedelta(days=i) for i in range(7)]
+
+    WEEKDAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    # stat_key → (display_label, normalisation_weight for highlight ranking)
+    # Higher weight = more "impressive" per unit
+    HIGHLIGHT_STATS = {
+        "passing_yards":   ("Pass Yds",    1.0),
+        "rushing_yards":   ("Rush Yds",    1.5),
+        "receiving_yards": ("Rec Yds",     1.5),
+        "passing_tds":     ("Pass TDs",   45.0),
+        "rushing_tds":     ("Rush TDs",   55.0),
+        "receiving_tds":   ("Rec TDs",    55.0),
+        "goals":           ("Goals",      20.0),
+        "assists":         ("Assists",    15.0),
+        "yardsThrown":     ("Yds Thrown",  0.9),
+        "yardsReceived":   ("Yds Rec'd",   1.4),
+        "points":          ("Points",     12.0),
+        "field_goals":     ("FGs",        35.0),
+    }
+
+    # Build a quick slug→game_index_meta lookup for O(1) access
+    game_by_mm_dd: dict[str, list] = {}
+    for gm in game_index:
+        ds = gm.get("date_str", "")
+        if len(ds) >= 10:
+            mm_dd = ds[5:10]
+            game_by_mm_dd.setdefault(mm_dd, []).append(gm)
+
+    _POS_ABBREVS = {"QB", "RB", "WR", "TE", "K", "P", "LB", "CB", "DB", "DE",
+                    "DT", "OL", "OT", "OG", "C", "LS", "S", "SS", "FS", "NT"}
+
+    days_data = []
+    for day in week_days:
+        mm_dd = day.strftime("%m-%d")
+        weekday_name = WEEKDAY_NAMES[day.weekday()]
+        month_name = MONTH_NAMES[day.month - 1]
+        label = f"{weekday_name} {month_name} {day.day}"
+
+        day_games = []
+        all_highlights = []
+
+        for gm in game_by_mm_dd.get(mm_dd, []):
+            slug = gm["slug"]
+            game_file = SITE_DATA / "games" / f"{slug}.json"
+            if not game_file.exists():
+                continue
+            try:
+                gdata = json.loads(game_file.read_text())
+            except Exception:
+                continue
+
+            score_away = gdata.get("score_away")
+            score_home = gdata.get("score_home")
+            day_games.append({
+                "slug":       slug,
+                "display":    gdata.get("display", ""),
+                "league":     gdata.get("league", ""),
+                "season":     gdata.get("season", ""),
+                "date_str":   gdata.get("date_str", ""),
+                "away_team":  gdata.get("away_team", ""),
+                "home_team":  gdata.get("home_team", ""),
+                "score_away": score_away,
+                "score_home": score_home,
+            })
+
+            for player in gdata.get("players", []):
+                # Skip placeholder names (e.g. 'TOR QB', 'ST. LOUIS BATTLEHAWKS QB', 'Stars QB')
+                cname = player.get("canonical_name", "")
+                if not any(c.islower() for c in cname):
+                    continue
+                words = cname.split()
+                if len(words) < 2 or words[-1].upper() in _POS_ABBREVS:
+                    continue
+                stats = player.get("stats", {})
+                for stat_key, (stat_lbl, weight) in HIGHLIGHT_STATS.items():
+                    raw = stats.get(stat_key)
+                    if raw is None:
+                        continue
+                    try:
+                        val = float(raw)
+                    except (TypeError, ValueError):
+                        continue
+                    if val <= 0:
+                        continue
+                    all_highlights.append({
+                        "canonical_id":   player.get("canonical_id", ""),
+                        "canonical_name": player.get("canonical_name", ""),
+                        "stat":           stat_key,
+                        "stat_label":     stat_lbl,
+                        "value":          int(val) if val == int(val) else round(val, 1),
+                        "game_display":   gdata.get("display", ""),
+                        "game_slug":      slug,
+                        "league":         f"{gdata.get('league','')} {gdata.get('season','')}".strip(),
+                        "date_str":       gdata.get("date_str", ""),
+                        "_score":         val * weight,
+                    })
+
+        # Newest season first, then alphabetical league
+        day_games.sort(key=lambda g: (-int(g.get("season") or 0), g.get("league", "")))
+
+        # Top highlights: deduplicate so same player doesn't appear twice, cap at 6
+        all_highlights.sort(key=lambda h: -h["_score"])
+        seen_players = set()
+        top_highlights = []
+        for h in all_highlights:
+            pid = h["canonical_id"]
+            if pid and pid in seen_players:
+                continue
+            seen_players.add(pid)
+            top_highlights.append({k: v for k, v in h.items() if k != "_score"})
+            if len(top_highlights) >= 6:
+                break
+
+        days_data.append({
+            "date":        day.isoformat(),
+            "mm_dd":       mm_dd,
+            "weekday":     weekday_name,
+            "label":       label,
+            "game_count":  len(day_games),
+            "games":       day_games,
+            "highlights":  top_highlights,
+        })
+
+    week_label = (
+        f"{MONTH_NAMES[week_days[0].month-1]} {week_days[0].day}"
+        f" – {MONTH_NAMES[week_days[6].month-1]} {week_days[6].day}"
+    )
+    this_week = {
+        "generated":  today.isoformat(),
+        "week_label": week_label,
+        "today":      today.isoformat(),
+        "days":       days_data,
+    }
+    (SITE_DATA / "this-week.json").write_text(
+        json.dumps(this_week, indent=2), encoding="utf-8"
+    )
+    total_games = sum(d["game_count"] for d in days_data)
+    print(f"Written this-week.json ({total_games} historical games across 7 days)")
+
+
 # ─── main ───────────────────────────────────────────────────────────────────
 
 def main():
@@ -1273,6 +1425,10 @@ def main():
         json.dumps(search_index), encoding="utf-8"
     )
     print(f"Written search index with {len(search_index)} players")
+
+    # ─── This week in history ─────────────────────────────────────────────
+    build_this_week(game_index)
+
     print("Done.")
 
 

@@ -51,6 +51,106 @@
 <h1>AltSports Archive</h1>
 <p>Historical player and game stats from alternative football leagues, ultimate disc, basketball 3-on-3, and more.</p>
 
+{% if this_week %}
+<section class="this-week-section">
+  <h2>This Week in History <span class="this-week-label">{{ this_week.week_label }}</span></h2>
+  <nav class="tw-tabs" role="tablist" aria-label="Days of the week">
+    {% for day in this_week.days %}
+    <button class="tw-tab{% if day.game_count == 0 %} tw-tab-empty{% endif %}"
+            role="tab"
+            aria-selected="false"
+            data-date="{{ day.date }}"
+            data-index="{{ loop.index0 }}"
+            aria-controls="tw-panel-{{ loop.index0 }}">
+      <span class="tw-tab-weekday">{{ day.weekday }}</span>
+      <span class="tw-tab-date">{{ day.label[4:] }}</span>
+      {% if day.game_count > 0 %}<span class="tw-tab-count">{{ day.game_count }}</span>{% endif %}
+    </button>
+    {% endfor %}
+  </nav>
+
+  {% for day in this_week.days %}
+  <div class="tw-panel" id="tw-panel-{{ loop.index0 }}" role="tabpanel" data-date="{{ day.date }}" hidden>
+    {% if day.games %}
+
+    {% if day.highlights %}
+    <div class="tw-highlights">
+      <h3 class="tw-section-heading">Standout Performances</h3>
+      <ul class="tw-highlight-list">
+        {% for h in day.highlights %}
+        <li class="tw-highlight-item">
+          <a href="{{ root }}players/{{ h.canonical_id }}.html" class="tw-player-name">{{ h.canonical_name }}</a>
+          <span class="tw-stat-val">{{ h.value }}</span>
+          <span class="tw-stat-lbl">{{ h.stat_label }}</span>
+          <span class="tw-game-ctx">· <a href="{{ root }}games/{{ h.game_slug }}.html" class="tw-game-link">{{ h.league }}</a> · {{ h.date_str[:4] }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="tw-games">
+      <h3 class="tw-section-heading">Games</h3>
+      <ul class="tw-game-list">
+        {% for g in day.games %}
+        <li class="tw-game-item">
+          <span class="tw-game-league">{{ g.league }} {{ g.season }}</span>
+          <a href="{{ root }}games/{{ g.slug }}.html" class="tw-game-link tw-game-matchup">
+            {{ g.away_team }}
+            {% if g.score_away is not none and g.score_home is not none %}
+            <span class="tw-score">{{ g.score_away }}–{{ g.score_home }}</span>
+            {% endif %}
+            {{ g.home_team }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% else %}
+    <p class="tw-no-games">No historical games on this date in our archive.</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+
+<script>
+(function () {
+  var tabs   = document.querySelectorAll('.tw-tab');
+  var panels = document.querySelectorAll('.tw-panel');
+  var today  = new Date().toISOString().slice(0, 10);
+
+  function activate(idx) {
+    tabs.forEach(function (t, i) {
+      t.setAttribute('aria-selected', String(i === idx));
+      t.classList.toggle('tw-tab-active', i === idx);
+    });
+    panels.forEach(function (p, i) {
+      if (i === idx) { p.removeAttribute('hidden'); }
+      else           { p.setAttribute('hidden', ''); }
+    });
+  }
+
+  // Find today's tab, fall back to first tab with games, then index 0
+  var defaultIdx = 0;
+  var firstWithGames = -1;
+  tabs.forEach(function (t, i) {
+    if (t.dataset.date === today)             { defaultIdx = i; }
+    if (firstWithGames < 0 && !t.classList.contains('tw-tab-empty')) { firstWithGames = i; }
+  });
+  // If today has no games, prefer first day with games
+  if (tabs[defaultIdx] && tabs[defaultIdx].classList.contains('tw-tab-empty') && firstWithGames >= 0) {
+    defaultIdx = firstWithGames;
+  }
+  activate(defaultIdx);
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { activate(i); });
+  });
+}());
+</script>
+{% endif %}
+
 <section>
   <h2>Browse by League</h2>
   {% for group in sport_groups %}

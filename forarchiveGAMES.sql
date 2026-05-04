@@ -1,11 +1,11 @@
 -- AltSports Archive SQL dump
--- Generated: 2026-05-04 00:01:09 UTC
+-- Generated: 2026-05-04 01:11:35 UTC
 -- Tables: games
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 
--- Table: `games`  (exported 2026-05-04 00:01:09 UTC)
+-- Table: `games`  (exported 2026-05-04 01:11:35 UTC)
 DROP TABLE IF EXISTS `games`;
 CREATE TABLE `games` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -1161,6 +1161,6 @@ INSERT INTO `games` (`id`, `sport_id`, `status`, `start_time`, `team_home`, `tea
   (1635, 34, 2, '2026-05-02 20:00:00', 'Tulsa Oilers', 'San Diego Strike Force', '2026-05-02 23:54:52', '2026-05-03 12:25:05', 1, 's5msqv7ujmagoix0', 51, 42, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, '4th 00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1636, 34, 2, '2026-05-02 21:00:00', 'Tucson Sugar Skulls', 'San Antonio Gunslingers', '2026-05-03 01:06:50', '2026-05-03 12:25:17', 1, '5pr1v6tabjsekhe4', 17, 35, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, '4th 07:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1638, 34, 1, '2026-05-03 19:08:20', 'Kentucky Barrels', 'Nashville Kats', '2026-05-03 19:08:20', '2026-05-03 21:59:47', 1, '04002611212131', 37, 36, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, 'Final', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-  (1639, 34, 0, '2026-05-03 23:23:26', 'Vegas Knight Hawks', 'Arizona Rattlers', '2026-05-03 23:23:26', '2026-05-03 23:59:09', 1, '2rvunr5hxcvm3c4w', 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  (1639, 34, 0, '2026-05-03 23:23:26', 'Vegas Knight Hawks', 'Arizona Rattlers', '2026-05-03 23:23:26', '2026-05-04 00:23:39', 1, '2rvunr5hxcvm3c4w', 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS=1;

@@ -64,6 +64,10 @@ echo ""
 # Revisit if a Playwright-based scraper is added later.
 
 # ── 3. Merge players ─────────────────────────────────────────────────────────
+echo "── Player images (Wikimedia Commons, ~1 min) ───────────"
+$PYTHON pipeline/scrape_images.py --max-seconds 60
+echo ""
+
 echo "── Merge players ───────────────────────────────────────"
 $PYTHON pipeline/merge_players.py
 echo ""

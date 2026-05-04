@@ -90,6 +90,9 @@ def flip_name(name):
 def normalize_name(name):
     """Lowercase, strip punctuation, collapse whitespace."""
     n = flip_name(name).lower()
+    # Collapse dotted initials before general punctuation strip so
+    # "C.J." → "cj" (not "c j") and "T.J." → "tj"
+    n = re.sub(r"\b([a-z])\.([a-z])\.", r"\1\2", n)
     n = re.sub(r"[',\.\-]", " ", n)
     n = re.sub(r"\s+", " ", n).strip()
     return n

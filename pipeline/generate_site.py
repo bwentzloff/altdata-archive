@@ -199,6 +199,68 @@ def _build_sport_groups(leagues_index):
     return result
 
 
+def build_player_timeline(player_data: dict) -> dict | None:
+    """Return career timeline data for the visual header strip.
+
+    Returns {"year_range": [2019..2024], "rows": [{"label", "type", "years"}, ...]}
+    or None if there is not enough data to be useful.
+    """
+    season_totals = player_data.get("season_totals", {})
+    college       = player_data.get("college")
+    nfl           = player_data.get("nfl")
+
+    league_years: dict[str, set] = {}
+    all_years: set[int] = set()
+
+    # season_totals keys are like "CFL-2023", "AAF-2019", "CFL-" (skip no-year)
+    for key in season_totals:
+        dash = key.rfind("-")
+        if dash < 0:
+            continue
+        yr_str = key[dash + 1:]
+        if not yr_str.isdigit():
+            continue
+        league = key[:dash]
+        yr = int(yr_str)
+        all_years.add(yr)
+        league_years.setdefault(league, set()).add(yr)
+
+    # College years
+    if college:
+        for yr_str in (college.get("seasons") or {}):
+            try:
+                yr = int(yr_str)
+                all_years.add(yr)
+                league_years.setdefault("College", set()).add(yr)
+            except ValueError:
+                pass
+
+    if not all_years:
+        return None
+
+    year_range = list(range(min(all_years), max(all_years) + 1))
+
+    # Build ordered rows: College first, then alt leagues sorted by first year
+    rows = []
+    if "College" in league_years:
+        rows.append({"label": "College", "type": "college",
+                     "years": sorted(league_years["College"])})
+
+    if nfl:
+        rows.append({"label": "NFL", "type": "nfl", "years": []})
+
+    alt = [(lbl, yrs) for lbl, yrs in league_years.items() if lbl != "College"]
+    alt.sort(key=lambda x: (min(x[1]) if x[1] else 9999, x[0]))
+    for lbl, yrs in alt:
+        rows.append({"label": lbl, "type": "alt", "years": sorted(yrs)})
+
+    # Need at least 2 rows OR 2 distinct years to be useful
+    if len(rows) < 2 and len(year_range) < 2:
+        return None
+
+    return {"year_range": year_range, "rows": rows}
+
+
 def main():
     env = make_env()
 
@@ -206,9 +268,13 @@ def main():
     leagues_index = json.loads((DATA_DIR / "leagues" / "index.json").read_text())["leagues"]
     sport_groups = _build_sport_groups(leagues_index)
 
+    this_week_path = DATA_DIR / "this-week.json"
+    this_week = json.loads(this_week_path.read_text()) if this_week_path.exists() else None
+
     # ── Index page ──────────────────────────────────────────────────────
     print("Rendering index ...")
-    render(env, "index.html", SITE_DIR / "index.html", root="", leagues=leagues_index, sport_groups=sport_groups)
+    render(env, "index.html", SITE_DIR / "index.html", root="",
+           leagues=leagues_index, sport_groups=sport_groups, this_week=this_week)
 
     # ── Search page ─────────────────────────────────────────────────────
     print("Rendering search ...")
@@ -252,17 +318,28 @@ def main():
         )
 
     # ── Player pages ────────────────────────────────────────────────────
+    player_images_path = DATA_DIR / "player-images.json"
+    player_images: dict = (
+        json.loads(player_images_path.read_text())
+        if player_images_path.exists()
+        else {}
+    )
+
     player_files = list((DATA_DIR / "players").glob("*.json"))
     print(f"Rendering {len(player_files)} player pages ...")
     for i, pf in enumerate(player_files):
         if i % 2000 == 0:
             print(f"  ... {i}/{len(player_files)}")
         player_data = json.loads(pf.read_text())
+        cid = player_data["canonical_id"]
+        img_meta = player_images.get(cid)  # None if no image
         render(
             env, "player.html",
-            SITE_DIR / "players" / f"{player_data['canonical_id']}.html",
+            SITE_DIR / "players" / f"{cid}.html",
             root="../",
             player=player_data,
+            player_image=img_meta,
+            player_timeline=build_player_timeline(player_data),
         )
 
     # ── HoF category pages ──────────────────────────────────────────────
