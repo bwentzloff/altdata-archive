@@ -85,8 +85,10 @@ $PYTHON pipeline/scrape_au.py
 echo ""
 
 # ── 3h. DGPT (Disc Golf Pro Tour, 2019-2024 via pdga.com) ────────────────────
+# NOTE: No --batch limit because cache is incomplete; must fetch until complete
+# even though PDGA rate-limits (HTTP 429). Uses exponential backoff retry logic.
 echo "── DGPT (pdga.com/players/stats) ───────────────────────"
-$PYTHON pipeline/scrape_dgpt.py --batch 5
+$PYTHON pipeline/scrape_dgpt.py
 echo ""
 
 # NOTE: Arena Football League (arenafan.com) is blocked (403) for all automated

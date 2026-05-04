@@ -173,6 +173,7 @@ def scrape_all(reset: bool = False, batch: int = 0) -> dict[str, dict]:
                 break
             page = 0
             total = 0
+            year_fetched_any = False  # track if we fetched any new pages in this year/division
 
             while True:
                 cache_key = f"{year}:{division}:{page}"
@@ -180,6 +181,7 @@ def scrape_all(reset: bool = False, batch: int = 0) -> dict[str, dict]:
                 rows, has_next = fetch_page(year, division, page, cache, reset)
                 if is_new and rows is not None:
                     fetched += 1
+                    year_fetched_any = True
 
                 for row in rows:
                     pdga_num = row.get("PDGA #", "").strip()
@@ -222,13 +224,17 @@ def scrape_all(reset: bool = False, batch: int = 0) -> dict[str, dict]:
                 if batch and fetched >= batch:
                     break
                 page += 1
-                time.sleep(2.0)   # polite crawl rate; PDGA rate-limits aggressive scrapers
+                # Only sleep on actual fetches, not cache hits (avoids wasting 28+ min on 843 cached pages)
+                if is_new:
+                    time.sleep(2.0)   # polite crawl rate; PDGA rate-limits aggressive scrapers
 
             if total > 0:
                 print(f"  {division} {year}: {total} players ({page + 1} page(s))")
 
-            # Brief pause between year/division combos to stay under rate limit
-            time.sleep(3.0)
+            # Brief pause between year/division combos (only if we fetched something new)
+            # If all pages were cached, skip the pause to speed up the build
+            if year_fetched_any:
+                time.sleep(1.0)  # reduced from 3.0 since we already slept between pages
 
     CACHE_FILE.write_text(json.dumps(cache), encoding="utf-8")
     return player_data
