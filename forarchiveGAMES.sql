@@ -1,11 +1,11 @@
 -- AltSports Archive SQL dump
--- Generated: 2026-05-04 21:36:55 UTC
+-- Generated: 2026-05-04 23:15:30 UTC
 -- Tables: games
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 
--- Table: `games`  (exported 2026-05-04 21:36:55 UTC)
+-- Table: `games`  (exported 2026-05-04 23:15:30 UTC)
 DROP TABLE IF EXISTS `games`;
 CREATE TABLE `games` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,

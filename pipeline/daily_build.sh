@@ -88,7 +88,8 @@ echo ""
 # NOTE: No --batch limit because cache is incomplete; must fetch until complete
 # even though PDGA rate-limits (HTTP 429). Uses exponential backoff retry logic.
 echo "── DGPT (pdga.com/players/stats) ───────────────────────"
-$PYTHON pipeline/scrape_dgpt.py
+#$PYTHON pipeline/scrape_dgpt.py
+echo "You commented this out for now"
 echo ""
 
 # NOTE: Arena Football League (arenafan.com) is blocked (403) for all automated
@@ -114,7 +115,10 @@ echo ""
 echo "── X-League Japan (Wikipedia) ──────────────────────────"
 $PYTHON pipeline/scrape_xleague.py
 echo ""
-
+# ── 3m. Player social media (ESPN, leagues, Wikipedia) ──────────────────────
+echo "── Player social media (ESPN/league sites/Wikipedia) ───"
+$PYTHON pipeline/scrape_player_socials.py --batch 10
+echo ""
 # ── 3. Merge players ─────────────────────────────────────────────────────────
 echo "── Player images (Wikimedia Commons, ~1 min) ───────────"
 $PYTHON pipeline/scrape_images.py --max-seconds 60

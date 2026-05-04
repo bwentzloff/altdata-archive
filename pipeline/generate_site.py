@@ -502,10 +502,12 @@ def main():
         
         # Generate OG image if not yet generated and under batch limit
         og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
+        og_image_exists = og_image_path.exists() or (cid in og_images_generated)
         if cid not in og_images_generated and og_images_generated_count < og_images_batch_limit:
             if generate_player_og_image(player_data, og_image_path):
                 og_images_generated.add(cid)
                 og_images_generated_count += 1
+                og_image_exists = True
         
         render(
             env, "player.html",
@@ -514,6 +516,7 @@ def main():
             player=player_data,
             player_image=img_meta,
             player_timeline=build_player_timeline(player_data),
+            og_image_exists=og_image_exists,
         )
     
     # Save OG images manifest
