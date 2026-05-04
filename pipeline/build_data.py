@@ -546,6 +546,28 @@ def main():
         print(f"Injected {len(elf_hist_players)} ELF historical players, "
               f"{len(elf_hist_stats)} stat rows (years: {years_seen})")
 
+    # ── Inject new league data from individual scrapers ───────────────────
+    _new_league_pairs = [
+        ("nll_historical_players.json", "nll_historical_stats.json", "NLL historical"),
+        ("pll_players.json",            "pll_stats.json",            "PLL"),
+        ("pul_players.json",            "pul_stats.json",            "PUL"),
+        ("fcf_players.json",            "fcf_stats.json",            "FCF"),
+        ("au_players.json",             "au_stats.json",             "Athletes Unlimited"),
+        ("dgpt_players.json",           "dgpt_stats.json",           "DGPT"),
+    ]
+    for _pfile, _sfile, _label in _new_league_pairs:
+        _pf = RAW / _pfile
+        _sf = RAW / _sfile
+        if _pf.exists() and _sf.exists():
+            _ps = json.loads(_pf.read_text())
+            _ss = json.loads(_sf.read_text())
+            if _ps or _ss:
+                raw_players.extend(_ps)
+                raw_stats.extend(_ss)
+                _yrs = sorted({r.get("_year") for r in _ss if r.get("_year")})
+                print(f"Injected {len(_ps)} {_label} players, "
+                      f"{len(_ss)} stat rows (years: {_yrs})")
+
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching

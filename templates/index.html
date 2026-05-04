@@ -51,9 +51,44 @@
 <h1>AltSports Archive</h1>
 <p>Historical player and game stats from alternative football leagues, ultimate disc, basketball 3-on-3, and more.</p>
 
+<section>
+  <h2>Browse by League</h2>
+  {% for group in sport_groups %}
+  <h3>{{ group.sport }}</h3>
+  <table class="league-index-table data-table">
+    <thead>
+      <tr>
+        <th scope="col">League</th>
+        <th scope="col">Seasons</th>
+        <th scope="col">Players</th>
+        <th scope="col">Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lg in group.leagues %}
+      <tr>
+        <td>{{ lg.name }}</td>
+        <td>
+          {% for y in lg.years %}
+          <a href="{{ root }}leagues/{{ y.slug }}.html">{{ y.season or "All" }}</a>{% if not loop.last %} · {% endif %}
+          {% endfor %}
+        </td>
+        <td>{{ lg.years | sum(attribute='player_count') }}</td>
+        <td>{{ lg.years | sum(attribute='game_count') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</section>
+
 {% if this_week %}
+<details class="this-week-details" open>
+<summary class="this-week-summary">
+  <h2 class="this-week-heading">This Week in History <span class="this-week-label">{{ this_week.week_label }}</span></h2>
+</summary>
 <section class="this-week-section">
-  <h2>This Week in History <span class="this-week-label">{{ this_week.week_label }}</span></h2>
+  <nav class="tw-tabs" role="tablist" aria-label="Days of the week">
   <nav class="tw-tabs" role="tablist" aria-label="Days of the week">
     {% for day in this_week.days %}
     <button class="tw-tab{% if day.game_count == 0 %} tw-tab-empty{% endif %}"
@@ -118,7 +153,10 @@
 (function () {
   var tabs   = document.querySelectorAll('.tw-tab');
   var panels = document.querySelectorAll('.tw-panel');
-  var today  = new Date().toISOString().slice(0, 10);
+  var _d = new Date();
+  var today = _d.getFullYear() + '-' +
+    String(_d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(_d.getDate()).padStart(2, '0');
 
   function activate(idx) {
     tabs.forEach(function (t, i) {
@@ -149,38 +187,9 @@
   });
 }());
 </script>
-{% endif %}
-
-<section>
-  <h2>Browse by League</h2>
-  {% for group in sport_groups %}
-  <h3>{{ group.sport }}</h3>
-  <table class="league-index-table data-table">
-    <thead>
-      <tr>
-        <th scope="col">League</th>
-        <th scope="col">Seasons</th>
-        <th scope="col">Players</th>
-        <th scope="col">Games</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for lg in group.leagues %}
-      <tr>
-        <td>{{ lg.name }}</td>
-        <td>
-          {% for y in lg.years %}
-          <a href="{{ root }}leagues/{{ y.slug }}.html">{{ y.season or "All" }}</a>{% if not loop.last %} · {% endif %}
-          {% endfor %}
-        </td>
-        <td>{{ lg.years | sum(attribute='player_count') }}</td>
-        <td>{{ lg.years | sum(attribute='game_count') }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% endfor %}
 </section>
+</details>
+{% endif %}
 
 <section>
   <h2>Hall of Fame</h2>

@@ -191,6 +191,24 @@ def main():
             ids = [p["id"] for p in elf_players]
             print(f"Injected {len(elf_players)} ELF historical players (IDs {min(ids)}–{max(ids)})")
 
+    # ── Inject new league players from individual scrapers ─────────────────
+    _new_league_files = [
+        ("nll_historical_players.json", "NLL historical"),
+        ("pll_players.json",            "PLL"),
+        ("pul_players.json",            "PUL"),
+        ("fcf_players.json",            "FCF"),
+        ("au_players.json",             "Athletes Unlimited"),
+        ("dgpt_players.json",           "DGPT"),
+    ]
+    for fname, label in _new_league_files:
+        _f = RAW / fname
+        if _f.exists():
+            _ps = json.loads(_f.read_text())
+            if _ps:
+                players.extend(_ps)
+                ids = [p["id"] for p in _ps]
+                print(f"Injected {len(_ps)} {label} players (IDs {min(ids)}–{max(ids)})")
+
     print(f"Loaded {len(players)} player records (including injected)")
 
     # Group by normalized name for fast candidate lookup

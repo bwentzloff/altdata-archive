@@ -59,6 +59,36 @@ echo "── ELF historical (sportsmetrics.football via Wayback) ─"
 $PYTHON pipeline/scrape_elf.py
 echo ""
 
+# ── 3c. NLL historical (2019-20 through 2023-24) ─────────────────────────────
+echo "── NLL historical (nll.com player pages) ───────────────"
+$PYTHON pipeline/scrape_nll_historical.py --batch 5
+echo ""
+
+# ── 3d. PLL (Premier Lacrosse League, 2019+) ─────────────────────────────────
+echo "── PLL (stats.premierlacrosseleague.com / Wayback) ─────"
+$PYTHON pipeline/scrape_pll.py
+echo ""
+
+# ── 3e. PUL (Premier Ultimate League, 2019-2023) ─────────────────────────────
+echo "── PUL (premierultimate.org / Wayback) ─────────────────"
+$PYTHON pipeline/scrape_pul.py
+echo ""
+
+# ── 3f. FCF (Fan Controlled Football, 2021-2023) ─────────────────────────────
+echo "── FCF (fcf.io / Wayback) ──────────────────────────────"
+$PYTHON pipeline/scrape_fcf.py
+echo ""
+
+# ── 3g. Athletes Unlimited (Softball/Lacrosse/Basketball/Volleyball) ─────────
+echo "── Athletes Unlimited (auprosports.com / Wayback) ──────"
+$PYTHON pipeline/scrape_au.py
+echo ""
+
+# ── 3h. DGPT (Disc Golf Pro Tour, 2019-2024 via pdga.com) ────────────────────
+echo "── DGPT (pdga.com/players/stats) ───────────────────────"
+$PYTHON pipeline/scrape_dgpt.py --batch 5
+echo ""
+
 # NOTE: Arena Football League (arenafan.com) is blocked (403) for all automated
 # requests.  AFL data from the source SQL is already in the system.
 # Revisit if a Playwright-based scraper is added later.

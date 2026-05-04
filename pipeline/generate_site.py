@@ -133,20 +133,26 @@ def _build_sport_groups(leagues_index):
     Classify each league into a sport group and collapse AUDL/UFA as one league.
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
-    SPORT_ORDER = ["Football", "Ultimate Disc", "Basketball", "Other"]
-    HIDDEN = {"50 YARD", "50YARD","NLL"}   # leagues to omit from the homepage index
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "MLFB"}
-    BASKETBALL = {"BIG3", "NLL", "SLAMBALL"}
-    DISC = {"AUDL", "UFA"}
+    SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
+    HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "MLFB", "FCF"}
+    BASKETBALL = {"BIG3", "SLAMBALL"}
+    DISC = {"AUDL", "UFA", "PUL"}
+    LACROSSE = {"NLL", "PLL"}
+    DISCGOLF = {"DGPT"}
 
     def classify(slug, display):
         up = display.upper()
         name = up.split()[0]
-        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD")):
+        if name in LACROSSE or "NLL" in up or "PLL" in up:
+            return "Lacrosse"
+        if name in DISCGOLF or "DGPT" in up:
+            return "Disc Golf"
+        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED")):
             return "Football"
-        if name in DISC or "AUDL" in up or "UFA" in up:
+        if name in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
             return "Ultimate Disc"
-        if name in BASKETBALL or "BIG3" in up or "NLL" in up or "SLAMBALL" in up:
+        if name in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:
             return "Basketball"
         return "Other"
 

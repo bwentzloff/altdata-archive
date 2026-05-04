@@ -213,6 +213,8 @@
     }
   })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="{{ root }}assets/charts.js"></script>
 </section>
 {% endif %}
 
@@ -403,9 +405,4 @@
 <a href="{{ root }}data/players/{{ player.canonical_id }}.csv">CSV</a>
 {% endblock %}
 
-{% block scripts %}
-{% if _chart_stat and player.season_totals | length >= 2 %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script src="{{ root }}assets/charts.js"></script>
-{% endif %}
-{% endblock %}
+{% block scripts %}{% endblock %}

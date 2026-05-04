@@ -1,11 +1,11 @@
 -- AltSports Archive SQL dump
--- Generated: 2026-05-04 01:11:35 UTC
+-- Generated: 2026-05-04 17:12:55 UTC
 -- Tables: games
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 
--- Table: `games`  (exported 2026-05-04 01:11:35 UTC)
+-- Table: `games`  (exported 2026-05-04 17:12:55 UTC)
 DROP TABLE IF EXISTS `games`;
 CREATE TABLE `games` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@ CREATE TABLE `games` (
   KEY `game_id` (`game_id`),
   KEY `sport_id` (`sport_id`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=1640 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1655 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `games` (`id`, `sport_id`, `status`, `start_time`, `team_home`, `team_away`, `created_at`, `updated_at`, `week`, `game_id`, `score_home`, `score_away`, `channel`, `streaming_link`, `period`, `time_left`, `active`, `possession_home`, `possession_away`, `record_home`, `record_away`, `status_line`, `spread_home`, `spread_away`, `moneyline_home`, `moneyline_away`, `total_home`, `total_away`, `league`) VALUES
   (23, 2, 3, '2022-07-07 19:00:00', 'royal', 'outlaws', '2022-07-09 14:00:03', '2022-07-09 14:15:02', 7, '2022-07-07-OTT-MTL', 20, 23, 'AUDL.TV', 'https://audltv.vhx.tv/videos/ottawa-at-montreal-07-07-2022', 0, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1161,6 +1161,21 @@ INSERT INTO `games` (`id`, `sport_id`, `status`, `start_time`, `team_home`, `tea
   (1635, 34, 2, '2026-05-02 20:00:00', 'Tulsa Oilers', 'San Diego Strike Force', '2026-05-02 23:54:52', '2026-05-03 12:25:05', 1, 's5msqv7ujmagoix0', 51, 42, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, '4th 00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1636, 34, 2, '2026-05-02 21:00:00', 'Tucson Sugar Skulls', 'San Antonio Gunslingers', '2026-05-03 01:06:50', '2026-05-03 12:25:17', 1, '5pr1v6tabjsekhe4', 17, 35, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, '4th 07:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1638, 34, 1, '2026-05-03 19:08:20', 'Kentucky Barrels', 'Nashville Kats', '2026-05-03 19:08:20', '2026-05-03 21:59:47', 1, '04002611212131', 37, 36, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, 'Final', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-  (1639, 34, 0, '2026-05-03 23:23:26', 'Vegas Knight Hawks', 'Arizona Rattlers', '2026-05-03 23:23:26', '2026-05-04 00:23:39', 1, '2rvunr5hxcvm3c4w', 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  (1639, 34, 0, '2026-05-03 23:23:26', 'Vegas Knight Hawks', 'Arizona Rattlers', '2026-05-03 23:23:26', '2026-05-04 00:23:39', 1, '2rvunr5hxcvm3c4w', 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1640, 31, 0, '2026-05-08 20:00:00', 'ST. LOUIS BATTLEHAWKS', 'COLUMBUS AVIATORS', NULL, NULL, 7, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1641, 31, 0, '2026-05-09 13:30:00', 'DC DEFENDERS', 'LOUISVILLE KINGS', NULL, NULL, 7, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1642, 31, 0, '2026-05-09 20:00:00', 'BIRMINGHAM STALLIONS', 'DALLAS RENEGADES', NULL, NULL, 7, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1643, 31, 0, '2026-05-10 18:00:00', 'HOUSTON GAMBLERS', 'ORLANDO STORM', NULL, NULL, 7, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1644, 33, 0, '2026-05-08 22:00:00', 'bighorns', 'hustle', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-08-ATL-LV', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/atlanta-at-las-vegas-5-8-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1645, 33, 0, '2026-05-09 21:30:00', 'growlers', 'hustle', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-ATL-SD', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/atlanta-at-san-diego-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1646, 33, 0, '2026-05-09 16:00:00', 'rush', 'royal', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-MTL-TOR', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/montreal-at-toronto-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1647, 33, 0, '2026-05-09 20:00:00', 'sol', 'havoc', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-HTX-ATX', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/houston-at-austin-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1648, 33, 0, '2026-05-09 18:00:00', 'cascades', 'spiders', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-OAK-SEA', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/oakland-at-seattle-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1649, 33, 0, '2026-05-09 15:30:00', 'apex', 'shred', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-SLC-COL', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/salt-lake-at-colorado-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1650, 33, 0, '2026-05-09 18:00:00', 'alleycats', 'radicals', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-MAD-IND', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/madison-at-indianapolis-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1651, 33, 0, '2026-05-09 19:30:00', 'flyers', 'phoenix', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-09-PHI-CAR', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/philadelphia-at-carolina-5-9-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1652, 33, 0, '2026-05-10 14:00:00', 'thunderbirds', 'royal', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-10-MTL-PIT', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/montreal-at-pittsburgh-5-10-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1653, 33, 0, '2026-05-10 17:00:00', 'steel', 'spiders', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-10-OAK-ORE', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/oakland-at-oregon-5-10-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1654, 33, 0, '2026-05-10 13:00:00', 'empire', 'breeze', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-10-DC-NY', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/dc-at-new-york-5-10-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS=1;
