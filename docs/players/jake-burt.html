@@ -109,37 +109,61 @@
 
   <main>
     
-<h1>
-  Jake Burt
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Jake Burt
+      
+    </h1>
+    <p class="player-meta">
+      WR / FB
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR, FB</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Jake Burt career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>35.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>35</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>10.0</td></tr>
+      <tr>
+        <td data-stat="recv_gp">Recv Gp</td>
+        <td>10</td>
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="recv_rec">Recv Rec</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>40.0</td></tr>
+      <tr>
+        <td data-stat="recv_yds">Recv Yds</td>
+        <td>40</td>
+      </tr>
       
     </tbody>
   </table>
@@ -150,10 +174,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-": {"receiving_yards": 35.0, "receiving_tds": 0.0, "receptions": 3.0}, "CFL-2022": {"recv_gp": 10.0, "recv_rec": 4.0, "recv_yds": 40.0}};
@@ -172,40 +196,88 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Jake Burt stats — CFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Jake Burt stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr>
+        <td>CFL </td>
+        
+        <td>0</td>
+        
+        <td>35</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>35.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>10</td>
+        
+        <td>4</td>
+        
+        <td>40</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2022</h3>
-  <table class="data-table">
-    <caption>Jake Burt stats — CFL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="recv_gp">recv_gp</td><td>10.0</td></tr>
-      
-      <tr><td data-stat="recv_rec">recv_rec</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="recv_yds">recv_yds</td><td>40.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

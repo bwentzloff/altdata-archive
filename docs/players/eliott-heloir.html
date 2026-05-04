@@ -115,51 +115,119 @@
 
   <main>
     
-<h1>
-  Eliott Heloir
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Eliott Heloir
+      
+    </h1>
+    <p class="player-meta">
+      P
+      <span class="sep">·</span>
+      AUDL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>P</td></tr>
-  <tr><th>Leagues</th><td>AUDL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AUDL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Eliott Heloir career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="assists">Assists</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="blocks">Blocks</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="catches">catches</td><td>11.0</td></tr>
+      <tr>
+        <td data-stat="catches">Catches</td>
+        <td>11</td>
+      </tr>
       
-      <tr><td data-stat="completions">completions</td><td>19.0</td></tr>
+      <tr>
+        <td data-stat="completions">Comp</td>
+        <td>19</td>
+      </tr>
       
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="drops">Drops</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="goals">Goals</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="hockeyAssists">hockeyAssists</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="hockeyAssists">Hockeyassists</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="hucksCompleted">hucksCompleted</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="hucksCompleted">Huckscompleted</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="pulls">pulls</td><td>13.0</td></tr>
+      <tr>
+        <td data-stat="pulls">Pulls</td>
+        <td>13</td>
+      </tr>
       
-      <tr><td data-stat="throwAttempts">throwAttempts</td><td>22.0</td></tr>
+      <tr>
+        <td data-stat="throwAttempts">Throwattempts</td>
+        <td>22</td>
+      </tr>
       
-      <tr><td data-stat="throwaways">throwaways</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="throwaways">Throwaways</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>-14.0</td></tr>
+      <tr>
+        <td data-stat="yardsReceived">Yardsreceived</td>
+        <td>-14</td>
+      </tr>
       
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>293.0</td></tr>
+      <tr>
+        <td data-stat="yardsThrown">Yardsthrown</td>
+        <td>293</td>
+      </tr>
       
     </tbody>
   </table>
@@ -170,10 +238,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"AUDL-": {"goals": 0.0, "assists": 2.0, "yardsThrown": 38.0, "yardsReceived": 8.0, "blocks": 1.0, "throwaways": 2.0, "drops": 0.0}, "unknown": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "AUDL-2022": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}, "AUDL-2023": {"yardsThrown": 255.0, "completions": 19.0, "throwAttempts": 22.0, "throwaways": 2.0, "blocks": 2.0, "pulls": 13.0, "yardsReceived": -22.0, "hockeyAssists": 1.0, "hucksCompleted": 1.0, "catches": 11.0, "assists": 2.0, "goals": 0.0}};
@@ -192,112 +260,250 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>AUDL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Eliott Heloir stats — AUDL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Eliott Heloir stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="catches">Catches</th>
+        
+        <th scope="col" data-stat="completions">Comp</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="hockeyAssists">Hockeyassists</th>
+        
+        <th scope="col" data-stat="hucksCompleted">Huckscompleted</th>
+        
+        <th scope="col" data-stat="pulls">Pulls</th>
+        
+        <th scope="col" data-stat="throwAttempts">Throwattempts</th>
+        
+        <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
+        
+        <th scope="col" data-stat="yardsThrown">Yardsthrown</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>2.0</td></tr>
+      <tr>
+        <td>AUDL </td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>8</td>
+        
+        <td>38</td>
+        
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>1.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      <tr>
+        <td>AUDL 2022</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>8.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>38.0</td></tr>
+      <tr>
+        <td>AUDL 2023</td>
+        
+        <td>2</td>
+        
+        <td>2</td>
+        
+        <td>11</td>
+        
+        <td>19</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>13</td>
+        
+        <td>22</td>
+        
+        <td>2</td>
+        
+        <td>-22</td>
+        
+        <td>255</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>AUDL 2022</h3>
-  <table class="data-table">
-    <caption>Eliott Heloir stats — AUDL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>0.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>AUDL 2023</h3>
-  <table class="data-table">
-    <caption>Eliott Heloir stats — AUDL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="catches">catches</td><td>11.0</td></tr>
-      
-      <tr><td data-stat="completions">completions</td><td>19.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="hockeyAssists">hockeyAssists</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="hucksCompleted">hucksCompleted</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="pulls">pulls</td><td>13.0</td></tr>
-      
-      <tr><td data-stat="throwAttempts">throwAttempts</td><td>22.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>-22.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>255.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Eliott Heloir stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>0.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

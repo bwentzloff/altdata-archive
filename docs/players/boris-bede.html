@@ -133,53 +133,140 @@
 
   <main>
     
-<h1>
-  Boris Bede
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Boris Bede
+      
+    </h1>
+    <p class="player-meta">
+      K
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>K</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Boris Bede career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="extra_point">extra_point</td><td>91.0</td></tr>
+      <tr>
+        <td data-stat="extra_point">Extra Point</td>
+        <td>91</td>
+      </tr>
       
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>3075.0</td></tr>
+      <tr>
+        <td data-stat="field_goal_yards">Field Goal Yards</td>
+        <td>3,075</td>
+      </tr>
       
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="interceptions_lost">INT</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="interceptions_made">Interceptions Made</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="kick_gp">kick_gp</td><td>49.0</td></tr>
+      <tr>
+        <td data-stat="kick_gp">Kick Gp</td>
+        <td>49</td>
+      </tr>
       
-      <tr><td data-stat="kick_pts">kick_pts</td><td>404.0</td></tr>
+      <tr>
+        <td data-stat="kick_pts">Kick Pts</td>
+        <td>404</td>
+      </tr>
       
-      <tr><td data-stat="missed">missed</td><td>11.0</td></tr>
+      <tr>
+        <td data-stat="missed">Missed</td>
+        <td>11</td>
+      </tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="passing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="passing_yards">passing_yards</td><td>15.0</td></tr>
+      <tr>
+        <td data-stat="passing_yards">Pass Yds</td>
+        <td>15</td>
+      </tr>
       
-      <tr><td data-stat="rush_att">rush_att</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="rush_att">Rush Att</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="rush_gp">rush_gp</td><td>18.0</td></tr>
+      <tr>
+        <td data-stat="rush_gp">Rush Gp</td>
+        <td>18</td>
+      </tr>
       
-      <tr><td data-stat="rush_yds">rush_yds</td><td>-10.0</td></tr>
+      <tr>
+        <td data-stat="rush_yds">Rush Yds</td>
+        <td>-10</td>
+      </tr>
       
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="sacks">Sacks</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="tackles">tackles</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="tackles">Tackles</td>
+        <td>1</td>
+      </tr>
       
     </tbody>
   </table>
@@ -190,10 +277,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-": {"field_goal_yards": 948.0, "missed": 9.0}, "CFL-2019": {"rush_gp": 18.0, "rush_att": 1.0, "rush_yds": -10.0, "kick_gp": 18.0, "kick_pts": 136.0}, "CFL-2021": {"kick_gp": 13.0, "kick_pts": 105.0}, "CFL-2022": {"kick_gp": 18.0, "kick_pts": 163.0}, "CFL-2023": {"field_goal_yards": 1196.0, "extra_point": 53.0, "missed": 2.0, "passing_yards": 15.0, "passing_tds": 0.0, "interceptions_lost": 0.0, "tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}, "CFL-2024": {"tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0, "field_goal_yards": 931.0, "extra_point": 38.0}};
@@ -212,114 +299,314 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL </h3>
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Boris Bede stats — CFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Boris Bede stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="extra_point">Extra Point</th>
+        
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+        
+        <th scope="col" data-stat="kick_gp">Kick Gp</th>
+        
+        <th scope="col" data-stat="kick_pts">Kick Pts</th>
+        
+        <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_gp">Rush Gp</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>948.0</td></tr>
+      <tr>
+        <td>CFL </td>
+        
+        <td>—</td>
+        
+        <td>948</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="missed">missed</td><td>9.0</td></tr>
+      <tr>
+        <td>CFL 2019</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>18</td>
+        
+        <td>136</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>18</td>
+        
+        <td>-10</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>13</td>
+        
+        <td>105</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>18</td>
+        
+        <td>163</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>53</td>
+        
+        <td>1196</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>15</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2024</td>
+        
+        <td>38</td>
+        
+        <td>931</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2019</h3>
-  <table class="data-table">
-    <caption>Boris Bede stats — CFL 2019</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="kick_gp">kick_gp</td><td>18.0</td></tr>
-      
-      <tr><td data-stat="kick_pts">kick_pts</td><td>136.0</td></tr>
-      
-      <tr><td data-stat="rush_att">rush_att</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rush_gp">rush_gp</td><td>18.0</td></tr>
-      
-      <tr><td data-stat="rush_yds">rush_yds</td><td>-10.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2021</h3>
-  <table class="data-table">
-    <caption>Boris Bede stats — CFL 2021</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="kick_gp">kick_gp</td><td>13.0</td></tr>
-      
-      <tr><td data-stat="kick_pts">kick_pts</td><td>105.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2022</h3>
-  <table class="data-table">
-    <caption>Boris Bede stats — CFL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="kick_gp">kick_gp</td><td>18.0</td></tr>
-      
-      <tr><td data-stat="kick_pts">kick_pts</td><td>163.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Boris Bede stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="extra_point">extra_point</td><td>53.0</td></tr>
-      
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>1196.0</td></tr>
-      
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="missed">missed</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="passing_tds">passing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>15.0</td></tr>
-      
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="tackles">tackles</td><td>0.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2024</h3>
-  <table class="data-table">
-    <caption>Boris Bede stats — CFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="extra_point">extra_point</td><td>38.0</td></tr>
-      
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>931.0</td></tr>
-      
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="tackles">tackles</td><td>1.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

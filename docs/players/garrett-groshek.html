@@ -109,37 +109,61 @@
 
   <main>
     
-<h1>
-  Garrett Groshek
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Garrett Groshek
+      
+    </h1>
+    <p class="player-meta">
+      RB
+      <span class="sep">·</span>
+      USFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>RB</td></tr>
-  <tr><th>Leagues</th><td>USFL</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Garrett Groshek career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="lost_fumbles">Lost Fumbles</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>143.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>143</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>18.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>18</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>605.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>605</td>
+      </tr>
       
     </tbody>
   </table>
@@ -150,10 +174,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"USFL-": {"rushing_yards": 329.0, "rushing_tds": 1.0, "receiving_yards": 44.0, "receptions": 8.0, "receiving_tds": 0.0, "lost_fumbles": 0.0}, "USFL-2023": {"rushing_yards": 276.0, "rushing_tds": 2.0, "receptions": 10.0, "receiving_yards": 99.0, "receiving_tds": 0.0}};
@@ -172,50 +196,98 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>USFL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Garrett Groshek stats — USFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Garrett Groshek stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>0.0</td></tr>
+      <tr>
+        <td>USFL </td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>44</td>
+        
+        <td>8</td>
+        
+        <td>1</td>
+        
+        <td>329</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>44.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>8.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>329.0</td></tr>
+      <tr>
+        <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>99</td>
+        
+        <td>10</td>
+        
+        <td>2</td>
+        
+        <td>276</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>USFL 2023</h3>
-  <table class="data-table">
-    <caption>Garrett Groshek stats — USFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>99.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>10.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>276.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

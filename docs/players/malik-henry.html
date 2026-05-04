@@ -109,35 +109,56 @@
 
   <main>
     
-<h1>
-  Malik Henry
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Malik Henry
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Malik Henry career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>8.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>8</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>1057.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>1,057</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>63.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>63</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>9.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>9</td>
+      </tr>
       
     </tbody>
   </table>
@@ -148,10 +169,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-": {"receiving_yards": 829.0, "receiving_tds": 7.0, "receptions": 49.0, "rushing_yards": 9.0, "rushing_tds": 0.0}, "CFL-2023": {"receiving_yards": 228.0, "receiving_tds": 1.0, "receptions": 14.0}};
@@ -170,44 +191,86 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Malik Henry stats — CFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Malik Henry stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>7.0</td></tr>
+      <tr>
+        <td>CFL </td>
+        
+        <td>7</td>
+        
+        <td>829</td>
+        
+        <td>49</td>
+        
+        <td>0</td>
+        
+        <td>9</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>829.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>49.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>9.0</td></tr>
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>1</td>
+        
+        <td>228</td>
+        
+        <td>14</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Malik Henry stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>228.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>14.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

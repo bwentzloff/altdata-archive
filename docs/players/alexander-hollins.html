@@ -115,41 +115,98 @@
 
   <main>
     
-<h1>
-  Alexander HOLLINS
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Alexander HOLLINS
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Alexander HOLLINS career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="interceptions_made">Interceptions Made</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>15.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>15</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>2258.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>2,258</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>146.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>146</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>19.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>19</td>
+      </tr>
       
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="sacks">Sacks</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="tackles">tackles</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="tackles">Tackles</td>
+        <td>0</td>
+      </tr>
       
     </tbody>
   </table>
@@ -160,10 +217,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2023": {"receiving_yards": 1158.0, "receiving_tds": 9.0, "receptions": 77.0, "rushing_yards": 19.0, "rushing_tds": 0.0, "tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}, "CFL-2024": {"receptions": 61.0, "receiving_yards": 937.0, "receiving_tds": 6.0}, "CFL-2025": {"receiving_yards": 163.0, "receiving_tds": 0.0, "receptions": 8.0}};
@@ -182,65 +239,139 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2023</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Alexander HOLLINS stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Alexander HOLLINS stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>0</td>
+        
+        <td>9</td>
+        
+        <td>1158</td>
+        
+        <td>77</td>
+        
+        <td>0</td>
+        
+        <td>19</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>9.0</td></tr>
+      <tr>
+        <td>CFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>937</td>
+        
+        <td>61</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>1158.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>77.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>19.0</td></tr>
-      
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="tackles">tackles</td><td>0.0</td></tr>
+      <tr>
+        <td>CFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>163</td>
+        
+        <td>8</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2024</h3>
-  <table class="data-table">
-    <caption>Alexander HOLLINS stats — CFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>937.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>61.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2025</h3>
-  <table class="data-table">
-    <caption>Alexander HOLLINS stats — CFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>163.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>8.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

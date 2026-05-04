@@ -109,35 +109,96 @@
 
   <main>
     
-<h1>
-  Jordan Smallwood
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Jordan Smallwood
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      XFL, CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>XFL, CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Jordan Smallwood career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>33.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>33</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="recv_gp">Recv Gp</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="recv_rec">Recv Rec</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>32.0</td></tr>
+      <tr>
+        <td data-stat="recv_yds">Recv Yds</td>
+        <td>32</td>
+      </tr>
       
     </tbody>
   </table>
@@ -148,10 +209,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2021": {"recv_gp": 3.0, "recv_rec": 3.0, "recv_yds": 32.0}, "XFL-2023": {"receiving_yards": 33.0, "receptions": 3.0}};
@@ -170,38 +231,80 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2021</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Jordan Smallwood stats — CFL 2021</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Jordan Smallwood stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>3.0</td></tr>
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>32</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="recv_yds">recv_yds</td><td>32.0</td></tr>
+      <tr>
+        <td>XFL 2023</td>
+        
+        <td>33</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>XFL 2023</h3>
-  <table class="data-table">
-    <caption>Jordan Smallwood stats — XFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>33.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>3.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

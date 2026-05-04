@@ -109,35 +109,79 @@
 
   <main>
     
-<h1>
-  Jaylon Moore
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Jaylon Moore
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      UFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>UFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Jaylon Moore career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>289.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>289</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>28.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>28</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>7.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>7</td>
+      </tr>
       
     </tbody>
   </table>
@@ -148,10 +192,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"UFL-2025": {"receptions": 18.0, "receiving_yards": 216.0, "receiving_tds": 1.0, "rushing_yards": 0.0, "rushing_tds": 0.0}, "UFL-2026": {"receptions": 10.0, "receiving_yards": 73.0, "receiving_tds": 0.0, "rushing_yards": 7.0, "rushing_tds": 0.0}};
@@ -170,48 +214,90 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>UFL 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Jaylon Moore stats — UFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Jaylon Moore stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>1</td>
+        
+        <td>216</td>
+        
+        <td>18</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>216.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>18.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>0.0</td></tr>
+      <tr>
+        <td>UFL 2026</td>
+        
+        <td>0</td>
+        
+        <td>73</td>
+        
+        <td>10</td>
+        
+        <td>0</td>
+        
+        <td>7</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UFL 2026</h3>
-  <table class="data-table">
-    <caption>Jaylon Moore stats — UFL 2026</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>73.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>10.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>7.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

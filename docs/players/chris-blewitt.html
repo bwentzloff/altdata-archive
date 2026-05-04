@@ -115,35 +115,96 @@
 
   <main>
     
-<h1>
-  Chris Blewitt
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Chris Blewitt
+      
+    </h1>
+    <p class="player-meta">
+      K
+      <span class="sep">·</span>
+      UFL, USFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>K</td></tr>
-  <tr><th>Leagues</th><td>UFL, USFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Chris Blewitt career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="extra_point">extra_point</td><td>13.0</td></tr>
+      <tr>
+        <td data-stat="extra_point">Extra Point</td>
+        <td>13</td>
+      </tr>
       
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>1873.0</td></tr>
+      <tr>
+        <td data-stat="field_goal_yards">Field Goal Yards</td>
+        <td>1,873</td>
+      </tr>
       
-      <tr><td data-stat="missed">missed</td><td>9.0</td></tr>
+      <tr>
+        <td data-stat="missed">Missed</td>
+        <td>9</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>1</td>
+      </tr>
       
     </tbody>
   </table>
@@ -154,10 +215,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"USFL-2023": {"field_goal_yards": 1030.0, "extra_point": 13.0, "missed": 6.0, "rushing_yards": 0.0, "rushing_tds": 0.0}, "UFL-2024": {"field_goal_yards": 375.0, "missed": 1.0}, "UFL-2025": {"field_goal_yards": 468.0, "missed": 2.0, "rushing_yards": 1.0, "rushing_tds": 0.0}};
@@ -176,59 +237,109 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>UFL 2024</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Chris Blewitt stats — UFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Chris Blewitt stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="extra_point">Extra Point</th>
+        
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
+        <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>375.0</td></tr>
+      <tr>
+        <td>USFL 2023</td>
+        
+        <td>13</td>
+        
+        <td>1030</td>
+        
+        <td>6</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="missed">missed</td><td>1.0</td></tr>
+      <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>375</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>468</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UFL 2025</h3>
-  <table class="data-table">
-    <caption>Chris Blewitt stats — UFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>468.0</td></tr>
-      
-      <tr><td data-stat="missed">missed</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>USFL 2023</h3>
-  <table class="data-table">
-    <caption>Chris Blewitt stats — USFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="extra_point">extra_point</td><td>13.0</td></tr>
-      
-      <tr><td data-stat="field_goal_yards">field_goal_yards</td><td>1030.0</td></tr>
-      
-      <tr><td data-stat="missed">missed</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>0.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

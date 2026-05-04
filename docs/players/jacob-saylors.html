@@ -109,39 +109,89 @@
 
   <main>
     
-<h1>
-  Jacob Saylors
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Jacob Saylors
+      
+    </h1>
+    <p class="player-meta">
+      RB
+      <span class="sep">·</span>
+      UFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>RB</td></tr>
-  <tr><th>Leagues</th><td>UFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Jacob Saylors career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="1pt_conversion">1pt_conversion</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="1pt_conversion">1Pt Conversion</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="conversions">conversions</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="conversions">Conversions</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>391.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>391</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>45.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>45</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>10.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>10</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1071.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>1,071</td>
+      </tr>
       
     </tbody>
   </table>
@@ -152,10 +202,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"UFL-2024": {"rushing_yards": 572.0, "rushing_tds": 5.0, "receptions": 23.0, "receiving_yards": 146.0, "receiving_tds": 3.0, "conversions": 3.0}, "UFL-2025": {"rushing_yards": 499.0, "rushing_tds": 5.0, "receptions": 22.0, "receiving_yards": 245.0, "receiving_tds": 0.0, "conversions": 1.0, "1pt_conversion": 2.0}};
@@ -174,54 +224,108 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>UFL 2024</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Jacob Saylors stats — UFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Jacob Saylors stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="1pt_conversion">1Pt Conversion</th>
+        
+        <th scope="col" data-stat="conversions">Conversions</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="conversions">conversions</td><td>3.0</td></tr>
+      <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>146</td>
+        
+        <td>23</td>
+        
+        <td>5</td>
+        
+        <td>572</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>146.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>23.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>5.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>572.0</td></tr>
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
+        
+        <td>245</td>
+        
+        <td>22</td>
+        
+        <td>5</td>
+        
+        <td>499</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UFL 2025</h3>
-  <table class="data-table">
-    <caption>Jacob Saylors stats — UFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="1pt_conversion">1pt_conversion</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="conversions">conversions</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>245.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>22.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>5.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>499.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

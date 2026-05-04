@@ -121,55 +121,137 @@
 
   <main>
     
-<h1>
-  Dedrick MILLS
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Dedrick MILLS
+      
+    </h1>
+    <p class="player-meta">
+      RB
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>RB</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Dedrick MILLS career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="interceptions_made">Interceptions Made</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>742.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>742</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>85.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>85</td>
+      </tr>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="recv_gp">Recv Gp</td>
+        <td>6</td>
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>13.0</td></tr>
+      <tr>
+        <td data-stat="recv_rec">Recv Rec</td>
+        <td>13</td>
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>105.0</td></tr>
+      <tr>
+        <td data-stat="recv_yds">Recv Yds</td>
+        <td>105</td>
+      </tr>
       
-      <tr><td data-stat="rush_att">rush_att</td><td>67.0</td></tr>
+      <tr>
+        <td data-stat="rush_att">Rush Att</td>
+        <td>67</td>
+      </tr>
       
-      <tr><td data-stat="rush_gp">rush_gp</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="rush_gp">Rush Gp</td>
+        <td>6</td>
+      </tr>
       
-      <tr><td data-stat="rush_td">rush_td</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="rush_td">Rush Td</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="rush_yds">rush_yds</td><td>459.0</td></tr>
+      <tr>
+        <td data-stat="rush_yds">Rush Yds</td>
+        <td>459</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>16.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>16</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>3130.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>3,130</td>
+      </tr>
       
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="sacks">Sacks</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="tackles">tackles</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="tackles">Tackles</td>
+        <td>0</td>
+      </tr>
       
     </tbody>
   </table>
@@ -180,10 +262,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2022": {"rush_gp": 6.0, "rush_att": 67.0, "rush_yds": 459.0, "rush_td": 2.0, "recv_gp": 6.0, "recv_rec": 13.0, "recv_yds": 105.0}, "CFL-2023": {"rushing_yards": 798.0, "rushing_tds": 4.0, "receiving_yards": 123.0, "receiving_tds": 0.0, "receptions": 21.0, "tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}, "CFL-2024": {"rushing_yards": 923.0, "rushing_tds": 1.0, "receiving_yards": 327.0, "receiving_tds": 0.0, "receptions": 31.0}, "CFL-2025": {"rushing_yards": 1409.0, "rushing_tds": 11.0, "receiving_yards": 292.0, "receiving_tds": 0.0, "receptions": 33.0}};
@@ -202,96 +284,254 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2022</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Dedrick MILLS stats — CFL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Dedrick MILLS stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_gp">Rush Gp</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>6.0</td></tr>
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>13</td>
+        
+        <td>105</td>
+        
+        <td>67</td>
+        
+        <td>6</td>
+        
+        <td>2</td>
+        
+        <td>459</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>13.0</td></tr>
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>123</td>
+        
+        <td>21</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>798</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>105.0</td></tr>
+      <tr>
+        <td>CFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>327</td>
+        
+        <td>31</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>923</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="rush_att">rush_att</td><td>67.0</td></tr>
-      
-      <tr><td data-stat="rush_gp">rush_gp</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="rush_td">rush_td</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="rush_yds">rush_yds</td><td>459.0</td></tr>
+      <tr>
+        <td>CFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>292</td>
+        
+        <td>33</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>11</td>
+        
+        <td>1409</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Dedrick MILLS stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="interceptions_made">interceptions_made</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>123.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>21.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>798.0</td></tr>
-      
-      <tr><td data-stat="sacks">sacks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="tackles">tackles</td><td>0.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2024</h3>
-  <table class="data-table">
-    <caption>Dedrick MILLS stats — CFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>327.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>31.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>923.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2025</h3>
-  <table class="data-table">
-    <caption>Dedrick MILLS stats — CFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>292.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>33.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>11.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1409.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

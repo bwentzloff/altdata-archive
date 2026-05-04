@@ -109,35 +109,56 @@
 
   <main>
     
-<h1>
-  Evans, Dane
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Evans, Dane
+      
+    </h1>
+    <p class="player-meta">
+      QB
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>QB</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Evans, Dane career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>17.0</td></tr>
+      <tr>
+        <td data-stat="interceptions_lost">INT</td>
+        <td>17</td>
+      </tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>17.0</td></tr>
+      <tr>
+        <td data-stat="passing_tds">TD</td>
+        <td>17</td>
+      </tr>
       
-      <tr><td data-stat="passing_yards">passing_yards</td><td>3926.0</td></tr>
+      <tr>
+        <td data-stat="passing_yards">Pass Yds</td>
+        <td>3,926</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>179.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>179</td>
+      </tr>
       
     </tbody>
   </table>
@@ -148,10 +169,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-": {"passing_yards": 3097.0, "passing_tds": 13.0, "interceptions_lost": 11.0, "rushing_yards": 149.0, "rushing_tds": 4.0}, "CFL-2023": {"passing_yards": 829.0, "passing_tds": 4.0, "interceptions_lost": 6.0, "rushing_yards": 30.0, "rushing_tds": 0.0}};
@@ -170,48 +191,90 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Evans, Dane stats — CFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Evans, Dane stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>11.0</td></tr>
+      <tr>
+        <td>CFL </td>
+        
+        <td>11</td>
+        
+        <td>13</td>
+        
+        <td>3097</td>
+        
+        <td>4</td>
+        
+        <td>149</td>
+        
+      </tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>13.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>3097.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>149.0</td></tr>
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>6</td>
+        
+        <td>4</td>
+        
+        <td>829</td>
+        
+        <td>0</td>
+        
+        <td>30</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Evans, Dane stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="interceptions_lost">interceptions_lost</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="passing_tds">passing_tds</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>829.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>30.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

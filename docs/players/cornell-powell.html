@@ -109,33 +109,115 @@
 
   <main>
     
-<h1>
-  Cornell Powell
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Cornell Powell
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      UFL, NFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>UFL, NFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="college">
+        <span class="ct-label">College</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Cornell Powell career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="conversions">conversions</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="conversions">Conversions</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>8.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>8</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>667.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>667</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>48.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>48</td>
+      </tr>
       
     </tbody>
   </table>
@@ -146,10 +228,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"UFL-2025": {"receptions": 29.0, "receiving_yards": 418.0, "receiving_tds": 7.0, "conversions": 1.0}, "UFL-2026": {"receptions": 19.0, "receiving_yards": 249.0, "receiving_tds": 1.0}};
@@ -168,42 +250,78 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>UFL 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Cornell Powell stats — UFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Cornell Powell stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="conversions">Conversions</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="conversions">conversions</td><td>1.0</td></tr>
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>1</td>
+        
+        <td>7</td>
+        
+        <td>418</td>
+        
+        <td>29</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>7.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>418.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>29.0</td></tr>
+      <tr>
+        <td>UFL 2026</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>249</td>
+        
+        <td>19</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UFL 2026</h3>
-  <table class="data-table">
-    <caption>Cornell Powell stats — UFL 2026</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>249.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>19.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 <section class="college-section">

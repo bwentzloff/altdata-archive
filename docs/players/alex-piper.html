@@ -109,39 +109,89 @@
 
   <main>
     
-<h1>
-  Alex Piper
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Alex Piper
+      
+    </h1>
+    <p class="player-meta">
+      P
+      <span class="sep">·</span>
+      UFA
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>P</td></tr>
-  <tr><th>Leagues</th><td>UFA</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFA</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Alex Piper career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="assists">Assists</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="blocks">Blocks</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="drops">Drops</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="goals">goals</td><td>10.0</td></tr>
+      <tr>
+        <td data-stat="goals">Goals</td>
+        <td>10</td>
+      </tr>
       
-      <tr><td data-stat="throwaways">throwaways</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="throwaways">Throwaways</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>580.0</td></tr>
+      <tr>
+        <td data-stat="yardsReceived">Yardsreceived</td>
+        <td>580</td>
+      </tr>
       
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>136.0</td></tr>
+      <tr>
+        <td data-stat="yardsThrown">Yardsthrown</td>
+        <td>136</td>
+      </tr>
       
     </tbody>
   </table>
@@ -152,10 +202,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"UFA-2025": {"goals": 7.0, "assists": 1.0, "yardsThrown": 72.0, "yardsReceived": 444.0, "blocks": 2.0, "throwaways": 3.0, "drops": 0.0}, "UFA-2026": {"goals": 3.0, "assists": 1.0, "yardsThrown": 64.0, "yardsReceived": 136.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
@@ -174,56 +224,110 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>UFA 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Alex Piper stats — UFA 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Alex Piper stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
+        
+        <th scope="col" data-stat="yardsThrown">Yardsthrown</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>1.0</td></tr>
+      <tr>
+        <td>UFA 2025</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>7</td>
+        
+        <td>3</td>
+        
+        <td>444</td>
+        
+        <td>72</td>
+        
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>7.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>444.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>72.0</td></tr>
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>136</td>
+        
+        <td>64</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UFA 2026</h3>
-  <table class="data-table">
-    <caption>Alex Piper stats — UFA 2026</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>136.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>64.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

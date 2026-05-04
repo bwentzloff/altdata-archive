@@ -115,49 +115,118 @@
 
   <main>
     
-<h1>
-  Peyton Logan
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Peyton Logan
+      
+    </h1>
+    <p class="player-meta">
+      RB
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>RB</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Peyton Logan career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>138.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>138</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>25.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>25</td>
+      </tr>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>16.0</td></tr>
+      <tr>
+        <td data-stat="recv_gp">Recv Gp</td>
+        <td>16</td>
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>18.0</td></tr>
+      <tr>
+        <td data-stat="recv_rec">Recv Rec</td>
+        <td>18</td>
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>192.0</td></tr>
+      <tr>
+        <td data-stat="recv_yds">Recv Yds</td>
+        <td>192</td>
+      </tr>
       
-      <tr><td data-stat="rush_att">rush_att</td><td>58.0</td></tr>
+      <tr>
+        <td data-stat="rush_att">Rush Att</td>
+        <td>58</td>
+      </tr>
       
-      <tr><td data-stat="rush_gp">rush_gp</td><td>16.0</td></tr>
+      <tr>
+        <td data-stat="rush_gp">Rush Gp</td>
+        <td>16</td>
+      </tr>
       
-      <tr><td data-stat="rush_td">rush_td</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="rush_td">Rush Td</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="rush_yds">rush_yds</td><td>365.0</td></tr>
+      <tr>
+        <td data-stat="rush_yds">Rush Yds</td>
+        <td>365</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>524.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>524</td>
+      </tr>
       
     </tbody>
   </table>
@@ -168,10 +237,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2022": {"rush_gp": 16.0, "rush_att": 58.0, "rush_yds": 365.0, "rush_td": 3.0, "recv_gp": 16.0, "recv_rec": 18.0, "recv_yds": 192.0}, "CFL-2023": {"rushing_yards": 169.0, "rushing_tds": 1.0, "receiving_yards": 17.0, "receiving_tds": 0.0, "receptions": 1.0}, "CFL-2024": {"rushing_yards": 355.0, "rushing_tds": 1.0, "receiving_yards": 121.0, "receiving_tds": 0.0, "receptions": 24.0}};
@@ -190,71 +259,177 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2022</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Peyton Logan stats — CFL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Peyton Logan stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_gp">Rush Gp</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>16.0</td></tr>
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>16</td>
+        
+        <td>18</td>
+        
+        <td>192</td>
+        
+        <td>58</td>
+        
+        <td>16</td>
+        
+        <td>3</td>
+        
+        <td>365</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>18.0</td></tr>
+      <tr>
+        <td>CFL 2023</td>
+        
+        <td>0</td>
+        
+        <td>17</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>169</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>192.0</td></tr>
-      
-      <tr><td data-stat="rush_att">rush_att</td><td>58.0</td></tr>
-      
-      <tr><td data-stat="rush_gp">rush_gp</td><td>16.0</td></tr>
-      
-      <tr><td data-stat="rush_td">rush_td</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="rush_yds">rush_yds</td><td>365.0</td></tr>
+      <tr>
+        <td>CFL 2024</td>
+        
+        <td>0</td>
+        
+        <td>121</td>
+        
+        <td>24</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>355</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2023</h3>
-  <table class="data-table">
-    <caption>Peyton Logan stats — CFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>17.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>169.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>CFL 2024</h3>
-  <table class="data-table">
-    <caption>Peyton Logan stats — CFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>121.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>24.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>355.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

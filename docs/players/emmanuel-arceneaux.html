@@ -109,39 +109,97 @@
 
   <main>
     
-<h1>
-  Emmanuel Arceneaux
-  <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
-</h1>
+<div class="player-header">
+  
 
+  <div class="player-header-text">
+    <h1>
+      Emmanuel Arceneaux
+      <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
+    </h1>
+    <p class="player-meta">
+      SB / DB
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>SB, DB</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Emmanuel Arceneaux career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>747.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>747</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>61.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>61</td>
+      </tr>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>23.0</td></tr>
+      <tr>
+        <td data-stat="recv_gp">Recv Gp</td>
+        <td>23</td>
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>61.0</td></tr>
+      <tr>
+        <td data-stat="recv_rec">Recv Rec</td>
+        <td>61</td>
+      </tr>
       
-      <tr><td data-stat="recv_td">recv_td</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="recv_td">Recv Td</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="recv_yds">recv_yds</td><td>761.0</td></tr>
+      <tr>
+        <td data-stat="recv_yds">Recv Yds</td>
+        <td>761</td>
+      </tr>
       
     </tbody>
   </table>
@@ -152,10 +210,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2019": {"recv_gp": 11.0, "recv_rec": 22.0, "recv_yds": 249.0, "recv_td": 2.0}, "CFL-2022": {"recv_gp": 12.0, "recv_rec": 39.0, "recv_yds": 512.0, "recv_td": 1.0}};
@@ -174,44 +232,80 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2019</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Emmanuel Arceneaux stats — CFL 2019</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Emmanuel Arceneaux stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="recv_gp">recv_gp</td><td>11.0</td></tr>
+      <tr>
+        <td>CFL 2019</td>
+        
+        <td>11</td>
+        
+        <td>22</td>
+        
+        <td>2</td>
+        
+        <td>249</td>
+        
+      </tr>
       
-      <tr><td data-stat="recv_rec">recv_rec</td><td>22.0</td></tr>
-      
-      <tr><td data-stat="recv_td">recv_td</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="recv_yds">recv_yds</td><td>249.0</td></tr>
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>12</td>
+        
+        <td>39</td>
+        
+        <td>1</td>
+        
+        <td>512</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2022</h3>
-  <table class="data-table">
-    <caption>Emmanuel Arceneaux stats — CFL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="recv_gp">recv_gp</td><td>12.0</td></tr>
-      
-      <tr><td data-stat="recv_rec">recv_rec</td><td>39.0</td></tr>
-      
-      <tr><td data-stat="recv_td">recv_td</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="recv_yds">recv_yds</td><td>512.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

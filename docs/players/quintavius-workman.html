@@ -109,31 +109,80 @@
 
   <main>
     
-<h1>
-  Quintavius Workman
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Quintavius Workman
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      50 Yard, AF1
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>50 Yard, AF1</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50 Yard</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Quintavius Workman career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>11.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>11</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>378.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>378</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>31.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>31</td>
+      </tr>
       
     </tbody>
   </table>
@@ -144,10 +193,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"unknown": {"receptions": 1.0, "receiving_yards": 21.0, "receiving_tds": 1.0}, "AF1-2025": {"receptions": 30.0, "receiving_yards": 299.0, "receiving_tds": 9.0}, "50 Yard-2026": {"receiving_yards": 58.0, "receiving_tds": 1.0}};
@@ -166,53 +215,87 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>50 YARD 2026</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Quintavius Workman stats — 50 YARD 2026</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Quintavius Workman stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>1</td>
+        
+        <td>21</td>
+        
+        <td>1</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>58.0</td></tr>
+      <tr>
+        <td>AF1 2025</td>
+        
+        <td>9</td>
+        
+        <td>299</td>
+        
+        <td>30</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50 Yard 2026</td>
+        
+        <td>1</td>
+        
+        <td>58</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>AF1 2025</h3>
-  <table class="data-table">
-    <caption>Quintavius Workman stats — AF1 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>9.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>299.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>30.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Quintavius Workman stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>21.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>1.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

@@ -103,35 +103,56 @@
 
   <main>
     
-<h1>
-  Kenneth Brewer
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Kenneth Brewer
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      AF1
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>AF1</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Kenneth Brewer career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>3.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>3</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>258.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>258</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>26.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>26</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>6</td>
+      </tr>
       
     </tbody>
   </table>
@@ -142,10 +163,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"unknown": {"rushing_yards": 5.0, "rushing_tds": 1.0, "receptions": 6.0, "receiving_yards": 68.0, "receiving_tds": 1.0}, "AF1-2025": {"receptions": 20.0, "receiving_yards": 190.0, "receiving_tds": 2.0, "rushing_yards": 1.0, "rushing_tds": 1.0}};
@@ -164,48 +185,90 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>AF1 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Kenneth Brewer stats — AF1 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Kenneth Brewer stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>2.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>1</td>
+        
+        <td>68</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
+        
+        <td>5</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>190.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>20.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1.0</td></tr>
+      <tr>
+        <td>AF1 2025</td>
+        
+        <td>2</td>
+        
+        <td>190</td>
+        
+        <td>20</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Kenneth Brewer stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>68.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>5.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

@@ -103,31 +103,46 @@
 
   <main>
     
-<h1>
-  Richy Anderson
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Richy Anderson
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      AF1
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>AF1</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Richy Anderson career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>6</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>555.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>555</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>46.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>46</td>
+      </tr>
       
     </tbody>
   </table>
@@ -138,10 +153,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"unknown": {"receptions": 11.0, "receiving_yards": 146.0, "receiving_tds": 2.0}, "AF1-2025": {"receptions": 35.0, "receiving_yards": 409.0, "receiving_tds": 4.0}};
@@ -160,40 +175,70 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>AF1 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Richy Anderson stats — AF1 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Richy Anderson stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>4.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>2</td>
+        
+        <td>146</td>
+        
+        <td>11</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>409.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>35.0</td></tr>
+      <tr>
+        <td>AF1 2025</td>
+        
+        <td>4</td>
+        
+        <td>409</td>
+        
+        <td>35</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Richy Anderson stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>146.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>11.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

@@ -109,35 +109,79 @@
 
   <main>
     
-<h1>
-  Ontaria Wilson
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Ontaria Wilson
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      CFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>CFL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Ontaria Wilson career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>6</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>1408.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>1,408</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>92.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>92</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>17.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>17</td>
+      </tr>
       
     </tbody>
   </table>
@@ -148,10 +192,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"CFL-2024": {"receiving_yards": 1026.0, "receiving_tds": 3.0, "receptions": 71.0}, "CFL-2025": {"receiving_yards": 382.0, "receiving_tds": 3.0, "receptions": 21.0, "rushing_yards": 17.0, "rushing_tds": 0.0}};
@@ -170,44 +214,86 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>CFL 2024</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Ontaria Wilson stats — CFL 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Ontaria Wilson stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>3.0</td></tr>
+      <tr>
+        <td>CFL 2024</td>
+        
+        <td>3</td>
+        
+        <td>1026</td>
+        
+        <td>71</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>1026.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>71.0</td></tr>
+      <tr>
+        <td>CFL 2025</td>
+        
+        <td>3</td>
+        
+        <td>382</td>
+        
+        <td>21</td>
+        
+        <td>0</td>
+        
+        <td>17</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>CFL 2025</h3>
-  <table class="data-table">
-    <caption>Ontaria Wilson stats — CFL 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>382.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>21.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>17.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

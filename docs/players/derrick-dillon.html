@@ -109,39 +109,66 @@
 
   <main>
     
-<h1>
-  Derrick Dillon
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Derrick Dillon
+      
+    </h1>
+    <p class="player-meta">
+      WR
+      <span class="sep">·</span>
+      UFL, USFL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>WR</td></tr>
-  <tr><th>Leagues</th><td>UFL, USFL</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Derrick Dillon career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="lost_fumbles">Lost Fumbles</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="punt_return">punt_return</td><td>2.0</td></tr>
+      <tr>
+        <td data-stat="punt_return">Punt Return</td>
+        <td>2</td>
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>5.0</td></tr>
+      <tr>
+        <td data-stat="receiving_tds">TD</td>
+        <td>5</td>
+      </tr>
       
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>726.0</td></tr>
+      <tr>
+        <td data-stat="receiving_yards">Rec Yds</td>
+        <td>726</td>
+      </tr>
       
-      <tr><td data-stat="receptions">receptions</td><td>56.0</td></tr>
+      <tr>
+        <td data-stat="receptions">Rec</td>
+        <td>56</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>6.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>6</td>
+      </tr>
       
     </tbody>
   </table>
@@ -152,10 +179,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"USFL-": {"receiving_yards": 386.0, "receptions": 28.0, "receiving_tds": 4.0, "lost_fumbles": 0.0, "rushing_yards": -9.0, "rushing_tds": 0.0}, "USFL-2023": {"rushing_yards": 15.0, "rushing_tds": 0.0, "receptions": 28.0, "receiving_yards": 340.0, "receiving_tds": 1.0, "punt_return": 2.0}};
@@ -174,52 +201,106 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>USFL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Derrick Dillon stats — USFL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Derrick Dillon stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
+        
+        <th scope="col" data-stat="punt_return">Punt Return</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="lost_fumbles">lost_fumbles</td><td>0.0</td></tr>
+      <tr>
+        <td>USFL </td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>386</td>
+        
+        <td>28</td>
+        
+        <td>0</td>
+        
+        <td>-9</td>
+        
+      </tr>
       
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>4.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>386.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>28.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>-9.0</td></tr>
+      <tr>
+        <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>340</td>
+        
+        <td>28</td>
+        
+        <td>0</td>
+        
+        <td>15</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>USFL 2023</h3>
-  <table class="data-table">
-    <caption>Derrick Dillon stats — USFL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="punt_return">punt_return</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="receiving_tds">receiving_tds</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="receiving_yards">receiving_yards</td><td>340.0</td></tr>
-      
-      <tr><td data-stat="receptions">receptions</td><td>28.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>15.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

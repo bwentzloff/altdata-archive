@@ -103,35 +103,56 @@
 
   <main>
     
-<h1>
-  Joseph Hess
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Joseph Hess
+      
+    </h1>
+    <p class="player-meta">
+      QB
+      <span class="sep">·</span>
+      AF1
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>QB</td></tr>
-  <tr><th>Leagues</th><td>AF1</td></tr>
-</table>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Joseph Hess career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="interceptions">interceptions</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="interceptions">Interceptions</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="passing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="passing_yards">passing_yards</td><td>35.0</td></tr>
+      <tr>
+        <td data-stat="passing_yards">Pass Yds</td>
+        <td>35</td>
+      </tr>
       
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
+      <tr>
+        <td data-stat="rushing_tds">TD</td>
+        <td>0</td>
+      </tr>
       
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="rushing_yards">Rush Yds</td>
+        <td>1</td>
+      </tr>
       
     </tbody>
   </table>
@@ -142,10 +163,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"unknown": {"passing_yards": 35.0, "passing_tds": 0.0, "interceptions": 1.0, "rushing_yards": 1.0, "rushing_tds": 0.0}, "AF1-2025": {"passing_yards": 0.0, "passing_tds": 0.0, "interceptions": 0.0}};
@@ -164,44 +185,86 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>AF1 2025</h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Joseph Hess stats — AF1 2025</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Joseph Hess stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="interceptions">interceptions</td><td>0.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
+        
+        <td>35</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+      </tr>
       
-      <tr><td data-stat="passing_tds">passing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>0.0</td></tr>
+      <tr>
+        <td>AF1 2025</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Joseph Hess stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="interceptions">interceptions</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="passing_tds">passing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="passing_yards">passing_yards</td><td>35.0</td></tr>
-      
-      <tr><td data-stat="rushing_tds">rushing_tds</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="rushing_yards">rushing_yards</td><td>1.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 

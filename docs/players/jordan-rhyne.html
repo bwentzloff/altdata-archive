@@ -121,51 +121,136 @@
 
   <main>
     
-<h1>
-  Jordan Rhyne
+<div class="player-header">
   
-</h1>
 
+  <div class="player-header-text">
+    <h1>
+      Jordan Rhyne
+      
+    </h1>
+    <p class="player-meta">
+      P
+      <span class="sep">·</span>
+      UFA, AUDL
+    </p>
 
-
-<table class="info-table">
-  <tr><th>Positions</th><td>P</td></tr>
-  <tr><th>Leagues</th><td>UFA, AUDL</td></tr>
-</table>
+    
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AUDL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFA</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
 
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table">
+  <table class="data-table career-totals-table">
     <caption>Jordan Rhyne career totals across all leagues</caption>
     <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>64.0</td></tr>
+      <tr>
+        <td data-stat="assists">Assists</td>
+        <td>64</td>
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>8.0</td></tr>
+      <tr>
+        <td data-stat="blocks">Blocks</td>
+        <td>8</td>
+      </tr>
       
-      <tr><td data-stat="catches">catches</td><td>326.0</td></tr>
+      <tr>
+        <td data-stat="catches">Catches</td>
+        <td>326</td>
+      </tr>
       
-      <tr><td data-stat="completions">completions</td><td>325.0</td></tr>
+      <tr>
+        <td data-stat="completions">Comp</td>
+        <td>325</td>
+      </tr>
       
-      <tr><td data-stat="drops">drops</td><td>4.0</td></tr>
+      <tr>
+        <td data-stat="drops">Drops</td>
+        <td>4</td>
+      </tr>
       
-      <tr><td data-stat="goals">goals</td><td>22.0</td></tr>
+      <tr>
+        <td data-stat="goals">Goals</td>
+        <td>22</td>
+      </tr>
       
-      <tr><td data-stat="hockeyAssists">hockeyAssists</td><td>23.0</td></tr>
+      <tr>
+        <td data-stat="hockeyAssists">Hockeyassists</td>
+        <td>23</td>
+      </tr>
       
-      <tr><td data-stat="hucksCompleted">hucksCompleted</td><td>12.0</td></tr>
+      <tr>
+        <td data-stat="hucksCompleted">Huckscompleted</td>
+        <td>12</td>
+      </tr>
       
-      <tr><td data-stat="stalls">stalls</td><td>1.0</td></tr>
+      <tr>
+        <td data-stat="stalls">Stalls</td>
+        <td>1</td>
+      </tr>
       
-      <tr><td data-stat="throwAttempts">throwAttempts</td><td>352.0</td></tr>
+      <tr>
+        <td data-stat="throwAttempts">Throwattempts</td>
+        <td>352</td>
+      </tr>
       
-      <tr><td data-stat="throwaways">throwaways</td><td>56.0</td></tr>
+      <tr>
+        <td data-stat="throwaways">Throwaways</td>
+        <td>56</td>
+      </tr>
       
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>2553.0</td></tr>
+      <tr>
+        <td data-stat="yardsReceived">Yardsreceived</td>
+        <td>2,553</td>
+      </tr>
       
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>7026.0</td></tr>
+      <tr>
+        <td data-stat="yardsThrown">Yardsthrown</td>
+        <td>7,026</td>
+      </tr>
       
     </tbody>
   </table>
@@ -176,10 +261,10 @@
 
 
 <section class="chart-section">
-  <!-- <h2>Career Progression</h2>
+  <h2>Career Progression</h2>
   <div class="chart-wrap">
     <canvas id="career-chart"></canvas>
-  </div> -->
+  </div>
   <script>
   (function(){
     var seasons = {"AUDL-": {"goals": 0.0, "assists": 3.0, "yardsThrown": 238.0, "yardsReceived": 23.0, "blocks": 1.0, "throwaways": 1.0, "drops": 0.0}, "unknown": {"goals": 2.0, "assists": 3.0, "yardsThrown": 307.0, "yardsReceived": 17.0, "blocks": 0.0, "throwaways": 2.0, "drops": 0.0}, "AUDL-2022": {"goals": 9.0, "assists": 15.0, "yardsThrown": 1432.0, "yardsReceived": 593.0, "blocks": 0.0, "throwaways": 6.0, "drops": 3.0}, "AUDL-2023": {"yardsThrown": 2148.0, "yardsReceived": 1172.0, "assists": 19.0, "completions": 325.0, "throwAttempts": 352.0, "throwaways": 23.0, "catches": 326.0, "hockeyAssists": 23.0, "blocks": 6.0, "hucksCompleted": 12.0, "drops": 1.0, "goals": 5.0, "stalls": 1.0}, "UFA-2024": {"goals": 6.0, "assists": 24.0, "yardsThrown": 2901.0, "yardsReceived": 748.0, "blocks": 1.0, "throwaways": 24.0, "drops": 0.0}};
@@ -198,137 +283,299 @@
 </section>
 
 
+
 <section>
   <h2>By Season</h2>
   
-  <h3>AUDL </h3>
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
   <table class="data-table">
-    <caption>Jordan Rhyne stats — AUDL </caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
+    <caption>Jordan Rhyne stats by season</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="catches">Catches</th>
+        
+        <th scope="col" data-stat="completions">Comp</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="hockeyAssists">Hockeyassists</th>
+        
+        <th scope="col" data-stat="hucksCompleted">Huckscompleted</th>
+        
+        <th scope="col" data-stat="stalls">Stalls</th>
+        
+        <th scope="col" data-stat="throwAttempts">Throwattempts</th>
+        
+        <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
+        
+        <th scope="col" data-stat="yardsThrown">Yardsthrown</th>
+        
+      </tr>
+    </thead>
     <tbody>
       
-      <tr><td data-stat="assists">assists</td><td>3.0</td></tr>
+      <tr>
+        <td>AUDL </td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>23</td>
+        
+        <td>238</td>
+        
+      </tr>
       
-      <tr><td data-stat="blocks">blocks</td><td>1.0</td></tr>
+      <tr>
+        <td>unknown</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>17</td>
+        
+        <td>307</td>
+        
+      </tr>
       
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
+      <tr>
+        <td>AUDL 2022</td>
+        
+        <td>15</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>9</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>593</td>
+        
+        <td>1432</td>
+        
+      </tr>
       
-      <tr><td data-stat="goals">goals</td><td>0.0</td></tr>
+      <tr>
+        <td>AUDL 2023</td>
+        
+        <td>19</td>
+        
+        <td>6</td>
+        
+        <td>326</td>
+        
+        <td>325</td>
+        
+        <td>1</td>
+        
+        <td>5</td>
+        
+        <td>23</td>
+        
+        <td>12</td>
+        
+        <td>1</td>
+        
+        <td>352</td>
+        
+        <td>23</td>
+        
+        <td>1172</td>
+        
+        <td>2148</td>
+        
+      </tr>
       
-      <tr><td data-stat="throwaways">throwaways</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>23.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>238.0</td></tr>
+      <tr>
+        <td>UFA 2024</td>
+        
+        <td>24</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>6</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>24</td>
+        
+        <td>748</td>
+        
+        <td>2901</td>
+        
+      </tr>
       
     </tbody>
   </table>
-  
-  <h3>AUDL 2022</h3>
-  <table class="data-table">
-    <caption>Jordan Rhyne stats — AUDL 2022</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>15.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>9.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>593.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>1432.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>AUDL 2023</h3>
-  <table class="data-table">
-    <caption>Jordan Rhyne stats — AUDL 2023</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>19.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="catches">catches</td><td>326.0</td></tr>
-      
-      <tr><td data-stat="completions">completions</td><td>325.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>5.0</td></tr>
-      
-      <tr><td data-stat="hockeyAssists">hockeyAssists</td><td>23.0</td></tr>
-      
-      <tr><td data-stat="hucksCompleted">hucksCompleted</td><td>12.0</td></tr>
-      
-      <tr><td data-stat="stalls">stalls</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="throwAttempts">throwAttempts</td><td>352.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>23.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>1172.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>2148.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>UFA 2024</h3>
-  <table class="data-table">
-    <caption>Jordan Rhyne stats — UFA 2024</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>24.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>1.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>6.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>24.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>748.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>2901.0</td></tr>
-      
-    </tbody>
-  </table>
-  
-  <h3>UNKNOWN</h3>
-  <table class="data-table">
-    <caption>Jordan Rhyne stats — UNKNOWN</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Value</th></tr></thead>
-    <tbody>
-      
-      <tr><td data-stat="assists">assists</td><td>3.0</td></tr>
-      
-      <tr><td data-stat="blocks">blocks</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="drops">drops</td><td>0.0</td></tr>
-      
-      <tr><td data-stat="goals">goals</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="throwaways">throwaways</td><td>2.0</td></tr>
-      
-      <tr><td data-stat="yardsReceived">yardsReceived</td><td>17.0</td></tr>
-      
-      <tr><td data-stat="yardsThrown">yardsThrown</td><td>307.0</td></tr>
-      
-    </tbody>
-  </table>
-  
 </section>
+
 
 
 
