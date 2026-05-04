@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LaDarius Wiley Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for LaDarius Wiley (S, SAF) across USFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for LaDarius Wiley (SAF, S) across USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -30,14 +30,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "LaDarius Wiley",
-  "description": "LaDarius Wiley played S, SAF in USFL.",
+  "description": "LaDarius Wiley played SAF, S in USFL.",
   "url": "https://archive.altfantasysports.com/players/ladarius-wiley.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional S",
+    "name": "Professional SAF",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -99,6 +99,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of LaDarius Wiley"
+            data-src="../assets/player-images/ladarius-wiley.jpg"
+            data-caption="McDonald&#39;s / Wikimedia Commons (Public domain)">
+      <img src="../assets/player-images/ladarius-wiley.jpg"
+           alt="LaDarius Wiley"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      McDonald&#39;s /
+      <a href="https://commons.wikimedia.org/wiki/File:McDonald%27s_All-American_Game_logo_2020.png" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (Public domain)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -106,7 +158,7 @@
       
     </h1>
     <p class="player-meta">
-      S / SAF
+      SAF / S
       <span class="sep">·</span>
       USFL
     </p>
