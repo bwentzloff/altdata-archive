@@ -172,6 +172,47 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="nfl">
+        <span class="ct-label">NFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -227,12 +268,76 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"rushing_yards": 276.0, "rushing_tds": 2.0, "receptions": 10.0, "receiving_yards": 99.0, "receiving_tds": 0.0}, "NFL-2021": {"nfl_g_gamesPlayed": 1.0, "nfl_p_teamGamesPlayed": 3.0, "nfl_p_totalOffensivePlays": 1.0, "nfl_p_totalYards": 6.0, "nfl_p_totalYardsFromScrimmage": 6.0, "nfl_r_rushingAttempts": 1.0, "nfl_r_teamGamesPlayed": 3.0, "nfl_r_totalOffensivePlays": 1.0, "nfl_r_totalYards": 6.0, "nfl_r_totalYardsFromScrimmage": 6.0, "nfl_re_receivingTargets": 3.0, "nfl_re_receivingYards": 6.0, "nfl_re_receivingYardsAfterCatch": 6.0, "nfl_re_receptions": 2.0, "nfl_re_teamGamesPlayed": 3.0, "nfl_re_totalOffensivePlays": 1.0, "nfl_re_totalYards": 6.0, "nfl_re_totalYardsFromScrimmage": 6.0, "nfl_re_yardsPerReception": 3.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -252,6 +357,44 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="nfl_g_gamesPlayed">Nfl G Gamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_teamGamesPlayed">Nfl P Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_totalOffensivePlays">Nfl P Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYards">Nfl P Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYardsFromScrimmage">Nfl P Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_rushingAttempts">Nfl R Rushingattempts</th>
+        
+        <th scope="col" data-stat="nfl_r_teamGamesPlayed">Nfl R Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_r_totalOffensivePlays">Nfl R Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYards">Nfl R Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYardsFromScrimmage">Nfl R Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingTargets">Nfl Re Receivingtargets</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYards">Nfl Re Receivingyards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAfterCatch">Nfl Re Receivingyardsaftercatch</th>
+        
+        <th scope="col" data-stat="nfl_re_receptions">Nfl Re Receptions</th>
+        
+        <th scope="col" data-stat="nfl_re_teamGamesPlayed">Nfl Re Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_re_totalOffensivePlays">Nfl Re Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYards">Nfl Re Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYardsFromScrimmage">Nfl Re Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_yardsPerReception">Nfl Re Yardsperreception</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -267,7 +410,98 @@
     <tbody>
       
       <tr>
+        <td>NFL 2021</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>3</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>2</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
