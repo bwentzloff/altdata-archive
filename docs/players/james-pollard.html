@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>James Pollard Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for James Pollard (P) across UFA, AUDL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for James Pollard (P) across AUDL, UFA. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "James Pollard",
-  "description": "James Pollard played P in UFA, AUDL.",
+  "description": "James Pollard played P in AUDL, UFA.",
   "url": "https://archive.altfantasysports.com/players/james-pollard.html",
   "sameAs": [
     
@@ -111,6 +111,16 @@
 }
 </script>
 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
 </head>
 <body>
   <header>
@@ -131,6 +141,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of James Pollard"
+            data-src="../assets/player-images/james-pollard.jpg"
+            data-caption="Unknown photographer / Wikimedia Commons (Public domain)">
+      <img src="../assets/player-images/james-pollard.jpg"
+           alt="James Pollard"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Unknown photographer /
+      <a href="https://commons.wikimedia.org/wiki/File:Frederick_Pollard%2C_1916_%28cropped%29.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (Public domain)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -140,7 +202,7 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      UFA, AUDL
+      AUDL, UFA
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -196,6 +258,8 @@
     
   </div>
 </div>
+
+
 
 <section>
   <h2>Career Totals</h2>

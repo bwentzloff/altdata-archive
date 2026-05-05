@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anders Carlson Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Anders Carlson (PK, K) across UFL, NFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Anders Carlson (K, PK) across UFL, NFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,14 +32,14 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Anders Carlson",
-  "description": "Anders Carlson played PK, K in UFL, NFL.",
+  "description": "Anders Carlson played K, PK in UFL, NFL.",
   "url": "https://archive.altfantasysports.com/players/anders-carlson.html",
   "sameAs": [
     
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional PK",
+    "name": "Professional K",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -87,6 +87,16 @@
 }
 </script>
 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
 </head>
 <body>
   <header>
@@ -114,17 +124,54 @@
       <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      PK / K
+      K / PK
       <span class="sep">·</span>
       UFL, NFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
     
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Anders Carlson" data-url="https://archive.altfantasysports.com/players/anders-carlson.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/anders-carlson.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/anders-carlson.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/anders-carlson.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Anders Carlson';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
+    
 
     
   </div>
 </div>
+
+
 
 <section>
   <h2>Career Totals</h2>

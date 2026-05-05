@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeff Zhao Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Jeff Zhao (P) across UFA, AUDL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Jeff Zhao (P) across AUDL, UFA. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Jeff Zhao",
-  "description": "Jeff Zhao played P in UFA, AUDL.",
+  "description": "Jeff Zhao played P in AUDL, UFA.",
   "url": "https://archive.altfantasysports.com/players/jeff-zhao.html",
   "sameAs": [
     
@@ -105,6 +105,16 @@
 }
 </script>
 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
 </head>
 <body>
   <header>
@@ -134,10 +144,45 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      UFA, AUDL
+      AUDL, UFA
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
+    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Jeff Zhao" data-url="https://archive.altfantasysports.com/players/jeff-zhao.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/jeff-zhao.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/jeff-zhao.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/jeff-zhao.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Jeff Zhao';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
     
 
     
@@ -196,6 +241,8 @@
     
   </div>
 </div>
+
+
 
 <section>
   <h2>Career Totals</h2>
