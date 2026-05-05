@@ -256,6 +256,28 @@
 </table>
 {% endif %}
 
+{% if funstats.position_specific %}
+{% set position_labels = {"QB": "Quarterback", "RB": "Running Back", "WR": "Wide Receiver", "TE": "Tight End", "K": "Kicker", "P": "Punter", "Defense": "Defense"} %}
+{% for pos, players in funstats.position_specific.items() | sort %}
+{% if players %}
+<h3>Best {{ position_labels.get(pos, pos) }} by Position Score</h3>
+<p class="hof-intro">Ranked by position-specific statistical percentile, considering only stats relevant to their position.</p>
+<table class="data-table">
+  <thead><tr><th>#</th><th>Player</th><th>Position Score</th></tr></thead>
+  <tbody>
+  {% for p in players %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a></td>
+    <td>{{ p.pos_specific_score | round(1) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endfor %}
+{% endif %}
+
 {% endif %}
 
 {% endblock %}

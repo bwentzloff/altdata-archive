@@ -269,6 +269,61 @@ def enrich_from_db(meta, db_game):
 
 # ─── College stats helpers ──────────────────────────────────────────────────
 
+# College abbreviation to full name mapping
+COLLEGE_ABBR_TO_NAME = {
+    # Power 5 / ACC
+    "BC": "Boston College", "CLEM": "Clemson", "DUKE": "Duke", "FSU": "Florida State",
+    "GT": "Georgia Tech", "LOU": "Louisville", "MIAMI": "Miami", "NC": "North Carolina",
+    "NCSU": "North Carolina State", "PITT": "Pittsburgh", "RUSS": "Rutgers", "SCAR": "South Carolina",
+    "SNCN": "Syracuse", "UVA": "Virginia", "VT": "Virginia Tech", "WAKE": "Wake Forest",
+    # SEC
+    "ALA": "Alabama", "ARK": "Arkansas", "AUBA": "Auburn", "FLEX": "Florida",
+    "UGA": "Georgia", "TAMU": "Texas A&M", "UK": "Kentucky", "LSU": "LSU",
+    "MISS": "Mississippi", "MSST": "Mississippi State", "MIZZ": "Missouri", "TENN": "Tennessee",
+    "TXLH": "Texas", "VAND": "Vanderbilt", "OKLA": "Oklahoma", "OUST": "Oklahoma State",
+    # Big 12 (current and former)
+    "BAYLOR": "Baylor", "ISU": "Iowa State", "KU": "Kansas", "KSTATE": "Kansas State",
+    "TCU": "TCU", "TEXAS": "Texas", "TTU": "Texas Tech", "WVU": "West Virginia",
+    # Pac-12 / West
+    "ARIZ": "Arizona", "ASU": "Arizona State", "CAL": "California", "COLO": "Colorado",
+    "OREG": "Oregon", "OSU": "Oregon State", "STAN": "Stanford", "USC": "USC",
+    "UTAH": "Utah", "WASH": "Washington", "WSU": "Washington State",
+    # Big Ten
+    "ILL": "Illinois", "IU": "Indiana", "IOWA": "Iowa", "MICH": "Michigan",
+    "MIST": "Michigan State", "MINN": "Minnesota", "NEBR": "Nebraska", "NWU": "Northwestern",
+    "OHST": "Ohio State", "PSU": "Penn State", "PURDUE": "Purdue", "RUTG": "Rutgers",
+    "WISC": "Wisconsin",
+    # Group of 5
+    "AIRFORCE": "Air Force", "ARMY": "Army", "NAVY": "Navy", "MEMY": "Memphis",
+    "SMU": "SMU", "TULANE": "Tulane", "HOUSTON": "Houston", "RICE": "Rice",
+    "UCF": "UCF", "USFLAM": "USF", "UCONN": "UConn", "FAU": "Florida Atlantic",
+    "FIU": "FIU", "LA-LAFA": "Louisiana-Lafayette", "LA-MUNO": "Louisiana-Monroe",
+    "TXSTATE": "Texas State", "TROY": "Troy", "MARSHALL": "Marshall",
+    "OLD DOM": "Old Dominion", "CUSA": "CUSA",
+    # Other notable programs
+    "BYU": "BYU", "UNT": "North Texas", "SBDGO": "San Diego State",
+    "UNLV": "UNLV", "SJSTATE": "San Jose State", "NEVADA": "Nevada",
+    "UTEP": "UTEP", "NMEXICO": "New Mexico", "WYOMING": "Wyoming", "HAWAII": "Hawaii",
+    # Ivy League
+    "COLUM": "Columbia", "CORNELL": "Cornell", "DMOUTH": "Dartmouth", "HARVARD": "Harvard",
+    "PENN": "Penn", "PRINCETON": "Princeton", "YALE": "Yale", "BROWN": "Brown",
+    # Patriot League (sample)
+    "ANIMAL": "Colgate", "GATES": "Colgate", "FORDHAM": "Fordham", "BUCKNELL": "Bucknell",
+    # CAA/Colonial (sample)
+    "JAMES": "James Madison", "HOFSTRA": "Hofstra", "TTOWN": "Towson",
+    # SWAC
+    "JACKSON": "Jackson State", "GRAMB": "Grambling", "PV": "Prairie View", "TXSU": "Texas Southern",
+    "FAMU": "FAMU", "NCATSU": "North Carolina A&T", "SCSU": "South Carolina State",
+    # MEAC
+    "DELSTATE": "Delaware State", "MORGAN": "Morgan State", "COPPIN": "Coppin State",
+    "HOWARD": "Howard", "BETHUNE": "Bethune-Cookman", "NORFOLK": "Norfolk State",
+    # Big Sky / FCS
+    "MONTANA": "Montana", "NMONTANA": "Northern Montana", "WEBER": "Weber State",
+    "IDAHO": "Idaho", "EASHINGTON": "Eastern Washington", "SACDIEGO": "San Diego",
+    # Generic fallback
+    "STATE": "State", "UNIV": "University"
+}
+
 def _norm_cname(name: str) -> str:
     """Normalise a name for college stats lookup: lowercase, strip diacritics."""
     nfkd = unicodedata.normalize("NFD", str(name))
@@ -332,8 +387,12 @@ def _match_college(cp, college_name_index, college_stats_data):
         for stat, val in yr_stats.items():
             career[stat] = career.get(stat, 0) + val
 
+    # Map college abbreviation to full name if available
+    school_abbr = entry.get("school", "")
+    school_name = COLLEGE_ABBR_TO_NAME.get(school_abbr, school_abbr)
+
     return {
-        "school": entry.get("school", ""),
+        "school": school_name,
         "fdb_url": url,
         "seasons": seasons,
         "career": career,
@@ -1856,6 +1915,11 @@ def main():
             _cid = _entry["canonical_id"]
             _pos_specific_full_map[_cid] = (_entry["pos_specific_score"], _rank, _pos)
 
+    # Create position-specific top 20 lists for Hall of Fame
+    pos_specific_top20 = {}
+    for _pos, _players in pos_specific_by_position.items():
+        pos_specific_top20[_pos] = _players[:20]
+
     funstats = {
         "thursday_game_count": len(_thu_game_keys),
         "thursday_lineup":     thursday_lineup,
@@ -1864,6 +1928,7 @@ def main():
         "three_td_game":       three_td_game,
         "most_teammates":      most_teammates,
         "all_around":          all_around_top20,
+        "position_specific":   pos_specific_top20,
     }
     (SITE_DATA / "hof" / "funstats.json").write_text(
         json.dumps(funstats, indent=2), encoding="utf-8"
