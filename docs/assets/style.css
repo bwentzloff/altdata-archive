@@ -312,7 +312,6 @@ tr:nth-child(even) { background: var(--tr-even); }
 
 /*  Career timeline  */
 .career-timeline {
-  overflow-x: auto;
   padding-bottom: 2px;
 }
 .ct-years,
@@ -321,7 +320,7 @@ tr:nth-child(even) { background: var(--tr-even); }
   align-items: center;
   gap: 3px;
   margin-bottom: 3px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .ct-label {
   width: 64px;
@@ -1029,13 +1028,22 @@ details[open].lineup-alts summary::before { content: '– '; }
 /* Player header layout — scores positioned top right */
 .player-header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
   gap: 2rem;
   align-items: start;
 }
 
+.player-photo {
+  grid-column: 1;
+}
+
 .player-header-text {
+  grid-column: 2;
   min-width: 0;
+}
+
+.player-scores-box {
+  grid-column: 3;
 }
 
 .player-scores-box {
@@ -1183,11 +1191,20 @@ details[open].lineup-alts summary::before { content: '– '; }
 /* Responsive: tablet and below */
 @media (max-width: 900px) {
   .player-header {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 1.5rem;
   }
 
+  .player-photo {
+    grid-column: 1;
+  }
+
+  .player-header-text {
+    grid-column: 2;
+  }
+
   .player-scores-box {
+    grid-column: 1 / -1;
     align-self: auto;
   }
 
@@ -1204,6 +1221,18 @@ details[open].lineup-alts summary::before { content: '– '; }
 @media (max-width: 640px) {
   .player-header {
     grid-template-columns: 1fr;
+  }
+
+  .player-photo {
+    grid-column: 1;
+  }
+
+  .player-header-text {
+    grid-column: 1;
+  }
+
+  .player-scores-box {
+    grid-column: 1;
   }
 
   .score-badges-container {
