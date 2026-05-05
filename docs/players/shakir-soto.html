@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shakir Soto Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Shakir Soto (DL, DT, DB) across CFL, AAF, USFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Shakir Soto (DL, DB, DT) across CFL, USFL, AAF. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Shakir Soto",
-  "description": "Shakir Soto played DL, DT, DB in CFL, AAF, USFL.",
+  "description": "Shakir Soto played DL, DB, DT in CFL, USFL, AAF.",
   "url": "https://archive.altfantasysports.com/players/shakir-soto.html",
   "sameAs": [
     
@@ -120,12 +120,47 @@
       
     </h1>
     <p class="player-meta">
-      DL / DT / DB
+      DL / DB / DT
       <span class="sep">·</span>
-      CFL, AAF, USFL
+      CFL, USFL, AAF
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
+    
+    <div class="share-buttons">
+      <button class="share-btn share-twitter" data-player="Shakir Soto" data-url="https://archive.altfantasysports.com/players/shakir-soto.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/shakir-soto.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/shakir-soto.html" aria-label="Share on LinkedIn">in</button>
+      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/shakir-soto.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Shakir Soto';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
     
 
     
