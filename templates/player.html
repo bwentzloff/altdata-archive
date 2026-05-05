@@ -204,6 +204,7 @@
 
   {% if player.all_around_score is defined and player.all_around_score %}
   <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
         <div class="badge-number">{{ player.all_around_score | round(1) }}</div>
@@ -230,19 +231,7 @@
 </section>
 {% endif %}
 
-{% if player.all_around_score is defined and player.all_around_score %}
-<section class="score-details-section">
-  <details class="score-details">
-    <summary class="score-summary">What are these scores?</summary>
-    <div class="score-explanation">
-      <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
-      {% if player.pos_specific_score is defined and player.pos_specific_score %}
-      <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
-      {% endif %}
-    </div>
-  </details>
-</section>
-{% endif %}
+
 
 <section>
   <h2>Career Totals</h2>
@@ -480,6 +469,15 @@
   <p>No game log recorded.</p>
   {% endif %}
 </section>
+  {% if player.all_around_score is defined and player.all_around_score %}
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    {% if player.pos_specific_score is defined and player.pos_specific_score %}
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    {% endif %}
+  </footer>
+  {% endif %}
 {% endblock %}
 
 {% block formats %}
@@ -488,4 +486,19 @@
 <a href="{{ root }}data/players/{{ player.canonical_id }}.csv">CSV</a>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+<script>
+(function() {
+  // Smooth scroll for score info links
+  document.querySelectorAll('.scores-info-icon').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>
+{% endblock %}
