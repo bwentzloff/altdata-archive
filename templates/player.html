@@ -210,6 +210,19 @@
 </section>
 {% endif %}
 
+{% if player.all_around_score is defined and player.all_around_score %}
+<section class="all-around-score-section">
+  <div class="all-around-score-card">
+    <div class="score-metric">
+      <span class="score-value">{{ player.all_around_score | round(1) }}</span>
+      <span class="score-label">All-Around Score</span>
+      {% if player.all_around_rank is defined %}<span class="score-rank">#{{ player.all_around_rank }} in Football</span>{% endif %}
+    </div>
+    <p class="score-description">Percentile average across all statistical categories in football leagues. Higher scores indicate consistent excellence across multiple stats.</p>
+  </div>
+</section>
+{% endif %}
+
 <section>
   <h2>Career Totals</h2>
   {% if player.career_totals %}

@@ -239,6 +239,23 @@
 </table>
 {% endif %}
 
+{% if funstats.all_around %}
+<h3>Best All-Around Football Players</h3>
+<p class="hof-intro">Players ranked by their average statistical percentile across all positions, stats, and seasons in football leagues. A holistic measure of consistent excellence.</p>
+<table class="data-table">
+  <thead><tr><th>#</th><th>Player</th><th>All-Around Score</th></tr></thead>
+  <tbody>
+  {% for p in funstats.all_around %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a></td>
+    <td>{{ p.all_around_score | round(1) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
 {% endif %}
 
 {% endblock %}

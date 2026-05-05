@@ -1629,6 +1629,114 @@ def main():
     most_teammates.sort(key=lambda x: x["teammate_count"], reverse=True)
     most_teammates = most_teammates[:20]
 
+    # ─── All Around Score (football only) ──────────────────────────────────
+    # Calculate percentile rankings for each player across their stats
+    _football_set = _football_leagues
+    
+    # Build league-season aggregations for percentile calculation
+    _ls_stat_values: dict = defaultdict(lambda: defaultdict(list))
+    
+    # Collect all values per league-season-stat from all players
+    for _cid, _pdata in {
+        _c: {"leagues": set(canonical_map[_c].get("leagues", [])), "season_totals": {}}
+        for _c in player_game_stats.keys()
+    }.items():
+        # Reconstruct season_totals from game_log for percentile calculation
+        _player_leagues = _pdata.get("leagues", set())
+        _is_football = bool(_player_leagues.intersection(_football_set))
+        if not _is_football:
+            continue
+        
+        for _gid_str, _stats_dict in player_game_stats.get(_cid, {}).items():
+            _meta = player_game_meta_store.get(_gid_str, {})
+            _league = _meta.get("league", "")
+            _season = _meta.get("season", "")
+            if not _league or not _season or _league not in _football_set:
+                continue
+            _ls_key = f"{_league}-{_season}"
+            if _ls_key not in _pdata["season_totals"]:
+                _pdata["season_totals"][_ls_key] = defaultdict(float)
+            for _stat, _val in _stats_dict.items():
+                _pdata["season_totals"][_ls_key][_stat] += _val
+    
+    # Collect stat values for percentile baseline
+    for _cid in player_game_stats.keys():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        _player_leagues = set(_cp.get("leagues", []))
+        _is_football = bool(_player_leagues.intersection(_football_set))
+        if not _is_football:
+            continue
+        
+        for _gid_str, _stats_dict in player_game_stats.get(_cid, {}).items():
+            _meta = player_game_meta_store.get(_gid_str, {})
+            _league = _meta.get("league", "")
+            _season = _meta.get("season", "")
+            if not _league or not _season or _league not in _football_set:
+                continue
+            _ls_key = f"{_league}-{_season}"
+            
+            for _stat, _val in _stats_dict.items():
+                try:
+                    _val_float = float(_val)
+                    if _val_float > 0:
+                        _ls_stat_values[_ls_key][_stat].append(_val_float)
+                except (ValueError, TypeError):
+                    pass
+    
+    # Calculate percentiles for each player
+    _all_around_scores: dict = defaultdict(lambda: {"total_percentile": 0, "stat_count": 0})
+    
+    for _cid in player_game_stats.keys():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        _player_leagues = set(_cp.get("leagues", []))
+        _is_football = bool(_player_leagues.intersection(_football_set))
+        if not _is_football:
+            continue
+        
+        for _gid_str, _stats_dict in player_game_stats.get(_cid, {}).items():
+            _meta = player_game_meta_store.get(_gid_str, {})
+            _league = _meta.get("league", "")
+            _season = _meta.get("season", "")
+            if not _league or not _season or _league not in _football_set:
+                continue
+            _ls_key = f"{_league}-{_season}"
+            
+            for _stat, _val in _stats_dict.items():
+                try:
+                    _val_float = float(_val)
+                    if _val_float > 0:
+                        _all_vals = _ls_stat_values[_ls_key].get(_stat, [])
+                        if _all_vals:
+                            # Calculate percentile: (count <= val) / total * 100
+                            _count_lte = sum(1 for v in _all_vals if v <= _val_float)
+                            _percentile = (_count_lte / len(_all_vals)) * 100
+                            _all_around_scores[_cid]["total_percentile"] += _percentile
+                            _all_around_scores[_cid]["stat_count"] += 1
+                except (ValueError, TypeError):
+                    pass
+    
+    # Calculate average percentile and create ranked list
+    all_around = []
+    for _cid, _score_data in _all_around_scores.items():
+        # Only include players with at least 5 stats (for meaningful "all around" score)
+        if _score_data["stat_count"] >= 5:
+            _avg_percentile = _score_data["total_percentile"] / _score_data["stat_count"]
+            _cp = canonical_map.get(_cid)
+            if _cp:
+                all_around.append({
+                    "canonical_id": _cid,
+                    "canonical_name": _cp["canonical_name"],
+                    "all_around_score": round(_avg_percentile, 2),
+                    "stats_counted": _score_data["stat_count"],
+                })
+    
+    all_around.sort(key=lambda x: x["all_around_score"], reverse=True)
+    all_around_top20 = all_around[:20]
+
     funstats = {
         "thursday_game_count": len(_thu_game_keys),
         "thursday_lineup":     thursday_lineup,
@@ -1636,6 +1744,7 @@ def main():
         "dual_threat_qb":      dual_threat_qb,
         "three_td_game":       three_td_game,
         "most_teammates":      most_teammates,
+        "all_around":          all_around_top20,
     }
     (SITE_DATA / "hof" / "funstats.json").write_text(
         json.dumps(funstats, indent=2), encoding="utf-8"
@@ -1643,7 +1752,23 @@ def main():
     print(f"Written fun stats ({len(_thu_game_keys)} Thursday games, "
           f"{sum(bool(thursday_lineup.get(s)) for s in [x[0] for x in LINEUP_SLOTS])} lineup slots, "
           f"{len(two_way_td)} rush+recv TD, {len(dual_threat_qb)} dual-threat QB, "
-          f"{len(three_td_game)} 3-TD games)")
+          f"{len(three_td_game)} 3-TD games, {len(all_around)} all-around scores)")
+
+    # Add all_around scores to player JSON files (full list, not just top 20)
+    _all_around_full_map = {p["canonical_id"]: (p["all_around_score"], i + 1) 
+                            for i, p in enumerate(all_around)}
+    
+    for _player_file in (SITE_DATA / "players").glob("*.json"):
+        try:
+            _pdata = json.loads(_player_file.read_text())
+            _cid = _pdata.get("canonical_id")
+            if _cid and _cid in _all_around_full_map:
+                _score, _rank = _all_around_full_map[_cid]
+                _pdata["all_around_score"] = _score
+                _pdata["all_around_rank"] = _rank
+                _player_file.write_text(json.dumps(_pdata, indent=2), encoding="utf-8")
+        except (json.JSONDecodeError, IOError):
+            pass
 
     # ─── Sports index ─────────────────────────────────────────────────────
     write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")
