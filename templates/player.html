@@ -211,15 +211,32 @@
 {% endif %}
 
 {% if player.all_around_score is defined and player.all_around_score %}
-<section class="all-around-score-section">
-  <div class="all-around-score-card">
-    <div class="score-metric">
-      <span class="score-value">{{ player.all_around_score | round(1) }}</span>
-      <span class="score-label">All-Around Score</span>
-      {% if player.all_around_rank is defined %}<span class="score-rank">#{{ player.all_around_rank }} in Football</span>{% endif %}
+<section class="score-badges-section">
+  <div class="score-badges-container">
+    <div class="score-badge all-around-badge">
+      <div class="badge-number">{{ player.all_around_score | round(1) }}</div>
+      <div class="badge-label">All-Around</div>
+      {% if player.all_around_rank is defined %}<div class="badge-rank">#{{ player.all_around_rank }}</div>{% endif %}
     </div>
-    <p class="score-description">Percentile average across all statistical categories in football leagues. Higher scores indicate consistent excellence across multiple stats.</p>
+    
+    {% if player.pos_specific_score is defined and player.pos_specific_score %}
+    <div class="score-badge position-badge">
+      <div class="badge-number">{{ player.pos_specific_score | round(1) }}</div>
+      <div class="badge-label">{{ player.position_badge_label }}</div>
+      {% if player.pos_specific_rank is defined %}<div class="badge-rank">#{{ player.pos_specific_rank }}</div>{% endif %}
+    </div>
+    {% endif %}
   </div>
+  
+  <details class="score-details">
+    <summary class="score-summary">What are these scores?</summary>
+    <div class="score-explanation">
+      <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+      {% if player.pos_specific_score is defined and player.pos_specific_score %}
+      <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+      {% endif %}
+    </div>
+  </details>
 </section>
 {% endif %}
 
@@ -353,7 +370,6 @@
     </tfoot>
   </table>
   {% endif %}
-  <p class="data-note">College statistics sourced from <a href="https://www.footballdb.com{{ player.college.fdb_url }}" target="_blank" rel="noopener noreferrer">The Football Database</a>.</p>
 </section>
 {% endif %}
 

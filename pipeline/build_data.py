@@ -1737,6 +1737,125 @@ def main():
     all_around.sort(key=lambda x: x["all_around_score"], reverse=True)
     all_around_top20 = all_around[:20]
 
+    # ─── Position-Specific Scoring (football only) ────────────────────────────
+    # Map positions to relevant statistical categories
+    _position_stat_map = {
+        "QB": {
+            "passing_yards", "passing_tds", "passing_attempts", "interceptions",
+            "completion_pct", "passing_rushing_yards", "passing_rushing_tds"
+        },
+        "RB": {
+            "rushing_yards", "rushing_tds", "rushing_attempts",
+            "receptions", "receiving_yards", "receiving_tds", "targets",
+            "fumbles_lost_game", "fumbles_forced", "fumbles_own_rec"
+        },
+        "WR": {
+            "receptions", "receiving_yards", "receiving_tds", "targets",
+            "rushing_yards", "rushing_tds", "rushing_attempts"
+        },
+        "TE": {
+            "receptions", "receiving_yards", "receiving_tds", "targets",
+            "rushing_yards", "rushing_tds"
+        },
+        "K": {
+            "extra_points", "field_goals", "field_goal_attempts",
+            "kickoff_yards", "kickoff_touchbacks"
+        },
+        "P": {
+            "punts", "punt_yards", "punt_avg", "punt_long"
+        },
+        "Defense": {
+            "tackles", "sacks", "interceptions", "passes_defended",
+            "fumbles_recovered", "fumbles_forced", "defensive_tds",
+            "safeties", "blocked_kicks"
+        },
+    }
+    
+    # Calculate position-specific scores for each player
+    pos_specific_scores: dict = {}
+    
+    for _cid in player_game_stats.keys():
+        _cp = canonical_map.get(_cid)
+        if not _cp or not _has_real_name(_cp):
+            continue
+        _player_leagues = set(_cp.get("leagues", []))
+        _is_football = bool(_player_leagues.intersection(_football_set))
+        if not _is_football:
+            continue
+        
+        # Get player's primary position
+        _positions = _cp.get("positions", [])
+        if not _positions:
+            continue
+        
+        # Find the position with stats in position map, prioritizing first listed position
+        _pos = None
+        for _p in _positions:
+            if _p in _position_stat_map:
+                _pos = _p
+                break
+        
+        if not _pos:
+            continue  # No relevant position for scoring
+        
+        _relevant_stats = _position_stat_map[_pos]
+        _total_percentile = 0
+        _stat_count = 0
+        
+        # Calculate percentiles for position-relevant stats
+        for _gid_str, _stats_dict in player_game_stats.get(_cid, {}).items():
+            _meta = player_game_meta_store.get(_gid_str, {})
+            _league = _meta.get("league", "")
+            _season = _meta.get("season", "")
+            if not _league or not _season or _league not in _football_set:
+                continue
+            _ls_key = f"{_league}-{_season}"
+            
+            for _stat, _val in _stats_dict.items():
+                if _stat not in _relevant_stats:
+                    continue  # Skip irrelevant stats for this position
+                
+                try:
+                    _val_float = float(_val)
+                    if _val_float > 0:
+                        _all_vals = _ls_stat_values[_ls_key].get(_stat, [])
+                        if _all_vals:
+                            _count_lte = sum(1 for v in _all_vals if v <= _val_float)
+                            _percentile = (_count_lte / len(_all_vals)) * 100
+                            _total_percentile += _percentile
+                            _stat_count += 1
+                except (ValueError, TypeError):
+                    pass
+        
+        # Only include if enough relevant stats
+        if _stat_count >= 5:
+            _avg_percentile = _total_percentile / _stat_count
+            pos_specific_scores[_cid] = {
+                "score": round(_avg_percentile, 2),
+                "position": _pos,
+                "stat_count": _stat_count,
+            }
+    
+    # Create ranked position lists and top 20 per position
+    pos_specific_by_position = defaultdict(list)
+    for _cid, _data in pos_specific_scores.items():
+        _cp = canonical_map.get(_cid)
+        if _cp:
+            pos_specific_by_position[_data["position"]].append({
+                "canonical_id": _cid,
+                "canonical_name": _cp["canonical_name"],
+                "pos_specific_score": _data["score"],
+                "position": _data["position"],
+            })
+    
+    # Sort each position by score and add ranks
+    _pos_specific_full_map: dict = {}  # {canonical_id: (score, rank, position)}
+    for _pos in pos_specific_by_position:
+        pos_specific_by_position[_pos].sort(key=lambda x: x["pos_specific_score"], reverse=True)
+        for _rank, _entry in enumerate(pos_specific_by_position[_pos], 1):
+            _cid = _entry["canonical_id"]
+            _pos_specific_full_map[_cid] = (_entry["pos_specific_score"], _rank, _pos)
+
     funstats = {
         "thursday_game_count": len(_thu_game_keys),
         "thursday_lineup":     thursday_lineup,
@@ -1752,7 +1871,8 @@ def main():
     print(f"Written fun stats ({len(_thu_game_keys)} Thursday games, "
           f"{sum(bool(thursday_lineup.get(s)) for s in [x[0] for x in LINEUP_SLOTS])} lineup slots, "
           f"{len(two_way_td)} rush+recv TD, {len(dual_threat_qb)} dual-threat QB, "
-          f"{len(three_td_game)} 3-TD games, {len(all_around)} all-around scores)")
+          f"{len(three_td_game)} 3-TD games, {len(all_around)} all-around scores, "
+          f"{len(pos_specific_scores)} position-specific scores)")
 
     # Add all_around scores to player JSON files (full list, not just top 20)
     _all_around_full_map = {p["canonical_id"]: (p["all_around_score"], i + 1) 
@@ -1766,7 +1886,15 @@ def main():
                 _score, _rank = _all_around_full_map[_cid]
                 _pdata["all_around_score"] = _score
                 _pdata["all_around_rank"] = _rank
-                _player_file.write_text(json.dumps(_pdata, indent=2), encoding="utf-8")
+            
+            # Add position-specific scores
+            if _cid and _cid in _pos_specific_full_map:
+                _pos_score, _pos_rank, _position = _pos_specific_full_map[_cid]
+                _pdata["pos_specific_score"] = _pos_score
+                _pdata["pos_specific_rank"] = _pos_rank
+                _pdata["position_badge_label"] = _position  # Just the position, rank shown separately
+            
+            _player_file.write_text(json.dumps(_pdata, indent=2), encoding="utf-8")
         except (json.JSONDecodeError, IOError):
             pass
 
