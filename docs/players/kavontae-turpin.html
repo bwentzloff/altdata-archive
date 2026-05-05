@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KaVontae Turpin Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for KaVontae Turpin (WR) across USFL, NFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for KaVontae Turpin (WR) across NFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "KaVontae Turpin",
-  "description": "KaVontae Turpin played WR in USFL, NFL.",
+  "description": "KaVontae Turpin played WR in NFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/kavontae-turpin.html",
   "sameAs": [
     "https://www.sports-reference.com/cfb/players/kavontae-turpin-1.html", 
@@ -132,7 +132,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      USFL, NFL
+      NFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -171,6 +171,43 @@
     })();
     </script>
 
+    
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="nfl">
+        <span class="ct-label">NFL</span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">ELF</span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
+        
+      </div>
+      
+    </div>
     
   </div>
 
@@ -288,12 +325,130 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"ELF-2021": {"gp": 5.0, "rush_att": 8.0, "rush_yds": 54.0, "rush_td": 1.0, "recv_rec": 32.0, "recv_yds": 374.0, "recv_td": 6.0, "kr_no": 7.0, "kr_yds": 202.0, "pr_no": 4.0, "pr_yds": 72.0}, "NFL-2023": {"nfl_g_fumbles": 1.0, "nfl_g_fumblesLost": 1.0, "nfl_g_gamesPlayed": 2.0, "nfl_p_teamGamesPlayed": 3.0, "nfl_p_totalYards": 32.0, "nfl_p_totalYardsFromScrimmage": 32.0, "nfl_r_teamGamesPlayed": 3.0, "nfl_r_totalYards": 32.0, "nfl_r_totalYardsFromScrimmage": 32.0, "nfl_re_receivingTargets": 4.0, "nfl_re_receivingYards": 32.0, "nfl_re_receivingYardsAfterCatch": 5.0, "nfl_re_receivingYardsAtCatch": 27.0, "nfl_re_receptions": 3.0, "nfl_re_teamGamesPlayed": 3.0, "nfl_re_totalYards": 32.0, "nfl_re_totalYardsFromScrimmage": 32.0, "nfl_re_yardsPerReception": 10.666999816894531}, "NFL-2022": {"nfl_g_gamesPlayed": 2.0, "nfl_p_netTotalYards": 7.0, "nfl_p_teamGamesPlayed": 3.0, "nfl_p_totalOffensivePlays": 1.0, "nfl_p_totalYards": 15.0, "nfl_p_totalYardsFromScrimmage": 15.0, "nfl_r_netTotalYards": 7.0, "nfl_r_rushingAttempts": 1.0, "nfl_r_rushingYards": 7.0, "nfl_r_teamGamesPlayed": 3.0, "nfl_r_totalOffensivePlays": 1.0, "nfl_r_totalYards": 15.0, "nfl_r_totalYardsFromScrimmage": 15.0, "nfl_r_yardsPerRushAttempt": 7.0, "nfl_re_netTotalYards": 7.0, "nfl_re_receivingTargets": 2.0, "nfl_re_receivingYards": 8.0, "nfl_re_receivingYardsAfterCatch": 2.0, "nfl_re_receivingYardsAtCatch": 6.0, "nfl_re_receptions": 1.0, "nfl_re_teamGamesPlayed": 3.0, "nfl_re_totalOffensivePlays": 1.0, "nfl_re_totalYards": 15.0, "nfl_re_totalYardsFromScrimmage": 15.0, "nfl_re_yardsPerReception": 8.0, "nfl_d_blockedPuntTouchdowns": 1.0, "nfl_d_teamGamesPlayed": 3.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -331,6 +486,64 @@
         
         <th scope="col" data-stat="kr_yds">Kr Yds</th>
         
+        <th scope="col" data-stat="nfl_d_blockedPuntTouchdowns">Nfl D Blockedpunttouchdowns</th>
+        
+        <th scope="col" data-stat="nfl_d_teamGamesPlayed">Nfl D Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_g_fumbles">Nfl G Fumbles</th>
+        
+        <th scope="col" data-stat="nfl_g_fumblesLost">Nfl G Fumbleslost</th>
+        
+        <th scope="col" data-stat="nfl_g_gamesPlayed">Nfl G Gamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_netTotalYards">Nfl P Nettotalyards</th>
+        
+        <th scope="col" data-stat="nfl_p_teamGamesPlayed">Nfl P Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_totalOffensivePlays">Nfl P Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYards">Nfl P Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYardsFromScrimmage">Nfl P Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_netTotalYards">Nfl R Nettotalyards</th>
+        
+        <th scope="col" data-stat="nfl_r_rushingAttempts">Nfl R Rushingattempts</th>
+        
+        <th scope="col" data-stat="nfl_r_rushingYards">Nfl R Rushingyards</th>
+        
+        <th scope="col" data-stat="nfl_r_teamGamesPlayed">Nfl R Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_r_totalOffensivePlays">Nfl R Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYards">Nfl R Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYardsFromScrimmage">Nfl R Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_yardsPerRushAttempt">Nfl R Yardsperrushattempt</th>
+        
+        <th scope="col" data-stat="nfl_re_netTotalYards">Nfl Re Nettotalyards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingTargets">Nfl Re Receivingtargets</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYards">Nfl Re Receivingyards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAfterCatch">Nfl Re Receivingyardsaftercatch</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAtCatch">Nfl Re Receivingyardsatcatch</th>
+        
+        <th scope="col" data-stat="nfl_re_receptions">Nfl Re Receptions</th>
+        
+        <th scope="col" data-stat="nfl_re_teamGamesPlayed">Nfl Re Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_re_totalOffensivePlays">Nfl Re Totaloffensiveplays</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYards">Nfl Re Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYardsFromScrimmage">Nfl Re Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_yardsPerReception">Nfl Re Yardsperreception</th>
+        
         <th scope="col" data-stat="pr_no">Pr No</th>
         
         <th scope="col" data-stat="pr_yds">Pr Yds</th>
@@ -360,6 +573,64 @@
         
         <td>202</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>4</td>
         
         <td>72</td>
@@ -378,6 +649,176 @@
         
       </tr>
       
+      <tr>
+        <td>NFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>7</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>7</td>
+        
+        <td>1</td>
+        
+        <td>7</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>7</td>
+        
+        <td>7</td>
+        
+        <td>2</td>
+        
+        <td>8</td>
+        
+        <td>2</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>8</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>NFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>32</td>
+        
+        <td>5</td>
+        
+        <td>27</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>10.7</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -385,6 +826,379 @@
 
 
 
+
+<section class="nfl-section">
+  <h2>NFL Career
+    <small>— <a href="https://www.espn.com/nfl/player/_/id/3676833"
+        target="_blank" rel="noopener noreferrer">ESPN</a></small>
+  </h2>
+  
+  
+  <!-- Season-by-season breakdown -->
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+  
+  
+  <table class="data-table" id="nfl-seasons-table">
+    <caption>KaVontae Turpin NFL season statistics</caption>
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="nfl_d_blockedPuntTouchdowns">Blocked Punt Touchdowns</th>
+        
+        <th scope="col" data-stat="nfl_d_teamGamesPlayed">Team Games Played</th>
+        
+        <th scope="col" data-stat="nfl_g_fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="nfl_g_fumblesLost">Fumbles Lost</th>
+        
+        <th scope="col" data-stat="nfl_g_gamesPlayed">Games Played</th>
+        
+        <th scope="col" data-stat="nfl_p_netTotalYards">Net Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_p_teamGamesPlayed">Team Games Played</th>
+        
+        <th scope="col" data-stat="nfl_p_totalOffensivePlays">Total Offensive Plays</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYards">Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYardsFromScrimmage">Total Yards From Scrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_netTotalYards">Net Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_r_rushingAttempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="nfl_r_rushingYards">Rushing Yards</th>
+        
+        <th scope="col" data-stat="nfl_r_teamGamesPlayed">Team Games Played</th>
+        
+        <th scope="col" data-stat="nfl_r_totalOffensivePlays">Total Offensive Plays</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYards">Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYardsFromScrimmage">Total Yards From Scrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_yardsPerRushAttempt">Yards Per Rush Attempt</th>
+        
+        <th scope="col" data-stat="nfl_re_netTotalYards">Net Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingTargets">Receiving Targets</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYards">Receiving Yards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAfterCatch">Receiving Yards After Catch</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAtCatch">Receiving Yards At Catch</th>
+        
+        <th scope="col" data-stat="nfl_re_receptions">Receptions</th>
+        
+        <th scope="col" data-stat="nfl_re_teamGamesPlayed">Team Games Played</th>
+        
+        <th scope="col" data-stat="nfl_re_totalOffensivePlays">Total Offensive Plays</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYards">Total Yards</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYardsFromScrimmage">Total Yards From Scrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_yardsPerReception">Yards Per Reception</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>2022</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>7</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>7</td>
+        
+        <td>1</td>
+        
+        <td>7</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>7</td>
+        
+        <td>7</td>
+        
+        <td>2</td>
+        
+        <td>8</td>
+        
+        <td>2</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>15</td>
+        
+        <td>15</td>
+        
+        <td>8</td>
+        
+      </tr>
+      
+      <tr>
+        <td>2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>32</td>
+        
+        <td>5</td>
+        
+        <td>27</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>10.7</td>
+        
+      </tr>
+      
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <th>Career</th>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>8</td>
+        
+        <td>4</td>
+        
+        <td>65</td>
+        
+        <td>308</td>
+        
+        <td>—</td>
+        
+        <td>47</td>
+        
+        <td>308</td>
+        
+        <td>1260</td>
+        
+        <td>308</td>
+        
+        <td>47</td>
+        
+        <td>308</td>
+        
+        <td>—</td>
+        
+        <td>47</td>
+        
+        <td>308</td>
+        
+        <td>1260</td>
+        
+        <td>6.6</td>
+        
+        <td>308</td>
+        
+        <td>110</td>
+        
+        <td>952</td>
+        
+        <td>518</td>
+        
+        <td>434</td>
+        
+        <td>70</td>
+        
+        <td>—</td>
+        
+        <td>47</td>
+        
+        <td>308</td>
+        
+        <td>1260</td>
+        
+        <td>13.6</td>
+        
+      </tr>
+    </tfoot>
+    
+  </table>
+  
+  
+  <p class="data-note">NFL career statistics sourced from <a href="https://www.espn.com/nfl/player/_/id/3676833" target="_blank" rel="noopener noreferrer">ESPN</a>.</p>
+</section>
 
 
 
