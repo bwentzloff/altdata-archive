@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jasper Tom Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Jasper Tom (P) across AUDL, UFA. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Jasper Tom (P) across UFA, AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -32,7 +32,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Jasper Tom",
-  "description": "Jasper Tom played P in AUDL, UFA.",
+  "description": "Jasper Tom played P in UFA, AUDL.",
   "url": "https://archive.altfantasysports.com/players/jasper-tom.html",
   "sameAs": [
     
@@ -147,6 +147,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Jasper Tom"
+            data-src="../assets/player-images/jasper-tom.jpg"
+            data-caption="Nina-no / Wikimedia Commons (CC BY-SA 2.5)">
+      <img src="../assets/player-images/jasper-tom.jpg"
+           alt="Jasper Tom"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Nina-no /
+      <a href="https://commons.wikimedia.org/wiki/File:Magi_%281%29.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 2.5)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -156,7 +208,7 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      AUDL, UFA
+      UFA, AUDL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -216,34 +268,30 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">AUDL</span>
         
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">UFA</span>
         
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell ct-on"></span>
         
       </div>
       
