@@ -172,6 +172,43 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="nfl">
+        <span class="ct-label">NFL</span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell"></span>
+        
+        <span class="ct-cell ct-on"></span>
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -227,12 +264,86 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"receptions": 39.0, "receiving_yards": 514.0, "receiving_tds": 5.0, "rushing_yards": -3.0, "rushing_tds": 0.0}, "NFL-2021": {"nfl_g_gamesPlayed": 3.0, "nfl_p_teamGamesPlayed": 4.0, "nfl_p_totalTouchdowns": 1.0, "nfl_p_totalYards": 32.0, "nfl_p_totalYardsFromScrimmage": 32.0, "nfl_r_teamGamesPlayed": 4.0, "nfl_r_totalTouchdowns": 1.0, "nfl_r_totalYards": 32.0, "nfl_r_totalYardsFromScrimmage": 32.0, "nfl_re_receivingTargets": 7.0, "nfl_re_receivingTouchdowns": 1.0, "nfl_re_receivingYards": 32.0, "nfl_re_receivingYardsAfterCatch": 11.0, "nfl_re_receivingYardsAtCatch": 21.0, "nfl_re_receptions": 4.0, "nfl_re_teamGamesPlayed": 4.0, "nfl_re_totalTouchdowns": 1.0, "nfl_re_totalYards": 32.0, "nfl_re_totalYardsFromScrimmage": 32.0, "nfl_re_yardsPerReception": 8.0, "nfl_d_assistTackles": 1.0, "nfl_d_soloTackles": 1.0, "nfl_d_teamGamesPlayed": 4.0, "nfl_d_totalTackles": 2.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -252,6 +363,54 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="nfl_d_assistTackles">Nfl D Assisttackles</th>
+        
+        <th scope="col" data-stat="nfl_d_soloTackles">Nfl D Solotackles</th>
+        
+        <th scope="col" data-stat="nfl_d_teamGamesPlayed">Nfl D Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_d_totalTackles">Nfl D Totaltackles</th>
+        
+        <th scope="col" data-stat="nfl_g_gamesPlayed">Nfl G Gamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_teamGamesPlayed">Nfl P Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_p_totalTouchdowns">Nfl P Totaltouchdowns</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYards">Nfl P Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_p_totalYardsFromScrimmage">Nfl P Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_r_teamGamesPlayed">Nfl R Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_r_totalTouchdowns">Nfl R Totaltouchdowns</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYards">Nfl R Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_r_totalYardsFromScrimmage">Nfl R Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingTargets">Nfl Re Receivingtargets</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingTouchdowns">Nfl Re Receivingtouchdowns</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYards">Nfl Re Receivingyards</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAfterCatch">Nfl Re Receivingyardsaftercatch</th>
+        
+        <th scope="col" data-stat="nfl_re_receivingYardsAtCatch">Nfl Re Receivingyardsatcatch</th>
+        
+        <th scope="col" data-stat="nfl_re_receptions">Nfl Re Receptions</th>
+        
+        <th scope="col" data-stat="nfl_re_teamGamesPlayed">Nfl Re Teamgamesplayed</th>
+        
+        <th scope="col" data-stat="nfl_re_totalTouchdowns">Nfl Re Totaltouchdowns</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYards">Nfl Re Totalyards</th>
+        
+        <th scope="col" data-stat="nfl_re_totalYardsFromScrimmage">Nfl Re Totalyardsfromscrimmage</th>
+        
+        <th scope="col" data-stat="nfl_re_yardsPerReception">Nfl Re Yardsperreception</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -267,7 +426,118 @@
     <tbody>
       
       <tr>
+        <td>NFL 2021</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>4</td>
+        
+        <td>2</td>
+        
+        <td>3</td>
+        
+        <td>4</td>
+        
+        <td>1</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>4</td>
+        
+        <td>1</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>7</td>
+        
+        <td>1</td>
+        
+        <td>32</td>
+        
+        <td>11</td>
+        
+        <td>21</td>
+        
+        <td>4</td>
+        
+        <td>4</td>
+        
+        <td>1</td>
+        
+        <td>32</td>
+        
+        <td>32</td>
+        
+        <td>8</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>5</td>
         
