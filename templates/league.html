@@ -74,6 +74,22 @@
 </section>
 {% endif %}
 
+{% if coaches %}
+<section class="coaches-section">
+  <h2>Coaching Staff</h2>
+  <div class="coaches-grid">
+    {% for coach in coaches %}
+    <div class="coach-card">
+      <h3><a href="{{ root }}players/{{ coach.canonical_id }}.html">{{ coach.name }}</a></h3>
+      {% if coach.roles %}
+      <p class="roles">{{ coach.roles | join(", ") }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% if league.get('games') %}
 <section>
   <h2>Games</h2>

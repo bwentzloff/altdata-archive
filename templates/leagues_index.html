@@ -2,17 +2,36 @@
 {% block title %}Leagues — AltSports Archive{% endblock %}
 {% block content %}
 <h1>All Leagues &amp; Seasons</h1>
-<table>
-  <thead><tr><th>League / Season</th><th>Players</th></tr></thead>
-  <tbody>
-    {% for league in leagues %}
-    <tr>
-      <td><a href="{{ root }}leagues/{{ league.slug }}.html">{{ league.display_name }}</a></td>
-      <td>{{ league.player_count }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+
+<section>
+  {% for group in sport_groups %}
+  <h2>{{ group.sport }}</h2>
+  <table class="league-index-table data-table">
+    <thead>
+      <tr>
+        <th scope="col">League</th>
+        <th scope="col">Seasons</th>
+        <th scope="col">Players</th>
+        <th scope="col">Games</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lg in group.leagues %}
+      <tr>
+        <td>{{ lg.name }}</td>
+        <td>
+          {% for y in lg.years %}
+          <a href="{{ root }}leagues/{{ y.slug }}.html">{{ y.season or "All" }}</a>{% if not loop.last %} · {% endif %}
+          {% endfor %}
+        </td>
+        <td>{{ lg.years | sum(attribute='player_count') }}</td>
+        <td>{{ lg.years | sum(attribute='game_count') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</section>
 {% endblock %}
 {% block formats %}
 <a href="{{ root }}data/leagues/index.json">JSON</a> ·

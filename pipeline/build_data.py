@@ -507,6 +507,16 @@ def main():
     raw_stats = json.loads((RAW / "player_stats.json").read_text())
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
+    
+    # Load coaches if available
+    coaches_merged_path = MERGED / "coaches_merged.json"
+    coaches_merged = (
+        json.loads(coaches_merged_path.read_text())
+        if coaches_merged_path.exists()
+        else []
+    )
+    if coaches_merged:
+        print(f"Loaded {len(coaches_merged)} canonical coaches")
 
     # ── Register new league players in id_lookup (before any aggregation) ──────
     # New league players (IFL, NAL, X-League, etc.) have synthetic IDs that
@@ -696,6 +706,19 @@ def main():
     college_name_index   = json.loads(_college_index_file.read_text()) if _college_index_file.exists() else {}
     if college_stats_data:
         print(f"Loaded college index: {len(college_stats_data)} players, {len(college_name_index)} name entries")
+    
+    # ── Build college abbreviation → full name lookup ──
+    # Extract full school names from college stats data
+    college_abbr_to_full = {}
+    for fdb_url, entry in college_stats_data.items():
+        school_name = entry.get("school", "")
+        if school_name:
+            # entry["abbr"] would be the abbreviation used in player rosters
+            # We build a reverse lookup: abbreviation → full name
+            # The abbreviation is typically stored in player appearances as "college"
+            pass
+    # Note: college_stats_data is indexed by FDB URL, not by abbreviation.
+    # We'll use this data in _match_college to resolve individual players.
 
     # ── Load NFL stats if available (built by scrape_nfl.py) ─────────────────
     _nfl_stats_file = RAW / "nfl_stats_raw.json"
@@ -895,7 +918,10 @@ def main():
             "leagues": cp["leagues"],
             "sport_names": cp["sport_names"],
             "ambiguous": cp["ambiguous"],
-            "appearances": cp["appearances"],
+            "appearances": [
+                {**a, "college_full": a.get("college")}  # Add college_full (same as college for now)
+                for a in cp["appearances"]
+            ],
             "career_totals": totals,
             "season_totals": season_totals,
             "game_log": game_log_by_game,
@@ -939,6 +965,42 @@ def main():
             })
 
     print(f"Written {len(players_merged)} player files")
+
+    # ─── Coach player files ───────────────────────────────────────────────
+    # Write coaches as player JSON files so they can be linked from league pages
+    for coach in coaches_merged:
+        cid = coach["canonical_id"]
+        
+        # Build coach player data in same format as regular players
+        coach_data = {
+            "canonical_id": cid,
+            "canonical_name": coach["canonical_name"],
+            "positions": [],  # Coaches don't have positions
+            "leagues": coach.get("leagues", []),
+            "sport_names": ["Football"],  # Coaches are football-related
+            "ambiguous": False,
+            "appearances": coach.get("appearances", []),
+            "career_totals": {},  # Coaches don't have stat totals
+            "season_totals": {},
+            "game_log": [],  # Coaches don't have game logs
+            "college": None,
+            "nfl": None,
+        }
+        
+        write_json_xml(SITE_DATA / "players" / cid, coach_data, root_tag="player")
+    
+    # Add coaches to search index
+    for coach in coaches_merged:
+        cid = coach["canonical_id"]
+        search_index.append({
+            "id": cid,
+            "name": coach["canonical_name"],
+            "positions": coach.get("roles", []),  # Use coaching roles instead of positions
+            "leagues": coach.get("leagues", []),
+            "sport_names": ["Football"],
+            "ambiguous": False,
+            "totals": {},
+        })
 
     # ─── League files ─────────────────────────────────────────────────────
     print("Writing league files ...")
@@ -1530,12 +1592,50 @@ def main():
     three_td_game.sort(key=lambda x: (x["games"], x["max_tds"]), reverse=True)
     three_td_game = three_td_game[:20]
 
+    # Most teammates in pro career — players with most unique teammates (FOOTBALL only)
+    # Football leagues: NFL, CFL, XFL, USFL, AAF, IFL, NAL, LFA, FCF, ELF, College Football, X-League
+    _football_leagues = {
+        'NFL', 'CFL', 'XFL', 'USFL', 'AAF', 'IFL', 'NAL', 'LFA', 'FCF', 'ELF', 
+        'College Football', 'X-League', 'AFL', 'UFL'
+    }
+    _teammates_map: dict = defaultdict(set)
+    for _gslug, _players in game_players_seen.items():
+        _gmeta = game_meta.get(_gslug, {})
+        _league = _gmeta.get("league", "")
+        # Only include football leagues
+        if _league not in _football_leagues:
+            continue
+        
+        _player_list = list(_players)
+        # For each player in the game, add all other players as teammates
+        for _p1 in _player_list:
+            _cp1 = canonical_map.get(_p1)
+            if not _cp1 or not _has_real_name(_cp1):
+                continue
+            for _p2 in _player_list:
+                if _p1 != _p2:
+                    _teammates_map[_p1].add(_p2)
+    
+    most_teammates = []
+    for _cid, _teammates in _teammates_map.items():
+        _cp = canonical_map.get(_cid)
+        if not _cp:
+            continue
+        most_teammates.append({
+            "canonical_id":   _cid,
+            "canonical_name": _cp["canonical_name"],
+            "teammate_count": len(_teammates),
+        })
+    most_teammates.sort(key=lambda x: x["teammate_count"], reverse=True)
+    most_teammates = most_teammates[:20]
+
     funstats = {
         "thursday_game_count": len(_thu_game_keys),
         "thursday_lineup":     thursday_lineup,
         "two_way_td":          two_way_td,
         "dual_threat_qb":      dual_threat_qb,
         "three_td_game":       three_td_game,
+        "most_teammates":      most_teammates,
     }
     (SITE_DATA / "hof" / "funstats.json").write_text(
         json.dumps(funstats, indent=2), encoding="utf-8"
@@ -1547,6 +1647,56 @@ def main():
 
     # ─── Sports index ─────────────────────────────────────────────────────
     write_json_xml(SITE_DATA / "sports", {"sports": sports}, root_tag="sports")
+
+    # ─── Coaches index ────────────────────────────────────────────────────
+    if coaches_merged:
+        # Group coaches by league and role
+        coaches_by_league: dict = {}
+        for coach in coaches_merged:
+            for league in coach.get("leagues", []):
+                if league not in coaches_by_league:
+                    coaches_by_league[league] = []
+                coaches_by_league[league].append(coach)
+        
+        # Write coaches index
+        coaches_index = []
+        for coach in coaches_merged:
+            coaches_index.append({
+                "canonical_id": coach["canonical_id"],
+                "name": coach["canonical_name"],
+                "roles": coach.get("roles", []),
+                "leagues": coach.get("leagues", []),
+                "years": coach.get("years", []),
+            })
+        
+        (SITE_DATA / "coaches.json").write_text(
+            json.dumps(coaches_index, indent=2), encoding="utf-8"
+        )
+        
+        # Write league-specific coaching staff files
+        (SITE_DATA / "coaches").mkdir(parents=True, exist_ok=True)
+        for league, coaches in coaches_by_league.items():
+            league_slug = slugify(league)
+            league_coaches_data = {
+                "league": league,
+                "coaches": [
+                    {
+                        "canonical_id": c["canonical_id"],
+                        "name": c["canonical_name"],
+                        "roles": c.get("roles", []),
+                        "years": c.get("years", []),
+                        "appearances": c.get("appearances", []),
+                    }
+                    for c in coaches
+                ],
+            }
+            write_json_xml(
+                SITE_DATA / "coaches" / league_slug,
+                league_coaches_data,
+                root_tag="coaches",
+            )
+        
+        print(f"Written {len(coaches_merged)} coaches across {len(coaches_by_league)} leagues")
 
     # ─── Search index ─────────────────────────────────────────────────────
     (SITE_DATA / "search_index.json").write_text(

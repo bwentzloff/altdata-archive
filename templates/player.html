@@ -141,12 +141,11 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    {% if og_image_exists %}
     <div class="share-buttons">
-      <button class="share-btn share-twitter" data-player="{{ player.canonical_name }}" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Share on Twitter/X">𝕏</button>
+<!--       <button class="share-btn share-twitter" data-player="{{ player.canonical_name }}" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Share on Twitter/X">𝕏</button>
       <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Share on Facebook">f</button>
       <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Share on LinkedIn">in</button>
-      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Copy link">🔗</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html" aria-label="Copy link">🔗</button>
     </div>
 
     <script>
@@ -176,7 +175,6 @@
       });
     })();
     </script>
-    {% endif %}
 
     {% if player_timeline %}
 
@@ -205,19 +203,31 @@
   </div>
 </div>
 
+{% if is_coach %}
+<section class="coaching-career-section">
+  <h2>Coaching Career</h2>
+  <p>{{ player.canonical_name }} has served as a coach in alternative sports leagues, managing teams and developing players across multiple seasons.</p>
+</section>
+{% endif %}
+
 <section>
   <h2>Career Totals</h2>
   {% if player.career_totals %}
   <table class="data-table career-totals-table">
     <caption>{{ player.canonical_name }} career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
-    <tbody>
-      {% for stat, val in player.career_totals.items() | sort %}
+    <thead>
       <tr>
-        <td data-stat="{{ stat }}">{{ stat | stat_label }}</td>
-        <td>{{ val | intcomma }}</td>
+        {% for stat, val in player.career_totals.items() | sort %}
+        <th scope="col" data-stat="{{ stat }}">{{ stat | stat_label }}</th>
+        {% endfor %}
       </tr>
-      {% endfor %}
+    </thead>
+    <tbody>
+      <tr>
+        {% for stat, val in player.career_totals.items() | sort %}
+        <td>{{ val | intcomma }}</td>
+        {% endfor %}
+      </tr>
     </tbody>
   </table>
   {% else %}
@@ -376,9 +386,9 @@
         <td>{{ a.league or "—" }}</td>
         <td>
           {% if a.college_stats %}
-          <a href="{{ a.college_stats }}" target="_blank" rel="noopener">{{ a.college or "—" }}</a>
+          <a href="{{ a.college_stats }}" target="_blank" rel="noopener">{{ a.college_full or a.college or "—" }}</a>
           {% else %}
-          {{ a.college or "—" }}
+          {{ a.college_full or a.college or "—" }}
           {% endif %}
         </td>
       </tr>

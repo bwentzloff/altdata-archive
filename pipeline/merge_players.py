@@ -212,7 +212,15 @@ def main():
                 ids = [p["id"] for p in _ps]
                 print(f"Injected {len(_ps)} {label} players (IDs {min(ids)}–{max(ids)})")
 
-    print(f"Loaded {len(players)} player records (including injected)")
+    # ── Inject coaching staff from scraper output ─────────────────────────
+    coaches_file = RAW / "football_coaches.json"
+    coaches_list = []
+    if coaches_file.exists():
+        coaches_list = json.loads(coaches_file.read_text())
+        ids = [c["id"] for c in coaches_list]
+        print(f"Loaded {len(coaches_list)} coaches (IDs {min(ids) if ids else 'none'}–{max(ids) if ids else 'none'})")
+
+    print(f"Loaded {len(players)} player records + {len(coaches_list)} coaches (including injected)")
 
     # Group by normalized name for fast candidate lookup
     by_norm_name = defaultdict(list)
@@ -396,6 +404,148 @@ def main():
     lookup_path = OUT / "id_to_canonical.json"
     lookup_path.write_text(json.dumps(id_lookup), encoding="utf-8")
     print(f"Written ID lookup -> {lookup_path}")
+
+    # ──────────────────────────────────────────────────────────────────────
+    # Coach merging — same logic as players but output to coaches_merged.json
+    # ──────────────────────────────────────────────────────────────────────
+
+    if coaches_list:
+        print("\n=== MERGING COACHES ===\n")
+
+        # Group coaches by normalized name
+        coaches_by_norm_name = defaultdict(list)
+        for c in coaches_list:
+            key = normalize_name(c["full_name"])
+            coaches_by_norm_name[key].append(c)
+
+        # Union-Find for coach clustering
+        coach_id_to_idx = {c["id"]: i for i, c in enumerate(coaches_list)}
+        coach_parent = list(range(len(coaches_list)))
+
+        def coach_find(x):
+            while coach_parent[x] != x:
+                coach_parent[x] = coach_parent[coach_parent[x]]
+                x = coach_parent[x]
+            return x
+
+        def coach_union(x, y):
+            px, py = coach_find(x), coach_find(y)
+            if px != py:
+                coach_parent[px] = py
+
+        # Coaches should be matched more strictly — same name and same/compatible role
+        all_coach_norms = list(coaches_by_norm_name.keys())
+        coach_merged_count = 0
+
+        # Pass 1: exact name + role matches
+        for norm, group in coaches_by_norm_name.items():
+            if len(group) < 2:
+                continue
+            for i in range(len(group)):
+                for j in range(i + 1, len(group)):
+                    c1, c2 = group[i], group[j]
+                    # Merge if same name and role (head coaches, coordinators, etc.)
+                    role1 = c1.get("position", "").lower()
+                    role2 = c2.get("position", "").lower()
+                    if role1 == role2:
+                        i1, i2 = coach_id_to_idx[c1["id"]], coach_id_to_idx[c2["id"]]
+                        if coach_find(i1) != coach_find(i2):
+                            coach_union(i1, i2)
+                            coach_merged_count += 1
+
+        # Pass 2: fuzzy match similar names (less strict than players)
+        for norm, group in coaches_by_norm_name.items():
+            if len(norm) < 4:
+                continue
+            matches = process.extract(
+                norm,
+                all_coach_norms,
+                scorer=fuzz.token_sort_ratio,
+                score_cutoff=95,  # Higher threshold for coaches
+                limit=5,
+            )
+            for match_name, score, _ in matches:
+                if match_name == norm:
+                    continue
+                for c1 in group:
+                    for c2 in coaches_by_norm_name[match_name]:
+                        if c1["id"] == c2["id"]:
+                            continue
+                        role1 = c1.get("position", "").lower()
+                        role2 = c2.get("position", "").lower()
+                        if role1 == role2:
+                            i1 = coach_id_to_idx[c1["id"]]
+                            i2 = coach_id_to_idx[c2["id"]]
+                            if coach_find(i1) != coach_find(i2):
+                                coach_union(i1, i2)
+                                coach_merged_count += 1
+
+        print(f"Merged {coach_merged_count} coach record pairs")
+
+        # Build coach clusters
+        coach_clusters = defaultdict(list)
+        for i, c in enumerate(coaches_list):
+            coach_clusters[coach_find(i)].append(c)
+
+        print(f"Produced {len(coach_clusters)} canonical coaches")
+
+        # Build canonical coach objects
+        canonical_coaches = []
+        coach_slug_counts = defaultdict(int)
+
+        for root_idx, records in coach_clusters.items():
+            # Pick best record (prefer one with complete data)
+            best = max(records, key=lambda r: len(r.get("full_name", "")))
+            canonical_name = flip_name(best["full_name"])
+            base_slug = slugify(canonical_name)
+            coach_slug_counts[base_slug] += 1
+            count = coach_slug_counts[base_slug]
+            canonical_id = base_slug if count == 1 else f"{base_slug}-{count}"
+
+            # Collect roles, leagues
+            roles = list({r.get("position", "") for r in records if r.get("position")})
+            leagues = list({r.get("league") for r in records if r.get("league")})
+            years = sorted(set(r.get("_year") for r in records if r.get("_year")))
+
+            canonical_coaches.append({
+                "canonical_id": canonical_id,
+                "canonical_name": canonical_name,
+                "roles": roles,
+                "leagues": leagues,
+                "years": years,
+                "record_count": len(records),
+                "appearances": [
+                    {
+                        "id": r["id"],
+                        "full_name": r["full_name"],
+                        "team": r.get("team"),
+                        "role": r.get("position"),
+                        "league": r.get("league"),
+                        "year": r.get("_year"),
+                    }
+                    for r in records
+                ],
+                "_raw_ids": [r["id"] for r in records],
+            })
+
+        # Write merged coaches
+        coaches_out_path = OUT / "coaches_merged.json"
+        coaches_out_path.write_text(
+            json.dumps(canonical_coaches, indent=2), encoding="utf-8"
+        )
+        print(f"Written {len(canonical_coaches)} canonical coaches -> {coaches_out_path}")
+
+        # Write coach ID lookup
+        coach_id_lookup = {}
+        for cc in canonical_coaches:
+            for raw_id in cc["_raw_ids"]:
+                coach_id_lookup[str(raw_id)] = cc["canonical_id"]
+
+        coach_lookup_path = OUT / "id_to_canonical_coaches.json"
+        coach_lookup_path.write_text(json.dumps(coach_id_lookup), encoding="utf-8")
+        print(f"Written coach ID lookup -> {coach_lookup_path}")
+    else:
+        print("\nNo coaches data found.")
 
 
 if __name__ == "__main__":

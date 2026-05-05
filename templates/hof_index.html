@@ -222,6 +222,23 @@
 </table>
 {% endif %}
 
+{% if funstats.most_teammates %}
+<h3>Most Teammates in Pro Career</h3>
+<p class="hof-intro">Players who played alongside the most unique teammates across all games in the archive. A measure of career longevity and breadth of experience.</p>
+<table class="data-table">
+  <thead><tr><th>#</th><th>Player</th><th>Unique Teammates</th></tr></thead>
+  <tbody>
+  {% for p in funstats.most_teammates %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a></td>
+    <td>{{ p.teammate_count | intcomma }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
 {% endif %}
 
 {% endblock %}

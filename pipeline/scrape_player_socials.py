@@ -106,10 +106,10 @@ def scrape_espn(player_name, player_team=""):
 
         soup = BeautifulSoup(r.text, "html.parser")
 
-        # Look for player profile links
+        # Look for player profile links (NFL or general sports)
         for link in soup.find_all("a", href=True):
             href = link.get("href", "")
-            if "/player/" in href and player_name.lower() in link.get_text().lower():
+            if ("/player/" in href or "/athlete/" in href) and player_name.lower() in link.get_text().lower():
                 # Found a potential player profile
                 profile_url = urljoin("https://www.espn.com", href)
                 profile_r = requests.get(
@@ -117,9 +117,11 @@ def scrape_espn(player_name, player_team=""):
                 )
                 if profile_r.status_code == 200:
                     profile_soup = BeautifulSoup(profile_r.text, "html.parser")
-                    # Look for social media links
+                    
+                    # Look for social media links in multiple places
+                    # 1. Dedicated social section
                     social_section = profile_soup.find(
-                        "div", class_=re.compile("social|follow", re.I)
+                        "div", class_=re.compile("social|follow|share", re.I)
                     )
                     if social_section:
                         handles = extract_handles(
@@ -127,6 +129,13 @@ def scrape_espn(player_name, player_team=""):
                         )
                         if handles:
                             return handles
+                    
+                    # 2. Look for social links anywhere on the page
+                    all_links = profile_soup.find_all("a", href=True)
+                    all_hrefs = [link.get("href", "") for link in all_links]
+                    handles = extract_handles(" ".join(all_hrefs))
+                    if handles:
+                        return handles
 
         return {}
     except Exception as e:
@@ -159,6 +168,113 @@ def scrape_league_site(player_name, league="NFL"):
         handles = extract_handles(all_text, player_name)
 
         return handles
+    except Exception:
+        return {}
+
+
+def scrape_wikidata(player_name):
+    """Try to find player on Wikidata and extract social handles."""
+    try:
+        # Search Wikidata via SPARQL
+        search_url = f"https://www.wikidata.org/w/api.php?action=query&list=search&srsearch={player_name.replace(' ', '+')}&format=json"
+        r = requests.get(search_url, headers=HEADERS, timeout=10)
+        if r.status_code != 200:
+            return {}
+
+        data = r.json()
+        search_results = data.get("query", {}).get("search", [])
+
+        if not search_results:
+            return {}
+
+        # Get first result (should be the player)
+        first_result = search_results[0]
+        entity_id = first_result.get("title", "")
+
+        if not entity_id:
+            return {}
+
+        # Fetch entity details from Wikidata API
+        entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{entity_id}.json"
+        entity_r = requests.get(entity_url, headers=HEADERS, timeout=10)
+        if entity_r.status_code != 200:
+            return {}
+
+        entity_data = entity_r.json()
+        entities = entity_data.get("entities", {})
+        
+        if not entities:
+            return {}
+
+        entity = list(entities.values())[0]
+        claims = entity.get("claims", {})
+
+        handles = {}
+        # P2003 = Twitter, P2013 = Facebook, P3185 = YouTube, etc.
+        handle_mapping = {
+            "P2003": "twitter",      # Twitter username
+            "P2013": "facebook",     # Facebook ID
+            "P3185": "youtube",      # YouTube ID
+            "P4003": "tiktok",       # TikTok ID
+        }
+
+        for wikidata_prop, platform in handle_mapping.items():
+            if wikidata_prop in claims:
+                claim = claims[wikidata_prop][0]
+                # Navigate the nested structure: mainsnak.datavalue.value
+                if "mainsnak" in claim:
+                    mainsnak = claim["mainsnak"]
+                    if "datavalue" in mainsnak:
+                        value = mainsnak["datavalue"].get("value", "")
+                        if value and platform not in handles:
+                            handles[platform] = value
+
+        return handles
+    except Exception:
+        return {}
+
+
+def scrape_pfr(player_name):
+    """Try to find player on Pro Football Reference and extract social handles."""
+    try:
+        # Search PFR
+        search_url = f"https://www.pro-football-reference.com/search/search.fcgi?search={player_name.replace(' ', '+')}"
+        r = requests.get(search_url, headers=HEADERS, timeout=10)
+        if r.status_code != 200:
+            return {}
+
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        # Look for player links in search results
+        for link in soup.find_all("a", href=True):
+            href = link.get("href", "")
+            if "/players/" in href:
+                # Found a potential player profile
+                profile_url = urljoin("https://www.pro-football-reference.com", href)
+                profile_r = requests.get(
+                    profile_url, headers=HEADERS, timeout=10
+                )
+                if profile_r.status_code == 200:
+                    profile_soup = BeautifulSoup(profile_r.text, "html.parser")
+                    
+                    # Look for social media links in the page
+                    # PFR typically has social links in the player info section
+                    info_section = profile_soup.find("div", id=re.compile("info|player-meta", re.I))
+                    if info_section:
+                        handles = extract_handles(
+                            info_section.get_text() + str(info_section.find_all("a"))
+                        )
+                        if handles:
+                            return handles
+                    
+                    # Also look for any social links on the page
+                    all_links = profile_soup.find_all("a", href=True)
+                    all_hrefs = [link.get("href", "") for link in all_links]
+                    handles = extract_handles(" ".join(all_hrefs))
+                    if handles:
+                        return handles
+
+        return {}
     except Exception:
         return {}
 
@@ -218,8 +334,11 @@ def fetch_social_handles(player_name, player_id=""):
     """Try multiple sources to find social media handles for a player."""
     handles = {}
 
-    # Try each source in order
+    # Try each source in order of likelihood to have good coverage
     for source_name, source_func in [
+        ("espn", scrape_espn),
+        ("pfr", scrape_pfr),
+        ("wikidata", scrape_wikidata),
         ("wikipedia", scrape_wikipedia),
         ("league", lambda pn: scrape_league_site(pn, "NFL")),
     ]:
@@ -238,6 +357,18 @@ def get_all_players():
         return []
 
     return sorted(PLAYERS_DIR.glob("*.json"))
+
+
+def is_name_too_vague(player_name):
+    """Check if a name is too vague to match reliably (e.g., 'A. Fitzpatrick')."""
+    if not player_name:
+        return True
+    parts = player_name.strip().split()
+    if not parts:
+        return True
+    # If first name is a single character or initial (with or without dot), it's too vague
+    first_part = parts[0].rstrip(".")
+    return len(first_part) <= 1
 
 
 def update_player_socials(cache, batch_limit=0):
@@ -260,10 +391,16 @@ def update_player_socials(cache, batch_limit=0):
 
         try:
             player_data = json.loads(player_file.read_text(encoding="utf-8"))
-            player_name = player_data.get("name", "")
+            player_name = player_data.get("canonical_name") or player_data.get("name", "")
 
             if not player_name:
                 cache[canonical_id] = {"_source": "none", "_checked": datetime.now(timezone.utc).isoformat()}
+                processed += 1
+                continue
+
+            # Skip names that are too vague (e.g., "A. Fitzpatrick")
+            if is_name_too_vague(player_name):
+                cache[canonical_id] = {"_source": "skipped", "_checked": datetime.now(timezone.utc).isoformat()}
                 processed += 1
                 continue
 

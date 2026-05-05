@@ -18,6 +18,7 @@ ROOT_DIR = Path(__file__).parent.parent
 SITE_DIR = ROOT_DIR / "docs"
 DATA_DIR = SITE_DIR / "data"
 TEMPLATES_DIR = ROOT_DIR / "templates"
+MERGED_DIR = ROOT_DIR / "pipeline" / "merged"
 
 BUILD_DATE = date.today().isoformat()
 
@@ -135,7 +136,7 @@ def _build_sport_groups(leagues_index):
     """
     SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "MLFB", "FCF"}
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
@@ -436,7 +437,8 @@ def main():
         env, "leagues_index.html",
         SITE_DIR / "leagues" / "index.html",
         root="../",
-        leagues=leagues_index
+        leagues=leagues_index,
+        sport_groups=sport_groups
     )
 
     # ── League pages ────────────────────────────────────────────────────
@@ -459,11 +461,26 @@ def main():
                     "values": [p.get("stats", {}).get(_primary, 0) for p in _sorted],
                     "stat":   _primary,
                 }
+        
+        # Load coaches for this league if available
+        coaches = []
+        # Extract base league slug (remove year from slug like "xfl-2023" -> "xfl")
+        import re
+        base_league_slug = re.sub(r"-\d{4}$", "", league_data['slug'])
+        coaches_file = DATA_DIR / "coaches" / f"{base_league_slug}.json"
+        if coaches_file.exists():
+            try:
+                coaches_data = json.loads(coaches_file.read_text())
+                coaches = coaches_data.get("coaches", [])
+            except (json.JSONDecodeError, KeyError):
+                pass
+        
         render(
             env, "league.html",
             SITE_DIR / "leagues" / f"{league_data['slug']}.html",
             root="../",
             league=league_data,
+            coaches=coaches,
             chart_top10=chart_top10,
         )
 
@@ -474,6 +491,16 @@ def main():
         if player_images_path.exists()
         else {}
     )
+    
+    # Load coaches merged for is_coach check
+    coaches_merged: dict = {}
+    coaches_merged_file = MERGED_DIR / "coaches_merged.json"
+    if coaches_merged_file.exists():
+        try:
+            coaches_list = json.loads(coaches_merged_file.read_text())
+            coaches_merged = {c.get("canonical_id"): c for c in coaches_list}
+        except (json.JSONDecodeError, KeyError):
+            pass
 
     # Track which OG images have been generated
     og_images_manifest_path = SITE_DIR / "assets" / "og-images" / ".manifest.json"
@@ -500,6 +527,9 @@ def main():
         cid = player_data["canonical_id"]
         img_meta = player_images.get(cid)  # None if no image
         
+        # Check if this player is a coach
+        is_coach = cid in coaches_merged
+        
         # Generate OG image if not yet generated and under batch limit
         og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
         og_image_exists = og_image_path.exists() or (cid in og_images_generated)
@@ -516,6 +546,7 @@ def main():
             player=player_data,
             player_image=img_meta,
             player_timeline=build_player_timeline(player_data),
+            is_coach=is_coach,
             og_image_exists=og_image_exists,
         )
     
