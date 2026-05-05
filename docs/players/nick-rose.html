@@ -160,7 +160,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Nick Rose" data-url="https://archive.altfantasysports.com/players/nick-rose.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/nick-rose.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/nick-rose.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/nick-rose.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Nick Rose';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -226,84 +259,75 @@
   
   <table class="data-table career-totals-table">
     <caption>Nick Rose career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="extra_point">Extra Point</th>
+        
+        <th scope="col" data-stat="fg_0_19">Fg 0 19</th>
+        
+        <th scope="col" data-stat="fg_20_29">Fg 20 29</th>
+        
+        <th scope="col" data-stat="fg_30_39">Fg 30 39</th>
+        
+        <th scope="col" data-stat="fg_40_49">Fg 40 49</th>
+        
+        <th scope="col" data-stat="fg_50plus">Fg 50Plus</th>
+        
+        <th scope="col" data-stat="fg_att_game">Fg Att Game</th>
+        
+        <th scope="col" data-stat="games_played">Games Played</th>
+        
+        <th scope="col" data-stat="made_19">Made 19</th>
+        
+        <th scope="col" data-stat="made_29">Made 29</th>
+        
+        <th scope="col" data-stat="made_39">Made 39</th>
+        
+        <th scope="col" data-stat="made_49">FG 40–49</th>
+        
+        <th scope="col" data-stat="made_50">FG 50+</th>
+        
+        <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="xp_att_game">Xp Att Game</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="extra_point">Extra Point</td>
+        
         <td>10</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_0_19">Fg 0 19</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_20_29">Fg 20 29</td>
+        
         <td>8</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_30_39">Fg 30 39</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_40_49">Fg 40 49</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_50plus">Fg 50Plus</td>
+        
         <td>2</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fg_att_game">Fg Att Game</td>
+        
         <td>14</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="games_played">Games Played</td>
+        
         <td>65</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_19">Made 19</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_29">Made 29</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_39">Made 39</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_49">FG 40–49</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_50">FG 50+</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="missed">Missed</td>
+        
         <td>7</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="xp_att_game">Xp Att Game</td>
+        
         <td>0</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -1313,7 +1337,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/nick-rose.json">JSON</a> ·

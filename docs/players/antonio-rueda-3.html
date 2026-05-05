@@ -130,7 +130,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Antonio Rueda" data-url="https://archive.altfantasysports.com/players/antonio-rueda-3.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/antonio-rueda-3.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/antonio-rueda-3.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/antonio-rueda-3.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Antonio Rueda';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
   </div>
@@ -143,44 +176,43 @@
   
   <table class="data-table career-totals-table">
     <caption>Antonio Rueda career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
+        
+        <th scope="col" data-stat="yardsThrown">Yardsthrown</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="assists">Assists</td>
+        
         <td>9</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="blocks">Blocks</td>
+        
         <td>6</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="drops">Drops</td>
+        
         <td>3</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="goals">Goals</td>
+        
         <td>15</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="throwaways">Throwaways</td>
+        
         <td>15</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="yardsReceived">Yardsreceived</td>
+        
         <td>1,444</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="yardsThrown">Yardsthrown</td>
+        
         <td>1,209</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -640,7 +672,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/antonio-rueda-3.json">JSON</a> ·

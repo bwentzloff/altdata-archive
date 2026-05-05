@@ -148,7 +148,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Taylor Cornelius" data-url="https://archive.altfantasysports.com/players/taylor-cornelius.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/taylor-cornelius.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/taylor-cornelius.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/taylor-cornelius.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Taylor Cornelius';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -220,94 +253,83 @@
   
   <table class="data-table career-totals-table">
     <caption>Taylor Cornelius career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="pass_att">Pass Att</th>
+        
+        <th scope="col" data-stat="pass_cmp">Pass Cmp</th>
+        
+        <th scope="col" data-stat="pass_gp">Pass Gp</th>
+        
+        <th scope="col" data-stat="pass_int">Pass Int</th>
+        
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="pass_yds">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="ret_gp">Ret Gp</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_gp">Rush Gp</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="interceptions_lost">INT</td>
+        
         <td>16</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_att">Pass Att</td>
+        
         <td>604</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_cmp">Pass Cmp</td>
+        
         <td>348</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_gp">Pass Gp</td>
+        
         <td>26</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_int">Pass Int</td>
+        
         <td>22</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_td">Pass Td</td>
+        
         <td>20</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_yds">Pass Yds</td>
+        
         <td>4,563</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_tds">TD</td>
+        
         <td>13</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_yards">Pass Yds</td>
+        
         <td>3,237</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="ret_gp">Ret Gp</td>
+        
         <td>26</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_att">Rush Att</td>
+        
         <td>92</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_gp">Rush Gp</td>
+        
         <td>26</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_td">Rush Td</td>
+        
         <td>8</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_yds">Rush Yds</td>
+        
         <td>651</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_tds">TD</td>
+        
         <td>12</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_yards">Rush Yds</td>
+        
         <td>692</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="tackles">Tackles</td>
+        
         <td>0</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -2106,7 +2128,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/taylor-cornelius.json">JSON</a> ·

@@ -136,7 +136,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Savannah Sillivant" data-url="https://archive.altfantasysports.com/players/savannah-sillivant.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/savannah-sillivant.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/savannah-sillivant.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/savannah-sillivant.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Savannah Sillivant';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -173,49 +206,47 @@
   
   <table class="data-table career-totals-table">
     <caption>Savannah Sillivant career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="d_points">D Points</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="o_points">O Points</th>
+        
+        <th scope="col" data-stat="plus_minus">Plus Minus</th>
+        
+        <th scope="col" data-stat="touches">Touches</th>
+        
+        <th scope="col" data-stat="turnovers">Turnovers</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="assists">Assists</td>
+        
         <td>5</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="blocks">Blocks</td>
+        
         <td>3</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="d_points">D Points</td>
+        
         <td>2</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="goals">Goals</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="o_points">O Points</td>
+        
         <td>59</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="plus_minus">Plus Minus</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="touches">Touches</td>
+        
         <td>102</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="turnovers">Turnovers</td>
+        
         <td>11</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -446,7 +477,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/savannah-sillivant.json">JSON</a> ·

@@ -148,7 +148,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="TOR DST" data-url="https://archive.altfantasysports.com/players/tor-dst.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/tor-dst.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/tor-dst.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/tor-dst.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'TOR DST';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -189,44 +222,43 @@
   
   <table class="data-table career-totals-table">
     <caption>TOR DST career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="dst_touchdown">Dst Touchdown</th>
+        
+        <th scope="col" data-stat="dst_touchdowns">Dst Touchdowns</th>
+        
+        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+        
+        <th scope="col" data-stat="points_against">Points Against</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="dst_touchdown">Dst Touchdown</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="dst_touchdowns">Dst Touchdowns</td>
+        
         <td>2</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="fumble_recoveries">Fumble Recoveries</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="interceptions_lost">INT</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="interceptions_made">Interceptions Made</td>
+        
         <td>71</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="points_against">Points Against</td>
+        
         <td>2,011</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="sacks">Sacks</td>
+        
         <td>182</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -2541,7 +2573,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/tor-dst.json">JSON</a> ·

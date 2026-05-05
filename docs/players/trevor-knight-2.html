@@ -130,7 +130,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Trevor Knight" data-url="https://archive.altfantasysports.com/players/trevor-knight-2.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/trevor-knight-2.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/trevor-knight-2.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/trevor-knight-2.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Trevor Knight';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -202,49 +235,47 @@
   
   <table class="data-table career-totals-table">
     <caption>Trevor Knight career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="completions">Comp</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="rush_attempts">Rush Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="completions">Comp</td>
+        
         <td>8</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="interceptions_lost">INT</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pass_attempts">Pass Attempts</td>
+        
         <td>17</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_tds">TD</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_yards">Pass Yds</td>
+        
         <td>95</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_attempts">Rush Attempts</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_tds">TD</td>
+        
         <td>1</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_yards">Rush Yds</td>
+        
         <td>10</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -529,7 +560,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/trevor-knight-2.json">JSON</a> ·

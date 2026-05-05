@@ -136,7 +136,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Birmingham QB" data-url="https://archive.altfantasysports.com/players/birmingham-qb.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/birmingham-qb.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/birmingham-qb.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/birmingham-qb.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Birmingham QB';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
   </div>
@@ -149,84 +182,75 @@
   
   <table class="data-table career-totals-table">
     <caption>Birmingham QB career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="events_played">Events Played</th>
+        
+        <th scope="col" data-stat="extra_point">Extra Point</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="made_19">Made 19</th>
+        
+        <th scope="col" data-stat="made_29">Made 29</th>
+        
+        <th scope="col" data-stat="made_39">Made 39</th>
+        
+        <th scope="col" data-stat="made_49">FG 40–49</th>
+        
+        <th scope="col" data-stat="made_50">FG 50+</th>
+        
+        <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="pdga_points">Pdga Points</th>
+        
+        <th scope="col" data-stat="pdga_rating">Pdga Rating</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="events_played">Events Played</td>
+        
         <td>12</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="extra_point">Extra Point</td>
+        
         <td>26</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="interceptions_lost">INT</td>
+        
         <td>7</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_19">Made 19</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_29">Made 29</td>
+        
         <td>7</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_39">Made 39</td>
+        
         <td>8</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_49">FG 40–49</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="made_50">FG 50+</td>
+        
         <td>0</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="missed">Missed</td>
+        
         <td>5</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_tds">TD</td>
+        
         <td>14</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="passing_yards">Pass Yds</td>
+        
         <td>2,223</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pdga_points">Pdga Points</td>
+        
         <td>1,150</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pdga_rating">Pdga Rating</td>
+        
         <td>1,870</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_tds">TD</td>
+        
         <td>5</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rushing_yards">Rush Yds</td>
+        
         <td>345</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -935,7 +959,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/birmingham-qb.json">JSON</a> ·

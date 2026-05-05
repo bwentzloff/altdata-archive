@@ -136,7 +136,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="James Butler" data-url="https://archive.altfantasysports.com/players/james-butler-2.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/james-butler-2.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/james-butler-2.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/james-butler-2.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'James Butler';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -220,49 +253,47 @@
   
   <table class="data-table career-totals-table">
     <caption>James Butler career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_gp">Rush Gp</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="recv_gp">Recv Gp</td>
+        
         <td>28</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="recv_rec">Recv Rec</td>
+        
         <td>92</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="recv_td">Recv Td</td>
+        
         <td>5</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="recv_yds">Recv Yds</td>
+        
         <td>627</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_att">Rush Att</td>
+        
         <td>311</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_gp">Rush Gp</td>
+        
         <td>28</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_td">Rush Td</td>
+        
         <td>9</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="rush_yds">Rush Yds</td>
+        
         <td>1,557</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -562,7 +593,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/james-butler-2.json">JSON</a> ·

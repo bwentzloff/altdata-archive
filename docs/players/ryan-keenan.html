@@ -154,7 +154,40 @@
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
-    
+    <div class="share-buttons">
+<!--       <button class="share-btn share-twitter" data-player="Ryan Keenan" data-url="https://archive.altfantasysports.com/players/ryan-keenan.html" aria-label="Share on Twitter/X">𝕏</button>
+      <button class="share-btn share-facebook" data-url="https://archive.altfantasysports.com/players/ryan-keenan.html" aria-label="Share on Facebook">f</button>
+      <button class="share-btn share-linkedin" data-url="https://archive.altfantasysports.com/players/ryan-keenan.html" aria-label="Share on LinkedIn">in</button>
+ -->      <button class="share-btn share-copy" data-url="https://archive.altfantasysports.com/players/ryan-keenan.html" aria-label="Copy link">🔗</button>
+    </div>
+
+    <script>
+    (function() {
+      // Handle share button clicks
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const playerName = this.dataset.player || 'Ryan Keenan';
+          
+          if (this.classList.contains('share-twitter')) {
+            const text = `Check out stats for ${playerName} on AltSports Archive`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-facebook')) {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-linkedin')) {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+          } else if (this.classList.contains('share-copy')) {
+            navigator.clipboard.writeText(url).then(() => {
+              const original = this.textContent;
+              this.textContent = '✓';
+              setTimeout(() => this.textContent = original, 2000);
+            });
+          }
+        });
+      });
+    })();
+    </script>
 
     
 
@@ -211,79 +244,71 @@
   
   <table class="data-table career-totals-table">
     <caption>Ryan Keenan career totals across all leagues</caption>
-    <thead><tr><th scope="col">Stat</th><th scope="col">Total</th></tr></thead>
+    <thead>
+      <tr>
+        
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="blk">Blk</th>
+        
+        <th scope="col" data-stat="cto">Cto</th>
+        
+        <th scope="col" data-stat="games_played">Games Played</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="lb">Lb</th>
+        
+        <th scope="col" data-stat="penalty_minutes">Penalty Minutes</th>
+        
+        <th scope="col" data-stat="pim">Pim</th>
+        
+        <th scope="col" data-stat="points">Points</th>
+        
+        <th scope="col" data-stat="pp_assists">Pp Assists</th>
+        
+        <th scope="col" data-stat="pp_goals">Pp Goals</th>
+        
+        <th scope="col" data-stat="sh_goals">Sh Goals</th>
+        
+        <th scope="col" data-stat="sog">Sog</th>
+        
+        <th scope="col" data-stat="to">To</th>
+        
+      </tr>
+    </thead>
     <tbody>
-      
       <tr>
-        <td data-stat="assists">Assists</td>
+        
         <td>168</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="blk">Blk</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="cto">Cto</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="games_played">Games Played</td>
+        
         <td>64</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="goals">Goals</td>
+        
         <td>98</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="lb">Lb</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="penalty_minutes">Penalty Minutes</td>
+        
         <td>16</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pim">Pim</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="points">Points</td>
+        
         <td>260</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pp_assists">Pp Assists</td>
+        
         <td>23</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="pp_goals">Pp Goals</td>
+        
         <td>11</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="sh_goals">Sh Goals</td>
+        
         <td>3</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="sog">Sog</td>
+        
         <td>4</td>
-      </tr>
-      
-      <tr>
-        <td data-stat="to">To</td>
+        
         <td>4</td>
+        
       </tr>
-      
     </tbody>
   </table>
   
@@ -894,7 +919,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-04.
+      Data updated: 2026-05-05.
       Formats:
       
 <a href="../data/players/ryan-keenan.json">JSON</a> ·
