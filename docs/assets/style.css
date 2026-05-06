@@ -1253,3 +1253,128 @@ details[open].lineup-alts summary::before { content: '– '; }
     font-size: 0.65rem;
   }
 }
+
+/* ─── Articles Section ─────────────────────────────────────────────────────── */
+
+.articles-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--bg2);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.articles-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.articles-section h2 small {
+  font-weight: 400;
+  color: var(--text-dim);
+  font-size: 0.85em;
+  margin-left: 0.5rem;
+}
+
+.articles-intro {
+  color: var(--text-dim);
+  font-style: italic;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.article-item {
+  padding: 1rem;
+  background-color: var(--bg);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.article-item:hover {
+  border-color: var(--accent);
+  background-color: var(--bg2);
+}
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  flex: 1;
+}
+
+.article-header a {
+  color: var(--link);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.article-header a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.article-source-badge {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Trust level colors */
+.article-source-badge[data-trust="2.0"],
+.article-source-badge[data-trust="2.5"] {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+}
+
+.article-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+}
+
+.article-meta time {
+  font-style: italic;
+}
+
+.article-summary {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .articles-section {
+    padding: 1.5rem;
+  }
+
+  .article-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .article-source-badge {
+    align-self: flex-start;
+  }
+}

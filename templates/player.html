@@ -394,6 +394,31 @@
 </section>
 {% endif %}
 
+{% if player.articles %}
+<section class="articles-section">
+  <h2>News & Coverage
+    <small>— {{ player.articles | length }} articles</small>
+  </h2>
+  <p class="articles-intro">Recent news and articles mentioning {{ player.canonical_name }}.</p>
+  <div class="articles-list">
+    {% for article in player.articles %}
+    <article class="article-item">
+      <div class="article-header">
+        <h3><a href="{{ article.link }}" target="_blank" rel="noopener noreferrer">{{ article.title }}</a></h3>
+        <span class="article-source-badge" data-trust="{{ article.trust_level }}">{{ article.source_name }}</span>
+      </div>
+      <div class="article-meta">
+        <time datetime="{{ article.date }}">{{ article.date }}</time>
+      </div>
+      {% if article.summary %}
+      <p class="article-summary">{{ article.summary }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% if player.appearances | length > 1 %}
 <section>
   <h2>Roster Appearances</h2>

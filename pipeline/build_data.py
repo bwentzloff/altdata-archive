@@ -567,6 +567,27 @@ def main():
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
     
+    # Load articles if available
+    articles_raw_path = RAW / "articles_raw.json"
+    player_articles = {}  # Map of player_name -> [articles]
+    if articles_raw_path.exists():
+        articles_data = json.loads(articles_raw_path.read_text())
+        for article in articles_data.get("articles", []):
+            for player_name in article.get("players_matched", []):
+                if player_name not in player_articles:
+                    player_articles[player_name] = []
+                player_articles[player_name].append({
+                    "source": article.get("source"),
+                    "source_name": article.get("source_name"),
+                    "trust_level": article.get("trust_level"),
+                    "title": article.get("title"),
+                    "link": article.get("link"),
+                    "date": article.get("date"),
+                    "summary": article.get("summary"),
+                    "indexed_at": article.get("indexed_at"),
+                })
+        print(f"Loaded articles for {len(player_articles)} players")
+    
     # Load coaches if available
     coaches_merged_path = MERGED / "coaches_merged.json"
     coaches_merged = (
@@ -986,6 +1007,7 @@ def main():
             "game_log": game_log_by_game,
             "college": _match_college(cp, college_name_index, college_stats_data),
             "nfl":     nfl_stats_data.get(cid),
+            "articles": player_articles.get(cp["canonical_name"], [])[:20],  # Top 20 most recent
         }
 
         write_json_xml(SITE_DATA / "players" / cid, player_data, root_tag="player")
@@ -1247,13 +1269,13 @@ def main():
     # Sport IDs whose stats should not count toward HoF totals.
     _hof_excl_sport_ids = {
         sid for sid, s in sport_map.items()
-        if re.sub(r"\s*\d{4}$", "", s.get("name", "")).strip() in HOF_EXCLUDED_BASES
+        if re.sub(r"\s*\d{4}$", "", (s.get("name") or "")).strip() in HOF_EXCLUDED_BASES
     }
     # Slugified versions for the league_stats / player_league_seasons keys.
     _hof_excl_slugs = {
-        slugify(f"{s.get('name','')}-{s.get('season','')}" if s.get("season") else s.get("name",""))
+        slugify(f"{(s.get('name') or '')}-{s.get('season','')}" if s.get("season") else (s.get("name") or ""))
         for sid, s in sport_map.items()
-        if re.sub(r"\s*\d{4}$", "", s.get("name", "")).strip() in HOF_EXCLUDED_BASES
+        if re.sub(r"\s*\d{4}$", "", (s.get("name") or "")).strip() in HOF_EXCLUDED_BASES
     }
 
     # Recompute stat totals with excluded leagues removed.

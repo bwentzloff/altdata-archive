@@ -58,6 +58,8 @@ def flip_name(name):
       'Steven Mitchell, Jr.'    → 'Steven Mitchell Jr.'  (comma-before-suffix strip)
     Leaves names without a comma unchanged.
     """
+    if not name:
+        return ""
     if "," not in name:
         return name
 
@@ -353,7 +355,7 @@ def main():
         })
 
         # Flag ambiguous: multiple records with differing positions (different person risk)
-        unique_positions = {r.get("position", "").upper() for r in records}
+        unique_positions = {(r.get("position") or "").upper() for r in records}
         ambiguous = len(unique_positions) > 1 and any(
             skill_position(p1) != skill_position(p2)
             for p1 in unique_positions
