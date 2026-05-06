@@ -80,8 +80,8 @@ while true; do
                     git rebase --abort 2>/dev/null || true
                 fi
                 
-                echo "  ⏸ Waiting 5 minutes before next chunk..."
-                sleep 300
+                echo "  ⏸ Waiting 10 seconds before next chunk..."
+                sleep 10
             fi
         fi
     done

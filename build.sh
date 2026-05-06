@@ -22,6 +22,9 @@ $PYTHON pipeline/scrape_college.py --batch 20 || echo "WARN: College scraper fai
 echo "==> NFL stats backfill (ESPN API) ..."
 $PYTHON pipeline/scrape_nfl.py --batch 30 || echo "WARN: NFL scraper failed, continuing..."
 
+#echo "==> AAF historical backfill (footballdb.com) ..."
+#$PYTHON pipeline/scrape_aaf.py --batch 5 || echo "WARN: AAF scraper failed, continuing..."
+
 echo "==> CFL historical ..."
 $PYTHON pipeline/scrape_cfl.py --batch 5 || echo "WARN: CFL scraper failed, continuing..."
 
@@ -43,6 +46,9 @@ $PYTHON pipeline/scrape_fcf.py || echo "WARN: FCF scraper failed, continuing..."
 echo "==> Athletes Unlimited ..."
 $PYTHON pipeline/scrape_au.py || echo "WARN: AU scraper failed, continuing..."
 
+echo "==> AAF gamelogs ..."
+$PYTHON pipeline/scrape_aaf_gamelogs.py || echo "WARN: AAF gamelog scraper failed, continuing..."
+
 echo "==> IFL ..."
 $PYTHON pipeline/scrape_ifl.py --batch 2 || echo "WARN: IFL scraper failed, continuing..."
 
@@ -61,7 +67,7 @@ $PYTHON pipeline/scrape_player_socials.py --batch 10 || echo "WARN: Player socia
 echo "==> Player images ..."
 $PYTHON pipeline/scrape_images.py --max-seconds 60 || echo "WARN: Image scraper failed, continuing..."
 
-echo "==> News articles (Reddit, Medium, Hacker News) ..."
+echo "==> News articles from RSS feeds ..."
 $PYTHON pipeline/scrape_player_news.py || echo "WARN: News scraper failed, continuing..."
 
 echo "==> Merge players ..."

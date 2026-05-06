@@ -761,6 +761,13 @@ def main():
 
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
+    
+    # Also load AAF games from scraper
+    aaf_games_file = RAW / "aaf_2019_games.json"
+    if aaf_games_file.exists():
+        aaf_games = json.loads(aaf_games_file.read_text())
+        raw_games.extend(aaf_games)
+    
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
     db_game_by_id = {}
     db_game_by_sport_week_team = {}
