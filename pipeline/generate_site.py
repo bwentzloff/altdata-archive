@@ -502,23 +502,20 @@ def main():
         except (json.JSONDecodeError, KeyError):
             pass
 
-    # Track which OG images have been generated
-    og_images_manifest_path = SITE_DIR / "assets" / "og-images" / ".manifest.json"
-    og_images_generated: set = set()
-    if og_images_manifest_path.exists():
-        try:
-            og_images_generated = set(json.loads(og_images_manifest_path.read_text()).get("generated", []))
-        except (json.JSONDecodeError, KeyError):
-            pass
+    # OG images disabled — not needed for current use case
+    # og_images_manifest_path = SITE_DIR / "assets" / "og-images" / ".manifest.json"
+    # og_images_generated: set = set()
+    # if og_images_manifest_path.exists():
+    #     try:
+    #         og_images_generated = set(json.loads(og_images_manifest_path.read_text()).get("generated", []))
+    #     except (json.JSONDecodeError, KeyError):
+    #         pass
 
     player_files = list((DATA_DIR / "players").glob("*.json"))
     print(f"Rendering {len(player_files)} player pages ...")
     
-    # Batch-generate OG images (limit to 50 per build to keep build time reasonable)
-    og_images_to_generate = [pf for pf in player_files 
-                              if pf.stem not in og_images_generated]
-    og_images_batch_limit = 50
-    og_images_generated_count = 0
+    # og_images_batch_limit = 50
+    # og_images_generated_count = 0
     
     for i, pf in enumerate(player_files):
         if i % 2000 == 0:
@@ -530,14 +527,15 @@ def main():
         # Check if this player is a coach
         is_coach = cid in coaches_merged
         
-        # Generate OG image if not yet generated and under batch limit
-        og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
-        og_image_exists = og_image_path.exists() or (cid in og_images_generated)
-        if cid not in og_images_generated and og_images_generated_count < og_images_batch_limit:
-            if generate_player_og_image(player_data, og_image_path):
-                og_images_generated.add(cid)
-                og_images_generated_count += 1
-                og_image_exists = True
+        # OG image generation disabled
+        # og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
+        # og_image_exists = og_image_path.exists() or (cid in og_images_generated)
+        # if cid not in og_images_generated and og_images_generated_count < og_images_batch_limit:
+        #     if generate_player_og_image(player_data, og_image_path):
+        #         og_images_generated.add(cid)
+        #         og_images_generated_count += 1
+        #         og_image_exists = True
+        og_image_exists = False
         
         render(
             env, "player.html",
@@ -550,14 +548,14 @@ def main():
             og_image_exists=og_image_exists,
         )
     
-    # Save OG images manifest
-    if og_images_generated_count > 0:
-        og_images_manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        og_images_manifest_path.write_text(
-            json.dumps({"generated": sorted(list(og_images_generated))}, indent=2),
-            encoding="utf-8"
-        )
-        print(f"Generated {og_images_generated_count} OG images ({len(og_images_generated)} total)")
+    # OG manifest save disabled
+    # if og_images_generated_count > 0:
+    #     og_images_manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    #     og_images_manifest_path.write_text(
+    #         json.dumps({"generated": sorted(list(og_images_generated))}, indent=2),
+    #         encoding="utf-8"
+    #     )
+    #     print(f"Generated {og_images_generated_count} OG images ({len(og_images_generated)} total)")
 
 
     # ── HoF category pages ──────────────────────────────────────────────

@@ -4,7 +4,8 @@
 {% block og_title %}{{ player.canonical_name }} — AltSports Stats{% endblock %}
 {% block og_description %}Career stats for {{ player.canonical_name }}: {% for stat, val in player.career_totals.items() | sort %}{{ stat }} {{ val | round(1) }}{% if not loop.last %}, {% endif %}{% endfor %}{% endblock %}
 {% block og_type %}profile{% endblock %}
-{% block og_image %}<meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/{{ player.canonical_id }}.png">{% endblock %}
+{# OG images disabled #}
+{# {% block og_image %}<meta property="og:image" content="https://archive.altfantasysports.com/assets/og-images/{{ player.canonical_id }}.png">{% endblock %} #}
 
 {% block alternate_links %}
   <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/players/{{ player.canonical_id }}.json" title="{{ player.canonical_name }} stats (JSON)">
