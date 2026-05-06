@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donald Payne Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Donald Payne (OLB, LB) across USFL, UFL, XFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Donald Payne (OLB, LB) across USFL, XFL, UFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Donald Payne",
-  "description": "Donald Payne played OLB, LB in USFL, UFL, XFL.",
+  "description": "Donald Payne played OLB, LB in USFL, XFL, UFL.",
   "url": "https://archive.altfantasysports.com/players/donald-payne.html",
   "sameAs": [
     
@@ -124,6 +124,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Donald Payne"
+            data-src="../assets/player-images/donald-payne.jpg"
+            data-caption="DonMan7 / Wikimedia Commons (CC BY-SA 4.0)">
+      <img src="../assets/player-images/donald-payne.jpg"
+           alt="Donald Payne"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      DonMan7 /
+      <a href="https://commons.wikimedia.org/wiki/File:Donald_Payne_Jacksonville_Jaguars.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 4.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -133,7 +185,7 @@
     <p class="player-meta">
       OLB / LB
       <span class="sep">·</span>
-      USFL, UFL, XFL
+      USFL, XFL, UFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
