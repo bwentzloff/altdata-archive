@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Kaion JULIEN-GRANT — AltSports Stats">
-  <meta property="og:description" content="Career stats for Kaion JULIEN-GRANT: interceptions_made 0.0, receiving_tds 10.0, receiving_yards 2263.0, receptions 171.0, rushing_tds 0.0, rushing_yards 38.0, sacks 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Kaion JULIEN-GRANT: interceptions_made 0.0, receiving_tds 10.0, receiving_yards 2263.0, receptions 171.0, recv_gp 22.0, recv_rec 9.0, recv_yds 141.0, rushing_tds 0.0, rushing_yards 38.0, sacks 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -71,6 +71,18 @@
   ],
   "isPartOf": [
     
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2019",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2019.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2021",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json"
+    },
     
     {
       "@type": "Dataset",
@@ -190,6 +202,12 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
         <span class="ct-yr">'22</span>
         
         <span class="ct-yr">'23</span>
@@ -206,6 +224,12 @@
           
           <span class="ct-cell ct-on"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
           <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
@@ -219,6 +243,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">54.1</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#462</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">55.0</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#17</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -242,6 +285,12 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -262,6 +311,12 @@
         <td>2,263</td>
         
         <td>171</td>
+        
+        <td>22</td>
+        
+        <td>9</td>
+        
+        <td>141</td>
         
         <td>0</td>
         
@@ -287,7 +342,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"receiving_yards": 462.0, "receiving_tds": 2.0, "receptions": 32.0}, "CFL-2023": {"receiving_yards": 495.0, "receiving_tds": 0.0, "receptions": 36.0, "rushing_yards": 24.0, "rushing_tds": 0.0}, "CFL-2024": {"tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 486.0, "receiving_tds": 1.0, "receptions": 46.0}, "CFL-2025": {"receptions": 57.0, "receiving_yards": 820.0, "receiving_tds": 7.0, "rushing_yards": 14.0, "rushing_tds": 0.0}};
+    var seasons = {"CFL-2019": {"recv_gp": 8.0, "recv_rec": 1.0, "recv_yds": 8.0}, "CFL-2021": {"recv_gp": 14.0, "recv_rec": 8.0, "recv_yds": 133.0}, "CFL-2022": {"receiving_yards": 462.0, "receiving_tds": 2.0, "receptions": 32.0}, "CFL-2023": {"receiving_yards": 495.0, "receiving_tds": 0.0, "receptions": 36.0, "rushing_yards": 24.0, "rushing_tds": 0.0}, "CFL-2024": {"tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 486.0, "receiving_tds": 1.0, "receptions": 46.0}, "CFL-2025": {"receptions": 57.0, "receiving_yards": 820.0, "receiving_tds": 7.0, "rushing_yards": 14.0, "rushing_tds": 0.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -309,6 +364,22 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -371,6 +442,12 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_gp">Recv Gp</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -384,6 +461,60 @@
     <tbody>
       
       <tr>
+        <td>CFL 2019</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>8</td>
+        
+        <td>1</td>
+        
+        <td>8</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>14</td>
+        
+        <td>8</td>
+        
+        <td>133</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
         
         <td>—</td>
@@ -393,6 +524,12 @@
         <td>462</td>
         
         <td>32</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -414,6 +551,12 @@
         <td>495</td>
         
         <td>36</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -440,6 +583,12 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
         
         <td>1</td>
@@ -456,6 +605,12 @@
         <td>820</td>
         
         <td>57</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -534,6 +689,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Kaion Julien-Grant</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -563,6 +730,12 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_gp">recv_gp</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -579,7 +752,79 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="16">2019 Wk 1</td></tr>
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-season-total.html" class="game-id">CFL 2019 Season</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>1.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-season-total.html" class="game-id">CFL 2021 Season</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>8.0</td>
+        
+        <td>133.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -604,12 +849,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -634,12 +885,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -664,12 +921,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -694,12 +957,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -724,12 +993,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -754,12 +1029,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -784,12 +1065,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -814,12 +1101,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -844,12 +1137,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 13</td></tr>
       
       <tr>
         <td>2022</td>
@@ -874,12 +1173,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 14</td></tr>
       
       <tr>
         <td>2022</td>
@@ -904,12 +1209,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 16</td></tr>
       
       <tr>
         <td>2022</td>
@@ -934,12 +1245,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 17</td></tr>
       
       <tr>
         <td>2022</td>
@@ -964,12 +1281,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 19</td></tr>
       
       <tr>
         <td>2022</td>
@@ -994,12 +1317,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="16">2022 Wk 20</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1024,12 +1353,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1054,12 +1389,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1084,12 +1425,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1114,12 +1461,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1136,6 +1489,12 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>17.0</td>
@@ -1149,7 +1508,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1166,6 +1525,12 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>7.0</td>
@@ -1179,7 +1544,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1204,12 +1569,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 15</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1234,12 +1605,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 16</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1264,12 +1641,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 17</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1294,12 +1677,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1320,6 +1709,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
@@ -1329,7 +1724,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1354,12 +1749,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1384,12 +1785,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1414,12 +1821,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 5</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1444,12 +1857,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 15</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1474,12 +1893,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 16</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1504,12 +1929,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 17</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1534,12 +1965,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 19</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1564,12 +2001,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 20</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1594,12 +2037,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2024 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="16">2024 Wk 21</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1624,12 +2073,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1654,12 +2109,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1684,12 +2145,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1706,6 +2173,12 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>14.0</td>
@@ -1719,7 +2192,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1744,12 +2217,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1774,12 +2253,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1804,12 +2289,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1834,12 +2325,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1864,12 +2361,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1894,12 +2397,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 12</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1924,12 +2433,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 13</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1954,12 +2469,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1984,12 +2505,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 15</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2014,12 +2541,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 16</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2044,12 +2577,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 17</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2074,12 +2613,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 19</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2104,12 +2649,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 20</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2134,12 +2685,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2025 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 21</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2164,12 +2721,26 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>

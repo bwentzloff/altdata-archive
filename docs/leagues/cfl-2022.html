@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "CFL 2022 Player Statistics",
-  "description": "Complete player statistics for CFL 2022 — 192 players, 130 games. Source: AltSports Archive.",
+  "description": "Complete player statistics for CFL 2022 — 192 players, 131 games. Source: AltSports Archive.",
   "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
   "distribution": [
     {
@@ -53,6 +53,12 @@
     }
   ],
   "hasPart": [
+    
+    {
+      "@type": "Dataset",
+      "name": "CFL 2022 Season",
+      "url": "https://archive.altfantasysports.com/data/games/football-cfl-2022-season-total.json"
+    },
     
     {
       "@type": "Dataset",
@@ -346,12 +352,6 @@
       "@type": "Dataset",
       "name": "OTT @ HAM (23–25)",
       "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2022-w6-ham.json"
-    },
-    
-    {
-      "@type": "Dataset",
-      "name": "SSK @ TOR (24–30)",
-      "url": "https://archive.altfantasysports.com/data/games/synthetic-cfl-2022-w6-ssk.json"
     }
     
   ],
@@ -398,7 +398,7 @@
   <main>
     
 <h1>CFL 2022</h1>
-<p>192 players with recorded stats, 130 games.</p>
+<p>192 players with recorded stats, 131 games.</p>
 
 
 <section class="chart-section">
@@ -419,7 +419,7 @@
   <h2>Games</h2>
   
   <table class="data-table">
-    <caption>CFL 2022 game log — 130 games</caption>
+    <caption>CFL 2022 game log — 131 games</caption>
     <thead>
       <tr>
         <th scope="col">Wk</th>
@@ -434,6 +434,17 @@
       
       
       <tr class="week-group-row"><td colspan="5">Week 1</td></tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/football-cfl-2022-season-total.html">CFL 2022 Season</a>
+        </td>
+        <td>—</td>
+        <td>—</td>
+        <td>10</td>
+      </tr>
+      
       
       <tr>
         <td>1</td>
@@ -2238,7 +2249,7 @@
         <a href="../players/christian-saulsberry.html">Christian Saulsberry</a>
         
       </td>
-      <td>RB</td>
+      <td>WR, RB</td>
       
     </tr>
     
@@ -2524,9 +2535,9 @@
     <tr>
       <td>
         <a href="../players/emmanuel-arceneaux.html">Emmanuel Arceneaux</a>
-        
+        <span class="ambiguous-tag">?</span>
       </td>
-      <td>SB</td>
+      <td>WR, SB</td>
       
     </tr>
     
@@ -2913,7 +2924,7 @@
         <a href="../players/kian-schaffer-baker.html">Kian SCHAFFER-BAKER</a>
         
       </td>
-      <td>WR</td>
+      <td>WR, RB</td>
       
     </tr>
     
@@ -3219,7 +3230,7 @@
         <a href="../players/papi-white.html">Papi White</a>
         
       </td>
-      <td>WR</td>
+      <td>WR, RB</td>
       
     </tr>
     

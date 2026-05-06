@@ -1,11 +1,11 @@
 -- AltSports Archive SQL dump
--- Generated: 2026-05-05 11:48:11 UTC
+-- Generated: 2026-05-06 18:16:03 UTC
 -- Tables: games
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
 
--- Table: `games`  (exported 2026-05-05 11:48:11 UTC)
+-- Table: `games`  (exported 2026-05-06 18:16:03 UTC)
 DROP TABLE IF EXISTS `games`;
 CREATE TABLE `games` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@ CREATE TABLE `games` (
   KEY `game_id` (`game_id`),
   KEY `sport_id` (`sport_id`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=1657 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1666 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `games` (`id`, `sport_id`, `status`, `start_time`, `team_home`, `team_away`, `created_at`, `updated_at`, `week`, `game_id`, `score_home`, `score_away`, `channel`, `streaming_link`, `period`, `time_left`, `active`, `possession_home`, `possession_away`, `record_home`, `record_away`, `status_line`, `spread_home`, `spread_away`, `moneyline_home`, `moneyline_away`, `total_home`, `total_away`, `league`) VALUES
   (23, 2, 3, '2022-07-07 19:00:00', 'royal', 'outlaws', '2022-07-09 14:00:03', '2022-07-09 14:15:02', 7, '2022-07-07-OTT-MTL', 20, 23, 'AUDL.TV', 'https://audltv.vhx.tv/videos/ottawa-at-montreal-07-07-2022', 0, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1178,6 +1178,15 @@ INSERT INTO `games` (`id`, `sport_id`, `status`, `start_time`, `team_home`, `tea
   (1653, 33, 0, '2026-05-10 17:00:00', 'steel', 'spiders', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-10-OAK-ORE', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/oakland-at-oregon-5-10-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1654, 33, 0, '2026-05-10 13:00:00', 'empire', 'breeze', '2026-05-04 10:09:02', '2026-05-04 10:09:02', 3, '2026-05-10-DC-NY', 0, 0, 'WatchUFA', 'https://watchufa.tv/events/dc-at-new-york-5-10-2026', 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
   (1655, 34, 2, '2026-05-02 19:00:00', 'Michigan Arsenal', 'Oregon Lightning', NULL, NULL, 1, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-  (1656, 34, 2, '2026-05-03 20:00:00', 'Oceanside Bombers', 'Minnesota Monsters', NULL, NULL, 1, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  (1656, 34, 2, '2026-05-03 20:00:00', 'Oceanside Bombers', 'Minnesota Monsters', NULL, NULL, 1, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1657, 34, 0, '2026-05-09 16:00:00', 'Beaumont Renegades', 'Washington Wolfpack', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1658, 34, 0, '2026-05-09 16:00:00', 'Nashville Kats', 'Oregon Lightning', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1659, 34, 0, '2026-05-09 17:00:00', 'Michigan Arsenal', 'Minnesota Monsters', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1660, 34, 0, '2026-05-09 18:00:00', 'Albany Firebirds', 'Kentucky Barrels', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1661, 34, 0, '2026-05-08 20:00:00', 'Green Bay Blizzard', 'Quad City Steamwheelers', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1662, 34, 0, '2026-05-09 18:00:00', 'Orlando Pirates', 'Fishers Freight', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1663, 34, 0, '2026-05-09 21:00:00', 'Northern Arizona Wranglers', 'San Antonio Gunslingers', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1664, 34, 0, '2026-05-10 16:00:00', 'Jacksonville Sharks', 'Tulsa Oilers', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (1665, 34, 0, '2026-05-10 19:30:00', 'Arizona Rattlers', 'Tucson Sugar Skulls', NULL, NULL, 2, NULL, 0, 0, NULL, NULL, 0, NULL, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS=1;

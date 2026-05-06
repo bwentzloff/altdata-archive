@@ -20,22 +20,11 @@ except ImportError:
 
 # Trust hierarchy - higher numbers = more trusted sources
 TRUST_SOURCES = {
-    # Reddit communities (Level 2.0) - well-moderated, consistent
-    "reddit_sports": {"url": "https://www.reddit.com/r/sports/.rss", "name": "r/sports", "trust": 2.0},
-    "reddit_nfl": {"url": "https://www.reddit.com/r/nfl/.rss", "name": "r/nfl", "trust": 2.0},
-    "reddit_ultimate": {"url": "https://www.reddit.com/r/ultimate/.rss", "name": "r/ultimate", "trust": 2.0},
-    "reddit_lacrosse": {"url": "https://www.reddit.com/r/lacrosse/.rss", "name": "r/lacrosse", "trust": 2.0},
-    "reddit_discgolf": {"url": "https://www.reddit.com/r/discgolf/.rss", "name": "r/discgolf", "trust": 2.0},
-    "reddit_madden": {"url": "https://www.reddit.com/r/Madden/.rss", "name": "r/Madden", "trust": 2.0},
-    "reddit_cfb": {"url": "https://www.reddit.com/r/CFB/.rss", "name": "r/CFB", "trust": 2.0},
-    "reddit_cbb": {"url": "https://www.reddit.com/r/CollegeBasketball/.rss", "name": "r/CollegeBasketball", "trust": 2.0},
-    "reddit_baseball": {"url": "https://www.reddit.com/r/baseball/.rss", "name": "r/baseball", "trust": 2.0},
-    "reddit_basketball": {"url": "https://www.reddit.com/r/basketball/.rss", "name": "r/basketball", "trust": 2.0},
-    "reddit_hockey": {"url": "https://www.reddit.com/r/hockey/.rss", "name": "r/hockey", "trust": 2.0},
-    "reddit_soccer": {"url": "https://www.reddit.com/r/soccer/.rss", "name": "r/soccer", "trust": 2.0},
+    # Primary sources (Level 3.0)
+    "altsports_news": {"url": "https://news.altfantasysports.com/feed", "name": "AltSports News", "trust": 3.0},
+    "sgp": {"url": "https://www.sportsgamblingpodcast.com/feed", "name": "Sports Gambling Podcast", "trust": 2.5},
     
-    # Alternative trusted sources (Level 2.5)
-    "medium_sports": {"url": "https://medium.com/feed/tag/sports", "name": "Medium Sports", "trust": 2.5},
+    # Hacker News (Level 2.5)
     "hackernews": {"url": "https://news.ycombinator.com/rss", "name": "Hacker News", "trust": 2.5},
 }
 
