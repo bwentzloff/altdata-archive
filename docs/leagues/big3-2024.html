@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG3 2024 Stats — AltSports Archive</title>
+  <meta name="description" content="Player statistics for BIG3 2024: 55 players with recorded stats. Free historical alternative sports data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="BIG3 2024 — Player Stats">
+  <meta property="og:description" content="55 players with stats in BIG3 2024. Browse, search, and download as JSON or XML.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archive.altfantasysports.com/">
+  
+  
+
+
+  <!-- Alternate machine-readable formats -->
+  
+  <link rel="alternate" type="application/json" href="https://archive.altfantasysports.com/data/leagues/big3-2024.json" title="BIG3 2024 stats (JSON)">
+  <link rel="alternate" type="application/xml" href="https://archive.altfantasysports.com/data/leagues/big3-2024.xml" title="BIG3 2024 stats (XML)">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "BIG3 2024 Player Statistics",
+  "description": "Complete player statistics for BIG3 2024 — 55 players, 6 games. Source: AltSports Archive.",
+  "url": "https://archive.altfantasysports.com/data/leagues/big3-2024.json",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/big3-2024.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/xml",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/big3-2024.xml"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://archive.altfantasysports.com/data/leagues/big3-2024.csv"
+    }
+  ],
+  "hasPart": [
+    
+    {
+      "@type": "Dataset",
+      "name": "ENEMIES @ TRIPLETS (44–50)",
+      "url": "https://archive.altfantasysports.com/data/games/2660091.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "ALIENS @ 3 HEADED MONSTERS (51–46)",
+      "url": "https://archive.altfantasysports.com/data/games/2660092.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "TRI-STATE @ BALL HOGS (51–37)",
+      "url": "https://archive.altfantasysports.com/data/games/2660093.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "TRILOGY @ BIVOUAC (52–47)",
+      "url": "https://archive.altfantasysports.com/data/games/2660094.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "KILLER 3\&#39;s @ GHOST BALLERS (50–48)",
+      "url": "https://archive.altfantasysports.com/data/games/2660095.json"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "3\&#39;s COMPANY @ POWER (50–52)",
+      "url": "https://archive.altfantasysports.com/data/games/2660096.json"
+    }
+    
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isPartOf": {
+    "@type": "DataCatalog",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com"
+  }
+}
+</script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<h1>BIG3 2024</h1>
+<p>55 players with recorded stats, 6 games.</p>
+
+
+<section class="chart-section">
+  <h2>Top Performers — 2 Pointer</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {"labels": ["Isaiah Briscoe", "Joe Johnson", "Mike Taylor", "Chris Johnson", "Donte Greene", "JORDAN CRAWFORD", "PAUL MILLSAP", "Gerald Green", "Michael Beasley", "Elijah Stewart"], "values": [11.0, 11.0, 9.0, 8.0, 8.0, 8.0, 8.0, 7.0, 7.0, 6.0], "stat": "2_pointer"};
+  </script>
+</section>
+
+
+
+
+
+<section>
+  <h2>Games</h2>
+  
+  <table class="data-table">
+    <caption>BIG3 2024 game log — 6 games</caption>
+    <thead>
+      <tr>
+        <th scope="col">Wk</th>
+        <th scope="col">Matchup</th>
+        <th scope="col">Score</th>
+        <th scope="col">Date</th>
+        <th scope="col">Players</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="5">Week 1</td></tr>
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660091.html">ENEMIES @ TRIPLETS</a>
+        </td>
+        <td>44–50</td>
+        <td>2024-06-15</td>
+        <td>10</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660092.html">ALIENS @ 3 HEADED MONSTERS</a>
+        </td>
+        <td>51–46</td>
+        <td>2024-06-15</td>
+        <td>10</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660093.html">TRI-STATE @ BALL HOGS</a>
+        </td>
+        <td>51–37</td>
+        <td>2024-06-15</td>
+        <td>10</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660094.html">TRILOGY @ BIVOUAC</a>
+        </td>
+        <td>52–47</td>
+        <td>2024-06-15</td>
+        <td>9</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660095.html">KILLER 3\&#39;s @ GHOST BALLERS</a>
+        </td>
+        <td>50–48</td>
+        <td>2024-06-15</td>
+        <td>8</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/2660096.html">3\&#39;s COMPANY @ POWER</a>
+        </td>
+        <td>50–52</td>
+        <td>2024-06-15</td>
+        <td>8</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
+
+
+
+  
+
+
+<table class="data-table">
+  <caption>BIG3 2024 player statistics</caption>
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Pos</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a href="../players/abraham-millsap.html">ABRAHAM MILLSAP</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/al-jefferson.html">AL JEFFERSON</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/amir-johnson.html">Amir Johnson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brandon-moss.html">BRANDON MOSS</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cady-lalanne.html">CADY LALANNE</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chris-allen.html">CHRIS ALLEN</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chris-johnson.html">Chris Johnson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/corey-brewer.html">Corey Brewer</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dajuan-summers.html">Dajuan Summers</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/darnell-jackson.html">Darnell Jackson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/deshawn-stephens.html">Deshawn Stephens</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dominique-johnson.html">Dominique Johnson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/donte-greene.html">Donte Greene</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dusan-bulut.html">Dusan Bulut</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/earl-clark.html">Earl Clark</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/elijah-stewart.html">Elijah Stewart</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/franklin-session.html">Franklin Session</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/garlon-green.html">Garlon Green</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/gerald-green.html">Gerald Green</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/greg-monroe.html">GREG MONROE</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/henry-sims.html">HENRY SIMS</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/isaiah-austin.html">Isaiah Austin</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/isaiah-briscoe.html">Isaiah Briscoe</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jamario-moon.html">Jamario Moon</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/james-white.html">James White</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jannero-pargo.html">Jannero Pargo</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jason-richardson.html">Jason Richardson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jaylen-johnson.html">JAYLEN JOHNSON</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeff-ayres.html">Jeff Ayres</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeff-teague.html">JEFF TEAGUE</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeremy-pargo.html">Jeremy Pargo</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jodie-meeks.html">Jodie Meeks</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/joe-johnson.html">Joe Johnson</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/john-millsap.html">JOHN MILLSAP</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jordan-crawford.html">JORDAN CRAWFORD</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/josh-powell.html">Josh Powell</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kevin-murphy.html">Kevin Murphy</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/larry-sanders.html">Larry Sanders</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/leandro-barbosa.html">Leandro Barbosa</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lucas-mariano.html">LUCAS MARIANO</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marcus-foster.html">MARCUS FOSTER</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mario-chalmers.html">Mario Chalmers</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marquis-teague.html">MARQUIS TEAGUE</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/michael-beasley.html">Michael Beasley</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mike-taylor.html">Mike Taylor</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mo-charlo.html">MO CHARLO</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/nasir-core.html">NASIR CORE</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/paul-millsap.html">PAUL MILLSAP</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/quincy-miller.html">Quincy Miller</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ray-nixon.html">Ray Nixon</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/reggie-evans.html">REGGIE EVANS</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/roscoe-smith.html">ROSCOE SMITH</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/royce-white.html">Royce White</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sean-williams.html">SEAN WILLIAMS</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shakur-juiston.html">SHAKUR JUISTON</a>
+        
+      </td>
+      <td>P</td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-06.
+      Formats:
+      
+<a href="../data/leagues/big3-2024.json">JSON</a> ·
+<a href="../data/leagues/big3-2024.xml">XML</a> ·
+<a href="../data/leagues/big3-2024.csv">CSV</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="../assets/charts.js"></script>
+
+
+</body>
+</html>
