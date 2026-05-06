@@ -14,4 +14,8 @@ echo "==> Building data files ..."
 echo "==> Generating HTML ..."
 .venv/bin/python pipeline/generate_site.py
 
-echo "==> Done. Site is in site/"
+# Ensure docs/ exists and add .nojekyll to skip Jekyll processing
+mkdir -p docs
+touch docs/.nojekyll
+
+echo "==> Done. Site is in docs/"
