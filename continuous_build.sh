@@ -28,9 +28,6 @@ while true; do
     }
     echo ""
     
-    # Stage all docs/ changes
-    git add docs/ 2>/dev/null || true
-    echo ""
     # Split players alphabetically, with heavy hitters (j, d, c, t, m, a) split further
     CHUNKS=(
         "docs/assets"
