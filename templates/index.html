@@ -21,12 +21,31 @@
     {
       "@type": "Dataset",
       "name": "{{ league.display_name }} Player Statistics",
+      "description": "Complete player statistics for {{ league.display_name }}: {{ league.player_count }} players with recorded stats across multiple seasons. Free open data from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json",
-      "distribution": {
-        "@type": "DataDownload",
-        "encodingFormat": "application/json",
-        "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json"
-      }
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/xml",
+          "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.xml"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://archive.altfantasysports.com/data/leagues/{{ league.slug }}.csv"
+        }
+      ],
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
