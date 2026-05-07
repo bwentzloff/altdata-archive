@@ -3,27 +3,32 @@
 scrape_xleague.py — X-League (Japan) professional American football statistics
 
 X-League (エックスリーグ) is the top-tier professional American football league in Japan.
-Official website: https://xleague.jp/
+Official website: https://xleague.jp/ (currently under redesign)
 
 Sources:
-1. Wikipedia X-League_(Japan) — MVP, ROY awards with player names and teams
+1. Wikipedia X-League_(Japan) — MVP, ROY awards, team divisions, historical rosters
 2. american-football-japan.com — Annual statistics PDFs (2005-2025)
-   - Team rosters, individual player stats, game summaries
-   - English versions available
-3. xleague.jp — Official schedule, standings, team information
+   - Team rosters, individual player stats (passing/rushing/receiving yards, TDs)
+   - Game summaries with per-player performance
+   - English versions available for recent years
+3. xleague.jp — Official schedule, standings (accessible via Wayback Machine or current redesign)
+4. Individual team official websites — Rosters and player profiles
 
 Outputs (pipeline/raw/):
-  xleague_players.json   — {id, full_name, team, position, league, season}
-  xleague_stats.json     — {player_id, season, league, stat, value, game_id, _year}
-  xleague_raw.json       — Cache of parsed data
+  xleague_players.json   — {id, full_name, team, position, league, season, _data_source}
+  xleague_stats.json     — {player_id, season, league, stat, value, game_id, _year, _source}
+  xleague_teams.json     — {team_name, season_years, players_count}
+  xleague_raw.json       — Cached parsed data (awards, rosters, game stats)
 
 Integration: build_data.py loads these files and merges with canonical player list.
 Players display with X-League stats in career tables, game logs, and league pages.
+Team pages show rosters and seasonal performance.
 
 Usage:
-  python pipeline/scrape_xleague.py           # Scrape current + previous 2 seasons
-  python pipeline/scrape_xleague.py --all     # Scrape all available years
-  python pipeline/scrape_xleague.py --status  # Show progress
+  python pipeline/scrape_xleague.py              # Scrape MVP/ROTY + team rosters
+  python pipeline/scrape_xleague.py --pdf 2023  # Attempt PDF parsing for 2023 season
+  python pipeline/scrape_xleague.py --all       # Scrape all available years + PDFs
+  python pipeline/scrape_xleague.py --status    # Show progress
 """
 
 import argparse
@@ -37,6 +42,13 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
+# Try to import PDF library
+try:
+    import PyPDF2
+    HAS_PDF_SUPPORT = True
+except ImportError:
+    HAS_PDF_SUPPORT = False
+
 # Paths
 BASE = Path(__file__).parent
 RAW_DIR = BASE / "raw"
@@ -44,15 +56,36 @@ RAW_DIR.mkdir(exist_ok=True)
 
 PLAYERS_FILE = RAW_DIR / "xleague_players.json"
 STATS_FILE = RAW_DIR / "xleague_stats.json"
+TEAMS_FILE = RAW_DIR / "xleague_teams.json"
 STATE_FILE = RAW_DIR / "xleague_scrape_state.json"
 RAW_FILE = RAW_DIR / "xleague_raw.json"
 CACHE_FILE = RAW_DIR / "_xleague_wiki_cache.json"
+PDF_CACHE_DIR = RAW_DIR / "_xleague_pdf_cache"
+PDF_CACHE_DIR.mkdir(exist_ok=True)
 
 # Config
 WIKI_API = "https://en.wikipedia.org/w/api.php"
+PDF_BASE_URL = "http://www.american-football-japan.com"
 SYNTHETIC_ID_START = 800_000  # X-League IDs: 800K+
 HEADERS = {
     "User-Agent": "AltSportsArchive/1.0 (https://archive.altfantasysports.com; altfantasysports@gmail.com) Python/requests"
+}
+
+# X-League team names (standardized)
+XLEAGUE_TEAMS_INFO = {
+    "Panasonic Impulse": {"abbr": "IMP", "active_since": 1997},
+    "Obic Seagulls": {"abbr": "SEA", "active_since": 1997},
+    "Fujitsu Frontiers": {"abbr": "FRO", "active_since": 1997},
+    "Nojima Sagamihara Rise": {"abbr": "RISE", "active_since": 2005},
+    "Tokyo Gas Creators": {"abbr": "CRE", "active_since": 2005},
+    "SEKISUI Challengers": {"abbr": "CHA", "active_since": 2007},
+    "Elecom Kobe Finies": {"abbr": "FIN", "active_since": 2008},
+    "IBM Big Blue": {"abbr": "BLUE", "active_since": 2005},
+    "All Mitsubishi Lions": {"abbr": "LION", "active_since": 2005},
+    "LIXIL Deers": {"abbr": "DEER", "active_since": 2005},
+    "Asahi Beer Silver Star": {"abbr": "STAR", "active_since": 2005},
+    "Dentsu Club Caterpillars": {"abbr": "CAT", "active_since": 2010},
+    "Fujitsu Ebina Minerva AFC": {"abbr": "MIN", "active_since": 2015},
 }
 
 PAGE_TITLE = "X-League_(Japan)"
@@ -222,23 +255,305 @@ def build_player_and_stat_records(awards: list[dict]) -> tuple[list[dict], list[
     return players, stats
 
 
+def fetch_pdf_statistics(season: int) -> dict:
+    """
+    Attempt to fetch and parse X-League statistics PDF for a given season.
+    Returns {player_name: {stat_key: value}}
+    """
+    if not HAS_PDF_SUPPORT:
+        print(f"    PyPDF2 not installed, skipping PDF parsing for {season}")
+        return {}
+    
+    # PDF URL pattern from american-football-japan.com
+    pdf_url = f"{PDF_BASE_URL}/footballjapan-xleague{season}-statistics-eng.pdf"
+    cache_file = PDF_CACHE_DIR / f"xleague_{season}.pdf"
+    
+    # Try to download PDF
+    try:
+        if not cache_file.exists():
+            print(f"    Fetching PDF: {pdf_url}")
+            r = requests.get(pdf_url, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            cache_file.write_bytes(r.content)
+            print(f"    Downloaded {season} PDF ({len(r.content)} bytes)")
+        
+        # Parse PDF
+        print(f"    Parsing PDF for {season}...")
+        with open(cache_file, "rb") as f:
+            reader = PyPDF2.PdfReader(f)
+            text = ""
+            for page_num, page in enumerate(reader.pages[:15]):
+                text += page.extract_text()
+                if page_num > 0 and len(text) > 200000:
+                    break
+        
+        stats_data = {}
+        
+        # Pattern: "PlayerName (Team) num num num ..."
+        # Handles both Western and Japanese names
+        # Matches: "Trashaun Nixon (Frontiers) 28 347 12.39 79 4"
+        player_stat_pattern = r"([A-Z][a-zA-Z\s'\-]+(?:\([^)]+\)))\s+([\d\s\.\-]+?)(?:\n|$)"
+        
+        for match in re.finditer(player_stat_pattern, text, re.MULTILINE):
+            full_entry = match.group(1).strip()
+            stats_str = match.group(2).strip()
+            
+            # Extract player name and team
+            # Format: "Name (Team)"
+            paren_match = re.match(r"(.+?)\s*\(([^)]+)\)", full_entry)
+            if not paren_match:
+                continue
+            
+            name = paren_match.group(1).strip()
+            team = paren_match.group(2).strip()
+            
+            # Parse stat values
+            try:
+                stat_vals = [float(v) if '.' in v else int(v) for v in stats_str.split()]
+            except (ValueError, IndexError):
+                continue
+            
+            if len(name) < 2 or not stat_vals:
+                continue
+            
+            # Create normalized key
+            norm_name = name.lower().strip()
+            if norm_name not in stats_data:
+                stats_data[norm_name] = {
+                    "name": name,
+                    "team": team,
+                    "raw_stats": []
+                }
+            
+            # Store raw stat values (we'll parse by section context later)
+            stats_data[norm_name]["raw_stats"].extend(stat_vals)
+        
+        # Post-process: assign stat names based on context and value ranges
+        for norm_name, player_info in stats_data.items():
+            stats_dict = {}
+            raw = player_info["raw_stats"][:10]  # Limit to first 10 values
+            
+            # Heuristic: categorize based on typical ranges
+            # Yards are typically 50-2000, TDs are 0-20, Avg/Percent are 0-100, etc
+            if len(raw) >= 3:
+                # Common pattern: attempts/yards/avg/long/td
+                if 10 < raw[0] < 100 and 50 < raw[1] < 2000:
+                    stats_dict["attempts"] = raw[0]
+                    stats_dict["yards"] = raw[1]
+                    if len(raw) > 2:
+                        stats_dict["avg"] = raw[2]
+                # Scoring: pts/td/fg/pat
+                elif raw[0] > 0 and len(raw) >= 4 and raw[1] < 20:
+                    stats_dict["points"] = raw[0]
+                    stats_dict["td"] = raw[1]
+                    stats_dict["fg"] = raw[2]
+                    stats_dict["pat"] = raw[3]
+            
+            if stats_dict:
+                stats_data[norm_name].update(stats_dict)
+        
+        # Clean output
+        result = {}
+        for norm_name, player_info in stats_data.items():
+            name = player_info["name"]
+            # Remove temp fields
+            clean_stats = {k: v for k, v in player_info.items() 
+                          if k not in ["name", "team", "raw_stats"]}
+            if clean_stats:
+                result[name] = clean_stats
+        
+        if result:
+            print(f"    Extracted {len(result)} player entries from {season} PDF")
+        
+        return result
+    
+    except requests.RequestException as e:
+        print(f"    Could not fetch PDF: {e}")
+    except Exception as e:
+        print(f"    Error parsing PDF: {e}")
+    
+    return {}
+
+
+def scrape_team_rosters(season: int) -> dict[str, list[str]]:
+    """
+    Attempt to scrape team rosters from xleague.jp or team websites.
+    Returns {team_name: [player_names]}
+    """
+    rosters = {}
+    
+    for team_name in XLEAGUE_TEAMS_INFO.keys():
+        # Check if team was active in this season
+        if season < XLEAGUE_TEAMS_INFO[team_name]["active_since"]:
+            continue
+        
+        rosters[team_name] = []
+        
+        # Try to fetch team roster from official site (placeholder for now)
+        # In reality, this would need team-specific URLs once xleague.jp is fully accessible
+        # For now, we'll rely on Wikipedia and PDF data
+    
+    return rosters
+
+
+def merge_player_records(awards: list[dict], pdf_stats: dict[int, dict], rosters: dict[int, dict]) -> tuple[list[dict], list[dict], dict]:
+    """
+    Merge player data from multiple sources (awards, PDFs, rosters).
+    Returns (players_list, stats_list, teams_info)
+    """
+    players = []
+    stats = []
+    teams_info = {}
+    
+    player_by_name: dict[str, dict] = {}
+    player_id_map: dict[str, int] = {}
+    next_id = SYNTHETIC_ID_START
+    
+    # First pass: awards (MVP/ROTY)
+    for award in awards:
+        name = award.get("name", "").strip()
+        team = award.get("team", "")
+        position = award.get("position", "")
+        year = award.get("_year")
+        
+        if not name or len(name) < 2:
+            continue
+        
+        norm_name = name.lower()
+        if norm_name not in player_by_name:
+            player_rec = {
+                "id": next_id,
+                "full_name": name,
+                "team": team,
+                "position": position,
+                "league": "X-League",
+                "seasons": {year} if year else set(),
+                "_sources": ["wikipedia_awards"],
+            }
+            player_by_name[norm_name] = player_rec
+            player_id_map[norm_name] = next_id
+            next_id += 1
+        else:
+            # Update existing player record
+            if year and not player_by_name[norm_name].get("seasons"):
+                player_by_name[norm_name]["seasons"] = set()
+            if year:
+                player_by_name[norm_name]["seasons"].add(year)
+            if team and not player_by_name[norm_name].get("team"):
+                player_by_name[norm_name]["team"] = team
+            if position and not player_by_name[norm_name].get("position"):
+                player_by_name[norm_name]["position"] = position
+    
+    # Second pass: PDF statistics
+    for year, player_stats in pdf_stats.items():
+        for name, stats_dict in player_stats.items():
+            norm_name = name.lower()
+            if norm_name not in player_by_name:
+                player_rec = {
+                    "id": next_id,
+                    "full_name": name,
+                    "team": "",
+                    "position": "Unknown",
+                    "league": "X-League",
+                    "seasons": {year},
+                    "_sources": ["pdf_statistics"],
+                }
+                player_by_name[norm_name] = player_rec
+                player_id_map[norm_name] = next_id
+                next_id += 1
+            else:
+                if year and not player_by_name[norm_name].get("seasons"):
+                    player_by_name[norm_name]["seasons"] = set()
+                if year:
+                    player_by_name[norm_name]["seasons"].add(year)
+    
+    # Convert players to list (convert sets to lists for JSON serialization)
+    for player in player_by_name.values():
+        player["seasons"] = sorted(list(player.get("seasons", set())))
+        players.append(player)
+    
+    # Create stat rows
+    for award in awards:
+        name = award.get("name", "").strip()
+        norm_name = name.lower()
+        pid = player_id_map.get(norm_name)
+        year = award.get("_year")
+        award_type = award.get("award", "mvp")
+        
+        if pid and year:
+            game_id = f"FOOTBALL_XLEAGUE_{year}_SEASON_TOTAL"
+            stats.append({
+                "player_id": pid,
+                "week": 1,
+                "stat": f"award_{award_type}",
+                "value": 1.0,
+                "game_id": game_id,
+                "league": "X-League",
+                "_year": year,
+                "_source": "wikipedia_awards",
+            })
+    
+    # Add stats from PDFs
+    for year, player_stats in pdf_stats.items():
+        for name, stats_dict in player_stats.items():
+            norm_name = name.lower()
+            pid = player_id_map.get(norm_name)
+            if pid:
+                game_id = f"FOOTBALL_XLEAGUE_{year}_SEASON_TOTAL"
+                for stat_key, value in stats_dict.items():
+                    if value > 0:
+                        stats.append({
+                            "player_id": pid,
+                            "week": 1,
+                            "stat": stat_key,
+                            "value": float(value),
+                            "game_id": game_id,
+                            "league": "X-League",
+                            "_year": year,
+                            "_source": "pdf_statistics",
+                        })
+    
+    # Build teams info
+    for team_name, team_data in XLEAGUE_TEAMS_INFO.items():
+        active_years = []
+        for player in players:
+            if player.get("team") == team_name:
+                active_years.extend(player.get("seasons", []))
+        
+        if active_years:
+            teams_info[team_name] = {
+                "name": team_name,
+                "abbr": team_data.get("abbr"),
+                "seasons": sorted(list(set(active_years))),
+                "player_count": len([p for p in players if p.get("team") == team_name]),
+            }
+    
+    return players, stats, teams_info
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Scrape X-League (Japan) statistics from Wikipedia")
+    parser = argparse.ArgumentParser(description="Scrape X-League (Japan) statistics from multiple sources")
     parser.add_argument("--reset", action="store_true", help="Re-fetch from Wikipedia (ignore cache)")
+    parser.add_argument("--pdf", nargs="+", type=int, help="Attempt to parse PDFs for specific seasons")
+    parser.add_argument("--all-pdf", action="store_true", help="Attempt to parse PDFs for all seasons")
     parser.add_argument("--status", action="store_true", help="Show current data without scraping")
     args = parser.parse_args()
     
     if args.status:
         if PLAYERS_FILE.exists():
             players = json.loads(PLAYERS_FILE.read_text())
-            print(f"Current X-League data: {len(players)} players")
+            stats = json.loads(STATS_FILE.read_text()) if STATS_FILE.exists() else []
+            print(f"Current X-League data: {len(players)} players, {len(stats)} stats")
+            if TEAMS_FILE.exists():
+                teams = json.loads(TEAMS_FILE.read_text())
+                print(f"Teams: {len(teams)}")
         else:
             print("No X-League data yet")
         return
     
-    print("==> Scraping X-League (Japan) from Wikipedia")
+    print("==> Scraping X-League (Japan) from multiple sources")
     
-    # Fetch Wikipedia page
+    # Fetch Wikipedia page for awards
     html = fetch_wiki_html_cached("X-League_(Japan)", reset=args.reset)
     if not html:
         print("  Failed to fetch Wikipedia page")
@@ -247,27 +562,62 @@ def main():
     # Parse HTML
     soup = BeautifulSoup(html, "html.parser")
     awards = parse_award_tables(soup)
-    print(f"  Found {len(awards)} award records")
+    print(f"  Found {len(awards)} award records from Wikipedia")
     
-    if awards:
-        # Build player and stat records
-        players, stats = build_player_and_stat_records(awards)
+    # Determine which PDF seasons to attempt
+    pdf_seasons = []
+    if args.all_pdf:
+        pdf_seasons = list(range(2005, datetime.now().year + 1))
+    elif args.pdf:
+        pdf_seasons = args.pdf
+    
+    # Fetch PDF statistics if requested
+    pdf_stats = {}
+    if pdf_seasons:
+        if not HAS_PDF_SUPPORT:
+            print("  PyPDF2 not installed. Install with: pip install PyPDF2")
+            print("  Continuing with Wikipedia awards only...")
+        else:
+            for season in pdf_seasons:
+                season_stats = fetch_pdf_statistics(season)
+                if season_stats:
+                    pdf_stats[season] = season_stats
+            if pdf_stats:
+                total_pdf_entries = sum(len(v) for v in pdf_stats.values())
+                print(f"  Extracted {total_pdf_entries} player entries from {len(pdf_stats)} PDF files")
+    
+    # Scrape team rosters (placeholder for now)
+    team_rosters = {}
+    
+    # Merge all data sources
+    if awards or pdf_stats:
+        players, stats, teams_info = merge_player_records(awards, pdf_stats, team_rosters)
         years = sorted(set(s["_year"] for s in stats))
         
-        print(f"  Built {len(players)} players, {len(stats)} stat rows")
-        print(f"  Seasons: {years}")
+        print(f"  Merged data: {len(players)} players, {len(stats)} stat rows")
+        print(f"  Seasons covered: {years}")
+        print(f"  Teams with rosters: {len(teams_info)}")
         
         # Write output files
         PLAYERS_FILE.write_text(json.dumps(players, indent=2), encoding="utf-8")
         STATS_FILE.write_text(json.dumps(stats, indent=2), encoding="utf-8")
+        TEAMS_FILE.write_text(json.dumps(teams_info, indent=2), encoding="utf-8")
         
         # Write raw data for debugging
-        RAW_FILE.write_text(json.dumps({"awards": awards}, indent=2), encoding="utf-8")
+        RAW_FILE.write_text(
+            json.dumps({
+                "awards": awards,
+                "pdf_entries": sum(len(v) for v in pdf_stats.values()),
+                "teams": list(teams_info.keys())
+            }, indent=2),
+            encoding="utf-8"
+        )
         
-        print(f"  Wrote {len(players)} players to {PLAYERS_FILE.name}")
-        print(f"  Wrote {len(stats)} stats to {STATS_FILE.name}")
+        print(f"✓ Wrote {len(players)} players to {PLAYERS_FILE.name}")
+        print(f"✓ Wrote {len(stats)} stats to {STATS_FILE.name}")
+        print(f"✓ Wrote {len(teams_info)} teams to {TEAMS_FILE.name}")
     else:
-        print("  No awards found - check Wikipedia page structure")
+        print("  No data found - check sources")
 
 
 if __name__ == "__main__":

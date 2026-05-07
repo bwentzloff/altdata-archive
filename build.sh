@@ -59,7 +59,7 @@ echo "==> LFA ..."
 $PYTHON pipeline/scrape_lfa.py --batch 2 || echo "WARN: LFA scraper failed, continuing..."
 
 echo "==> X-League Japan ..."
-$PYTHON pipeline/scrape_xleague.py || echo "WARN: X-League scraper failed, continuing..."
+$PYTHON pipeline/scrape_xleague.py --all-pdf || echo "WARN: X-League scraper failed, continuing..."
 
 echo "==> Player social media ..."
 $PYTHON pipeline/scrape_player_socials.py --batch 10 || echo "WARN: Player socials scraper failed, continuing..."
