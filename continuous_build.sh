@@ -37,13 +37,32 @@ while true; do
         "docs/hof"
         "docs/leagues"
         "docs/games"
-        "docs/players/[a-c]*.html"
-        "docs/players/[d-f]*.html"
-        "docs/players/[g-j]*.html"
-        "docs/players/[k-m]*.html"
-        "docs/players/[n-p]*.html"
-        "docs/players/[q-s]*.html"
-        "docs/players/[t-z]*.html"
+        "docs/players/a*.html"
+        "docs/players/b*.html"
+        "docs/players/c*.html"
+        "docs/players/d*.html"
+        "docs/players/e*.html"
+        "docs/players/f*.html"
+        "docs/players/g*.html"
+        "docs/players/h*.html"
+        "docs/players/i*.html"
+        "docs/players/j*.html"
+        "docs/players/k*.html"
+        "docs/players/l*.html"
+        "docs/players/m*.html"
+        "docs/players/n*.html"
+        "docs/players/o*.html"
+        "docs/players/p*.html"
+        "docs/players/q*.html"
+        "docs/players/r*.html"
+        "docs/players/s*.html"
+        "docs/players/t*.html"
+        "docs/players/u*.html"
+        "docs/players/v*.html"
+        "docs/players/w*.html"
+        "docs/players/x*.html"
+        "docs/players/y*.html"
+        "docs/players/z*.html"
         "docs/players/*.csv docs/players/*.json docs/players/*.xml"
         "docs/*.html docs/*.txt docs/*.xml docs/.nojekyll"
     )
@@ -87,8 +106,8 @@ while true; do
                     git rebase --abort 2>/dev/null || true
                 fi
                 
-                echo "  ⏸ Waiting 10 seconds before next chunk..."
-                sleep 10
+                echo "  ⏸ Waiting 5 seconds before next chunk..."
+                sleep 5
             fi
         fi
     done
