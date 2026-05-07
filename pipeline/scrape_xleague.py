@@ -289,78 +289,89 @@ def fetch_pdf_statistics(season: int) -> dict:
         
         stats_data = {}
         
-        # Pattern: "PlayerName (Team) num num num ..."
-        # Handles both Western and Japanese names
-        # Matches: "Trashaun Nixon (Frontiers) 28 347 12.39 79 4"
-        player_stat_pattern = r"([A-Z][a-zA-Z\s'\-]+(?:\([^)]+\)))\s+([\d\s\.\-]+?)(?:\n|$)"
+        # Improved pattern: "PlayerName (Team) stat1 stat2 stat3..."
+        # Handles Western names, Japanese romanization (ū ō ā ē ī), hyphens, apostrophes
+        player_line_pattern = r"^([A-Z][a-zA-Z\s\-\.\'ūōāēīéōĀĒĪŌŪ]+)\s+\(([A-Za-z\s]+)\)\s+(.+)$"
         
-        for match in re.finditer(player_stat_pattern, text, re.MULTILINE):
-            full_entry = match.group(1).strip()
-            stats_str = match.group(2).strip()
-            
-            # Extract player name and team
-            # Format: "Name (Team)"
-            paren_match = re.match(r"(.+?)\s*\(([^)]+)\)", full_entry)
-            if not paren_match:
+        for line in text.split('\n'):
+            match = re.match(player_line_pattern, line.strip())
+            if not match:
                 continue
             
-            name = paren_match.group(1).strip()
-            team = paren_match.group(2).strip()
+            name = match.group(1).strip()
+            team = match.group(2).strip()
+            stats_str = match.group(3).strip()
             
-            # Parse stat values
+            # Skip if name is too short or contains only numbers
+            if len(name) < 2 or re.match(r"^\d+", name):
+                continue
+            
+            # Parse stat values (handle both integers and floats)
             try:
-                stat_vals = [float(v) if '.' in v else int(v) for v in stats_str.split()]
-            except (ValueError, IndexError):
+                stat_vals = []
+                for val in stats_str.split():
+                    try:
+                        if '.' in val:
+                            stat_vals.append(float(val))
+                        elif val != '-':  # Skip dashes (missing values)
+                            stat_vals.append(int(val))
+                    except ValueError:
+                        # Skip non-numeric values (section headers, etc)
+                        pass
+            except Exception:
                 continue
             
-            if len(name) < 2 or not stat_vals:
+            if not stat_vals:
                 continue
             
-            # Create normalized key
+            # Normalize name for deduplication
             norm_name = name.lower().strip()
+            
             if norm_name not in stats_data:
                 stats_data[norm_name] = {
-                    "name": name,
+                    "full_name": name,
                     "team": team,
-                    "raw_stats": []
+                    "raw_values": stat_vals,
                 }
-            
-            # Store raw stat values (we'll parse by section context later)
-            stats_data[norm_name]["raw_stats"].extend(stat_vals)
+            else:
+                # Update if this entry has more stats
+                if len(stat_vals) > len(stats_data[norm_name].get("raw_values", [])):
+                    stats_data[norm_name]["full_name"] = name
+                    stats_data[norm_name]["team"] = team
+                    stats_data[norm_name]["raw_values"] = stat_vals
         
-        # Post-process: assign stat names based on context and value ranges
-        for norm_name, player_info in stats_data.items():
-            stats_dict = {}
-            raw = player_info["raw_stats"][:10]  # Limit to first 10 values
+        # Post-process: assign stat meanings based on value heuristics
+        result = {}
+        for norm_name, entry in stats_data.items():
+            if not entry.get("raw_values"):
+                continue
             
-            # Heuristic: categorize based on typical ranges
-            # Yards are typically 50-2000, TDs are 0-20, Avg/Percent are 0-100, etc
-            if len(raw) >= 3:
-                # Common pattern: attempts/yards/avg/long/td
-                if 10 < raw[0] < 100 and 50 < raw[1] < 2000:
+            stats_dict = {
+                "full_name": entry["full_name"],
+                "team": entry["team"],
+            }
+            
+            # Categorize stats based on typical ranges
+            raw = entry["raw_values"][:10]  # Limit to first 10 values
+            
+            # Heuristics for stat categorization:
+            # - Attempts: 3-100
+            # - Yards: 50-3000
+            # - Average: 0-20
+            # - TD/Points: 0-50
+            # - Percentage: 0-100
+            
+            if len(raw) >= 5:
+                # Pattern: Attempts Yards Avg Long TD (rushing/receiving)
+                if 3 < raw[0] < 100 and 50 < raw[1] < 3000:
                     stats_dict["attempts"] = raw[0]
                     stats_dict["yards"] = raw[1]
-                    if len(raw) > 2:
-                        stats_dict["avg"] = raw[2]
-                # Scoring: pts/td/fg/pat
-                elif raw[0] > 0 and len(raw) >= 4 and raw[1] < 20:
-                    stats_dict["points"] = raw[0]
-                    stats_dict["td"] = raw[1]
-                    stats_dict["fg"] = raw[2]
-                    stats_dict["pat"] = raw[3]
+                    stats_dict["avg"] = raw[2]
+                    stats_dict["long"] = raw[3]
+                    stats_dict["td"] = raw[4]
             
-            if stats_dict:
-                stats_data[norm_name].update(stats_dict)
-        
-        # Clean output
-        result = {}
-        for norm_name, player_info in stats_data.items():
-            name = player_info["name"]
-            # Remove temp fields
-            clean_stats = {k: v for k, v in player_info.items() 
-                          if k not in ["name", "team", "raw_stats"]}
-            if clean_stats:
-                result[name] = clean_stats
+            if stats_dict.get("yards") or stats_dict.get("points"):
+                result[entry["full_name"]] = stats_dict
         
         if result:
             print(f"    Extracted {len(result)} player entries from {season} PDF")
@@ -501,17 +512,26 @@ def merge_player_records(awards: list[dict], pdf_stats: dict[int, dict], rosters
             if pid:
                 game_id = f"FOOTBALL_XLEAGUE_{year}_SEASON_TOTAL"
                 for stat_key, value in stats_dict.items():
-                    if value > 0:
-                        stats.append({
-                            "player_id": pid,
-                            "week": 1,
-                            "stat": stat_key,
-                            "value": float(value),
-                            "game_id": game_id,
-                            "league": "X-League",
-                            "_year": year,
-                            "_source": "pdf_statistics",
-                        })
+                    # Skip metadata fields
+                    if stat_key in ("full_name", "team", "raw_values"):
+                        continue
+                    # Skip non-numeric values
+                    try:
+                        val_float = float(value)
+                        if val_float > 0:
+                            stats.append({
+                                "player_id": pid,
+                                "week": 1,
+                                "stat": stat_key,
+                                "value": val_float,
+                                "game_id": game_id,
+                                "league": "X-League",
+                                "_year": year,
+                                "_source": "pdf_statistics",
+                            })
+                    except (TypeError, ValueError):
+                        # Skip non-numeric values
+                        pass
     
     # Build teams info
     for team_name, team_data in XLEAGUE_TEAMS_INFO.items():
