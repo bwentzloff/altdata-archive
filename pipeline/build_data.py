@@ -1187,6 +1187,33 @@ def main():
     write_json_xml(SITE_DATA / "leagues" / "index", {"leagues": league_index}, root_tag="leagues")
     print(f"Written {len(league_index)} league files")
 
+    # ─── Team pages ───────────────────────────────────────────────────────
+    # X-League team season pages
+    team_seasons_file = RAW / "xleague_team_seasons.json"
+    if team_seasons_file.exists():
+        print("Writing X-League team pages ...")
+        team_seasons = json.loads(team_seasons_file.read_text())
+        
+        teams_dir = SITE_DATA / "teams"
+        teams_dir.mkdir(parents=True, exist_ok=True)
+        
+        team_count = 0
+        for team_name, seasons in team_seasons.items():
+            for season, team_data in seasons.items():
+                team_slug = slugify(f"xleague-{team_name}-{season}")
+                team_file_data = {
+                    "slug": team_slug,
+                    "team": team_name,
+                    "season": season,
+                    "league": "X-League",
+                    "players": team_data.get("players", []),
+                    "record": team_data.get("record", {}),
+                }
+                write_json_xml(teams_dir / team_slug, team_file_data, root_tag="team")
+                team_count += 1
+        
+        print(f"Written {team_count} team season pages")
+
     # ─── Game files ───────────────────────────────────────────────────────
     print("Writing game files ...")
     game_index = []

@@ -551,6 +551,95 @@ def merge_player_records(awards: list[dict], pdf_stats: dict[int, dict], rosters
     return players, stats, teams_info
 
 
+def fetch_game_schedule(season: int) -> list[dict]:
+    """
+    Fetch X-League game schedule for a given season.
+    Returns [{game_id, date, week, away, home, away_score, home_score}]
+    
+    Data sources (in order of preference):
+    1. xleague.jp official schedule (when accessible)
+    2. Wayback Machine snapshot of xleague.jp
+    3. Team website game recaps
+    4. american-football-japan.com game summaries
+    
+    For now: Returns empty list - to be implemented with actual data sources
+    """
+    # TODO: Implement actual schedule fetching
+    # This is a placeholder for future enhancement
+    return []
+
+
+def generate_team_pages(players: list[dict], stats: list[dict]) -> dict:
+    """
+    Generate team season pages with rosters and statistics.
+    Returns {team_name: {season: {players: [], record: {wins, losses, ties}}}}
+    """
+    team_seasons = {}
+    
+    for player in players:
+        team = player.get("team", "")
+        seasons = player.get("seasons", [])
+        
+        if not team:
+            continue
+        
+        if team not in team_seasons:
+            team_seasons[team] = {}
+        
+        for season in seasons:
+            if season not in team_seasons[team]:
+                team_seasons[team][season] = {
+                    "players": [],
+                    "record": {"wins": 0, "losses": 0, "ties": 0}
+                }
+            
+            # Add player to team roster
+            team_seasons[team][season]["players"].append({
+                "canonical_id": player.get("canonical_id") or player["id"],
+                "name": player.get("full_name"),
+                "position": player.get("position", ""),
+            })
+    
+    return team_seasons
+
+
+def extract_game_schedule(season: int) -> dict[str, list]:
+    """
+    Attempt to fetch X-League game schedule for a given season.
+    Returns {team: [game_entries]} with game_id, date, opponent, score
+    """
+    # Placeholder: In future, parse xleague.jp schedule or team websites
+    # For now, return empty (will be enhanced with data source)
+    return {}
+
+
+def build_game_entries(season: int, players: list[dict], stats: list[dict]) -> list[dict]:
+    """
+    Create game entries for a season using available data.
+    Falls back to season totals if per-game data unavailable.
+    Returns [{player_id, game_id, date, week, league, sport_slug, stats}]
+    """
+    games = []
+    
+    # For now, create season total entries (fallback)
+    # In future: parse actual game dates/scores and assign per-game stats
+    season_stats = [s for s in stats if s.get("_year") == season]
+    
+    for stat in season_stats:
+        if stat.get("game_id", "").endswith("SEASON_TOTAL"):
+            games.append({
+                "player_id": stat.get("player_id"),
+                "game_id": stat.get("game_id"),
+                "week": 1,
+                "league": "X-League",
+                "sport_slug": f"xleague-{season}",
+                "_stat": stat.get("stat"),
+                "_value": stat.get("value"),
+            })
+    
+    return games
+
+
 def main():
     parser = argparse.ArgumentParser(description="Scrape X-League (Japan) statistics from multiple sources")
     parser.add_argument("--reset", action="store_true", help="Re-fetch from Wikipedia (ignore cache)")
@@ -618,10 +707,17 @@ def main():
         print(f"  Seasons covered: {years}")
         print(f"  Teams with rosters: {len(teams_info)}")
         
+        # Generate team pages
+        team_seasons = generate_team_pages(players, stats)
+        
         # Write output files
         PLAYERS_FILE.write_text(json.dumps(players, indent=2), encoding="utf-8")
         STATS_FILE.write_text(json.dumps(stats, indent=2), encoding="utf-8")
         TEAMS_FILE.write_text(json.dumps(teams_info, indent=2), encoding="utf-8")
+        
+        # Write team season pages (for future use in build_data.py)
+        TEAM_SEASONS_FILE = RAW_DIR / "xleague_team_seasons.json"
+        TEAM_SEASONS_FILE.write_text(json.dumps(team_seasons, indent=2), encoding="utf-8")
         
         # Write raw data for debugging
         RAW_FILE.write_text(
@@ -636,6 +732,7 @@ def main():
         print(f"✓ Wrote {len(players)} players to {PLAYERS_FILE.name}")
         print(f"✓ Wrote {len(stats)} stats to {STATS_FILE.name}")
         print(f"✓ Wrote {len(teams_info)} teams to {TEAMS_FILE.name}")
+        print(f"✓ Wrote team seasons data ({len(team_seasons)} teams)")
     else:
         print("  No data found - check sources")
 
