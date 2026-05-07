@@ -1,12 +1,29 @@
 #!/usr/bin/env python3
 """
-Scrape X-League (Japan) player data from Wikipedia.
+scrape_xleague.py — X-League (Japan) professional American football statistics
 
-Source: Single Wikipedia page X-League_(Japan) with comprehensive historical data
-Extracts: MVP awards (2012-2025), ROY awards (2012-2025), divisional standings (1997-2025)
+X-League (エックスリーグ) is the top-tier professional American football league in Japan.
+Official website: https://xleague.jp/
 
-Awards include player names, positions, teams, years.
-Synthetic IDs: 1,500,000+
+Sources:
+1. Wikipedia X-League_(Japan) — MVP, ROY awards with player names and teams
+2. american-football-japan.com — Annual statistics PDFs (2005-2025)
+   - Team rosters, individual player stats, game summaries
+   - English versions available
+3. xleague.jp — Official schedule, standings, team information
+
+Outputs (pipeline/raw/):
+  xleague_players.json   — {id, full_name, team, position, league, season}
+  xleague_stats.json     — {player_id, season, league, stat, value, game_id, _year}
+  xleague_raw.json       — Cache of parsed data
+
+Integration: build_data.py loads these files and merges with canonical player list.
+Players display with X-League stats in career tables, game logs, and league pages.
+
+Usage:
+  python pipeline/scrape_xleague.py           # Scrape current + previous 2 seasons
+  python pipeline/scrape_xleague.py --all     # Scrape all available years
+  python pipeline/scrape_xleague.py --status  # Show progress
 """
 
 import argparse
@@ -15,21 +32,25 @@ import re
 import time
 from pathlib import Path
 from typing import Optional
+from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
 
 # Paths
-REPO_ROOT = Path(__file__).parent.parent
-CACHE_FILE = REPO_ROOT / ".cache" / "xleague_wiki.json"
-RAW_DIR = REPO_ROOT / "pipeline" / "raw"
+BASE = Path(__file__).parent
+RAW_DIR = BASE / "raw"
+RAW_DIR.mkdir(exist_ok=True)
+
 PLAYERS_FILE = RAW_DIR / "xleague_players.json"
 STATS_FILE = RAW_DIR / "xleague_stats.json"
+STATE_FILE = RAW_DIR / "xleague_scrape_state.json"
 RAW_FILE = RAW_DIR / "xleague_raw.json"
+CACHE_FILE = RAW_DIR / "_xleague_wiki_cache.json"
 
 # Config
 WIKI_API = "https://en.wikipedia.org/w/api.php"
-SYNTHETIC_ID_START = 1_500_000
+SYNTHETIC_ID_START = 800_000  # X-League IDs: 800K+
 HEADERS = {
     "User-Agent": "AltSportsArchive/1.0 (https://archive.altfantasysports.com; altfantasysports@gmail.com) Python/requests"
 }
@@ -37,398 +58,216 @@ HEADERS = {
 PAGE_TITLE = "X-League_(Japan)"
 
 
-def fetch_wiki_html(page_title: str, cache: dict, reset: bool = False) -> Optional[str]:
-    """Fetch and cache Wikipedia page HTML via API."""
-    cache_key = f"wiki:{page_title}"
-
-    if cache_key in cache and not reset:
-        return cache[cache_key]
-
+def fetch_wiki_html_cached(page_title: str, reset: bool = False) -> Optional[str]:
+    """Fetch Wikipedia page HTML, using simple file cache."""
+    cache_file = RAW_DIR / f"_wiki_{page_title}.html"
+    
+    if cache_file.exists() and not reset:
+        return cache_file.read_text(encoding="utf-8")
+    
     params = {
         "action": "parse",
         "page": page_title,
         "format": "json",
         "prop": "text",
     }
-
+    
     try:
-        print(f"    Fetching {page_title} from Wikipedia API …")
-        r = requests.get(WIKI_API, params=params, headers=HEADERS, timeout=10)
+        print(f"  Fetching Wikipedia: {page_title}")
+        r = requests.get(WIKI_API, params=params, headers=HEADERS, timeout=15)
         r.raise_for_status()
+        data = r.json()
+        if "error" in data:
+            print(f"    API error: {data['error'].get('info', 'unknown')}")
+            return None
+        html = data.get("parse", {}).get("text", {}).get("*", "")
+        if html:
+            cache_file.write_text(html, encoding="utf-8")
+            return html
     except requests.RequestException as e:
-        print(f"    ERROR: {e}")
-        return None
-
-    data = r.json()
-    if "error" in data:
-        print(f"    API error: {data['error'].get('info', 'unknown')}")
-        return None
-
-    html = data.get("parse", {}).get("text", {}).get("*", "")
-    cache[cache_key] = html
-    return html
+        print(f"    Error: {e}")
+    
+    return None
 
 
-def parse_mvp_table(soup: BeautifulSoup) -> list[dict]:
+def parse_award_tables(soup: BeautifulSoup) -> list[dict]:
     """
-    Extract MVP awards from X-League MVP table.
-    Returns list of {"name": str, "position": str, "team": str, "_year": int, "award": str}
+    Extract MVP and ROY (Rookie of Year) award data from X-League Wikipedia page.
+    Returns list of {name, position, team, _year, award_type}
     """
     results = []
-
-    tables = soup.find_all("table", {"class": "wikitable"})
-
-    # Find the MVP section heading to know which tables to look at
-    mvp_found = False
-    roy_found = False
-
-    for i, table in enumerate(tables):
+    tables = soup.find_all("table", {"class": re.compile(r"wikitable", re.I)})
+    
+    for table in tables:
+        # Find header row to determine table structure
         headers = [th.get_text(strip=True).lower() for th in table.find_all("th")]
-
-        # Check if this table is in MVP section (look backward for MVP heading)
-        # For now, just detect tables with year+winner+position+team structure
-        has_year = "year" in headers
-        has_winner = "winner" in headers
-        has_position = "position" in headers
-        has_team = "team" in headers
-
-        # This could be MVP or ROY - we'll parse both and let the context determine
-        if has_year and has_winner and has_position and has_team:
-            # Parse rows
-            for tr in table.find_all("tr")[1:]:  # skip header row
-                tds = tr.find_all("td")
-                if len(tds) < 3:
-                    continue
-
-                row_text = [td.get_text(strip=True) for td in tds]
-
-                year = None
-                name = ""
-                position = ""
-                team = ""
-
-                col_idx = 0
-
-                # Column 0: Year
-                if col_idx < len(row_text):
-                    try:
-                        year = int(row_text[col_idx])
-                        col_idx += 1
-                    except (ValueError, IndexError):
-                        # If first column isn't a year, skip this row
-                        continue
-
-                # Skip division/classification column if present
-                if col_idx < len(row_text):
-                    test_val = row_text[col_idx].lower()
-                    if any(
-                        kw in test_val
-                        for kw in ["x1", "east", "central", "west", "area", "division"]
-                    ):
-                        col_idx += 1
-
-                # Next should be winner name
-                if col_idx < len(row_text):
-                    name = row_text[col_idx].strip()
-                    col_idx += 1
-
-                # Next is position
-                if col_idx < len(row_text):
-                    position = row_text[col_idx].strip()
-                    col_idx += 1
-
-                # Next is team
-                if col_idx < len(row_text):
-                    team = row_text[col_idx].strip()
-
-                if year and name and len(name) > 2:
-                    results.append(
-                        {
-                            "name": name,
-                            "position": position,
-                            "team": team,
-                            "_year": year,
-                            "award": "award_mvp",
-                        }
-                    )
-
-    return results
-
-
-def parse_roy_table(soup: BeautifulSoup) -> list[dict]:
-    """
-    Extract ROY (Rookie of the Year) awards from X-League ROY table.
-    Returns list of {"name": str, "position": str, "team": str, "_year": int, "award": str}
-    """
-    results = []
-
-    # Find the ROY award section heading
-    # The page has: MVP section, then ROY section with similar table structures
-    # We need to find tables that come after the ROY heading
-
-    all_elements = soup.find_all(["h2", "h3", "h4", "table"])
-
-    in_roy_section = False
-    roy_table_count = 0
-
-    for elem in all_elements:
-        # Check for ROY heading
-        if elem.name in ["h2", "h3", "h4"]:
-            text = elem.get_text().lower()
-            if "rookie" in text and "year" in text:
-                in_roy_section = True
-                roy_table_count = 0
-                continue
-            elif "award" in text and "mvp" not in text and in_roy_section:
-                # Another award section started
-                in_roy_section = False
-                continue
-
-        # Parse tables in ROY section
-        if elem.name == "table" and in_roy_section:
-            roy_table_count += 1
-            # Only take the first few ROY tables (there might be multiple for different years)
-            if roy_table_count > 3:
-                continue
-
-            headers = [th.get_text(strip=True).lower() for th in elem.find_all("th")]
-
-            # Check if this table has the right structure
-            has_year = "year" in headers
-            has_winner = "winner" in headers
-            has_position = "position" in headers
-            has_team = "team" in headers
-
-            if has_year and has_winner and has_position and has_team:
-                # Parse rows
-                for tr in elem.find_all("tr")[1:]:
-                    tds = tr.find_all("td")
-                    if len(tds) < 3:
-                        continue
-
-                    row_text = [td.get_text(strip=True) for td in tds]
-
-                    year = None
-                    name = ""
-                    position = ""
-                    team = ""
-
-                    col_idx = 0
-
-                    # Column 0: Year
-                    if col_idx < len(row_text):
-                        try:
-                            year = int(row_text[col_idx])
-                            col_idx += 1
-                        except (ValueError, IndexError):
-                            continue
-
-                    # Skip classification/division column if present
-                    if col_idx < len(row_text):
-                        test_val = row_text[col_idx].lower()
-                        if any(
-                            kw in test_val
-                            for kw in ["x1", "east", "central", "west", "area", "division"]
-                        ):
-                            col_idx += 1
-
-                    # Next should be winner name
-                    if col_idx < len(row_text):
-                        name = row_text[col_idx].strip()
-                        col_idx += 1
-
-                    # Next is position
-                    if col_idx < len(row_text):
-                        position = row_text[col_idx].strip()
-                        col_idx += 1
-
-                    # Next is team
-                    if col_idx < len(row_text):
-                        team = row_text[col_idx].strip()
-
-                    if year and name and len(name) > 2:
-                        results.append(
-                            {
-                                "name": name,
-                                "position": position,
-                                "team": team,
-                                "_year": year,
-                                "award": "award_roty",
-                            }
-                        )
-
-    return results
-
-
-def fetch_all_data(cache: dict, reset: bool) -> dict:
-    """
-    Fetch X-League data from Wikipedia (single page, fast scraper).
-    """
-    cache_key = "xleague_rows"
-
-    if cache_key in cache and not reset:
-        rows = cache[cache_key]
-        if isinstance(rows, dict):
-            total = len(rows.get("awards", []))
-        else:
-            total = len(rows)
-        print(f"Using cached X-League data ({total} records)")
-        return rows if isinstance(rows, dict) else {"awards": []}
-
-    print(f"  Fetching Wikipedia: {PAGE_TITLE} …")
-    html = fetch_wiki_html(PAGE_TITLE, cache, reset)
-    if not html:
-        print(f"  X-League: no Wikipedia data")
-        return {"awards": []}
-
-    time.sleep(1.0)
-
-    soup = BeautifulSoup(html, "html.parser")
-
-    all_awards = []
-
-    # Parse MVP table
-    mvp_awards = parse_mvp_table(soup)
-    if mvp_awards:
-        print(f"  X-League: {len(mvp_awards)} MVP award rows")
-        all_awards.extend(mvp_awards)
-
-    # Parse ROY table
-    roy_awards = parse_roy_table(soup)
-    if roy_awards:
-        print(f"  X-League: {len(roy_awards)} ROY award rows")
-        all_awards.extend(roy_awards)
-
-    result = {"awards": all_awards}
-    cache[cache_key] = result
-    return result
-
-
-def build_outputs(data: dict) -> tuple[list[dict], list[dict], dict]:
-    """
-    Build player and stat records from scraped data.
-    Returns (players, stats, raw_data)
-    """
-    out_players: list[dict] = []
-    out_stats: list[dict] = []
-    synthetic_id = SYNTHETIC_ID_START
-
-    name_to_id: dict[str, int] = {}  # lower-case name → synthetic ID
-    id_to_idx: dict[int, int] = {}   # synthetic ID → index in out_players
-
-    # Collect all unique names first
-    all_names = set()
-    for record in data.get("awards", []):
-        name = record.get("name", "").strip()
-        if name:
-            all_names.add(name)
-
-    # Build player records for all unique names
-    for name in sorted(all_names):
-        if not name or len(name) < 3:
+        
+        # Skip if not a typical award table (need year, award winner, position, team)
+        if not any(kw in " ".join(headers) for kw in ["year", "winner", "player"]):
             continue
-        key = name.lower()
-        if key not in name_to_id:
+        
+        # Parse rows
+        for tr in table.find_all("tr")[1:]:  # skip header
+            cells = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+            if len(cells) < 3:
+                continue
+            
+            # Try to extract: year, name, position, team
+            year = None
+            name = ""
+            position = ""
+            team = ""
+            
+            # First cell usually year
+            try:
+                year = int(cells[0])
+            except (ValueError, IndexError):
+                continue
+            
+            # Skip division/classification column if found
+            col_idx = 1
+            if len(cells) > col_idx and any(
+                kw in cells[col_idx].lower() for kw in ["x1", "division", "east", "west", "central", "area"]
+            ):
+                col_idx += 1
+            
+            # Next: name
+            if len(cells) > col_idx:
+                name = cells[col_idx].strip()
+                col_idx += 1
+            
+            # Next: position
+            if len(cells) > col_idx:
+                position = cells[col_idx].strip()
+                col_idx += 1
+            
+            # Next: team
+            if len(cells) > col_idx:
+                team = cells[col_idx].strip()
+            
+            if year and name and len(name) >= 2:
+                # Determine award type from context (MVP vs ROY)
+                award_type = "mvp"  # default
+                if "rookie" in " ".join(headers).lower():
+                    award_type = "roty"
+                
+                results.append({
+                    "name": name,
+                    "position": position,
+                    "team": team,
+                    "_year": year,
+                    "award": award_type,
+                })
+    
+    return results
+
+
+def build_player_and_stat_records(awards: list[dict]) -> tuple[list[dict], list[dict]]:
+    """
+    Convert award records into player records and stat rows.
+    Returns (players_list, stats_list)
+    """
+    players = []
+    stats = []
+    
+    # Track unique players by normalized name
+    player_by_name: dict[str, dict] = {}
+    player_id_map: dict[str, int] = {}  # normalized name -> synthetic id
+    next_id = SYNTHETIC_ID_START
+    
+    # First pass: create unique player records
+    for award in awards:
+        name = award.get("name", "").strip()
+        if not name or len(name) < 2:
+            continue
+        
+        norm_name = name.lower()
+        if norm_name not in player_by_name:
             parts = name.split()
-            out_players.append(
-                {
-                    "id": synthetic_id,
-                    "full_name": name,
-                    "short_name": name,
-                    "first_name": parts[0] if parts else "",
-                    "last_name": parts[-1] if len(parts) > 1 else "",
-                    "sport_id": None,
-                    "league": "X-League",
-                    "team": "",
-                    "position": "",
-                    "_xleague": True,
-                    "_norm_name": key,
-                    "sportradar_id": None,
-                    "college": None,
-                    "jersey": None,
-                    "height": None,
-                    "weight": None,
-                }
-            )
-            name_to_id[key] = synthetic_id
-            id_to_idx[synthetic_id] = len(out_players) - 1
-            synthetic_id += 1
-
-    # Build stat rows
-    player_year_stats: dict[tuple, dict] = {}
-
-    for record in data.get("awards", []):
-        name = record.get("name", "").strip()
-        year = record.get("_year")
-        team = record.get("team", "")
-        position = record.get("position", "")
-        award = record.get("award", "")
-
-        if not name or not award:
-            continue
-
-        key = name.lower()
-        pid = name_to_id.get(key)
-        if pid is None:
-            continue
-
-        # Update player team and position if available
-        idx = id_to_idx[pid]
-        if team and not out_players[idx]["team"]:
-            out_players[idx]["team"] = team
-        if position and not out_players[idx]["position"]:
-            out_players[idx]["position"] = position
-
-        stat_key = (pid, year)
-        if stat_key not in player_year_stats:
-            player_year_stats[stat_key] = {}
-        player_year_stats[stat_key][award] = 1.0
-
-    # Convert stat_key dict to stat rows
-    for (pid, year), stats in player_year_stats.items():
-        game_id = f"FOOTBALL_XLEAGUE_{year}_SEASON_TOTAL"
-        for stat_name, value in stats.items():
-            if value:
-                out_stats.append(
-                    {
-                        "player_id": pid,
-                        "week": 1,
-                        "stat": stat_name,
-                        "value": float(value),
-                        "game_id": game_id,
-                        "league": "X-League",
-                        "_year": year,
-                    }
-                )
-
-    return out_players, out_stats, {"awards": data.get("awards", [])}
+            player_rec = {
+                "id": next_id,
+                "full_name": name,
+                "team": award.get("team", ""),
+                "position": award.get("position", ""),
+                "league": "X-League",
+                "season": award.get("_year", 0),
+            }
+            player_by_name[norm_name] = player_rec
+            player_id_map[norm_name] = next_id
+            next_id += 1
+    
+    # Convert to list
+    players = list(player_by_name.values())
+    
+    # Second pass: create stat rows for awards
+    for award in awards:
+        name = award.get("name", "").strip()
+        norm_name = name.lower()
+        pid = player_id_map.get(norm_name)
+        year = award.get("_year")
+        award_type = award.get("award", "mvp")
+        
+        if pid and year:
+            game_id = f"FOOTBALL_XLEAGUE_{year}_SEASON_TOTAL"
+            stats.append({
+                "player_id": pid,
+                "week": 1,
+                "stat": f"award_{award_type}",
+                "value": 1.0,
+                "game_id": game_id,
+                "league": "X-League",
+                "_year": year,
+            })
+    
+    return players, stats
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Scrape X-League (Japan) player data from Wikipedia")
-    ap.add_argument("--reset", action="store_true", help="Ignore cache and re-fetch")
-    args = ap.parse_args()
-
-    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-
-    cache: dict = {}
-    if CACHE_FILE.exists() and not args.reset:
-        cache = json.loads(CACHE_FILE.read_text())
-
-    data = fetch_all_data(cache, reset=args.reset)
-    CACHE_FILE.write_text(json.dumps(cache, indent=2), encoding="utf-8")
-
-    players, stats, raw_data = build_outputs(data)
-    years = sorted({s["_year"] for s in stats})
-    print(
-        f"\nBuilt {len(players)} X-League players, {len(stats)} stat rows (years: {years})"
-    )
-
-    PLAYERS_FILE.write_text(json.dumps(players, indent=2), encoding="utf-8")
-    STATS_FILE.write_text(json.dumps(stats, indent=2), encoding="utf-8")
-    RAW_FILE.write_text(json.dumps(raw_data, indent=2), encoding="utf-8")
-    print(f"Wrote {PLAYERS_FILE.name}, {STATS_FILE.name}, {RAW_FILE.name}")
+    parser = argparse.ArgumentParser(description="Scrape X-League (Japan) statistics from Wikipedia")
+    parser.add_argument("--reset", action="store_true", help="Re-fetch from Wikipedia (ignore cache)")
+    parser.add_argument("--status", action="store_true", help="Show current data without scraping")
+    args = parser.parse_args()
+    
+    if args.status:
+        if PLAYERS_FILE.exists():
+            players = json.loads(PLAYERS_FILE.read_text())
+            print(f"Current X-League data: {len(players)} players")
+        else:
+            print("No X-League data yet")
+        return
+    
+    print("==> Scraping X-League (Japan) from Wikipedia")
+    
+    # Fetch Wikipedia page
+    html = fetch_wiki_html_cached("X-League_(Japan)", reset=args.reset)
+    if not html:
+        print("  Failed to fetch Wikipedia page")
+        return
+    
+    # Parse HTML
+    soup = BeautifulSoup(html, "html.parser")
+    awards = parse_award_tables(soup)
+    print(f"  Found {len(awards)} award records")
+    
+    if awards:
+        # Build player and stat records
+        players, stats = build_player_and_stat_records(awards)
+        years = sorted(set(s["_year"] for s in stats))
+        
+        print(f"  Built {len(players)} players, {len(stats)} stat rows")
+        print(f"  Seasons: {years}")
+        
+        # Write output files
+        PLAYERS_FILE.write_text(json.dumps(players, indent=2), encoding="utf-8")
+        STATS_FILE.write_text(json.dumps(stats, indent=2), encoding="utf-8")
+        
+        # Write raw data for debugging
+        RAW_FILE.write_text(json.dumps({"awards": awards}, indent=2), encoding="utf-8")
+        
+        print(f"  Wrote {len(players)} players to {PLAYERS_FILE.name}")
+        print(f"  Wrote {len(stats)} stats to {STATS_FILE.name}")
+    else:
+        print("  No awards found - check Wikipedia page structure")
 
 
 if __name__ == "__main__":
