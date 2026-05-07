@@ -37,7 +37,14 @@ while true; do
         "docs/hof"
         "docs/leagues"
         "docs/games"
-        "docs/players"
+        "docs/players/[a-c]*.html"
+        "docs/players/[d-f]*.html"
+        "docs/players/[g-j]*.html"
+        "docs/players/[k-m]*.html"
+        "docs/players/[n-p]*.html"
+        "docs/players/[q-s]*.html"
+        "docs/players/[t-z]*.html"
+        "docs/players/*.csv docs/players/*.json docs/players/*.xml"
         "docs/*.html docs/*.txt docs/*.xml docs/.nojekyll"
     )
     
