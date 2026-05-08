@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Game Center</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/gamecenter.css">
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a class="site-title" href="/">AltSports Archive</a>
+      <div class="header-controls">
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="gc-page">
+    <section class="gc-topbar card">
+      <div>
+        <h1 id="gc-title">Live Game Center</h1>
+        <p id="gc-subtitle">Standalone live feed view for a single game.</p>
+      </div>
+      <form id="gc-controls" class="gc-controls" autocomplete="off">
+        <label>
+          Game ID
+          <input id="game-id-input" name="gameId" type="text" value="04002611070524" spellcheck="false">
+        </label>
+        <label>
+          League Slug
+          <input id="league-input" name="league" type="text" value="af1-2025" spellcheck="false">
+        </label>
+        <button type="submit">Load</button>
+      </form>
+    </section>
+
+    <div id="gc-status" class="gc-status">Loading...</div>
+
+    <section id="gc-scoreboard" class="gc-scoreboard card"></section>
+
+    <div class="gc-layout">
+      <aside class="gc-rail">
+        <section class="card">
+          <div class="card-head">
+            <h2>In-Game Leaders</h2>
+            <span id="in-game-rotator" class="pill">1/1</span>
+          </div>
+          <div id="in-game-leaders" class="leader-stage"></div>
+        </section>
+        <section class="card">
+          <div class="card-head">
+            <h2>Season Leaders</h2>
+            <span id="season-rotator" class="pill">1/1</span>
+          </div>
+          <div id="season-leaders" class="leader-stage"></div>
+        </section>
+      </aside>
+
+      <section class="gc-main">
+        <div class="gc-tabs">
+          <button class="gc-tab-btn active" data-tab="scoring">Scoring</button>
+          <button class="gc-tab-btn" data-tab="boxscore">Box Score</button>
+          <button class="gc-tab-btn" data-tab="matchup">Matchup</button>
+          <button class="gc-tab-btn" data-tab="playbyplay">Play-by-Play</button>
+        </div>
+
+        <section class="card gc-tab-pane active" data-tab="scoring">
+          <h2>Scoring Summary</h2>
+          <ul id="gc-scoring" class="event-list"></ul>
+          <h2 style="margin-top: 2rem;">Recent Events</h2>
+          <ul id="gc-events" class="event-list"></ul>
+        </section>
+
+        <section class="card gc-tab-pane" data-tab="boxscore">
+          <h2>Box Score</h2>
+          <div id="gc-boxscore"></div>
+        </section>
+
+        <section class="card gc-tab-pane" data-tab="matchup">
+          <h2>Matchup</h2>
+          <div id="gc-matchup"></div>
+        </section>
+
+        <section class="card gc-tab-pane" data-tab="playbyplay">
+          <h2>Play-by-Play</h2>
+          <div id="gc-playbyplay"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="player-history-modal" class="history-modal">
+    <form method="dialog" class="history-dialog">
+      <div class="history-head">
+        <h3 id="history-title">Player History</h3>
+        <button value="cancel" class="close-btn" aria-label="Close">Close</button>
+      </div>
+      <div id="history-content"></div>
+    </form>
+  </dialog>
+
+  <script src="assets/theme.js"></script>
+  <script src="assets/gamecenter.js"></script>
+</body>
+</html>
