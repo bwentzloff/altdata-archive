@@ -648,12 +648,39 @@ tr.week-group-row td {
 .tw-game-ctx a { color: var(--text-dim); }
 .tw-game-ctx a:hover { color: var(--accent); }
 
+.tw-game-groups { display: flex; flex-direction: column; gap: 0.35rem; }
+.tw-game-group {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg2);
+  overflow: hidden;
+}
+.tw-game-group-summary {
+  cursor: pointer;
+  user-select: none;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  list-style: none;
+}
+.tw-game-group-summary::-webkit-details-marker { display: none; }
+.tw-game-group-summary::after {
+  content: '▾';
+  float: right;
+  color: var(--text-dim);
+  transition: transform 0.15s;
+}
+.tw-game-group:not([open]) .tw-game-group-summary::after { transform: rotate(-90deg); }
+.tw-game-group[open] .tw-game-group-summary { border-bottom: 1px solid var(--border); }
+
 .tw-game-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.25rem; }
-.tw-game-item { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.88rem; flex-wrap: wrap; }
+.tw-game-item { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; font-size: 0.84rem; flex-wrap: wrap; padding: 0.25rem 0.55rem; }
 .tw-game-league { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); min-width: 7rem; }
 .tw-game-matchup { color: var(--text); font-weight: 500; }
 .tw-game-matchup:hover { color: var(--accent); }
 .tw-score { color: var(--accent); font-variant-numeric: tabular-nums; margin: 0 0.2rem; }
+.tw-game-meta { color: var(--text-dim); font-size: 0.72rem; }
 .tw-no-games { color: var(--text-dim); font-size: 0.88rem; padding: 0.5rem 0; }
 
 /* ── Search/Report Tabs ── */
