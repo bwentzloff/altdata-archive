@@ -39,7 +39,14 @@
     {
       "@type": "Dataset",
       "name": "{{ g.display }}",
-      "url": "https://archive.altfantasysports.com/data/games/{{ g.slug }}.json"
+      "description": "Box score and player statistics for {{ g.display }} from {{ league.display_name }}.",
+      "url": "https://archive.altfantasysports.com/data/games/{{ g.slug }}.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ],

@@ -39,7 +39,7 @@ FOOTBALL_LEAGUES = {
 DISC_GOLF_LEAGUES = {"DGPT"}
 LACROSSE_LEAGUES = {"NLL", "PLL"}
 ULTIMATE_LEAGUES = {"AUDL", "UFA", "PUL"}
-BASSETBALL_LEAGUES = {"BIG3", "SLAMBALL"}
+BASKETBALL_LEAGUES = {"BIG3", "SLAMBALL"}
 
 
 def classify_sport(league_name: str) -> str:
@@ -54,7 +54,7 @@ def classify_sport(league_name: str) -> str:
         return "football"
     if league_upper in ULTIMATE_LEAGUES:
         return "ultimate"
-    if league_upper in BASSKETBALL_LEAGUES:
+    if league_upper in BASKETBALL_LEAGUES:
         return "basketball"
     return "other"
 
@@ -762,11 +762,16 @@ def main():
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
     
-    # Also load AAF games from scraper
+    # Also load scraper-produced games that are not in SQL exports
     aaf_games_file = RAW / "aaf_2019_games.json"
     if aaf_games_file.exists():
         aaf_games = json.loads(aaf_games_file.read_text())
         raw_games.extend(aaf_games)
+
+    nal_games_file = RAW / "nal_games.json"
+    if nal_games_file.exists():
+        nal_games = json.loads(nal_games_file.read_text())
+        raw_games.extend(nal_games)
     
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
     db_game_by_id = {}

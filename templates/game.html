@@ -64,7 +64,14 @@
   "isPartOf": {
     "@type": "Dataset",
     "name": "{{ game.sport_slug.replace('-', ' ').upper() }} Player Statistics",
-    "url": "https://archive.altfantasysports.com/data/leagues/{{ game.sport_slug }}.json"
+    "description": "Complete player statistics for {{ game.sport_slug.replace('-', ' ').upper() }} from AltSports Archive.",
+    "url": "https://archive.altfantasysports.com/data/leagues/{{ game.sport_slug }}.json",
+    "creator": {
+      "@type": "Organization",
+      "name": "AltSports Archive",
+      "url": "https://archive.altfantasysports.com"
+    },
+    "license": "https://creativecommons.org/licenses/by/4.0/"
   },
   {% endif %}
   "license": "https://creativecommons.org/licenses/by/4.0/"

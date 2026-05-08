@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="TREVON  SHORTS — AltSports Stats">
-  <meta property="og:description" content="Career stats for TREVON  SHORTS: potw_offense 1.0, rushing_tds 1.0, rushing_yards 3.0">
+  <meta property="og:description" content="Career stats for TREVON  SHORTS: rushing_tds 1.0, rushing_yards 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -74,14 +74,15 @@
     
     {
       "@type": "Dataset",
-      "name": "NAL 2022",
-      "url": "https://archive.altfantasysports.com/data/leagues/nal-2022.json"
-    },
-    
-    {
-      "@type": "Dataset",
       "name": "50 YARD 2026",
-      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json"
+      "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
   ],
@@ -173,59 +174,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'22</span>
-        
-        <span class="ct-yr">'23</span>
-        
-        <span class="ct-yr">'24</span>
-        
-        <span class="ct-yr">'25</span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">NAL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50 Yard</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -243,8 +191,6 @@
     <thead>
       <tr>
         
-        <th scope="col" data-stat="potw_offense">Potw Offense</th>
-        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -253,8 +199,6 @@
     </thead>
     <tbody>
       <tr>
-        
-        <td>1</td>
         
         <td>1</td>
         
@@ -269,39 +213,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"NAL-2022": {"potw_offense": 1.0}, "50 Yard-2026": {"rushing_yards": 3.0, "rushing_tds": 1.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
   
     
       
@@ -316,8 +232,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col" data-stat="potw_offense">Potw Offense</th>
-        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -327,20 +241,7 @@
     <tbody>
       
       <tr>
-        <td>NAL 2022</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>50 Yard 2026</td>
-        
-        <td>—</td>
         
         <td>1</td>
         
@@ -412,8 +313,6 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
-        <th scope="col" data-stat="potw_offense">potw_offense</th>
-        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -426,27 +325,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 1</td></tr>
-      
-      <tr>
-        <td>2022</td>
-        <td>1</td>
-        <td><a href="../leagues/nal-2022.html">NAL</a></td>
-        <td><a href="../games/football-nal-2022-season-total.html" class="game-id">NAL 2022 Season</a></td>
-        <td>—</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="8">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="7">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -454,8 +333,6 @@
         <td><a href="../leagues/50-yard-2026.html">50 Yard</a></td>
         <td><a href="../games/4002611070524.html" class="game-id">Albany Firebirds @ Washington Wolfpack</a></td>
         <td>42–34</td>
-        
-        <td></td>
         
         <td>1.0</td>
         
@@ -473,7 +350,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-07.
+      Data updated: 2026-05-08.
       Formats:
       
 <a href="../data/players/trevon-shorts.json">JSON</a> ·

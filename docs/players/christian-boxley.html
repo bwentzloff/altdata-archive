@@ -75,25 +75,53 @@
     {
       "@type": "Dataset",
       "name": "AUDL 2022",
-      "url": "https://archive.altfantasysports.com/data/leagues/audl-2022.json"
+      "description": "League-level player statistics for AUDL 2022 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/audl-2022.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
     {
       "@type": "Dataset",
       "name": "AUDL 2023",
-      "url": "https://archive.altfantasysports.com/data/leagues/audl-2023.json"
+      "description": "League-level player statistics for AUDL 2023 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/audl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
     {
       "@type": "Dataset",
       "name": "UFA 2025",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2025.json"
+      "description": "League-level player statistics for UFA 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
     {
       "@type": "Dataset",
       "name": "UFA 2026",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json"
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
   ],
@@ -135,6 +163,58 @@
   <main>
     
 <div class="player-header">
+  
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Christian Boxley"
+            data-src="../assets/player-images/christian-boxley.jpg"
+            data-caption="Wikimedia Commons / Wikimedia Commons (Public domain)">
+      <img src="../assets/player-images/christian-boxley.jpg"
+           alt="Christian Boxley"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Wikimedia Commons /
+      <a href="https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (Public domain)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
   
 
   <div class="player-header-text">
@@ -1894,7 +1974,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-07.
+      Data updated: 2026-05-08.
       Formats:
       
 <a href="../data/players/christian-boxley.json">JSON</a> ·

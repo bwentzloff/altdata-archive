@@ -60,7 +60,14 @@
     {
       "@type": "Dataset",
       "name": "{{ g.sport_slug.replace('-', ' ').upper() }}",
-      "url": "https://archive.altfantasysports.com/data/leagues/{{ g.sport_slug }}.json"
+      "description": "League-level player statistics for {{ g.sport_slug.replace('-', ' ').upper() }} from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/{{ g.sport_slug }}.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }{% if not loop.last %},{% endif %}
     {% endif %}{% endfor %}
   ],

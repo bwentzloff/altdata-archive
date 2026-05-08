@@ -202,6 +202,7 @@ def main():
         ("pll_players.json",            "PLL"),
         ("pul_players.json",            "PUL"),
         ("fcf_players.json",            "FCF"),
+        ("nal_players.json",            "NAL"),
         ("au_players.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "DGPT"),
     ]
