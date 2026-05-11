@@ -111,6 +111,19 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -150,6 +163,58 @@
   <main>
     
 <div class="player-header">
+  
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Pete Zaccardi"
+            data-src="../assets/player-images/pete-zaccardi.jpg"
+            data-caption="en:User:Stanmar / Wikimedia Commons (CC BY-SA 3.0)">
+      <img src="../assets/player-images/pete-zaccardi.jpg"
+           alt="Pete Zaccardi"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      en:User:Stanmar /
+      <a href="https://commons.wikimedia.org/wiki/File:Oldfirm.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 3.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
   
 
   <div class="player-header-text">
@@ -211,6 +276,10 @@
         
         <span class="ct-yr">'24</span>
         
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
@@ -223,6 +292,10 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
@@ -231,6 +304,10 @@
         
           
           <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell"></span>
           
@@ -331,7 +408,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-2022": {"goals": 13.0, "assists": 3.0, "yardsThrown": 784.0, "yardsReceived": 602.0, "blocks": 1.0, "throwaways": 7.0, "drops": 0.0}, "AUDL-2023": {"yardsThrown": 724.0, "yardsReceived": 516.0, "completions": 94.0, "throwAttempts": 104.0, "catches": 68.0, "drops": 1.0, "blocks": 7.0, "throwaways": 8.0, "pulls": 35.0, "hockeyAssists": 6.0, "hucksCompleted": 7.0, "assists": 8.0, "goals": 2.0}, "UFA-2024": {"goals": 14.0, "assists": 10.0, "yardsThrown": 729.0, "yardsReceived": 960.0, "blocks": 7.0, "throwaways": 13.0, "drops": 1.0}};
+    var seasons = {"AUDL-2022": {"goals": 13.0, "assists": 3.0, "yardsThrown": 784.0, "yardsReceived": 602.0, "blocks": 1.0, "throwaways": 7.0, "drops": 0.0}, "AUDL-2023": {"yardsThrown": 724.0, "yardsReceived": 516.0, "completions": 94.0, "throwAttempts": 104.0, "catches": 68.0, "drops": 1.0, "blocks": 7.0, "throwaways": 8.0, "pulls": 35.0, "hockeyAssists": 6.0, "hucksCompleted": 7.0, "assists": 8.0, "goals": 2.0}, "UFA-2024": {"goals": 14.0, "assists": 10.0, "yardsThrown": 729.0, "yardsReceived": 960.0, "blocks": 7.0, "throwaways": 13.0, "drops": 1.0}, "UFA-2026": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -382,6 +459,22 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -541,6 +634,37 @@
         <td>960</td>
         
         <td>729</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -1897,6 +2021,46 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="18">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-10-mtl-pit.html" class="game-id">royal @ thunderbirds</a></td>
+        <td>32–24</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1907,7 +2071,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/pete-zaccardi.json">JSON</a> ·
