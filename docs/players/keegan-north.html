@@ -98,6 +98,19 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -196,6 +209,12 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
@@ -203,6 +222,29 @@
         
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFA</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -297,7 +339,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-2022": {"goals": 10.0, "assists": 27.0, "yardsThrown": 1251.0, "yardsReceived": 1526.0, "blocks": 2.0, "throwaways": 14.0, "drops": 0.0}, "AUDL-2023": {"yardsThrown": 2140.0, "yardsReceived": 1248.0, "assists": 38.0, "hockeyAssists": 21.0, "completions": 319.0, "throwAttempts": 334.0, "throwaways": 14.0, "catches": 301.0, "goals": 11.0, "hucksCompleted": 11.0, "blocks": 5.0, "drops": 5.0}};
+    var seasons = {"AUDL-2022": {"goals": 10.0, "assists": 27.0, "yardsThrown": 1251.0, "yardsReceived": 1526.0, "blocks": 2.0, "throwaways": 14.0, "drops": 0.0}, "AUDL-2023": {"yardsThrown": 2140.0, "yardsReceived": 1248.0, "assists": 38.0, "hockeyAssists": 21.0, "completions": 319.0, "throwAttempts": 334.0, "throwaways": 14.0, "catches": 301.0, "goals": 11.0, "hucksCompleted": 11.0, "blocks": 5.0, "drops": 5.0}, "UFA-2026": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -346,6 +388,22 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -452,6 +510,35 @@
         <td>1248</td>
         
         <td>2140</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -1282,6 +1369,44 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-09-mad-ind.html" class="game-id">radicals @ alleycats</a></td>
+        <td>19–18</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1292,7 +1417,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/keegan-north.json">JSON</a> ·
