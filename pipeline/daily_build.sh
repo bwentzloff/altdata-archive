@@ -103,7 +103,7 @@ echo ""
 
 # ── 3j. NAL (National Arena League, Wikipedia season articles) ───────────────
 echo "── NAL (Wikipedia season articles) ──────────────────────"
-$PYTHON pipeline/scrape_nal.py --batch 2
+$PYTHON pipeline/scrape_nal.py
 echo ""
 
 # ── 3k. LFA (Liga de Fútbol Americano Mexico, embedded Google Sheets) ────────

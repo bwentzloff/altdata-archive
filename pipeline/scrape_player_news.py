@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """
 Player News & Articles Scraper
-Collects news and article links for players from RSS feeds using feedparser.
-Implements trust hierarchy and player name matching.
+Collects news and article links for players from Google News RSS feeds.
+Uses league/topic search queries and player name matching.
 """
 
+import argparse
 import json
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from urllib.parse import quote_plus, urlparse
 
 try:
     import feedparser
@@ -18,23 +20,58 @@ except ImportError:
     print("Error: feedparser not installed. Install with: pip install feedparser")
     sys.exit(1)
 
-# Trust hierarchy - higher numbers = more trusted sources
-TRUST_SOURCES = {
-    # Primary sources (Level 3.0)
-    "altsports_news": {"url": "https://news.altfantasysports.com/feed", "name": "AltSports News", "trust": 3.0},
-    "sgp": {"url": "https://www.sportsgamblingpodcast.com/feed", "name": "Sports Gambling Podcast", "trust": 2.5},
-    
-    # Hacker News (Level 2.5)
-    "hackernews": {"url": "https://news.ycombinator.com/rss", "name": "Hacker News", "trust": 2.5},
+GOOGLE_NEWS_BASE = "https://news.google.com/rss/search"
+
+# News queries focused on currently indexed non-AU leagues/sports.
+GOOGLE_NEWS_QUERIES = {
+    "football_alt": '"UFL" OR "XFL" OR "USFL" OR "CFL" OR "ELF" OR "IFL" OR "NAL" OR "X-League" OR "AAF" OR "AF1"',
+    "lacrosse_alt": '"NLL" OR "PLL" OR "box lacrosse" OR "premier lacrosse"',
+    "ultimate_alt": '"UFA ultimate" OR "AUDL" OR "PUL" OR "ultimate frisbee pro"',
+    "basketball_alt": '"BIG3" OR "SlamBall" OR "3-on-3 basketball"',
+    "disc_golf": '"DGPT" OR "Disc Golf Pro Tour"',
+}
+
+# Domain scoring for lightweight source quality signal.
+HIGH_TRUST_DOMAINS = {
+    "cfl.ca",
+    "ufl.com",
+    "xfl.com",
+    "theufl.com",
+    "nll.com",
+    "premierlacrosseleague.com",
+    "stats.premierlacrosseleague.com",
+    "big3.com",
+    "discgolfprotour.com",
+    "pdga.com",
+    "usaultimate.org",
+    "watchufa.com",
+}
+
+MID_TRUST_DOMAINS = {
+    "espn.com",
+    "apnews.com",
+    "reuters.com",
+    "sports.yahoo.com",
+    "theathletic.com",
+    "cbssports.com",
+    "foxsports.com",
+    "si.com",
+    "profootballnetwork.com",
 }
 
 
 class PlayerNewsCollector:
     """Collects and processes news articles for players."""
-    
-    def __init__(self, output_file: Path = Path("pipeline/raw/articles_raw.json")):
+
+    def __init__(
+        self,
+        output_file: Path = Path("pipeline/raw/articles_raw.json"),
+        entries_per_feed: int = 100,
+    ):
         self.output_file = output_file
+        self.entries_per_feed = entries_per_feed
         self.articles: List[Dict[str, Any]] = []
+        self.seen_keys: set[tuple[str, str, str]] = set()
         self.stats = {
             "feeds_processed": 0,
             "feeds_successful": 0,
@@ -43,26 +80,49 @@ class PlayerNewsCollector:
             "articles_with_matches": 0,
             "unique_players_matched": set(),
         }
-    
-    def fetch_feed(self, feed_key: str, feed_config: Dict) -> Optional[List[Dict]]:
+
+    def build_google_news_url(self, query: str) -> str:
+        params = (
+            f"q={quote_plus(query)}"
+            "&hl=en-US"
+            "&gl=US"
+            "&ceid=US:en"
+        )
+        return f"{GOOGLE_NEWS_BASE}?{params}"
+
+    def domain_trust(self, link: str) -> float:
+        host = (urlparse(link).netloc or "").lower()
+        host = host[4:] if host.startswith("www.") else host
+        if host in HIGH_TRUST_DOMAINS:
+            return 3.0
+        if host in MID_TRUST_DOMAINS:
+            return 2.0
+        return 1.0
+
+    def fetch_feed(self, feed_key: str, query: str) -> Optional[List[Dict]]:
         """Fetch and parse RSS feed, return list of articles."""
-        print(f"  Fetching {feed_config['name']}...", end=" ")
+        feed_url = self.build_google_news_url(query)
+        print(f"  Fetching Google News query '{feed_key}'...", end=" ")
         try:
-            feed = feedparser.parse(feed_config["url"])
+            feed = feedparser.parse(feed_url)
             
             if feed.bozo:
-                print(f"⚠️  Parse warning (continuing)")
+                print("parse warning (continuing)")
             else:
-                print(f"✓")
+                print("ok")
             
             articles = []
-            for entry in feed.entries[:100]:  # Limit to 100 most recent per feed
+            for entry in feed.entries[: self.entries_per_feed]:
+                link = entry.get("link", "")
+                trust = self.domain_trust(link)
                 article = {
                     "source": feed_key,
-                    "source_name": feed_config["name"],
-                    "trust_level": feed_config["trust"],
+                    "source_name": "Google News",
+                    "source_type": "google_news_rss",
+                    "query": query,
+                    "trust_level": trust,
                     "title": entry.get("title", "Untitled"),
-                    "link": entry.get("link", ""),
+                    "link": link,
                     "date": self._parse_date(entry),
                     "summary": entry.get("summary", "")[:500] if entry.get("summary") else "",
                     "cached_text": entry.get("content", [{}])[0].get("value", "")[:1000] if entry.get("content") else "",
@@ -77,7 +137,7 @@ class PlayerNewsCollector:
             print(f"✗ Error: {e}")
             self.stats["feeds_failed"] += 1
             return None
-    
+
     def _parse_date(self, entry: Dict) -> str:
         """Extract and normalize publication date from feed entry."""
         if hasattr(entry, "published_parsed") and entry.published_parsed:
@@ -102,11 +162,21 @@ class PlayerNewsCollector:
                 article["confidence"] = confidence
         
         return matches
+
+    def is_duplicate(self, article: Dict[str, Any]) -> bool:
+        title = re.sub(r"\s+", " ", (article.get("title") or "").strip().lower())
+        link = (article.get("link") or "").strip().lower()
+        date = (article.get("date") or "").strip()
+        key = (title, link, date)
+        if key in self.seen_keys:
+            return True
+        self.seen_keys.add(key)
+        return False
     
     def run(self):
         """Main collection process."""
         print("=" * 60)
-        print("Player News Collection - Phase 1 (RSS Feeds)")
+        print("Player News Collection - Google News RSS")
         print("=" * 60)
         
         # Load list of all player names from individual player files
@@ -133,14 +203,17 @@ class PlayerNewsCollector:
             print(f"Error loading players: {e}")
             return
         
-        # Fetch from all configured feeds
-        print(f"\nScraping {len(TRUST_SOURCES)} feeds:")
-        for feed_key, feed_config in TRUST_SOURCES.items():
+        # Fetch from Google News query feeds
+        print(f"\nScraping {len(GOOGLE_NEWS_QUERIES)} Google News queries:")
+        for feed_key, query in GOOGLE_NEWS_QUERIES.items():
             self.stats["feeds_processed"] += 1
-            articles = self.fetch_feed(feed_key, feed_config)
+            articles = self.fetch_feed(feed_key, query)
             
             if articles:
                 for article in articles:
+                    if self.is_duplicate(article):
+                        continue
+
                     # Try to match player names
                     matches = self.match_players(article, player_names)
                     if matches:
@@ -163,7 +236,8 @@ class PlayerNewsCollector:
         output_data = {
             "metadata": {
                 "generated_at": datetime.now().isoformat(),
-                "sources_count": len(TRUST_SOURCES),
+                "sources_count": len(GOOGLE_NEWS_QUERIES),
+                "source_type": "google_news_rss",
                 "total_articles": self.stats["total_articles"],
                 "articles_with_player_matches": self.stats["articles_with_matches"],
                 "unique_players_matched": len(self.stats["unique_players_matched"]),
@@ -191,5 +265,13 @@ class PlayerNewsCollector:
 
 
 if __name__ == "__main__":
-    collector = PlayerNewsCollector()
+    parser = argparse.ArgumentParser(description="Collect player news from Google News RSS")
+    parser.add_argument("--entries-per-feed", type=int, default=100, help="Max RSS entries to process per query")
+    parser.add_argument("--output", default="pipeline/raw/articles_raw.json", help="Output JSON file path")
+    args = parser.parse_args()
+
+    collector = PlayerNewsCollector(
+        output_file=Path(args.output),
+        entries_per_feed=max(1, args.entries_per_feed),
+    )
     collector.run()

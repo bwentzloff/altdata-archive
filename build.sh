@@ -53,7 +53,7 @@ echo "==> IFL ..."
 $PYTHON pipeline/scrape_ifl.py --batch 2 || echo "WARN: IFL scraper failed, continuing..."
 
 echo "==> NAL ..."
-$PYTHON pipeline/scrape_nal.py --batch 2 || echo "WARN: NAL scraper failed, continuing..."
+$PYTHON pipeline/scrape_nal.py || echo "WARN: NAL scraper failed, continuing..."
 
 echo "==> LFA ..."
 $PYTHON pipeline/scrape_lfa.py --batch 2 || echo "WARN: LFA scraper failed, continuing..."
@@ -67,7 +67,7 @@ $PYTHON pipeline/scrape_player_socials.py --batch 10 || echo "WARN: Player socia
 echo "==> Player images ..."
 $PYTHON pipeline/scrape_images.py --max-seconds 60 || echo "WARN: Image scraper failed, continuing..."
 
-echo "==> News articles from RSS feeds ..."
+echo "==> Player news via Google News RSS ..."
 $PYTHON pipeline/scrape_player_news.py || echo "WARN: News scraper failed, continuing..."
 
 echo "==> Merge players ..."
