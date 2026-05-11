@@ -108,7 +108,6 @@
 </summary>
 <section class="this-week-section">
   <nav class="tw-tabs" role="tablist" aria-label="Days of the week">
-  <nav class="tw-tabs" role="tablist" aria-label="Days of the week">
     {% for day in this_week.days %}
     <button class="tw-tab{% if day.game_count == 0 %} tw-tab-empty{% endif %}"
             role="tab"
@@ -145,20 +144,27 @@
 
     <div class="tw-games">
       <h3 class="tw-section-heading">Games</h3>
-      <ul class="tw-game-list">
-        {% for g in day.games %}
-        <li class="tw-game-item">
-          <span class="tw-game-league">{{ g.league }} {{ g.season }}</span>
-          <a href="{{ root }}games/{{ g.slug }}.html" class="tw-game-link tw-game-matchup">
-            {{ g.away_team }}
-            {% if g.score_away is not none and g.score_home is not none %}
-            <span class="tw-score">{{ g.score_away }}–{{ g.score_home }}</span>
-            {% endif %}
-            {{ g.home_team }}
-          </a>
-        </li>
+      <div class="tw-game-groups">
+        {% for grp in day.game_groups %}
+        <details class="tw-game-group"{% if loop.first %} open{% endif %}>
+          <summary class="tw-game-group-summary">{{ grp.count }} {{ grp.league }} game{% if grp.count != 1 %}s{% endif %}</summary>
+          <ul class="tw-game-list">
+            {% for g in grp.games %}
+            <li class="tw-game-item">
+              <a href="{{ root }}games/{{ g.slug }}.html" class="tw-game-link tw-game-matchup">
+                {{ g.away_team }}
+                {% if g.score_away is not none and g.score_home is not none %}
+                <span class="tw-score">{{ g.score_away }}–{{ g.score_home }}</span>
+                {% endif %}
+                {{ g.home_team }}
+              </a>
+              <span class="tw-game-meta">{{ g.season }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </details>
         {% endfor %}
-      </ul>
+      </div>
     </div>
 
     {% else %}
@@ -195,8 +201,9 @@
     if (t.dataset.date === today)             { defaultIdx = i; }
     if (firstWithGames < 0 && !t.classList.contains('tw-tab-empty')) { firstWithGames = i; }
   });
-  // If today has no games, prefer first day with games
-  if (tabs[defaultIdx] && tabs[defaultIdx].classList.contains('tw-tab-empty') && firstWithGames >= 0) {
+  // If there is no matching tab for today's date (unexpected), pick first day with games.
+  var hasToday = tabs[defaultIdx] && tabs[defaultIdx].dataset.date === today;
+  if (!hasToday && firstWithGames >= 0) {
     defaultIdx = firstWithGames;
   }
   activate(defaultIdx);

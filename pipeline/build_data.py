@@ -437,6 +437,29 @@ def build_this_week(game_index: list) -> None:
         "field_goals":     ("FGs",        35.0),
     }
 
+    SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-LEAGUE", "XLEAGUE", "MLFB", "FCF"}
+    BASKETBALL = {"BIG3", "SLAMBALL"}
+    DISC = {"AUDL", "UFA", "PUL"}
+    LACROSSE = {"NLL", "PLL"}
+    DISCGOLF = {"DGPT"}
+
+    def classify_sport(league: str, sport_slug: str) -> str:
+        up = (league or "").upper()
+        base = (sport_slug or "").split("-", 1)[0].upper()
+        token = up.split()[0] if up else ""
+        if token in LACROSSE or base in LACROSSE or "NLL" in up or "PLL" in up:
+            return "Lacrosse"
+        if token in DISCGOLF or base in DISCGOLF or "DGPT" in up:
+            return "Disc Golf"
+        if token in FOOTBALL or base in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED")):
+            return "Football"
+        if token in DISC or base in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
+            return "Ultimate Disc"
+        if token in BASKETBALL or base in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:
+            return "Basketball"
+        return "Other"
+
     # Build a quick slug→game_index_meta lookup for O(1) access
     game_by_mm_dd: dict[str, list] = {}
     for gm in game_index:
@@ -455,7 +478,7 @@ def build_this_week(game_index: list) -> None:
         month_name = MONTH_NAMES[day.month - 1]
         label = f"{weekday_name} {month_name} {day.day}"
 
-        day_games = []
+        day_games_by_key = {}
         all_highlights = []
 
         for gm in game_by_mm_dd.get(mm_dd, []):
@@ -470,17 +493,39 @@ def build_this_week(game_index: list) -> None:
 
             score_away = gdata.get("score_away")
             score_home = gdata.get("score_home")
-            day_games.append({
+            season_val = gdata.get("season", "")
+            season_int = int(season_val) if str(season_val).isdigit() else 0
+            game_obj = {
                 "slug":       slug,
                 "display":    gdata.get("display", ""),
                 "league":     gdata.get("league", ""),
-                "season":     gdata.get("season", ""),
+                "season":     season_val,
                 "date_str":   gdata.get("date_str", ""),
                 "away_team":  gdata.get("away_team", ""),
                 "home_team":  gdata.get("home_team", ""),
                 "score_away": score_away,
                 "score_home": score_home,
-            })
+                "sport_slug": gdata.get("sport_slug", ""),
+                "sport":      classify_sport(gdata.get("league", ""), gdata.get("sport_slug", "")),
+                "synthetic":  bool(gdata.get("synthetic", False)),
+            }
+            dedup_key = (
+                game_obj["league"],
+                season_int,
+                game_obj["date_str"],
+                game_obj["away_team"],
+                game_obj["home_team"],
+                score_away,
+                score_home,
+            )
+            existing = day_games_by_key.get(dedup_key)
+            if existing is None:
+                day_games_by_key[dedup_key] = game_obj
+            else:
+                old_rank = (1 if existing.get("synthetic") else 0, len(existing.get("slug", "")))
+                new_rank = (1 if game_obj.get("synthetic") else 0, len(game_obj.get("slug", "")))
+                if new_rank < old_rank:
+                    day_games_by_key[dedup_key] = game_obj
 
             for player in gdata.get("players", []):
                 # Skip placeholder names (e.g. 'TOR QB', 'ST. LOUIS BATTLEHAWKS QB', 'Stars QB')
@@ -514,8 +559,32 @@ def build_this_week(game_index: list) -> None:
                         "_score":         val * weight,
                     })
 
+        day_games = list(day_games_by_key.values())
+
         # Newest season first, then alphabetical league
         day_games.sort(key=lambda g: (-int(g.get("season") or 0), g.get("league", "")))
+
+        # Group games by league to keep each day compact in the UI.
+        league_groups = []
+        games_by_league = {}
+        for g in day_games:
+            league = g.get("league", "") or "Other"
+            if league not in games_by_league:
+                games_by_league[league] = []
+                league_groups.append({"league": league, "games": games_by_league[league]})
+            games_by_league[league].append(g)
+        for grp in league_groups:
+            grp["count"] = len(grp["games"])
+
+        sport_counts = {k: 0 for k in SPORT_ORDER}
+        for g in day_games:
+            sport_name = g.get("sport", "Other")
+            sport_counts[sport_name] = sport_counts.get(sport_name, 0) + 1
+        sport_summary = [
+            {"sport": sport, "count": count}
+            for sport, count in sport_counts.items()
+            if count > 0
+        ]
 
         # Top highlights: deduplicate so same player doesn't appear twice, cap at 6
         all_highlights.sort(key=lambda h: -h["_score"])
@@ -537,6 +606,8 @@ def build_this_week(game_index: list) -> None:
             "label":       label,
             "game_count":  len(day_games),
             "games":       day_games,
+            "game_groups": league_groups,
+            "sport_summary": sport_summary,
             "highlights":  top_highlights,
         })
 

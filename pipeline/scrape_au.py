@@ -29,6 +29,7 @@ import json
 import re
 import time
 from pathlib import Path
+from typing import Any
 
 import requests
 from bs4 import BeautifulSoup
@@ -58,43 +59,73 @@ AU_SPORTS = [
     {
         "sport":  "Softball",
         "league": "AU Softball",
-        "paths":  ["/softball/stats/", "/softball/statistics/"],
+        "paths":  [
+            "/softball/stats/",
+            "/softball/statistics/",
+            "/softball/leaderboard/",
+            "/softball/athletes/",
+            "/aux-softball/leaderboard/",
+            "/aux-softball/athletes/",
+        ],
         "years":  [2020, 2021, 2022, 2023, 2024],
         "stat_fields": {
             "AVG": "batting_avg", "HR": "home_runs", "RBI": "rbi",
             "H": "hits", "AB": "at_bats", "OPS": "ops",
         },
+        "api_sport": "softball",
+        "api_stat_types": "batting%26statTypes=pitching%26statTypes=fielding",
     },
     {
         "sport":  "Lacrosse",
         "league": "AU Lacrosse",
-        "paths":  ["/lacrosse/stats/", "/lacrosse/statistics/"],
+        "paths":  [
+            "/lacrosse/stats/",
+            "/lacrosse/statistics/",
+            "/lacrosse/leaderboard/",
+            "/lacrosse/athletes/",
+        ],
         "years":  [2021, 2022, 2023, 2024],
         "stat_fields": {
             "G": "goals", "A": "assists", "PTS": "points",
             "SOG": "shots", "GB": "groundballs", "TO": "turnovers",
         },
+        "api_sport": "lacrosse",
+        "api_stat_types": "lacrosse_player%26statTypes=lacrosse_goalie",
     },
     {
         "sport":  "Basketball",
         "league": "AU Basketball",
-        "paths":  ["/basketball/stats/", "/basketball/statistics/"],
+        "paths":  [
+            "/basketball/stats/",
+            "/basketball/statistics/",
+            "/basketball/leaderboard/",
+            "/basketball/athletes/",
+        ],
         "years":  [2022, 2023, 2024],
         "stat_fields": {
             "PPG": "points_per_game", "RPG": "rebounds_per_game",
             "APG": "assists_per_game", "PTS": "points",
             "REB": "rebounds", "AST": "assists",
         },
+        "api_sport": "basketball",
+        "api_stat_types": "basketball",
     },
     {
         "sport":  "Volleyball",
         "league": "AU Volleyball",
-        "paths":  ["/volleyball/stats/", "/volleyball/statistics/"],
+        "paths":  [
+            "/volleyball/stats/",
+            "/volleyball/statistics/",
+            "/volleyball/leaderboard/",
+            "/volleyball/athletes/",
+        ],
         "years":  [2022, 2023, 2024],
         "stat_fields": {
             "Kills": "kills", "Aces": "aces", "Digs": "digs",
             "Blocks": "blocks", "Assists": "assists",
         },
+        "api_sport": "volleyball",
+        "api_stat_types": "volleyball",
     },
 ]
 
@@ -120,11 +151,12 @@ def safe_float(v) -> float:
 
 def try_ajax_endpoint(sport_slug: str, action: str) -> list[dict]:
     """Try WordPress admin-ajax with a known action name."""
+    _ = sport_slug
     url = f"{AU_BASE}/wp-admin/admin-ajax.php"
     payload = {"action": action}
     try:
         r = requests.post(url, data=payload, headers=HEADERS, timeout=15)
-        if r.status_code == 200 and r.text.startswith("[") or r.text.startswith("{"):
+        if r.status_code == 200 and (r.text.startswith("[") or r.text.startswith("{")):
             data = r.json()
             if isinstance(data, list) and data:
                 return data
@@ -146,6 +178,18 @@ def fetch_wayback(timestamp: str, url: str) -> str | None:
     return None
 
 
+def fetch_wayback_raw(timestamp: str, url: str) -> str | None:
+    """Fetch raw archived response bytes rendered as text via Wayback id_ mode."""
+    wb_url = f"https://web.archive.org/web/{timestamp}id_/{url}"
+    try:
+        r = requests.get(wb_url, headers=HEADERS, timeout=45)
+        if r.status_code in (200, 211) and len(r.text) > 2:
+            return r.text
+    except Exception:
+        pass
+    return None
+
+
 def find_cdx_snapshots(url: str, year: int) -> list[str]:
     cdx = (
         f"https://web.archive.org/cdx/search/cdx"
@@ -159,6 +203,89 @@ def find_cdx_snapshots(url: str, year: int) -> list[str]:
             return [row[0] for row in rows[1:] if row]
     except Exception:
         pass
+    return []
+
+
+def is_cloudflare_block(html: str) -> bool:
+    lower = (html or "").lower()
+    return (
+        "just a moment" in lower
+        or "cf-browser-verification" in lower
+        or "cf-chl-" in lower
+        or "cloudflare" in lower and "challenge" in lower
+    )
+
+
+def extract_block_table_metadata(html: str) -> tuple[str, int | None]:
+    """Extract sport slug and season id from AU block table root when present."""
+    soup = BeautifulSoup(html, "html.parser")
+    root = soup.find(id="block-leaderboard-root") or soup.find(id="block-stats-root")
+    if not root:
+        return "", None
+    sport = (root.get("data-sport") or "").strip().lower()
+    season_raw = (root.get("data-season") or "").strip()
+    season_id = int(season_raw) if season_raw.isdigit() else None
+    return sport, season_id
+
+
+def fetch_wayback_proxy_json(timestamp: str, request_path: str) -> Any | None:
+    """Fetch AU proxy JSON from Wayback id_ if captured."""
+    request_url = f"{AU_BASE}/proxy.php?request={request_path}"
+    text = fetch_wayback_raw(timestamp, request_url)
+    if not text:
+        return None
+    body = text.strip()
+    if not (body.startswith("{") or body.startswith("[")):
+        return None
+    try:
+        return json.loads(body)
+    except json.JSONDecodeError:
+        return None
+
+
+def parse_proxy_stats_payload(payload: Any, sport_info: dict, year: int) -> list[dict]:
+    """Normalize AU proxy stats payload into scraper row format."""
+    if isinstance(payload, dict):
+        data = payload.get("data", [])
+    elif isinstance(payload, list):
+        data = payload
+    else:
+        data = []
+    return _extract_player_list_from_nd({"data": data}, sport_info["stat_fields"], sport_info["league"], year)
+
+
+def fetch_rows_from_wayback_proxy(timestamps: list[str], sport_info: dict, year: int, season_hint: int | None) -> list[dict]:
+    """Try AU proxy season/stats endpoints from Wayback captures."""
+    sport_slug = sport_info.get("api_sport", "").lower()
+    stat_types = sport_info.get("api_stat_types", "")
+    if not sport_slug:
+        return []
+
+    season_candidates: set[int] = set()
+    if season_hint:
+        season_candidates.add(season_hint)
+
+    # Pull known seasons first (this endpoint is commonly archived even when stats are sparse).
+    for ts in timestamps[:4]:
+        seasons_payload = fetch_wayback_proxy_json(ts, f"/api/seasons/v2/{sport_slug}")
+        if isinstance(seasons_payload, dict):
+            for row in seasons_payload.get("data", []):
+                sid = row.get("seasonId")
+                if isinstance(sid, int):
+                    season_candidates.add(sid)
+
+    for season_id in sorted(season_candidates, reverse=True):
+        if stat_types:
+            req = f"/api/stats/v2/{sport_slug}/season/{season_id}?statTypes={stat_types}"
+        else:
+            req = f"/api/stats/v2/{sport_slug}/season/{season_id}"
+        for ts in timestamps[:5]:
+            payload = fetch_wayback_proxy_json(ts, req)
+            if not payload:
+                continue
+            rows = parse_proxy_stats_payload(payload, sport_info, year)
+            if rows:
+                return rows
     return []
 
 
@@ -311,12 +438,16 @@ def fetch_all_data(cache: dict, reset: bool) -> list[dict]:
                 cdx_ts = find_cdx_snapshots(url, year)
                 fallback_ts = YEAR_TIMESTAMPS.get(year, [])
                 all_ts = cdx_ts + [t for t in fallback_ts if t not in cdx_ts]
+                inferred_sport = ""
+                inferred_season_id = None
 
                 for ts in all_ts[:3]:
                     html = fetch_wayback(ts, url)
                     if not html:
                         time.sleep(0.5)
                         continue
+
+                    inferred_sport, inferred_season_id = extract_block_table_metadata(html)
 
                     rows = parse_stats_page(html, sport_info, year)
                     if rows:
@@ -325,6 +456,14 @@ def fetch_all_data(cache: dict, reset: bool) -> list[dict]:
                         year_found = True
                         break
                     time.sleep(0.5)
+
+                # Try Wayback archived API directly (id_ captures).
+                if not year_found and all_ts:
+                    rows = fetch_rows_from_wayback_proxy(all_ts, sport_info, year, inferred_season_id)
+                    if rows:
+                        print(f"  ✓ {sport} {year}: {len(rows)} players (Wayback API)")
+                        all_rows.extend(rows)
+                        year_found = True
 
                 if year_found:
                     break
@@ -335,13 +474,15 @@ def fetch_all_data(cache: dict, reset: bool) -> list[dict]:
                     url = f"{AU_BASE}{path}"
                     try:
                         r = requests.get(url, headers=HEADERS, timeout=15)
-                        if r.status_code == 200:
+                        if r.status_code == 200 and not is_cloudflare_block(r.text):
                             rows = parse_stats_page(r.text, sport_info, year)
                             if rows:
                                 print(f"  ✓ {sport} {year}: {len(rows)} players (live site)")
                                 all_rows.extend(rows)
                                 year_found = True
                                 break
+                        elif r.status_code == 403 or is_cloudflare_block(r.text):
+                            print(f"  · {sport} {year}: live site blocked (Cloudflare)")
                     except Exception:
                         pass
 
@@ -431,6 +572,18 @@ def main():
 
     rows = fetch_all_data(cache, reset=args.reset)
     CACHE_FILE.write_text(json.dumps(cache), encoding="utf-8")
+
+    # Never clobber previously valid AU outputs with empty data from transient blocking.
+    if not rows and PLAYERS_FILE.exists() and STATS_FILE.exists():
+        try:
+            prev_players = json.loads(PLAYERS_FILE.read_text())
+            prev_stats = json.loads(STATS_FILE.read_text())
+        except json.JSONDecodeError:
+            prev_players, prev_stats = [], []
+        if prev_players and prev_stats:
+            print("\nNo AU rows fetched this run; preserving existing AU output files.")
+            print(f"Existing files contain {len(prev_players)} players and {len(prev_stats)} stat rows.")
+            return
 
     players, stats = build_outputs(rows)
     years = sorted({s["_year"] for s in stats})

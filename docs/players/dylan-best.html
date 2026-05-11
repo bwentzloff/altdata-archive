@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dylan Best Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Dylan Best (P) across AUDL, UFA. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Dylan Best (P) across UFA, AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Dylan Best — AltSports Stats">
-  <meta property="og:description" content="Career stats for Dylan Best: assists 4.0, catches 20.0, completions 17.0, goals 2.0, hockeyAssists 1.0, hucksCompleted 2.0, throwAttempts 18.0, throwaways 1.0, yardsReceived 153.0, yardsThrown 99.0">
+  <meta property="og:description" content="Career stats for Dylan Best: assists 4.0, blocks 0.0, catches 20.0, completions 17.0, drops 0.0, goals 5.0, hockeyAssists 1.0, hucksCompleted 2.0, throwAttempts 18.0, throwaways 2.0, yardsReceived 545.0, yardsThrown 354.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Dylan Best",
-  "description": "Dylan Best played P in AUDL, UFA.",
+  "description": "Dylan Best played P in UFA, AUDL.",
   "url": "https://archive.altfantasysports.com/players/dylan-best.html",
   "sameAs": [
     
@@ -77,6 +77,19 @@
       "name": "AUDL 2023",
       "description": "League-level player statistics for AUDL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/audl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -134,7 +147,7 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      AUDL, UFA
+      UFA, AUDL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -174,6 +187,53 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AUDL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFA</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -193,9 +253,13 @@
         
         <th scope="col" data-stat="assists">Assists</th>
         
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
         <th scope="col" data-stat="catches">Catches</th>
         
         <th scope="col" data-stat="completions">Comp</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
         
         <th scope="col" data-stat="goals">Goals</th>
         
@@ -218,11 +282,15 @@
         
         <td>4</td>
         
+        <td>0</td>
+        
         <td>20</td>
         
         <td>17</td>
         
-        <td>2</td>
+        <td>0</td>
+        
+        <td>5</td>
         
         <td>1</td>
         
@@ -230,11 +298,11 @@
         
         <td>18</td>
         
-        <td>1</td>
+        <td>2</td>
         
-        <td>153</td>
+        <td>545</td>
         
-        <td>99</td>
+        <td>354</td>
         
       </tr>
     </tbody>
@@ -244,6 +312,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AUDL-2023": {"yardsThrown": 99.0, "yardsReceived": 153.0, "completions": 17.0, "throwAttempts": 18.0, "catches": 20.0, "goals": 2.0, "hockeyAssists": 1.0, "assists": 4.0, "throwaways": 1.0, "hucksCompleted": 2.0}, "UFA-2026": {"goals": 3.0, "assists": 0.0, "yardsThrown": 255.0, "yardsReceived": 392.0, "blocks": 0.0, "throwaways": 1.0, "drops": 0.0}};
+    var stat    = "yardsThrown";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -273,6 +365,22 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Dylan Best stats by season</caption>
@@ -282,9 +390,13 @@
         
         <th scope="col" data-stat="assists">Assists</th>
         
+        <th scope="col" data-stat="blocks">Blocks</th>
+        
         <th scope="col" data-stat="catches">Catches</th>
         
         <th scope="col" data-stat="completions">Comp</th>
+        
+        <th scope="col" data-stat="drops">Drops</th>
         
         <th scope="col" data-stat="goals">Goals</th>
         
@@ -309,9 +421,13 @@
         
         <td>4</td>
         
+        <td>—</td>
+        
         <td>20</td>
         
         <td>17</td>
+        
+        <td>—</td>
         
         <td>2</td>
         
@@ -326,6 +442,35 @@
         <td>153</td>
         
         <td>99</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>392</td>
+        
+        <td>255</td>
         
       </tr>
       
@@ -395,9 +540,13 @@
         
         <th scope="col" data-stat="assists">assists</th>
         
+        <th scope="col" data-stat="blocks">blocks</th>
+        
         <th scope="col" data-stat="catches">catches</th>
         
         <th scope="col" data-stat="completions">completions</th>
+        
+        <th scope="col" data-stat="drops">drops</th>
         
         <th scope="col" data-stat="goals">goals</th>
         
@@ -421,7 +570,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="15">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -432,9 +581,13 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
         <td>20.0</td>
         
         <td>17.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -452,6 +605,44 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-10-mtl-pit.html" class="game-id">royal @ thunderbirds</a></td>
+        <td>32–24</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>392.0</td>
+        
+        <td>255.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -462,7 +653,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/dylan-best.json">JSON</a> ·

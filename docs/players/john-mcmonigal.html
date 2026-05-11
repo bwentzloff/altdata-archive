@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John McMonigal Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for John McMonigal (P) across AUDL, UFA. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for John McMonigal (P) across UFA, AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="John McMonigal — AltSports Stats">
-  <meta property="og:description" content="Career stats for John McMonigal: assists 28.0, blocks 9.0, catches 20.0, completions 25.0, drops 8.0, goals 43.0, hockeyAssists 1.0, hucksCompleted 1.0, throwAttempts 26.0, throwaways 22.0, yardsReceived 3891.0, yardsThrown 2304.0">
+  <meta property="og:description" content="Career stats for John McMonigal: assists 31.0, blocks 9.0, catches 20.0, completions 25.0, drops 8.0, goals 43.0, hockeyAssists 1.0, hucksCompleted 1.0, throwAttempts 26.0, throwaways 22.0, yardsReceived 3952.0, yardsThrown 2326.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "John McMonigal",
-  "description": "John McMonigal played P in AUDL, UFA.",
+  "description": "John McMonigal played P in UFA, AUDL.",
   "url": "https://archive.altfantasysports.com/players/john-mcmonigal.html",
   "sameAs": [
     
@@ -111,6 +111,19 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -160,7 +173,7 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      AUDL, UFA
+      UFA, AUDL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -211,6 +224,8 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
@@ -218,6 +233,8 @@
         
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -231,6 +248,8 @@
         
           
           <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -287,7 +306,7 @@
     <tbody>
       <tr>
         
-        <td>28</td>
+        <td>31</td>
         
         <td>9</td>
         
@@ -307,9 +326,9 @@
         
         <td>22</td>
         
-        <td>3,891</td>
+        <td>3,952</td>
         
-        <td>2,304</td>
+        <td>2,326</td>
         
       </tr>
     </tbody>
@@ -327,7 +346,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-2023": {"yardsThrown": 189.0, "yardsReceived": 111.0, "goals": 3.0, "completions": 25.0, "throwAttempts": 26.0, "catches": 20.0, "assists": 2.0, "throwaways": 1.0, "hockeyAssists": 1.0, "drops": 2.0, "hucksCompleted": 1.0, "blocks": 2.0}, "UFA-2024": {"goals": 24.0, "assists": 5.0, "yardsThrown": 720.0, "yardsReceived": 1734.0, "blocks": 1.0, "throwaways": 4.0, "drops": 3.0}, "UFA-2025": {"goals": 16.0, "assists": 21.0, "yardsThrown": 1395.0, "yardsReceived": 2046.0, "blocks": 6.0, "throwaways": 17.0, "drops": 3.0}};
+    var seasons = {"AUDL-2023": {"yardsThrown": 189.0, "yardsReceived": 111.0, "goals": 3.0, "completions": 25.0, "throwAttempts": 26.0, "catches": 20.0, "assists": 2.0, "throwaways": 1.0, "hockeyAssists": 1.0, "drops": 2.0, "hucksCompleted": 1.0, "blocks": 2.0}, "UFA-2024": {"goals": 24.0, "assists": 5.0, "yardsThrown": 720.0, "yardsReceived": 1734.0, "blocks": 1.0, "throwaways": 4.0, "drops": 3.0}, "UFA-2025": {"goals": 16.0, "assists": 21.0, "yardsThrown": 1395.0, "yardsReceived": 2046.0, "blocks": 6.0, "throwaways": 17.0, "drops": 3.0}, "UFA-2026": {"goals": 0.0, "assists": 3.0, "yardsThrown": 22.0, "yardsReceived": 61.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -360,6 +379,22 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -527,6 +562,35 @@
         <td>2046</td>
         
         <td>1395</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>61</td>
+        
+        <td>22</td>
         
       </tr>
       
@@ -1819,6 +1883,44 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-10-mtl-pit.html" class="game-id">royal @ thunderbirds</a></td>
+        <td>32–24</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>61.0</td>
+        
+        <td>22.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1829,7 +1931,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/john-mcmonigal.json">JSON</a> ·
