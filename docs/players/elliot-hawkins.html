@@ -98,6 +98,19 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -196,11 +209,15 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">UFA</span>
         
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -277,7 +294,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFA-2024": {"goals": 5.0, "assists": 1.0, "yardsThrown": 155.0, "yardsReceived": 179.0, "blocks": 1.0, "throwaways": 0.0, "drops": 1.0}, "UFA-2025": {"goals": 10.0, "assists": 10.0, "yardsThrown": 356.0, "yardsReceived": 1075.0, "blocks": 3.0, "throwaways": 5.0, "drops": 1.0}};
+    var seasons = {"UFA-2024": {"goals": 5.0, "assists": 1.0, "yardsThrown": 155.0, "yardsReceived": 179.0, "blocks": 1.0, "throwaways": 0.0, "drops": 1.0}, "UFA-2025": {"goals": 10.0, "assists": 10.0, "yardsThrown": 356.0, "yardsReceived": 1075.0, "blocks": 3.0, "throwaways": 5.0, "drops": 1.0}, "UFA-2026": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -299,6 +316,22 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -392,6 +425,25 @@
         <td>1075</td>
         
         <td>356</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -1147,6 +1199,34 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-09-mad-ind.html" class="game-id">radicals @ alleycats</a></td>
+        <td>19–18</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1157,7 +1237,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/elliot-hawkins.json">JSON</a> ·
