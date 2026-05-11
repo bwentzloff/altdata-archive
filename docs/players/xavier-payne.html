@@ -124,6 +124,19 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     
+    {
+      "@type": "Dataset",
+      "name": "UFA 2026",
+      "description": "League-level player statistics for UFA 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufa-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -226,6 +239,8 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
@@ -235,6 +250,8 @@
           <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -250,6 +267,8 @@
           <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -350,7 +369,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-2022": {"goals": 4.0, "assists": 17.0, "yardsThrown": 865.0, "yardsReceived": 432.0, "blocks": 7.0, "throwaways": 7.0, "drops": 4.0}, "AUDL-2023": {"yardsThrown": 2292.0, "yardsReceived": 1032.0, "goals": 16.0, "hockeyAssists": 20.0, "completions": 375.0, "throwAttempts": 394.0, "throwaways": 14.0, "hucksCompleted": 9.0, "catches": 328.0, "pulls": 13.0, "assists": 15.0, "blocks": 4.0}, "UFA-2024": {"goals": 5.0, "assists": 32.0, "yardsThrown": 2364.0, "yardsReceived": 823.0, "blocks": 7.0, "throwaways": 11.0, "drops": 2.0}, "UFA-2025": {"goals": 5.0, "assists": 25.0, "yardsThrown": 2047.0, "yardsReceived": 125.0, "blocks": 15.0, "throwaways": 17.0, "drops": 0.0}};
+    var seasons = {"AUDL-2022": {"goals": 4.0, "assists": 17.0, "yardsThrown": 865.0, "yardsReceived": 432.0, "blocks": 7.0, "throwaways": 7.0, "drops": 4.0}, "AUDL-2023": {"yardsThrown": 2292.0, "yardsReceived": 1032.0, "goals": 16.0, "hockeyAssists": 20.0, "completions": 375.0, "throwAttempts": 394.0, "throwaways": 14.0, "hucksCompleted": 9.0, "catches": 328.0, "pulls": 13.0, "assists": 15.0, "blocks": 4.0}, "UFA-2024": {"goals": 5.0, "assists": 32.0, "yardsThrown": 2364.0, "yardsReceived": 823.0, "blocks": 7.0, "throwaways": 11.0, "drops": 2.0}, "UFA-2025": {"goals": 5.0, "assists": 25.0, "yardsThrown": 2047.0, "yardsReceived": 125.0, "blocks": 15.0, "throwaways": 17.0, "drops": 0.0}, "UFA-2026": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -399,6 +418,22 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -605,6 +640,37 @@
         <td>125</td>
         
         <td>2047</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFA 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -2401,6 +2467,46 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="18">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufa-2026.html">UFA</a></td>
+        <td><a href="../games/2026-05-09-mad-ind.html" class="game-id">radicals @ alleycats</a></td>
+        <td>19–18</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -2411,7 +2517,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-08.
+      Data updated: 2026-05-10.
       Formats:
       
 <a href="../data/players/xavier-payne.json">JSON</a> ·
