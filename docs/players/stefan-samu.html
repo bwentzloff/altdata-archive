@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stefan Samu Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Stefan Samu (P) across AUDL, UFA. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Stefan Samu (P) across UFA, AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://archive.altfantasysports.com/">
+  <link rel="canonical" href="https://archive.altfantasysports.com/players/stefan-samu.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Stefan Samu — AltSports Stats">
   <meta property="og:description" content="Career stats for Stefan Samu: assists 31.0, blocks 23.0, catches 131.0, completions 111.0, drops 3.0, goals 41.0, hockeyAssists 20.0, hucksCompleted 7.0, pulls 25.0, throwAttempts 118.0, throwaways 16.0, yardsReceived 3929.0, yardsThrown 2008.0">
   <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://archive.altfantasysports.com/">
+  <meta property="og:url" content="https://archive.altfantasysports.com/players/stefan-samu.html">
   
   
 
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Stefan Samu",
-  "description": "Stefan Samu played P in AUDL, UFA.",
+  "description": "Stefan Samu played P in UFA, AUDL.",
   "url": "https://archive.altfantasysports.com/players/stefan-samu.html",
   "sameAs": [
     
@@ -177,6 +177,60 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Stefan Samu"
+            data-src="../assets/player-images/stefan-samu.jpg"
+            data-caption="Original:  DSanchez17 from  Hertfordshire, England
+Derivative work:  Danyele / Wikimedia Commons (CC BY 2.0)">
+      <img src="../assets/player-images/stefan-samu.jpg"
+           alt="Stefan Samu"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Original:  DSanchez17 from  Hertfordshire, England
+Derivative work:  Danyele /
+      <a href="https://commons.wikimedia.org/wiki/File:Antoine_Griezmann_-_CdR_-_RM_v_ATL_%28edited%29_-_1.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY 2.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -186,7 +240,7 @@
     <p class="player-meta">
       P
       <span class="sep">·</span>
-      AUDL, UFA
+      UFA, AUDL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
