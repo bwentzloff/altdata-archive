@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C.J. Windham Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for C.J. Windham (WR) across 50 Yard, IFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for C.J. Windham (WR) across IFL, 50 Yard, UFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="C.J. Windham — AltSports Stats">
-  <meta property="og:description" content="Career stats for C.J. Windham: receiving_tds 1.0, receiving_yards 32.0">
+  <meta property="og:description" content="Career stats for C.J. Windham: receiving_tds 1.0, receiving_yards 80.0, receptions 5.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "C.J. Windham",
-  "description": "C.J. Windham played WR in 50 Yard, IFL, UFL.",
+  "description": "C.J. Windham played WR in IFL, 50 Yard, UFL.",
   "url": "https://archive.altfantasysports.com/players/cj-windham.html",
   "sameAs": [
     
@@ -77,6 +77,19 @@
       "name": "50 YARD 2026",
       "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "50YARD 2026",
+      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -134,7 +147,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      50 Yard, IFL, UFL
+      IFL, 50 Yard, UFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -174,6 +187,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50 Yard</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -195,6 +237,8 @@
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
+        <th scope="col" data-stat="receptions">Rec</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -202,7 +246,9 @@
         
         <td>1</td>
         
-        <td>32</td>
+        <td>80</td>
+        
+        <td>5</td>
         
       </tr>
     </tbody>
@@ -213,11 +259,41 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"50 Yard-2026": {"receiving_yards": 32.0, "receiving_tds": 1.0}, "50YARD-2026": {"receptions": 5.0, "receiving_yards": 48.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
   
     
       
@@ -236,6 +312,8 @@
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
+        <th scope="col" data-stat="receptions">Rec</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -246,6 +324,19 @@
         <td>1</td>
         
         <td>32</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50YARD 2026</td>
+        
+        <td>—</td>
+        
+        <td>48</td>
+        
+        <td>5</td>
         
       </tr>
       
@@ -353,6 +444,8 @@
         
         <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
+        <th scope="col" data-stat="receptions">receptions</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -361,7 +454,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="8">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -373,6 +466,28 @@
         <td>1.0</td>
         
         <td>32.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="8">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
+        <td><a href="../games/synthetic-50yard-2026-w2-fishersfreight.html" class="game-id">Fishers Freight @ Orlando Pirates</a></td>
+        <td>0–0</td>
+        
+        <td></td>
+        
+        <td>48.0</td>
+        
+        <td>5.0</td>
         
       </tr>
       
@@ -386,7 +501,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-10.
+      Data updated: 2026-05-13.
       Formats:
       
 <a href="../data/players/cj-windham.json">JSON</a> ·

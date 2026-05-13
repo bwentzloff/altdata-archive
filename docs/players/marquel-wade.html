@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MARQUEL WADE Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for MARQUEL WADE (WR) across AFL, 50 Yard, AF1. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for MARQUEL WADE (WR) across AF1, AFL, 50 Yard. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="MARQUEL WADE — AltSports Stats">
-  <meta property="og:description" content="Career stats for MARQUEL WADE: interceptions 0.0, passing_tds 0.0, passing_yards 17.0, receiving_tds 10.0, receiving_yards 305.0, receptions 17.0">
+  <meta property="og:description" content="Career stats for MARQUEL WADE: interceptions 0.0, passing_tds 0.0, passing_yards 17.0, receiving_tds 11.0, receiving_yards 367.0, receptions 20.0, rushing_yards 7.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "MARQUEL WADE",
-  "description": "MARQUEL WADE played WR in AFL, 50 Yard, AF1.",
+  "description": "MARQUEL WADE played WR in AF1, AFL, 50 Yard.",
   "url": "https://archive.altfantasysports.com/players/marquel-wade.html",
   "sameAs": [
     
@@ -96,6 +96,19 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "50YARD 2026",
+      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
   ],
@@ -147,7 +160,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      AFL, 50 Yard, AF1
+      AF1, AFL, 50 Yard
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -220,6 +233,17 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -251,6 +275,8 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -262,11 +288,13 @@
         
         <td>17</td>
         
-        <td>10</td>
+        <td>11</td>
         
-        <td>305</td>
+        <td>367</td>
         
-        <td>17</td>
+        <td>20</td>
+        
+        <td>7</td>
         
       </tr>
     </tbody>
@@ -284,7 +312,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 17.0, "receiving_yards": 256.0, "receiving_tds": 8.0, "passing_yards": 17.0, "passing_tds": 0.0, "interceptions": 0.0}, "50 Yard-2026": {"receiving_yards": 49.0, "receiving_tds": 2.0}};
+    var seasons = {"AF1-2025": {"receptions": 17.0, "receiving_yards": 256.0, "receiving_tds": 8.0, "passing_yards": 17.0, "passing_tds": 0.0, "interceptions": 0.0}, "50 Yard-2026": {"receiving_yards": 49.0, "receiving_tds": 2.0}, "50YARD-2026": {"rushing_yards": 7.0, "receptions": 3.0, "receiving_yards": 62.0, "receiving_tds": 1.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -327,6 +355,16 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>MARQUEL WADE stats by season</caption>
@@ -345,6 +383,8 @@
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
     </thead>
@@ -365,6 +405,8 @@
         
         <td>17</td>
         
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -381,6 +423,27 @@
         <td>49</td>
         
         <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50YARD 2026</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>62</td>
+        
+        <td>3</td>
+        
+        <td>7</td>
         
       </tr>
       
@@ -472,6 +535,8 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -480,7 +545,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -501,12 +566,14 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -527,12 +594,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -552,6 +621,8 @@
         <td>15.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
       </tr>
       
@@ -576,12 +647,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -602,12 +675,14 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -628,12 +703,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -654,12 +731,14 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -680,12 +759,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 15</td></tr>
       
       <tr>
         <td>2025</td>
@@ -706,12 +787,14 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="12">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -732,6 +815,36 @@
         
         <td></td>
         
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
+        <td><a href="../games/synthetic-50yard-2026-w2-jacksonvillesharks.html" class="game-id">Tulsa Oilers @ Jacksonville Sharks</a></td>
+        <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>62.0</td>
+        
+        <td>3.0</td>
+        
+        <td>7.0</td>
+        
       </tr>
       
     </tbody>
@@ -744,7 +857,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-10.
+      Data updated: 2026-05-13.
       Formats:
       
 <a href="../data/players/marquel-wade.json">JSON</a> ·

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Tavion Thomas — AltSports Stats">
-  <meta property="og:description" content="Career stats for Tavion Thomas: receiving_tds 0.0, receiving_yards 4.0, rushing_tds 0.0, rushing_yards 7.0">
+  <meta property="og:description" content="Career stats for Tavion Thomas: receiving_tds 0.0, receiving_yards 8.0, receptions 1.0, rushing_tds 0.0, rushing_yards 17.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -77,6 +77,19 @@
       "name": "50 YARD 2026",
       "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "50YARD 2026",
+      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -231,6 +244,25 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -254,6 +286,8 @@
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
+        <th scope="col" data-stat="receptions">Rec</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -265,11 +299,13 @@
         
         <td>0</td>
         
-        <td>4</td>
+        <td>8</td>
+        
+        <td>1</td>
         
         <td>0</td>
         
-        <td>7</td>
+        <td>17</td>
         
       </tr>
     </tbody>
@@ -280,6 +316,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"50 Yard-2026": {"rushing_yards": 7.0, "rushing_tds": 0.0, "receiving_yards": 4.0, "receiving_tds": 0.0}, "50YARD-2026": {"rushing_yards": 10.0, "receptions": 1.0, "receiving_yards": 4.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -288,6 +348,14 @@
   
     
       
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -307,6 +375,8 @@
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
+        <th scope="col" data-stat="receptions">Rec</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -322,9 +392,26 @@
         
         <td>4</td>
         
+        <td>—</td>
+        
         <td>0</td>
         
         <td>7</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50YARD 2026</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>10</td>
         
       </tr>
       
@@ -412,6 +499,8 @@
         
         <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
+        <th scope="col" data-stat="receptions">receptions</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -424,7 +513,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="10">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -437,9 +526,35 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>7.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
+        <td><a href="../games/synthetic-50yard-2026-w2-tucsonsugarskulls.html" class="game-id">Tucson Sugar Skulls @ Arizona Rattlers</a></td>
+        <td>0–0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>10.0</td>
         
       </tr>
       
@@ -453,7 +568,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-10.
+      Data updated: 2026-05-13.
       Formats:
       
 <a href="../data/players/tavion-thomas.json">JSON</a> ·
