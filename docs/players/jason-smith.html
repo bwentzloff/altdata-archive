@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jason Smith — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jason Smith: attempts 82.0, avg 72.0, long 692.0, td 58.0, yards 59.0">
+  <meta property="og:description" content="Career stats for Jason Smith: assists 0.0, assists_minus_xa 0.0, attempts 82.0, avg 72.0, avg_pass_distance 89.2, avg_pass_vertical 73.0, goals 0.0, goals_conceded 25.0, goals_conceded_minus_xg 1.1, goals_minus_xg 0.0, goals_per_xg 2.1, goals_plus_assists 0.0, headed_shot_share 0.3, key_passes 0.0, long 692.0, minutes_played 2999.0, pass_completion_pct 1.2, passes_attempted 823.0, passes_over_expected -2.3, passes_over_expected_p100 -4.0, points_added 0.0, saves 53.0, shots 0.0, shots_faced 79.0, shots_on_target 0.0, td 58.0, xa 0.0, xg 0.0, xg_faced 23.9, xg_place 0.0, xg_plus_xa 0.0, xpass_completion_pct 1.2, xpoints_added 0.0, yards 59.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jason-smith.html">
   
@@ -77,6 +77,34 @@
       "name": "XLEAGUE 2022",
       "description": "League-level player statistics for XLEAGUE 2022 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/xleague-2022.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "USL1 2025",
+      "description": "League-level player statistics for USL1 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/usl1-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "USL1 2026",
+      "description": "League-level player statistics for USL1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/usl1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -174,6 +202,59 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">XLEAGUE</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USL1</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -191,13 +272,71 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
         <th scope="col" data-stat="attempts">Attempts</th>
         
         <th scope="col" data-stat="avg">Avg</th>
         
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="goals_conceded">Goals Conceded</th>
+        
+        <th scope="col" data-stat="goals_conceded_minus_xg">Goals Conceded Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_per_xg">Goals Per Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
+        <th scope="col" data-stat="headed_shot_share">Headed Shot Share</th>
+        
+        <th scope="col" data-stat="key_passes">Key Passes</th>
+        
         <th scope="col" data-stat="long">Long</th>
         
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
+        <th scope="col" data-stat="saves">Saves</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_faced">Shots Faced</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
+        
         <th scope="col" data-stat="td">Td</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_faced">Xg Faced</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
         <th scope="col" data-stat="yards">Yards</th>
         
@@ -206,13 +345,71 @@
     <tbody>
       <tr>
         
+        <td>0</td>
+        
+        <td>0</td>
+        
         <td>82</td>
         
         <td>72</td>
         
+        <td>89.2</td>
+        
+        <td>73.0</td>
+        
+        <td>0</td>
+        
+        <td>25</td>
+        
+        <td>1.1</td>
+        
+        <td>0</td>
+        
+        <td>2.1</td>
+        
+        <td>0</td>
+        
+        <td>0.3</td>
+        
+        <td>0</td>
+        
         <td>692</td>
         
+        <td>2,999</td>
+        
+        <td>1.2</td>
+        
+        <td>823</td>
+        
+        <td>-2.3</td>
+        
+        <td>-4.0</td>
+        
+        <td>0</td>
+        
+        <td>53</td>
+        
+        <td>0</td>
+        
+        <td>79</td>
+        
+        <td>0</td>
+        
         <td>58</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>23.9</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>1.2</td>
+        
+        <td>0</td>
         
         <td>59</td>
         
@@ -243,6 +440,126 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Jason Smith stats by season</caption>
@@ -250,13 +567,71 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
         <th scope="col" data-stat="attempts">Attempts</th>
         
         <th scope="col" data-stat="avg">Avg</th>
         
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="goals_conceded">Goals Conceded</th>
+        
+        <th scope="col" data-stat="goals_conceded_minus_xg">Goals Conceded Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_per_xg">Goals Per Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
+        <th scope="col" data-stat="headed_shot_share">Headed Shot Share</th>
+        
+        <th scope="col" data-stat="key_passes">Key Passes</th>
+        
         <th scope="col" data-stat="long">Long</th>
         
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
+        <th scope="col" data-stat="saves">Saves</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_faced">Shots Faced</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
+        
         <th scope="col" data-stat="td">Td</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_faced">Xg Faced</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
         <th scope="col" data-stat="yards">Yards</th>
         
@@ -267,15 +642,219 @@
       <tr>
         <td>XLEAGUE 2022</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>82</td>
         
         <td>72</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>692</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>58</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>59</td>
+        
+      </tr>
+      
+      <tr>
+        <td>USL1 2025</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>45.4</td>
+        
+        <td>37.5</td>
+        
+        <td>0</td>
+        
+        <td>20</td>
+        
+        <td>0.7</td>
+        
+        <td>0</td>
+        
+        <td>1.0</td>
+        
+        <td>0</td>
+        
+        <td>0.1</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>2483</td>
+        
+        <td>0.6</td>
+        
+        <td>709</td>
+        
+        <td>2.7</td>
+        
+        <td>0.4</td>
+        
+        <td>0</td>
+        
+        <td>42</td>
+        
+        <td>0</td>
+        
+        <td>63</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>19.3</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0.6</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>USL1 2026</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>43.9</td>
+        
+        <td>35.5</td>
+        
+        <td>0</td>
+        
+        <td>5</td>
+        
+        <td>0.4</td>
+        
+        <td>0</td>
+        
+        <td>1.1</td>
+        
+        <td>0</td>
+        
+        <td>0.2</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>516</td>
+        
+        <td>0.6</td>
+        
+        <td>114</td>
+        
+        <td>-5.0</td>
+        
+        <td>-4.4</td>
+        
+        <td>0</td>
+        
+        <td>11</td>
+        
+        <td>0</td>
+        
+        <td>16</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>4.6</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0.6</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -290,6 +869,41 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Jason Smith</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Jason Smith</td>
+        <td>—</td>
+        <td>Unknown</td>
+        <td>X-League</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Jason Smith</td>
+        <td>—</td>
+        <td>GK</td>
+        <td>USL1</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -308,13 +922,71 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assists">assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">assists_minus_xa</th>
+        
         <th scope="col" data-stat="attempts">attempts</th>
         
         <th scope="col" data-stat="avg">avg</th>
         
+        <th scope="col" data-stat="avg_pass_distance">avg_pass_distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">avg_pass_vertical</th>
+        
+        <th scope="col" data-stat="goals">goals</th>
+        
+        <th scope="col" data-stat="goals_conceded">goals_conceded</th>
+        
+        <th scope="col" data-stat="goals_conceded_minus_xg">goals_conceded_minus_xg</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">goals_minus_xg</th>
+        
+        <th scope="col" data-stat="goals_per_xg">goals_per_xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">goals_plus_assists</th>
+        
+        <th scope="col" data-stat="headed_shot_share">headed_shot_share</th>
+        
+        <th scope="col" data-stat="key_passes">key_passes</th>
+        
         <th scope="col" data-stat="long">long</th>
         
+        <th scope="col" data-stat="minutes_played">minutes_played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">pass_completion_pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">passes_attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">passes_over_expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">passes_over_expected_p100</th>
+        
+        <th scope="col" data-stat="points_added">points_added</th>
+        
+        <th scope="col" data-stat="saves">saves</th>
+        
+        <th scope="col" data-stat="shots">shots</th>
+        
+        <th scope="col" data-stat="shots_faced">shots_faced</th>
+        
+        <th scope="col" data-stat="shots_on_target">shots_on_target</th>
+        
         <th scope="col" data-stat="td">td</th>
+        
+        <th scope="col" data-stat="xa">xa</th>
+        
+        <th scope="col" data-stat="xg">xg</th>
+        
+        <th scope="col" data-stat="xg_faced">xg_faced</th>
+        
+        <th scope="col" data-stat="xg_place">xg_place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">xg_plus_xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">xpass_completion_pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">xpoints_added</th>
         
         <th scope="col" data-stat="yards">yards</th>
         
@@ -326,7 +998,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="39">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -335,15 +1007,237 @@
         <td><a href="../games/football-xleague-2022-season-total.html" class="game-id">XLEAGUE 2022 Season</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>82.0</td>
         
         <td>72.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>692.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>58.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>59.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="39">2025 Wk 1</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/usl1-2025.html">USL1</a></td>
+        <td><a href="../games/soccer-usl1-2025-p6qb32xq0g.html" class="game-id">USL1 2025 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>45.3598</td>
+        
+        <td>37.4984</td>
+        
+        <td>0.0</td>
+        
+        <td>20.0</td>
+        
+        <td>0.694</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0359</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0952</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>2483.0</td>
+        
+        <td>0.5896</td>
+        
+        <td>709.0</td>
+        
+        <td>2.6522</td>
+        
+        <td>0.3741</td>
+        
+        <td>0.0</td>
+        
+        <td>42.0</td>
+        
+        <td>0.0</td>
+        
+        <td>63.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>19.306</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.5858</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="39">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/usl1-2026.html">USL1</a></td>
+        <td><a href="../games/soccer-usl1-2026-p6qb32xq0g.html" class="game-id">USL1 2026 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>43.8596</td>
+        
+        <td>35.5287</td>
+        
+        <td>0.0</td>
+        
+        <td>5.0</td>
+        
+        <td>0.3929</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0853</td>
+        
+        <td>0.0</td>
+        
+        <td>0.1875</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>516.0</td>
+        
+        <td>0.5965</td>
+        
+        <td>114.0</td>
+        
+        <td>-4.9826</td>
+        
+        <td>-4.3707</td>
+        
+        <td>0.0</td>
+        
+        <td>11.0</td>
+        
+        <td>0.0</td>
+        
+        <td>16.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.6071</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.6402</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
         
       </tr>
       
