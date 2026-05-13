@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Aaron Grymes — AltSports Stats">
-  <meta property="og:description" content="Career stats for Aaron Grymes: def_int 3.0, def_lg 35.0, def_solo 58.0, def_td 1.0, def_tot 58.0, def_yds 92.0, score_ir 1.0, score_pts 6.0, score_tot 1.0">
+  <meta property="og:description" content="Career stats for Aaron Grymes: def_ast 4.0, def_int 3.0, def_lg 35.0, def_sack 0.5, def_solo 108.0, def_td 1.0, def_tot 112.0, def_yds 92.0, def_ydsl 3.0, score_ir 1.0, score_pts 6.0, score_tot 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/aaron-grymes.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "CFL 2017",
+      "description": "League-level player statistics for CFL 2017 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CFL 2018",
@@ -174,6 +188,30 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -181,9 +219,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">73.7</div>
+        <div class="badge-number">72.7</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#238</div>
+        <div class="badge-rank">#274</div>
       </div>
       
       
@@ -204,9 +242,13 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_ast">Def Ast</th>
+        
         <th scope="col" data-stat="def_int">INT</th>
         
         <th scope="col" data-stat="def_lg">Def Lg</th>
+        
+        <th scope="col" data-stat="def_sack">Def Sack</th>
         
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
@@ -215,6 +257,8 @@
         <th scope="col" data-stat="def_tot">Def Tot</th>
         
         <th scope="col" data-stat="def_yds">Def Yds</th>
+        
+        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="score_ir">Score Ir</th>
         
@@ -227,17 +271,23 @@
     <tbody>
       <tr>
         
+        <td>4</td>
+        
         <td>3</td>
         
         <td>35</td>
         
-        <td>58</td>
+        <td>0.5</td>
+        
+        <td>108</td>
         
         <td>1</td>
         
-        <td>58</td>
+        <td>112</td>
         
         <td>92</td>
+        
+        <td>3</td>
         
         <td>1</td>
         
@@ -271,6 +321,18 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -287,9 +349,13 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_ast">Def Ast</th>
+        
         <th scope="col" data-stat="def_int">INT</th>
         
         <th scope="col" data-stat="def_lg">Def Lg</th>
+        
+        <th scope="col" data-stat="def_sack">Def Sack</th>
         
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
@@ -298,6 +364,8 @@
         <th scope="col" data-stat="def_tot">Def Tot</th>
         
         <th scope="col" data-stat="def_yds">Def Yds</th>
+        
+        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="score_ir">Score Ir</th>
         
@@ -310,11 +378,44 @@
     <tbody>
       
       <tr>
+        <td>CFL 2017</td>
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0.5</td>
+        
+        <td>50</td>
+        
+        <td>—</td>
+        
+        <td>54</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2018</td>
+        
+        <td>—</td>
         
         <td>3</td>
         
         <td>35</td>
+        
+        <td>—</td>
         
         <td>58</td>
         
@@ -323,6 +424,8 @@
         <td>58</td>
         
         <td>92</td>
+        
+        <td>—</td>
         
         <td>1</td>
         
@@ -408,9 +511,13 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_ast">def_ast</th>
+        
         <th scope="col" data-stat="def_int">def_int</th>
         
         <th scope="col" data-stat="def_lg">def_lg</th>
+        
+        <th scope="col" data-stat="def_sack">def_sack</th>
         
         <th scope="col" data-stat="def_solo">def_solo</th>
         
@@ -419,6 +526,8 @@
         <th scope="col" data-stat="def_tot">def_tot</th>
         
         <th scope="col" data-stat="def_yds">def_yds</th>
+        
+        <th scope="col" data-stat="def_ydsl">def_ydsl</th>
         
         <th scope="col" data-stat="score_ir">score_ir</th>
         
@@ -434,7 +543,430 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2018 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="17">2017 Wk 1</td></tr>
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-14-tor-edm.html" class="game-id">TOR @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-21-edm-bc.html" class="game-id">EDM @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-28-cgy-edm.html" class="game-id">CGY @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-9-edm-mtl.html" class="game-id">EDM @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-12-edm-wpg.html" class="game-id">EDM @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-19-edm-cgy.html" class="game-id">EDM @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-4-edm-ssk.html" class="game-id">EDM @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-10-phi-gb.html" class="game-id">PHI @ GB</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.5</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-17-buf-phi.html" class="game-id">BUF @ PHI</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-24-mia-phi.html" class="game-id">MIA @ PHI</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-31-phi-nyj.html" class="game-id">PHI @ NYJ</a></td>
+        <td>—</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-30-wpg-edm.html" class="game-id">WPG @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2018 Wk 1</td></tr>
       
       <tr>
         <td>2018</td>
@@ -447,11 +979,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
         
         <td></td>
         
         <td>4.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -472,7 +1010,11 @@
         <td><a href="../games/football-cfl-2018-10-19-edm-bc.html" class="game-id">EDM @ BC</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -483,6 +1025,8 @@
         <td>3.0</td>
         
         <td>57.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -505,11 +1049,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>6.0</td>
         
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -534,11 +1084,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td></td>
         
         <td>3.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -563,11 +1119,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>5.0</td>
         
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -592,11 +1154,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -621,11 +1189,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
         
         <td></td>
         
         <td>4.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -646,9 +1220,13 @@
         <td><a href="../games/football-cfl-2018-7-26-edm-mtl.html" class="game-id">EDM @ MTL</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>35.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -657,6 +1235,8 @@
         <td>3.0</td>
         
         <td>35.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -679,11 +1259,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -708,11 +1294,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -737,11 +1329,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>5.0</td>
         
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -766,11 +1364,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -795,11 +1399,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -824,11 +1434,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>6.0</td>
         
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -853,11 +1469,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>6.0</td>
         
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -882,11 +1504,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td></td>
         
         <td>3.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -907,15 +1535,21 @@
         <td><a href="../games/football-cfl-2018-9-8-cgy-edm.html" class="game-id">CGY @ EDM</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
