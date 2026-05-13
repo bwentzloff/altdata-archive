@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quintavius Workman Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Quintavius Workman (WR) across 50 Yard, AF1. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Quintavius Workman (WR) across AF1, 50 Yard. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Quintavius Workman — AltSports Stats">
-  <meta property="og:description" content="Career stats for Quintavius Workman: receiving_tds 11.0, receiving_yards 378.0, receptions 31.0">
+  <meta property="og:description" content="Career stats for Quintavius Workman: receiving_tds 13.0, receiving_yards 437.0, receptions 40.0, rushing_yards 21.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Quintavius Workman",
-  "description": "Quintavius Workman played WR in 50 Yard, AF1.",
+  "description": "Quintavius Workman played WR in AF1, 50 Yard.",
   "url": "https://archive.altfantasysports.com/players/quintavius-workman.html",
   "sameAs": [
     
@@ -96,6 +96,19 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "50YARD 2026",
+      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
   ],
@@ -147,7 +160,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      50 Yard, AF1
+      AF1, 50 Yard
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -220,6 +233,17 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -245,16 +269,20 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>11</td>
+        <td>13</td>
         
-        <td>378</td>
+        <td>437</td>
         
-        <td>31</td>
+        <td>40</td>
+        
+        <td>21</td>
         
       </tr>
     </tbody>
@@ -272,8 +300,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 30.0, "receiving_yards": 299.0, "receiving_tds": 9.0}, "50 Yard-2026": {"receiving_yards": 58.0, "receiving_tds": 1.0}};
-    var stat    = "receiving_yards";
+    var seasons = {"AF1-2025": {"receptions": 30.0, "receiving_yards": 299.0, "receiving_tds": 9.0}, "50 Yard-2026": {"receiving_yards": 58.0, "receiving_tds": 1.0}, "50YARD-2026": {"rushing_yards": 21.0, "receptions": 9.0, "receiving_yards": 59.0, "receiving_tds": 2.0}};
+    var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -309,6 +337,16 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Quintavius Workman stats by season</caption>
@@ -321,6 +359,8 @@
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
     </thead>
@@ -335,6 +375,8 @@
         
         <td>30</td>
         
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -345,6 +387,21 @@
         <td>58</td>
         
         <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50YARD 2026</td>
+        
+        <td>2</td>
+        
+        <td>59</td>
+        
+        <td>9</td>
+        
+        <td>21</td>
         
       </tr>
       
@@ -418,6 +475,8 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -426,7 +485,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="9"> Wk 1</td></tr>
       
       <tr>
         <td>—</td>
@@ -441,12 +500,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -461,12 +522,14 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -480,6 +543,8 @@
         <td>33.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
         
       </tr>
       
@@ -498,12 +563,14 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -518,12 +585,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -538,12 +607,14 @@
         
         <td>12.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 13</td></tr>
       
       <tr>
         <td>2025</td>
@@ -558,12 +629,14 @@
         
         <td>8.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="9">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -578,12 +651,14 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="9">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -598,6 +673,30 @@
         
         <td></td>
         
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
+        <td><a href="../games/synthetic-50yard-2026-w2-washingtonwolfpack.html" class="game-id">Washington Wolfpack @ Beaumont Renegades</a></td>
+        <td>0–0</td>
+        
+        <td>2.0</td>
+        
+        <td>59.0</td>
+        
+        <td>9.0</td>
+        
+        <td>21.0</td>
+        
       </tr>
       
     </tbody>
@@ -610,7 +709,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-10.
+      Data updated: 2026-05-13.
       Formats:
       
 <a href="../data/players/quintavius-workman.json">JSON</a> ·
