@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jordan Smith — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jordan Smith: assists 1.0, blocks 1.0, catches 45.0, completions 48.0, drops 4.0, goals 1.0, hockeyAssists 3.0, pulls 1.0, throwAttempts 51.0, throwaways 3.0, yardsReceived 112.0, yardsThrown 172.0">
+  <meta property="og:description" content="Career stats for Jordan Smith: assists 1.0, assists_minus_xa -1.4, avg_pass_distance 47.4, avg_pass_vertical 16.5, blocks 1.0, catches 45.0, completions 48.0, drops 4.0, goals 1.0, goals_minus_xg -0.2, goals_plus_assists 0.0, hockeyAssists 3.0, key_passes 19.0, minutes_played 1780.0, pass_completion_pct 1.4, passes_attempted 866.0, passes_over_expected -12.7, passes_over_expected_p100 -1.0, points_added 0.0, pulls 1.0, shots 6.0, shots_on_target 1.0, throwAttempts 51.0, throwaways 3.0, xa 1.4, xg 0.2, xg_place -0.1, xg_plus_xa 1.6, xpass_completion_pct 1.4, xpoints_added 0.1, yardsReceived 112.0, yardsThrown 172.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jordan-smith.html">
   
@@ -72,6 +72,34 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "MLS 2015",
+      "description": "League-level player statistics for MLS 2015 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/mls-2015.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "MLS 2016",
+      "description": "League-level player statistics for MLS 2016 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/mls-2016.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "AUDL 2023",
@@ -193,6 +221,22 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'15</span>
+        
+        <span class="ct-yr">'16</span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
         <span class="ct-yr">'23</span>
         
         <span class="ct-yr">'24</span>
@@ -200,8 +244,51 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">MLS</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">AUDL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -213,6 +300,22 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">UFA</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -242,6 +345,12 @@
         
         <th scope="col" data-stat="assists">Assists</th>
         
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
         <th scope="col" data-stat="blocks">Blocks</th>
         
         <th scope="col" data-stat="catches">Catches</th>
@@ -252,13 +361,47 @@
         
         <th scope="col" data-stat="goals">Goals</th>
         
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
         <th scope="col" data-stat="hockeyAssists">Hockeyassists</th>
         
+        <th scope="col" data-stat="key_passes">Key Passes</th>
+        
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
         <th scope="col" data-stat="pulls">Pulls</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
         
         <th scope="col" data-stat="throwAttempts">Throwattempts</th>
         
         <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
         <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
         
@@ -271,6 +414,12 @@
         
         <td>1</td>
         
+        <td>-1.4</td>
+        
+        <td>47.4</td>
+        
+        <td>16.5</td>
+        
         <td>1</td>
         
         <td>45</td>
@@ -281,13 +430,47 @@
         
         <td>1</td>
         
+        <td>-0.2</td>
+        
+        <td>0</td>
+        
         <td>3</td>
+        
+        <td>19</td>
+        
+        <td>1,780</td>
+        
+        <td>1.4</td>
+        
+        <td>866</td>
+        
+        <td>-12.7</td>
+        
+        <td>-1.0</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
         
         <td>1</td>
         
         <td>51</td>
         
         <td>3</td>
+        
+        <td>1.4</td>
+        
+        <td>0.2</td>
+        
+        <td>-0.1</td>
+        
+        <td>1.6</td>
+        
+        <td>1.4</td>
+        
+        <td>0.1</td>
         
         <td>112</td>
         
@@ -309,7 +492,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AUDL-2023": {"yardsThrown": 172.0, "yardsReceived": 112.0, "hockeyAssists": 3.0, "completions": 48.0, "throwAttempts": 51.0, "catches": 45.0, "throwaways": 3.0, "drops": 4.0, "pulls": 1.0, "assists": 1.0, "blocks": 1.0, "goals": 1.0}, "UFA-2024": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
+    var seasons = {"MLS-2015": {"minutes_played": 417.0, "shots": 1.0, "shots_on_target": 1.0, "goals": 0.0, "xg": 0.0254, "xg_place": 0.0329, "goals_minus_xg": -0.0254, "key_passes": 5.0, "assists": 0.0, "xa": 0.3471, "assists_minus_xa": -0.3471, "goals_plus_assists": 0.0, "xg_plus_xa": 0.3724, "points_added": 0.0, "xpoints_added": 0.0225, "passes_attempted": 204.0, "pass_completion_pct": 0.7157, "xpass_completion_pct": 0.7018, "passes_over_expected": 2.8242, "passes_over_expected_p100": 1.3844, "avg_pass_distance": 24.6955, "avg_pass_vertical": 8.5264}, "MLS-2016": {"minutes_played": 1363.0, "shots": 5.0, "shots_on_target": 0.0, "goals": 0.0, "xg": 0.1337, "xg_place": -0.1337, "goals_minus_xg": -0.1337, "key_passes": 14.0, "assists": 0.0, "xa": 1.0549, "assists_minus_xa": -1.0549, "goals_plus_assists": 0.0, "xg_plus_xa": 1.1886, "points_added": 0.0, "xpoints_added": 0.1109, "passes_attempted": 662.0, "pass_completion_pct": 0.6662, "xpass_completion_pct": 0.6896, "passes_over_expected": -15.5009, "passes_over_expected_p100": -2.3415, "avg_pass_distance": 22.7329, "avg_pass_vertical": 8.0206}, "AUDL-2023": {"yardsThrown": 172.0, "yardsReceived": 112.0, "hockeyAssists": 3.0, "completions": 48.0, "throwAttempts": 51.0, "catches": 45.0, "throwaways": 3.0, "drops": 4.0, "pulls": 1.0, "assists": 1.0, "blocks": 1.0, "goals": 1.0}, "UFA-2024": {"goals": 0.0, "assists": 0.0, "yardsThrown": 0.0, "yardsReceived": 0.0, "blocks": 0.0, "throwaways": 0.0, "drops": 0.0}};
     var stat    = "yardsThrown";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -331,6 +514,98 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -383,6 +658,12 @@
         
         <th scope="col" data-stat="assists">Assists</th>
         
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
         <th scope="col" data-stat="blocks">Blocks</th>
         
         <th scope="col" data-stat="catches">Catches</th>
@@ -393,13 +674,47 @@
         
         <th scope="col" data-stat="goals">Goals</th>
         
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
         <th scope="col" data-stat="hockeyAssists">Hockeyassists</th>
         
+        <th scope="col" data-stat="key_passes">Key Passes</th>
+        
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
         <th scope="col" data-stat="pulls">Pulls</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
         
         <th scope="col" data-stat="throwAttempts">Throwattempts</th>
         
         <th scope="col" data-stat="throwaways">Throwaways</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
         <th scope="col" data-stat="yardsReceived">Yardsreceived</th>
         
@@ -410,9 +725,153 @@
     <tbody>
       
       <tr>
+        <td>MLS 2015</td>
+        
+        <td>0</td>
+        
+        <td>-0.3</td>
+        
+        <td>24.7</td>
+        
+        <td>8.5</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>-0.0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>5</td>
+        
+        <td>417</td>
+        
+        <td>0.7</td>
+        
+        <td>204</td>
+        
+        <td>2.8</td>
+        
+        <td>1.4</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0.3</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.4</td>
+        
+        <td>0.7</td>
+        
+        <td>0.0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>MLS 2016</td>
+        
+        <td>0</td>
+        
+        <td>-1.1</td>
+        
+        <td>22.7</td>
+        
+        <td>8.0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>-0.1</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>14</td>
+        
+        <td>1363</td>
+        
+        <td>0.7</td>
+        
+        <td>662</td>
+        
+        <td>-15.5</td>
+        
+        <td>-2.3</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>5</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1.1</td>
+        
+        <td>0.1</td>
+        
+        <td>-0.1</td>
+        
+        <td>1.2</td>
+        
+        <td>0.7</td>
+        
+        <td>0.1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>AUDL 2023</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>1</td>
         
@@ -424,13 +883,47 @@
         
         <td>1</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>3</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>51</td>
         
         <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>112</td>
         
@@ -443,16 +936,6 @@
         
         <td>0</td>
         
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
         <td>—</td>
         
         <td>—</td>
@@ -460,6 +943,56 @@
         <td>—</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -510,6 +1043,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Jordan Smith</td>
+        <td>—</td>
+        <td>FB</td>
+        <td>MLS</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -533,6 +1078,12 @@
         
         <th scope="col" data-stat="assists">assists</th>
         
+        <th scope="col" data-stat="assists_minus_xa">assists_minus_xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">avg_pass_distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">avg_pass_vertical</th>
+        
         <th scope="col" data-stat="blocks">blocks</th>
         
         <th scope="col" data-stat="catches">catches</th>
@@ -543,13 +1094,47 @@
         
         <th scope="col" data-stat="goals">goals</th>
         
+        <th scope="col" data-stat="goals_minus_xg">goals_minus_xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">goals_plus_assists</th>
+        
         <th scope="col" data-stat="hockeyAssists">hockeyAssists</th>
         
+        <th scope="col" data-stat="key_passes">key_passes</th>
+        
+        <th scope="col" data-stat="minutes_played">minutes_played</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">pass_completion_pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">passes_attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">passes_over_expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">passes_over_expected_p100</th>
+        
+        <th scope="col" data-stat="points_added">points_added</th>
+        
         <th scope="col" data-stat="pulls">pulls</th>
+        
+        <th scope="col" data-stat="shots">shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">shots_on_target</th>
         
         <th scope="col" data-stat="throwAttempts">throwAttempts</th>
         
         <th scope="col" data-stat="throwaways">throwaways</th>
+        
+        <th scope="col" data-stat="xa">xa</th>
+        
+        <th scope="col" data-stat="xg">xg</th>
+        
+        <th scope="col" data-stat="xg_place">xg_place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">xg_plus_xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">xpass_completion_pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">xpoints_added</th>
         
         <th scope="col" data-stat="yardsReceived">yardsReceived</th>
         
@@ -563,7 +1148,163 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="37">2015 Wk 1</td></tr>
+      
+      <tr>
+        <td>2015</td>
+        <td>1</td>
+        <td><a href="../leagues/mls-2015.html">MLS</a></td>
+        <td><a href="../games/soccer-mls-2015-lgpmovnqzy.html" class="game-id">MLS 2015 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>-0.3471</td>
+        
+        <td>24.6955</td>
+        
+        <td>8.5264</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>-0.0254</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>417.0</td>
+        
+        <td>0.7157</td>
+        
+        <td>204.0</td>
+        
+        <td>2.8242</td>
+        
+        <td>1.3844</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.3471</td>
+        
+        <td>0.0254</td>
+        
+        <td>0.0329</td>
+        
+        <td>0.3724</td>
+        
+        <td>0.7018</td>
+        
+        <td>0.0225</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2016 Wk 1</td></tr>
+      
+      <tr>
+        <td>2016</td>
+        <td>1</td>
+        <td><a href="../leagues/mls-2016.html">MLS</a></td>
+        <td><a href="../games/soccer-mls-2016-lgpmovnqzy.html" class="game-id">MLS 2016 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>-1.0549</td>
+        
+        <td>22.7329</td>
+        
+        <td>8.0206</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>-0.1337</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>1363.0</td>
+        
+        <td>0.6662</td>
+        
+        <td>662.0</td>
+        
+        <td>-15.5009</td>
+        
+        <td>-2.3415</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0549</td>
+        
+        <td>0.1337</td>
+        
+        <td>-0.1337</td>
+        
+        <td>1.1886</td>
+        
+        <td>0.6896</td>
+        
+        <td>0.1109</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -571,6 +1312,12 @@
         <td><a href="../leagues/audl-2023.html">AUDL</a></td>
         <td><a href="../games/2023-05-06-slc-sea.html" class="game-id">SALT LAKE SHRED @ SEATTLE CASCADES</a></td>
         <td>25–19</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -584,11 +1331,45 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>14.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -601,7 +1382,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="37">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -614,11 +1395,39 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
         
         <td>4.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -630,6 +1439,18 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>12.0</td>
         
         <td>30.0</td>
@@ -639,7 +1460,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="37">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -647,6 +1468,12 @@
         <td><a href="../leagues/audl-2023.html">AUDL</a></td>
         <td><a href="../games/2023-07-01-col-sea.html" class="game-id">COLORADO SUMMIT @ SEATTLE CASCADES</a></td>
         <td>18–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -660,11 +1487,45 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>17.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -677,7 +1538,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="37">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -690,10 +1551,6 @@
         
         <td></td>
         
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
         <td></td>
         
         <td></td>
@@ -703,6 +1560,50 @@
         <td>1.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -715,7 +1616,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2023 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="37">2023 Wk 13</td></tr>
       
       <tr>
         <td>2023</td>
@@ -725,6 +1626,12 @@
         <td>15–25</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -740,9 +1647,43 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>13.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>58.0</td>
         
@@ -753,7 +1694,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -764,16 +1705,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -781,6 +1712,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -791,7 +1772,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
@@ -802,16 +1783,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -819,6 +1790,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -837,16 +1858,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -854,6 +1865,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -864,7 +1925,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
@@ -875,16 +1936,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -892,6 +1943,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -902,7 +2003,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
@@ -913,16 +2014,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -930,6 +2021,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -948,16 +2089,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -965,6 +2096,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -983,16 +2164,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1000,6 +2171,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -1010,7 +2231,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1021,16 +2242,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1038,6 +2249,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -1048,7 +2309,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1059,16 +2320,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1076,6 +2327,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -1086,7 +2387,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 10</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1097,16 +2398,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1114,6 +2405,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -1124,7 +2465,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2024 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 13</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1135,16 +2476,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1152,6 +2483,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -1170,16 +2551,6 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
         <td></td>
         
         <td></td>
@@ -1187,6 +2558,56 @@
         <td></td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
