@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Brandon Aubrey — AltSports Stats">
-  <meta property="og:description" content="Career stats for Brandon Aubrey: extra_point 70.0, field_goal_yards 565.0, made_19 0.0, made_29 7.0, made_39 8.0, made_49 4.0, made_50 0.0, missed 6.0">
+  <meta property="og:description" content="Career stats for Brandon Aubrey: assists 0.0, assists_minus_xa -1.7, avg_pass_distance 51.0, avg_pass_vertical 26.3, extra_point 70.0, field_goal_yards 565.0, goals 0.0, goals_minus_xg -1.1, goals_plus_assists 0.0, key_passes 14.0, made_19 0.0, made_29 7.0, made_39 8.0, made_49 4.0, made_50 0.0, minutes_played 4468.0, missed 6.0, pass_completion_pct 1.5, passes_attempted 2002.0, passes_over_expected -19.2, passes_over_expected_p100 -2.1, points_added 0.0, shots 13.0, shots_on_target 0.0, xa 1.7, xg 1.1, xg_place -1.1, xg_plus_xa 2.7, xpass_completion_pct 1.5, xpoints_added 0.7">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/brandon-aubrey.html">
   
@@ -72,6 +72,34 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "USLC 2017",
+      "description": "League-level player statistics for USLC 2017 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/uslc-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "USLC 2018",
+      "description": "League-level player statistics for USLC 2018 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/uslc-2018.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "USFL 2022",
@@ -193,6 +221,16 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
         <span class="ct-yr">'22</span>
         
         <span class="ct-yr">'23</span>
@@ -208,8 +246,39 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">USLC</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -237,9 +306,25 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
         <th scope="col" data-stat="extra_point">Extra Point</th>
         
         <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
+        <th scope="col" data-stat="key_passes">Key Passes</th>
         
         <th scope="col" data-stat="made_19">Made 19</th>
         
@@ -251,16 +336,60 @@
         
         <th scope="col" data-stat="made_50">FG 50+</th>
         
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
         <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
         
+        <td>0</td>
+        
+        <td>-1.7</td>
+        
+        <td>51.0</td>
+        
+        <td>26.3</td>
+        
         <td>70</td>
         
         <td>565</td>
+        
+        <td>0</td>
+        
+        <td>-1.1</td>
+        
+        <td>0</td>
+        
+        <td>14</td>
         
         <td>0</td>
         
@@ -272,7 +401,35 @@
         
         <td>0</td>
         
+        <td>4,468</td>
+        
         <td>6</td>
+        
+        <td>1.5</td>
+        
+        <td>2,002</td>
+        
+        <td>-19.2</td>
+        
+        <td>-2.1</td>
+        
+        <td>0</td>
+        
+        <td>13</td>
+        
+        <td>0</td>
+        
+        <td>1.7</td>
+        
+        <td>1.1</td>
+        
+        <td>-1.1</td>
+        
+        <td>2.7</td>
+        
+        <td>1.5</td>
+        
+        <td>0.7</td>
         
       </tr>
     </tbody>
@@ -288,6 +445,98 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -320,9 +569,25 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="assists">Assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">Assists Minus Xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">Avg Pass Distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">Avg Pass Vertical</th>
+        
         <th scope="col" data-stat="extra_point">Extra Point</th>
         
         <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
+        <th scope="col" data-stat="goals">Goals</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
+        <th scope="col" data-stat="key_passes">Key Passes</th>
         
         <th scope="col" data-stat="made_19">Made 19</th>
         
@@ -334,16 +599,190 @@
         
         <th scope="col" data-stat="made_50">FG 50+</th>
         
+        <th scope="col" data-stat="minutes_played">Minutes Played</th>
+        
         <th scope="col" data-stat="missed">Missed</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">Pass Completion Pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">Passes Attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">Passes Over Expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
+        
+        <th scope="col" data-stat="points_added">Points Added</th>
+        
+        <th scope="col" data-stat="shots">Shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">Shots On Target</th>
+        
+        <th scope="col" data-stat="xa">Xa</th>
+        
+        <th scope="col" data-stat="xg">Xg</th>
+        
+        <th scope="col" data-stat="xg_place">Xg Place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">Xg Plus Xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">Xpass Completion Pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">Xpoints Added</th>
         
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>USLC 2017</td>
+        
+        <td>0</td>
+        
+        <td>-0.3</td>
+        
+        <td>24.6</td>
+        
+        <td>12.3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>-0.6</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1909</td>
+        
+        <td>—</td>
+        
+        <td>0.8</td>
+        
+        <td>819</td>
+        
+        <td>-12.5</td>
+        
+        <td>-1.5</td>
+        
+        <td>0</td>
+        
+        <td>6</td>
+        
+        <td>0</td>
+        
+        <td>0.3</td>
+        
+        <td>0.6</td>
+        
+        <td>-0.6</td>
+        
+        <td>0.9</td>
+        
+        <td>0.8</td>
+        
+        <td>0.3</td>
+        
+      </tr>
+      
+      <tr>
+        <td>USLC 2018</td>
+        
+        <td>0</td>
+        
+        <td>-1.3</td>
+        
+        <td>26.4</td>
+        
+        <td>14.0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>-0.5</td>
+        
+        <td>0</td>
+        
+        <td>11</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2559</td>
+        
+        <td>—</td>
+        
+        <td>0.7</td>
+        
+        <td>1183</td>
+        
+        <td>-6.7</td>
+        
+        <td>-0.6</td>
+        
+        <td>0</td>
+        
+        <td>7</td>
+        
+        <td>0</td>
+        
+        <td>1.3</td>
+        
+        <td>0.5</td>
+        
+        <td>-0.5</td>
+        
+        <td>1.8</td>
+        
+        <td>0.7</td>
+        
+        <td>0.3</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2022</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>26</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -357,12 +796,48 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
         <td>5</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
       <tr>
         <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>44</td>
         
@@ -378,7 +853,43 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -706,6 +1217,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Brandon Aubrey</td>
+        <td>—</td>
+        <td>CB</td>
+        <td>USLC</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -727,9 +1250,25 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assists">assists</th>
+        
+        <th scope="col" data-stat="assists_minus_xa">assists_minus_xa</th>
+        
+        <th scope="col" data-stat="avg_pass_distance">avg_pass_distance</th>
+        
+        <th scope="col" data-stat="avg_pass_vertical">avg_pass_vertical</th>
+        
         <th scope="col" data-stat="extra_point">extra_point</th>
         
         <th scope="col" data-stat="field_goal_yards">field_goal_yards</th>
+        
+        <th scope="col" data-stat="goals">goals</th>
+        
+        <th scope="col" data-stat="goals_minus_xg">goals_minus_xg</th>
+        
+        <th scope="col" data-stat="goals_plus_assists">goals_plus_assists</th>
+        
+        <th scope="col" data-stat="key_passes">key_passes</th>
         
         <th scope="col" data-stat="made_19">made_19</th>
         
@@ -741,7 +1280,35 @@
         
         <th scope="col" data-stat="made_50">made_50</th>
         
+        <th scope="col" data-stat="minutes_played">minutes_played</th>
+        
         <th scope="col" data-stat="missed">missed</th>
+        
+        <th scope="col" data-stat="pass_completion_pct">pass_completion_pct</th>
+        
+        <th scope="col" data-stat="passes_attempted">passes_attempted</th>
+        
+        <th scope="col" data-stat="passes_over_expected">passes_over_expected</th>
+        
+        <th scope="col" data-stat="passes_over_expected_p100">passes_over_expected_p100</th>
+        
+        <th scope="col" data-stat="points_added">points_added</th>
+        
+        <th scope="col" data-stat="shots">shots</th>
+        
+        <th scope="col" data-stat="shots_on_target">shots_on_target</th>
+        
+        <th scope="col" data-stat="xa">xa</th>
+        
+        <th scope="col" data-stat="xg">xg</th>
+        
+        <th scope="col" data-stat="xg_place">xg_place</th>
+        
+        <th scope="col" data-stat="xg_plus_xa">xg_plus_xa</th>
+        
+        <th scope="col" data-stat="xpass_completion_pct">xpass_completion_pct</th>
+        
+        <th scope="col" data-stat="xpoints_added">xpoints_added</th>
         
       </tr>
     </thead>
@@ -751,7 +1318,155 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="35">2017 Wk 1</td></tr>
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/uslc-2017.html">USLC</a></td>
+        <td><a href="../games/soccer-uslc-2017-4jmakpdqkg.html" class="game-id">USLC 2017 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>-0.336</td>
+        
+        <td>24.586</td>
+        
+        <td>12.3366</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>-0.6063</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1909.0</td>
+        
+        <td></td>
+        
+        <td>0.7741</td>
+        
+        <td>819.0</td>
+        
+        <td>-12.4953</td>
+        
+        <td>-1.5257</td>
+        
+        <td>0.0</td>
+        
+        <td>6.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.336</td>
+        
+        <td>0.6063</td>
+        
+        <td>-0.6063</td>
+        
+        <td>0.9424</td>
+        
+        <td>0.7894</td>
+        
+        <td>0.3466</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="35">2018 Wk 1</td></tr>
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/uslc-2018.html">USLC</a></td>
+        <td><a href="../games/soccer-uslc-2018-kpqjwn4q6v.html" class="game-id">USLC 2018 Season</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td>-1.3246</td>
+        
+        <td>26.4318</td>
+        
+        <td>14.0044</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>-0.4779</td>
+        
+        <td>0.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2559.0</td>
+        
+        <td></td>
+        
+        <td>0.7405</td>
+        
+        <td>1183.0</td>
+        
+        <td>-6.6696</td>
+        
+        <td>-0.5638</td>
+        
+        <td>0.0</td>
+        
+        <td>7.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.3246</td>
+        
+        <td>0.4779</td>
+        
+        <td>-0.4779</td>
+        
+        <td>1.8025</td>
+        
+        <td>0.7461</td>
+        
+        <td>0.342</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="35">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -759,6 +1474,14 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w1-bham.html" class="game-id">USFL 2022 — Wk 1 (BHAM)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -776,12 +1499,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -790,7 +1549,23 @@
         <td><a href="../games/synthetic-usfl-2022-w2-bham.html" class="game-id">USFL 2022 — Wk 2 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -804,14 +1579,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -820,7 +1623,23 @@
         <td><a href="../games/synthetic-usfl-2022-w3-bham.html" class="game-id">USFL 2022 — Wk 3 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -834,14 +1653,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -850,7 +1697,23 @@
         <td><a href="../games/synthetic-usfl-2022-w4-bham.html" class="game-id">USFL 2022 — Wk 4 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -864,14 +1727,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -880,7 +1771,23 @@
         <td><a href="../games/synthetic-usfl-2022-w5-bham.html" class="game-id">USFL 2022 — Wk 5 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -894,14 +1801,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -910,7 +1845,23 @@
         <td><a href="../games/synthetic-usfl-2022-w6-bham.html" class="game-id">USFL 2022 — Wk 6 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -924,14 +1875,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -940,7 +1919,23 @@
         <td><a href="../games/synthetic-usfl-2022-w7-bham.html" class="game-id">USFL 2022 — Wk 7 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -954,14 +1949,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -970,7 +1993,23 @@
         <td><a href="../games/synthetic-usfl-2022-w8-bham.html" class="game-id">USFL 2022 — Wk 8 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -984,14 +2023,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1004,6 +2071,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>3.0</td>
@@ -1014,14 +2097,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1030,6 +2141,14 @@
         <td><a href="../games/synthetic-usfl-2022-w10-bham.html" class="game-id">USFL 2022 — Wk 10 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td></td>
@@ -1046,12 +2165,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="35">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1060,7 +2215,23 @@
         <td><a href="../games/synthetic-usfl-2022-w11-bham.html" class="game-id">USFL 2022 — Wk 11 (BHAM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1074,14 +2245,42 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1089,6 +2288,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w1-stallions.html" class="game-id">STALLIONS @ GENERALS</a></td>
         <td>27–10</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1106,12 +2313,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1119,6 +2362,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w2-stallions.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
         <td>42–2</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -1136,12 +2387,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1149,6 +2436,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w3-stallions.html" class="game-id">STALLIONS @ BREAKERS</a></td>
         <td>31–45</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1166,12 +2461,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1179,6 +2510,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w4-stallions.html" class="game-id">MAULERS @ STALLIONS</a></td>
         <td>20–24</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1196,12 +2535,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1209,6 +2584,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w5-stallions.html" class="game-id">STALLIONS @ GAMBLERS</a></td>
         <td>20–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -1224,14 +2607,50 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1239,6 +2658,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w6-stallions.html" class="game-id">PANTHERS @ STALLIONS</a></td>
         <td>13–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1256,12 +2683,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1269,6 +2732,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w7-stallions.html" class="game-id">BREAKERS @ STALLIONS</a></td>
         <td>20–24</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1286,12 +2757,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1299,6 +2806,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w8-stallions.html" class="game-id">STALLIONS @ STARS</a></td>
         <td>27–24</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1316,12 +2831,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1329,6 +2880,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w9-stallions.html" class="game-id">GAMBLERS @ STALLIONS</a></td>
         <td>15–38</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1346,12 +2905,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1359,6 +2954,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w10-stallions.html" class="game-id">SHOWBOATS @ STALLIONS</a></td>
         <td>20–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1376,12 +2979,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 11</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1389,6 +3028,14 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w11-stallions.html" class="game-id">USFL 2023 — Wk 11 (STALLIONS)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1406,12 +3053,48 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="35">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1420,7 +3103,51 @@
         <td><a href="../games/synthetic-usfl-2023-w12-stallions.html" class="game-id">USFL 2023 — Wk 12 (STALLIONS)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
