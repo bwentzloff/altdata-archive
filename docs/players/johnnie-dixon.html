@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Johnnie Dixon — AltSports Stats">
-  <meta property="og:description" content="Career stats for Johnnie Dixon: lost_fumbles 0.0, receiving_tds 9.0, receiving_yards 912.0, receptions 79.0, rushing_tds 0.0, rushing_yards -4.0">
+  <meta property="og:description" content="Career stats for Johnnie Dixon: def_solo 4.0, def_tot 4.0, lost_fumbles 0.0, receiving_tds 9.0, receiving_yards 912.0, receptions 79.0, rushing_tds 0.0, rushing_yards -4.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/johnnie-dixon.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "CFL 2016",
+      "description": "League-level player statistics for CFL 2016 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2016.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "USFL 2022",
@@ -193,6 +207,18 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'16</span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
         <span class="ct-yr">'22</span>
         
         <span class="ct-yr">'23</span>
@@ -200,8 +226,43 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -229,6 +290,10 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
@@ -245,6 +310,10 @@
     </thead>
     <tbody>
       <tr>
+        
+        <td>4</td>
+        
+        <td>4</td>
         
         <td>0</td>
         
@@ -274,7 +343,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"receiving_yards": 398.0, "receptions": 40.0, "receiving_tds": 4.0, "lost_fumbles": 0.0, "rushing_yards": -1.0, "rushing_tds": 0.0}, "USFL-2023": {"receptions": 39.0, "receiving_yards": 514.0, "receiving_tds": 5.0, "rushing_yards": -3.0, "rushing_tds": 0.0}};
+    var seasons = {"CFL-2016": {"def_solo": 4.0, "def_tot": 4.0}, "USFL-2022": {"receiving_yards": 398.0, "receptions": 40.0, "receiving_tds": 4.0, "lost_fumbles": 0.0, "rushing_yards": -1.0, "rushing_tds": 0.0}, "USFL-2023": {"receptions": 39.0, "receiving_yards": 514.0, "receiving_tds": 5.0, "rushing_yards": -3.0, "rushing_tds": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -296,6 +365,12 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
   
     
       
@@ -330,6 +405,10 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
@@ -347,7 +426,32 @@
     <tbody>
       
       <tr>
+        <td>CFL 2016</td>
+        
+        <td>4</td>
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -365,6 +469,10 @@
       
       <tr>
         <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -423,6 +531,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Johnnie Dixon</td>
+        <td>—</td>
+        <td>DB</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -444,6 +564,10 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_solo">def_solo</th>
+        
+        <th scope="col" data-stat="def_tot">def_tot</th>
+        
         <th scope="col" data-stat="lost_fumbles">lost_fumbles</th>
         
         <th scope="col" data-stat="receiving_tds">receiving_tds</th>
@@ -464,7 +588,64 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="13">2016 Wk 1</td></tr>
+      
+      <tr>
+        <td>2016</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2016.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2016-6-30-tor-ssk.html" class="game-id">TOR @ SSK</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2016</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2016.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2016-7-29-ssk-mtl.html" class="game-id">SSK @ MTL</a></td>
+        <td>—</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -472,6 +653,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w1-no.html" class="game-id">USFL 2022 — Wk 1 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -490,7 +675,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -498,6 +683,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w2-no.html" class="game-id">USFL 2022 — Wk 2 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -516,7 +705,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -524,6 +713,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w3-no.html" class="game-id">USFL 2022 — Wk 3 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -542,7 +735,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -550,6 +743,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w4-no.html" class="game-id">USFL 2022 — Wk 4 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -568,7 +765,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -576,6 +773,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w5-no.html" class="game-id">USFL 2022 — Wk 5 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -594,7 +795,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -602,6 +803,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w6-no.html" class="game-id">USFL 2022 — Wk 6 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -620,7 +825,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -628,6 +833,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w7-no.html" class="game-id">USFL 2022 — Wk 7 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -646,7 +855,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -654,6 +863,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w8-no.html" class="game-id">USFL 2022 — Wk 8 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -672,7 +885,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -680,6 +893,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w9-no.html" class="game-id">USFL 2022 — Wk 9 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -698,7 +915,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -706,6 +923,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w10-no.html" class="game-id">USFL 2022 — Wk 10 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -724,7 +945,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="13">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -732,6 +953,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w11-no.html" class="game-id">USFL 2022 — Wk 11 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -750,7 +975,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -758,6 +983,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w1-breakers.html" class="game-id">BREAKERS @ MAULERS</a></td>
         <td>22–15</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -776,7 +1005,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -784,6 +1013,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w2-breakers.html" class="game-id">BREAKERS @ GAMBLERS</a></td>
         <td>38–31</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -802,7 +1035,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -810,6 +1043,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w3-breakers.html" class="game-id">STALLIONS @ BREAKERS</a></td>
         <td>31–45</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -828,7 +1065,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -836,6 +1073,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w6-breakers.html" class="game-id">STARS @ BREAKERS</a></td>
         <td>16–10</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -854,7 +1095,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -862,6 +1103,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w7-breakers.html" class="game-id">BREAKERS @ STALLIONS</a></td>
         <td>20–24</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -880,7 +1125,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -888,6 +1133,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w8-breakers.html" class="game-id">BREAKERS @ PANTHERS</a></td>
         <td>24–20</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -906,7 +1155,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -914,6 +1163,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w9-breakers.html" class="game-id">SHOWBOATS @ BREAKERS</a></td>
         <td>3–31</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -932,7 +1185,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -940,6 +1193,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w10-breakers.html" class="game-id">GAMBLERS @ BREAKERS</a></td>
         <td>10–17</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -958,7 +1215,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 11</td></tr>
       
       <tr>
         <td>2023</td>
@@ -966,6 +1223,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w11-breakers.html" class="game-id">USFL 2023 — Wk 11 (BREAKERS)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

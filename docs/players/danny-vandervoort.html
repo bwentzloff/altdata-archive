@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Danny Vandervoort — AltSports Stats">
-  <meta property="og:description" content="Career stats for Danny Vandervoort: receiving_tds 1.0, receiving_yards 75.0, receptions 8.0">
+  <meta property="og:description" content="Career stats for Danny Vandervoort: def_solo 1.0, def_tot 1.0, receiving_tds 1.0, receiving_yards 75.0, receptions 8.0, recv_lg 25.0, recv_rec 1.0, recv_tar 3.0, recv_yac 1.0, recv_yds 25.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/danny-vandervoort.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "CFL 2017",
+      "description": "League-level player statistics for CFL 2017 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CFL 2022",
@@ -174,6 +188,46 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -181,16 +235,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">44.5</div>
+        <div class="badge-number">39.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1239</div>
+        <div class="badge-rank">#1457</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">44.5</div>
+        <div class="badge-number">42.1</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#133</div>
+        <div class="badge-rank">#136</div>
       </div>
       
     </div>
@@ -210,11 +264,25 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
       </tr>
     </thead>
@@ -223,9 +291,23 @@
         
         <td>1</td>
         
+        <td>1</td>
+        
+        <td>1</td>
+        
         <td>75</td>
         
         <td>8</td>
+        
+        <td>25</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>25</td>
         
       </tr>
     </tbody>
@@ -236,11 +318,51 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2017": {"recv_rec": 1.0, "recv_yds": 25.0, "recv_lg": 25.0, "recv_tar": 3.0, "recv_yac": 1.0, "def_solo": 1.0, "def_tot": 1.0}, "CFL-2022": {"receiving_yards": 75.0, "receiving_tds": 1.0, "receptions": 8.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -257,24 +379,77 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>CFL 2017</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>25</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>25</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>1</td>
         
         <td>75</td>
         
         <td>8</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -354,11 +529,25 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_solo">def_solo</th>
+        
+        <th scope="col" data-stat="def_tot">def_tot</th>
+        
         <th scope="col" data-stat="receiving_tds">receiving_tds</th>
         
         <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
         <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
         
       </tr>
     </thead>
@@ -368,7 +557,72 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="15">2017 Wk 1</td></tr>
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-21-wpg-bc.html" class="game-id">WPG @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>25.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>25.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-13-bc-ssk.html" class="game-id">BC @ SSK</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="15">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -377,18 +631,32 @@
         <td><a href="../games/synthetic-cfl-2022-w11-edm.html" class="game-id">EDM @ OTT</a></td>
         <td>30–12</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>10.0</td>
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 17</td></tr>
       
       <tr>
         <td>2022</td>
@@ -397,18 +665,32 @@
         <td><a href="../games/synthetic-cfl-2022-w17-edm.html" class="game-id">MTL @ EDM</a></td>
         <td>25–18</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>28.0</td>
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 19</td></tr>
       
       <tr>
         <td>2022</td>
@@ -417,18 +699,32 @@
         <td><a href="../games/synthetic-cfl-2022-w19-edm.html" class="game-id">TOR @ EDM</a></td>
         <td>28–23</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>7.0</td>
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 20</td></tr>
       
       <tr>
         <td>2022</td>
@@ -437,11 +733,25 @@
         <td><a href="../games/synthetic-cfl-2022-w20-edm.html" class="game-id">BC @ EDM</a></td>
         <td>31–14</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>30.0</td>
         
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
