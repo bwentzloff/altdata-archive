@@ -134,13 +134,16 @@ def _build_sport_groups(leagues_index):
     Classify each league into a sport group and collapse AUDL/UFA as one league.
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
-    SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
+    SPORT_ORDER = ["Football", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
     FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
     DISCGOLF = {"DGPT"}
+    SOCCER = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
+    CRICKET = {"T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
+    CURLING = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
 
     def classify(slug, display):
         up = display.upper()
@@ -151,6 +154,12 @@ def _build_sport_groups(leagues_index):
             return "Disc Golf"
         if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED")):
             return "Football"
+        if name in SOCCER:
+            return "Soccer"
+        if name in CRICKET or up in CRICKET or any(c in up for c in ("T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL")):
+            return "Cricket"
+        if name in CURLING or name == "WCF" or up.startswith("WCF ") or any(c in up for c in ("WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS", "CURLING")):
+            return "Curling"
         if name in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
             return "Ultimate Disc"
         if name in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:

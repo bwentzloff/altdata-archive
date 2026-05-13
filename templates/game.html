@@ -82,7 +82,7 @@
 {% block content %}
 <h1>{{ game.display }}</h1>
 
-{% if game.away_team and game.home_team and game.score_away != "" and game.score_home != "" %}
+{% if game.away_team and game.home_team and game.score_away is not none and game.score_home is not none and game.score_away != "" and game.score_home != "" %}
 <div class="score-banner">
   <span class="score-team">{{ game.away_team }}</span>
   <span class="score-num">{{ game.score_away }}</span>

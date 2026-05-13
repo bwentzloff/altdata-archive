@@ -108,6 +108,7 @@
         <th scope="col">Wk</th>
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
+        <th scope="col">Result</th>
         <th scope="col">Date</th>
         <th scope="col">Players</th>
       </tr>
@@ -116,7 +117,7 @@
       {% for g in (league.get('games') or []) %}
       {% if g.week != ns.cur_week %}
       {% set ns.cur_week = g.week %}
-      <tr class="week-group-row"><td colspan="5">{% if g.week %}Week {{ g.week }}{% else %}—{% endif %}</td></tr>
+      <tr class="week-group-row"><td colspan="6">{% if g.week %}Week {{ g.week }}{% else %}—{% endif %}</td></tr>
       {% endif %}
       <tr>
         <td>{{ g.week or "—" }}</td>
@@ -132,8 +133,19 @@
           </a>
         </td>
         <td>
-          {%- if g.score_away != "" and g.score_home != "" -%}
+          {%- if g.score_away is not none and g.score_home is not none and g.score_away != "" and g.score_home != "" -%}
             {{ g.score_away }}–{{ g.score_home }}
+          {%- else -%}—{%- endif -%}
+        </td>
+        <td>
+          {%- if g.score_away is not none and g.score_home is not none and g.score_away != "" and g.score_home != "" and g.away_team and g.home_team -%}
+            {%- if g.score_away > g.score_home -%}
+              {{ g.away_team }} win
+            {%- elif g.score_home > g.score_away -%}
+              {{ g.home_team }} win
+            {%- else -%}
+              Draw
+            {%- endif -%}
           {%- else -%}—{%- endif -%}
         </td>
         <td>{{ g.date_str or "—" }}</td>

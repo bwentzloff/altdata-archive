@@ -40,6 +40,9 @@ DISC_GOLF_LEAGUES = {"DGPT"}
 LACROSSE_LEAGUES = {"NLL", "PLL"}
 ULTIMATE_LEAGUES = {"AUDL", "UFA", "PUL"}
 BASKETBALL_LEAGUES = {"BIG3", "SLAMBALL"}
+SOCCER_LEAGUES  = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
+CRICKET_LEAGUES = {"T20I", "ODI", "Tests", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
+CURLING_LEAGUES = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
 
 
 def classify_sport(league_name: str) -> str:
@@ -52,6 +55,12 @@ def classify_sport(league_name: str) -> str:
         return "disc"
     if league_upper in FOOTBALL_LEAGUES:
         return "football"
+    if league_upper in SOCCER_LEAGUES:
+        return "soccer"
+    if league_upper in {l.upper() for l in CRICKET_LEAGUES}:
+        return "cricket"
+    if league_upper in {l.upper() for l in CURLING_LEAGUES}:
+        return "curling"
     if league_upper in ULTIMATE_LEAGUES:
         return "ultimate"
     if league_upper in BASKETBALL_LEAGUES:
@@ -222,6 +231,77 @@ def parse_game_meta(game_id):
             "sport_type": sport_type,
             "league": league_name,
             "season": season,
+            "synthetic": True,
+            "display": f"{league_name} {season} Season",
+        })
+        return result
+
+    # Cricket match key from scrape_cricket.py:
+    # cricket-{league}-{date}-{cricsheet_id}
+    m = re.match(r"cricket-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})-(.+)$", gid, re.I)
+    if m:
+        league_name = m.group(1).upper()
+        date_str    = m.group(2)
+        season      = int(date_str[:4])
+        result.update({
+            "sport_type": "cricket",
+            "league":     league_name,
+            "season":     season,
+            "date_str":   date_str,
+            "display":    f"{league_name} {date_str}",
+        })
+        return result
+
+    # Curling match key from scrape_curling.py:
+    # curling-{league_slug}-{year}-{championship_id}-{draw_idx}-{game_idx}
+    m = re.match(r"curling-([a-z0-9-]+)-(\d{4})-(\d+)-(\d+)-(\d+)$", gid, re.I)
+    if m:
+        league_slug = m.group(1)
+        season = int(m.group(2))
+        result.update({
+            "sport_type": "curling",
+            "league": league_slug.upper(),
+            "season": season,
+            "display": f"{league_slug.upper()} {season}",
+        })
+        return result
+
+    # CurlingZone event key from scrape_curling.py:
+    # curling-cz-event-{year}-{event_id}-{showgameid}
+    m = re.match(r"curling-([a-z0-9-]+)-(\d{4})-(\d+)-(\d+)$", gid, re.I)
+    if m:
+        league_slug = m.group(1)
+        season = int(m.group(2))
+        result.update({
+            "sport_type": "curling",
+            "league": league_slug.upper(),
+            "season": season,
+            "display": f"{league_slug.upper()} {season}",
+        })
+        return result
+
+    # Soccer season/team aggregate key from scrape_soccer.py:
+    # soccer-{league_code}-{season}-{team_id}
+    m = re.match(r"soccer-(mls|nwsl|uslc|usl1|usls|mlsnp|nasl)-(\d{4})-(.+)$", gid, re.I)
+    if m:
+        code = m.group(1).lower()
+        league_map = {
+            "mls": "MLS",
+            "nwsl": "NWSL",
+            "uslc": "USLC",
+            "usl1": "USL1",
+            "usls": "USLS",
+            "mlsnp": "MLSNP",
+            "nasl": "NASL",
+        }
+        league_name = league_map.get(code, code.upper())
+        season = int(m.group(2))
+        team_id = m.group(3)
+        result.update({
+            "sport_type": "soccer",
+            "league": league_name,
+            "season": season,
+            "team": team_id,
             "synthetic": True,
             "display": f"{league_name} {season} Season",
         })
@@ -437,12 +517,15 @@ def build_this_week(game_index: list) -> None:
         "field_goals":     ("FGs",        35.0),
     }
 
-    SPORT_ORDER = ["Football", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
+    SPORT_ORDER = ["Football", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-LEAGUE", "XLEAGUE", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
     DISCGOLF = {"DGPT"}
+    SOCCER = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
+    CRICKET = {"T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
+    CURLING = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
 
     def classify_sport(league: str, sport_slug: str) -> str:
         up = (league or "").upper()
@@ -454,6 +537,12 @@ def build_this_week(game_index: list) -> None:
             return "Disc Golf"
         if token in FOOTBALL or base in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED")):
             return "Football"
+        if token in SOCCER or base in SOCCER:
+            return "Soccer"
+        if token in CRICKET or base in CRICKET:
+            return "Cricket"
+        if token in CURLING or token == "WCF" or base in CURLING or base == "WCF" or up.startswith("WCF ") or "CURLING" in up:
+            return "Curling"
         if token in DISC or base in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
             return "Ultimate Disc"
         if token in BASKETBALL or base in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:
@@ -864,6 +953,51 @@ def main():
         print(f"Injected {len(elf_hist_players)} ELF historical players, "
               f"{len(elf_hist_stats)} stat rows (years: {years_seen})")
 
+    # ── Inject Cricket stats (built by scrape_cricket.py) ───────────────────
+    _cricket_players_file = RAW / "cricket_players.json"
+    _cricket_stats_file   = RAW / "cricket_stats.json"
+    if _cricket_players_file.exists() and _cricket_stats_file.exists():
+        cricket_players = json.loads(_cricket_players_file.read_text())
+        cricket_stats   = json.loads(_cricket_stats_file.read_text())
+        raw_players.extend(cricket_players)
+        raw_stats.extend(cricket_stats)
+        _register_injected_players(cricket_players)
+        _cricket_leagues = sorted({r.get("_league") for r in cricket_stats if r.get("_league")})
+        _cricket_years   = sorted({r.get("_year")   for r in cricket_stats if r.get("_year")})
+        print(f"Injected {len(cricket_players)} cricket players, "
+              f"{len(cricket_stats)} stat rows "
+              f"(leagues: {_cricket_leagues}, years: {_cricket_years[:3]}…{_cricket_years[-3:] if len(_cricket_years) > 3 else ''})")
+
+        # ── Inject Curling stats (built by scrape_curling.py) ───────────────────
+        _curling_players_file = RAW / "curling_players.json"
+        _curling_stats_file   = RAW / "curling_stats.json"
+        if _curling_players_file.exists() and _curling_stats_file.exists():
+          curling_players = json.loads(_curling_players_file.read_text())
+          curling_stats   = json.loads(_curling_stats_file.read_text())
+          raw_players.extend(curling_players)
+          raw_stats.extend(curling_stats)
+          _register_injected_players(curling_players)
+          _curling_leagues = sorted({r.get("_league") for r in curling_stats if r.get("_league")})
+          _curling_years   = sorted({r.get("_year")   for r in curling_stats if r.get("_year")})
+          print(f"Injected {len(curling_players)} curling players, "
+              f"{len(curling_stats)} stat rows "
+              f"(leagues: {_curling_leagues}, years: {_curling_years[:3]}…{_curling_years[-3:] if len(_curling_years) > 3 else ''})")
+
+    # ── Inject US Soccer stats (built by scrape_soccer.py) ───────────────────
+    _soccer_players_file = RAW / "soccer_players.json"
+    _soccer_stats_file   = RAW / "soccer_stats.json"
+    if _soccer_players_file.exists() and _soccer_stats_file.exists():
+        soccer_players = json.loads(_soccer_players_file.read_text())
+        soccer_stats   = json.loads(_soccer_stats_file.read_text())
+        raw_players.extend(soccer_players)
+        raw_stats.extend(soccer_stats)
+        _register_injected_players(soccer_players)
+        _soccer_leagues = sorted({r.get("_league") for r in soccer_stats if r.get("_league")})
+        _soccer_years   = sorted({r.get("_year")   for r in soccer_stats if r.get("_year")})
+        print(f"Injected {len(soccer_players)} soccer players, "
+              f"{len(soccer_stats)} stat rows "
+              f"(leagues: {_soccer_leagues}, years: {_soccer_years[:3]}…{_soccer_years[-3:] if len(_soccer_years) > 3 else ''})")
+
     # ── Inject new league data from individual scrapers ───────────────────
     _new_league_pairs = [
         ("nll_historical_players.json", "nll_historical_stats.json", "NLL historical"),
@@ -892,6 +1026,21 @@ def main():
 
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
+    curling_games_file = RAW / "curling_games.json"
+    if curling_games_file.exists():
+        curling_games = json.loads(curling_games_file.read_text())
+        raw_games.extend(curling_games)
+        print(f"Loaded {len(curling_games)} curling match rows")
+    cricket_games_file = RAW / "cricket_games.json"
+    if cricket_games_file.exists():
+        cricket_games = json.loads(cricket_games_file.read_text())
+        raw_games.extend(cricket_games)
+        print(f"Loaded {len(cricket_games)} cricket match rows")
+    soccer_games_file = RAW / "soccer_games.json"
+    if soccer_games_file.exists():
+        soccer_games = json.loads(soccer_games_file.read_text())
+        raw_games.extend(soccer_games)
+        print(f"Loaded {len(soccer_games)} soccer fixture rows")
     
     # Also load scraper-produced games that are not in SQL exports
     aaf_games_file = RAW / "aaf_2019_games.json"
@@ -1285,6 +1434,45 @@ def main():
                 seen_matchups[dedup_key] = g
             league_games.append(g)
 
+        _m = re.match(r"([a-z0-9-]+)-(\d{4})$", sport_slug)
+        _sport_base = (_m.group(1).upper() if _m else "")
+        _sport_season = (int(_m.group(2)) if _m else None)
+        if _sport_base in SOCCER_LEAGUES and _sport_season is not None:
+            soccer_league_games = []
+            for rg in raw_games:
+                if (rg.get("league") or "").upper() != _sport_base:
+                    continue
+                start_time = rg.get("start_time") or ""
+                if not isinstance(start_time, str) or len(start_time) < 4:
+                    continue
+                try:
+                    game_year = int(start_time[:4])
+                except ValueError:
+                    continue
+                if game_year != _sport_season:
+                    continue
+                soccer_league_games.append({
+                    "slug": game_id_slug(rg.get("game_id") or ""),
+                    "display": f"{rg.get('team_away', '')} @ {rg.get('team_home', '')}",
+                    "week": rg.get("week", ""),
+                    "season": _sport_season,
+                    "date_str": start_time[:10],
+                    "away_team": rg.get("team_away", ""),
+                    "home_team": rg.get("team_home", ""),
+                    "team": "",
+                    "score_home": rg.get("score_home", ""),
+                    "score_away": rg.get("score_away", ""),
+                    "channel": rg.get("channel", ""),
+                    "synthetic": False,
+                    "status": rg.get("status_line", ""),
+                    "player_count": 0,
+                })
+            if soccer_league_games:
+                league_games = sorted(
+                    soccer_league_games,
+                    key=lambda x: (x.get("season") or 0, x.get("week") or 0, x.get("date_str") or "", x.get("slug") or ""),
+                )
+
         league_data = {
             "slug": sport_slug,
             "display_name": display,
@@ -1349,6 +1537,139 @@ def main():
                 team_count += 1
         
         print(f"Written {team_count} team season pages")
+
+    # Seed curling game pages from raw curling match data
+    for rg in raw_games:
+        league_name = (rg.get("league") or "")
+        if league_name.upper() not in {l.upper() for l in CURLING_LEAGUES}:
+            continue
+        game_id = rg.get("game_id") or ""
+        if not game_id:
+            continue
+        gslug = game_id_slug(game_id)
+        if gslug in game_meta:
+            continue
+        start_time = rg.get("start_time") or ""
+        date_str = start_time[:10] if isinstance(start_time, str) else ""
+        season = ""
+        if len(date_str) >= 4:
+            try:
+                season = int(date_str[:4])
+            except ValueError:
+                season = ""
+        away_team = rg.get("team_away") or ""
+        home_team = rg.get("team_home") or ""
+        score_away = rg.get("score_away")
+        score_home = rg.get("score_home")
+        game_meta[gslug] = {
+            "game_id": game_id,
+            "slug": gslug,
+            "display": f"{away_team} @ {home_team}" if away_team and home_team else game_id,
+            "league": league_name,
+            "season": season,
+            "week": rg.get("week", ""),
+            "away_team": away_team,
+            "home_team": home_team,
+            "score_away": "" if score_away is None else score_away,
+            "score_home": "" if score_home is None else score_home,
+            "date_str": date_str,
+            "channel": rg.get("channel") or "",
+            "sport_slug": slugify(f"{league_name}-{season}" if season else league_name),
+            "synthetic": False,
+        }
+        game_sport_slug[gslug] = game_meta[gslug]["sport_slug"]
+        game_players_seen[gslug] = set()
+
+    # Seed cricket game pages from raw cricket match data
+    for rg in raw_games:
+        league_name = (rg.get("league") or "")
+        if league_name.upper() not in {l.upper() for l in CRICKET_LEAGUES}:
+            continue
+        game_id = rg.get("game_id") or ""
+        if not game_id:
+            continue
+        gslug = game_id_slug(game_id)
+        if gslug in game_meta:
+            continue
+        start_time = rg.get("start_time") or ""
+        date_str = start_time[:10] if isinstance(start_time, str) else ""
+        season = ""
+        if len(date_str) >= 4:
+            try:
+                season = int(date_str[:4])
+            except ValueError:
+                season = ""
+        away_team = rg.get("team_away") or ""
+        home_team = rg.get("team_home") or ""
+        score_away = rg.get("score_away")
+        score_home = rg.get("score_home")
+        display = f"{away_team} vs {home_team}" if away_team and home_team else game_id
+        status_line = rg.get("status_line") or ""
+        if status_line:
+            display = f"{display} ({status_line})"
+        game_meta[gslug] = {
+            "game_id": game_id,
+            "slug": gslug,
+            "display": display,
+            "league": league_name,
+            "season": season,
+            "week": rg.get("week", ""),
+            "away_team": away_team,
+            "home_team": home_team,
+            "score_away": "" if score_away is None else score_away,
+            "score_home": "" if score_home is None else score_home,
+            "date_str": date_str,
+            "channel": rg.get("channel") or "",
+            "sport_slug": slugify(f"{league_name}-{season}" if season else league_name),
+            "synthetic": False,
+            "venue": rg.get("venue", ""),
+            "match_type": rg.get("match_type", ""),
+        }
+        game_sport_slug[gslug] = game_meta[gslug]["sport_slug"]
+        game_players_seen[gslug] = set()
+
+    # Seed fixture-only soccer game pages so league-page matchup links resolve
+    # even when the source only provides player stats at the team-season level.
+    for rg in raw_games:
+        league_name = (rg.get("league") or "").upper()
+        if league_name not in SOCCER_LEAGUES:
+            continue
+        game_id = rg.get("game_id") or ""
+        if not game_id:
+            continue
+        gslug = game_id_slug(game_id)
+        if gslug in game_meta:
+            continue
+        start_time = rg.get("start_time") or ""
+        date_str = start_time[:10] if isinstance(start_time, str) else ""
+        season = ""
+        if len(date_str) >= 4:
+            try:
+                season = int(date_str[:4])
+            except ValueError:
+                season = ""
+        away_team = rg.get("team_away") or ""
+        home_team = rg.get("team_home") or ""
+        score_away = rg.get("score_away")
+        score_home = rg.get("score_home")
+        game_meta[gslug] = {
+            "game_id": game_id,
+            "slug": gslug,
+            "display": f"{away_team} @ {home_team}" if away_team and home_team else game_id,
+            "league": league_name,
+            "season": season,
+            "week": rg.get("week", ""),
+            "away_team": away_team,
+            "home_team": home_team,
+            "score_away": "" if score_away is None else score_away,
+            "score_home": "" if score_home is None else score_home,
+            "date_str": date_str,
+            "channel": rg.get("channel") or "",
+            "sport_slug": slugify(f"{league_name}-{season}" if season else league_name),
+            "synthetic": False,
+        }
+        game_sport_slug[gslug] = game_meta[gslug]["sport_slug"]
+        game_players_seen[gslug] = set()
 
     # ─── Game files ───────────────────────────────────────────────────────
     print("Writing game files ...")
