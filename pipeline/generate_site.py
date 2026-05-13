@@ -425,11 +425,13 @@ def main():
     # ── Index page ──────────────────────────────────────────────────────
     print("Rendering index ...")
     render(env, "index.html", SITE_DIR / "index.html", root="",
-           leagues=leagues_index, sport_groups=sport_groups, this_week=this_week)
+            leagues=leagues_index, sport_groups=sport_groups, this_week=this_week,
+            canonical_path="index.html")
 
     # ── Search page ─────────────────────────────────────────────────────
     print("Rendering search ...")
-    render(env, "search.html", SITE_DIR / "search.html", root="")
+    render(env, "search.html", SITE_DIR / "search.html", root="",
+           canonical_path="search.html")
 
     # ── Leagues index ───────────────────────────────────────────────────
     print("Rendering leagues index ...")
@@ -438,7 +440,8 @@ def main():
         SITE_DIR / "leagues" / "index.html",
         root="../",
         leagues=leagues_index,
-        sport_groups=sport_groups
+        sport_groups=sport_groups,
+        canonical_path="leagues/index.html",
     )
 
     # ── League pages ────────────────────────────────────────────────────
@@ -482,6 +485,7 @@ def main():
             league=league_data,
             coaches=coaches,
             chart_top10=chart_top10,
+            canonical_path=f"leagues/{league_data['slug']}.html",
         )
 
     # ── Player pages ────────────────────────────────────────────────────
@@ -546,6 +550,7 @@ def main():
             player_timeline=build_player_timeline(player_data),
             is_coach=is_coach,
             og_image_exists=og_image_exists,
+            canonical_path=f"players/{cid}.html",
         )
     
     # OG manifest save disabled
@@ -573,6 +578,7 @@ def main():
             SITE_DIR / "hof" / f"{cat}.html",
             root="../",
             hof=hof_data,
+            canonical_path=f"hof/{cat}.html",
         )
 
     # ── HoF index ───────────────────────────────────────────────────────
@@ -588,6 +594,7 @@ def main():
         top10s=all_hof["top10s"],
         extras=hof_extras,
         funstats=hof_funstats,
+        canonical_path="hof/index.html",
     )
 
     # ── Game pages ──────────────────────────────────────────────────────

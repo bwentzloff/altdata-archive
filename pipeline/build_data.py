@@ -669,6 +669,64 @@ def main():
     if coaches_merged:
         print(f"Loaded {len(coaches_merged)} canonical coaches")
 
+    def _register_injected_players(_players):
+        """Register synthetic/injected player IDs into canonical lookup maps."""
+        for _p in _players:
+            _pid_raw = _p.get("id")
+            _full_name = (_p.get("full_name") or "").strip()
+            if _pid_raw is None or not _full_name:
+                continue
+
+            _pid = str(_pid_raw)
+            _cid = slugify(_full_name)
+            id_lookup[_pid] = _cid
+
+            _existing = next((cp for cp in players_merged if cp.get("canonical_id") == _cid), None)
+            if _existing is None:
+                players_merged.append({
+                    "canonical_id": _cid,
+                    "canonical_name": _full_name,
+                    "positions": [_p.get("position")] if _p.get("position") else [],
+                    "leagues": [_p.get("league")] if _p.get("league") else [],
+                    "sport_ids": [],
+                    "sport_names": [],
+                    "ambiguous": False,
+                    "record_count": 1,
+                    "appearances": [{
+                        "id": int(_pid),
+                        "full_name": _full_name,
+                        "team": _p.get("team", ""),
+                        "position": _p.get("position", ""),
+                        "sport_id": _p.get("sport_id"),
+                        "league": _p.get("league", ""),
+                        "jersey": _p.get("jersey"),
+                        "college": _p.get("college"),
+                        "college_stats": _p.get("college_stats"),
+                        "height": _p.get("height"),
+                        "weight": _p.get("weight"),
+                    }],
+                    "_raw_ids": [int(_pid)],
+                })
+            else:
+                _raw_ids = _existing.setdefault("_raw_ids", [])
+                if int(_pid) not in _raw_ids:
+                    _raw_ids.append(int(_pid))
+                _apps = _existing.setdefault("appearances", [])
+                if not any(str(a.get("id")) == _pid for a in _apps):
+                    _apps.append({
+                        "id": int(_pid),
+                        "full_name": _full_name,
+                        "team": _p.get("team", ""),
+                        "position": _p.get("position", ""),
+                        "sport_id": _p.get("sport_id"),
+                        "league": _p.get("league", ""),
+                        "jersey": _p.get("jersey"),
+                        "college": _p.get("college"),
+                        "college_stats": _p.get("college_stats"),
+                        "height": _p.get("height"),
+                        "weight": _p.get("weight"),
+                    })
+
     # ── Register new league players in id_lookup (before any aggregation) ──────
     # New league players (IFL, NAL, X-League, etc.) have synthetic IDs that
     # need to map to canonical IDs. Since they're new, create canonical IDs
@@ -788,6 +846,7 @@ def main():
         cfl_hist_stats   = json.loads(_cfl_hist_stats_file.read_text())
         raw_players.extend(cfl_hist_players)
         raw_stats.extend(cfl_hist_stats)
+        _register_injected_players(cfl_hist_players)
         years_seen = sorted({r.get("_year") for r in cfl_hist_stats if r.get("_year")})
         print(f"Injected {len(cfl_hist_players)} CFL historical players, "
               f"{len(cfl_hist_stats)} stat rows (years: {years_seen})")
@@ -800,6 +859,7 @@ def main():
         elf_hist_stats   = json.loads(_elf_hist_stats_file.read_text())
         raw_players.extend(elf_hist_players)
         raw_stats.extend(elf_hist_stats)
+        _register_injected_players(elf_hist_players)
         years_seen = sorted({r.get("_year") for r in elf_hist_stats if r.get("_year")})
         print(f"Injected {len(elf_hist_players)} ELF historical players, "
               f"{len(elf_hist_stats)} stat rows (years: {years_seen})")

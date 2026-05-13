@@ -6,14 +6,14 @@
   <title>Michael Huang Stats — AltSports Archive</title>
   <meta name="description" content="Career and season stats for Michael Huang (P) across AUDL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://archive.altfantasysports.com/">
+  <link rel="canonical" href="https://archive.altfantasysports.com/players/michael-huang.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Michael Huang — AltSports Stats">
   <meta property="og:description" content="Career stats for Michael Huang: assists 0.0, blocks 0.0, drops 0.0, goals 0.0, throwaways 0.0, yardsReceived 0.0, yardsThrown 0.0">
   <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://archive.altfantasysports.com/">
+  <meta property="og:url" content="https://archive.altfantasysports.com/players/michael-huang.html">
   
   
 
@@ -35,9 +35,7 @@
   "name": "Michael Huang",
   "description": "Michael Huang played P in AUDL.",
   "url": "https://archive.altfantasysports.com/players/michael-huang.html",
-  "sameAs": [
-    
-  ],
+  "sameAs": [],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional P",
@@ -72,6 +70,8 @@
   "isPartOf": [
     
     
+    
+    
     {
       "@type": "Dataset",
       "name": "AUDL 2022",
@@ -83,7 +83,7 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
+    }
     
   ],
   "creator": {
@@ -124,6 +124,58 @@
   <main>
     
 <div class="player-header">
+  
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Michael Huang"
+            data-src="../assets/player-images/michael-huang.jpg"
+            data-caption="Wikimedia Commons / Wikimedia Commons (Public domain)">
+      <img src="../assets/player-images/michael-huang.jpg"
+           alt="Michael Huang"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Wikimedia Commons /
+      <a href="https://commons.wikimedia.org/wiki/File:SurnameHuang.svg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (Public domain)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
   
 
   <div class="player-header-text">

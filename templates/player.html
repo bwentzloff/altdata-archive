@@ -20,9 +20,7 @@
   "name": "{{ player.canonical_name }}",
   "description": "{{ player.canonical_name }} played {{ player.positions | join(', ') }} in {{ player.sport_names | join(', ') }}.",
   "url": "https://archive.altfantasysports.com/players/{{ player.canonical_id }}.html",
-  "sameAs": [
-    {% for a in player.appearances %}{% if a.college_stats %}"{{ a.college_stats }}"{% if not loop.last %}, {% endif %}{% endif %}{% endfor %}
-  ],
+  "sameAs": {{ (player.appearances | map(attribute='college_stats') | reject('equalto', None) | reject('equalto', '') | list) | tojson }},
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional {{ player.positions[0] if player.positions else 'Athlete' }}",
@@ -56,7 +54,9 @@
   ],
   "isPartOf": [
     {% set seen_slugs = [] %}
+    {% set comma = joiner(",") %}
     {% for g in player.game_log %}{% if g.sport_slug and g.sport_slug not in seen_slugs %}{% set _ = seen_slugs.append(g.sport_slug) %}
+    {{ comma() }}
     {
       "@type": "Dataset",
       "name": "{{ g.sport_slug.replace('-', ' ').upper() }}",
@@ -68,7 +68,7 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    }{% if not loop.last %},{% endif %}
+    }
     {% endif %}{% endfor %}
   ],
   "creator": {

@@ -6,14 +6,14 @@
   <title>Chris Walsh Stats — AltSports Archive</title>
   <meta name="description" content="Career and season stats for Chris Walsh (P) across AUDL, UFA. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://archive.altfantasysports.com/">
+  <link rel="canonical" href="https://archive.altfantasysports.com/players/chris-walsh.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Chris Walsh — AltSports Stats">
   <meta property="og:description" content="Career stats for Chris Walsh: assists 33.0, blocks 5.0, catches 20.0, completions 25.0, drops 5.0, goals 16.0, hockeyAssists 0.0, hucksCompleted 1.0, throwAttempts 31.0, throwaways 30.0, yardsReceived 1672.0, yardsThrown 3580.0">
   <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://archive.altfantasysports.com/">
+  <meta property="og:url" content="https://archive.altfantasysports.com/players/chris-walsh.html">
   
   
 
@@ -35,9 +35,7 @@
   "name": "Chris Walsh",
   "description": "Chris Walsh played P in AUDL, UFA.",
   "url": "https://archive.altfantasysports.com/players/chris-walsh.html",
-  "sameAs": [
-    
-  ],
+  "sameAs": [],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional P",
@@ -72,6 +70,8 @@
   "isPartOf": [
     
     
+    
+    
     {
       "@type": "Dataset",
       "name": "AUDL 2022",
@@ -83,8 +83,9 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
+    }
     
+    ,
     {
       "@type": "Dataset",
       "name": "AUDL 2023",
@@ -96,8 +97,9 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
+    }
     
+    ,
     {
       "@type": "Dataset",
       "name": "UFA 2025",
@@ -109,7 +111,7 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
+    }
     
   ],
   "creator": {
@@ -150,6 +152,58 @@
   <main>
     
 <div class="player-header">
+  
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Chris Walsh"
+            data-src="../assets/player-images/chris-walsh.jpg"
+            data-caption="SSGT Kenneth Bellard, USAF / Wikimedia Commons (Public domain)">
+      <img src="../assets/player-images/chris-walsh.jpg"
+           alt="Chris Walsh"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      SSGT Kenneth Bellard, USAF /
+      <a href="https://commons.wikimedia.org/wiki/File:Walsh_Culpepper_Birk.JPEG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (Public domain)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
   
 
   <div class="player-header-text">
