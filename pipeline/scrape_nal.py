@@ -15,6 +15,7 @@ Notes:
 
 from __future__ import annotations
 
+import io
 import argparse
 import datetime as dt
 import html
@@ -26,12 +27,19 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup
 
+try:
+    import pdfplumber
+except ImportError:
+    pdfplumber = None
+
 REPO_ROOT = Path(__file__).parent.parent
 RAW_DIR = REPO_ROOT / "pipeline" / "raw"
 PLAYERS_FILE = RAW_DIR / "nal_players.json"
 STATS_FILE = RAW_DIR / "nal_stats.json"
 GAMES_FILE = RAW_DIR / "nal_games.json"
 RAW_FILE = RAW_DIR / "nal_raw.json"
+LEGACY_STATS_PAGE = "https://www.thenationalarenaleague.com/2021-stats"
+LEGACY_SEASON_YEAR = 2021
 
 API_URL = "https://web.api.digitalshift.ca"
 HISTORICAL_STATS_URL = "https://www.thenationalarenaleague.com/historical-stats"
@@ -163,6 +171,317 @@ def normalize_header(header: str) -> str:
     if h in {"xp_pct", "xpp"}:
         return "xp_pct"
     return h
+
+
+PDF_CATEGORY_FIELDS: dict[str, list[str]] = {
+    "passing": [
+        "games_played",
+        "pass_completions",
+        "pass_attempts",
+        "completion_pct",
+        "passing_yards",
+        "passing_yards_per_game",
+        "pass_yards_per_attempt",
+        "passing_tds",
+        "interceptions",
+        "pass_long",
+        "passer_rating",
+    ],
+    "rushing": [
+        "games_played",
+        "rushing_attempts",
+        "rushing_yards",
+        "rushing_yards_per_game",
+        "rush_avg",
+        "rushing_tds",
+        "rush_long",
+        "fumbles",
+        "fumbles_lost",
+    ],
+    "receiving": [
+        "games_played",
+        "receptions",
+        "receptions_per_game",
+        "receiving_yards",
+        "receiving_yards_per_game",
+        "rec_avg",
+        "receiving_tds",
+        "rec_long",
+    ],
+    "kicking": [
+        "games_played",
+        "field_goals_made",
+        "field_goal_attempts",
+        "field_goal_pct",
+        "field_goal_long",
+        "xp_made",
+        "xp_attempts",
+        "xp_pct",
+        "points",
+    ],
+    "punting": [
+        "games_played",
+        "punts",
+        "punt_yards",
+        "punt_avg",
+        "punt_long",
+        "punts_inside_20",
+        "fair_catches",
+        "blocked_punts",
+    ],
+    "returns": [
+        "games_played",
+        "kick_returns",
+        "kr_yards",
+        "kr_avg",
+        "kr_tds",
+        "kr_long",
+        "punt_returns",
+        "pr_yards",
+        "pr_avg",
+        "pr_tds",
+        "pr_long",
+    ],
+    "all_purpose": [
+        "games_played",
+        "rushing_yards",
+        "receiving_yards",
+        "punt_returns",
+        "kick_returns",
+        "total_yards",
+        "yards_per_game",
+    ],
+}
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def detect_pdf_category(row_text: str) -> str | None:
+    normalized = {normalize_header(part) for part in row_text.split() if part}
+
+    if {"comp", "att", "pct", "yds", "y_g", "y_a", "td", "int", "lg", "effic"}.issubset(normalized):
+        return "passing"
+    if {"rush", "yds", "y_g", "avg", "td", "lg", "fum", "lost"}.issubset(normalized):
+        return "rushing"
+    if {"rec", "rec_g", "yds", "y_g", "avg", "td", "lg"}.issubset(normalized):
+        return "receiving"
+    if {"fgm", "fga", "xpm", "xpa", "pts"}.issubset(normalized):
+        return "kicking"
+    if {"punt", "yds", "avg", "lg", "in20", "fctb", "blk"}.issubset(normalized):
+        return "punting"
+    if {"kr", "pr", "yds", "avg", "td", "lg"}.issubset(normalized) and "rcv" not in normalized:
+        return "returns"
+    if {"rcv", "kr", "pr", "yds", "ypg"}.issubset(normalized):
+        return "all_purpose"
+    return ""
+
+
+def parse_pdf_player_row(row_text: str) -> tuple[str, str, list[str]] | None:
+    m = re.match(r"^\s*(\d+)\s+(.+?)\s+([A-Z/]+)\s+(.*)$", row_text.strip())
+    if not m:
+        return None
+
+    _, name, position, rest = m.groups()
+    tokens = rest.split()
+    if not tokens:
+        return None
+    return name, position, tokens
+
+
+def discover_legacy_nal_pdfs() -> list[dict[str, str]]:
+    if pdfplumber is None:
+        return []
+
+    try:
+        response = requests.get(LEGACY_STATS_PAGE, headers=REQUEST_HEADERS, timeout=30)
+        response.raise_for_status()
+    except requests.RequestException:
+        return []
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    sources: list[dict[str, str]] = []
+    seen_ids: set[str] = set()
+
+    for link in soup.select('a[href*="drive.google.com/file/d/"]'):
+        href = link.get("href") or ""
+        text = link.get_text(" ", strip=True)
+        m = re.search(r"/file/d/([^/]+)", href)
+        if not m:
+            continue
+        file_id = m.group(1)
+        if file_id in seen_ids:
+            continue
+        seen_ids.add(file_id)
+        if not text:
+            continue
+        sources.append({"team_name": text, "file_id": file_id})
+
+    return sources
+
+
+def _legacy_stat_value(token: str) -> float | None:
+    value = parse_float(token)
+    return value
+
+
+def scrape_legacy_nal_2021() -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    legacy_sources = discover_legacy_nal_pdfs()
+    if not legacy_sources:
+        return [], [], [], {
+            "season_id": LEGACY_SEASON_YEAR,
+            "source": "google_drive_pdfs",
+            "team_pdfs": 0,
+            "players": 0,
+            "stats": 0,
+            "games": 0,
+            "status": "unavailable",
+        }
+
+    print(f"NAL {LEGACY_SEASON_YEAR}: parsing {len(legacy_sources)} Google Drive team stat sheets...")
+
+    if pdfplumber is None:
+        print("  WARN: pdfplumber not installed, skipping NAL 2021 PDFs")
+        return [], [], [], {
+            "season_id": LEGACY_SEASON_YEAR,
+            "source": "google_drive_pdfs",
+            "team_pdfs": len(legacy_sources),
+            "players": 0,
+            "stats": 0,
+            "games": 0,
+            "status": "missing_dependency",
+        }
+
+    players_by_key: dict[str, dict[str, Any]] = {}
+    stats: list[dict[str, Any]] = []
+    games: list[dict[str, Any]] = []
+    next_player_id = SYNTHETIC_ID_START + 500_000
+
+    for source in legacy_sources:
+        team_name = source["team_name"]
+        file_id = source["file_id"]
+        team_key = slugify(team_name) or file_id.lower()
+        game_id = f"FOOTBALL_NAL_{LEGACY_SEASON_YEAR}_{team_key}_SEASON_TOTAL"
+
+        try:
+            response = requests.get(f"https://drive.google.com/uc?export=download&id={file_id}", timeout=60)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            print(f"  WARN: failed to download {team_name} PDF ({exc})")
+            continue
+
+        games.append(
+            {
+                "game_id": game_id,
+                "league": "NAL",
+                "season_id": LEGACY_SEASON_YEAR,
+                "source_game_id": file_id,
+                "team_home": team_name,
+                "team_away": "",
+                "score_home": None,
+                "score_away": None,
+                "start_time": f"{LEGACY_SEASON_YEAR}-12-31",
+                "status": "season_total",
+                "week": 0,
+                "sport_id": None,
+                "channel": "",
+            }
+        )
+
+        try:
+            with pdfplumber.open(io.BytesIO(response.content)) as pdf:
+                current_category = ""
+                for page_index in range(1, min(len(pdf.pages), 4)):
+                    page = pdf.pages[page_index]
+                    for table in page.extract_tables() or []:
+                        for row in table:
+                            cells = [str(cell).strip() for cell in row if cell and str(cell).strip()]
+                            if not cells:
+                                continue
+
+                            row_text = " ".join(cells)
+                            detected_category = detect_pdf_category(row_text)
+                            if detected_category:
+                                current_category = detected_category
+                                continue
+
+                            if row_text.startswith(("Totals", "Opponent", "STATISTICS", "SCHEDULE", "Player Stats")):
+                                continue
+
+                            if row_text.startswith("NO."):
+                                continue
+
+                            if current_category not in PDF_CATEGORY_FIELDS:
+                                continue
+
+                            parsed = parse_pdf_player_row(row_text)
+                            if not parsed:
+                                continue
+
+                            name, position, values = parsed
+                            player_key = f"{team_name.lower()}::{name.lower()}"
+                            if player_key not in players_by_key:
+                                pid = next_player_id
+                                next_player_id += 1
+                                name_parts = name.split()
+                                players_by_key[player_key] = {
+                                    "id": pid,
+                                    "full_name": name,
+                                    "short_name": name,
+                                    "first_name": name_parts[0] if name_parts else "",
+                                    "last_name": " ".join(name_parts[1:]) if len(name_parts) > 1 else "",
+                                    "sport_id": None,
+                                    "league": "NAL",
+                                    "team": team_name,
+                                    "position": position,
+                                    "_nal": True,
+                                    "_nal_legacy_pdf": True,
+                                    "_nal_pdf_team": team_name,
+                                    "sportradar_id": None,
+                                    "college": None,
+                                    "jersey": None,
+                                    "height": None,
+                                    "weight": None,
+                                }
+
+                            pid = players_by_key[player_key]["id"]
+                            fields = PDF_CATEGORY_FIELDS[current_category]
+                            for field_name, token in zip(fields, values):
+                                value = _legacy_stat_value(token)
+                                if value is None:
+                                    continue
+                                stats.append(
+                                    {
+                                        "player_id": pid,
+                                        "week": 0,
+                                        "stat": field_name,
+                                        "value": float(value),
+                                        "game_id": game_id,
+                                        "league": "NAL",
+                                        "_year": LEGACY_SEASON_YEAR,
+                                    }
+                                )
+        except Exception as exc:
+            print(f"  WARN: failed to parse {team_name} PDF ({exc})")
+            continue
+
+    players = sorted(players_by_key.values(), key=lambda p: p["id"])
+    stats = sorted(
+        stats,
+        key=lambda r: (r.get("_year", 0), str(r.get("game_id", "")), int(r.get("player_id", 0)), str(r.get("stat", ""))),
+    )
+    games = sorted(games, key=lambda g: str(g.get("game_id") or ""))
+
+    return players, stats, games, {
+        "season_id": LEGACY_SEASON_YEAR,
+        "source": "google_drive_pdfs",
+        "team_pdfs": len(games),
+        "players": len(players),
+        "stats": len(stats),
+        "games": len(games),
+        "status": "ok",
+    }
 
 
 def parse_float(value: str) -> float | None:
@@ -569,6 +888,25 @@ def scrape_nal(season_ids: list[int], max_games: int | None = None) -> tuple[lis
 
         if max_games is not None and fetched_games >= max_games:
             break
+
+    legacy_players, legacy_stats, legacy_games, legacy_summary = scrape_legacy_nal_2021()
+    if legacy_summary.get("status") == "ok" and legacy_players:
+        for player in legacy_players:
+            if player["id"] not in players_by_id:
+                players_by_id[player["id"]] = player
+        all_stats.extend(legacy_stats)
+        all_games.extend(legacy_games)
+        seasons_summary.append(
+            {
+                "season_id": legacy_summary["season_id"],
+                "schedule_games": legacy_summary["team_pdfs"],
+                "kept_games": legacy_summary["games"],
+                "skipped_non_league": 0,
+                "source": legacy_summary["source"],
+                "status": legacy_summary["status"],
+            }
+        )
+        skipped_non_league += 0
 
     # Deterministic sorting.
     players = sorted(players_by_id.values(), key=lambda p: p["id"])

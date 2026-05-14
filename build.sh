@@ -71,7 +71,7 @@ echo "==> Player images ..."
 $PYTHON pipeline/scrape_images.py --max-seconds 60 || echo "WARN: Image scraper failed, continuing..."
 
 echo "==> Player news via Google News RSS ..."
-$PYTHON pipeline/scrape_player_news.py || echo "WARN: News scraper failed, continuing..."
+$PYTHON pipeline/scrape_player_news.py --entries-per-feed 1000 || echo "WARN: News scraper failed, continuing..."
 
 echo "==> Merge players ..."
 $PYTHON pipeline/merge_players.py

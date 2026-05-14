@@ -32,6 +32,10 @@ echo "║  AltSports Archive — daily build  $(date '+%Y-%m-%d %H:%M:%S')  ║"
 echo "╚══════════════════════════════════════════════════════╝"
 echo ""
 
+# Pull any commits made elsewhere before regenerating, so the deploy box
+# stays in sync with origin/main and avoids diverged-history push failures.
+git pull --no-rebase
+
 # ── 0. Export fresh SQL from the database ─────────────────────────────────────
 echo "── Database export ─────────────────────────────────────"
 $PYTHON pipeline/export_db.py

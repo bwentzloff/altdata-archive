@@ -404,6 +404,14 @@ COLLEGE_ABBR_TO_NAME = {
     "STATE": "State", "UNIV": "University"
 }
 
+def _article_sort_key(article):
+    return (
+        article.get("date") or "",
+        article.get("indexed_at") or "",
+        article.get("title") or "",
+    )
+
+
 def _norm_cname(name: str) -> str:
     """Normalise a name for college stats lookup: lowercase, strip diacritics."""
     nfkd = unicodedata.normalize("NFD", str(name))
@@ -746,6 +754,8 @@ def main():
                     "summary": article.get("summary"),
                     "indexed_at": article.get("indexed_at"),
                 })
+        for player_name, articles in player_articles.items():
+            player_articles[player_name] = sorted(articles, key=_article_sort_key, reverse=True)
         print(f"Loaded articles for {len(player_articles)} players")
     
     # Load coaches if available
@@ -1333,7 +1343,7 @@ def main():
             "game_log": game_log_by_game,
             "college": _match_college(cp, college_name_index, college_stats_data),
             "nfl":     nfl_stats_data.get(cid),
-            "articles": player_articles.get(cp["canonical_name"], [])[:20],  # Top 20 most recent
+            "articles": player_articles.get(cp["canonical_name"], [])[:50],  # Top 50 most recent
         }
 
         write_json_xml(SITE_DATA / "players" / cid, player_data, root_tag="player")
