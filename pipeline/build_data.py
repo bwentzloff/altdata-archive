@@ -822,6 +822,7 @@ def main():
     # and register them so stats can be aggregated.
     _new_league_player_files = [
         "ifl_players.json", "nal_players.json", "xleague_players.json", "lfa_players.json",
+        "xfl_2020_players.json",
     ]
     for _nlf in _new_league_player_files:
         _nlf_path = RAW / _nlf
@@ -1004,6 +1005,7 @@ def main():
         ("pll_players.json",            "pll_stats.json",            "PLL"),
         ("pul_players.json",            "pul_stats.json",            "PUL"),
         ("fcf_players.json",            "fcf_stats.json",            "FCF"),
+        ("xfl_2020_players.json",       "xfl_2020_stats.json",       "XFL 2020"),
         ("ifl_players.json",            "ifl_stats.json",            "IFL"),
         ("nal_players.json",            "nal_stats.json",            "NAL"),
         ("lfa_players.json",            "lfa_stats.json",            "LFA"),
@@ -1052,6 +1054,11 @@ def main():
     if nal_games_file.exists():
         nal_games = json.loads(nal_games_file.read_text())
         raw_games.extend(nal_games)
+
+    xfl_2020_games_file = RAW / "xfl_2020_games.json"
+    if xfl_2020_games_file.exists():
+        xfl_2020_games = json.loads(xfl_2020_games_file.read_text())
+        raw_games.extend(xfl_2020_games)
     
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
     db_game_by_id = {}

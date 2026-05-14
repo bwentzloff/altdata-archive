@@ -49,6 +49,9 @@ $PYTHON pipeline/scrape_au.py || echo "WARN: AU scraper failed, continuing..."
 echo "==> AAF gamelogs ..."
 $PYTHON pipeline/scrape_aaf_gamelogs.py || echo "WARN: AAF gamelog scraper failed, continuing..."
 
+echo "==> XFL 2020 historical ..."
+$PYTHON pipeline/scrape_xfl_2020.py || echo "WARN: XFL 2020 scraper failed, continuing..."
+
 echo "==> IFL ..."
 $PYTHON pipeline/scrape_ifl.py --batch 2 || echo "WARN: IFL scraper failed, continuing..."
 
