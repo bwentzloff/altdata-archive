@@ -8,17 +8,17 @@
     "nfl",
     "career"
   ],
-  "computed_at": "2026-05-14T15:45:09+00:00",
+  "computed_at": "2026-05-14T17:02:32+00:00",
   "headline_stats": [
     {
       "label": "Best alt league \u2192 NFL rate",
       "value": "4.1%",
-      "sub": "XFL (31 of 754 players)"
+      "sub": "XFL (31 of 753 players)"
     },
     {
       "label": "Overall alt league \u2192 NFL rate",
       "value": "1.7%",
-      "sub": "142 of 8,355 league-player records move alt\u2192NFL"
+      "sub": "142 of 8,329 league-player records move alt\u2192NFL"
     },
     {
       "label": "Median league alt \u2192 NFL rate",
@@ -70,25 +70,25 @@
         {
           "id": "AAF",
           "label": "AAF",
-          "value": 358,
+          "value": 357,
           "is_nfl": false
         },
         {
           "id": "AF1",
           "label": "AF1",
-          "value": 159,
+          "value": 157,
           "is_nfl": false
         },
         {
           "id": "AFL",
           "label": "AFL",
-          "value": 144,
+          "value": 141,
           "is_nfl": false
         },
         {
           "id": "CFL",
           "label": "CFL",
-          "value": 4092,
+          "value": 4077,
           "is_nfl": false
         },
         {
@@ -100,7 +100,7 @@
         {
           "id": "IFL",
           "label": "IFL",
-          "value": 149,
+          "value": 148,
           "is_nfl": false
         },
         {
@@ -112,19 +112,19 @@
         {
           "id": "UFL",
           "label": "UFL",
-          "value": 1245,
+          "value": 1244,
           "is_nfl": false
         },
         {
           "id": "USFL",
           "label": "USFL",
-          "value": 762,
+          "value": 760,
           "is_nfl": false
         },
         {
           "id": "XFL",
           "label": "XFL",
-          "value": 754,
+          "value": 753,
           "is_nfl": false
         }
       ],
@@ -274,6 +274,12 @@
           "directed": true
         },
         {
+          "source": "CFL",
+          "target": "AF1",
+          "value": 7,
+          "directed": true
+        },
+        {
           "source": "AFL",
           "target": "AF1",
           "value": 7,
@@ -281,19 +287,13 @@
         },
         {
           "source": "CFL",
-          "target": "AF1",
+          "target": "AFL",
           "value": 8,
           "directed": true
         },
         {
           "source": "CFL",
           "target": "ELF",
-          "value": 9,
-          "directed": true
-        },
-        {
-          "source": "CFL",
-          "target": "AFL",
           "value": 9,
           "directed": true
         },
@@ -342,7 +342,7 @@
         {
           "source": "AF1",
           "target": "AFL",
-          "value": 16,
+          "value": 15,
           "directed": true
         },
         {
@@ -390,13 +390,13 @@
         {
           "source": "CFL",
           "target": "USFL",
-          "value": 40,
+          "value": 47,
           "directed": true
         },
         {
           "source": "CFL",
           "target": "XFL",
-          "value": 57,
+          "value": 60,
           "directed": true
         },
         {
@@ -408,7 +408,7 @@
         {
           "source": "UFL",
           "target": "CFL",
-          "value": 64,
+          "value": 63,
           "directed": true
         },
         {
@@ -432,7 +432,13 @@
         {
           "source": "AAF",
           "target": "XFL",
-          "value": 112,
+          "value": 111,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "CFL",
+          "value": 153,
           "directed": true
         },
         {
@@ -442,15 +448,9 @@
           "directed": true
         },
         {
-          "source": "USFL",
-          "target": "CFL",
-          "value": 161,
-          "directed": true
-        },
-        {
           "source": "XFL",
           "target": "CFL",
-          "value": 180,
+          "value": 177,
           "directed": true
         },
         {
@@ -462,7 +462,7 @@
         {
           "source": "USFL",
           "target": "UFL",
-          "value": 225,
+          "value": 224,
           "directed": true
         }
       ],
@@ -522,7 +522,7 @@
     },
     {
       "heading": "Top-line result",
-      "html": "<p>The headline cards above now focus on directional movement: players who appear in an alt league <em>before</em> the NFL. On that measure, <strong>XFL</strong> leads at <strong>4.1%</strong> (31 of 754).</p><p>Important caveat: chart and table conversion columns still show <em>any</em> NFL overlap (before or after) so you can compare both lenses.</p>"
+      "html": "<p>The headline cards above now focus on directional movement: players who appear in an alt league <em>before</em> the NFL. On that measure, <strong>XFL</strong> leads at <strong>4.1%</strong> (31 of 753).</p><p>Important caveat: chart and table conversion columns still show <em>any</em> NFL overlap (before or after) so you can compare both lenses.</p>"
     },
     {
       "heading": "Chicken or egg?",
@@ -582,9 +582,9 @@
         "league": "UFL",
         "code": "UFL",
         "blurb": "United Football League \u2014 formed by the 2024 merger of USFL and XFL.",
-        "players": 1245,
+        "players": 1244,
         "to_nfl": 225,
-        "rate": 0.1807,
+        "rate": 0.1809,
         "rate_pct": 18.1,
         "before_nfl": 35,
         "after_nfl": 190,
@@ -599,15 +599,15 @@
         "league": "XFL",
         "code": "XFL",
         "blurb": "XFL (revived 2023, merged with USFL into UFL in 2024).",
-        "players": 754,
+        "players": 753,
         "to_nfl": 31,
-        "rate": 0.0411,
+        "rate": 0.0412,
         "rate_pct": 4.1,
         "before_nfl": 31,
         "after_nfl": 0,
         "same_year": 0,
         "with_year_data": 31,
-        "alt_to_nfl_rate": 0.0411,
+        "alt_to_nfl_rate": 0.0412,
         "alt_to_nfl_pct": 4.1,
         "stepping_share": 1.0,
         "stepping_pct": 100.0
@@ -616,15 +616,15 @@
         "league": "USFL",
         "code": "USFL",
         "blurb": "United States Football League (revived 2022, merged with XFL into UFL in 2024).",
-        "players": 762,
+        "players": 760,
         "to_nfl": 28,
-        "rate": 0.0367,
+        "rate": 0.0368,
         "rate_pct": 3.7,
         "before_nfl": 28,
         "after_nfl": 0,
         "same_year": 0,
         "with_year_data": 28,
-        "alt_to_nfl_rate": 0.0367,
+        "alt_to_nfl_rate": 0.0368,
         "alt_to_nfl_pct": 3.7,
         "stepping_share": 1.0,
         "stepping_pct": 100.0
@@ -633,15 +633,15 @@
         "league": "AAF",
         "code": "AAF",
         "blurb": "Alliance of American Football \u2014 single 2019 season.",
-        "players": 358,
+        "players": 357,
         "to_nfl": 12,
-        "rate": 0.0335,
+        "rate": 0.0336,
         "rate_pct": 3.4,
         "before_nfl": 12,
         "after_nfl": 0,
         "same_year": 0,
         "with_year_data": 12,
-        "alt_to_nfl_rate": 0.0335,
+        "alt_to_nfl_rate": 0.0336,
         "alt_to_nfl_pct": 3.4,
         "stepping_share": 1.0,
         "stepping_pct": 100.0
@@ -650,9 +650,9 @@
         "league": "CFL",
         "code": "CFL",
         "blurb": "Canadian Football League \u2014 9 teams, founded 1958.",
-        "players": 4092,
+        "players": 4077,
         "to_nfl": 52,
-        "rate": 0.0127,
+        "rate": 0.0128,
         "rate_pct": 1.3,
         "before_nfl": 34,
         "after_nfl": 18,
@@ -667,15 +667,15 @@
         "league": "AFL",
         "code": "AFL",
         "blurb": "Arena Football League (revived 2024).",
-        "players": 144,
+        "players": 141,
         "to_nfl": 1,
-        "rate": 0.0069,
+        "rate": 0.0071,
         "rate_pct": 0.7,
         "before_nfl": 1,
         "after_nfl": 0,
         "same_year": 0,
         "with_year_data": 1,
-        "alt_to_nfl_rate": 0.0069,
+        "alt_to_nfl_rate": 0.0071,
         "alt_to_nfl_pct": 0.7,
         "stepping_share": 1.0,
         "stepping_pct": 100.0
@@ -701,7 +701,7 @@
         "league": "IFL",
         "code": "IFL",
         "blurb": "Indoor Football League.",
-        "players": 149,
+        "players": 148,
         "to_nfl": 0,
         "rate": 0.0,
         "rate_pct": 0.0,
@@ -718,7 +718,7 @@
         "league": "AF1",
         "code": "AF1",
         "blurb": "Arena Football One.",
-        "players": 159,
+        "players": 157,
         "to_nfl": 0,
         "rate": 0.0,
         "rate_pct": 0.0,
@@ -736,32 +736,32 @@
   "history_row": {
     "leagues": {
       "UFL": {
-        "players": 1245,
+        "players": 1244,
         "to_nfl": 225,
         "rate_pct": 18.1
       },
       "XFL": {
-        "players": 754,
+        "players": 753,
         "to_nfl": 31,
         "rate_pct": 4.1
       },
       "USFL": {
-        "players": 762,
+        "players": 760,
         "to_nfl": 28,
         "rate_pct": 3.7
       },
       "AAF": {
-        "players": 358,
+        "players": 357,
         "to_nfl": 12,
         "rate_pct": 3.4
       },
       "CFL": {
-        "players": 4092,
+        "players": 4077,
         "to_nfl": 52,
         "rate_pct": 1.3
       },
       "AFL": {
-        "players": 144,
+        "players": 141,
         "to_nfl": 1,
         "rate_pct": 0.7
       },
@@ -771,16 +771,16 @@
         "rate_pct": 0.1
       },
       "IFL": {
-        "players": 149,
+        "players": 148,
         "to_nfl": 0,
         "rate_pct": 0.0
       },
       "AF1": {
-        "players": 159,
+        "players": 157,
         "to_nfl": 0,
         "rate_pct": 0.0
       }
     },
-    "total_football_players": 9359
+    "total_football_players": 9339
   }
 }
