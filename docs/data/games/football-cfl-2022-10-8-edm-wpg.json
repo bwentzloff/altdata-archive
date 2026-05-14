@@ -15,13 +15,17 @@
   "record_away": "",
   "sport_slug": "cfl-2022",
   "synthetic": false,
-  "player_count": 29,
+  "player_count": 53,
   "stat_keys": [
     "def_int",
+    "def_sack",
     "def_solo",
     "def_tot",
+    "def_ydsl",
     "pass_att",
     "pass_cmp",
+    "pass_int",
+    "pass_lg",
     "pass_loss",
     "pass_sack",
     "pass_td",
@@ -39,9 +43,11 @@
     "ret_yds",
     "rush_att",
     "rush_lg",
+    "rush_td",
     "rush_yds",
     "score_p",
     "score_pts",
+    "score_r",
     "score_tot",
     "stat_fga",
     "stat_fgm",
@@ -51,6 +57,18 @@
     "stat_xpm"
   ],
   "players": [
+    {
+      "canonical_id": "adam-bighill",
+      "canonical_name": "Adam Bighill",
+      "positions": [
+        "LB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 9.0,
+        "def_tot": 9.0
+      }
+    },
     {
       "canonical_id": "adam-konar",
       "canonical_name": "Adam Konar",
@@ -93,14 +111,79 @@
       "canonical_id": "avery-ellis",
       "canonical_name": "Avery Ellis",
       "positions": [
-        "DB",
         "DL",
+        "DB",
         "DE"
       ],
       "ambiguous": false,
       "stats": {
         "def_solo": 2.0,
         "def_tot": 2.0
+      }
+    },
+    {
+      "canonical_id": "brady-oliveira",
+      "canonical_name": "Brady OLIVEIRA",
+      "positions": [
+        "RB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "rush_att": 14.0,
+        "rush_yds": 61.0,
+        "rush_lg": 9.0,
+        "rush_td": 1.0,
+        "recv_rec": 2.0,
+        "recv_yds": 46.0,
+        "recv_td": 1.0,
+        "recv_tar": 2.0,
+        "recv_yac": 21.0,
+        "score_tot": 2.0,
+        "score_r": 1.0,
+        "score_p": 1.0,
+        "score_pts": 12.0
+      }
+    },
+    {
+      "canonical_id": "brendan-oleary-orange",
+      "canonical_name": "Brendan O\\'LEARY-ORANGE",
+      "positions": [
+        "WR"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "recv_rec": 2.0,
+        "recv_yds": 34.0,
+        "recv_lg": 18.0,
+        "recv_tar": 2.0,
+        "recv_yac": 15.0
+      }
+    },
+    {
+      "canonical_id": "cameron-lawson",
+      "canonical_name": "Cameron Lawson",
+      "positions": [
+        "DL",
+        "DB",
+        "DT"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 2.0,
+        "def_tot": 2.0
+      }
+    },
+    {
+      "canonical_id": "casey-sayles",
+      "canonical_name": "Casey Sayles",
+      "positions": [
+        "DB",
+        "DT"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_sack": 1.0,
+        "def_ydsl": 1.0
       }
     },
     {
@@ -122,8 +205,8 @@
       "canonical_id": "christian-rector",
       "canonical_name": "Christian Rector",
       "positions": [
-        "DB",
-        "DL"
+        "DL",
+        "DB"
       ],
       "ambiguous": false,
       "stats": {
@@ -135,8 +218,8 @@
       "canonical_id": "christian-saulsberry",
       "canonical_name": "Christian Saulsberry",
       "positions": [
-        "RB",
-        "WR"
+        "WR",
+        "RB"
       ],
       "ambiguous": false,
       "stats": {
@@ -146,6 +229,55 @@
         "rush_att": 1.0,
         "rush_yds": 7.0,
         "rush_lg": 7.0
+      }
+    },
+    {
+      "canonical_id": "dakota-prukop",
+      "canonical_name": "Dakota Prukop",
+      "positions": [
+        "QB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "pass_att": 2.0,
+        "pass_cmp": 2.0,
+        "pass_yds": 61.0,
+        "pass_td": 1.0,
+        "pass_lg": 37.0,
+        "rush_att": 5.0,
+        "rush_yds": 16.0,
+        "rush_lg": 6.0
+      }
+    },
+    {
+      "canonical_id": "dalton-schoen",
+      "canonical_name": "Dalton SCHOEN",
+      "positions": [
+        "WR"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "recv_rec": 7.0,
+        "recv_yds": 162.0,
+        "recv_td": 3.0,
+        "recv_tar": 8.0,
+        "recv_yac": 37.0,
+        "score_tot": 3.0,
+        "score_p": 3.0,
+        "score_pts": 18.0
+      }
+    },
+    {
+      "canonical_id": "deatrick-nichols",
+      "canonical_name": "Deatrick Nichols",
+      "positions": [
+        "DB",
+        "CB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 3.0,
+        "def_tot": 3.0
       }
     },
     {
@@ -179,6 +311,20 @@
         "score_tot": 1.0,
         "score_p": 1.0,
         "score_pts": 6.0
+      }
+    },
+    {
+      "canonical_id": "dru-brown",
+      "canonical_name": "Dru Brown",
+      "positions": [
+        "QB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "pass_att": 2.0,
+        "pass_cmp": 1.0,
+        "pass_yds": 65.0,
+        "pass_td": 1.0
       }
     },
     {
@@ -231,11 +377,39 @@
       }
     },
     {
+      "canonical_id": "evan-holm",
+      "canonical_name": "Evan Holm",
+      "positions": [
+        "DB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 4.0,
+        "def_tot": 4.0
+      }
+    },
+    {
+      "canonical_id": "greg-mccrae",
+      "canonical_name": "Greg McCrae",
+      "positions": [
+        "RB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "rush_att": 2.0,
+        "rush_yds": 27.0,
+        "rush_lg": 18.0,
+        "recv_tar": 1.0,
+        "def_solo": 1.0,
+        "def_tot": 1.0
+      }
+    },
+    {
       "canonical_id": "j-min-pelley",
       "canonical_name": "J-Min Pelley",
       "positions": [
-        "DB",
-        "DL"
+        "DL",
+        "DB"
       ],
       "ambiguous": false,
       "stats": {
@@ -247,8 +421,21 @@
       "canonical_id": "jake-ceresna",
       "canonical_name": "Jake Ceresna",
       "positions": [
+        "DL",
+        "DB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 2.0,
+        "def_tot": 2.0
+      }
+    },
+    {
+      "canonical_id": "jake-thomas",
+      "canonical_name": "Jake Thomas",
+      "positions": [
         "DB",
-        "DL"
+        "DT"
       ],
       "ambiguous": false,
       "stats": {
@@ -272,6 +459,18 @@
       }
     },
     {
+      "canonical_id": "jamal-parker",
+      "canonical_name": "Jamal Parker",
+      "positions": [
+        "DB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 6.0,
+        "def_tot": 6.0
+      }
+    },
+    {
       "canonical_id": "jamie-harry",
       "canonical_name": "Jamie Harry",
       "positions": [
@@ -281,6 +480,19 @@
       "stats": {
         "def_solo": 1.0,
         "def_tot": 1.0
+      }
+    },
+    {
+      "canonical_id": "janarion-grant",
+      "canonical_name": "Janarion GRANT",
+      "positions": [
+        "WR"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "ret_num": 1.0,
+        "ret_yds": 27.0,
+        "ret_lg": 27.0
       }
     },
     {
@@ -294,6 +506,22 @@
         "def_int": 1.0,
         "def_solo": 3.0,
         "def_tot": 3.0
+      }
+    },
+    {
+      "canonical_id": "johnny-augustine",
+      "canonical_name": "Johnny AUGUSTINE",
+      "positions": [
+        "RB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "rush_att": 2.0,
+        "rush_yds": 10.0,
+        "rush_lg": 6.0,
+        "ret_num": 1.0,
+        "ret_yds": 15.0,
+        "ret_lg": 15.0
       }
     },
     {
@@ -326,6 +554,21 @@
       }
     },
     {
+      "canonical_id": "keion-adams",
+      "canonical_name": "Keion Adams",
+      "positions": [
+        "DL",
+        "DB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 1.0,
+        "def_tot": 1.0,
+        "def_sack": 1.0,
+        "def_ydsl": 5.0
+      }
+    },
+    {
       "canonical_id": "kevin-brown",
       "canonical_name": "Kevin BROWN",
       "positions": [
@@ -342,13 +585,25 @@
       "canonical_id": "kony-ealy",
       "canonical_name": "Kony Ealy",
       "positions": [
-        "DB",
-        "DL"
+        "DL",
+        "DB"
       ],
       "ambiguous": false,
       "stats": {
         "def_solo": 1.0,
         "def_tot": 1.0
+      }
+    },
+    {
+      "canonical_id": "les-maruo",
+      "canonical_name": "Les Maruo",
+      "positions": [
+        "LB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 2.0,
+        "def_tot": 2.0
       }
     },
     {
@@ -363,16 +618,102 @@
       }
     },
     {
+      "canonical_id": "marc-liegghio",
+      "canonical_name": "Marc LIEGGHIO",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "stat_fgm": 2.0,
+        "stat_fga": 2.0,
+        "stat_lg": 43.0,
+        "stat_xpm": 6.0,
+        "stat_xpa": 6.0,
+        "stat_pts": 12.0,
+        "ret_num": 8.0,
+        "ret_yds": 500.0,
+        "ret_lg": 69.0,
+        "ret_ret": 8.0,
+        "ret_ryds": 175.0,
+        "score_pts": 12.0
+      }
+    },
+    {
       "canonical_id": "matthew-thomas",
       "canonical_name": "Matthew Thomas",
       "positions": [
-        "DB",
-        "DL"
+        "DL",
+        "DB"
       ],
       "ambiguous": false,
       "stats": {
         "def_solo": 5.0,
         "def_tot": 5.0
+      }
+    },
+    {
+      "canonical_id": "nic-demski",
+      "canonical_name": "Nic DEMSKI",
+      "positions": [
+        "WR"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "recv_rec": 5.0,
+        "recv_yds": 92.0,
+        "recv_lg": 37.0,
+        "recv_td": 1.0,
+        "recv_tar": 6.0,
+        "recv_yac": 23.0,
+        "rush_att": 3.0,
+        "rush_yds": 22.0,
+        "rush_lg": 12.0,
+        "score_tot": 1.0,
+        "score_p": 1.0,
+        "score_pts": 6.0
+      }
+    },
+    {
+      "canonical_id": "rasheed-bailey",
+      "canonical_name": "Rasheed Bailey",
+      "positions": [
+        "WR"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "recv_rec": 2.0,
+        "recv_yds": 33.0,
+        "recv_lg": 24.0,
+        "recv_tar": 4.0,
+        "recv_yac": 27.0,
+        "rush_att": 1.0
+      }
+    },
+    {
+      "canonical_id": "redha-kramdi",
+      "canonical_name": "Redha Kramdi",
+      "positions": [
+        "DB",
+        "LB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 3.0,
+        "def_tot": 3.0
+      }
+    },
+    {
+      "canonical_id": "ricky-walker",
+      "canonical_name": "Ricky Walker",
+      "positions": [
+        "DB",
+        "DT"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 1.0,
+        "def_tot": 1.0
       }
     },
     {
@@ -445,13 +786,40 @@
       "canonical_id": "treston-decoud",
       "canonical_name": "Treston Decoud",
       "positions": [
-        "CB",
-        "DB"
+        "DB",
+        "CB"
       ],
       "ambiguous": false,
       "stats": {
         "def_solo": 3.0,
         "def_tot": 3.0
+      }
+    },
+    {
+      "canonical_id": "winston-rose",
+      "canonical_name": "Winston Rose",
+      "positions": [
+        "DB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "def_solo": 2.0,
+        "def_tot": 2.0
+      }
+    },
+    {
+      "canonical_id": "zach-collaros",
+      "canonical_name": "Zach COLLAROS",
+      "positions": [
+        "QB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "pass_att": 19.0,
+        "pass_cmp": 15.0,
+        "pass_yds": 241.0,
+        "pass_td": 3.0,
+        "pass_int": 1.0
       }
     }
   ]
