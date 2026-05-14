@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CFL 2017 Stats — AltSports Archive</title>
-  <meta name="description" content="Player statistics for CFL 2017: 409 players with recorded stats. Free historical alternative sports data.">
+  <meta name="description" content="Player statistics for CFL 2017: 509 players with recorded stats. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/leagues/cfl-2017.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="CFL 2017 — Player Stats">
-  <meta property="og:description" content="409 players with stats in CFL 2017. Browse, search, and download as JSON or XML.">
+  <meta property="og:description" content="509 players with stats in CFL 2017. Browse, search, and download as JSON or XML.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://archive.altfantasysports.com/leagues/cfl-2017.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "CFL 2017 Player Statistics",
-  "description": "Complete player statistics for CFL 2017 — 409 players, 102 games. Source: AltSports Archive.",
+  "description": "Complete player statistics for CFL 2017 — 509 players, 104 games. Source: AltSports Archive.",
   "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
   "distribution": [
     {
@@ -124,6 +124,19 @@
       "name": "EDM @ BC — CFL 2017",
       "description": "Box score and player statistics for EDM @ BC — CFL 2017 from CFL 2017.",
       "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-10-21-edm-bc.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
+      "name": "WPG @ TOR — CFL 2017",
+      "description": "Box score and player statistics for WPG @ TOR — CFL 2017 from CFL 2017.",
+      "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-10-21-wpg-tor.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -433,6 +446,19 @@
     
     {
       "@type": "Dataset",
+      "name": "TOR @ WPG — CFL 2017",
+      "description": "Box score and player statistics for TOR @ WPG — CFL 2017 from CFL 2017.",
+      "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-7-13-tor-wpg.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    
+    {
+      "@type": "Dataset",
       "name": "CGY @ MTL — CFL 2017",
       "description": "Box score and player statistics for CGY @ MTL — CFL 2017 from CFL 2017.",
       "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-7-14-cgy-mtl.json",
@@ -676,32 +702,6 @@
         "url": "https://archive.altfantasysports.com"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
-    
-    {
-      "@type": "Dataset",
-      "name": "PHI @ GB — CFL 2017",
-      "description": "Box score and player statistics for PHI @ GB — CFL 2017 from CFL 2017.",
-      "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-8-10-phi-gb.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    },
-    
-    {
-      "@type": "Dataset",
-      "name": "WAS @ BAL — CFL 2017",
-      "description": "Box score and player statistics for WAS @ BAL — CFL 2017 from CFL 2017.",
-      "url": "https://archive.altfantasysports.com/data/games/football-cfl-2017-8-10-was-bal.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
   ],
@@ -737,6 +737,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -748,7 +749,7 @@
   <main>
     
 <h1>CFL 2017</h1>
-<p>409 players with recorded stats, 102 games.</p>
+<p>509 players with recorded stats, 104 games.</p>
 
 
 <section class="chart-section">
@@ -757,7 +758,7 @@
     <canvas id="league-chart"></canvas>
   </div>
   <script>
-  window._leagueChartData = {"labels": ["Charleston Hughes", "John Bowman", "Adrian Tracy", "Euclid Cummings", "Ja'Gared Davis", "Micah Johnson", "Odell Willis", "Willie Jefferson", "Craig Roh", "Almondo Sewell"], "values": [12.0, 10.0, 9.0, 9.0, 9.0, 9.0, 9.0, 9.0, 8.0, 7.0], "stat": "def_sack"};
+  window._leagueChartData = {"labels": ["Charleston Hughes", "John Bowman", "Shawn Lemon", "Adrian Tracy", "Euclid Cummings", "Ja'Gared Davis", "Micah Johnson", "Odell Willis", "Victor Butler", "Willie Jefferson"], "values": [12.0, 10.0, 10.0, 9.0, 9.0, 9.0, 9.0, 9.0, 9.0, 9.0], "stat": "def_sack"};
   </script>
 </section>
 
@@ -769,7 +770,7 @@
   <h2>Games</h2>
   
   <table class="data-table">
-    <caption>CFL 2017 game log — 102 games</caption>
+    <caption>CFL 2017 game log — 104 games</caption>
     <thead>
       <tr>
         <th scope="col">Wk</th>
@@ -818,7 +819,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-10-14</td>
-        <td>44</td>
+        <td>97</td>
       </tr>
       
       
@@ -830,7 +831,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-10-14</td>
-        <td>25</td>
+        <td>51</td>
       </tr>
       
       
@@ -855,6 +856,18 @@
         <td>—</td>
         <td>2017-10-21</td>
         <td>96</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/football-cfl-2017-10-21-wpg-tor.html">WPG @ TOR</a>
+        </td>
+        <td>—</td>
+        <td>—</td>
+        <td>2017-10-21</td>
+        <td>49</td>
       </tr>
       
       
@@ -914,7 +927,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-10-06</td>
-        <td>25</td>
+        <td>52</td>
       </tr>
       
       
@@ -938,7 +951,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-10-07</td>
-        <td>57</td>
+        <td>103</td>
       </tr>
       
       
@@ -962,7 +975,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-11-12</td>
-        <td>50</td>
+        <td>97</td>
       </tr>
       
       
@@ -998,7 +1011,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-11-26</td>
-        <td>54</td>
+        <td>102</td>
       </tr>
       
       
@@ -1022,7 +1035,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-11-03</td>
-        <td>32</td>
+        <td>57</td>
       </tr>
       
       
@@ -1046,7 +1059,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-11-04</td>
-        <td>25</td>
+        <td>51</td>
       </tr>
       
       
@@ -1082,7 +1095,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-06-25</td>
-        <td>26</td>
+        <td>50</td>
       </tr>
       
       
@@ -1106,7 +1119,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-06-30</td>
-        <td>24</td>
+        <td>50</td>
       </tr>
       
       
@@ -1130,7 +1143,19 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-01</td>
-        <td>53</td>
+        <td>102</td>
+      </tr>
+      
+      
+      <tr>
+        <td>1</td>
+        <td>
+          <a href="../games/football-cfl-2017-7-13-tor-wpg.html">TOR @ WPG</a>
+        </td>
+        <td>—</td>
+        <td>—</td>
+        <td>2017-07-13</td>
+        <td>46</td>
       </tr>
       
       
@@ -1202,7 +1227,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-21</td>
-        <td>26</td>
+        <td>53</td>
       </tr>
       
       
@@ -1214,7 +1239,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-24</td>
-        <td>27</td>
+        <td>54</td>
       </tr>
       
       
@@ -1226,7 +1251,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-27</td>
-        <td>27</td>
+        <td>52</td>
       </tr>
       
       
@@ -1262,7 +1287,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-29</td>
-        <td>25</td>
+        <td>51</td>
       </tr>
       
       
@@ -1286,7 +1311,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-07</td>
-        <td>30</td>
+        <td>56</td>
       </tr>
       
       
@@ -1310,7 +1335,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-07-08</td>
-        <td>23</td>
+        <td>48</td>
       </tr>
       
       
@@ -1370,7 +1395,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-10</td>
-        <td>2</td>
+        <td>3</td>
       </tr>
       
       
@@ -1406,7 +1431,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-11</td>
-        <td>23</td>
+        <td>46</td>
       </tr>
       
       
@@ -1430,7 +1455,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-12</td>
-        <td>25</td>
+        <td>50</td>
       </tr>
       
       
@@ -1478,7 +1503,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-17</td>
-        <td>2</td>
+        <td>3</td>
       </tr>
       
       
@@ -1574,7 +1599,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-19</td>
-        <td>52</td>
+        <td>104</td>
       </tr>
       
       
@@ -1610,7 +1635,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-24</td>
-        <td>27</td>
+        <td>54</td>
       </tr>
       
       
@@ -1694,7 +1719,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-26</td>
-        <td>25</td>
+        <td>52</td>
       </tr>
       
       
@@ -1850,7 +1875,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-08-04</td>
-        <td>24</td>
+        <td>46</td>
       </tr>
       
       
@@ -1910,7 +1935,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-09-16</td>
-        <td>24</td>
+        <td>48</td>
       </tr>
       
       
@@ -1934,7 +1959,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-09-22</td>
-        <td>26</td>
+        <td>47</td>
       </tr>
       
       
@@ -1970,7 +1995,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-09-30</td>
-        <td>46</td>
+        <td>96</td>
       </tr>
       
       
@@ -1982,7 +2007,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-09-30</td>
-        <td>25</td>
+        <td>52</td>
       </tr>
       
       
@@ -2006,7 +2031,7 @@
         <td>—</td>
         <td>—</td>
         <td>2017-09-09</td>
-        <td>27</td>
+        <td>50</td>
       </tr>
       
     </tbody>
@@ -2107,7 +2132,7 @@
         <a href="../players/adarius-bowman.html">Adarius Bowman</a>
         <span class="ambiguous-tag">?</span>
       </td>
-      <td>SB, WR</td>
+      <td>WR, SB</td>
       
     </tr>
     
@@ -2126,6 +2151,33 @@
         
       </td>
       <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/akeem-jordan.html">Akeem Jordan</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/akwasi-owusu-ansah.html">Akwasi Owusu-Ansah</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/alden-darby.html">Alden Darby</a>
+        
+      </td>
+      <td>LB, DB</td>
       
     </tr>
     
@@ -2188,7 +2240,7 @@
         <a href="../players/alexandre-dupuis.html">Alexandre Dupuis</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -2197,7 +2249,7 @@
         <a href="../players/almondo-sewell.html">Almondo Sewell</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -2216,6 +2268,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/andrew-harris.html">Andrew Harris</a>
+        
+      </td>
+      <td>RB</td>
       
     </tr>
     
@@ -2243,6 +2304,15 @@
         
       </td>
       <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/anthony-coombs.html">Anthony Coombs</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -2342,6 +2412,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/armanti-edwards.html">Armanti Edwards</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -2455,6 +2534,15 @@
     
     <tr>
       <td>
+        <a href="../players/brandon-alexander.html">Brandon Alexander</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/brandon-banks.html">Brandon Banks</a>
         
       </td>
@@ -2468,6 +2556,15 @@
         
       </td>
       <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brandon-harris.html">Brandon Harris</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -2495,6 +2592,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brandon-whitaker.html">Brandon Whitaker</a>
+        
+      </td>
+      <td>RB</td>
       
     </tr>
     
@@ -2545,6 +2651,15 @@
     
     <tr>
       <td>
+        <a href="../players/brian-jones.html">Brian Jones</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/brian-simmons.html">Brian Simmons</a>
         <span class="ambiguous-tag">?</span>
       </td>
@@ -2558,6 +2673,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/brian-walker.html">Brian Walker</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -2653,6 +2777,15 @@
     
     <tr>
       <td>
+        <a href="../players/cam-mcdaniel.html">Cam McDaniel</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/cameron-marshall.html">Cameron Marshall</a>
         
       </td>
@@ -2663,6 +2796,15 @@
     <tr>
       <td>
         <a href="../players/cariel-brooks.html">Cariel Brooks</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cassius-vaughn.html">Cassius Vaughn</a>
         
       </td>
       <td>DB</td>
@@ -2693,6 +2835,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chandler-worthy.html">Chandler Worthy</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -2752,6 +2903,15 @@
     
     <tr>
       <td>
+        <a href="../players/chris-givens.html">Chris Givens</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/chris-lyles.html">Chris Lyles</a>
         
       </td>
@@ -2774,6 +2934,24 @@
         
       </td>
       <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chris-randle.html">Chris Randle</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/chris-van-zeyl.html">Chris Van Zeyl</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>OL</td>
       
     </tr>
     
@@ -2806,10 +2984,46 @@
     
     <tr>
       <td>
+        <a href="../players/christophe-normand.html">Christophe Normand</a>
+        
+      </td>
+      <td>RB, FB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/ciante-evans.html">Ciante Evans</a>
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/clarence-denmark.html">Clarence Denmark</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cleyon-laing.html">Cleyon Laing</a>
+        
+      </td>
+      <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cody-fajardo.html">Cody FAJARDO</a>
+        
+      </td>
+      <td>QB</td>
       
     </tr>
     
@@ -2855,6 +3069,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/cory-johnson.html">Cory Johnson</a>
+        
+      </td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -2932,6 +3155,15 @@
     
     <tr>
       <td>
+        <a href="../players/dan-lefevour.html">Dan LeFevour</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/danny-groulx.html">Danny Groulx</a>
         <span class="ambiguous-tag">?</span>
       </td>
@@ -2986,6 +3218,15 @@
     
     <tr>
       <td>
+        <a href="../players/darvin-adams.html">Darvin Adams</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/daryl-townsend.html">Daryl Townsend</a>
         
       </td>
@@ -3025,7 +3266,7 @@
         <a href="../players/davon-coleman.html">Davon Coleman</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -3034,7 +3275,16 @@
         <a href="../players/davon-walls.html">Davon Walls</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/declan-cross.html">Declan Cross</a>
+        
+      </td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -3076,6 +3326,15 @@
     
     <tr>
       <td>
+        <a href="../players/derek-jones.html">Derek Jones</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/derek-wiggan.html">Derek Wiggan</a>
         
       </td>
@@ -3098,6 +3357,15 @@
         
       </td>
       <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/devier-posey.html">DeVier Posey</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -3134,6 +3402,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dominique-davis.html">Dominique Davis</a>
+        
+      </td>
+      <td>QB</td>
       
     </tr>
     
@@ -3187,7 +3464,7 @@
         <a href="../players/don-oramasionwu.html">Don Oramasionwu</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -3211,6 +3488,15 @@
     
     <tr>
       <td>
+        <a href="../players/drake-nevis.html">Drake Nevis</a>
+        
+      </td>
+      <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/drew-tate.html">Drew Tate</a>
         
       </td>
@@ -3229,6 +3515,15 @@
     
     <tr>
       <td>
+        <a href="../players/drew-wolitarsky.html">Drew WOLITARSKY</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/duron-carter.html">Duron Carter</a>
         
       </td>
@@ -3242,6 +3537,15 @@
         
       </td>
       <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/dylan-wynn.html">Dylan Wynn</a>
+        
+      </td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -3286,7 +3590,7 @@
         <a href="../players/emmanuel-arceneaux.html">Emmanuel Arceneaux</a>
         <span class="ambiguous-tag">?</span>
       </td>
-      <td>SB, WR</td>
+      <td>WR, SB</td>
       
     </tr>
     
@@ -3382,6 +3686,15 @@
     
     <tr>
       <td>
+        <a href="../players/faith-ekakitie.html">Faith Ekakitie</a>
+        
+      </td>
+      <td>DB, DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/felix-faubert-lussier.html">Felix Faubert-Lussier</a>
         
       </td>
@@ -3395,6 +3708,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/frank-renaud.html">Frank Renaud</a>
+        
+      </td>
+      <td>LB</td>
       
     </tr>
     
@@ -3508,6 +3830,15 @@
     
     <tr>
       <td>
+        <a href="../players/ian-wild.html">Ian Wild</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/imoan-claiborne.html">Imoan Claiborne</a>
         
       </td>
@@ -3544,6 +3875,15 @@
     
     <tr>
       <td>
+        <a href="../players/jackson-jeffcoat.html">Jackson Jeffcoat</a>
+        
+      </td>
+      <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jake-ceresna.html">Jake Ceresna</a>
         
       </td>
@@ -3571,6 +3911,15 @@
     
     <tr>
       <td>
+        <a href="../players/jake-thomas.html">Jake Thomas</a>
+        
+      </td>
+      <td>DB, DT</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jalen-rogers.html">Jalen Rogers</a>
         
       </td>
@@ -3584,6 +3933,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jamaal-westerman.html">Jamaal Westerman</a>
+        
+      </td>
+      <td>DE, DB</td>
       
     </tr>
     
@@ -3625,6 +3983,15 @@
     
     <tr>
       <td>
+        <a href="../players/james-wilder-jr.html">James Wilder Jr.</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jamill-smith.html">Jamill Smith</a>
         
       </td>
@@ -3637,7 +4004,7 @@
         <a href="../players/jason-neill.html">Jason Neill</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -3664,7 +4031,7 @@
         <a href="../players/jean-christophe-beaulieu.html">Jean-Christophe Beaulieu</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -3674,6 +4041,15 @@
         
       </td>
       <td>DL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeff-fuller.html">Jeff Fuller</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -3697,10 +4073,28 @@
     
     <tr>
       <td>
+        <a href="../players/jeff-mathews.html">Jeff Mathews</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jeffrey-finley.html">Jeffrey Finley</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jeremiah-johnson.html">Jeremiah Johnson</a>
         
       </td>
-      <td>DB, CB, S</td>
+      <td>S, CB, DB</td>
       
     </tr>
     
@@ -3710,6 +4104,24 @@
         
       </td>
       <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jermaine-gabriel.html">Jermaine Gabriel</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jermarcus-hardrick.html">Jermarcus Hardrick</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>OL</td>
       
     </tr>
     
@@ -3733,10 +4145,28 @@
     
     <tr>
       <td>
+        <a href="../players/jesse-briggs.html">Jesse Briggs</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jesse-joseph.html">Jesse Joseph</a>
         
       </td>
       <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jimmy-ralph.html">Jimmy Ralph</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -3790,7 +4220,16 @@
         <a href="../players/johnny-adams.html">Johnny Adams</a>
         
       </td>
-      <td>DB, CB</td>
+      <td>CB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/johnny-sears.html">Johnny Sears</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -3818,6 +4257,15 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/jonathan-woods.html">Jonathan Woods</a>
+        
+      </td>
+      <td>LB</td>
       
     </tr>
     
@@ -3853,7 +4301,7 @@
         <a href="../players/jordan-hoover.html">Jordan Hoover</a>
         
       </td>
-      <td>DB, S</td>
+      <td>S, DB</td>
       
     </tr>
     
@@ -3922,6 +4370,15 @@
     
     <tr>
       <td>
+        <a href="../players/jovan-santos-knox.html">Jovan Santos-Knox</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/jovon-johnson.html">Jovon Johnson</a>
         
       </td>
@@ -3932,6 +4389,15 @@
     <tr>
       <td>
         <a href="../players/julan-lynch.html">Julan Lynch</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/julian-feoli-gudino.html">Julian Feoli-Gudino</a>
         
       </td>
       <td>WR</td>
@@ -3985,10 +4451,28 @@
     
     <tr>
       <td>
+        <a href="../players/justin-herdman.html">Justin Herdman</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/justin-medlock.html">Justin Medlock</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/justin-rogers.html">Justin Rogers</a>
         
       </td>
-      <td>LB, DT, DB</td>
+      <td>LB, DB, DT</td>
       
     </tr>
     
@@ -4003,10 +4487,19 @@
     
     <tr>
       <td>
+        <a href="../players/justin-tuggle.html">Justin Tuggle</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/justin-vaughn.html">Justin Vaughn</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -4015,7 +4508,7 @@
         <a href="../players/justin-zimmer.html">Justin Zimmer</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -4093,10 +4586,28 @@
     
     <tr>
       <td>
+        <a href="../players/ken-bishop.html">Ken Bishop</a>
+        
+      </td>
+      <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/kendall-james.html">Kendall James</a>
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kendall-sanders.html">Kendall Sanders</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -4192,6 +4703,15 @@
     
     <tr>
       <td>
+        <a href="../players/kevin-fogg.html">Kevin Fogg</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/kevin-francis.html">Kevin Francis</a>
         
       </td>
@@ -4213,7 +4733,7 @@
         <a href="../players/keynan-parker.html">Keynan Parker</a>
         
       </td>
-      <td>DB, S</td>
+      <td>S, DB</td>
       
     </tr>
     
@@ -4232,6 +4752,15 @@
         
       </td>
       <td>LB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/khalil-paden.html">Khalil Paden</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -4282,10 +4811,37 @@
     
     <tr>
       <td>
+        <a href="../players/kyle-graves.html">Kyle Graves</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/kyle-knox.html">Kyle Knox</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/kyries-hebert.html">Kyries Hebert</a>
         
       </td>
       <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/ldamian-washington.html">L\&#39;Damian Washington</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -4312,13 +4868,40 @@
         <a href="../players/lawrence-okoye.html">Lawrence Okoye</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
     <tr>
       <td>
         <a href="../players/lemar-durant.html">Lemar Durant</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/linden-gaydosh.html">Linden Gaydosh</a>
+        
+      </td>
+      <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/lirim-hajrullahu.html">Lirim Hajrullahu</a>
+        
+      </td>
+      <td>K</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/llevi-noel.html">Llevi Noel</a>
         
       </td>
       <td>WR</td>
@@ -4363,6 +4946,15 @@
     
     <tr>
       <td>
+        <a href="../players/malcolm-williams.html">Malcolm Williams</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/maleki-harris.html">Maleki Harris</a>
         
       </td>
@@ -4375,7 +4967,7 @@
         <a href="../players/marc-olivier-brouillette.html">Marc-Olivier Brouillette</a>
         
       </td>
-      <td>DB, S</td>
+      <td>S, DB</td>
       
     </tr>
     
@@ -4394,6 +4986,24 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marcus-alford.html">Marcus Alford</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/marcus-ball.html">Marcus Ball</a>
+        
+      </td>
+      <td>LB</td>
       
     </tr>
     
@@ -4444,7 +5054,52 @@
     
     <tr>
       <td>
+        <a href="../players/martese-jackson.html">Martese Jackson</a>
+        
+      </td>
+      <td>RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/matt-black.html">Matt Black</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/matt-bucknor.html">Matt Bucknor</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/matt-coates.html">Matt Coates</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/matt-nichols.html">Matt Nichols</a>
+        
+      </td>
+      <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/matt-webster.html">Matt Webster</a>
         
       </td>
       <td>DB</td>
@@ -4471,6 +5126,24 @@
     
     <tr>
       <td>
+        <a href="../players/matthias-goossen.html">Matthias Goossen</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>C</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/maurice-leggett.html">Maurice Leggett</a>
+        
+      </td>
+      <td>LB, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/maurice-morgan.html">Maurice Morgan</a>
         
       </td>
@@ -4484,6 +5157,15 @@
         
       </td>
       <td>DL, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mcleod-bethel-thompson.html">McLeod Bethel-Thompson</a>
+        
+      </td>
+      <td>QB</td>
       
     </tr>
     
@@ -4537,7 +5219,7 @@
         <a href="../players/michael-atkinson.html">Michael Atkinson</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -4600,7 +5282,7 @@
         <a href="../players/mike-edem.html">Mike Edem</a>
         
       </td>
-      <td>DB, S</td>
+      <td>S, DB</td>
       
     </tr>
     
@@ -4610,6 +5292,15 @@
         
       </td>
       <td>WR, RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mike-miller.html">Mike Miller</a>
+        
+      </td>
+      <td>P</td>
       
     </tr>
     
@@ -4636,7 +5327,7 @@
         <a href="../players/mike-rose.html">Mike Rose</a>
         
       </td>
-      <td>DL, LB, DB, MLB</td>
+      <td>DL, MLB, LB, DB</td>
       
     </tr>
     
@@ -4655,6 +5346,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/mitchell-white.html">Mitchell White</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -4681,7 +5381,7 @@
         <a href="../players/nate-ohalloran.html">Nate O\&#39;Halloran</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -4807,7 +5507,7 @@
         <a href="../players/oumar-toure.html">Oumar Touré</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -4816,7 +5516,7 @@
         <a href="../players/pascal-lochard.html">Pascal Lochard</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -4825,7 +5525,7 @@
         <a href="../players/patrick-lavoie.html">Patrick Lavoie</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -4844,6 +5544,15 @@
         
       </td>
       <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/qudarius-ford.html">Qudarius Ford</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -4885,10 +5594,19 @@
     
     <tr>
       <td>
+        <a href="../players/rashad-carmichael.html">Rashad Carmichael</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/ray-drew.html">Ray Drew</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -4957,10 +5675,28 @@
     
     <tr>
       <td>
+        <a href="../players/ricky-ray-rayri02.html">Ricky Ray Rayri02</a>
+        
+      </td>
+      <td></td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/ricky-stanzi.html">Ricky Stanzi</a>
         
       </td>
       <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/rico-murray.html">Rico Murray</a>
+        
+      </td>
+      <td>LB, DB</td>
       
     </tr>
     
@@ -5002,10 +5738,28 @@
     
     <tr>
       <td>
+        <a href="../players/robert-porter.html">Robert Porter</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/robert-woodson.html">Robert Woodson</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/rolly-lumbala.html">Rolly Lumbala</a>
         
       </td>
-      <td>FB, RB</td>
+      <td>RB, FB</td>
       
     </tr>
     
@@ -5074,6 +5828,15 @@
     
     <tr>
       <td>
+        <a href="../players/ryan-lankford.html">Ryan Lankford</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/ryan-lindley.html">Ryan Lindley</a>
         
       </td>
@@ -5105,6 +5868,15 @@
         
       </td>
       <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sj-green.html">S.J. Green</a>
+        
+      </td>
+      <td>WR</td>
       
     </tr>
     
@@ -5146,10 +5918,28 @@
     
     <tr>
       <td>
+        <a href="../players/samuel-hurl.html">Samuel Hurl</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/sean-jamieson.html">Sean Jamieson</a>
         <span class="ambiguous-tag">?</span>
       </td>
-      <td>P, OL</td>
+      <td>OL, P</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/sean-mcewen.html">Sean McEwen</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>OL</td>
       
     </tr>
     
@@ -5231,6 +6021,24 @@
         
       </td>
       <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shawn-lemon.html">Shawn Lemon</a>
+        
+      </td>
+      <td>DL, DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/shayne-gauthier.html">Shayne Gauthier</a>
+        
+      </td>
+      <td>LB</td>
       
     </tr>
     
@@ -5329,13 +6137,31 @@
         <a href="../players/tj-barnes.html">T.J. Barnes</a>
         
       </td>
-      <td>DL, DT, DB</td>
+      <td>DL, DB, DT</td>
       
     </tr>
     
     <tr>
       <td>
         <a href="../players/tj-lee.html">T.J. Lee</a>
+        
+      </td>
+      <td>DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tj-thorpe.html">T.J. Thorpe</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/taylor-loffler.html">Taylor Loffler</a>
         
       </td>
       <td>DB</td>
@@ -5365,7 +6191,7 @@
         <a href="../players/ted-laurent.html">Ted Laurent</a>
         
       </td>
-      <td>DT, DB</td>
+      <td>DB, DT</td>
       
     </tr>
     
@@ -5381,6 +6207,15 @@
     <tr>
       <td>
         <a href="../players/terrance-bullitt.html">Terrance Bullitt</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/terrance-plummer.html">Terrance Plummer</a>
         
       </td>
       <td>LB</td>
@@ -5419,7 +6254,7 @@
         <a href="../players/tevaughn-campbell.html">Tevaughn Campbell</a>
         
       </td>
-      <td>DB, CB</td>
+      <td>CB, DB</td>
       
     </tr>
     
@@ -5429,6 +6264,24 @@
         <span class="ambiguous-tag">?</span>
       </td>
       <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/thomas-miles.html">Thomas Miles</a>
+        
+      </td>
+      <td>LB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tim-flanders.html">Tim Flanders</a>
+        
+      </td>
+      <td>RB</td>
       
     </tr>
     
@@ -5447,6 +6300,15 @@
         
       </td>
       <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tj-heath.html">TJ Heath</a>
+        
+      </td>
+      <td>DB</td>
       
     </tr>
     
@@ -5488,6 +6350,15 @@
     
     <tr>
       <td>
+        <a href="../players/travis-bond.html">Travis Bond</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>OL</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/travis-hawkins.html">Travis Hawkins</a>
         
       </td>
@@ -5515,6 +6386,15 @@
     
     <tr>
       <td>
+        <a href="../players/trent-corney.html">Trent Corney</a>
+        
+      </td>
+      <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/trent-richardson.html">Trent Richardson</a>
         
       </td>
@@ -5528,6 +6408,24 @@
         
       </td>
       <td>QB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tristan-okpalaugo.html">Tristan Okpalaugo</a>
+        
+      </td>
+      <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/troy-davis.html">Troy Davis</a>
+        
+      </td>
+      <td>DL, DB</td>
       
     </tr>
     
@@ -5563,7 +6461,16 @@
         <a href="../players/tyler-davis.html">Tyler Davis</a>
         
       </td>
-      <td>WR, TE, RB</td>
+      <td>TE, WR, RB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/tyler-holmes.html">Tyler Holmes</a>
+        <span class="ambiguous-tag">?</span>
+      </td>
+      <td>OL</td>
       
     </tr>
     
@@ -5605,7 +6512,25 @@
     
     <tr>
       <td>
+        <a href="../players/victor-butler.html">Victor Butler</a>
+        
+      </td>
+      <td>DE, DB</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
         <a href="../players/vidal-hazelton.html">Vidal Hazelton</a>
+        
+      </td>
+      <td>WR</td>
+      
+    </tr>
+    
+    <tr>
+      <td>
+        <a href="../players/weston-dressler.html">Weston Dressler</a>
         
       </td>
       <td>WR</td>
