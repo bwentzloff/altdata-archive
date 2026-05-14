@@ -502,6 +502,51 @@ def main():
             canonical_path=f"leagues/{league_data['slug']}.html",
         )
 
+    # ── Studies ─────────────────────────────────────────────────────────
+    studies_dir = DATA_DIR / "studies"
+    studies_index_path = studies_dir / "index.json"
+    if studies_index_path.exists():
+        try:
+            studies_index = json.loads(studies_index_path.read_text()).get("studies", [])
+        except (json.JSONDecodeError, OSError):
+            studies_index = []
+
+        print(f"Rendering studies index + {len(studies_index)} study pages ...")
+        render(
+            env, "studies_index.html",
+            SITE_DIR / "studies" / "index.html",
+            root="../",
+            studies=studies_index,
+            canonical_path="studies/index.html",
+        )
+
+        for entry in studies_index:
+            slug = entry.get("slug")
+            if not slug:
+                continue
+            study_path = studies_dir / f"{slug}.json"
+            if not study_path.exists():
+                continue
+            try:
+                study_data = json.loads(study_path.read_text())
+            except (json.JSONDecodeError, OSError):
+                continue
+            history_path = studies_dir / f"{slug}-history.json"
+            history_data = None
+            if history_path.exists():
+                try:
+                    history_data = json.loads(history_path.read_text())
+                except (json.JSONDecodeError, OSError):
+                    history_data = None
+            render(
+                env, "study.html",
+                SITE_DIR / "studies" / f"{slug}.html",
+                root="../",
+                study=study_data,
+                history=history_data,
+                canonical_path=f"studies/{slug}.html",
+            )
+
     # ── Player pages ────────────────────────────────────────────────────
     player_images_path = DATA_DIR / "player-images.json"
     player_images: dict = (
@@ -653,6 +698,20 @@ def main():
     for lf in league_files:
         slug = json.loads(lf.read_text())["slug"]
         add_url(f"{BASE}/leagues/{slug}.html", priority="0.7", changefreq="monthly")
+
+    studies_dir = DATA_DIR / "studies"
+    studies_index_path = studies_dir / "index.json"
+    if studies_index_path.exists():
+        try:
+            _studies = json.loads(studies_index_path.read_text()).get("studies", [])
+        except (json.JSONDecodeError, OSError):
+            _studies = []
+        if _studies:
+            add_url(f"{BASE}/studies/index.html", priority="0.8", changefreq="weekly")
+        for _s in _studies:
+            _slug = _s.get("slug")
+            if _slug and (SITE_DIR / "studies" / f"{_slug}.html").exists():
+                add_url(f"{BASE}/studies/{_slug}.html", priority="0.7", changefreq="weekly")
 
     for pf in player_files:
         cid = pf.stem
