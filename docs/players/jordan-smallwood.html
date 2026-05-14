@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jordan Smallwood — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jordan Smallwood: receiving_tds 1.0, receiving_yards 269.0, receptions 21.0, targets 8.0">
+  <meta property="og:description" content="Career stats for Jordan Smallwood: receiving_tds 1.0, receiving_yards 269.0, receptions 21.0, recv_lg 23.0, recv_rec 3.0, recv_tar 7.0, recv_yac 5.0, recv_yds 32.0, targets 8.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jordan-smallwood.html">
   
@@ -77,6 +77,20 @@
       "name": "XFL 2020",
       "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -219,6 +233,21 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -228,16 +257,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">61.6</div>
+        <div class="badge-number">52.4</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#964</div>
+        <div class="badge-rank">#1554</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">61.6</div>
+        <div class="badge-number">61.7</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#83</div>
+        <div class="badge-rank">#84</div>
       </div>
       
     </div>
@@ -263,6 +292,16 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
         <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
@@ -275,6 +314,16 @@
         <td>269</td>
         
         <td>21</td>
+        
+        <td>23</td>
+        
+        <td>3</td>
+        
+        <td>7</td>
+        
+        <td>5</td>
+        
+        <td>32</td>
         
         <td>8</td>
         
@@ -294,7 +343,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"XFL-2020": {"receptions": 18.0, "receiving_yards": 236.0, "receiving_tds": 1.0, "targets": 8.0}, "XFL-2023": {"receiving_yards": 33.0, "receptions": 3.0}};
+    var seasons = {"XFL-2020": {"receptions": 18.0, "receiving_yards": 236.0, "receiving_tds": 1.0, "targets": 8.0}, "CFL-2021": {"recv_rec": 3.0, "recv_yds": 32.0, "recv_lg": 23.0, "recv_tar": 7.0, "recv_yac": 5.0}, "XFL-2023": {"receiving_yards": 33.0, "receptions": 3.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -332,6 +381,18 @@
     
       
     
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
   
   
   <table class="data-table">
@@ -345,6 +406,16 @@
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
         <th scope="col" data-stat="targets">Targets</th>
         
@@ -361,7 +432,40 @@
         
         <td>18</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>8</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>23</td>
+        
+        <td>3</td>
+        
+        <td>7</td>
+        
+        <td>5</td>
+        
+        <td>32</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -373,6 +477,16 @@
         <td>33</td>
         
         <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -437,6 +551,18 @@
         <td>Jordan Smallwood</td>
         <td>—</td>
         <td>WR</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Jordan Smallwood</td>
+        <td>—</td>
+        <td>WR</td>
         <td>XFL</td>
         <td>
           
@@ -472,6 +598,16 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
         <th scope="col" data-stat="targets">targets</th>
         
       </tr>
@@ -482,7 +618,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2020 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="14">2020 Wk 1</td></tr>
       
       <tr>
         <td>2020</td>
@@ -497,6 +633,16 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -504,7 +650,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2020 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="14">2020 Wk 2</td></tr>
       
       <tr>
         <td>2020</td>
@@ -519,6 +665,16 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -526,7 +682,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2020 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="14">2020 Wk 3</td></tr>
       
       <tr>
         <td>2020</td>
@@ -543,12 +699,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="9">2020 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="14">2020 Wk 4</td></tr>
       
       <tr>
         <td>2020</td>
@@ -563,6 +729,16 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -570,7 +746,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2020 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="14">2020 Wk 5</td></tr>
       
       <tr>
         <td>2020</td>
@@ -585,6 +761,16 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -592,7 +778,68 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="14">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-19-ott-mtl.html" class="game-id">OTT @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>2.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-8-7-ott-edm.html" class="game-id">OTT @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td>4.0</td>
+        
+        <td>2.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="14">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -609,12 +856,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="9">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="14">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -631,12 +888,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="9">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="14">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -650,6 +917,16 @@
         <td>7.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

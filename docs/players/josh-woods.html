@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Josh Woods — AltSports Stats">
-  <meta property="og:description" content="Career stats for Josh Woods: def_solo 1.0, def_tot 1.0, interceptions_made 2.0, sacks 0.0, tackles 42.0">
+  <meta property="og:description" content="Career stats for Josh Woods: def_sack 2.0, def_solo 30.0, def_tot 30.0, def_ydsl 9.0, interceptions_made 2.0, sacks 0.0, tackles 42.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/josh-woods.html">
   
@@ -77,6 +77,20 @@
       "name": "CFL 2021",
       "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2022",
+      "description": "League-level player statistics for CFL 2022 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -224,7 +238,7 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -242,9 +256,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">64.5</div>
+        <div class="badge-number">55.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#767</div>
+        <div class="badge-rank">#1416</div>
       </div>
       
       
@@ -265,9 +279,13 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_sack">Def Sack</th>
+        
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
         <th scope="col" data-stat="def_tot">Def Tot</th>
+        
+        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
@@ -280,9 +298,13 @@
     <tbody>
       <tr>
         
-        <td>1</td>
+        <td>2</td>
         
-        <td>1</td>
+        <td>30</td>
+        
+        <td>30</td>
+        
+        <td>9</td>
         
         <td>2</td>
         
@@ -318,6 +340,16 @@
     
       
     
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -330,9 +362,13 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_sack">Def Sack</th>
+        
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
         <th scope="col" data-stat="def_tot">Def Tot</th>
+        
+        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
@@ -347,9 +383,32 @@
       <tr>
         <td>CFL 2021</td>
         
+        <td>—</td>
+        
         <td>1</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>2</td>
+        
+        <td>29</td>
+        
+        <td>29</td>
+        
+        <td>9</td>
         
         <td>—</td>
         
@@ -366,6 +425,10 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>2</td>
         
         <td>0</td>
@@ -376,6 +439,10 @@
       
       <tr>
         <td>CFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -477,9 +544,13 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_sack">def_sack</th>
+        
         <th scope="col" data-stat="def_solo">def_solo</th>
         
         <th scope="col" data-stat="def_tot">def_tot</th>
+        
+        <th scope="col" data-stat="def_ydsl">def_ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">interceptions_made</th>
         
@@ -495,7 +566,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2021 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="12">2021 Wk 1</td></tr>
       
       <tr>
         <td>2021</td>
@@ -504,9 +575,13 @@
         <td><a href="../games/football-cfl-2021-11-19-edm-bc.html" class="game-id">EDM @ BC</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -519,7 +594,385 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="12">2022 Wk 1</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-15-wpg-bc.html" class="game-id">WPG @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-21-bc-edm.html" class="game-id">BC @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-28-bc-wpg.html" class="game-id">BC @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-11-13-bc-wpg.html" class="game-id">BC @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-11-6-cgy-bc.html" class="game-id">CGY @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-21-ham-bc.html" class="game-id">HAM @ BC</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-9-wpg-bc.html" class="game-id">WPG @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-13-bc-cgy.html" class="game-id">BC @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-19-bc-ssk.html" class="game-id">BC @ SSK</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-26-ssk-bc.html" class="game-id">SSK @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-6-edm-bc.html" class="game-id">EDM @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-17-bc-cgy.html" class="game-id">BC @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-24-cgy-bc.html" class="game-id">CGY @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-30-ott-bc.html" class="game-id">OTT @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-9-bc-mtl.html" class="game-id">BC @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -536,6 +989,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
         
       </tr>
@@ -543,7 +1000,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -551,6 +1008,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889320.html" class="game-id">CGY @ BC</a></td>
         <td>9–37</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -567,7 +1028,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 11</td></tr>
       
       <tr>
         <td>2023</td>
@@ -575,6 +1036,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889325.html" class="game-id">BC @ SSK</a></td>
         <td>29–34</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -591,7 +1056,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -599,6 +1064,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889328.html" class="game-id">HAM @ BC</a></td>
         <td>30–13</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -615,7 +1084,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 13</td></tr>
       
       <tr>
         <td>2023</td>
@@ -628,6 +1097,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -639,7 +1112,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 15</td></tr>
       
       <tr>
         <td>2023</td>
@@ -652,6 +1125,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
@@ -663,7 +1140,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 16</td></tr>
       
       <tr>
         <td>2023</td>
@@ -676,6 +1153,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -687,7 +1168,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 17</td></tr>
       
       <tr>
         <td>2023</td>
@@ -695,6 +1176,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889347.html" class="game-id">SSK @ BC</a></td>
         <td>26–33</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -711,7 +1196,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 18</td></tr>
       
       <tr>
         <td>2023</td>
@@ -719,6 +1204,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889351.html" class="game-id">WPG @ BC</a></td>
         <td>34–26</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -735,7 +1224,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 19</td></tr>
       
       <tr>
         <td>2023</td>
@@ -743,6 +1232,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889354.html" class="game-id">BC @ HAM</a></td>
         <td>33–30</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -759,7 +1252,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="12">2023 Wk 20</td></tr>
       
       <tr>
         <td>2023</td>
@@ -767,6 +1260,10 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889358.html" class="game-id">CGY @ BC</a></td>
         <td>41–16</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -783,7 +1280,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="12">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -791,6 +1288,10 @@
         <td><a href="../leagues/cfl-2024.html">CFL</a></td>
         <td><a href="../games/10798019.html" class="game-id">BC @ TOR</a></td>
         <td>27–35</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
