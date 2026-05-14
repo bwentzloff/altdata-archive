@@ -15,12 +15,18 @@
   "record_away": "",
   "sport_slug": "xfl-2023",
   "synthetic": false,
-  "player_count": 40,
+  "player_count": 46,
   "stat_keys": [
+    "1pt_conversion",
+    "blocked_punt",
+    "conversions",
+    "field_goal_yards",
     "interceptions_lost",
+    "missed",
     "pass_defended",
     "passing_tds",
     "passing_yards",
+    "points_against",
     "receiving_tds",
     "receiving_yards",
     "receptions",
@@ -56,6 +62,31 @@
       }
     },
     {
+      "canonical_id": "brahmas-dst",
+      "canonical_name": "Brahmas DST",
+      "positions": [
+        "DST"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "points_against": 12.0,
+        "sacks": 2.0,
+        "blocked_punt": 1.0
+      }
+    },
+    {
+      "canonical_id": "brahmas-k",
+      "canonical_name": "Brahmas K",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "missed": 0.0,
+        "field_goal_yards": 40.0
+      }
+    },
+    {
       "canonical_id": "brahmas-qb",
       "canonical_name": "Brahmas QB",
       "positions": [
@@ -65,15 +96,17 @@
       "stats": {
         "passing_yards": 165.0,
         "passing_tds": 3.0,
-        "rushing_yards": 23.0
+        "rushing_yards": 23.0,
+        "conversions": 0.0,
+        "1pt_conversion": 2.0
       }
     },
     {
       "canonical_id": "caevon-patton",
       "canonical_name": "Caevon Patton",
       "positions": [
-        "DE",
-        "DL"
+        "DL",
+        "DE"
       ],
       "ambiguous": false,
       "stats": {
@@ -102,6 +135,8 @@
       "stats": {
         "receiving_yards": 21.0,
         "receptions": 5.0,
+        "conversions": 0.0,
+        "1pt_conversion": 0.0,
         "receiving_tds": 1.0
       }
     },
@@ -127,7 +162,9 @@
       "stats": {
         "receiving_yards": 13.0,
         "receiving_tds": 1.0,
-        "receptions": 2.0
+        "receptions": 2.0,
+        "conversions": 0.0,
+        "1pt_conversion": 1.0
       }
     },
     {
@@ -140,6 +177,8 @@
       "stats": {
         "rushing_yards": 14.0,
         "passing_yards": 8.0,
+        "conversions": 0.0,
+        "1pt_conversion": 0.0,
         "passing_tds": 1.0,
         "interceptions_lost": 1.0
       }
@@ -160,8 +199,8 @@
       "canonical_id": "drew-beesley",
       "canonical_name": "Drew Beesley",
       "positions": [
-        "DE",
-        "DL"
+        "DL",
+        "DE"
       ],
       "ambiguous": false,
       "stats": {
@@ -205,6 +244,30 @@
       }
     },
     {
+      "canonical_id": "guardians-dst",
+      "canonical_name": "Guardians DST",
+      "positions": [
+        "DST"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "points_against": 30.0,
+        "sacks": 3.0
+      }
+    },
+    {
+      "canonical_id": "guardians-k",
+      "canonical_name": "Guardians K",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "missed": 1.0,
+        "field_goal_yards": 0.0
+      }
+    },
+    {
       "canonical_id": "guardians-qb",
       "canonical_name": "Guardians QB",
       "positions": [
@@ -238,6 +301,8 @@
       ],
       "ambiguous": false,
       "stats": {
+        "conversions": 0.0,
+        "1pt_conversion": 2.0,
         "passing_yards": 165.0,
         "passing_tds": 3.0,
         "rushing_yards": 23.0
@@ -247,8 +312,8 @@
       "canonical_id": "jack-koerner",
       "canonical_name": "Jack Koerner",
       "positions": [
-        "SS",
-        "DB"
+        "DB",
+        "SS"
       ],
       "ambiguous": false,
       "stats": {
@@ -287,6 +352,8 @@
       "ambiguous": false,
       "stats": {
         "rushing_yards": 46.0,
+        "conversions": 0.0,
+        "1pt_conversion": 0.0,
         "receptions": 2.0
       }
     },
@@ -298,9 +365,23 @@
       ],
       "ambiguous": false,
       "stats": {
+        "conversions": 0.0,
+        "1pt_conversion": 0.0,
         "receiving_yards": 31.0,
         "receptions": 3.0,
         "receiving_tds": 1.0
+      }
+    },
+    {
+      "canonical_id": "john-parker-romo",
+      "canonical_name": "John Parker Romo",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "missed": 0.0,
+        "field_goal_yards": 40.0
       }
     },
     {
@@ -311,6 +392,8 @@
       ],
       "ambiguous": false,
       "stats": {
+        "conversions": 0.0,
+        "1pt_conversion": 1.0,
         "rushing_yards": 1.0,
         "rushing_tds": 1.0
       }
@@ -319,15 +402,27 @@
       "canonical_id": "jordan-williams",
       "canonical_name": "Jordan Williams",
       "positions": [
-        "DE",
-        "DL",
         "MLB",
-        "LB",
-        "OT"
+        "DE",
+        "OT",
+        "DL",
+        "LB"
       ],
       "ambiguous": true,
       "stats": {
         "tackles": 6.0
+      }
+    },
+    {
+      "canonical_id": "jose-borregales",
+      "canonical_name": "Jose Borregales",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "missed": 1.0,
+        "field_goal_yards": 0.0
       }
     },
     {
@@ -472,7 +567,9 @@
       "ambiguous": false,
       "stats": {
         "receiving_yards": 35.0,
-        "receptions": 3.0
+        "receptions": 3.0,
+        "conversions": 0.0,
+        "1pt_conversion": 1.0
       }
     },
     {

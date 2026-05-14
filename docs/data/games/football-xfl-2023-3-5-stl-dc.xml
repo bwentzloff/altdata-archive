@@ -16,14 +16,21 @@
   <record_away />
   <sport_slug>xfl-2023</sport_slug>
   <synthetic>False</synthetic>
-  <player_count>45</player_count>
+  <player_count>48</player_count>
   <stat_keys>
+    <item>1pt_conversion</item>
+    <item>conversions</item>
+    <item>dst_touchdown</item>
+    <item>field_goal_yards</item>
+    <item>fumble_recoveries</item>
     <item>interceptions_lost</item>
     <item>interceptions_made</item>
     <item>lost_fumbles</item>
+    <item>missed</item>
     <item>pass_defended</item>
     <item>passing_tds</item>
     <item>passing_yards</item>
+    <item>points_against</item>
     <item>receiving_tds</item>
     <item>receiving_yards</item>
     <item>receptions</item>
@@ -44,6 +51,8 @@
         <passing_yards>262.0</passing_yards>
         <interceptions_lost>2.0</interceptions_lost>
         <passing_tds>4.0</passing_tds>
+        <conversions>2.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
         <rushing_yards>6.0</rushing_yards>
         <lost_fumbles>1.0</lost_fumbles>
       </stats>
@@ -57,6 +66,8 @@
       <ambiguous>False</ambiguous>
       <stats>
         <rushing_yards>54.0</rushing_yards>
+        <conversions>0.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
         <receiving_yards>16.0</receiving_yards>
         <receptions>3.0</receptions>
       </stats>
@@ -65,8 +76,8 @@
       <canonical_id>andre-mintze</canonical_id>
       <canonical_name>Andre Mintze</canonical_name>
       <positions>
-        <item>DE</item>
         <item>LB</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -128,7 +139,21 @@
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
+        <points_against>28.0</points_against>
         <sacks>2.0</sacks>
+        <fumble_recoveries>2.0</fumble_recoveries>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>battlehawks-k</canonical_id>
+      <canonical_name>Battlehawks K</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>1.0</missed>
+        <field_goal_yards>0.0</field_goal_yards>
       </stats>
     </item>
     <item>
@@ -142,6 +167,7 @@
         <passing_yards>262.0</passing_yards>
         <interceptions_lost>2.0</interceptions_lost>
         <passing_tds>4.0</passing_tds>
+        <conversions>2.0</conversions>
         <rushing_yards>6.0</rushing_yards>
         <lost_fumbles>1.0</lost_fumbles>
       </stats>
@@ -150,8 +176,8 @@
       <canonical_id>ben-deluca</canonical_id>
       <canonical_name>Ben Deluca</canonical_name>
       <positions>
-        <item>DB</item>
         <item>FS</item>
+        <item>DB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -171,6 +197,8 @@
         <receptions>4.0</receptions>
         <receiving_tds>1.0</receiving_tds>
         <tackles>1.0</tackles>
+        <conversions>0.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
@@ -209,6 +237,8 @@
       <stats>
         <receiving_yards>51.0</receiving_yards>
         <receptions>5.0</receptions>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
@@ -232,7 +262,10 @@
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
+        <points_against>28.0</points_against>
         <interceptions_made>2.0</interceptions_made>
+        <dst_touchdown>1.0</dst_touchdown>
+        <fumble_recoveries>2.0</fumble_recoveries>
         <sacks>4.0</sacks>
       </stats>
     </item>
@@ -247,9 +280,24 @@
       <stats>
         <passing_yards>210.0</passing_yards>
         <rushing_yards>31.0</rushing_yards>
+        <conversions>2.0</conversions>
         <passing_tds>2.0</passing_tds>
+        <missed>0.0</missed>
+        <field_goal_yards>76.0</field_goal_yards>
         <rushing_tds>1.0</rushing_tds>
         <lost_fumbles>1.0</lost_fumbles>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>donald-hageman</canonical_id>
+      <canonical_name>Donald Hageman</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>1.0</missed>
+        <field_goal_yards>0.0</field_goal_yards>
       </stats>
     </item>
     <item>
@@ -267,8 +315,8 @@
       <canonical_id>elorm-lumor</canonical_id>
       <canonical_name>Elorm Lumor</canonical_name>
       <positions>
-        <item>DE</item>
         <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -285,6 +333,8 @@
       <stats>
         <receiving_yards>13.0</receiving_yards>
         <receptions>2.0</receptions>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
         <receiving_tds>1.0</receiving_tds>
       </stats>
     </item>
@@ -292,9 +342,9 @@
       <canonical_id>fadol-brown</canonical_id>
       <canonical_name>Fadol Brown</canonical_name>
       <positions>
-        <item>DE</item>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -363,6 +413,8 @@
       <stats>
         <passing_yards>196.0</passing_yards>
         <rushing_yards>22.0</rushing_yards>
+        <conversions>2.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
         <passing_tds>1.0</passing_tds>
         <rushing_tds>1.0</rushing_tds>
         <lost_fumbles>1.0</lost_fumbles>
@@ -372,8 +424,8 @@
       <canonical_id>joseph-wallace</canonical_id>
       <canonical_name>Joseph Wallace</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -391,14 +443,16 @@
       <stats>
         <receiving_yards>30.0</receiving_yards>
         <receptions>3.0</receptions>
+        <conversions>0.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
       <canonical_id>kentrell-brice</canonical_id>
       <canonical_name>Kentrell Brice</canonical_name>
       <positions>
-        <item>SAF</item>
         <item>DB</item>
+        <item>SAF</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -411,8 +465,8 @@
       <canonical_id>kevin-atkins</canonical_id>
       <canonical_name>Kevin Atkins</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -424,8 +478,8 @@
       <canonical_id>lacale-london</canonical_id>
       <canonical_name>Lacale London</canonical_name>
       <positions>
-        <item>DE</item>
         <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -453,14 +507,16 @@
       <stats>
         <receiving_yards>89.0</receiving_yards>
         <receptions>4.0</receptions>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
       <canonical_id>lukas-denis</canonical_id>
       <canonical_name>Lukas Denis</canonical_name>
       <positions>
-        <item>DB</item>
         <item>FS</item>
+        <item>DB</item>
         <item>S</item>
       </positions>
       <ambiguous>False</ambiguous>
@@ -508,6 +564,18 @@
       </stats>
     </item>
     <item>
+      <canonical_id>matthew-mccrane</canonical_id>
+      <canonical_name>Matthew McCrane</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>0.0</missed>
+        <field_goal_yards>76.0</field_goal_yards>
+      </stats>
+    </item>
+    <item>
       <canonical_id>michael-joseph</canonical_id>
       <canonical_name>Michael Joseph</canonical_name>
       <positions>
@@ -536,9 +604,9 @@
       <canonical_id>mike-rose</canonical_id>
       <canonical_name>Mike Rose</canonical_name>
       <positions>
+        <item>MLB</item>
         <item>DB</item>
         <item>DL</item>
-        <item>MLB</item>
         <item>LB</item>
       </positions>
       <ambiguous>False</ambiguous>
@@ -562,8 +630,8 @@
       <canonical_id>santos-ramirez</canonical_id>
       <canonical_name>Santos Ramirez</canonical_name>
       <positions>
-        <item>SAF</item>
         <item>DB</item>
+        <item>SAF</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -593,6 +661,8 @@
         <receiving_yards>17.0</receiving_yards>
         <receptions>3.0</receptions>
         <receiving_tds>1.0</receiving_tds>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>

@@ -16,14 +16,20 @@
   <record_away />
   <sport_slug>xfl-2023</sport_slug>
   <synthetic>False</synthetic>
-  <player_count>53</player_count>
+  <player_count>56</player_count>
   <stat_keys>
+    <item>1pt_conversion</item>
+    <item>conversions</item>
+    <item>field_goal_yards</item>
+    <item>fumble_recoveries</item>
     <item>interceptions_lost</item>
     <item>interceptions_made</item>
     <item>lost_fumbles</item>
+    <item>missed</item>
     <item>pass_defended</item>
     <item>passing_tds</item>
     <item>passing_yards</item>
+    <item>points_against</item>
     <item>receiving_tds</item>
     <item>receiving_yards</item>
     <item>receptions</item>
@@ -75,8 +81,8 @@
       <canonical_id>antwuan-jackson</canonical_id>
       <canonical_name>Antwuan Jackson</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -87,8 +93,8 @@
       <canonical_id>austin-faoliu</canonical_id>
       <canonical_name>Austin Faoliu</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -158,6 +164,8 @@
         <passing_yards>224.0</passing_yards>
         <passing_tds>2.0</passing_tds>
         <rushing_tds>1.0</rushing_tds>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
@@ -181,14 +189,16 @@
       <stats>
         <receiving_yards>19.0</receiving_yards>
         <receptions>1.0</receptions>
+        <conversions>0.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
       <canonical_id>chris-jones</canonical_id>
       <canonical_name>Chris Jones</canonical_name>
       <positions>
-        <item>DB</item>
         <item>DT</item>
+        <item>DB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -247,12 +257,24 @@
       <canonical_id>deontay-anderson</canonical_id>
       <canonical_name>Deontay Anderson</canonical_name>
       <positions>
-        <item>SAF</item>
         <item>DB</item>
+        <item>SAF</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <tackles>9.0</tackles>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>dominik-eberle</canonical_id>
+      <canonical_name>Dominik Eberle</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>0.0</missed>
+        <field_goal_yards>66.0</field_goal_yards>
       </stats>
     </item>
     <item>
@@ -408,9 +430,9 @@
       <canonical_id>laron-stokes</canonical_id>
       <canonical_name>LaRon Stokes</canonical_name>
       <positions>
-        <item>DE</item>
-        <item>DL</item>
         <item>DT</item>
+        <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -438,6 +460,8 @@
       <stats>
         <receiving_yards>6.0</receiving_yards>
         <receptions>1.0</receptions>
+        <conversions>1.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
@@ -456,8 +480,8 @@
       <canonical_id>mister-harriel</canonical_id>
       <canonical_name>Mister Harriel</canonical_name>
       <positions>
-        <item>DB</item>
         <item>FS</item>
+        <item>DB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -490,8 +514,8 @@
       <canonical_id>niko-lalos</canonical_id>
       <canonical_name>Niko Lalos</canonical_name>
       <positions>
-        <item>DE</item>
         <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -513,8 +537,8 @@
       <canonical_id>pj-hall</canonical_id>
       <canonical_name>P.J. Hall</canonical_name>
       <positions>
-        <item>DE</item>
         <item>DL</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -525,8 +549,8 @@
       <canonical_id>pita-taumoepenu</canonical_id>
       <canonical_name>Pita Taumoepenu</canonical_name>
       <positions>
-        <item>OLB</item>
         <item>LB</item>
+        <item>OLB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -537,8 +561,8 @@
       <canonical_id>qwynnterrio-cole</canonical_id>
       <canonical_name>Qwynnterrio Cole</canonical_name>
       <positions>
-        <item>DB</item>
         <item>FS</item>
+        <item>DB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -565,6 +589,8 @@
       <ambiguous>False</ambiguous>
       <stats>
         <rushing_yards>41.0</rushing_yards>
+        <conversions>0.0</conversions>
+        <1pt_conversion>0.0</1pt_conversion>
       </stats>
     </item>
     <item>
@@ -575,7 +601,20 @@
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
+        <points_against>26.0</points_against>
         <sacks>1.0</sacks>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>sea-dragons-k</canonical_id>
+      <canonical_name>Sea Dragons K</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>0.0</missed>
+        <field_goal_yards>66.0</field_goal_yards>
       </stats>
     </item>
     <item>
@@ -634,8 +673,8 @@
       <canonical_id>tuzar-skipper</canonical_id>
       <canonical_name>Tuzar Skipper</canonical_name>
       <positions>
-        <item>OLB</item>
         <item>LB</item>
+        <item>OLB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -646,8 +685,8 @@
       <canonical_id>vic-beasley</canonical_id>
       <canonical_name>Vic Beasley</canonical_name>
       <positions>
-        <item>DE</item>
         <item>LB</item>
+        <item>DE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -662,8 +701,22 @@
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
+        <points_against>30.0</points_against>
+        <fumble_recoveries>1.0</fumble_recoveries>
         <sacks>1.0</sacks>
         <interceptions_made>1.0</interceptions_made>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>vipers-k</canonical_id>
+      <canonical_name>Vipers K</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <missed>1.0</missed>
+        <field_goal_yards>86.0</field_goal_yards>
       </stats>
     </item>
     <item>
@@ -678,6 +731,7 @@
         <rushing_yards>66.0</rushing_yards>
         <passing_tds>2.0</passing_tds>
         <rushing_tds>1.0</rushing_tds>
+        <conversions>1.0</conversions>
       </stats>
     </item>
   </players>

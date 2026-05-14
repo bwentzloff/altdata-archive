@@ -15,13 +15,18 @@
   "record_away": "",
   "sport_slug": "xfl-2023",
   "synthetic": false,
-  "player_count": 39,
+  "player_count": 41,
   "stat_keys": [
+    "1pt_conversion",
+    "conversions",
+    "field_goal_yards",
     "interceptions_lost",
     "interceptions_made",
+    "missed",
     "pass_defended",
     "passing_tds",
     "passing_yards",
+    "points_against",
     "receiving_tds",
     "receiving_yards",
     "receptions",
@@ -35,8 +40,8 @@
       "canonical_id": "aj-hendy",
       "canonical_name": "A.J. Hendy",
       "positions": [
-        "DB",
-        "FS"
+        "FS",
+        "DB"
       ],
       "ambiguous": false,
       "stats": {
@@ -89,7 +94,9 @@
       ],
       "ambiguous": false,
       "stats": {
-        "sacks": 2.0
+        "points_against": 22.0,
+        "sacks": 2.0,
+        "interceptions_made": 1.0
       }
     },
     {
@@ -103,6 +110,8 @@
         "rushing_yards": 27.0,
         "passing_yards": 64.0,
         "passing_tds": 1.0,
+        "conversions": 0.0,
+        "1pt_conversion": 1.0,
         "interceptions_lost": 1.0
       }
     },
@@ -116,6 +125,8 @@
       "stats": {
         "passing_yards": 278.0,
         "passing_tds": 3.0,
+        "conversions": 1.0,
+        "1pt_conversion": 0.0,
         "rushing_yards": -1.0,
         "interceptions_lost": 1.0
       }
@@ -137,8 +148,8 @@
       "canonical_id": "cj-brewer",
       "canonical_name": "C.J. Brewer",
       "positions": [
-        "DL",
-        "DT"
+        "DT",
+        "DL"
       ],
       "ambiguous": false,
       "stats": {
@@ -178,6 +189,8 @@
       "ambiguous": false,
       "stats": {
         "rushing_yards": 5.0,
+        "conversions": 1.0,
+        "1pt_conversion": 0.0,
         "passing_yards": 3.0
       }
     },
@@ -185,8 +198,8 @@
       "canonical_id": "deandre-johnson-2",
       "canonical_name": "Deandre Johnson",
       "positions": [
-        "OLB",
-        "LB"
+        "LB",
+        "OLB"
       ],
       "ambiguous": false,
       "stats": {
@@ -203,6 +216,8 @@
       "stats": {
         "receiving_yards": 31.0,
         "receptions": 2.0,
+        "conversions": 0.0,
+        "1pt_conversion": 0.0,
         "receiving_tds": 1.0
       }
     },
@@ -229,6 +244,8 @@
         "rushing_yards": 27.0,
         "passing_yards": 64.0,
         "passing_tds": 1.0,
+        "conversions": 0.0,
+        "1pt_conversion": 1.0,
         "interceptions_lost": 1.0
       }
     },
@@ -236,8 +253,8 @@
       "canonical_id": "jack-koerner",
       "canonical_name": "Jack Koerner",
       "positions": [
-        "SS",
-        "DB"
+        "DB",
+        "SS"
       ],
       "ambiguous": false,
       "stats": {
@@ -279,15 +296,17 @@
       "stats": {
         "receiving_yards": 77.0,
         "receptions": 6.0,
-        "receiving_tds": 2.0
+        "receiving_tds": 2.0,
+        "conversions": 1.0,
+        "1pt_conversion": 0.0
       }
     },
     {
       "canonical_id": "jordan-mosley",
       "canonical_name": "Jordan Mosley",
       "positions": [
-        "SS",
-        "DB"
+        "DB",
+        "SS"
       ],
       "ambiguous": false,
       "stats": {
@@ -298,11 +317,11 @@
       "canonical_id": "jordan-williams",
       "canonical_name": "Jordan Williams",
       "positions": [
-        "DE",
-        "DL",
         "MLB",
-        "LB",
-        "OT"
+        "DE",
+        "OT",
+        "DL",
+        "LB"
       ],
       "ambiguous": true,
       "stats": {
@@ -357,7 +376,9 @@
       "ambiguous": false,
       "stats": {
         "pass_defended": 2.0,
-        "tackles": 2.0
+        "tackles": 2.0,
+        "conversions": 0.0,
+        "1pt_conversion": 0.0
       }
     },
     {
@@ -389,13 +410,25 @@
       "canonical_id": "nick-holley",
       "canonical_name": "Nick Holley",
       "positions": [
-        "WR",
-        "RB"
+        "RB",
+        "WR"
       ],
       "ambiguous": false,
       "stats": {
         "receiving_yards": 8.0,
         "receptions": 1.0
+      }
+    },
+    {
+      "canonical_id": "paxton-lynch",
+      "canonical_name": "Paxton Lynch",
+      "positions": [
+        "QB"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "conversions": 0.0,
+        "1pt_conversion": 0.0
       }
     },
     {
@@ -430,8 +463,21 @@
       ],
       "ambiguous": false,
       "stats": {
+        "points_against": 13.0,
         "interceptions_made": 1.0,
         "sacks": 1.0
+      }
+    },
+    {
+      "canonical_id": "roughnecks-k",
+      "canonical_name": "Roughnecks K",
+      "positions": [
+        "K"
+      ],
+      "ambiguous": false,
+      "stats": {
+        "missed": 1.0,
+        "field_goal_yards": 0.0
       }
     },
     {
@@ -444,6 +490,7 @@
       "stats": {
         "passing_yards": 281.0,
         "passing_tds": 3.0,
+        "conversions": 2.0,
         "rushing_yards": 4.0,
         "interceptions_lost": 1.0
       }
@@ -458,7 +505,9 @@
       "stats": {
         "receiving_yards": 9.0,
         "receiving_tds": 1.0,
-        "receptions": 1.0
+        "receptions": 1.0,
+        "conversions": 0.0,
+        "1pt_conversion": 1.0
       }
     },
     {

@@ -5,10 +5,12 @@
   <positions>
     <item>WR</item>
   </positions>
-  <leagues />
-  <sport_names>
+  <leagues>
     <item>CFL</item>
+  </leagues>
+  <sport_names>
     <item>USFL</item>
+    <item>CFL</item>
   </sport_names>
   <ambiguous>False</ambiguous>
   <appearances>
@@ -68,6 +70,20 @@
       <weight />
       <college_full />
     </item>
+    <item>
+      <id>201198</id>
+      <full_name>Marcus Green</full_name>
+      <team />
+      <position>WR</position>
+      <sport_id />
+      <league>CFL</league>
+      <jersey />
+      <college />
+      <college_stats />
+      <height />
+      <weight />
+      <college_full />
+    </item>
   </appearances>
   <career_totals>
     <receptions>4.0</receptions>
@@ -75,17 +91,50 @@
     <rushing_yards>21.0</rushing_yards>
     <rushing_tds>0.0</rushing_tds>
     <receiving_tds>0.0</receiving_tds>
+    <ret_num>3.0</ret_num>
+    <ret_yds>56.0</ret_yds>
+    <ret_lg>20.0</ret_lg>
   </career_totals>
   <season_totals>
+    <CFL_2021>
+      <ret_num>3.0</ret_num>
+      <ret_yds>56.0</ret_yds>
+      <ret_lg>20.0</ret_lg>
+    </CFL_2021>
     <USFL_2023>
-      <receptions>4.0</receptions>
-      <receiving_yards>71.0</receiving_yards>
+      <receptions>1.0</receptions>
+      <receiving_yards>20.0</receiving_yards>
+      <rushing_yards>0.0</rushing_yards>
+      <rushing_tds>0.0</rushing_tds>
+    </USFL_2023>
+    <UFL_2025>
       <rushing_yards>21.0</rushing_yards>
       <rushing_tds>0.0</rushing_tds>
+      <receptions>3.0</receptions>
+      <receiving_yards>51.0</receiving_yards>
       <receiving_tds>0.0</receiving_tds>
-    </USFL_2023>
+    </UFL_2025>
   </season_totals>
   <game_log>
+    <item>
+      <game_id>FOOTBALL_CFL_2021_10_11_TOR@HAM</game_id>
+      <game_slug>football-cfl-2021-10-11-tor-ham</game_slug>
+      <display>TOR @ HAM — CFL 2021</display>
+      <season>2021</season>
+      <week>1</week>
+      <league>CFL</league>
+      <sport_slug>cfl-2021</sport_slug>
+      <away_team>TOR</away_team>
+      <home_team>HAM</home_team>
+      <date_str>2021-10-11</date_str>
+      <score_home />
+      <score_away />
+      <stats>
+        <ret_num>3.0</ret_num>
+        <ret_yds>56.0</ret_yds>
+        <ret_lg>20.0</ret_lg>
+      </stats>
+    </item>
     <item>
       <game_id>SYNTHETIC_USFL_2023_W1_GENERALS</game_id>
       <game_slug>synthetic-usfl-2023-w1-generals</game_slug>
@@ -102,45 +151,6 @@
       <stats>
         <receptions>1.0</receptions>
         <receiving_yards>20.0</receiving_yards>
-      </stats>
-    </item>
-    <item>
-      <game_id>SYNTHETIC_USFL_2023_W2_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w2-generals</game_slug>
-      <display>MAULERS @ GENERALS (3–20)</display>
-      <season>2023</season>
-      <week>2</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>MAULERS</away_team>
-      <home_team>GENERALS</home_team>
-      <date_str>2023-04-23</date_str>
-      <score_home>20</score_home>
-      <score_away>3</score_away>
-      <stats>
-        <rushing_yards>14.0</rushing_yards>
-        <rushing_tds>0.0</rushing_tds>
-      </stats>
-    </item>
-    <item>
-      <game_id>SYNTHETIC_USFL_2023_W3_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w3-generals</game_slug>
-      <display>PANTHERS @ GENERALS (13–28)</display>
-      <season>2023</season>
-      <week>3</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>PANTHERS</away_team>
-      <home_team>GENERALS</home_team>
-      <date_str>2023-04-30</date_str>
-      <score_home>28</score_home>
-      <score_away>13</score_away>
-      <stats>
-        <rushing_yards>7.0</rushing_yards>
-        <rushing_tds>0.0</rushing_tds>
-        <receptions>1.0</receptions>
-        <receiving_yards>11.0</receiving_yards>
-        <receiving_tds>0.0</receiving_tds>
       </stats>
     </item>
     <item>
@@ -162,55 +172,56 @@
       </stats>
     </item>
     <item>
-      <game_id>SYNTHETIC_USFL_2023_W6_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w6-generals</game_slug>
-      <display>GAMBLERS @ GENERALS (16–10)</display>
-      <season>2023</season>
-      <week>6</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>GAMBLERS</away_team>
-      <home_team>GENERALS</home_team>
-      <date_str>2023-05-21</date_str>
-      <score_home>10</score_home>
-      <score_away>16</score_away>
+      <game_id>50</game_id>
+      <game_slug>50</game_slug>
+      <display>BATTLEHAWKS @ BRAHMAS (26–9)</display>
+      <season>2025</season>
+      <week>2</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>BATTLEHAWKS</away_team>
+      <home_team>BRAHMAS</home_team>
+      <date_str>2025-04-06</date_str>
+      <score_home>9</score_home>
+      <score_away>26</score_away>
       <stats>
-        <receptions>1.0</receptions>
-        <receiving_yards>13.0</receiving_yards>
-        <receiving_tds>0.0</receiving_tds>
+        <rushing_yards>14.0</rushing_yards>
+        <rushing_tds>0.0</rushing_tds>
       </stats>
     </item>
     <item>
-      <game_id>SYNTHETIC_USFL_2023_W7_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w7-generals</game_slug>
-      <display>GENERALS @ PANTHERS (22–25)</display>
-      <season>2023</season>
-      <week>7</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>GENERALS</away_team>
-      <home_team>PANTHERS</home_team>
-      <date_str>2023-05-28</date_str>
-      <score_home>25</score_home>
-      <score_away>22</score_away>
-      <stats>
-        <receptions>1.0</receptions>
-        <receiving_yards>27.0</receiving_yards>
-        <receiving_tds>0.0</receiving_tds>
-      </stats>
-    </item>
-    <item>
-      <game_id>SYNTHETIC_USFL_2023_W8_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w8-generals</game_slug>
-      <display>GENERALS @ SHOWBOATS (16–25)</display>
-      <season>2023</season>
-      <week>8</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>GENERALS</away_team>
+      <game_id>55</game_id>
+      <game_slug>55</game_slug>
+      <display>PANTHERS @ SHOWBOATS (27–9)</display>
+      <season>2025</season>
+      <week>4</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>PANTHERS</away_team>
       <home_team>SHOWBOATS</home_team>
-      <date_str>2023-06-04</date_str>
-      <score_home>25</score_home>
+      <date_str>2025-04-18</date_str>
+      <score_home>9</score_home>
+      <score_away>27</score_away>
+      <stats>
+        <rushing_yards>7.0</rushing_yards>
+        <rushing_tds>0.0</rushing_tds>
+        <receptions>1.0</receptions>
+        <receiving_yards>11.0</receiving_yards>
+        <receiving_tds>0.0</receiving_tds>
+      </stats>
+    </item>
+    <item>
+      <game_id>80</game_id>
+      <game_slug>80</game_slug>
+      <display>ROUGHNECKS @ STALLIONS (16–23)</display>
+      <season>2025</season>
+      <week>4</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>ROUGHNECKS</away_team>
+      <home_team>STALLIONS</home_team>
+      <date_str>2025-04-19</date_str>
+      <score_home>23</score_home>
       <score_away>16</score_away>
       <stats>
         <receptions>0.0</receptions>
@@ -219,18 +230,56 @@
       </stats>
     </item>
     <item>
-      <game_id>SYNTHETIC_USFL_2023_W10_GENERALS</game_id>
-      <game_slug>synthetic-usfl-2023-w10-generals</game_slug>
-      <display>GENERALS @ MAULERS (6–26)</display>
-      <season>2023</season>
-      <week>10</week>
-      <league>USFL</league>
-      <sport_slug>usfl-2023</sport_slug>
-      <away_team>GENERALS</away_team>
-      <home_team>MAULERS</home_team>
-      <date_str>2023-06-17</date_str>
-      <score_home>26</score_home>
-      <score_away>6</score_away>
+      <game_id>67</game_id>
+      <game_slug>67</game_slug>
+      <display>STALLIONS @ ROUGHNECKS (33–25)</display>
+      <season>2025</season>
+      <week>7</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>STALLIONS</away_team>
+      <home_team>ROUGHNECKS</home_team>
+      <date_str>2025-05-11</date_str>
+      <score_home>25</score_home>
+      <score_away>33</score_away>
+      <stats>
+        <receptions>1.0</receptions>
+        <receiving_yards>13.0</receiving_yards>
+        <receiving_tds>0.0</receiving_tds>
+      </stats>
+    </item>
+    <item>
+      <game_id>71</game_id>
+      <game_slug>71</game_slug>
+      <display>DEFENDERS @ RENEGADES (33–30)</display>
+      <season>2025</season>
+      <week>8</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>DEFENDERS</away_team>
+      <home_team>RENEGADES</home_team>
+      <date_str>2025-05-18</date_str>
+      <score_home>30</score_home>
+      <score_away>33</score_away>
+      <stats>
+        <receptions>1.0</receptions>
+        <receiving_yards>27.0</receiving_yards>
+        <receiving_tds>0.0</receiving_tds>
+      </stats>
+    </item>
+    <item>
+      <game_id>74</game_id>
+      <game_slug>74</game_slug>
+      <display>STALLIONS @ PANTHERS (26–22)</display>
+      <season>2025</season>
+      <week>9</week>
+      <league>UFL</league>
+      <sport_slug>ufl-2025</sport_slug>
+      <away_team>STALLIONS</away_team>
+      <home_team>PANTHERS</home_team>
+      <date_str>2025-05-24</date_str>
+      <score_home>22</score_home>
+      <score_away>26</score_away>
       <stats>
         <receptions>0.0</receptions>
         <receiving_yards>0.0</receiving_yards>
