@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Maurice Leggett — AltSports Stats">
-  <meta property="og:description" content="Career stats for Maurice Leggett: def_int 10.0, def_lg 53.0, def_sack 6.0, def_solo 135.0, def_td 4.0, def_tot 135.0, def_yds 315.0, def_ydsl 29.0, ret_lg 398.0, ret_num 15.0, ret_td 1.0, ret_yds 502.0, score_ir 4.0, score_pr 1.0, score_pts 30.0, score_tot 5.0">
+  <meta property="og:description" content="Career stats for Maurice Leggett: def_int 10.0, def_lg 53.0, def_sack 6.0, def_solo 135.0, def_td 4.0, def_tot 135.0, def_yds 315.0, def_ydsl 29.0, games_played 1.0, kick_returns 9.0, punt_returns 9.0, receiving_yards 1.0, ret_lg 398.0, ret_num 15.0, ret_td 1.0, ret_yds 502.0, rushing_yards 8.0, score_ir 4.0, score_pr 1.0, score_pts 30.0, score_tot 5.0, total_yards 0.0, yards_per_game 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/maurice-leggett.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "NAL",
+      "description": "League-level player statistics for NAL from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CFL 2016",
@@ -240,7 +254,7 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">69.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#454</div>
+        <div class="badge-rank">#464</div>
       </div>
       
       
@@ -277,6 +291,14 @@
         
         <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
+        <th scope="col" data-stat="games_played">Games Played</th>
+        
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="punt_returns">Punt Returns</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
         <th scope="col" data-stat="ret_lg">Ret Lg</th>
         
         <th scope="col" data-stat="ret_num">Ret Num</th>
@@ -285,6 +307,8 @@
         
         <th scope="col" data-stat="ret_yds">Ret Yds</th>
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="score_ir">Score Ir</th>
         
         <th scope="col" data-stat="score_pr">Score Pr</th>
@@ -292,6 +316,10 @@
         <th scope="col" data-stat="score_pts">Score Pts</th>
         
         <th scope="col" data-stat="score_tot">Score Tot</th>
+        
+        <th scope="col" data-stat="total_yards">Total Yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">Yards Per Game</th>
         
       </tr>
     </thead>
@@ -314,6 +342,14 @@
         
         <td>29</td>
         
+        <td>1</td>
+        
+        <td>9</td>
+        
+        <td>9</td>
+        
+        <td>1</td>
+        
         <td>398</td>
         
         <td>15</td>
@@ -321,6 +357,8 @@
         <td>1</td>
         
         <td>502</td>
+        
+        <td>8</td>
         
         <td>4</td>
         
@@ -330,6 +368,10 @@
         
         <td>5</td>
         
+        <td>0</td>
+        
+        <td>0</td>
+        
       </tr>
     </tbody>
   </table>
@@ -338,6 +380,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2016": {"def_solo": 52.0, "def_tot": 52.0, "def_int": 7.0, "def_yds": 262.0, "def_lg": 54.0, "ret_num": 5.0, "ret_yds": 247.0, "ret_lg": 221.0, "def_sack": 2.0, "def_ydsl": 7.0, "def_td": 3.0, "score_tot": 3.0, "score_ir": 3.0, "score_pts": 18.0}, "CFL-2017": {"def_solo": 50.0, "def_tot": 50.0, "ret_num": 4.0, "ret_yds": 128.0, "ret_lg": 128.0, "def_int": 3.0, "def_sack": 3.0, "def_ydsl": 18.0, "def_yds": 53.0, "def_lg": -1.0, "def_td": 1.0, "score_tot": 2.0, "score_pr": 1.0, "score_ir": 1.0, "score_pts": 12.0, "ret_td": 1.0}, "CFL-2018": {"def_solo": 33.0, "def_tot": 33.0, "ret_num": 6.0, "ret_yds": 127.0, "ret_lg": 49.0, "def_sack": 1.0, "def_ydsl": 4.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -634,6 +700,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Maurice Leggett</td>
+        <td>COLUMBUS LIONS</td>
+        <td>DB</td>
+        <td>NAL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -671,6 +749,14 @@
         
         <th scope="col" data-stat="def_ydsl">def_ydsl</th>
         
+        <th scope="col" data-stat="games_played">games_played</th>
+        
+        <th scope="col" data-stat="kick_returns">kick_returns</th>
+        
+        <th scope="col" data-stat="punt_returns">punt_returns</th>
+        
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
+        
         <th scope="col" data-stat="ret_lg">ret_lg</th>
         
         <th scope="col" data-stat="ret_num">ret_num</th>
@@ -678,6 +764,8 @@
         <th scope="col" data-stat="ret_td">ret_td</th>
         
         <th scope="col" data-stat="ret_yds">ret_yds</th>
+        
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
         
         <th scope="col" data-stat="score_ir">score_ir</th>
         
@@ -687,6 +775,10 @@
         
         <th scope="col" data-stat="score_tot">score_tot</th>
         
+        <th scope="col" data-stat="total_yards">total_yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">yards_per_game</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -695,7 +787,67 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2016 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">—</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>—</td>
+        <td><a href="../leagues/nal.html">nal</a></td>
+        <td><a href="../games/football-nal-2021-columbus-lions-season-total.html" class="game-id">FOOTBALL_NAL_2021_columbus-lions_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>9.0</td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2016 Wk 1</td></tr>
       
       <tr>
         <td>2016</td>
@@ -715,6 +867,20 @@
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -763,6 +929,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>52.0</td>
         
         <td>1.0</td>
@@ -770,6 +944,12 @@
         <td></td>
         
         <td>52.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -822,6 +1002,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -844,6 +1038,20 @@
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -908,6 +1116,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -930,6 +1152,20 @@
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -994,6 +1230,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1016,6 +1266,20 @@
         <td></td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1072,6 +1336,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
@@ -1079,6 +1353,10 @@
         <td>6.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1115,6 +1393,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
@@ -1122,6 +1410,10 @@
         <td>6.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1150,6 +1442,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>45.0</td>
         
         <td>1.0</td>
@@ -1157,6 +1457,8 @@
         <td></td>
         
         <td>45.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -1165,6 +1467,10 @@
         <td>6.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1188,6 +1494,20 @@
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1252,6 +1572,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1279,6 +1613,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>48.0</td>
         
         <td>1.0</td>
@@ -1286,6 +1628,12 @@
         <td></td>
         
         <td>48.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1317,6 +1665,20 @@
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1381,6 +1743,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1408,6 +1784,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>76.0</td>
         
         <td>2.0</td>
@@ -1424,12 +1808,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2017 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2017 Wk 1</td></tr>
       
       <tr>
         <td>2017</td>
@@ -1456,7 +1846,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1497,6 +1901,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>31.0</td>
         
         <td>1.0</td>
@@ -1504,6 +1916,12 @@
         <td></td>
         
         <td>31.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1535,6 +1953,20 @@
         <td></td>
         
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1599,6 +2031,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1621,6 +2067,20 @@
         <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1685,6 +2145,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1707,6 +2181,20 @@
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1771,6 +2259,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1797,6 +2299,20 @@
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1857,6 +2373,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1879,6 +2409,20 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1943,6 +2487,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -1970,6 +2528,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>97.0</td>
         
         <td>2.0</td>
@@ -1977,6 +2543,8 @@
         <td>1.0</td>
         
         <td>97.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -1986,12 +2554,16 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2018 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2018 Wk 1</td></tr>
       
       <tr>
         <td>2018</td>
@@ -2016,6 +2588,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>21.0</td>
         
         <td>2.0</td>
@@ -2023,6 +2603,12 @@
         <td></td>
         
         <td>38.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2059,6 +2645,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>28.0</td>
         
         <td>4.0</td>
@@ -2066,6 +2660,12 @@
         <td></td>
         
         <td>89.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2097,6 +2697,20 @@
         <td></td>
         
         <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2161,6 +2775,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -2204,6 +2832,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -2226,6 +2868,20 @@
         <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2290,6 +2946,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -2333,6 +3003,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -2355,6 +3039,20 @@
         <td></td>
         
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

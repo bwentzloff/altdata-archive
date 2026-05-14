@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Mason Fine — AltSports Stats">
-  <meta property="og:description" content="Career stats for Mason Fine: interceptions_lost 8.0, interceptions_made 0.0, passing_tds 6.0, passing_yards 1565.0, receiving_tds 0.0, receiving_yards 8.0, receptions 1.0, rushing_tds 0.0, rushing_yards 96.0, sacks 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Mason Fine: interceptions_lost 8.0, interceptions_made 0.0, pass_att 9.0, pass_cmp 5.0, pass_lg 45.0, pass_yds 64.0, passing_tds 6.0, passing_yards 1565.0, receiving_tds 0.0, receiving_yards 8.0, receptions 1.0, rushing_tds 0.0, rushing_yards 96.0, sacks 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/mason-fine.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CFL 2022",
@@ -243,7 +257,7 @@
           
           <span class="ct-cell"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -256,6 +270,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">44.0</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1899</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">42.1</div>
+        <div class="badge-label">QB</div>
+        <div class="badge-rank">#56</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -274,6 +307,14 @@
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+        
+        <th scope="col" data-stat="pass_att">Pass Att</th>
+        
+        <th scope="col" data-stat="pass_cmp">Pass Cmp</th>
+        
+        <th scope="col" data-stat="pass_lg">Pass Lg</th>
+        
+        <th scope="col" data-stat="pass_yds">Pass Yds</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
         
@@ -301,6 +342,14 @@
         <td>8</td>
         
         <td>0</td>
+        
+        <td>9</td>
+        
+        <td>5</td>
+        
+        <td>45</td>
+        
+        <td>64</td>
         
         <td>6</td>
         
@@ -336,7 +385,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"passing_yards": 522.0, "passing_tds": 3.0, "interceptions_lost": 3.0, "rushing_yards": 35.0, "rushing_tds": 0.0}, "CFL-2023": {"passing_yards": 1043.0, "passing_tds": 3.0, "interceptions_lost": 5.0, "rushing_yards": 61.0, "rushing_tds": 0.0, "tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 8.0, "receiving_tds": 0.0, "receptions": 1.0}};
+    var seasons = {"CFL-2021": {"pass_att": 9.0, "pass_cmp": 5.0, "pass_yds": 64.0, "pass_lg": 45.0}, "CFL-2022": {"passing_yards": 522.0, "passing_tds": 3.0, "interceptions_lost": 3.0, "rushing_yards": 35.0, "rushing_tds": 0.0}, "CFL-2023": {"passing_yards": 1043.0, "passing_tds": 3.0, "interceptions_lost": 5.0, "rushing_yards": 61.0, "rushing_tds": 0.0, "tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0, "receiving_yards": 8.0, "receiving_tds": 0.0, "receptions": 1.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -358,6 +407,16 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -406,6 +465,14 @@
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
+        <th scope="col" data-stat="pass_att">Pass Att</th>
+        
+        <th scope="col" data-stat="pass_cmp">Pass Cmp</th>
+        
+        <th scope="col" data-stat="pass_lg">Pass Lg</th>
+        
+        <th scope="col" data-stat="pass_yds">Pass Yds</th>
+        
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
@@ -429,9 +496,52 @@
     <tbody>
       
       <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>5</td>
+        
+        <td>45</td>
+        
+        <td>64</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
         
         <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -461,6 +571,14 @@
         <td>5</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>3</td>
         
@@ -640,6 +758,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Mason Fine</td>
+        <td>—</td>
+        <td>QB</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -664,6 +794,14 @@
         <th scope="col" data-stat="interceptions_lost">interceptions_lost</th>
         
         <th scope="col" data-stat="interceptions_made">interceptions_made</th>
+        
+        <th scope="col" data-stat="pass_att">pass_att</th>
+        
+        <th scope="col" data-stat="pass_cmp">pass_cmp</th>
+        
+        <th scope="col" data-stat="pass_lg">pass_lg</th>
+        
+        <th scope="col" data-stat="pass_yds">pass_yds</th>
         
         <th scope="col" data-stat="passing_tds">passing_tds</th>
         
@@ -691,7 +829,51 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="20">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-20-ssk-ham.html" class="game-id">SSK @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>5.0</td>
+        
+        <td>45.0</td>
+        
+        <td>64.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="20">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -701,6 +883,14 @@
         <td>—</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -727,7 +917,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="20">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -737,6 +927,14 @@
         <td>32–17</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -763,7 +961,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="20">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -773,6 +971,14 @@
         <td>28–10</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -799,7 +1005,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2022 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="20">2022 Wk 17</td></tr>
       
       <tr>
         <td>2022</td>
@@ -809,6 +1015,14 @@
         <td>0–0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -835,7 +1049,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2022 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="20">2022 Wk 20</td></tr>
       
       <tr>
         <td>2022</td>
@@ -845,6 +1059,14 @@
         <td>32–21</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -871,7 +1093,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -881,6 +1103,14 @@
         <td>33–31</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -907,7 +1137,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -917,6 +1147,14 @@
         <td>9–19</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -943,7 +1181,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -953,6 +1191,14 @@
         <td>13–31</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -979,7 +1225,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -991,6 +1237,14 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -1015,7 +1269,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1025,6 +1279,14 @@
         <td>12–41</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1051,7 +1313,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="20">2023 Wk 18</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1061,6 +1323,14 @@
         <td>38–13</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1088,6 +1358,14 @@
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>
