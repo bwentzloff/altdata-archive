@@ -16,8 +16,9 @@
   <record_away />
   <sport_slug>cfl-2019</sport_slug>
   <synthetic>False</synthetic>
-  <player_count>23</player_count>
+  <player_count>46</player_count>
   <stat_keys>
+    <item>def_int</item>
     <item>def_sack</item>
     <item>def_solo</item>
     <item>def_tot</item>
@@ -43,23 +44,27 @@
     <item>ret_yds</item>
     <item>rush_att</item>
     <item>rush_lg</item>
+    <item>rush_td</item>
     <item>rush_yds</item>
     <item>score_conv</item>
     <item>score_p</item>
     <item>score_pts</item>
+    <item>score_r</item>
     <item>score_tot</item>
     <item>stat_fga</item>
     <item>stat_fgm</item>
     <item>stat_lg</item>
     <item>stat_pts</item>
+    <item>stat_xpa</item>
+    <item>stat_xpm</item>
   </stat_keys>
   <players>
     <item>
       <canonical_id>adrian-tracy</canonical_id>
       <canonical_name>Adrian Tracy</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DB</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -85,6 +90,71 @@
         <rush_att>6.0</rush_att>
         <rush_yds>51.0</rush_yds>
         <rush_lg>12.0</rush_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>antonio-simmons</canonical_id>
+      <canonical_name>Antonio Simmons</canonical_name>
+      <positions>
+        <item>DE</item>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>bj-cunningham</canonical_id>
+      <canonical_name>B.J. Cunningham</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>2.0</recv_rec>
+        <recv_yds>67.0</recv_yds>
+        <recv_lg>45.0</recv_lg>
+        <recv_tar>3.0</recv_tar>
+        <recv_yac>39.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>bo-banner</canonical_id>
+      <canonical_name>Bo Banner</canonical_name>
+      <positions>
+        <item>DE</item>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+        <def_sack>1.0</def_sack>
+        <def_ydsl>13.0</def_ydsl>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>boris-bede</canonical_id>
+      <canonical_name>Boris Bede</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <stat_fgm>3.0</stat_fgm>
+        <stat_fga>3.0</stat_fga>
+        <stat_lg>43.0</stat_lg>
+        <stat_xpm>3.0</stat_xpm>
+        <stat_xpa>3.0</stat_xpa>
+        <stat_pts>12.0</stat_pts>
+        <ret_num>5.0</ret_num>
+        <ret_yds>357.0</ret_yds>
+        <ret_lg>77.0</ret_lg>
+        <ret_ret>5.0</ret_ret>
+        <ret_ryds>133.0</ret_ryds>
+        <score_pts>12.0</score_pts>
       </stats>
     </item>
     <item>
@@ -123,6 +193,18 @@
       </stats>
     </item>
     <item>
+      <canonical_id>ciante-evans</canonical_id>
+      <canonical_name>Ciante Evans</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>3.0</def_solo>
+        <def_tot>3.0</def_tot>
+      </stats>
+    </item>
+    <item>
       <canonical_id>delvin-breaux</canonical_id>
       <canonical_name>Delvin Breaux</canonical_name>
       <positions>
@@ -138,13 +220,39 @@
       <canonical_id>dylan-wynn</canonical_id>
       <canonical_name>Dylan Wynn</canonical_name>
       <positions>
-        <item>DT</item>
         <item>DB</item>
+        <item>DT</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>3.0</def_solo>
         <def_tot>3.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>eugene-lewis</canonical_id>
+      <canonical_name>Eugene LEWIS</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>2.0</recv_rec>
+        <recv_yds>19.0</recv_yds>
+        <recv_lg>12.0</recv_lg>
+        <recv_tar>4.0</recv_tar>
+        <recv_yac>7.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>felix-faubert-lussier</canonical_id>
+      <canonical_name>Felix Faubert-Lussier</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_tar>1.0</recv_tar>
       </stats>
     </item>
     <item>
@@ -160,6 +268,43 @@
         <ret_num>5.0</ret_num>
         <ret_yds>133.0</ret_yds>
         <ret_lg>30.0</ret_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>glenn-love</canonical_id>
+      <canonical_name>Glenn Love</canonical_name>
+      <positions>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_int>1.0</def_int>
+        <def_solo>4.0</def_solo>
+        <def_tot>4.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>greg-reid</canonical_id>
+      <canonical_name>Greg Reid</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>3.0</def_solo>
+        <def_tot>3.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>henoc-muamba</canonical_id>
+      <canonical_name>Henoc Muamba</canonical_name>
+      <positions>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
       </stats>
     </item>
     <item>
@@ -194,6 +339,21 @@
       </stats>
     </item>
     <item>
+      <canonical_id>jake-wieneke</canonical_id>
+      <canonical_name>Jake Wieneke</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>16.0</recv_yds>
+        <recv_lg>16.0</recv_lg>
+        <recv_tar>2.0</recv_tar>
+        <recv_yac>1.0</recv_yac>
+      </stats>
+    </item>
+    <item>
       <canonical_id>jeremiah-masoli</canonical_id>
       <canonical_name>Jeremiah MASOLI</canonical_name>
       <positions>
@@ -212,6 +372,21 @@
         <rush_att>3.0</rush_att>
         <rush_yds>4.0</rush_yds>
         <rush_lg>3.0</rush_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>john-bowman</canonical_id>
+      <canonical_name>John Bowman</canonical_name>
+      <positions>
+        <item>DE</item>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
+        <def_sack>1.0</def_sack>
+        <def_ydsl>10.0</def_ydsl>
       </stats>
     </item>
     <item>
@@ -314,12 +489,53 @@
       <canonical_id>nikola-kalinic</canonical_id>
       <canonical_name>Nikola Kalinic</canonical_name>
       <positions>
-        <item>TE</item>
         <item>FB</item>
+        <item>TE</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <recv_tar>1.0</recv_tar>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>patrick-levels</canonical_id>
+      <canonical_name>Patrick Levels</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>6.0</def_solo>
+        <def_tot>6.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>paul-kozachuk</canonical_id>
+      <canonical_name>Paul Kozachuk</canonical_name>
+      <positions>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>quan-bray</canonical_id>
+      <canonical_name>Quan Bray</canonical_name>
+      <positions>
+        <item>WR</item>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>8.0</recv_rec>
+        <recv_yds>54.0</recv_yds>
+        <recv_lg>16.0</recv_lg>
+        <recv_tar>11.0</recv_tar>
+        <recv_yac>23.0</recv_yac>
       </stats>
     </item>
     <item>
@@ -338,13 +554,26 @@
       <canonical_id>rico-murray</canonical_id>
       <canonical_name>Rico Murray</canonical_name>
       <positions>
-        <item>LB</item>
         <item>DB</item>
+        <item>LB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>5.0</def_solo>
         <def_tot>5.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>ryder-stone</canonical_id>
+      <canonical_name>Ryder Stone</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <ret_num>2.0</ret_num>
+        <ret_yds>49.0</ret_yds>
+        <ret_lg>34.0</ret_lg>
       </stats>
     </item>
     <item>
@@ -372,16 +601,45 @@
       </stats>
     </item>
     <item>
+      <canonical_id>stefan-logan</canonical_id>
+      <canonical_name>Stefan Logan</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <rush_att>2.0</rush_att>
+        <rush_yds>2.0</rush_yds>
+        <rush_lg>6.0</rush_lg>
+        <recv_tar>1.0</recv_tar>
+        <ret_num>1.0</ret_num>
+        <ret_yds>15.0</ret_yds>
+        <ret_lg>15.0</ret_lg>
+      </stats>
+    </item>
+    <item>
       <canonical_id>ted-laurent</canonical_id>
       <canonical_name>Ted Laurent</canonical_name>
       <positions>
-        <item>DT</item>
         <item>DB</item>
+        <item>DT</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>1.0</def_solo>
         <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>tommie-campbell</canonical_id>
+      <canonical_name>Tommie Campbell</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
       </stats>
     </item>
     <item>
@@ -394,6 +652,89 @@
       <stats>
         <def_solo>4.0</def_solo>
         <def_tot>4.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>ty-cranston</canonical_id>
+      <canonical_name>Ty Cranston</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>3.0</def_solo>
+        <def_tot>3.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>vernon-adams</canonical_id>
+      <canonical_name>Vernon Adams</canonical_name>
+      <positions>
+        <item>QB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <pass_att>25.0</pass_att>
+        <pass_cmp>14.0</pass_cmp>
+        <pass_yds>202.0</pass_yds>
+        <pass_lg>46.0</pass_lg>
+        <pass_sack>1.0</pass_sack>
+        <pass_loss>7.0</pass_loss>
+        <rush_att>7.0</rush_att>
+        <rush_yds>59.0</rush_yds>
+        <rush_lg>27.0</rush_lg>
+        <rush_td>1.0</rush_td>
+        <score_tot>1.0</score_tot>
+        <score_r>1.0</score_r>
+        <score_pts>6.0</score_pts>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>william-stanback</canonical_id>
+      <canonical_name>William STANBACK</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <rush_att>22.0</rush_att>
+        <rush_yds>203.0</rush_yds>
+        <rush_lg>49.0</rush_lg>
+        <rush_td>3.0</rush_td>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>46.0</recv_yds>
+        <recv_lg>46.0</recv_lg>
+        <recv_tar>2.0</recv_tar>
+        <recv_yac>46.0</recv_yac>
+        <score_tot>3.0</score_tot>
+        <score_r>3.0</score_r>
+        <score_pts>18.0</score_pts>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>woody-baron</canonical_id>
+      <canonical_name>Woody Baron</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>zac-parker</canonical_id>
+      <canonical_name>Zac Parker</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_tar>1.0</recv_tar>
       </stats>
     </item>
   </players>

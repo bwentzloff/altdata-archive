@@ -16,7 +16,7 @@
   <record_away />
   <sport_slug>cfl-2019</sport_slug>
   <synthetic>False</synthetic>
-  <player_count>26</player_count>
+  <player_count>55</player_count>
   <stat_keys>
     <item>def_int</item>
     <item>def_lg</item>
@@ -27,13 +27,16 @@
     <item>def_ydsl</item>
     <item>pass_att</item>
     <item>pass_cmp</item>
+    <item>pass_int</item>
     <item>pass_lg</item>
     <item>pass_loss</item>
     <item>pass_sack</item>
+    <item>pass_td</item>
     <item>pass_yds</item>
     <item>recv_lg</item>
     <item>recv_rec</item>
     <item>recv_tar</item>
+    <item>recv_td</item>
     <item>recv_yac</item>
     <item>recv_yds</item>
     <item>ret_lg</item>
@@ -44,11 +47,15 @@
     <item>rush_att</item>
     <item>rush_lg</item>
     <item>rush_yds</item>
+    <item>score_p</item>
     <item>score_pts</item>
+    <item>score_tot</item>
     <item>stat_fga</item>
     <item>stat_fgm</item>
     <item>stat_lg</item>
     <item>stat_pts</item>
+    <item>stat_xpa</item>
+    <item>stat_xpm</item>
   </stat_keys>
   <players>
     <item>
@@ -64,6 +71,79 @@
         <recv_lg>6.0</recv_lg>
         <recv_tar>2.0</recv_tar>
         <recv_yac>6.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>anthony-cioffi</canonical_id>
+      <canonical_name>Anthony Cioffi</canonical_name>
+      <positions>
+        <item>SAF</item>
+        <item>DB</item>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>avery-ellis</canonical_id>
+      <canonical_name>Avery Ellis</canonical_name>
+      <positions>
+        <item>DE</item>
+        <item>DL</item>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>6.0</def_solo>
+        <def_tot>6.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>avery-williams</canonical_id>
+      <canonical_name>Avery Williams</canonical_name>
+      <positions>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>8.0</def_solo>
+        <def_tot>8.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>brad-sinopoli</canonical_id>
+      <canonical_name>Brad Sinopoli</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>7.0</recv_rec>
+        <recv_yds>76.0</recv_yds>
+        <recv_td>1.0</recv_td>
+        <recv_tar>8.0</recv_tar>
+        <recv_yac>34.0</recv_yac>
+        <score_tot>1.0</score_tot>
+        <score_p>1.0</score_p>
+        <score_pts>6.0</score_pts>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>caleb-holley</canonical_id>
+      <canonical_name>Caleb Holley</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>6.0</recv_yds>
+        <recv_lg>6.0</recv_lg>
+        <recv_tar>1.0</recv_tar>
+        <recv_yac>-1.0</recv_yac>
       </stats>
     </item>
     <item>
@@ -95,16 +175,40 @@
       </stats>
     </item>
     <item>
+      <canonical_id>chris-randle</canonical_id>
+      <canonical_name>Chris Randle</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>4.0</def_solo>
+        <def_tot>4.0</def_tot>
+      </stats>
+    </item>
+    <item>
       <canonical_id>cordarro-law</canonical_id>
       <canonical_name>Cordarro Law</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DB</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>1.0</def_solo>
         <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>corey-tindal</canonical_id>
+      <canonical_name>Corey Tindal</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>7.0</def_solo>
+        <def_tot>7.0</def_tot>
       </stats>
     </item>
     <item>
@@ -135,16 +239,62 @@
       </stats>
     </item>
     <item>
+      <canonical_id>deandre-farris</canonical_id>
+      <canonical_name>DeAndre Farris</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
+      </stats>
+    </item>
+    <item>
       <canonical_id>derek-wiggan</canonical_id>
       <canonical_name>Derek Wiggan</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DB</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>1.0</def_solo>
         <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>devonte-dedmon</canonical_id>
+      <canonical_name>Devonte DEDMON</canonical_name>
+      <positions>
+        <item>WR</item>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>12.0</recv_yds>
+        <recv_lg>12.0</recv_lg>
+        <recv_tar>1.0</recv_tar>
+        <recv_yac>12.0</recv_yac>
+        <ret_num>3.0</ret_num>
+        <ret_yds>106.0</ret_yds>
+        <ret_lg>58.0</ret_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>dominique-rhymes</canonical_id>
+      <canonical_name>Dominique RHYMES</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>3.0</recv_rec>
+        <recv_yds>23.0</recv_yds>
+        <recv_lg>10.0</recv_lg>
+        <recv_tar>3.0</recv_tar>
+        <recv_yac>4.0</recv_yac>
       </stats>
     </item>
     <item>
@@ -165,6 +315,31 @@
       </stats>
     </item>
     <item>
+      <canonical_id>evan-johnson</canonical_id>
+      <canonical_name>Evan Johnson</canonical_name>
+      <positions>
+        <item>OL</item>
+      </positions>
+      <ambiguous>True</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>greg-morris</canonical_id>
+      <canonical_name>Greg Morris</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <ret_num>2.0</ret_num>
+        <ret_yds>45.0</ret_yds>
+        <ret_lg>25.0</ret_lg>
+      </stats>
+    </item>
+    <item>
       <canonical_id>hergy-mayala</canonical_id>
       <canonical_name>Hergy Mayala</canonical_name>
       <positions>
@@ -180,16 +355,125 @@
       </stats>
     </item>
     <item>
+      <canonical_id>jr-tavai</canonical_id>
+      <canonical_name>J.R. Tavai</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
+        <def_sack>2.0</def_sack>
+        <def_ydsl>14.0</def_ydsl>
+      </stats>
+    </item>
+    <item>
       <canonical_id>jabar-westerman</canonical_id>
       <canonical_name>Jabar Westerman</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DB</item>
+        <item>DL</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
         <def_solo>1.0</def_solo>
         <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>jean-christophe-beaulieu</canonical_id>
+      <canonical_name>Jean-Christophe Beaulieu</canonical_name>
+      <positions>
+        <item>FB</item>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>1.0</recv_yds>
+        <recv_lg>1.0</recv_lg>
+        <recv_tar>2.0</recv_tar>
+        <recv_yac>-2.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>jerod-fernandez</canonical_id>
+      <canonical_name>Jerod Fernandez</canonical_name>
+      <positions>
+        <item>ILB</item>
+        <item>LB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>john-crockett</canonical_id>
+      <canonical_name>John Crockett</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <rush_att>18.0</rush_att>
+        <rush_yds>84.0</rush_yds>
+        <rush_lg>8.0</rush_lg>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>9.0</recv_yds>
+        <recv_lg>9.0</recv_lg>
+        <recv_tar>1.0</recv_tar>
+        <recv_yac>6.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>jonathon-jennings</canonical_id>
+      <canonical_name>Jonathon Jennings</canonical_name>
+      <positions>
+        <item>QB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <pass_att>18.0</pass_att>
+        <pass_cmp>15.0</pass_cmp>
+        <pass_yds>125.0</pass_yds>
+        <pass_td>1.0</pass_td>
+        <pass_int>2.0</pass_int>
+        <pass_sack>2.0</pass_sack>
+        <pass_loss>3.0</pass_loss>
+        <rush_att>4.0</rush_att>
+        <rush_yds>12.0</rush_yds>
+        <rush_lg>8.0</rush_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>julian-feoli-gudino</canonical_id>
+      <canonical_name>Julian Feoli-Gudino</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_rec>1.0</recv_rec>
+        <recv_yds>-2.0</recv_yds>
+        <recv_lg>-2.0</recv_lg>
+        <recv_tar>1.0</recv_tar>
+        <recv_yac>-2.0</recv_yac>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>justin-howell</canonical_id>
+      <canonical_name>Justin Howell</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
       </stats>
     </item>
     <item>
@@ -225,6 +509,35 @@
       </stats>
     </item>
     <item>
+      <canonical_id>kevin-brown</canonical_id>
+      <canonical_name>Kevin BROWN</canonical_name>
+      <positions>
+        <item>RB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>lewis-ward</canonical_id>
+      <canonical_name>Lewis Ward</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <stat_fgm>3.0</stat_fgm>
+        <stat_fga>3.0</stat_fga>
+        <stat_lg>53.0</stat_lg>
+        <stat_xpm>1.0</stat_xpm>
+        <stat_xpa>1.0</stat_xpa>
+        <stat_pts>10.0</stat_pts>
+        <score_pts>10.0</score_pts>
+      </stats>
+    </item>
+    <item>
       <canonical_id>markeith-ambles</canonical_id>
       <canonical_name>Markeith Ambles</canonical_name>
       <positions>
@@ -243,13 +556,41 @@
       </stats>
     </item>
     <item>
+      <canonical_id>michael-klassen</canonical_id>
+      <canonical_name>Michael Klassen</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>5.0</def_solo>
+        <def_tot>5.0</def_tot>
+        <def_sack>1.0</def_sack>
+        <def_ydsl>5.0</def_ydsl>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>michael-wakefield</canonical_id>
+      <canonical_name>Michael Wakefield</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
+      </stats>
+    </item>
+    <item>
       <canonical_id>mike-rose</canonical_id>
       <canonical_name>Mike Rose</canonical_name>
       <positions>
-        <item>DL</item>
         <item>DB</item>
-        <item>LB</item>
+        <item>DL</item>
         <item>MLB</item>
+        <item>LB</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -261,8 +602,8 @@
       <canonical_id>nate-holley</canonical_id>
       <canonical_name>Nate Holley</canonical_name>
       <positions>
-        <item>S</item>
         <item>SAF</item>
+        <item>S</item>
         <item>LB</item>
       </positions>
       <ambiguous>False</ambiguous>
@@ -288,6 +629,44 @@
         <rush_att>4.0</rush_att>
         <rush_yds>6.0</rush_yds>
         <rush_lg>3.0</rush_lg>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>nigel-romick</canonical_id>
+      <canonical_name>Nigel Romick</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>noel-thomas</canonical_id>
+      <canonical_name>Noel Thomas</canonical_name>
+      <positions>
+        <item>WR</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <recv_tar>1.0</recv_tar>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>randall-evans</canonical_id>
+      <canonical_name>Randall Evans</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
       </stats>
     </item>
     <item>
@@ -341,11 +720,26 @@
       </stats>
     </item>
     <item>
+      <canonical_id>richie-leone</canonical_id>
+      <canonical_name>Richie Leone</canonical_name>
+      <positions>
+        <item>K</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <ret_num>5.0</ret_num>
+        <ret_yds>320.0</ret_yds>
+        <ret_lg>70.0</ret_lg>
+        <ret_ret>5.0</ret_ret>
+        <ret_ryds>116.0</ret_ryds>
+      </stats>
+    </item>
+    <item>
       <canonical_id>rob-maver</canonical_id>
       <canonical_name>Rob Maver</canonical_name>
       <positions>
-        <item>P</item>
         <item>K</item>
+        <item>P</item>
       </positions>
       <ambiguous>False</ambiguous>
       <stats>
@@ -381,6 +775,31 @@
       <stats>
         <def_solo>1.0</def_solo>
         <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>shaneil-jenkins</canonical_id>
+      <canonical_name>Shaneil Jenkins</canonical_name>
+      <positions>
+        <item>DB</item>
+        <item>DL</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>1.0</def_solo>
+        <def_tot>1.0</def_tot>
+      </stats>
+    </item>
+    <item>
+      <canonical_id>sherrod-baltimore</canonical_id>
+      <canonical_name>Sherrod Baltimore</canonical_name>
+      <positions>
+        <item>DB</item>
+      </positions>
+      <ambiguous>False</ambiguous>
+      <stats>
+        <def_solo>2.0</def_solo>
+        <def_tot>2.0</def_tot>
       </stats>
     </item>
     <item>
