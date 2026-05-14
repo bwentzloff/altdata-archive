@@ -1,0 +1,774 @@
+{
+  "slug": "nfl-pipeline-leagues",
+  "title": "Which leagues feed the NFL?",
+  "subtitle": "Cross-league career trajectories of pro football players",
+  "category": "Football",
+  "tags": [
+    "football",
+    "nfl",
+    "career"
+  ],
+  "computed_at": "2026-05-14T02:17:12+00:00",
+  "headline_stats": [
+    {
+      "label": "Best alt league \u2192 NFL rate",
+      "value": "5.0%",
+      "sub": "XFL (23 of 463 players)"
+    },
+    {
+      "label": "Overall alt league \u2192 NFL rate",
+      "value": "1.7%",
+      "sub": "135 of 8,095 league-player records move alt\u2192NFL"
+    },
+    {
+      "label": "Median league alt \u2192 NFL rate",
+      "value": "0.9%",
+      "sub": "across 9 non-NFL leagues"
+    }
+  ],
+  "charts": [
+    {
+      "id": "chart-rate",
+      "type": "bar",
+      "title": "% of league's players who also appear in the NFL",
+      "labels": [
+        "UFL",
+        "XFL",
+        "USFL",
+        "AAF",
+        "CFL",
+        "AFL",
+        "ELF",
+        "IFL",
+        "AF1"
+      ],
+      "datasets": [
+        {
+          "label": "% to NFL",
+          "data": [
+            18.1,
+            5.0,
+            3.7,
+            3.3,
+            1.3,
+            0.7,
+            0.1,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "value_suffix": "%",
+      "indexAxis": "y",
+      "note": "Includes any NFL appearance, regardless of whether it came before or after the alt-league stint."
+    },
+    {
+      "id": "chart-network",
+      "type": "network",
+      "title": "Player movement between leagues",
+      "nodes": [
+        {
+          "id": "AAF",
+          "label": "AAF",
+          "value": 362,
+          "is_nfl": false
+        },
+        {
+          "id": "AF1",
+          "label": "AF1",
+          "value": 159,
+          "is_nfl": false
+        },
+        {
+          "id": "AFL",
+          "label": "AFL",
+          "value": 144,
+          "is_nfl": false
+        },
+        {
+          "id": "CFL",
+          "label": "CFL",
+          "value": 4115,
+          "is_nfl": false
+        },
+        {
+          "id": "ELF",
+          "label": "ELF",
+          "value": 692,
+          "is_nfl": false
+        },
+        {
+          "id": "IFL",
+          "label": "IFL",
+          "value": 149,
+          "is_nfl": false
+        },
+        {
+          "id": "NFL",
+          "label": "NFL",
+          "value": 2604,
+          "is_nfl": true
+        },
+        {
+          "id": "UFL",
+          "label": "UFL",
+          "value": 1246,
+          "is_nfl": false
+        },
+        {
+          "id": "USFL",
+          "label": "USFL",
+          "value": 765,
+          "is_nfl": false
+        },
+        {
+          "id": "XFL",
+          "label": "XFL",
+          "value": 463,
+          "is_nfl": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "AAF",
+          "target": "AF1",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "AFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "ELF",
+          "target": "NFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "ELF",
+          "target": "AFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "AFL",
+          "target": "NFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "AF1",
+          "target": "USFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "IFL",
+          "value": 1,
+          "directed": true
+        },
+        {
+          "source": "IFL",
+          "target": "UFL",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "AFL",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "ELF",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "ELF",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "IFL",
+          "target": "CFL",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "ELF",
+          "target": "UFL",
+          "value": 2,
+          "directed": true
+        },
+        {
+          "source": "AF1",
+          "target": "UFL",
+          "value": 3,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "AF1",
+          "value": 3,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "ELF",
+          "value": 3,
+          "directed": true
+        },
+        {
+          "source": "IFL",
+          "target": "AF1",
+          "value": 4,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "IFL",
+          "value": 4,
+          "directed": true
+        },
+        {
+          "source": "AF1",
+          "target": "CFL",
+          "value": 4,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "ELF",
+          "value": 4,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "USFL",
+          "value": 5,
+          "directed": true
+        },
+        {
+          "source": "AF1",
+          "target": "IFL",
+          "value": 5,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "AFL",
+          "value": 5,
+          "directed": true
+        },
+        {
+          "source": "AFL",
+          "target": "AF1",
+          "value": 7,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "AF1",
+          "value": 8,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "ELF",
+          "value": 9,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "AFL",
+          "value": 9,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "USFL",
+          "value": 10,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "XFL",
+          "value": 10,
+          "directed": true
+        },
+        {
+          "source": "IFL",
+          "target": "AFL",
+          "value": 11,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "NFL",
+          "value": 12,
+          "directed": true
+        },
+        {
+          "source": "ELF",
+          "target": "CFL",
+          "value": 12,
+          "directed": true
+        },
+        {
+          "source": "NFL",
+          "target": "CFL",
+          "value": 12,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "IFL",
+          "value": 15,
+          "directed": true
+        },
+        {
+          "source": "AF1",
+          "target": "AFL",
+          "value": 16,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "USFL",
+          "value": 21,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "UFL",
+          "value": 22,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "NFL",
+          "value": 23,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "XFL",
+          "value": 24,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "AAF",
+          "value": 26,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "NFL",
+          "value": 28,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "XFL",
+          "value": 31,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "XFL",
+          "value": 32,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "USFL",
+          "value": 38,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "NFL",
+          "value": 41,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "CFL",
+          "value": 59,
+          "directed": true
+        },
+        {
+          "source": "UFL",
+          "target": "NFL",
+          "value": 64,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "CFL",
+          "value": 103,
+          "directed": true
+        },
+        {
+          "source": "AAF",
+          "target": "CFL",
+          "value": 106,
+          "directed": true
+        },
+        {
+          "source": "CFL",
+          "target": "UFL",
+          "value": 115,
+          "directed": true
+        },
+        {
+          "source": "NFL",
+          "target": "UFL",
+          "value": 161,
+          "directed": true
+        },
+        {
+          "source": "XFL",
+          "target": "UFL",
+          "value": 172,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "CFL",
+          "value": 181,
+          "directed": true
+        },
+        {
+          "source": "USFL",
+          "target": "UFL",
+          "value": 232,
+          "directed": true
+        }
+      ],
+      "note": "Each node is a league, sized by the number of unique players in it. Each arrow points from the league a player appeared in first to the league they appeared in next; thickness is proportional to the number of players who made that move. Dashed grey lines mark pairs of leagues where chronology can't be determined. Drag a node to reposition; hover for exact counts."
+    },
+    {
+      "id": "chart-direction",
+      "type": "stacked-bar",
+      "title": "Launching pad or landing spot?",
+      "labels": [
+        "UFL",
+        "XFL",
+        "USFL",
+        "AAF",
+        "CFL"
+      ],
+      "datasets": [
+        {
+          "label": "Alt league \u2192 NFL (before)",
+          "data": [
+            35,
+            23,
+            28,
+            12,
+            35
+          ]
+        },
+        {
+          "label": "NFL \u2192 alt league (after)",
+          "data": [
+            190,
+            0,
+            0,
+            0,
+            18
+          ]
+        },
+        {
+          "label": "Same year",
+          "data": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "indexAxis": "y",
+      "note": "Counts of NFL crossovers split by which league the player appeared in first. Useful for telling launching pads from landing spots, but does not by itself answer the selection-vs-development question above."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What we measured",
+      "html": "<p>Every player in the archive is tagged with the leagues they have appeared in. For each non-NFL professional football league we count two things:</p><ol><li>How many players have appeared in that league at all.</li><li>How many of those players also appear in our NFL roster data.</li></ol><p>The ratio of the second to the first is the league's <em>NFL conversion rate</em>.</p>"
+    },
+    {
+      "heading": "Top-line result",
+      "html": "<p>The headline cards above now focus on directional movement: players who appear in an alt league <em>before</em> the NFL. On that measure, <strong>XFL</strong> leads at <strong>5.0%</strong> (23 of 463).</p><p>Important caveat: chart and table conversion columns still show <em>any</em> NFL overlap (before or after) so you can compare both lenses.</p>"
+    },
+    {
+      "heading": "Chicken or egg?",
+      "html": "<p>A high conversion rate does not mean a league <em>develops</em> NFL players. There are two competing explanations for why league A might send a higher share of its players to the NFL than league B:</p><ol><li><strong>Development:</strong> league A is genuinely a better proving ground \u2014 its coaching, competition, or visibility makes the players in it more likely to earn an NFL roster spot than they otherwise would.</li><li><strong>Selection:</strong> league A simply gets first pick of the best non-NFL talent. Those players were always going to be the most likely to make the NFL; the league just happens to be where they landed first. The same players in league B would have made the NFL at the same rate.</li></ol><p>Nothing in this dataset can fully separate the two. To do that you would need a counterfactual: take a player who went to league A, run their career again with them in league B, and see what happens. We can only observe the world that actually happened.</p><p>What we can do is flag the structural reasons each effect probably matters:</p><ul><li>The <strong>UFL</strong> (and its predecessor brands USFL/XFL) actively scouts and signs players who recently failed to stick on an NFL roster \u2014 a population that is already pre-selected for NFL-readiness. A high conversion rate there is mostly the selection story.</li><li>The <strong>CFL</strong> has a much larger talent pool (over 4,000 tracked players) and a wider mix of pure-CFL career players. Its lower conversion rate partly reflects that it isn't filtering as aggressively for NFL-prospect types.</li><li>Indoor leagues (<strong>AFL</strong>, <strong>IFL</strong>, <strong>AF1</strong>, <strong>NAL</strong>) play a different game on a smaller field, so the population there self-selects away from NFL-style talent in the first place.</li></ul><p>One thing the data <em>can</em> show directly is the direction of the move. Below we split each league's NFL crossovers into players who appeared in the alt league before reaching the NFL versus those who appeared after \u2014 i.e. ex-NFL veterans dropping down. This is not the same as answering selection-vs-development, but it does tell you whether a league is mostly a launching pad or mostly a landing spot.</p>"
+    },
+    {
+      "heading": "League-by-league",
+      "html": "<p>Full breakdown in the table at the bottom of the article.</p>"
+    }
+  ],
+  "methodology": "<p>Source: every player JSON file in <code>docs/data/players/</code>. A player is counted in a league if that league appears in their <code>sport_names</code> list (derived from any roster appearance, not just statlines). Players flagged <code>ambiguous</code> are excluded because their cross-league identity is uncertain.</p><p>Year ordering uses the earliest year recorded in <code>season_totals</code> per league. When season-year metadata is missing on either side, we fall back to the order of <code>sport_id</code> values on the player's roster appearances \u2014 a coarse but reliable proxy because sport IDs in this archive are issued chronologically.</p><p>This study reruns on every site build; numbers will drift as the archive ingests more rosters and as players move between leagues.</p>",
+  "table": {
+    "columns": [
+      {
+        "key": "league",
+        "label": "League"
+      },
+      {
+        "key": "players",
+        "label": "Players in archive",
+        "numeric": true
+      },
+      {
+        "key": "to_nfl",
+        "label": "Also in NFL",
+        "numeric": true
+      },
+      {
+        "key": "rate_pct",
+        "label": "% to NFL",
+        "numeric": true,
+        "suffix": "%"
+      },
+      {
+        "key": "before_nfl",
+        "label": "Pre-NFL appearance",
+        "numeric": true
+      },
+      {
+        "key": "after_nfl",
+        "label": "Post-NFL appearance",
+        "numeric": true
+      },
+      {
+        "key": "stepping_pct",
+        "label": "Stepping-stone share",
+        "numeric": true,
+        "suffix": "%"
+      },
+      {
+        "key": "blurb",
+        "label": "Notes"
+      }
+    ],
+    "rows": [
+      {
+        "league": "UFL",
+        "code": "UFL",
+        "blurb": "United Football League \u2014 formed by the 2024 merger of USFL and XFL.",
+        "players": 1246,
+        "to_nfl": 225,
+        "rate": 0.1806,
+        "rate_pct": 18.1,
+        "before_nfl": 35,
+        "after_nfl": 190,
+        "same_year": 0,
+        "with_year_data": 225,
+        "alt_to_nfl_rate": 0.0281,
+        "alt_to_nfl_pct": 2.8,
+        "stepping_share": 0.1556,
+        "stepping_pct": 15.6
+      },
+      {
+        "league": "XFL",
+        "code": "XFL",
+        "blurb": "XFL (revived 2023, merged with USFL into UFL in 2024).",
+        "players": 463,
+        "to_nfl": 23,
+        "rate": 0.0497,
+        "rate_pct": 5.0,
+        "before_nfl": 23,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 23,
+        "alt_to_nfl_rate": 0.0497,
+        "alt_to_nfl_pct": 5.0,
+        "stepping_share": 1.0,
+        "stepping_pct": 100.0
+      },
+      {
+        "league": "USFL",
+        "code": "USFL",
+        "blurb": "United States Football League (revived 2022, merged with XFL into UFL in 2024).",
+        "players": 765,
+        "to_nfl": 28,
+        "rate": 0.0366,
+        "rate_pct": 3.7,
+        "before_nfl": 28,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 28,
+        "alt_to_nfl_rate": 0.0366,
+        "alt_to_nfl_pct": 3.7,
+        "stepping_share": 1.0,
+        "stepping_pct": 100.0
+      },
+      {
+        "league": "AAF",
+        "code": "AAF",
+        "blurb": "Alliance of American Football \u2014 single 2019 season.",
+        "players": 362,
+        "to_nfl": 12,
+        "rate": 0.0331,
+        "rate_pct": 3.3,
+        "before_nfl": 12,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 12,
+        "alt_to_nfl_rate": 0.0331,
+        "alt_to_nfl_pct": 3.3,
+        "stepping_share": 1.0,
+        "stepping_pct": 100.0
+      },
+      {
+        "league": "CFL",
+        "code": "CFL",
+        "blurb": "Canadian Football League \u2014 9 teams, founded 1958.",
+        "players": 4115,
+        "to_nfl": 53,
+        "rate": 0.0129,
+        "rate_pct": 1.3,
+        "before_nfl": 35,
+        "after_nfl": 18,
+        "same_year": 0,
+        "with_year_data": 53,
+        "alt_to_nfl_rate": 0.0085,
+        "alt_to_nfl_pct": 0.9,
+        "stepping_share": 0.6604,
+        "stepping_pct": 66.0
+      },
+      {
+        "league": "AFL",
+        "code": "AFL",
+        "blurb": "Arena Football League (revived 2024).",
+        "players": 144,
+        "to_nfl": 1,
+        "rate": 0.0069,
+        "rate_pct": 0.7,
+        "before_nfl": 1,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 1,
+        "alt_to_nfl_rate": 0.0069,
+        "alt_to_nfl_pct": 0.7,
+        "stepping_share": 1.0,
+        "stepping_pct": 100.0
+      },
+      {
+        "league": "ELF",
+        "code": "ELF",
+        "blurb": "European League of Football.",
+        "players": 692,
+        "to_nfl": 1,
+        "rate": 0.0014,
+        "rate_pct": 0.1,
+        "before_nfl": 1,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 1,
+        "alt_to_nfl_rate": 0.0014,
+        "alt_to_nfl_pct": 0.1,
+        "stepping_share": 1.0,
+        "stepping_pct": 100.0
+      },
+      {
+        "league": "IFL",
+        "code": "IFL",
+        "blurb": "Indoor Football League.",
+        "players": 149,
+        "to_nfl": 0,
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "before_nfl": 0,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 0,
+        "alt_to_nfl_rate": 0.0,
+        "alt_to_nfl_pct": 0.0,
+        "stepping_share": null,
+        "stepping_pct": null
+      },
+      {
+        "league": "AF1",
+        "code": "AF1",
+        "blurb": "Arena Football One.",
+        "players": 159,
+        "to_nfl": 0,
+        "rate": 0.0,
+        "rate_pct": 0.0,
+        "before_nfl": 0,
+        "after_nfl": 0,
+        "same_year": 0,
+        "with_year_data": 0,
+        "alt_to_nfl_rate": 0.0,
+        "alt_to_nfl_pct": 0.0,
+        "stepping_share": null,
+        "stepping_pct": null
+      }
+    ]
+  },
+  "history_row": {
+    "leagues": {
+      "UFL": {
+        "players": 1246,
+        "to_nfl": 225,
+        "rate_pct": 18.1
+      },
+      "XFL": {
+        "players": 463,
+        "to_nfl": 23,
+        "rate_pct": 5.0
+      },
+      "USFL": {
+        "players": 765,
+        "to_nfl": 28,
+        "rate_pct": 3.7
+      },
+      "AAF": {
+        "players": 362,
+        "to_nfl": 12,
+        "rate_pct": 3.3
+      },
+      "CFL": {
+        "players": 4115,
+        "to_nfl": 53,
+        "rate_pct": 1.3
+      },
+      "AFL": {
+        "players": 144,
+        "to_nfl": 1,
+        "rate_pct": 0.7
+      },
+      "ELF": {
+        "players": 692,
+        "to_nfl": 1,
+        "rate_pct": 0.1
+      },
+      "IFL": {
+        "players": 149,
+        "to_nfl": 0,
+        "rate_pct": 0.0
+      },
+      "AF1": {
+        "players": 159,
+        "to_nfl": 0,
+        "rate_pct": 0.0
+      }
+    },
+    "total_football_players": 9283
+  }
+}
