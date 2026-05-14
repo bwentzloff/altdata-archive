@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Tyrice Beverette — AltSports Stats">
-  <meta property="og:description" content="Career stats for Tyrice Beverette: def_sack 1.0, def_solo 16.0, def_tot 16.0, def_ydsl 1.0, interceptions_made 1.0, sacks 6.0, tackles 66.0">
+  <meta property="og:description" content="Career stats for Tyrice Beverette: def_int 1.0, def_sack 3.0, def_solo 78.0, def_td 1.0, def_tot 78.0, def_yds 100.0, def_ydsl 25.0, interceptions_made 1.0, sacks 6.0, score_ir 1.0, score_pts 6.0, score_tot 1.0, tackles 66.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/tyrice-beverette.html">
   
@@ -91,6 +91,20 @@
       "name": "CFL 2021",
       "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2022",
+      "description": "League-level player statistics for CFL 2022 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -246,7 +260,7 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -264,9 +278,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">72.1</div>
+        <div class="badge-number">73.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#349</div>
+        <div class="badge-rank">#282</div>
       </div>
       
       
@@ -287,17 +301,29 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_int">INT</th>
+        
         <th scope="col" data-stat="def_sack">Def Sack</th>
         
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
+        <th scope="col" data-stat="def_td">Def Td</th>
+        
         <th scope="col" data-stat="def_tot">Def Tot</th>
+        
+        <th scope="col" data-stat="def_yds">Def Yds</th>
         
         <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="score_ir">Score Ir</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_tot">Score Tot</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -308,15 +334,27 @@
         
         <td>1</td>
         
-        <td>16</td>
+        <td>3</td>
         
-        <td>16</td>
+        <td>78</td>
         
         <td>1</td>
+        
+        <td>78</td>
+        
+        <td>100</td>
+        
+        <td>25</td>
         
         <td>1</td>
         
         <td>6</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
         
         <td>66</td>
         
@@ -358,6 +396,28 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -374,17 +434,29 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_int">INT</th>
+        
         <th scope="col" data-stat="def_sack">Def Sack</th>
         
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
+        <th scope="col" data-stat="def_td">Def Td</th>
+        
         <th scope="col" data-stat="def_tot">Def Tot</th>
+        
+        <th scope="col" data-stat="def_yds">Def Yds</th>
         
         <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="score_ir">Score Ir</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_tot">Score Tot</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -397,9 +469,21 @@
         
         <td>—</td>
         
-        <td>9</td>
+        <td>—</td>
         
         <td>9</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -414,17 +498,60 @@
       <tr>
         <td>CFL 2021</td>
         
+        <td>—</td>
+        
         <td>1</td>
         
         <td>7</td>
         
+        <td>—</td>
+        
         <td>7</td>
+        
+        <td>—</td>
         
         <td>1</td>
         
         <td>—</td>
         
         <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2022</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>62</td>
+        
+        <td>1</td>
+        
+        <td>62</td>
+        
+        <td>100</td>
+        
+        <td>24</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
         
         <td>—</td>
         
@@ -441,9 +568,21 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
         
         <td>6</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>61</td>
         
@@ -460,9 +599,21 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>5</td>
         
@@ -556,17 +707,29 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_int">def_int</th>
+        
         <th scope="col" data-stat="def_sack">def_sack</th>
         
         <th scope="col" data-stat="def_solo">def_solo</th>
         
+        <th scope="col" data-stat="def_td">def_td</th>
+        
         <th scope="col" data-stat="def_tot">def_tot</th>
+        
+        <th scope="col" data-stat="def_yds">def_yds</th>
         
         <th scope="col" data-stat="def_ydsl">def_ydsl</th>
         
         <th scope="col" data-stat="interceptions_made">interceptions_made</th>
         
         <th scope="col" data-stat="sacks">sacks</th>
+        
+        <th scope="col" data-stat="score_ir">score_ir</th>
+        
+        <th scope="col" data-stat="score_pts">score_pts</th>
+        
+        <th scope="col" data-stat="score_tot">score_tot</th>
         
         <th scope="col" data-stat="tackles">tackles</th>
         
@@ -578,7 +741,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2019 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="18">2019 Wk 1</td></tr>
       
       <tr>
         <td>2019</td>
@@ -589,9 +752,21 @@
         
         <td></td>
         
-        <td>1.0</td>
+        <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -614,9 +789,21 @@
         
         <td></td>
         
-        <td>6.0</td>
+        <td></td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -639,9 +826,21 @@
         
         <td></td>
         
-        <td>2.0</td>
+        <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -656,7 +855,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2021 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="18">2021 Wk 1</td></tr>
       
       <tr>
         <td>2021</td>
@@ -667,9 +866,21 @@
         
         <td></td>
         
-        <td>1.0</td>
+        <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -692,9 +903,21 @@
         
         <td></td>
         
-        <td>2.0</td>
+        <td></td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -715,13 +938,25 @@
         <td><a href="../games/football-cfl-2021-8-14-ham-ssk.html" class="game-id">HAM @ SSK</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>4.0</td>
         
+        <td></td>
+        
         <td>4.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -734,7 +969,676 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="18">2022 Wk 1</td></tr>
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-10-ott-mtl.html" class="game-id">OTT @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-14-mtl-ott.html" class="game-id">MTL @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-1-mtl-edm.html" class="game-id">MTL @ EDM</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td>5.0</td>
+        
+        <td>100.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-22-tor-mtl.html" class="game-id">TOR @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-10-29-mtl-tor.html" class="game-id">MTL @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-11-13-mtl-tor.html" class="game-id">MTL @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-11-6-ham-mtl.html" class="game-id">HAM @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>24.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-6-23-ssk-mtl.html" class="game-id">SSK @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-14-edm-mtl.html" class="game-id">EDM @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-21-mtl-ott.html" class="game-id">MTL @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-28-mtl-ham.html" class="game-id">MTL @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-7-2-mtl-ssk.html" class="game-id">MTL @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-11-mtl-wpg.html" class="game-id">MTL @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-20-ham-mtl.html" class="game-id">HAM @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-8-4-wpg-mtl.html" class="game-id">WPG @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-23-ham-mtl.html" class="game-id">HAM @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-2-ott-mtl.html" class="game-id">OTT @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2022</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2022.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2022-9-9-bc-mtl.html" class="game-id">BC @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="18">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -755,6 +1659,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -762,7 +1678,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -779,9 +1695,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -790,7 +1718,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 11</td></tr>
       
       <tr>
         <td>2023</td>
@@ -807,9 +1735,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -818,7 +1758,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -835,9 +1775,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -846,7 +1798,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 13</td></tr>
       
       <tr>
         <td>2023</td>
@@ -863,9 +1815,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -874,7 +1838,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 14</td></tr>
       
       <tr>
         <td>2023</td>
@@ -891,9 +1855,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -902,7 +1878,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 15</td></tr>
       
       <tr>
         <td>2023</td>
@@ -919,9 +1895,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>7.0</td>
         
@@ -930,7 +1918,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 16</td></tr>
       
       <tr>
         <td>2023</td>
@@ -947,9 +1935,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -958,7 +1958,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 17</td></tr>
       
       <tr>
         <td>2023</td>
@@ -975,9 +1975,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -986,7 +1998,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 18</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1003,9 +2015,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1014,7 +2038,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 19</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1031,9 +2055,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>9.0</td>
         
@@ -1042,7 +2078,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="18">2023 Wk 21</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1059,9 +2095,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1070,7 +2118,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="18">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1087,9 +2135,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1098,7 +2158,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2024 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="18">2024 Wk 20</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1115,7 +2175,19 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
