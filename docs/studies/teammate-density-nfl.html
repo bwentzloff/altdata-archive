@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do NFL-rich locker rooms produce more NFL players? — Studies — AltSports Archive</title>
+  <meta name="description" content="Teammate-density signals across alt-football team-seasons">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/studies/teammate-density-nfl.html">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="AltSports Archive">
+  <meta property="og:description" content="Historical player statistics from alternative football, ultimate, and basketball leagues. Free open data in JSON, XML, and HTML.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://archive.altfantasysports.com/studies/teammate-density-nfl.html">
+  
+  
+
+
+  <!-- Alternate machine-readable formats -->
+  
+<link rel="alternate" type="application/json" href="../data/studies/teammate-density-nfl.json">
+<link rel="alternate" type="application/json" href="../data/studies/teammate-density-nfl-history.json" title="Snapshot history">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com",
+    "description": "Historical player and game statistics from alternative sports leagues. Free open data.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://archive.altfantasysports.com/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<article class="study">
+  <header class="study-header">
+    <p class="study-eyebrow"><a href="../studies/index.html">Studies</a> · Football</p>
+    <h1>Do NFL-rich locker rooms produce more NFL players?</h1>
+    <p class="study-subtitle">Teammate-density signals across alt-football team-seasons</p>
+    <p class="study-meta">
+      Last computed 2026-05-14.
+      2 historical snapshots.
+    </p>
+  </header>
+
+  
+  <section class="study-headline-stats">
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">UFL 2026 LOUISVILLE KINGS</div>
+      <div class="study-stat-label">Top incubator team-season</div>
+      <div class="study-stat-sub">38.5% eventual NFL vs 17.0% league baseline</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">31.1% vs 1.4%</div>
+      <div class="study-stat-label">Highest vs lowest density decile</div>
+      <div class="study-stat-sub">Comparison of NFL outcomes between top and bottom teammate-density cohorts</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">5.5%</div>
+      <div class="study-stat-label">Overall eventual NFL rate</div>
+      <div class="study-stat-sub">Across 4,825 alt-football team-season player records</div>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>What this study asks</h2>
+    <p>Instead of evaluating leagues alone, this study evaluates <em>team-season environments</em>. For each player in an alt-football team-season, we estimate the share of teammates who eventually appear in NFL records, then test whether players in denser NFL-bound environments convert to the NFL at higher rates.</p>
+  </section>
+  
+  <section class="study-section">
+    <h2>How to read the deciles</h2>
+    <p>Each player gets an average NFL-teammate density score across their alt-football team-seasons. We split players into deciles from D1 (lowest density) to D10 (highest density), then compute eventual NFL conversion rate within each bin.</p>
+  </section>
+  
+  <section class="study-section">
+    <h2>Team-season incubators</h2>
+    <p>The table ranks team-seasons by conversion lift relative to their own league baseline. This isolates unusually productive environments from leagues that are already NFL-heavy overall.</p>
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Charts</h2>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">NFL conversion by teammate-density decile</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-density-deciles"></canvas>
+      </div>
+      
+      <p class="study-chart-note">D1 = lowest average share of NFL-bound teammates; D10 = highest.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Top team-seasons by NFL conversion lift vs league baseline</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-incubators"></canvas>
+      </div>
+      
+      <p class="study-chart-note">Minimum roster size 15 to avoid tiny-sample spikes.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Bridge players connecting high-yield team-seasons</figcaption>
+      
+      <div id="chart-incubator-network-host" class="study-network-host"></div>
+      
+      <p class="study-chart-note">Team-season nodes connect to NFL-bound players who appear in multiple top incubators.</p>
+    </figure>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Full data</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          
+          <th scope="col">Team-season</th>
+          
+          <th scope="col">League</th>
+          
+          <th scope="col" class="num">Roster size</th>
+          
+          <th scope="col" class="num">Eventual NFL players</th>
+          
+          <th scope="col" class="num">Team NFL conversion %</th>
+          
+          <th scope="col" class="num">League baseline %</th>
+          
+          <th scope="col" class="num">Lift (pp)</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td>UFL 2026 LOUISVILLE KINGS</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">65</td>
+          
+          <td class="num">25</td>
+          
+          <td class="num">38.5%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">21.4</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>UFL 2026 ORLANDO STORM</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">56</td>
+          
+          <td class="num">20</td>
+          
+          <td class="num">35.7%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">18.7</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>UFL 2026 BIRMINGHAM STALLIONS</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">108</td>
+          
+          <td class="num">33</td>
+          
+          <td class="num">30.6%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">13.5</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>CFL 2025 CGY</td>
+          
+          <td>CFL</td>
+          
+          <td class="num">29</td>
+          
+          <td class="num">4</td>
+          
+          <td class="num">13.8%</td>
+          
+          <td class="num">1.5%</td>
+          
+          <td class="num">12.3</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>CFL 2025 OTT</td>
+          
+          <td>CFL</td>
+          
+          <td class="num">29</td>
+          
+          <td class="num">4</td>
+          
+          <td class="num">13.8%</td>
+          
+          <td class="num">1.5%</td>
+          
+          <td class="num">12.3</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>UFL 2026 COLUMBUS AVIATORS</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">64</td>
+          
+          <td class="num">18</td>
+          
+          <td class="num">28.1%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">11.1</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td>USFL</td>
+          
+          <td class="num">52</td>
+          
+          <td class="num">7</td>
+          
+          <td class="num">13.5%</td>
+          
+          <td class="num">3.3%</td>
+          
+          <td class="num">10.1</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>CFL 2025 HAM</td>
+          
+          <td>CFL</td>
+          
+          <td class="num">30</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">10%</td>
+          
+          <td class="num">1.5%</td>
+          
+          <td class="num">8.5</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>CFL 2025 EDM</td>
+          
+          <td>CFL</td>
+          
+          <td class="num">30</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">10%</td>
+          
+          <td class="num">1.5%</td>
+          
+          <td class="num">8.5</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>UFL 2026 DC DEFENDERS</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">116</td>
+          
+          <td class="num">28</td>
+          
+          <td class="num">24.1%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">7.1</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>USFL 2023 PANTHERS</td>
+          
+          <td>USFL</td>
+          
+          <td class="num">49</td>
+          
+          <td class="num">5</td>
+          
+          <td class="num">10.2%</td>
+          
+          <td class="num">3.3%</td>
+          
+          <td class="num">6.9</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>CFL 2025 BC</td>
+          
+          <td>CFL</td>
+          
+          <td class="num">29</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">6.9%</td>
+          
+          <td class="num">1.5%</td>
+          
+          <td class="num">5.4</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>UFL 2026 ST. LOUIS BATTLEHAWKS</td>
+          
+          <td>UFL</td>
+          
+          <td class="num">92</td>
+          
+          <td class="num">20</td>
+          
+          <td class="num">21.7%</td>
+          
+          <td class="num">17%</td>
+          
+          <td class="num">4.7</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>XFL</td>
+          
+          <td class="num">50</td>
+          
+          <td class="num">5</td>
+          
+          <td class="num">10%</td>
+          
+          <td class="num">5.7%</td>
+          
+          <td class="num">4.3</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>USFL 2022 HOU</td>
+          
+          <td>USFL</td>
+          
+          <td class="num">85</td>
+          
+          <td class="num">6</td>
+          
+          <td class="num">7.1%</td>
+          
+          <td class="num">3.3%</td>
+          
+          <td class="num">3.7</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
+
+  <section class="study-section">
+    <h2>Methodology</h2>
+    <p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in <code>docs/data/sports.json</code>.</p><p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. Only non-NFL football leagues are included in environment construction. A player's NFL outcome is whether their record includes <code>NFL</code> in <code>sport_names</code>.</p><p>Because this is observational, results should be read as association, not proof that teammate quality causes NFL conversion.</p>
+  </section>
+
+  
+  <section class="study-section">
+    <h2>Snapshot history</h2>
+    <p>How the headline numbers have moved over time.</p>
+    <details class="study-history-details">
+      <summary>Show 2 snapshots (2026-05-14 → 2026-05-14)</summary>
+      <pre class="study-history-json">{&#34;slug&#34;: &#34;teammate-density-nfl&#34;, &#34;snapshots&#34;: [{&#34;computed_at&#34;: &#34;2026-05-14T02:36:47+00:00&#34;, &#34;player_records&#34;: 4825, &#34;overall_eventual_nfl_pct&#34;: 5.5, &#34;d10_pct&#34;: 0.0, &#34;d1_pct&#34;: 1.7, &#34;top_incubator&#34;: &#34;UFL 2026 LOUISVILLE KINGS&#34;, &#34;top_incubator_pct&#34;: 38.5}, {&#34;computed_at&#34;: &#34;2026-05-14T02:37:49+00:00&#34;, &#34;player_records&#34;: 4825, &#34;overall_eventual_nfl_pct&#34;: 5.5, &#34;d10_pct&#34;: 31.1, &#34;d1_pct&#34;: 1.4, &#34;top_incubator&#34;: &#34;UFL 2026 LOUISVILLE KINGS&#34;, &#34;top_incubator_pct&#34;: 38.5}]}</pre>
+    </details>
+  </section>
+  
+
+  <section class="study-section study-data">
+    <h2>Underlying data</h2>
+    <ul>
+      <li><a href="../data/studies/teammate-density-nfl.json">Latest snapshot (JSON)</a></li>
+      <li><a href="../data/studies/teammate-density-nfl-history.json">Snapshot history (JSON)</a></li>
+    </ul>
+  </section>
+</article>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-13.
+      Formats:
+      
+<a href="../data/studies/teammate-density-nfl.json">JSON</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+window._studyCharts = [{"id": "chart-density-deciles", "type": "bar", "title": "NFL conversion by teammate-density decile", "labels": ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D10"], "datasets": [{"label": "Eventually NFL (%)", "data": [1.4, 0.6, 0.8, 0.6, 0.6, 0.2, 4.1, 3.9, 11.2, 31.1]}], "value_suffix": "%", "note": "D1 = lowest average share of NFL-bound teammates; D10 = highest."}, {"id": "chart-incubators", "type": "bar", "title": "Top team-seasons by NFL conversion lift vs league baseline", "labels": ["UFL 2026 LOUISVILLE KINGS", "UFL 2026 ORLANDO STORM", "UFL 2026 BIRMINGHAM STALLIONS", "CFL 2025 CGY", "CFL 2025 OTT", "UFL 2026 COLUMBUS AVIATORS", "USFL 2023 STALLIONS", "CFL 2025 HAM", "CFL 2025 EDM", "UFL 2026 DC DEFENDERS", "USFL 2023 PANTHERS", "CFL 2025 BC", "UFL 2026 ST. LOUIS BATTLEHAWKS", "XFL 2023 BATTLEHAWKS", "USFL 2022 HOU"], "datasets": [{"label": "Team-season NFL conversion %", "data": [38.5, 35.7, 30.6, 13.8, 13.8, 28.1, 13.5, 10.0, 10.0, 24.1, 10.2, 6.9, 21.7, 10.0, 7.1]}, {"label": "League baseline %", "data": [17.0, 17.0, 17.0, 1.5, 1.5, 17.0, 3.3, 1.5, 1.5, 17.0, 3.3, 1.5, 17.0, 5.7, 3.3]}], "indexAxis": "y", "value_suffix": "%", "note": "Minimum roster size 15 to avoid tiny-sample spikes."}, {"id": "chart-incubator-network", "type": "network", "title": "Bridge players connecting high-yield team-seasons", "nodes": [{"id": "team:12:STALLIONS", "label": "USFL 2023 STALLIONS", "value": 7, "is_nfl": false}, {"id": "team:28:CGY", "label": "CFL 2025 CGY", "value": 4, "is_nfl": false}, {"id": "team:28:HAM", "label": "CFL 2025 HAM", "value": 3, "is_nfl": false}, {"id": "team:28:OTT", "label": "CFL 2025 OTT", "value": 4, "is_nfl": false}, {"id": "team:31:BIRMINGHAM STALLIONS", "label": "UFL 2026 BIRMINGHAM STALLIONS", "value": 33, "is_nfl": false}, {"id": "team:31:COLUMBUS AVIATORS", "label": "UFL 2026 COLUMBUS AVIATORS", "value": 18, "is_nfl": false}, {"id": "team:31:LOUISVILLE KINGS", "label": "UFL 2026 LOUISVILLE KINGS", "value": 25, "is_nfl": false}, {"id": "team:31:ORLANDO STORM", "label": "UFL 2026 ORLANDO STORM", "value": 20, "is_nfl": false}, {"id": "player:dondrea-tillman", "label": "Dondrea Tillman", "value": 2, "is_nfl": true}, {"id": "player:deon-cain", "label": "Deon Cain", "value": 2, "is_nfl": true}, {"id": "player:tj-carter", "label": "TJ Carter", "value": 2, "is_nfl": true}], "edges": [{"source": "team:12:STALLIONS", "target": "player:dondrea-tillman", "value": 1, "directed": false}, {"source": "team:31:BIRMINGHAM STALLIONS", "target": "player:dondrea-tillman", "value": 1, "directed": false}, {"source": "team:12:STALLIONS", "target": "player:deon-cain", "value": 1, "directed": false}, {"source": "team:31:BIRMINGHAM STALLIONS", "target": "player:deon-cain", "value": 1, "directed": false}, {"source": "team:12:STALLIONS", "target": "player:tj-carter", "value": 1, "directed": false}, {"source": "team:31:BIRMINGHAM STALLIONS", "target": "player:tj-carter", "value": 1, "directed": false}], "note": "Team-season nodes connect to NFL-bound players who appear in multiple top incubators."}];
+</script>
+<script src="../assets/study-charts.js"></script>
+
+</body>
+</html>

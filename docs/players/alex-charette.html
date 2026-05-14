@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Alex Charette — AltSports Stats">
-  <meta property="og:description" content="Career stats for Alex Charette: ret_lg 20.0, ret_num 1.0, ret_yds 20.0">
+  <meta property="og:description" content="Career stats for Alex Charette: recv_tar 1.0, ret_lg 20.0, ret_num 1.0, ret_yds 20.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/alex-charette.html">
   
@@ -85,6 +85,20 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2018",
+      "description": "League-level player statistics for CFL 2018 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2018.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -113,6 +127,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -174,6 +189,34 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'16</span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -191,6 +234,8 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
         <th scope="col" data-stat="ret_lg">Ret Lg</th>
         
         <th scope="col" data-stat="ret_num">Ret Num</th>
@@ -201,6 +246,8 @@
     </thead>
     <tbody>
       <tr>
+        
+        <td>1</td>
         
         <td>20</td>
         
@@ -231,12 +278,18 @@
       
     
   
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Alex Charette stats by season</caption>
     <thead>
       <tr>
         <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
         
         <th scope="col" data-stat="ret_lg">Ret Lg</th>
         
@@ -251,11 +304,26 @@
       <tr>
         <td>CFL 2016</td>
         
+        <td>—</td>
+        
         <td>20</td>
         
         <td>1</td>
         
         <td>20</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2018</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -335,6 +403,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
         <th scope="col" data-stat="ret_lg">ret_lg</th>
         
         <th scope="col" data-stat="ret_num">ret_num</th>
@@ -349,7 +419,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2016 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="9">2016 Wk 1</td></tr>
       
       <tr>
         <td>2016</td>
@@ -358,11 +428,35 @@
         <td><a href="../games/football-cfl-2016-11-5-mtl-ham.html" class="game-id">MTL @ HAM</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>20.0</td>
         
         <td>1.0</td>
         
         <td>20.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2018 Wk 1</td></tr>
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-28-tor-cgy.html" class="game-id">TOR @ CGY</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="James Wilder Jr. — AltSports Stats">
-  <meta property="og:description" content="Career stats for James Wilder Jr.: receiving_tds 0.0, receiving_yards 82.0, receptions 8.0, rushing_tds 0.0, rushing_yards 84.0">
+  <meta property="og:description" content="Career stats for James Wilder Jr.: def_solo 5.0, def_tot 5.0, receiving_tds 0.0, receiving_yards 82.0, receptions 8.0, recv_lg 481.0, recv_rec 117.0, recv_tar 146.0, recv_td 1.0, recv_yac 909.0, recv_yds 1142.0, rush_att 292.0, rush_lg 348.0, rush_td 9.0, rush_yds 1628.0, rushing_tds 0.0, rushing_yards 84.0, score_conv 2.0, score_p 1.0, score_pts 64.0, score_r 9.0, score_tot 10.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/james-wilder-jr.html">
   
@@ -74,6 +74,34 @@
     
     {
       "@type": "Dataset",
+      "name": "CFL 2017",
+      "description": "League-level player statistics for CFL 2017 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2018",
+      "description": "League-level player statistics for CFL 2018 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2018.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "CFL 2022",
       "description": "League-level player statistics for CFL 2022 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
@@ -113,6 +141,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -174,8 +203,67 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">70.2</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#372</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">73.4</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#4</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -191,20 +279,58 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="score_conv">Score Conv</th>
+        
+        <th scope="col" data-stat="score_p">Score P</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_r">Score R</th>
+        
+        <th scope="col" data-stat="score_tot">Score Tot</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>5</td>
+        
+        <td>5</td>
         
         <td>0</td>
         
@@ -212,9 +338,39 @@
         
         <td>8</td>
         
+        <td>481</td>
+        
+        <td>117</td>
+        
+        <td>146</td>
+        
+        <td>1</td>
+        
+        <td>909</td>
+        
+        <td>1,142</td>
+        
+        <td>292</td>
+        
+        <td>348</td>
+        
+        <td>9</td>
+        
+        <td>1,628</td>
+        
         <td>0</td>
         
         <td>84</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>64</td>
+        
+        <td>9</td>
+        
+        <td>10</td>
         
       </tr>
     </tbody>
@@ -225,11 +381,101 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2017": {"rush_att": 145.0, "rush_yds": 937.0, "rush_lg": 193.0, "rush_td": 6.0, "recv_rec": 61.0, "recv_yds": 603.0, "recv_lg": 248.0, "recv_tar": 77.0, "recv_yac": 513.0, "def_solo": 4.0, "def_tot": 4.0, "score_tot": 6.0, "score_r": 6.0, "score_pts": 40.0, "score_conv": 2.0}, "CFL-2018": {"rush_att": 147.0, "rush_yds": 691.0, "rush_lg": 155.0, "recv_rec": 56.0, "recv_yds": 539.0, "recv_lg": 233.0, "recv_tar": 69.0, "recv_yac": 396.0, "def_solo": 1.0, "def_tot": 1.0, "rush_td": 3.0, "score_tot": 4.0, "score_r": 3.0, "score_pts": 24.0, "recv_td": 1.0, "score_p": 1.0}, "CFL-2022": {"rushing_yards": 84.0, "rushing_tds": 0.0, "receiving_yards": 82.0, "receiving_tds": 0.0, "receptions": 8.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -250,22 +496,158 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="score_conv">Score Conv</th>
+        
+        <th scope="col" data-stat="score_p">Score P</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_r">Score R</th>
+        
+        <th scope="col" data-stat="score_tot">Score Tot</th>
         
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>CFL 2017</td>
+        
+        <td>4</td>
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>248</td>
+        
+        <td>61</td>
+        
+        <td>77</td>
+        
+        <td>—</td>
+        
+        <td>513</td>
+        
+        <td>603</td>
+        
+        <td>145</td>
+        
+        <td>193</td>
+        
+        <td>6</td>
+        
+        <td>937</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>40</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2018</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>233</td>
+        
+        <td>56</td>
+        
+        <td>69</td>
+        
+        <td>1</td>
+        
+        <td>396</td>
+        
+        <td>539</td>
+        
+        <td>147</td>
+        
+        <td>155</td>
+        
+        <td>3</td>
+        
+        <td>691</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>24</td>
+        
+        <td>3</td>
+        
+        <td>4</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -273,9 +655,39 @@
         
         <td>8</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
         
         <td>84</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -322,6 +734,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>James Wilder Jr.</td>
+        <td>—</td>
+        <td>RB</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -343,15 +767,49 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="def_solo">def_solo</th>
+        
+        <th scope="col" data-stat="def_tot">def_tot</th>
+        
         <th scope="col" data-stat="receiving_tds">receiving_tds</th>
         
         <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_td">recv_td</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
+        <th scope="col" data-stat="rush_att">rush_att</th>
+        
+        <th scope="col" data-stat="rush_lg">rush_lg</th>
+        
+        <th scope="col" data-stat="rush_td">rush_td</th>
+        
+        <th scope="col" data-stat="rush_yds">rush_yds</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+        <th scope="col" data-stat="score_conv">score_conv</th>
+        
+        <th scope="col" data-stat="score_p">score_p</th>
+        
+        <th scope="col" data-stat="score_pts">score_pts</th>
+        
+        <th scope="col" data-stat="score_r">score_r</th>
+        
+        <th scope="col" data-stat="score_tot">score_tot</th>
         
       </tr>
     </thead>
@@ -361,7 +819,1663 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="27">2017 Wk 1</td></tr>
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-21-wpg-tor.html" class="game-id">WPG @ TOR</a></td>
+        <td>—</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>30.0</td>
+        
+        <td>7.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>80.0</td>
+        
+        <td>85.0</td>
+        
+        <td>18.0</td>
+        
+        <td>14.0</td>
+        
+        <td>2.0</td>
+        
+        <td>112.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>12.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-10-7-ssk-tor.html" class="game-id">SSK @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>32.0</td>
+        
+        <td>7.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td>80.0</td>
+        
+        <td>89.0</td>
+        
+        <td>13.0</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>72.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-19-ssk-tor.html" class="game-id">SSK @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>22.0</td>
+        
+        <td>8.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td>31.0</td>
+        
+        <td>52.0</td>
+        
+        <td>14.0</td>
+        
+        <td>17.0</td>
+        
+        <td></td>
+        
+        <td>52.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-26-cgy-tor.html" class="game-id">CGY @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td>2.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>15.0</td>
+        
+        <td>18.0</td>
+        
+        <td>9.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-11-4-tor-bc.html" class="game-id">TOR @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>22.0</td>
+        
+        <td>7.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>84.0</td>
+        
+        <td>91.0</td>
+        
+        <td>18.0</td>
+        
+        <td>26.0</td>
+        
+        <td>1.0</td>
+        
+        <td>136.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-6-25-ham-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>3.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-6-30-bc-tor.html" class="game-id">BC @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>17.0</td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>27.0</td>
+        
+        <td>33.0</td>
+        
+        <td>7.0</td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>20.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-13-tor-wpg.html" class="game-id">TOR @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-24-ott-tor.html" class="game-id">OTT @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>20.0</td>
+        
+        <td>6.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td>35.0</td>
+        
+        <td>39.0</td>
+        
+        <td>7.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>36.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-29-tor-ssk.html" class="game-id">TOR @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>35.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-8-tor-ott.html" class="game-id">TOR @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>30.0</td>
+        
+        <td></td>
+        
+        <td>34.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-26-tor-cgy.html" class="game-id">TOR @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>-1.0</td>
+        
+        <td></td>
+        
+        <td>-1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-8-3-cgy-tor.html" class="game-id">CGY @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td>18.0</td>
+        
+        <td>4.0</td>
+        
+        <td>20.0</td>
+        
+        <td></td>
+        
+        <td>27.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-16-edm-tor.html" class="game-id">EDM @ TOR</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>16.0</td>
+        
+        <td>7.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td>57.0</td>
+        
+        <td>67.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>190.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-23-mtl-tor.html" class="game-id">MTL @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>45.0</td>
+        
+        <td>6.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>70.0</td>
+        
+        <td>77.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>141.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-30-tor-ham.html" class="game-id">TOR @ HAM</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td>3.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>32.0</td>
+        
+        <td>13.0</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>49.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-4-tor-ham.html" class="game-id">TOR @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2018 Wk 1</td></tr>
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-6-15-tor-ssk.html" class="game-id">TOR @ SSK</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>46.0</td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>38.0</td>
+        
+        <td>68.0</td>
+        
+        <td>5.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>16.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-6-23-cgy-tor.html" class="game-id">CGY @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>30.0</td>
+        
+        <td>10.0</td>
+        
+        <td>15.0</td>
+        
+        <td></td>
+        
+        <td>60.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-7-13-tor-edm.html" class="game-id">TOR @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>23.0</td>
+        
+        <td>6.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td>53.0</td>
+        
+        <td>62.0</td>
+        
+        <td>12.0</td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-7-21-wpg-tor.html" class="game-id">WPG @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>27.0</td>
+        
+        <td>6.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td>42.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>-2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-7-27-tor-wpg.html" class="game-id">TOR @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>44.0</td>
+        
+        <td>51.0</td>
+        
+        <td>15.0</td>
+        
+        <td>15.0</td>
+        
+        <td>1.0</td>
+        
+        <td>81.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-7-7-edm-tor.html" class="game-id">EDM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>17.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>23.0</td>
+        
+        <td>27.0</td>
+        
+        <td>21.0</td>
+        
+        <td>18.0</td>
+        
+        <td>1.0</td>
+        
+        <td>120.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-8-18-bc-tor.html" class="game-id">BC @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>29.0</td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>39.0</td>
+        
+        <td>49.0</td>
+        
+        <td>18.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>91.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-8-24-tor-mtl.html" class="game-id">TOR @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>6.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>28.0</td>
+        
+        <td>31.0</td>
+        
+        <td>9.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>29.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-8-2-ott-tor.html" class="game-id">OTT @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>34.0</td>
+        
+        <td>42.0</td>
+        
+        <td>17.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>73.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-22-ssk-tor.html" class="game-id">SSK @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>24.0</td>
+        
+        <td>7.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>42.0</td>
+        
+        <td>74.0</td>
+        
+        <td>9.0</td>
+        
+        <td>18.0</td>
+        
+        <td></td>
+        
+        <td>48.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-28-tor-cgy.html" class="game-id">TOR @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>4.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>16.0</td>
+        
+        <td>18.0</td>
+        
+        <td>6.0</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-3-tor-ham.html" class="game-id">TOR @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>3.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>40.0</td>
+        
+        <td>42.0</td>
+        
+        <td>11.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>47.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-8-ham-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>11.0</td>
+        
+        <td>24.0</td>
+        
+        <td></td>
+        
+        <td>76.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -370,22 +2484,56 @@
         <td><a href="../games/synthetic-cfl-2022-w1-edm.html" class="game-id">CFL 2022 — Wk 1 (EDM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>48.0</td>
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>39.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="27">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -394,15 +2542,49 @@
         <td><a href="../games/synthetic-cfl-2022-w3-edm.html" class="game-id">CFL 2022 — Wk 3 (EDM)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>34.0</td>
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>45.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -410,6 +2592,14 @@
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>

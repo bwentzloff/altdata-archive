@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Chandler Worthy — AltSports Stats">
-  <meta property="og:description" content="Career stats for Chandler Worthy: interceptions_made 0.0, receiving_tds 0.0, receiving_yards 124.0, receptions 14.0, rushing_tds 0.0, rushing_yards 6.0, sacks 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Chandler Worthy: interceptions_made 0.0, receiving_tds 0.0, receiving_yards 124.0, receptions 14.0, recv_lg 5.0, recv_rec 1.0, recv_tar 1.0, recv_yac 5.0, recv_yds 5.0, ret_lg 87.0, ret_num 13.0, ret_yds 169.0, rush_att 1.0, rush_lg 3.0, rush_yds 3.0, rushing_tds 0.0, rushing_yards 6.0, sacks 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/chandler-worthy.html">
   
@@ -74,6 +74,20 @@
     
     {
       "@type": "Dataset",
+      "name": "CFL 2017",
+      "description": "League-level player statistics for CFL 2017 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "CFL 2022",
       "description": "League-level player statistics for CFL 2022 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
@@ -127,6 +141,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -193,6 +208,16 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'17</span>
+        
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
         <span class="ct-yr">'22</span>
         
         <span class="ct-yr">'23</span>
@@ -205,6 +230,16 @@
           
           <span class="ct-cell ct-on"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
           <span class="ct-cell ct-on"></span>
           
         
@@ -214,6 +249,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">30.8</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1689</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">29.4</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#160</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -237,6 +291,28 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -257,6 +333,28 @@
         <td>124</td>
         
         <td>14</td>
+        
+        <td>5</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>5</td>
+        
+        <td>5</td>
+        
+        <td>87</td>
+        
+        <td>13</td>
+        
+        <td>169</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
         
         <td>0</td>
         
@@ -282,7 +380,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"receiving_yards": 32.0, "receiving_tds": 0.0, "receptions": 4.0, "rushing_yards": 6.0, "rushing_tds": 0.0}, "CFL-2023": {"receiving_yards": 92.0, "receiving_tds": 0.0, "receptions": 10.0, "tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0}};
+    var seasons = {"CFL-2017": {"ret_num": 13.0, "ret_yds": 169.0, "ret_lg": 87.0, "recv_rec": 1.0, "recv_yds": 5.0, "recv_lg": 5.0, "recv_tar": 1.0, "recv_yac": 5.0, "rush_att": 1.0, "rush_yds": 3.0, "rush_lg": 3.0}, "CFL-2022": {"receiving_yards": 32.0, "receiving_tds": 0.0, "receptions": 4.0, "rushing_yards": 6.0, "rushing_tds": 0.0}, "CFL-2023": {"receiving_yards": 92.0, "receiving_tds": 0.0, "receptions": 10.0, "tackles": 1.0, "sacks": 0.0, "interceptions_made": 0.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -304,6 +402,30 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -346,6 +468,28 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -359,6 +503,49 @@
     <tbody>
       
       <tr>
+        <td>CFL 2017</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>5</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>5</td>
+        
+        <td>5</td>
+        
+        <td>87</td>
+        
+        <td>13</td>
+        
+        <td>169</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
         
         <td>—</td>
@@ -368,6 +555,28 @@
         <td>32</td>
         
         <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -389,6 +598,28 @@
         <td>92</td>
         
         <td>10</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -455,6 +686,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Chandler Worthy</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -484,6 +727,28 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
+        <th scope="col" data-stat="ret_lg">ret_lg</th>
+        
+        <th scope="col" data-stat="ret_num">ret_num</th>
+        
+        <th scope="col" data-stat="ret_yds">ret_yds</th>
+        
+        <th scope="col" data-stat="rush_att">rush_att</th>
+        
+        <th scope="col" data-stat="rush_lg">rush_lg</th>
+        
+        <th scope="col" data-stat="rush_yds">rush_yds</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -500,7 +765,206 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="24">2017 Wk 1</td></tr>
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-6-25-ham-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>24.0</td>
+        
+        <td>5.0</td>
+        
+        <td>60.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-6-30-bc-tor.html" class="game-id">BC @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>3.0</td>
+        
+        <td>33.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-7-8-tor-ott.html" class="game-id">TOR @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>20.0</td>
+        
+        <td>1.0</td>
+        
+        <td>20.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2017</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2017.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2017-9-16-edm-tor.html" class="game-id">EDM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>5.0</td>
+        
+        <td>5.0</td>
+        
+        <td>24.0</td>
+        
+        <td>4.0</td>
+        
+        <td>56.0</td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="24">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -525,12 +989,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="24">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -555,12 +1041,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="24">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -577,6 +1085,28 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>6.0</td>
@@ -590,7 +1120,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="24">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -615,12 +1145,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -645,12 +1197,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -675,12 +1249,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -705,12 +1301,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -735,12 +1353,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -765,12 +1405,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -791,6 +1453,28 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
@@ -800,7 +1484,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="24">2023 Wk 14</td></tr>
       
       <tr>
         <td>2023</td>
@@ -825,12 +1509,42 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="K.D. Cannon — AltSports Stats">
-  <meta property="og:description" content="Career stats for K.D. Cannon: 1pt_conversion 0.0, conversions 1.0, receiving_tds 2.0, receiving_yards 219.0, receptions 7.0">
+  <meta property="og:description" content="Career stats for K.D. Cannon: 1pt_conversion 0.0, conversions 1.0, receiving_tds 2.0, receiving_yards 219.0, receptions 7.0, recv_lg 27.0, recv_rec 5.0, recv_tar 11.0, recv_yac 30.0, recv_yds 71.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/kd-cannon.html">
   
@@ -74,6 +74,20 @@
     
     {
       "@type": "Dataset",
+      "name": "CFL 2018",
+      "description": "League-level player statistics for CFL 2018 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2018.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "XFL 2023",
       "description": "League-level player statistics for XFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/xfl-2023.json",
@@ -127,6 +141,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -193,6 +208,16 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'18</span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
         <span class="ct-yr">'23</span>
         
         <span class="ct-yr">'24</span>
@@ -200,8 +225,39 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">XFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -216,6 +272,16 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
           <span class="ct-cell ct-on"></span>
           
         
@@ -225,6 +291,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">60.0</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#865</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">74.5</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#20</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -250,6 +335,16 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -264,6 +359,16 @@
         <td>219</td>
         
         <td>7</td>
+        
+        <td>27</td>
+        
+        <td>5</td>
+        
+        <td>11</td>
+        
+        <td>30</td>
+        
+        <td>71</td>
         
       </tr>
     </tbody>
@@ -281,7 +386,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"XFL-2023": {"receiving_yards": 161.0, "receiving_tds": 2.0, "receptions": 4.0, "conversions": 1.0, "1pt_conversion": 0.0}, "UFL-2024": {"receptions": 3.0, "receiving_yards": 58.0, "receiving_tds": 0.0}};
+    var seasons = {"CFL-2018": {"recv_rec": 5.0, "recv_yds": 71.0, "recv_lg": 27.0, "recv_tar": 11.0, "recv_yac": 30.0}, "XFL-2023": {"receiving_yards": 161.0, "receiving_tds": 2.0, "receptions": 4.0, "conversions": 1.0, "1pt_conversion": 0.0}, "UFL-2024": {"receptions": 3.0, "receiving_yards": 58.0, "receiving_tds": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -323,6 +428,18 @@
     
       
     
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
   
   
   <table class="data-table">
@@ -341,9 +458,44 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>CFL 2018</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>27</td>
+        
+        <td>5</td>
+        
+        <td>11</td>
+        
+        <td>30</td>
+        
+        <td>71</td>
+        
+      </tr>
       
       <tr>
         <td>XFL 2023</td>
@@ -357,6 +509,16 @@
         <td>161</td>
         
         <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -372,6 +534,16 @@
         <td>58</td>
         
         <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -442,6 +614,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>K.D. Cannon</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -473,6 +657,16 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -481,7 +675,165 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="15">2018 Wk 1</td></tr>
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-10-20-ssk-cgy.html" class="game-id">SSK @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>17.0</td>
+        
+        <td>4.0</td>
+        
+        <td>5.0</td>
+        
+        <td>25.0</td>
+        
+        <td>61.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-10-27-bc-ssk.html" class="game-id">BC @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>10.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>5.0</td>
+        
+        <td>10.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-11-11-wpg-ssk.html" class="game-id">WPG @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-8-18-cin-dal.html" class="game-id">CIN @ DAL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-8-9-dal-sf.html" class="game-id">DAL @ SF</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="15">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -500,12 +852,22 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="15">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -524,12 +886,22 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="15">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -547,6 +919,16 @@
         <td>51.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -569,12 +951,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="15">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
@@ -593,12 +985,22 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="15">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -617,12 +1019,22 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="15">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -641,12 +1053,22 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="15">2024 Wk 11</td></tr>
       
       <tr>
         <td>2024</td>
@@ -665,12 +1087,22 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2024 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="15">2024 Wk 12</td></tr>
       
       <tr>
         <td>2024</td>
@@ -689,12 +1121,30 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>

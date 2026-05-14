@@ -1,0 +1,447 @@
+{
+  "slug": "teammate-density-nfl",
+  "title": "Do NFL-rich locker rooms produce more NFL players?",
+  "subtitle": "Teammate-density signals across alt-football team-seasons",
+  "category": "Football",
+  "tags": [
+    "football",
+    "nfl",
+    "teammates",
+    "team-season",
+    "network"
+  ],
+  "computed_at": "2026-05-14T02:47:58+00:00",
+  "headline_stats": [
+    {
+      "label": "Top incubator team-season",
+      "value": "UFL 2026 LOUISVILLE KINGS",
+      "sub": "38.5% have NFL history vs 17.0% typical for that league"
+    },
+    {
+      "label": "Highest vs lowest density group",
+      "value": "31.1% vs 1.4%",
+      "sub": "NFL-history rates for players in the most NFL-rich teammate environments vs the least"
+    },
+    {
+      "label": "Overall NFL-history rate",
+      "value": "5.5%",
+      "sub": "Across 4,825 alt-football team-season player records"
+    }
+  ],
+  "charts": [
+    {
+      "id": "chart-density-deciles",
+      "type": "bar",
+      "title": "NFL conversion by teammate-density group",
+      "labels": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10"
+      ],
+      "datasets": [
+        {
+          "label": "Has NFL history (%)",
+          "data": [
+            1.4,
+            0.6,
+            0.8,
+            0.6,
+            0.6,
+            0.2,
+            4.1,
+            3.9,
+            11.2,
+            31.1
+          ]
+        }
+      ],
+      "value_suffix": "%",
+      "note": "D1 is the lowest-density group and D10 is the highest-density group."
+    },
+    {
+      "id": "chart-incubators",
+      "type": "bar",
+      "title": "Top team-seasons by NFL conversion lift vs league baseline",
+      "labels": [
+        "UFL 2026 LOUISVILLE KINGS",
+        "UFL 2026 ORLANDO STORM",
+        "UFL 2026 BIRMINGHAM STALLIONS",
+        "CFL 2025 CGY",
+        "CFL 2025 OTT",
+        "UFL 2026 COLUMBUS AVIATORS",
+        "USFL 2023 STALLIONS",
+        "CFL 2025 HAM",
+        "CFL 2025 EDM",
+        "UFL 2026 DC DEFENDERS",
+        "USFL 2023 PANTHERS",
+        "CFL 2025 BC",
+        "UFL 2026 ST. LOUIS BATTLEHAWKS",
+        "XFL 2023 BATTLEHAWKS",
+        "USFL 2022 HOU"
+      ],
+      "datasets": [
+        {
+          "label": "Team-season NFL conversion %",
+          "data": [
+            38.5,
+            35.7,
+            30.6,
+            13.8,
+            13.8,
+            28.1,
+            13.5,
+            10.0,
+            10.0,
+            24.1,
+            10.2,
+            6.9,
+            21.7,
+            10.0,
+            7.1
+          ]
+        },
+        {
+          "label": "League baseline %",
+          "data": [
+            17.0,
+            17.0,
+            17.0,
+            1.5,
+            1.5,
+            17.0,
+            3.3,
+            1.5,
+            1.5,
+            17.0,
+            3.3,
+            1.5,
+            17.0,
+            5.7,
+            3.3
+          ]
+        }
+      ],
+      "indexAxis": "y",
+      "value_suffix": "%",
+      "note": "Minimum roster size is 15 so very small teams do not dominate the ranking."
+    },
+    {
+      "id": "chart-incubator-network",
+      "type": "network",
+      "title": "Bridge players connecting high-yield team-seasons",
+      "nodes": [
+        {
+          "id": "team:12:STALLIONS",
+          "label": "USFL 2023 STALLIONS",
+          "value": 7,
+          "is_nfl": false
+        },
+        {
+          "id": "team:28:CGY",
+          "label": "CFL 2025 CGY",
+          "value": 4,
+          "is_nfl": false
+        },
+        {
+          "id": "team:28:HAM",
+          "label": "CFL 2025 HAM",
+          "value": 3,
+          "is_nfl": false
+        },
+        {
+          "id": "team:28:OTT",
+          "label": "CFL 2025 OTT",
+          "value": 4,
+          "is_nfl": false
+        },
+        {
+          "id": "team:31:BIRMINGHAM STALLIONS",
+          "label": "UFL 2026 BIRMINGHAM STALLIONS",
+          "value": 33,
+          "is_nfl": false
+        },
+        {
+          "id": "team:31:COLUMBUS AVIATORS",
+          "label": "UFL 2026 COLUMBUS AVIATORS",
+          "value": 18,
+          "is_nfl": false
+        },
+        {
+          "id": "team:31:LOUISVILLE KINGS",
+          "label": "UFL 2026 LOUISVILLE KINGS",
+          "value": 25,
+          "is_nfl": false
+        },
+        {
+          "id": "team:31:ORLANDO STORM",
+          "label": "UFL 2026 ORLANDO STORM",
+          "value": 20,
+          "is_nfl": false
+        },
+        {
+          "id": "player:deon-cain",
+          "label": "Deon Cain",
+          "value": 2,
+          "is_nfl": true
+        },
+        {
+          "id": "player:dondrea-tillman",
+          "label": "Dondrea Tillman",
+          "value": 2,
+          "is_nfl": true
+        },
+        {
+          "id": "player:tj-carter",
+          "label": "TJ Carter",
+          "value": 2,
+          "is_nfl": true
+        }
+      ],
+      "edges": [
+        {
+          "source": "team:12:STALLIONS",
+          "target": "player:deon-cain",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:31:BIRMINGHAM STALLIONS",
+          "target": "player:deon-cain",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:12:STALLIONS",
+          "target": "player:dondrea-tillman",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:31:BIRMINGHAM STALLIONS",
+          "target": "player:dondrea-tillman",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:12:STALLIONS",
+          "target": "player:tj-carter",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:31:BIRMINGHAM STALLIONS",
+          "target": "player:tj-carter",
+          "value": 1,
+          "directed": false
+        }
+      ],
+      "note": "Team-season nodes connect to NFL-history players who appear in multiple top teams."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What this study asks",
+      "html": "<p>Instead of only comparing leagues, this study looks at the team around each player. For each alt-football team-season, we measure how many teammates show up in NFL records, then check whether players from those NFL-rich teams are also more likely to appear in NFL records.</p>"
+    },
+    {
+      "heading": "How to read the groups",
+      "html": "<p>Each player gets an average teammate-density score based on the teams they played on. We sort players into 10 groups from D1 (lowest) to D10 (highest), then compare NFL reach rates across those groups.</p>"
+    },
+    {
+      "heading": "Team-season incubators",
+      "html": "<p>The table ranks team-seasons by how far above or below their league's usual NFL reach rate they land. That helps separate standout teams from leagues that are already NFL-heavy overall.</p>"
+    }
+  ],
+  "methodology": "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in <code>docs/data/sports.json</code>.</p><p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. Only non-NFL football leagues are included in environment construction. A player's NFL outcome is whether their record includes <code>NFL</code> in <code>sport_names</code>.</p><p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, but that does not prove one directly causes the other.</p>",
+  "table": {
+    "columns": [
+      {
+        "key": "team_season",
+        "label": "Team-season"
+      },
+      {
+        "key": "league",
+        "label": "League"
+      },
+      {
+        "key": "roster_size",
+        "label": "Roster size",
+        "numeric": true
+      },
+      {
+        "key": "nfl_vets",
+        "label": "NFL vets on roster",
+        "numeric": true
+      },
+      {
+        "key": "conversion_pct",
+        "label": "Team NFL-history %",
+        "numeric": true,
+        "suffix": "%"
+      },
+      {
+        "key": "league_baseline_pct",
+        "label": "League typical %",
+        "numeric": true,
+        "suffix": "%"
+      },
+      {
+        "key": "lift_pct_points",
+        "label": "Difference (points)",
+        "numeric": true
+      }
+    ],
+    "rows": [
+      {
+        "team_season": "UFL 2026 LOUISVILLE KINGS",
+        "league": "UFL",
+        "roster_size": 65,
+        "nfl_vets": 25,
+        "conversion_pct": 38.5,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 21.4
+      },
+      {
+        "team_season": "UFL 2026 ORLANDO STORM",
+        "league": "UFL",
+        "roster_size": 56,
+        "nfl_vets": 20,
+        "conversion_pct": 35.7,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 18.7
+      },
+      {
+        "team_season": "UFL 2026 BIRMINGHAM STALLIONS",
+        "league": "UFL",
+        "roster_size": 108,
+        "nfl_vets": 33,
+        "conversion_pct": 30.6,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 13.5
+      },
+      {
+        "team_season": "CFL 2025 CGY",
+        "league": "CFL",
+        "roster_size": 29,
+        "nfl_vets": 4,
+        "conversion_pct": 13.8,
+        "league_baseline_pct": 1.5,
+        "lift_pct_points": 12.3
+      },
+      {
+        "team_season": "CFL 2025 OTT",
+        "league": "CFL",
+        "roster_size": 29,
+        "nfl_vets": 4,
+        "conversion_pct": 13.8,
+        "league_baseline_pct": 1.5,
+        "lift_pct_points": 12.3
+      },
+      {
+        "team_season": "UFL 2026 COLUMBUS AVIATORS",
+        "league": "UFL",
+        "roster_size": 64,
+        "nfl_vets": 18,
+        "conversion_pct": 28.1,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 11.1
+      },
+      {
+        "team_season": "USFL 2023 STALLIONS",
+        "league": "USFL",
+        "roster_size": 52,
+        "nfl_vets": 7,
+        "conversion_pct": 13.5,
+        "league_baseline_pct": 3.3,
+        "lift_pct_points": 10.1
+      },
+      {
+        "team_season": "CFL 2025 HAM",
+        "league": "CFL",
+        "roster_size": 30,
+        "nfl_vets": 3,
+        "conversion_pct": 10.0,
+        "league_baseline_pct": 1.5,
+        "lift_pct_points": 8.5
+      },
+      {
+        "team_season": "CFL 2025 EDM",
+        "league": "CFL",
+        "roster_size": 30,
+        "nfl_vets": 3,
+        "conversion_pct": 10.0,
+        "league_baseline_pct": 1.5,
+        "lift_pct_points": 8.5
+      },
+      {
+        "team_season": "UFL 2026 DC DEFENDERS",
+        "league": "UFL",
+        "roster_size": 116,
+        "nfl_vets": 28,
+        "conversion_pct": 24.1,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 7.1
+      },
+      {
+        "team_season": "USFL 2023 PANTHERS",
+        "league": "USFL",
+        "roster_size": 49,
+        "nfl_vets": 5,
+        "conversion_pct": 10.2,
+        "league_baseline_pct": 3.3,
+        "lift_pct_points": 6.9
+      },
+      {
+        "team_season": "CFL 2025 BC",
+        "league": "CFL",
+        "roster_size": 29,
+        "nfl_vets": 2,
+        "conversion_pct": 6.9,
+        "league_baseline_pct": 1.5,
+        "lift_pct_points": 5.4
+      },
+      {
+        "team_season": "UFL 2026 ST. LOUIS BATTLEHAWKS",
+        "league": "UFL",
+        "roster_size": 92,
+        "nfl_vets": 20,
+        "conversion_pct": 21.7,
+        "league_baseline_pct": 17.0,
+        "lift_pct_points": 4.7
+      },
+      {
+        "team_season": "XFL 2023 BATTLEHAWKS",
+        "league": "XFL",
+        "roster_size": 50,
+        "nfl_vets": 5,
+        "conversion_pct": 10.0,
+        "league_baseline_pct": 5.7,
+        "lift_pct_points": 4.3
+      },
+      {
+        "team_season": "USFL 2022 HOU",
+        "league": "USFL",
+        "roster_size": 85,
+        "nfl_vets": 6,
+        "conversion_pct": 7.1,
+        "league_baseline_pct": 3.3,
+        "lift_pct_points": 3.7
+      }
+    ]
+  },
+  "history_row": {
+    "player_records": 4825,
+    "overall_eventual_nfl_pct": 5.5,
+    "d10_pct": 31.1,
+    "d1_pct": 1.4,
+    "top_incubator": "UFL 2026 LOUISVILLE KINGS",
+    "top_incubator_pct": 38.5
+  }
+}

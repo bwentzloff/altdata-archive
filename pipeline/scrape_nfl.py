@@ -15,6 +15,7 @@ Outputs  (pipeline/raw/, all gitignored):
 Usage:
   python pipeline/scrape_nfl.py              # process next 30 players (default)
   python pipeline/scrape_nfl.py --batch 50
+    python pipeline/scrape_nfl.py --retry-every 14 --retry-batch 10
   python pipeline/scrape_nfl.py --status     # print progress without fetching
 """
 
@@ -181,23 +182,61 @@ def main():
         help="Players to look up this run (default: 30)",
     )
     parser.add_argument(
+        "--retry-every", type=int, default=14,
+        help="Re-try previously not-found players every N runs (default: 14)",
+    )
+    parser.add_argument(
+        "--retry-batch", type=int, default=10,
+        help="Maximum number of retry attempts to include per run (default: 10)",
+    )
+    parser.add_argument(
         "--status", action="store_true",
         help="Print progress without fetching",
     )
     args = parser.parse_args()
 
     players   = _load_json(MERGED / "players_merged.json", [])
-    state     = _load_json(STATE_FILE, {"searched": [], "not_found": []})
+    state     = _load_json(STATE_FILE, {
+        "searched": [],
+        "not_found": [],
+        "not_found_meta": {},
+        "run_counter": 0,
+    })
     nfl_stats = _load_json(STATS_FILE, {})
 
     searched_set  = set(state.get("searched", []))
-    not_found_set = set(state.get("not_found", []))
+    # Backward-compatible load: old state stored not_found as a list only.
+    not_found_meta = state.get("not_found_meta", {}) or {}
+    legacy_not_found = set(state.get("not_found", []))
+    if legacy_not_found and not not_found_meta:
+        not_found_meta = {
+            cid: {"attempts": 1, "last_run": 0}
+            for cid in legacy_not_found
+        }
+    not_found_set = set(not_found_meta.keys()) | legacy_not_found
+
+    run_counter = int(state.get("run_counter", 0)) + 1
 
     # Players we haven't attempted yet
     remaining = [
         p for p in players
         if p["canonical_id"] not in searched_set
     ]
+
+    players_by_cid = {p["canonical_id"]: p for p in players}
+    main_complete = len(remaining) == 0
+    retry_eligible = []
+    if main_complete:
+        for cid in sorted(not_found_set):
+            p = players_by_cid.get(cid)
+            if not p:
+                continue
+            meta = not_found_meta.get(cid, {"attempts": 1, "last_run": 0})
+            last_run = int(meta.get("last_run", 0) or 0)
+            if (run_counter - last_run) >= max(1, args.retry_every):
+                retry_eligible.append(p)
+
+        retry_eligible = retry_eligible[: max(0, args.retry_batch)]
 
     total       = len(players)
     done_count  = len(searched_set)
@@ -208,22 +247,31 @@ def main():
         f"NFL index: {done_count}/{total} searched ({pct}%)  "
         f"— {found_count} players with stats, "
         f"{len(not_found_set)} not found, "
-        f"{len(remaining)} remaining"
+        f"{len(remaining)} remaining, "
+        f"{len(retry_eligible)} retry-eligible"
     )
+    if not main_complete and not_found_set:
+        print("Retries are paused until initial search reaches 100% coverage.")
 
-    if args.status or not remaining:
-        if not remaining:
-            print("All players searched.")
+    if args.status or (not remaining and not retry_eligible):
+        if not remaining and not retry_eligible:
+            print("All players searched and no retries are due.")
         return
 
-    batch = remaining[: args.batch]
-    print(f"Looking up {len(batch)} players ...\n")
+    fresh_batch = remaining[: args.batch]
+    batch = fresh_batch + retry_eligible
+    print(
+        f"Looking up {len(batch)} players "
+        f"({len(fresh_batch)} new, {len(retry_eligible)} retries) ...\n"
+    )
 
     found_this_run = 0
     for cp in batch:
         cid  = cp["canonical_id"]
         name = cp["canonical_name"]
-        print(f"  {name} ...", end="  ", flush=True)
+        is_retry = cid in not_found_set
+        retry_tag = " [retry]" if is_retry else ""
+        print(f"  {name}{retry_tag} ...", end="  ", flush=True)
 
         time.sleep(DELAY)
         espn_id = search_player(name)
@@ -231,6 +279,11 @@ def main():
         if espn_id is None:
             print("—")
             not_found_set.add(cid)
+            prev = not_found_meta.get(cid, {"attempts": 0, "last_run": 0})
+            not_found_meta[cid] = {
+                "attempts": int(prev.get("attempts", 0) or 0) + 1,
+                "last_run": run_counter,
+            }
         else:
             time.sleep(DELAY)
             player_stats = fetch_career_stats(espn_id)
@@ -242,23 +295,34 @@ def main():
                 }
                 print(f"ESPN:{espn_id}  ({len(player_stats)} stats)")
                 found_this_run += 1
+                if cid in not_found_set:
+                    not_found_set.discard(cid)
+                    not_found_meta.pop(cid, None)
             else:
                 # Found on ESPN but no NFL stats (e.g., practice squad / undrafted tryout)
                 not_found_set.add(cid)
                 print(f"ESPN:{espn_id}  (no stats)")
+                prev = not_found_meta.get(cid, {"attempts": 0, "last_run": 0})
+                not_found_meta[cid] = {
+                    "attempts": int(prev.get("attempts", 0) or 0) + 1,
+                    "last_run": run_counter,
+                }
 
         searched_set.add(cid)
 
         # Persist after every player so a crash doesn't lose progress
         state["searched"] = sorted(searched_set)
-        state["not_found"] = sorted(not_found_set)
+        state["not_found"] = sorted(not_found_set)  # keep list for compatibility
+        state["not_found_meta"] = not_found_meta
+        state["run_counter"] = run_counter
         _save_json(STATE_FILE, state)
         _save_json(STATS_FILE, nfl_stats)
 
+    remaining_after_fresh = max(0, len(remaining) - len(fresh_batch))
     print(
         f"\nDone.  +{found_this_run} found this run "
         f"({len(nfl_stats)} total).  "
-        f"{len(remaining) - len(batch)} players remaining."
+        f"{remaining_after_fresh} new players remaining."
     )
 
 

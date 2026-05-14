@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}{{ study.title }} — Studies — AltSports Archive{% endblock %}
+{% block description %}{{ study.subtitle }}{% endblock %}
+{% block og_type %}article{% endblock %}
+
+{% block alternate_links %}
+<link rel="alternate" type="application/json" href="{{ root }}data/studies/{{ study.slug }}.json">
+<link rel="alternate" type="application/json" href="{{ root }}data/studies/{{ study.slug }}-history.json" title="Snapshot history">
+{% endblock %}
+
+{% block content %}
+<article class="study">
+  <header class="study-header">
+    <p class="study-eyebrow"><a href="{{ root }}studies/index.html">Studies</a> · {{ study.category }}</p>
+    <h1>{{ study.title }}</h1>
+    <p class="study-subtitle">{{ study.subtitle }}</p>
+    <p class="study-meta">
+      Last computed {{ study.computed_at[:10] }}.
+      {% if history and history.snapshots %}{{ history.snapshots | length }} historical snapshot{{ "s" if history.snapshots | length != 1 else "" }}.{% endif %}
+    </p>
+  </header>
+
+  {% if study.headline_stats %}
+  <section class="study-headline-stats">
+    {% for s in study.headline_stats %}
+    <div class="study-stat-card">
+      <div class="study-stat-value">{{ s.value }}</div>
+      <div class="study-stat-label">{{ s.label }}</div>
+      {% if s.sub %}<div class="study-stat-sub">{{ s.sub }}</div>{% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% for sec in study.sections %}
+  <section class="study-section">
+    <h2>{{ sec.heading }}</h2>
+    {{ sec.html | safe }}
+  </section>
+  {% endfor %}
+
+  {% if study.charts %}
+  <section class="study-section">
+    <h2>Charts</h2>
+    {% for ch in study.charts %}
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">{{ ch.title }}</figcaption>
+      {% if ch.type == "network" %}
+      <div id="{{ ch.id }}-host" class="study-network-host"></div>
+      {% else %}
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="{{ ch.id }}"></canvas>
+      </div>
+      {% endif %}
+      {% if ch.note %}<p class="study-chart-note">{{ ch.note }}</p>{% endif %}
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if study.table %}
+  <section class="study-section">
+    <h2>Full data</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          {% for c in study.table.columns %}
+          <th scope="col"{% if c.numeric %} class="num"{% endif %}>{{ c.label }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in study.table.rows %}
+        <tr>
+          {% for c in study.table.columns %}
+          <td{% if c.numeric %} class="num"{% endif %}>
+            {%- set val = row.get(c.key) -%}
+            {%- if val is none -%}—
+            {%- elif c.numeric and val is number -%}
+              {{ val | intcomma }}{{ c.suffix or "" }}
+            {%- else -%}
+              {{ val }}{{ c.suffix or "" }}
+            {%- endif -%}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  <section class="study-section">
+    <h2>Methodology</h2>
+    {{ study.methodology | safe }}
+  </section>
+
+  {% if history and history.snapshots and history.snapshots | length > 1 %}
+  <section class="study-section">
+    <h2>Snapshot history</h2>
+    <p>How the headline numbers have moved over time.</p>
+    <details class="study-history-details">
+      <summary>Show {{ history.snapshots | length }} snapshots ({{ history.snapshots[0].computed_at[:10] }} → {{ history.snapshots[-1].computed_at[:10] }})</summary>
+      <pre class="study-history-json">{{ history | tojson }}</pre>
+    </details>
+  </section>
+  {% endif %}
+
+  <section class="study-section study-data">
+    <h2>Underlying data</h2>
+    <ul>
+      <li><a href="{{ root }}data/studies/{{ study.slug }}.json">Latest snapshot (JSON)</a></li>
+      <li><a href="{{ root }}data/studies/{{ study.slug }}-history.json">Snapshot history (JSON)</a></li>
+    </ul>
+  </section>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+window._studyCharts = {{ study.charts | tojson | safe }};
+</script>
+<script src="{{ root }}assets/study-charts.js"></script>
+{% endblock %}
+
+{% block formats %}
+<a href="{{ root }}data/studies/{{ study.slug }}.json">JSON</a>
+{% endblock %}

@@ -76,6 +76,9 @@ $PYTHON pipeline/merge_players.py
 echo "==> Build data files ..."
 $PYTHON pipeline/build_data.py
 
+echo "==> Run studies ..."
+$PYTHON pipeline/build_studies.py || echo "WARN: Studies build failed, continuing..."
+
 echo "==> Generate HTML ..."
 $PYTHON pipeline/generate_site.py
 

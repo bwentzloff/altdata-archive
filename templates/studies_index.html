@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Studies — AltSports Archive{% endblock %}
+{% block description %}Data-driven articles exploring patterns across alternative football, basketball, ultimate, and other pro sports leagues. Numbers and charts update automatically as new data is ingested.{% endblock %}
+
+{% block content %}
+<h1>Studies</h1>
+<p>
+  Short, data-driven write-ups on patterns we find across the archive.
+  Every number and chart on these pages is recomputed on each site build —
+  if a player moves leagues or a new season is ingested, the article updates itself.
+  Each study also keeps a snapshot history so you can see how the answer drifts over time.
+</p>
+
+{% if studies %}
+<table class="data-table studies-index-table">
+  <thead>
+    <tr>
+      <th scope="col">Study</th>
+      <th scope="col">Category</th>
+      <th scope="col">Last computed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in studies %}
+    <tr>
+      <td>
+        <a href="{{ root }}studies/{{ s.slug }}.html"><strong>{{ s.title }}</strong></a>
+        <div class="study-subtitle">{{ s.subtitle }}</div>
+      </td>
+      <td>{{ s.category }}</td>
+      <td>{{ s.computed_at[:10] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No studies published yet.</p>
+{% endif %}
+{% endblock %}
+
+{% block formats %}{% endblock %}

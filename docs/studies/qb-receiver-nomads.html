@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QB-receiver chemistry that survives league changes — Studies — AltSports Archive</title>
+  <meta name="description" content="Cross-team-season duos and OL-linked continuity">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/studies/qb-receiver-nomads.html">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="AltSports Archive">
+  <meta property="og:description" content="Historical player statistics from alternative football, ultimate, and basketball leagues. Free open data in JSON, XML, and HTML.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://archive.altfantasysports.com/studies/qb-receiver-nomads.html">
+  
+  
+
+
+  <!-- Alternate machine-readable formats -->
+  
+<link rel="alternate" type="application/json" href="../data/studies/qb-receiver-nomads.json">
+<link rel="alternate" type="application/json" href="../data/studies/qb-receiver-nomads-history.json" title="Snapshot history">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com",
+    "description": "Historical player and game statistics from alternative sports leagues. Free open data.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://archive.altfantasysports.com/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<article class="study">
+  <header class="study-header">
+    <p class="study-eyebrow"><a href="../studies/index.html">Studies</a> · Football</p>
+    <h1>QB-receiver chemistry that survives league changes</h1>
+    <p class="study-subtitle">Cross-team-season duos and OL-linked continuity</p>
+    <p class="study-meta">
+      Last computed 2026-05-14.
+      2 historical snapshots.
+    </p>
+  </header>
+
+  
+  <section class="study-headline-stats">
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">2 leagues</div>
+      <div class="study-stat-label">Top cross-league QB-receiver duo</div>
+      <div class="study-stat-sub">Luis Perez -&gt; Sal Cannella across 3 team-seasons</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">4 team-seasons</div>
+      <div class="study-stat-label">Most durable duo</div>
+      <div class="study-stat-sub">Jordan Ta\&#39;amu -&gt; Abram Smith</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">Jordan Ta\&#39;amu + Abram Smith + Liam Fornadel (2 shared team-seasons)</div>
+      <div class="study-stat-label">Top OL-linked unit</div>
+      <div class="study-stat-sub">60 cross-league duos found</div>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>What this study is trying to catch</h2>
+    <p>We are looking for QB-to-receiver chemistry that survives context changes. Instead of a single team snapshot, we search for duos that reappear across multiple team-seasons, especially when they span multiple leagues.</p>
+  </section>
+  
+  <section class="study-section">
+    <h2>How we define a combo</h2>
+    <p>For each team-season, we pair every QB with every WR/RB/TE/FB/HB teammate. We then score that team-season pairing using the QB's passing production and the receiver's receiving production from the same league-season bucket.</p><p>When the same QB-receiver pair shows up again in another team-season, we treat it as recurring chemistry and add those scores together.</p>
+  </section>
+  
+  <section class="study-section">
+    <h2>OL-linked units</h2>
+    <p>For each recurring QB-receiver duo, we also look for offensive linemen who repeatedly show up in those same team-seasons. This surfaces additional unit-level links: not just who caught passes, but who may have protected that connection.</p>
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Charts</h2>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Best recurring QB-receiver combos (team-season chemistry score)</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-qb-rec-score"></canvas>
+      </div>
+      
+      <p class="study-chart-note">Score sums inferred QB and receiver season production while they shared a team-season.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Where each recurring duo shows up (team-seasons by league)</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-qb-rec-footprint"></canvas>
+      </div>
+      
+      <p class="study-chart-note">Each stack segment is a shared team-season in that league.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Nomad chemistry graph: QB, receiver, and OL anchors</figcaption>
+      
+      <div id="chart-qb-rec-network-host" class="study-network-host"></div>
+      
+      <p class="study-chart-note">Arrows are recurring QB -&gt; receiver duos. Dashed links connect a duo to its most common shared OL teammate.</p>
+    </figure>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Full data</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          
+          <th scope="col">QB -&gt; receiver duo</th>
+          
+          <th scope="col" class="num">Shared team-seasons</th>
+          
+          <th scope="col" class="num">Leagues</th>
+          
+          <th scope="col">League footprint</th>
+          
+          <th scope="col" class="num">Total chemistry score</th>
+          
+          <th scope="col" class="num">Avg score per team-season</th>
+          
+          <th scope="col" class="num">QB passing yards</th>
+          
+          <th scope="col" class="num">Receiver yards</th>
+          
+          <th scope="col">Best team-season</th>
+          
+          <th scope="col">Most-shared OL</th>
+          
+          <th scope="col">Unit context</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; Sal Cannella</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">8,988</td>
+          
+          <td class="num">2,996</td>
+          
+          <td class="num">6,376</td>
+          
+          <td class="num">1,392</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + Sal Cannella + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Abram Smith</td>
+          
+          <td class="num">4</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">8,954</td>
+          
+          <td class="num">2,238.5</td>
+          
+          <td class="num">7,342</td>
+          
+          <td class="num">287</td>
+          
+          <td>UFL 2025 DEFENDERS</td>
+          
+          <td>Liam Fornadel</td>
+          
+          <td>Jordan Ta\&#39;amu + Abram Smith + Liam Fornadel shared 2 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; Tyler Vaughns</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">8,936</td>
+          
+          <td class="num">2,978.7</td>
+          
+          <td class="num">6,376</td>
+          
+          <td class="num">1,280</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + Tyler Vaughns + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; JaVonta Payton</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">8,309</td>
+          
+          <td class="num">2,769.7</td>
+          
+          <td class="num">6,376</td>
+          
+          <td class="num">773</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + JaVonta Payton + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Briley Moore-Mckinney</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">7,593</td>
+          
+          <td class="num">2,531</td>
+          
+          <td class="num">5,888</td>
+          
+          <td class="num">345</td>
+          
+          <td>UFL 2025 DEFENDERS</td>
+          
+          <td>Liam Fornadel</td>
+          
+          <td>Jordan Ta\&#39;amu + Briley Moore-Mckinney + Liam Fornadel shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; De\&#39;Veon Smith</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">7,504</td>
+          
+          <td class="num">2,501.3</td>
+          
+          <td class="num">6,376</td>
+          
+          <td class="num">328</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + De\&#39;Veon Smith + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; LuJuan Winningham</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">7,482</td>
+          
+          <td class="num">2,494</td>
+          
+          <td class="num">6,376</td>
+          
+          <td class="num">186</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + LuJuan Winningham + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Hakeem Butler</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">7,151</td>
+          
+          <td class="num">3,575.5</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">1,310</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Hakeem Butler + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Trae Barry</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">6,618</td>
+          
+          <td class="num">2,206</td>
+          
+          <td class="num">5,488</td>
+          
+          <td class="num">0</td>
+          
+          <td>UFL 2025 DEFENDERS</td>
+          
+          <td>Michael Tarquin</td>
+          
+          <td>Jordan Ta\&#39;amu + Trae Barry + Michael Tarquin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Darrius Shepherd</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">6,231</td>
+          
+          <td class="num">3,115.5</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">810</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Darrius Shepherd + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Case Cookus -&gt; Diondre Overton</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">6,186</td>
+          
+          <td class="num">2,062</td>
+          
+          <td class="num">4,753</td>
+          
+          <td class="num">628</td>
+          
+          <td>USFL 2023 STARS</td>
+          
+          <td>Clay LeGault</td>
+          
+          <td>Case Cookus + Diondre Overton + Clay LeGault shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Steven Jr</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">5,732</td>
+          
+          <td class="num">2,866</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">311</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Steven Jr + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Marcell Ateman</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">5,708</td>
+          
+          <td class="num">2,854</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">467</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Marcell Ateman + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Jake Sutherland</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">5,445</td>
+          
+          <td class="num">2,722.5</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">144</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Jake Sutherland + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>AJ McCarron -&gt; Mataeo Durant</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">5,157</td>
+          
+          <td class="num">2,578.5</td>
+          
+          <td class="num">3,911</td>
+          
+          <td class="num">96</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>AJ McCarron + Mataeo Durant + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; Deon Cain</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">5,138</td>
+          
+          <td class="num">2,569</td>
+          
+          <td class="num">2,748</td>
+          
+          <td class="num">840</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; Marlon Williams</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">5,124</td>
+          
+          <td class="num">1,708</td>
+          
+          <td class="num">3,208</td>
+          
+          <td class="num">741</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td>Marquez Tucker</td>
+          
+          <td>Alex McGough + Marlon Williams + Marquez Tucker shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; Jace Sternberger</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">5,114</td>
+          
+          <td class="num">2,557</td>
+          
+          <td class="num">2,748</td>
+          
+          <td class="num">876</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Troy Williams -&gt; Isiah Hennie</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">5,056</td>
+          
+          <td class="num">1,685.3</td>
+          
+          <td class="num">3,596</td>
+          
+          <td class="num">855</td>
+          
+          <td>USFL 2023 MAULERS</td>
+          
+          <td>Jon Dietzen</td>
+          
+          <td>Troy Williams + Isiah Hennie + Jon Dietzen shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Alex Ellis</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">5,011</td>
+          
+          <td class="num">2,505.5</td>
+          
+          <td class="num">3,732</td>
+          
+          <td class="num">299</td>
+          
+          <td>XFL 2023 DEFENDERS</td>
+          
+          <td>Liam Fornadel</td>
+          
+          <td>Jordan Ta\&#39;amu + Alex Ellis + Liam Fornadel shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; Leddie Brown</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">4,977</td>
+          
+          <td class="num">2,488.5</td>
+          
+          <td class="num">4,082</td>
+          
+          <td class="num">230</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + Leddie Brown + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; Caleb Esch</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">4,931</td>
+          
+          <td class="num">2,465.5</td>
+          
+          <td class="num">4,082</td>
+          
+          <td class="num">124</td>
+          
+          <td>UFL 2024 RENEGADES</td>
+          
+          <td>Cameron Hunt</td>
+          
+          <td>Luis Perez + Caleb Esch + Cameron Hunt shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; Davion Davis</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">4,921</td>
+          
+          <td class="num">2,460.5</td>
+          
+          <td class="num">2,748</td>
+          
+          <td class="num">923</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; CJ Marable</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">4,759</td>
+          
+          <td class="num">1,586.3</td>
+          
+          <td class="num">3,208</td>
+          
+          <td class="num">496</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td>Marquez Tucker</td>
+          
+          <td>Alex McGough + CJ Marable + Marquez Tucker shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; Marlon Williams</td>
+          
+          <td class="num">4</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">4,722</td>
+          
+          <td class="num">1,180.5</td>
+          
+          <td class="num">2,682</td>
+          
+          <td class="num">1,140</td>
+          
+          <td>USFL 2022 BHAM</td>
+          
+          <td>Marquez Tucker</td>
+          
+          <td>J\&#39;Mar Smith + Marlon Williams + Marquez Tucker shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Brandon Smith</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">4,680</td>
+          
+          <td class="num">2,340</td>
+          
+          <td class="num">3,732</td>
+          
+          <td class="num">208</td>
+          
+          <td>UFL 2024 DEFENDERS</td>
+          
+          <td>Liam Fornadel</td>
+          
+          <td>Jordan Ta\&#39;amu + Brandon Smith + Liam Fornadel shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jordan Ta\&#39;amu -&gt; Cam\&#39;Ron Harris</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">4,405</td>
+          
+          <td class="num">2,202.5</td>
+          
+          <td class="num">3,732</td>
+          
+          <td class="num">53</td>
+          
+          <td>XFL 2023 DEFENDERS</td>
+          
+          <td>Liam Fornadel</td>
+          
+          <td>Jordan Ta\&#39;amu + Cam\&#39;Ron Harris + Liam Fornadel shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Quinten Dormady -&gt; Cody Latimer</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">4,200</td>
+          
+          <td class="num">2,100</td>
+          
+          <td class="num">2,771</td>
+          
+          <td class="num">984</td>
+          
+          <td>XFL 2023 GUARDIANS</td>
+          
+          <td>Luke Juriga</td>
+          
+          <td>Quinten Dormady + Cody Latimer + Luke Juriga shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; CJ Marable</td>
+          
+          <td class="num">4</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">3,920</td>
+          
+          <td class="num">980</td>
+          
+          <td class="num">2,682</td>
+          
+          <td class="num">638</td>
+          
+          <td>USFL 2022 BHAM</td>
+          
+          <td>Marquez Tucker</td>
+          
+          <td>J\&#39;Mar Smith + CJ Marable + Marquez Tucker shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; La\&#39;Michael Pettway</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">3,907</td>
+          
+          <td class="num">1,953.5</td>
+          
+          <td class="num">2,748</td>
+          
+          <td class="num">149</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alex McGough -&gt; Ricky Jr</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">3,697</td>
+          
+          <td class="num">1,848.5</td>
+          
+          <td class="num">2,748</td>
+          
+          <td class="num">59</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; Jace Sternberger</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">3,346</td>
+          
+          <td class="num">1,115.3</td>
+          
+          <td class="num">919</td>
+          
+          <td class="num">1,397</td>
+          
+          <td>UFL 2025 STALLIONS</td>
+          
+          <td>Alex Taylor-Prioleau</td>
+          
+          <td>J\&#39;Mar Smith + Jace Sternberger + Alex Taylor-Prioleau shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Hakeem Butler</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">3,259</td>
+          
+          <td class="num">1,086.3</td>
+          
+          <td class="num">819</td>
+          
+          <td class="num">1,610</td>
+          
+          <td>UFL 2024 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Hakeem Butler + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Quinten Dormady -&gt; KD Cannon</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">3,255</td>
+          
+          <td class="num">1,627.5</td>
+          
+          <td class="num">2,771</td>
+          
+          <td class="num">219</td>
+          
+          <td>XFL 2023 GUARDIANS</td>
+          
+          <td>Luke Juriga</td>
+          
+          <td>Quinten Dormady + KD Cannon + Luke Juriga shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; Deon Cain</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">3,250</td>
+          
+          <td class="num">1,083.3</td>
+          
+          <td class="num">919</td>
+          
+          <td class="num">1,301</td>
+          
+          <td>UFL 2025 STALLIONS</td>
+          
+          <td>Alex Taylor-Prioleau</td>
+          
+          <td>J\&#39;Mar Smith + Deon Cain + Alex Taylor-Prioleau shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Luis Perez -&gt; Braedon Bowman</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, USFL</td>
+          
+          <td class="num">2,877</td>
+          
+          <td class="num">1,438.5</td>
+          
+          <td class="num">2,535</td>
+          
+          <td class="num">175</td>
+          
+          <td>AAF ? BIR</td>
+          
+          <td>Brandon Haskin</td>
+          
+          <td>Luis Perez + Braedon Bowman + Brandon Haskin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jalan McClendon -&gt; John Lovett</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">2,865</td>
+          
+          <td class="num">1,432.5</td>
+          
+          <td class="num">2,097</td>
+          
+          <td class="num">293</td>
+          
+          <td>UFL 2026 COLUMBUS AVIATORS</td>
+          
+          <td>Wisdom Quarshie</td>
+          
+          <td>Jalan McClendon + John Lovett + Wisdom Quarshie shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jalan McClendon -&gt; Cam Sutton</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">2,776</td>
+          
+          <td class="num">1,388</td>
+          
+          <td class="num">2,337</td>
+          
+          <td class="num">179</td>
+          
+          <td>UFL 2025 ROUGHNECKS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; Davion Davis</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">2,392</td>
+          
+          <td class="num">1,196</td>
+          
+          <td class="num">919</td>
+          
+          <td class="num">923</td>
+          
+          <td>UFL 2025 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brandon Silvers -&gt; Justin Smith</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">2,369</td>
+          
+          <td class="num">1,184.5</td>
+          
+          <td class="num">2,011</td>
+          
+          <td class="num">238</td>
+          
+          <td>XFL 2023 ROUGHNECKS</td>
+          
+          <td>Addison West</td>
+          
+          <td>Brandon Silvers + Justin Smith + Addison West shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>EJ Perry -&gt; Trey Quinn</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">2,306</td>
+          
+          <td class="num">1,153</td>
+          
+          <td class="num">1,155</td>
+          
+          <td class="num">811</td>
+          
+          <td>USFL 2023 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>EJ Perry + Trey Quinn + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>EJ Perry -&gt; Cole Hikutini</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,995</td>
+          
+          <td class="num">997.5</td>
+          
+          <td class="num">1,155</td>
+          
+          <td class="num">500</td>
+          
+          <td>USFL 2023 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>EJ Perry + Cole Hikutini + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>EJ Perry -&gt; Marcus Simms</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,948</td>
+          
+          <td class="num">974</td>
+          
+          <td class="num">1,155</td>
+          
+          <td class="num">573</td>
+          
+          <td>UFL 2024 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>EJ Perry + Marcus Simms + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Harrison FROST -&gt; Jahcour Pearson</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">1,824</td>
+          
+          <td class="num">912</td>
+          
+          <td class="num">719</td>
+          
+          <td class="num">855</td>
+          
+          <td>UFL 2026 ST. LOUIS BATTLEHAWKS</td>
+          
+          <td>Addison West</td>
+          
+          <td>Harrison FROST + Jahcour Pearson + Addison West shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Reid Sinnett -&gt; Emmanuel Butler</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">1,546</td>
+          
+          <td class="num">773</td>
+          
+          <td class="num">1,233</td>
+          
+          <td class="num">238</td>
+          
+          <td>UFL 2024 ROUGHNECKS</td>
+          
+          <td>Jair Joseph</td>
+          
+          <td>Reid Sinnett + Emmanuel Butler + Jair Joseph shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Harrison FROST -&gt; Blake Jackson</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">1,410</td>
+          
+          <td class="num">705</td>
+          
+          <td class="num">719</td>
+          
+          <td class="num">561</td>
+          
+          <td>UFL 2026 ST. LOUIS BATTLEHAWKS</td>
+          
+          <td>Addison West</td>
+          
+          <td>Harrison FROST + Blake Jackson + Addison West shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Darrius Shepherd</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">1,396</td>
+          
+          <td class="num">698</td>
+          
+          <td class="num">321</td>
+          
+          <td class="num">810</td>
+          
+          <td>XFL 2023 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Darrius Shepherd + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; La\&#39;Michael Pettway</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,378</td>
+          
+          <td class="num">689</td>
+          
+          <td class="num">919</td>
+          
+          <td class="num">149</td>
+          
+          <td>UFL 2025 STALLIONS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>J\&#39;Mar Smith -&gt; Ricky Jr</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,371</td>
+          
+          <td class="num">457</td>
+          
+          <td class="num">919</td>
+          
+          <td class="num">202</td>
+          
+          <td>UFL 2025 STALLIONS</td>
+          
+          <td>Alex Taylor-Prioleau</td>
+          
+          <td>J\&#39;Mar Smith + Ricky Jr + Alex Taylor-Prioleau shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brian Lewerke -&gt; Trey Quinn</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,330</td>
+          
+          <td class="num">665</td>
+          
+          <td class="num">119</td>
+          
+          <td class="num">811</td>
+          
+          <td>USFL 2023 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>Brian Lewerke + Trey Quinn + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>EJ Perry -&gt; Devin Ross</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,269</td>
+          
+          <td class="num">634.5</td>
+          
+          <td class="num">1,155</td>
+          
+          <td class="num">134</td>
+          
+          <td>UFL 2024 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>EJ Perry + Devin Ross + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>EJ Perry -&gt; Toa Taua</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,135</td>
+          
+          <td class="num">567.5</td>
+          
+          <td class="num">1,155</td>
+          
+          <td class="num">0</td>
+          
+          <td>UFL 2024 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>EJ Perry + Toa Taua + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Jake Sutherland</td>
+          
+          <td class="num">3</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">1,101</td>
+          
+          <td class="num">367</td>
+          
+          <td class="num">819</td>
+          
+          <td class="num">232</td>
+          
+          <td>UFL 2025 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Jake Sutherland + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brian Lewerke -&gt; Cole Hikutini</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">1,019</td>
+          
+          <td class="num">509.5</td>
+          
+          <td class="num">119</td>
+          
+          <td class="num">500</td>
+          
+          <td>USFL 2023 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>Brian Lewerke + Cole Hikutini + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brian Lewerke -&gt; Marcus Simms</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">972</td>
+          
+          <td class="num">486</td>
+          
+          <td class="num">119</td>
+          
+          <td class="num">573</td>
+          
+          <td>UFL 2024 PANTHERS</td>
+          
+          <td>Eric Abojei</td>
+          
+          <td>Brian Lewerke + Marcus Simms + Eric Abojei shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Steven Jr</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">897</td>
+          
+          <td class="num">448.5</td>
+          
+          <td class="num">321</td>
+          
+          <td class="num">311</td>
+          
+          <td>UFL 2024 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Steven Jr + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Marcell Ateman</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">873</td>
+          
+          <td class="num">436.5</td>
+          
+          <td class="num">321</td>
+          
+          <td class="num">467</td>
+          
+          <td>UFL 2024 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Marcell Ateman + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Gary Jennings</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">861</td>
+          
+          <td class="num">430.5</td>
+          
+          <td class="num">498</td>
+          
+          <td class="num">278</td>
+          
+          <td>UFL 2025 BATTLEHAWKS</td>
+          
+          <td></td>
+          
+          <td></td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Manny Wilkins -&gt; Mataeo Durant</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, XFL</td>
+          
+          <td class="num">322</td>
+          
+          <td class="num">161</td>
+          
+          <td class="num">321</td>
+          
+          <td class="num">96</td>
+          
+          <td>UFL 2024 BATTLEHAWKS</td>
+          
+          <td>Koda Martin</td>
+          
+          <td>Manny Wilkins + Mataeo Durant + Koda Martin shared 1 team-seasons</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jalen Morton -&gt; ZaQuandre White</td>
+          
+          <td class="num">2</td>
+          
+          <td class="num">2</td>
+          
+          <td>UFL, USFL</td>
+          
+          <td class="num">211</td>
+          
+          <td class="num">105.5</td>
+          
+          <td class="num">0</td>
+          
+          <td class="num">151</td>
+          
+          <td>USFL 2023 STALLIONS</td>
+          
+          <td>Wisdom Quarshie</td>
+          
+          <td>Jalen Morton + ZaQuandre White + Wisdom Quarshie shared 1 team-seasons</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
+
+  <section class="study-section">
+    <h2>Methodology</h2>
+    <p>Data source: player JSON files in <code>docs/data/players/</code> plus season metadata from <code>docs/data/sports.json</code>.</p><p>A team-season is identified by <code>(sport_id, team)</code> roster membership. Because many feeds do not include direct passer-target links, this study uses shared team-season co-membership as a proxy for QB-receiver connection.</p><p>Chemistry score per team-season: <code>QB score + Receiver score</code>, where <code>QB score = passing_yards + 40*passing_tds - 45*interceptions</code> and <code>Receiver score = receiving_yards + 60*receiving_tds + 2*targets</code>.</p><p>Scores are descriptive and ranking-oriented, not causal estimates. This study reruns on each build as new rosters and statlines land.</p>
+  </section>
+
+  
+  <section class="study-section">
+    <h2>Snapshot history</h2>
+    <p>How the headline numbers have moved over time.</p>
+    <details class="study-history-details">
+      <summary>Show 2 snapshots (2026-05-14 → 2026-05-14)</summary>
+      <pre class="study-history-json">{&#34;slug&#34;: &#34;qb-receiver-nomads&#34;, &#34;snapshots&#34;: [{&#34;computed_at&#34;: &#34;2026-05-14T01:52:38+00:00&#34;, &#34;cross_league_duos&#34;: 97, &#34;repeat_duos&#34;: 1062, &#34;top_duo&#34;: &#34;Stallions QB -&gt; Jace Sternberger&#34;, &#34;top_duo_leagues&#34;: 2, &#34;top_duo_team_seasons&#34;: 3}, {&#34;computed_at&#34;: &#34;2026-05-14T01:55:34+00:00&#34;, &#34;cross_league_duos&#34;: 60, &#34;repeat_duos&#34;: 805, &#34;top_duo&#34;: &#34;Luis Perez -&gt; Sal Cannella&#34;, &#34;top_duo_leagues&#34;: 2, &#34;top_duo_team_seasons&#34;: 3}]}</pre>
+    </details>
+  </section>
+  
+
+  <section class="study-section study-data">
+    <h2>Underlying data</h2>
+    <ul>
+      <li><a href="../data/studies/qb-receiver-nomads.json">Latest snapshot (JSON)</a></li>
+      <li><a href="../data/studies/qb-receiver-nomads-history.json">Snapshot history (JSON)</a></li>
+    </ul>
+  </section>
+</article>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-13.
+      Formats:
+      
+<a href="../data/studies/qb-receiver-nomads.json">JSON</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+window._studyCharts = [{"id": "chart-qb-rec-score", "type": "bar", "title": "Best recurring QB-receiver combos (team-season chemistry score)", "labels": ["Luis Perez -> Sal Cannella", "Jordan Ta\\'amu -> Abram Smith", "Luis Perez -> Tyler Vaughns", "Luis Perez -> JaVonta Payton", "Jordan Ta\\'amu -> Briley Moore-Mckinney", "Luis Perez -> De\\'Veon Smith", "Luis Perez -> LuJuan Winningham", "AJ McCarron -> Hakeem Butler", "Jordan Ta\\'amu -> Trae Barry", "AJ McCarron -> Darrius Shepherd", "Case Cookus -> Diondre Overton", "AJ McCarron -> Steven Jr"], "datasets": [{"label": "Chemistry score", "data": [8988.0, 8954.0, 8936.0, 8309.0, 7593.0, 7504.0, 7482.0, 7151.0, 6618.0, 6231.0, 6186.0, 5732.0]}], "indexAxis": "y", "note": "Score sums inferred QB and receiver season production while they shared a team-season."}, {"id": "chart-qb-rec-footprint", "type": "stacked-bar", "title": "Where each recurring duo shows up (team-seasons by league)", "labels": ["Luis Perez -> Sal Cannella", "Jordan Ta\\'amu -> Abram Smith", "Luis Perez -> Tyler Vaughns", "Luis Perez -> JaVonta Payton", "Jordan Ta\\'amu -> Briley Moore-Mckinney", "Luis Perez -> De\\'Veon Smith", "Luis Perez -> LuJuan Winningham", "AJ McCarron -> Hakeem Butler"], "datasets": [{"label": "UFL", "data": [2, 3, 2, 2, 2, 2, 2, 1]}, {"label": "XFL", "data": [1, 1, 1, 1, 1, 1, 1, 1]}], "indexAxis": "y", "note": "Each stack segment is a shared team-season in that league."}, {"id": "chart-qb-rec-network", "type": "network", "title": "Nomad chemistry graph: QB, receiver, and OL anchors", "nodes": [{"id": "qb:luis-perez", "label": "QB Luis Perez", "value": 15, "is_nfl": false}, {"id": "rec:sal-cannella", "label": "REC Sal Cannella", "value": 3, "is_nfl": false}, {"id": "ol:Cameron Hunt", "label": "OL Cameron Hunt", "value": 5.0, "is_nfl": false}, {"id": "qb:jordan-taamu", "label": "QB Jordan Ta\\'amu", "value": 10, "is_nfl": false}, {"id": "rec:abram-smith", "label": "REC Abram Smith", "value": 4, "is_nfl": false}, {"id": "ol:Liam Fornadel", "label": "OL Liam Fornadel", "value": 3, "is_nfl": false}, {"id": "rec:tyler-vaughns", "label": "REC Tyler Vaughns", "value": 3, "is_nfl": false}, {"id": "rec:javonta-payton", "label": "REC JaVonta Payton", "value": 3, "is_nfl": false}, {"id": "rec:briley-moore-mckinney", "label": "REC Briley Moore-Mckinney", "value": 3, "is_nfl": false}, {"id": "rec:deveon-smith", "label": "REC De\\'Veon Smith", "value": 3, "is_nfl": false}, {"id": "rec:lujuan-winningham", "label": "REC LuJuan Winningham", "value": 3, "is_nfl": false}, {"id": "qb:aj-mccarron", "label": "QB AJ McCarron", "value": 4, "is_nfl": false}, {"id": "rec:hakeem-butler", "label": "REC Hakeem Butler", "value": 2, "is_nfl": false}, {"id": "ol:Koda Martin", "label": "OL Koda Martin", "value": 2.0, "is_nfl": false}, {"id": "rec:trae-barry", "label": "REC Trae Barry", "value": 3, "is_nfl": false}, {"id": "ol:Michael Tarquin", "label": "OL Michael Tarquin", "value": 1.0, "is_nfl": false}, {"id": "rec:darrius-shepherd", "label": "REC Darrius Shepherd", "value": 2, "is_nfl": false}], "edges": [{"source": "rec:sal-cannella", "target": "ol:Cameron Hunt", "value": 1.0, "directed": false}, {"source": "rec:tyler-vaughns", "target": "ol:Cameron Hunt", "value": 1.0, "directed": false}, {"source": "rec:javonta-payton", "target": "ol:Cameron Hunt", "value": 1.0, "directed": false}, {"source": "rec:briley-moore-mckinney", "target": "ol:Liam Fornadel", "value": 1.0, "directed": false}, {"source": "rec:deveon-smith", "target": "ol:Cameron Hunt", "value": 1.0, "directed": false}, {"source": "rec:lujuan-winningham", "target": "ol:Cameron Hunt", "value": 1.0, "directed": false}, {"source": "rec:hakeem-butler", "target": "ol:Koda Martin", "value": 1.0, "directed": false}, {"source": "qb:jordan-taamu", "target": "ol:Michael Tarquin", "value": 1.0, "directed": false}, {"source": "rec:trae-barry", "target": "ol:Michael Tarquin", "value": 1.0, "directed": false}, {"source": "rec:darrius-shepherd", "target": "ol:Koda Martin", "value": 1.0, "directed": false}, {"source": "rec:abram-smith", "target": "ol:Liam Fornadel", "value": 2.0, "directed": false}, {"source": "qb:aj-mccarron", "target": "rec:hakeem-butler", "value": 2.0, "directed": true}, {"source": "qb:aj-mccarron", "target": "ol:Koda Martin", "value": 2.0, "directed": false}, {"source": "qb:aj-mccarron", "target": "rec:darrius-shepherd", "value": 2.0, "directed": true}, {"source": "qb:luis-perez", "target": "rec:sal-cannella", "value": 3.0, "directed": true}, {"source": "qb:jordan-taamu", "target": "ol:Liam Fornadel", "value": 3.0, "directed": false}, {"source": "qb:luis-perez", "target": "rec:tyler-vaughns", "value": 3.0, "directed": true}, {"source": "qb:luis-perez", "target": "rec:javonta-payton", "value": 3.0, "directed": true}, {"source": "qb:jordan-taamu", "target": "rec:briley-moore-mckinney", "value": 3.0, "directed": true}, {"source": "qb:luis-perez", "target": "rec:deveon-smith", "value": 3.0, "directed": true}, {"source": "qb:luis-perez", "target": "rec:lujuan-winningham", "value": 3.0, "directed": true}, {"source": "qb:jordan-taamu", "target": "rec:trae-barry", "value": 3.0, "directed": true}, {"source": "qb:jordan-taamu", "target": "rec:abram-smith", "value": 4.0, "directed": true}, {"source": "qb:luis-perez", "target": "ol:Cameron Hunt", "value": 5.0, "directed": false}], "note": "Arrows are recurring QB -> receiver duos. Dashed links connect a duo to its most common shared OL teammate."}];
+</script>
+<script src="../assets/study-charts.js"></script>
+
+</body>
+</html>
