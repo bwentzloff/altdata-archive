@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Corey Crawford Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Corey Crawford (DB) across XFL, AAF. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Corey Crawford (OL/DL, DB) across XFL, AAF. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/corey-crawford.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Corey Crawford — AltSports Stats">
-  <meta property="og:description" content="Career stats for Corey Crawford: assist_tackles 9.0, fumble_rec_yards 1.0, fumbles_forced 0.0, fumbles_lost_game 0.0, fumbles_opp_rec 0.0, fumbles_own_rec 0.0, int_avg 0.0, int_long 0.0, int_tds 0.0, int_yards 0.0, interceptions_made 0.0, sacks 0.5, solo_tackles 12.0, tackles 16.0">
+  <meta property="og:description" content="Career stats for Corey Crawford: assist_tackles 9.0, fumble_rec_yards 1.0, fumbles 0.0, fumbles_forced 0.0, fumbles_lost 0.0, fumbles_lost_game 0.0, fumbles_opp_rec 0.0, fumbles_own_rec 0.0, games_played 48.0, int_avg 0.0, int_long 0.0, int_tds 0.0, int_yards 0.0, interceptions_made 0.0, kick_returns 8.0, punt_returns 6.0, rec_avg 9.0, rec_long 15.0, receiving_tds 6.0, receiving_yards 63.0, receiving_yards_per_game 12.6, receptions 7.0, receptions_per_game 1.4, rush_avg 1.4, rush_long 5.0, rushing_attempts 11.0, rushing_tds 2.0, rushing_yards 15.0, rushing_yards_per_game 3.0, sacks 0.5, solo_tackles 12.0, tackles 16.0, total_yards 78.0, yards_per_game 15.6">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/corey-crawford.html">
   
@@ -33,12 +33,12 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Corey Crawford",
-  "description": "Corey Crawford played DB in XFL, AAF.",
+  "description": "Corey Crawford played OL/DL, DB in XFL, AAF.",
   "url": "https://archive.altfantasysports.com/players/corey-crawford.html",
   "sameAs": [],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional DB",
+    "name": "Professional OL/DL",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "NAL",
+      "description": "League-level player statistics for NAL from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "AAF 2019",
@@ -144,10 +158,10 @@
   <div class="player-header-text">
     <h1>
       Corey Crawford
-      
+      <span class="ambiguous-tag" title="Name matched across records that may be different individuals">ambiguous</span>
     </h1>
     <p class="player-meta">
-      DB
+      OL/DL / DB
       <span class="sep">·</span>
       XFL, AAF
     </p>
@@ -233,7 +247,7 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">60.6</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1031</div>
+        <div class="badge-rank">#1062</div>
       </div>
       
       
@@ -258,13 +272,19 @@
         
         <th scope="col" data-stat="fumble_rec_yards">Fumble Rec Yards</th>
         
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
         <th scope="col" data-stat="fumbles_forced">Fumbles Forced</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
         
         <th scope="col" data-stat="fumbles_lost_game">Fumbles Lost Game</th>
         
         <th scope="col" data-stat="fumbles_opp_rec">Fumbles Opp Rec</th>
         
         <th scope="col" data-stat="fumbles_own_rec">Fumbles Own Rec</th>
+        
+        <th scope="col" data-stat="games_played">Games Played</th>
         
         <th scope="col" data-stat="int_avg">Int Avg</th>
         
@@ -276,11 +296,45 @@
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="punt_returns">Punt Returns</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receiving_yards_per_game">Receiving Yards Per Game</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="receptions_per_game">Receptions Per Game</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_yards_per_game">Rushing Yards Per Game</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="total_yards">Total Yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">Yards Per Game</th>
         
       </tr>
     </thead>
@@ -303,17 +357,57 @@
         
         <td>0</td>
         
+        <td>48</td>
+        
+        <td>0</td>
+        
         <td>0</td>
         
         <td>0</td>
         
         <td>0</td>
+        
+        <td>0</td>
+        
+        <td>8</td>
+        
+        <td>6</td>
+        
+        <td>9</td>
+        
+        <td>15</td>
+        
+        <td>6</td>
+        
+        <td>63</td>
+        
+        <td>12.6</td>
+        
+        <td>7</td>
+        
+        <td>1.4</td>
+        
+        <td>1.4</td>
+        
+        <td>5</td>
+        
+        <td>11</td>
+        
+        <td>2</td>
+        
+        <td>15</td>
+        
+        <td>3</td>
         
         <td>0.5</td>
         
         <td>12</td>
         
         <td>16</td>
+        
+        <td>78</td>
+        
+        <td>15.6</td>
         
       </tr>
     </tbody>
@@ -323,6 +417,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AAF-2019": {"interceptions_made": 0.0, "int_yards": 0.0, "int_avg": 0.0, "int_long": 0.0, "int_tds": 0.0, "solo_tackles": 3.0, "assist_tackles": 2.0, "fumbles_lost_game": 0.0, "fumbles_forced": 0.0, "fumbles_own_rec": 0.0, "fumbles_opp_rec": 0.0, "fumble_rec_yards": 1.0}, "XFL-2020": {"solo_tackles": 9.0, "assist_tackles": 7.0, "tackles": 16.0, "sacks": 0.5}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -514,6 +632,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Corey Crawford</td>
+        <td>COLUMBUS LIONS</td>
+        <td>OL/DL</td>
+        <td>NAL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -539,13 +669,19 @@
         
         <th scope="col" data-stat="fumble_rec_yards">fumble_rec_yards</th>
         
+        <th scope="col" data-stat="fumbles">fumbles</th>
+        
         <th scope="col" data-stat="fumbles_forced">fumbles_forced</th>
+        
+        <th scope="col" data-stat="fumbles_lost">fumbles_lost</th>
         
         <th scope="col" data-stat="fumbles_lost_game">fumbles_lost_game</th>
         
         <th scope="col" data-stat="fumbles_opp_rec">fumbles_opp_rec</th>
         
         <th scope="col" data-stat="fumbles_own_rec">fumbles_own_rec</th>
+        
+        <th scope="col" data-stat="games_played">games_played</th>
         
         <th scope="col" data-stat="int_avg">int_avg</th>
         
@@ -557,11 +693,45 @@
         
         <th scope="col" data-stat="interceptions_made">interceptions_made</th>
         
+        <th scope="col" data-stat="kick_returns">kick_returns</th>
+        
+        <th scope="col" data-stat="punt_returns">punt_returns</th>
+        
+        <th scope="col" data-stat="rec_avg">rec_avg</th>
+        
+        <th scope="col" data-stat="rec_long">rec_long</th>
+        
+        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
+        
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
+        
+        <th scope="col" data-stat="receiving_yards_per_game">receiving_yards_per_game</th>
+        
+        <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="receptions_per_game">receptions_per_game</th>
+        
+        <th scope="col" data-stat="rush_avg">rush_avg</th>
+        
+        <th scope="col" data-stat="rush_long">rush_long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">rushing_attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">rushing_tds</th>
+        
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+        <th scope="col" data-stat="rushing_yards_per_game">rushing_yards_per_game</th>
+        
         <th scope="col" data-stat="sacks">sacks</th>
         
         <th scope="col" data-stat="solo_tackles">solo_tackles</th>
         
         <th scope="col" data-stat="tackles">tackles</th>
+        
+        <th scope="col" data-stat="total_yards">total_yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">yards_per_game</th>
         
       </tr>
     </thead>
@@ -571,7 +741,89 @@
       
       
       
-      <tr class="week-group-row"><td colspan="19">2019 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="39">—</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>—</td>
+        <td><a href="../leagues/nal.html">nal</a></td>
+        <td><a href="../games/football-nal-2021-columbus-lions-season-total.html" class="game-id">FOOTBALL_NAL_2021_columbus-lions_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>48.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>6.0</td>
+        
+        <td>9.0</td>
+        
+        <td>15.0</td>
+        
+        <td>6.0</td>
+        
+        <td>63.0</td>
+        
+        <td>12.6</td>
+        
+        <td>7.0</td>
+        
+        <td>1.4</td>
+        
+        <td>1.4</td>
+        
+        <td>5.0</td>
+        
+        <td>11.0</td>
+        
+        <td>2.0</td>
+        
+        <td>15.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>78.0</td>
+        
+        <td>15.6</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="39">2019 Wk 6</td></tr>
       
       <tr>
         <td>2019</td>
@@ -592,6 +844,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -604,7 +862,41 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -613,7 +905,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="19">2019 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="39">2019 Wk 7</td></tr>
       
       <tr>
         <td>2019</td>
@@ -634,6 +926,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -646,7 +944,41 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -655,7 +987,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="19">2019 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="39">2019 Wk 8</td></tr>
       
       <tr>
         <td>2019</td>
@@ -668,13 +1000,19 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -688,7 +1026,41 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -697,7 +1069,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="19">2020 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="39">2020 Wk 1</td></tr>
       
       <tr>
         <td>2020</td>
@@ -728,18 +1100,58 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.5</td>
         
         <td>2.0</td>
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="19">2020 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="39">2020 Wk 2</td></tr>
       
       <tr>
         <td>2020</td>
@@ -772,16 +1184,56 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="19">2020 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="39">2020 Wk 3</td></tr>
       
       <tr>
         <td>2020</td>
@@ -814,16 +1266,56 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="19">2020 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="39">2020 Wk 4</td></tr>
       
       <tr>
         <td>2020</td>
@@ -856,16 +1348,56 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="19">2020 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="39">2020 Wk 5</td></tr>
       
       <tr>
         <td>2020</td>
@@ -898,9 +1430,49 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
