@@ -10,7 +10,7 @@
     "team-season",
     "network"
   ],
-  "computed_at": "2026-05-14T02:47:58+00:00",
+  "computed_at": "2026-05-14T12:09:27+00:00",
   "headline_stats": [
     {
       "label": "Top incubator team-season",
@@ -25,7 +25,7 @@
     {
       "label": "Overall NFL-history rate",
       "value": "5.5%",
-      "sub": "Across 4,825 alt-football team-season player records"
+      "sub": "Across 4,823 alt-football team-season player records"
     }
   ],
   "charts": [
@@ -95,7 +95,7 @@
             30.6,
             13.8,
             13.8,
-            28.1,
+            27.7,
             13.5,
             10.0,
             10.0,
@@ -186,6 +186,12 @@
           "is_nfl": false
         },
         {
+          "id": "player:tj-carter",
+          "label": "TJ Carter",
+          "value": 2,
+          "is_nfl": true
+        },
+        {
           "id": "player:deon-cain",
           "label": "Deon Cain",
           "value": 2,
@@ -196,17 +202,23 @@
           "label": "Dondrea Tillman",
           "value": 2,
           "is_nfl": true
-        },
-        {
-          "id": "player:tj-carter",
-          "label": "TJ Carter",
-          "value": 2,
-          "is_nfl": true
         }
       ],
       "edges": [
         {
           "source": "team:12:STALLIONS",
+          "target": "player:tj-carter",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:31:BIRMINGHAM STALLIONS",
+          "target": "player:tj-carter",
+          "value": 1,
+          "directed": false
+        },
+        {
+          "source": "team:12:STALLIONS",
           "target": "player:deon-cain",
           "value": 1,
           "directed": false
@@ -226,18 +238,6 @@
         {
           "source": "team:31:BIRMINGHAM STALLIONS",
           "target": "player:dondrea-tillman",
-          "value": 1,
-          "directed": false
-        },
-        {
-          "source": "team:12:STALLIONS",
-          "target": "player:tj-carter",
-          "value": 1,
-          "directed": false
-        },
-        {
-          "source": "team:31:BIRMINGHAM STALLIONS",
-          "target": "player:tj-carter",
           "value": 1,
           "directed": false
         }
@@ -306,7 +306,7 @@
         "nfl_vets": 25,
         "conversion_pct": 38.5,
         "league_baseline_pct": 17.0,
-        "lift_pct_points": 21.4
+        "lift_pct_points": 21.5
       },
       {
         "team_season": "UFL 2026 ORLANDO STORM",
@@ -324,7 +324,7 @@
         "nfl_vets": 33,
         "conversion_pct": 30.6,
         "league_baseline_pct": 17.0,
-        "lift_pct_points": 13.5
+        "lift_pct_points": 13.6
       },
       {
         "team_season": "CFL 2025 CGY",
@@ -347,11 +347,11 @@
       {
         "team_season": "UFL 2026 COLUMBUS AVIATORS",
         "league": "UFL",
-        "roster_size": 64,
+        "roster_size": 65,
         "nfl_vets": 18,
-        "conversion_pct": 28.1,
+        "conversion_pct": 27.7,
         "league_baseline_pct": 17.0,
-        "lift_pct_points": 11.1
+        "lift_pct_points": 10.7
       },
       {
         "team_season": "USFL 2023 STALLIONS",
@@ -437,7 +437,7 @@
     ]
   },
   "history_row": {
-    "player_records": 4825,
+    "player_records": 4823,
     "overall_eventual_nfl_pct": 5.5,
     "d10_pct": 31.1,
     "d1_pct": 1.4,
