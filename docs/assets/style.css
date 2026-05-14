@@ -1520,3 +1520,210 @@ details[open].lineup-alts summary::before { content: '– '; }
   transition: opacity 0.12s;
   z-index: 5;
 }
+
+/* ── Play-by-play section ──────────────────────────────────────────────────── */
+.pbp-section {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pbp-section h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  background: var(--bg2);
+  font-size: 1.1rem;
+}
+
+.pbp-drives {
+  padding: 1rem;
+}
+
+.drive {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background: var(--bg2);
+  border-radius: 4px;
+  border-left: 4px solid var(--accent);
+}
+
+.drive:last-child { margin-bottom: 0; }
+
+.drive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.drive-team {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.drive-result {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.drive-plays {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.play {
+  padding: 0.25rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.play::before {
+  content: '• ';
+  color: var(--text-dim);
+  margin-right: 0.4rem;
+}
+
+.play-more {
+  padding: 0.25rem 0;
+  color: var(--accent);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.scoring-plays {
+  padding: 1rem;
+}
+
+.scoring-play {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg2);
+  border-radius: 4px;
+  border-left: 3px solid var(--accent);
+  font-size: 0.9rem;
+}
+
+.scoring-play:last-child { margin-bottom: 0; }
+
+.play-type {
+  font-weight: 600;
+  color: var(--accent);
+  flex: 0 0 120px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.play-result {
+  flex: 0 0 80px;
+  color: var(--text-dim);
+  text-transform: capitalize;
+}
+
+.play-players {
+  flex: 1;
+  color: var(--text);
+}
+
+/* ── Drive visualization ──────────────────────────────────────────────────── */
+.drive-viz {
+  margin: 0;
+  padding: 1rem;
+  background: linear-gradient(180deg, var(--bg2), var(--bg));
+  border-bottom: 1px solid var(--border);
+}
+
+.drive-viz-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.drive-viz-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  border-radius: 6px;
+  background: var(--bg2);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+}
+
+.drive-viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.drive-viz-btn {
+  appearance: none;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.12s, transform 0.12s;
+}
+
+.drive-viz-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.drive-viz-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.drive-viz-btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.drive-viz-status {
+  color: var(--text-dim);
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+.drive-viz-legend {
+  display: inline-flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.drive-viz-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.drive-viz-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .drive-viz { padding: 0.6rem; }
+  .drive-viz-svg { max-height: 240px; }
+  .drive-viz-legend { margin-left: 0; }
+}
