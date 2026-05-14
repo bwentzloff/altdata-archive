@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cameron Scarlett Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Cameron Scarlett (RB) across USFL, CFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Cameron Scarlett (RB) across CFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/cameron-scarlett.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Cameron Scarlett — AltSports Stats">
-  <meta property="og:description" content="Career stats for Cameron Scarlett: conversions 3.0, lost_fumbles 1.0, receiving_tds 1.0, receiving_yards 81.0, receptions 15.0, rushing_tds 2.0, rushing_yards 216.0">
+  <meta property="og:description" content="Career stats for Cameron Scarlett: conversions 3.0, lost_fumbles 1.0, receiving_tds 1.0, receiving_yards 81.0, receptions 15.0, recv_lg 15.0, recv_rec 3.0, recv_tar 3.0, recv_yac 16.0, recv_yds 13.0, rush_att 11.0, rush_fd 1.0, rush_lg 21.0, rush_yds 64.0, rushing_tds 2.0, rushing_yards 216.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/cameron-scarlett.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Cameron Scarlett",
-  "description": "Cameron Scarlett played RB in USFL, CFL.",
+  "description": "Cameron Scarlett played RB in CFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/cameron-scarlett.html",
   "sameAs": ["https://www.sports-reference.com/cfb/players/cameron-scarlett-1.html"],
   "hasOccupation": {
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "USFL 2022",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       RB
       <span class="sep">·</span>
-      USFL, CFL
+      CFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -206,6 +220,21 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
           
@@ -224,6 +253,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">53.9</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1477</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">56.1</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#49</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -249,6 +297,24 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_fd">Rush Fd</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -268,6 +334,24 @@
         
         <td>15</td>
         
+        <td>15</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>16</td>
+        
+        <td>13</td>
+        
+        <td>11</td>
+        
+        <td>1</td>
+        
+        <td>21</td>
+        
+        <td>64</td>
+        
         <td>2</td>
         
         <td>216</td>
@@ -281,11 +365,55 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2021": {"rush_att": 11.0, "rush_yds": 64.0, "rush_lg": 21.0, "recv_rec": 3.0, "recv_yds": 13.0, "recv_lg": 15.0, "recv_tar": 3.0, "recv_yac": 16.0, "rush_fd": 1.0}, "USFL-2022": {"rushing_tds": 2.0, "lost_fumbles": 1.0, "receiving_yards": 81.0, "receptions": 15.0, "receiving_tds": 1.0, "rushing_yards": 216.0, "conversions": 3.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -320,6 +448,24 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_lg">Recv Lg</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_tar">Recv Tar</th>
+        
+        <th scope="col" data-stat="recv_yac">Recv Yac</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_fd">Rush Fd</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -327,6 +473,43 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>15</td>
+        
+        <td>3</td>
+        
+        <td>3</td>
+        
+        <td>16</td>
+        
+        <td>13</td>
+        
+        <td>11</td>
+        
+        <td>1</td>
+        
+        <td>21</td>
+        
+        <td>64</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
       <tr>
         <td>USFL 2022</td>
@@ -340,6 +523,24 @@
         <td>81</td>
         
         <td>15</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>2</td>
         
@@ -453,6 +654,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Cameron Scarlett</td>
+        <td>—</td>
+        <td>RB</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -484,6 +697,24 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_lg">recv_lg</th>
+        
+        <th scope="col" data-stat="recv_rec">recv_rec</th>
+        
+        <th scope="col" data-stat="recv_tar">recv_tar</th>
+        
+        <th scope="col" data-stat="recv_yac">recv_yac</th>
+        
+        <th scope="col" data-stat="recv_yds">recv_yds</th>
+        
+        <th scope="col" data-stat="rush_att">rush_att</th>
+        
+        <th scope="col" data-stat="rush_fd">rush_fd</th>
+        
+        <th scope="col" data-stat="rush_lg">rush_lg</th>
+        
+        <th scope="col" data-stat="rush_yds">rush_yds</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -496,7 +727,96 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="21">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-16-edm-tor.html" class="game-id">EDM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>8.0</td>
+        
+        <td>8.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>57.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-8-14-sea-lv.html" class="game-id">SEA @ LV</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>8.0</td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>7.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="21">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -515,6 +835,24 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>66.0</td>
@@ -524,7 +862,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -543,6 +881,24 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>22.0</td>
@@ -552,7 +908,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -571,6 +927,24 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>33.0</td>
@@ -580,7 +954,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -599,6 +973,24 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>14.0</td>
@@ -608,7 +1000,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -627,6 +1019,24 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>4.0</td>
@@ -636,7 +1046,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -655,6 +1065,24 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>43.0</td>
@@ -664,7 +1092,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -683,6 +1111,24 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>35.0</td>
@@ -692,7 +1138,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="21">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -711,6 +1157,24 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-1.0</td>
@@ -721,6 +1185,14 @@
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
   
 
   </main>
