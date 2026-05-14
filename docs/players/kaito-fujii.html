@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Kaito Fujii — AltSports Stats">
-  <meta property="og:description" content="Career stats for Kaito Fujii: match_loss 0.0, match_played 1.0, match_win 1.0, team_points_against 5.0, team_points_for 6.0">
+  <meta property="og:description" content="Career stats for Kaito Fujii: completion_pct 60.0, fumbles 1.0, fumbles_lost 1.0, games_played 216.0, interceptions 1.0, kick_returns 241.0, kr_avg 0.0, kr_long 0.0, kr_tds 30.0, kr_yards 20.1, match_loss 0.0, match_played 1.0, match_win 1.0, pass_attempts 5.0, pass_completions 3.0, pass_long 5.0, pass_yards_per_attempt -0.8, passer_rating 13.3, passing_tds 0.0, passing_yards -4.0, passing_yards_per_game -0.4, pr_avg 0.0, pr_tds 0.0, punt_returns 30.0, rec_avg 14.3, rec_long 47.0, receiving_tds 30.0, receiving_yards 1042.0, receiving_yards_per_game 115.8, receptions 73.0, receptions_per_game 8.1, rush_avg 0.8, rush_long 2.0, rushing_attempts 9.0, rushing_tds 6.0, rushing_yards 24.0, rushing_yards_per_game 0.8, team_points_against 5.0, team_points_for 6.0, total_yards 1290.0, yards_per_game 143.3">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/kaito-fujii.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "NAL",
+      "description": "League-level player statistics for NAL from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CURLING EVENTS 2026",
@@ -192,20 +206,112 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
+        <th scope="col" data-stat="games_played">Games Played</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="kr_avg">Kr Avg</th>
+        
+        <th scope="col" data-stat="kr_long">Kr Long</th>
+        
+        <th scope="col" data-stat="kr_tds">Kr Tds</th>
+        
+        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
         <th scope="col" data-stat="match_loss">Match Loss</th>
         
         <th scope="col" data-stat="match_played">Match Played</th>
         
         <th scope="col" data-stat="match_win">Match Win</th>
         
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passer_rating">Passer Rating</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yards_per_game">Passing Yards Per Game</th>
+        
+        <th scope="col" data-stat="pr_avg">Pr Avg</th>
+        
+        <th scope="col" data-stat="pr_tds">Pr Tds</th>
+        
+        <th scope="col" data-stat="punt_returns">Punt Returns</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receiving_yards_per_game">Receiving Yards Per Game</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="receptions_per_game">Receptions Per Game</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_yards_per_game">Rushing Yards Per Game</th>
+        
         <th scope="col" data-stat="team_points_against">Team Points Against</th>
         
         <th scope="col" data-stat="team_points_for">Team Points For</th>
+        
+        <th scope="col" data-stat="total_yards">Total Yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">Yards Per Game</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>60</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>216</td>
+        
+        <td>1</td>
+        
+        <td>241</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>30</td>
+        
+        <td>20.1</td>
         
         <td>0</td>
         
@@ -215,7 +321,59 @@
         
         <td>5</td>
         
+        <td>3</td>
+        
+        <td>5</td>
+        
+        <td>-0.8</td>
+        
+        <td>13.3</td>
+        
+        <td>0</td>
+        
+        <td>-4</td>
+        
+        <td>-0.4</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>30</td>
+        
+        <td>14.3</td>
+        
+        <td>47</td>
+        
+        <td>30</td>
+        
+        <td>1,042</td>
+        
+        <td>115.8</td>
+        
+        <td>73</td>
+        
+        <td>8.1</td>
+        
+        <td>0.8</td>
+        
+        <td>2</td>
+        
+        <td>9</td>
+        
         <td>6</td>
+        
+        <td>24</td>
+        
+        <td>0.8</td>
+        
+        <td>5</td>
+        
+        <td>6</td>
+        
+        <td>1,290</td>
+        
+        <td>143.3</td>
         
       </tr>
     </tbody>
@@ -309,15 +467,87 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="completion_pct">completion_pct</th>
+        
+        <th scope="col" data-stat="fumbles">fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">fumbles_lost</th>
+        
+        <th scope="col" data-stat="games_played">games_played</th>
+        
+        <th scope="col" data-stat="interceptions">interceptions</th>
+        
+        <th scope="col" data-stat="kick_returns">kick_returns</th>
+        
+        <th scope="col" data-stat="kr_avg">kr_avg</th>
+        
+        <th scope="col" data-stat="kr_long">kr_long</th>
+        
+        <th scope="col" data-stat="kr_tds">kr_tds</th>
+        
+        <th scope="col" data-stat="kr_yards">kr_yards</th>
+        
         <th scope="col" data-stat="match_loss">match_loss</th>
         
         <th scope="col" data-stat="match_played">match_played</th>
         
         <th scope="col" data-stat="match_win">match_win</th>
         
+        <th scope="col" data-stat="pass_attempts">pass_attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">pass_completions</th>
+        
+        <th scope="col" data-stat="pass_long">pass_long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">pass_yards_per_attempt</th>
+        
+        <th scope="col" data-stat="passer_rating">passer_rating</th>
+        
+        <th scope="col" data-stat="passing_tds">passing_tds</th>
+        
+        <th scope="col" data-stat="passing_yards">passing_yards</th>
+        
+        <th scope="col" data-stat="passing_yards_per_game">passing_yards_per_game</th>
+        
+        <th scope="col" data-stat="pr_avg">pr_avg</th>
+        
+        <th scope="col" data-stat="pr_tds">pr_tds</th>
+        
+        <th scope="col" data-stat="punt_returns">punt_returns</th>
+        
+        <th scope="col" data-stat="rec_avg">rec_avg</th>
+        
+        <th scope="col" data-stat="rec_long">rec_long</th>
+        
+        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
+        
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
+        
+        <th scope="col" data-stat="receiving_yards_per_game">receiving_yards_per_game</th>
+        
+        <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="receptions_per_game">receptions_per_game</th>
+        
+        <th scope="col" data-stat="rush_avg">rush_avg</th>
+        
+        <th scope="col" data-stat="rush_long">rush_long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">rushing_attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">rushing_tds</th>
+        
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+        <th scope="col" data-stat="rushing_yards_per_game">rushing_yards_per_game</th>
+        
         <th scope="col" data-stat="team_points_against">team_points_against</th>
         
         <th scope="col" data-stat="team_points_for">team_points_for</th>
+        
+        <th scope="col" data-stat="total_yards">total_yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">yards_per_game</th>
         
       </tr>
     </thead>
@@ -327,7 +557,103 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="46">—</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>—</td>
+        <td><a href="../leagues/nal.html">nal</a></td>
+        <td><a href="../games/football-nal-2021-albany-empire-season-total.html" class="game-id">FOOTBALL_NAL_2021_albany-empire_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td>60.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>216.0</td>
+        
+        <td>1.0</td>
+        
+        <td>241.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>30.0</td>
+        
+        <td>20.1</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>3.0</td>
+        
+        <td>5.0</td>
+        
+        <td>-0.8</td>
+        
+        <td>13.3</td>
+        
+        <td>0.0</td>
+        
+        <td>-4.0</td>
+        
+        <td>-0.4</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>30.0</td>
+        
+        <td>14.3</td>
+        
+        <td>47.0</td>
+        
+        <td>30.0</td>
+        
+        <td>1042.0</td>
+        
+        <td>115.8</td>
+        
+        <td>73.0</td>
+        
+        <td>8.1</td>
+        
+        <td>0.8</td>
+        
+        <td>2.0</td>
+        
+        <td>9.0</td>
+        
+        <td>6.0</td>
+        
+        <td>24.0</td>
+        
+        <td>0.8</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1290.0</td>
+        
+        <td>143.3</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="46">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -336,15 +662,87 @@
         <td><a href="../games/curling-curling-events-2026-9478-389168.html" class="game-id">Canada @ Japan</a></td>
         <td>5–6</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>1.0</td>
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>5.0</td>
         
         <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
