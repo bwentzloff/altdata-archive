@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Evan Rodriguez Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Evan Rodriguez (WR) across AAF. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Evan Rodriguez (WR) across XFL, AAF. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/evan-rodriguez.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Evan Rodriguez — AltSports Stats">
-  <meta property="og:description" content="Career stats for Evan Rodriguez: receiving_tds 2.0, receiving_yards 160.0, receptions 12.0, targets 16.0">
+  <meta property="og:description" content="Career stats for Evan Rodriguez: receiving_tds 3.0, receiving_yards 205.0, receptions 16.0, solo_tackles 1.0, tackles 1.0, targets 19.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/evan-rodriguez.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Evan Rodriguez",
-  "description": "Evan Rodriguez played WR in AAF.",
+  "description": "Evan Rodriguez played WR in XFL, AAF.",
   "url": "https://archive.altfantasysports.com/players/evan-rodriguez.html",
   "sameAs": [],
   "hasOccupation": {
@@ -77,6 +77,20 @@
       "name": "AAF 2019",
       "description": "League-level player statistics for AAF 2019 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/aaf-2019.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      AAF
+      XFL, AAF
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AAF</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +231,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">51.7</div>
+        <div class="badge-number">47.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1224</div>
+        <div class="badge-rank">#1734</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">51.7</div>
+        <div class="badge-number">48.0</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#116</div>
+        <div class="badge-rank">#168</div>
       </div>
       
     </div>
@@ -217,6 +266,10 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
         <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
@@ -224,13 +277,17 @@
     <tbody>
       <tr>
         
-        <td>2</td>
+        <td>3</td>
         
-        <td>160</td>
-        
-        <td>12</td>
+        <td>205</td>
         
         <td>16</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>19</td>
         
       </tr>
     </tbody>
@@ -241,12 +298,50 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AAF-2019": {"receptions": 12.0, "receiving_yards": 160.0, "receiving_tds": 2.0, "targets": 16.0}, "XFL-2020": {"receptions": 4.0, "receiving_yards": 45.0, "targets": 3.0, "receiving_tds": 1.0, "solo_tackles": 1.0, "tackles": 1.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
     
       
     
@@ -270,6 +365,10 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
         <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
@@ -285,7 +384,28 @@
         
         <td>12</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>16</td>
+        
+      </tr>
+      
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>1</td>
+        
+        <td>45</td>
+        
+        <td>4</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
         
       </tr>
       
@@ -300,6 +420,41 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Evan Rodriguez</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Evan Rodriguez</td>
+        <td>SA</td>
+        <td>WR</td>
+        <td>AAF</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Evan Rodriguez</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -324,6 +479,10 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="solo_tackles">solo_tackles</th>
+        
+        <th scope="col" data-stat="tackles">tackles</th>
+        
         <th scope="col" data-stat="targets">targets</th>
         
       </tr>
@@ -334,7 +493,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 1</td></tr>
       
       <tr>
         <td>2019</td>
@@ -349,6 +508,10 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -356,7 +519,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 2</td></tr>
       
       <tr>
         <td>2019</td>
@@ -371,6 +534,10 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -378,7 +545,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 3</td></tr>
       
       <tr>
         <td>2019</td>
@@ -393,6 +560,10 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -400,7 +571,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 4</td></tr>
       
       <tr>
         <td>2019</td>
@@ -415,6 +586,10 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -422,7 +597,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 5</td></tr>
       
       <tr>
         <td>2019</td>
@@ -437,6 +612,10 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -444,7 +623,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 6</td></tr>
       
       <tr>
         <td>2019</td>
@@ -459,6 +638,10 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -466,7 +649,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 7</td></tr>
       
       <tr>
         <td>2019</td>
@@ -481,6 +664,10 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -488,7 +675,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2019 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="11">2019 Wk 8</td></tr>
       
       <tr>
         <td>2019</td>
@@ -503,7 +690,115 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-8-sea-dc.html" class="game-id">SEA @ DC</a></td>
+        <td>19–31</td>
+        
+        <td></td>
+        
+        <td>22.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-dal-sea.html" class="game-id">DAL @ SEA</a></td>
+        <td>24–12</td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-29-sea-stl.html" class="game-id">SEA @ STL</a></td>
+        <td>16–23</td>
+        
+        <td>1.0</td>
+        
+        <td>10.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="11">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
         
       </tr>
       
@@ -525,7 +820,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/evan-rodriguez.json">JSON</a> ·

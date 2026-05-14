@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Brandon Munoz — AltSports Stats">
-  <meta property="og:description" content="Career stats for Brandon Munoz: assisted_tackles 24.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rush_avg 1.0, rush_long 1.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 1.0, rushing_yards 1.0, sacks 8.0, safeties 3.0, tackles 49.0">
+  <meta property="og:description" content="Career stats for Brandon Munoz: assisted_tackles 24.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, pass_td 52.0, pat_made 3.0, recv_td 1.0, rush_avg 1.0, rush_long 1.0, rush_td 4.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 1.0, rushing_yards 1.0, sacks 8.0, safeties 3.0, tackles 49.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/brandon-munoz.html">
   
@@ -74,6 +74,20 @@
     
     {
       "@type": "Dataset",
+      "name": "UFL 2024",
+      "description": "League-level player statistics for UFL 2024 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2024.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
@@ -88,9 +102,37 @@
     ,
     {
       "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2026",
+      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -194,6 +236,8 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'24</span>
+        
         <span class="ct-yr">'25</span>
         
         <span class="ct-yr">'26</span>
@@ -201,8 +245,23 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -220,9 +279,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">71.6</div>
+        <div class="badge-number">75.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#310</div>
+        <div class="badge-rank">#214</div>
       </div>
       
       
@@ -257,9 +316,17 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="pat_made">Pat Made</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -294,9 +361,17 @@
         
         <td>0</td>
         
+        <td>52</td>
+        
+        <td>3</td>
+        
         <td>1</td>
         
         <td>1</td>
+        
+        <td>1</td>
+        
+        <td>4</td>
         
         <td>1</td>
         
@@ -328,7 +403,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"NAL-2025": {"assisted_tackles": 13.0, "def_interceptions": 2.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 5.0, "safeties": 0.0, "tackles": 35.0, "rush_avg": 1.0, "rush_long": 1.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 1.0, "rushing_yards": 1.0}, "NAL-2026": {"assisted_tackles": 11.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 4.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 3.0, "safeties": 3.0, "tackles": 14.0}};
+    var seasons = {"UFL-2024": {"pass_td": 17.0, "pat_made": 1.0, "rush_td": 1.0}, "NAL-2025": {"assisted_tackles": 13.0, "def_interceptions": 2.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 5.0, "safeties": 0.0, "tackles": 35.0, "rush_avg": 1.0, "rush_long": 1.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 1.0, "rushing_yards": 1.0}, "UFL-2025": {"pass_td": 22.0, "rush_td": 3.0, "pat_made": 2.0, "recv_td": 1.0}, "NAL-2026": {"assisted_tackles": 11.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 4.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 3.0, "safeties": 3.0, "tackles": 14.0}, "UFL-2026": {"pass_td": 13.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -358,6 +433,14 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -394,6 +477,14 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -403,6 +494,12 @@
       
     
       
+    
+      
+    
+      
+    
+  
     
       
     
@@ -428,9 +525,17 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="pat_made">Pat Made</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -451,6 +556,51 @@
     <tbody>
       
       <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>17</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2025</td>
         
         <td>13</td>
@@ -467,9 +617,17 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
         
         <td>1</td>
+        
+        <td>—</td>
         
         <td>1</td>
         
@@ -484,6 +642,51 @@
         <td>0</td>
         
         <td>35</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>22</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -516,11 +719,64 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>3</td>
         
         <td>3</td>
         
         <td>14</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2026</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>13</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -567,9 +823,17 @@
         
         <th scope="col" data-stat="fumble_recoveries">fumble_recoveries</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
+        <th scope="col" data-stat="pat_made">pat_made</th>
+        
+        <th scope="col" data-stat="recv_td">recv_td</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
+        
+        <th scope="col" data-stat="rush_td">rush_td</th>
         
         <th scope="col" data-stat="rushing_attempts">rushing_attempts</th>
         
@@ -593,7 +857,493 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="25">2024 Wk 2</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-7-hou-dc.html" class="game-id">HOU @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 3</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-13-dc-arl.html" class="game-id">DC @ ARL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 4</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-20-dc-bham.html" class="game-id">DC @ BHAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 5</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-28-stl-dc.html" class="game-id">STL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 6</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-5-5-sa-dc.html" class="game-id">SA @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 7</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-5-12-mich-dc.html" class="game-id">MICH @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 8</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-5-19-dc-stl.html" class="game-id">DC @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 9</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-5-26-dc-mem.html" class="game-id">DC @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2024 Wk 10</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-6-2-arl-dc.html" class="game-id">ARL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -628,6 +1378,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -638,8 +1396,110 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-3-30-bhm-dc.html" class="game-id">BHM @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 2</td></tr>
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-6-8-dc-stl.html" class="game-id">DC @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -674,6 +1534,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -684,8 +1552,110 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-6-mem-dc.html" class="game-id">MEM @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 3</td></tr>
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-6-15-dc-mich.html" class="game-id">DC @ MICH</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -720,6 +1690,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -730,8 +1708,113 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-13-dc-stl.html" class="game-id">DC @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 5</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-20-sa-dc.html" class="game-id">SA @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -766,6 +1849,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -776,8 +1867,113 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-27-dc-arl.html" class="game-id">DC @ ARL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 7</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 6</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-4-dc-mich.html" class="game-id">DC @ MICH</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -812,6 +2008,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
@@ -822,8 +2026,113 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-10-dc-sa.html" class="game-id">DC @ SA</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 9</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-18-arl-dc.html" class="game-id">ARL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -846,9 +2155,17 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -868,8 +2185,59 @@
       
       
       
+      <tr>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-25-dc-hou.html" class="game-id">DC @ HOU</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 10</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -904,6 +2272,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
@@ -915,7 +2291,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="25">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -950,6 +2326,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>0.0</td>
@@ -961,7 +2345,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -996,6 +2380,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1006,8 +2398,59 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-4-dc-clb.html" class="game-id">DC @ CLB</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 3</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1042,6 +2485,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1052,8 +2503,59 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-11-hou-dc.html" class="game-id">HOU @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 4</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1088,6 +2590,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1098,8 +2608,59 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-18-stl-dc.html" class="game-id">STL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 5</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1134,6 +2695,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1144,8 +2713,113 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-25-dc-bhm.html" class="game-id">DC @ BHM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 7</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-5-2-dal-dc.html" class="game-id">DAL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1180,6 +2854,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1190,8 +2872,59 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-5-9-lou-dc.html" class="game-id">LOU @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 8</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1226,6 +2959,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
@@ -1237,7 +2978,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1259,6 +3000,14 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1296,7 +3045,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/brandon-munoz.json">JSON</a> ·

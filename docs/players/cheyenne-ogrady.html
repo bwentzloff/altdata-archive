@@ -35,7 +35,7 @@
   "name": "Cheyenne O\&#39;Grady",
   "description": "Cheyenne O\&#39;Grady played TE in USFL.",
   "url": "https://archive.altfantasysports.com/players/cheyenne-ogrady.html",
-  "sameAs": [&#34;https://www.sports-reference.com/cfb/players/cj-ogrady-1.html&#34;],
+  "sameAs": ["https://www.sports-reference.com/cfb/players/cj-ogrady-1.html"],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional TE",
@@ -91,6 +91,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -198,6 +212,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
@@ -205,6 +223,25 @@
         
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -263,7 +300,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"receiving_yards": 371.0, "receptions": 32.0, "receiving_tds": 2.0}, "USFL-2023": {"receptions": 2.0, "receiving_yards": 2.0, "receiving_tds": 0.0}};
+    var seasons = {"USFL-2022": {"receiving_yards": 371.0, "receptions": 32.0, "receiving_tds": 2.0}, "USFL-2023": {"receptions": 1.0, "receiving_yards": 6.0}, "UFL-2025": {"receptions": 1.0, "receiving_yards": -4.0, "receiving_tds": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -288,6 +325,12 @@
   
     
       
+    
+      
+    
+      
+    
+  
     
       
     
@@ -333,11 +376,22 @@
       <tr>
         <td>USFL 2023</td>
         
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>1</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
         <td>0</td>
         
-        <td>2</td>
+        <td>-4</td>
         
-        <td>2</td>
+        <td>1</td>
         
       </tr>
       
@@ -639,14 +693,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="8">2025 Wk 8</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-showboats.html" class="game-id">SHOWBOATS @ GAMBLERS</a></td>
-        <td>23–20</td>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/70.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
+        <td>29–28</td>
         
         <td>0.0</td>
         
@@ -666,7 +720,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/cheyenne-ogrady.json">JSON</a> ·

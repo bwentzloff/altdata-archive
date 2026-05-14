@@ -85,6 +85,20 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -113,6 +127,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -201,6 +216,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -229,12 +248,53 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -322,6 +382,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"rushing_yards": 61.0, "rushing_tds": 1.0, "receptions": 5.0, "receiving_yards": 25.0, "receiving_tds": 0.0, "passing_tds": 1.0, "passing_yards": 1.0}, "UFL-2025": {"rushing_yards": 37.0, "rushing_tds": 0.0, "receptions": 2.0, "receiving_yards": 10.0, "receiving_tds": 0.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -332,6 +416,18 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -378,13 +474,32 @@
         
         <td>0</td>
         
-        <td>35</td>
+        <td>25</td>
         
-        <td>7</td>
+        <td>5</td>
         
         <td>1</td>
         
-        <td>98</td>
+        <td>61</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>10</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>37</td>
         
       </tr>
       
@@ -540,34 +655,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-showboats.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
-        <td>42–2</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>10.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>37.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="12">2023 Wk 3</td></tr>
       
       <tr>
@@ -590,6 +677,34 @@
         <td>0.0</td>
         
         <td>-2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/49.html" class="game-id">RENEGADES @ ROUGHNECKS</a></td>
+        <td>11–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>37.0</td>
         
       </tr>
       

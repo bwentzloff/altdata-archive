@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cam Phillips Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Cam Phillips (WR) across CFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Cam Phillips (WR) across CFL, XFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/cam-phillips.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Cam Phillips — AltSports Stats">
-  <meta property="og:description" content="Career stats for Cam Phillips: receiving_tds 4.0, receiving_yards 827.0, receptions 52.0">
+  <meta property="og:description" content="Career stats for Cam Phillips: receiving_tds 13.0, receiving_yards 1282.0, receptions 83.0, targets 23.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/cam-phillips.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Cam Phillips",
-  "description": "Cam Phillips played WR in CFL.",
+  "description": "Cam Phillips played WR in CFL, XFL.",
   "url": "https://archive.altfantasysports.com/players/cam-phillips.html",
   "sameAs": [],
   "hasOccupation": {
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "CFL 2022",
@@ -149,7 +163,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      CFL
+      CFL, XFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -236,6 +250,29 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">CFL</span>
         
           
@@ -263,6 +300,25 @@
   </div>
 
   
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">73.7</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#283</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">73.7</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#26</div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
 
@@ -283,16 +339,20 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>4</td>
+        <td>13</td>
         
-        <td>827</td>
+        <td>1,282</td>
         
-        <td>52</td>
+        <td>83</td>
+        
+        <td>23</td>
         
       </tr>
     </tbody>
@@ -310,7 +370,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"receiving_yards": 378.0, "receiving_tds": 3.0, "receptions": 24.0}, "CFL-2023": {"receptions": 28.0, "receiving_yards": 449.0, "receiving_tds": 1.0}};
+    var seasons = {"XFL-2020": {"receptions": 31.0, "receiving_yards": 455.0, "receiving_tds": 9.0, "targets": 23.0}, "CFL-2022": {"receiving_yards": 378.0, "receiving_tds": 3.0, "receptions": 24.0}, "CFL-2023": {"receptions": 28.0, "receiving_yards": 449.0, "receiving_tds": 1.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -332,6 +392,16 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -362,9 +432,24 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>9</td>
+        
+        <td>455</td>
+        
+        <td>31</td>
+        
+        <td>23</td>
+        
+      </tr>
       
       <tr>
         <td>CFL 2022</td>
@@ -374,6 +459,8 @@
         <td>378</td>
         
         <td>24</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -385,6 +472,8 @@
         <td>449</td>
         
         <td>28</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -493,6 +582,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Cam Phillips</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -520,6 +621,8 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="targets">targets</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -528,13 +631,123 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="9">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-8-la-hou.html" class="game-id">LA @ HOU</a></td>
+        <td>17–37</td>
+        
+        <td>1.0</td>
+        
+        <td>67.0</td>
+        
+        <td>4.0</td>
+        
+        <td>3.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-16-stl-hou.html" class="game-id">STL @ HOU</a></td>
+        <td>24–28</td>
+        
+        <td>3.0</td>
+        
+        <td>63.0</td>
+        
+        <td>8.0</td>
+        
+        <td>5.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-hou-tb.html" class="game-id">HOU @ TB</a></td>
+        <td>34–27</td>
+        
+        <td>3.0</td>
+        
+        <td>194.0</td>
+        
+        <td>8.0</td>
+        
+        <td>8.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-1-hou-dal.html" class="game-id">HOU @ DAL</a></td>
+        <td>27–20</td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td>2.0</td>
+        
+        <td>122.0</td>
+        
+        <td>10.0</td>
+        
+        <td>7.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
         <td>6</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w6-tor.html" class="game-id">SSK @ TOR</a></td>
+        <td><a href="../games/6232.html" class="game-id">SSK @ TOR</a></td>
         <td>24–30</td>
         
         <td>1.0</td>
@@ -543,18 +756,20 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
         <td>7</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w7-tor.html" class="game-id">TOR @ SSK</a></td>
+        <td><a href="../games/6237.html" class="game-id">TOR @ SSK</a></td>
         <td>31–21</td>
         
         <td>1.0</td>
@@ -563,18 +778,20 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
         <td>8</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w8-tor.html" class="game-id">OTT @ TOR</a></td>
+        <td><a href="../games/6241.html" class="game-id">OTT @ TOR</a></td>
         <td>23–13</td>
         
         <td>0.0</td>
@@ -583,18 +800,20 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
         <td>9</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w9-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td><a href="../games/6244.html" class="game-id">HAM @ TOR</a></td>
         <td>20–34</td>
         
         <td>1.0</td>
@@ -603,18 +822,20 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 17</td></tr>
       
       <tr>
         <td>2022</td>
         <td>17</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w17-tor.html" class="game-id">TOR @ CGY</a></td>
+        <td><a href="../games/6275.html" class="game-id">TOR @ CGY</a></td>
         <td>2–29</td>
         
         <td>0.0</td>
@@ -623,18 +844,20 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 18</td></tr>
       
       <tr>
         <td>2022</td>
         <td>18</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w18-tor.html" class="game-id">BC @ TOR</a></td>
+        <td><a href="../games/6277.html" class="game-id">BC @ TOR</a></td>
         <td>20–23</td>
         
         <td>0.0</td>
@@ -643,18 +866,20 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2022 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="9">2022 Wk 19</td></tr>
       
       <tr>
         <td>2022</td>
         <td>19</td>
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2022-w19-tor.html" class="game-id">TOR @ EDM</a></td>
+        <td><a href="../games/6282.html" class="game-id">TOR @ EDM</a></td>
         <td>28–23</td>
         
         <td>0.0</td>
@@ -663,18 +888,20 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
         <td>2</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w2-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td><a href="../games/9889290.html" class="game-id">HAM @ TOR</a></td>
         <td>14–32</td>
         
         <td></td>
@@ -683,18 +910,20 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
         <td>3</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w3-tor.html" class="game-id">TOR @ EDM</a></td>
+        <td><a href="../games/9889294.html" class="game-id">TOR @ EDM</a></td>
         <td>43–31</td>
         
         <td>0.0</td>
@@ -703,18 +932,20 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
         <td>4</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w4-tor.html" class="game-id">BC @ TOR</a></td>
+        <td><a href="../games/9889297.html" class="game-id">BC @ TOR</a></td>
         <td>24–45</td>
         
         <td>0.0</td>
@@ -723,18 +954,20 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
         <td>6</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w6-tor.html" class="game-id">TOR @ MTL</a></td>
+        <td><a href="../games/9889303.html" class="game-id">TOR @ MTL</a></td>
         <td>35–27</td>
         
         <td>0.0</td>
@@ -743,18 +976,20 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
         <td>7</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w7-tor.html" class="game-id">TOR @ HAM</a></td>
+        <td><a href="../games/9889307.html" class="game-id">TOR @ HAM</a></td>
         <td>31–15</td>
         
         <td>0.0</td>
@@ -763,18 +998,20 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
         <td>8</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w8-tor.html" class="game-id">SSK @ TOR</a></td>
+        <td><a href="../games/9889311.html" class="game-id">SSK @ TOR</a></td>
         <td>13–31</td>
         
         <td>0.0</td>
@@ -783,18 +1020,20 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
         <td>9</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w9-tor.html" class="game-id">TOR @ CGY</a></td>
+        <td><a href="../games/9889315.html" class="game-id">TOR @ CGY</a></td>
         <td>7–20</td>
         
         <td>1.0</td>
@@ -803,18 +1042,20 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="9">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
         <td>10</td>
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2023-w10-tor.html" class="game-id">OTT @ TOR</a></td>
+        <td><a href="../games/9889321.html" class="game-id">OTT @ TOR</a></td>
         <td>31–44</td>
         
         <td>0.0</td>
@@ -823,6 +1064,8 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
       </tr>
       
     </tbody>
@@ -830,12 +1073,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/cam-phillips.json">JSON</a> ·

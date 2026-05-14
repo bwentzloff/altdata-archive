@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Aj Davis — AltSports Stats">
-  <meta property="og:description" content="Career stats for Aj Davis: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rush_avg 4.0, rush_long 3.0, rushing_attempts 6.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0, sacks 0.0, safeties 0.0, tackles 3.0">
+  <meta property="og:description" content="Career stats for Aj Davis: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, recv_td 3.0, rush_avg 4.0, rush_long 3.0, rushing_attempts 6.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0, sacks 0.0, safeties 0.0, tackles 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/aj-davis.html">
   
@@ -74,6 +74,34 @@
     
     {
       "@type": "Dataset",
+      "name": "UFL 2024",
+      "description": "League-level player statistics for UFL 2024 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2024.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
@@ -113,6 +141,7 @@
       <nav>
         <a href="../leagues/index.html">Leagues</a>
         <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
         <a href="../search.html">Search</a>
       </nav>
       <div class="header-controls">
@@ -174,6 +203,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -181,9 +245,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">39.7</div>
+        <div class="badge-number">53.4</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1840</div>
+        <div class="badge-rank">#1462</div>
       </div>
       
       
@@ -217,6 +281,8 @@
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -255,6 +321,8 @@
         
         <td>0</td>
         
+        <td>3</td>
+        
         <td>4</td>
         
         <td>3</td>
@@ -282,11 +350,43 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2024": {"recv_td": 1.0}, "UFL-2025": {"recv_td": 2.0}, "NAL-2025": {"rush_avg": 4.0, "rush_long": 3.0, "rushing_attempts": 6.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 11.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 3.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+  
+    
+      
+    
   
     
       
@@ -343,6 +443,8 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
@@ -366,6 +468,45 @@
     <tbody>
       
       <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2025</td>
         
         <td>0</td>
@@ -381,6 +522,8 @@
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
         
         <td>4</td>
         
@@ -399,6 +542,45 @@
         <td>0</td>
         
         <td>3</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -445,6 +627,8 @@
         
         <th scope="col" data-stat="fumble_recoveries">fumble_recoveries</th>
         
+        <th scope="col" data-stat="recv_td">recv_td</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
@@ -471,7 +655,103 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="22">2024 Wk 5</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-28-mich-mem.html" class="game-id">MICH @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="22">2025 Wk 1</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-3-30-mich-mem.html" class="game-id">MICH @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="22">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -479,6 +759,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-3-15-t425362g979253-t425356.html" class="game-id">Wheeling Miners @ Carolina Cobras</a></td>
         <td>26–41</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -517,7 +799,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="22">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -540,6 +822,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
@@ -557,6 +841,54 @@
         <td>0.0</td>
         
         <td>3.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="22">2025 Wk 7</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-11-stl-mem.html" class="game-id">STL @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       

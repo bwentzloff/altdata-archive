@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ja&#39;Quan Gardner Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Ja&#39;Quan Gardner (RB) across AAF. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Ja&#39;Quan Gardner (RB) across XFL, AAF. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/jaquan-gardner.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ja&#39;Quan Gardner — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ja&#39;Quan Gardner: assist_tackles 0.0, int_avg 0.0, int_long 0.0, int_tds 0.0, int_yards 0.0, interceptions_made 0.0, receiving_tds 0.0, receiving_yards 107.0, receptions 12.0, rush_attempts 64.0, rushing_tds 3.0, rushing_yards 311.0, solo_tackles 1.0, targets 15.0">
+  <meta property="og:description" content="Career stats for Ja&#39;Quan Gardner: assist_tackles 0.0, int_avg 0.0, int_long 0.0, int_tds 0.0, int_yards 0.0, interceptions_made 0.0, receiving_tds 0.0, receiving_yards 107.0, receptions 12.0, rush_attempts 99.0, rushing_tds 3.0, rushing_yards 438.0, solo_tackles 1.0, targets 15.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jaquan-gardner.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ja&#39;Quan Gardner",
-  "description": "Ja&#39;Quan Gardner played RB in AAF.",
+  "description": "Ja&#39;Quan Gardner played RB in XFL, AAF.",
   "url": "https://archive.altfantasysports.com/players/jaquan-gardner.html",
   "sameAs": [],
   "hasOccupation": {
@@ -77,6 +77,20 @@
       "name": "AAF 2019",
       "description": "League-level player statistics for AAF 2019 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/aaf-2019.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       RB
       <span class="sep">·</span>
-      AAF
+      XFL, AAF
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AAF</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +231,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">57.9</div>
+        <div class="badge-number">58.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#976</div>
+        <div class="badge-rank">#1202</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">53.6</div>
         <div class="badge-label">RB</div>
-        <div class="badge-rank">#37</div>
+        <div class="badge-rank">#55</div>
       </div>
       
     </div>
@@ -262,11 +311,11 @@
         
         <td>12</td>
         
-        <td>64</td>
+        <td>99</td>
         
         <td>3</td>
         
-        <td>311</td>
+        <td>438</td>
         
         <td>1</td>
         
@@ -280,6 +329,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AAF-2019": {"rush_attempts": 64.0, "rushing_yards": 311.0, "rushing_tds": 3.0, "receptions": 12.0, "receiving_yards": 107.0, "receiving_tds": 0.0, "targets": 15.0, "interceptions_made": 0.0, "int_yards": 0.0, "int_avg": 0.0, "int_long": 0.0, "int_tds": 0.0, "solo_tackles": 1.0, "assist_tackles": 0.0}, "XFL-2020": {"rush_attempts": 35.0, "rushing_yards": 127.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -311,6 +384,12 @@
       
     
       
+    
+      
+    
+      
+    
+  
     
       
     
@@ -389,6 +468,39 @@
         
       </tr>
       
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>35</td>
+        
+        <td>—</td>
+        
+        <td>127</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -400,6 +512,41 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Ja&#39;Quan Gardner</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Ja&#39;Quan Gardner</td>
+        <td>SD</td>
+        <td>RB</td>
+        <td>AAF</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Ja&#39;Quan Gardner</td>
+        <td>—</td>
+        <td>RB</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -745,6 +892,216 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-8-sea-dc.html" class="game-id">SEA @ DC</a></td>
+        <td>19–31</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td>36.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-15-tb-sea.html" class="game-id">TB @ SEA</a></td>
+        <td>9–17</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>27.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-dal-sea.html" class="game-id">DAL @ SEA</a></td>
+        <td>24–12</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>37.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-29-sea-stl.html" class="game-id">SEA @ STL</a></td>
+        <td>16–23</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>15.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -763,7 +1120,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/jaquan-gardner.json">JSON</a> ·

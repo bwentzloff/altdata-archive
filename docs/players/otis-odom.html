@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Otis Odom — AltSports Stats">
-  <meta property="og:description" content="Career stats for Otis Odom: kick_returns 13.0, kr_avg 37.0, kr_long 70.0, kr_tds 1.0, kr_yards 266.0, rushing_yards 3.0">
+  <meta property="og:description" content="Career stats for Otis Odom: kick_returns 13.0, kr_avg 37.0, kr_long 70.0, kr_tds 1.0, kr_yards 266.0, pass_td 1.0, rush_td 1.0, rushing_yards 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/otis-odom.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "50YARD 2026",
@@ -194,13 +208,28 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'25</span>
+        
         <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">50YARD</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -210,6 +239,8 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -225,9 +256,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">80.3</div>
+        <div class="badge-number">78.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#79</div>
+        <div class="badge-rank">#127</div>
       </div>
       
       
@@ -258,6 +289,10 @@
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
@@ -274,6 +309,10 @@
         <td>1</td>
         
         <td>266</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
         
         <td>3</td>
         
@@ -293,7 +332,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"50YARD-2026": {"rushing_yards": 3.0}, "NAL-2026": {"kick_returns": 13.0, "kr_avg": 37.0, "kr_long": 70.0, "kr_tds": 1.0, "kr_yards": 266.0}};
+    var seasons = {"UFL-2025": {"rush_td": 1.0, "pass_td": 1.0}, "50YARD-2026": {"rushing_yards": 3.0}, "NAL-2026": {"kick_returns": 13.0, "kr_avg": 37.0, "kr_long": 70.0, "kr_tds": 1.0, "kr_yards": 266.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -315,6 +354,12 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
   
     
       
@@ -349,6 +394,10 @@
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
+        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
@@ -356,7 +405,32 @@
     <tbody>
       
       <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>50YARD 2026</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -384,6 +458,10 @@
         <td>1</td>
         
         <td>266</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -475,6 +553,10 @@
         
         <th scope="col" data-stat="kr_yards">kr_yards</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
+        <th scope="col" data-stat="rush_td">rush_td</th>
+        
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
         
       </tr>
@@ -485,7 +567,67 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="13">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-18-arl-dc.html" class="game-id">ARL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2025 Wk 9</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-24-arl-mem.html" class="game-id">ARL @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -504,6 +646,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -511,7 +657,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="13">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -532,12 +678,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="13">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -555,6 +705,10 @@
         <td>0.0</td>
         
         <td>62.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -576,7 +730,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/otis-odom.json">JSON</a> ·

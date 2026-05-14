@@ -35,7 +35,7 @@
   "name": "Juwan Washington",
   "description": "Juwan Washington played RB in USFL.",
   "url": "https://archive.altfantasysports.com/players/juwan-washington.html",
-  "sameAs": [&#34;https://www.sports-reference.com/cfb/players/juwan-washington-1.html&#34;],
+  "sameAs": ["https://www.sports-reference.com/cfb/players/juwan-washington-1.html"],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional RB",
@@ -91,6 +91,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -206,6 +220,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -213,6 +231,10 @@
         
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -240,6 +262,33 @@
           <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -314,7 +363,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"receiving_yards": 70.0, "receptions": 10.0, "receiving_tds": 0.0, "rushing_yards": 301.0, "rushing_tds": 3.0, "lost_fumbles": 0.0}, "USFL-2023": {"rushing_yards": 173.0, "rushing_tds": 0.0, "receptions": 9.0, "receiving_yards": 45.0, "receiving_tds": 0.0, "conversions": 1.0, "lost_fumbles": 1.0}};
+    var seasons = {"USFL-2022": {"receiving_yards": 70.0, "receptions": 10.0, "receiving_tds": 0.0, "rushing_yards": 301.0, "rushing_tds": 3.0, "lost_fumbles": 0.0}, "USFL-2023": {"rushing_yards": 73.0, "rushing_tds": 0.0, "conversions": 1.0}, "UFL-2025": {"rushing_yards": 100.0, "rushing_tds": 0.0, "receptions": 9.0, "receiving_yards": 45.0, "receiving_tds": 0.0, "lost_fumbles": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -353,6 +402,12 @@
   
     
       
+    
+      
+    
+      
+    
+  
     
       
     
@@ -416,6 +471,25 @@
         
         <td>1</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>73</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
         <td>1</td>
         
         <td>0</td>
@@ -426,7 +500,7 @@
         
         <td>0</td>
         
-        <td>173</td>
+        <td>100</td>
         
       </tr>
       
@@ -847,34 +921,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-showboats.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
-        <td>10–29</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>3.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>10.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="12">2023 Wk 5</td></tr>
       
       <tr>
@@ -931,14 +977,70 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 4</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-showboats.html" class="game-id">SHOWBOATS @ GAMBLERS</a></td>
-        <td>23–20</td>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/57.html" class="game-id">DEFENDERS @ BRAHMAS</a></td>
+        <td>18–24</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2025 Wk 6</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/81.html" class="game-id">ROUGHNECKS @ SHOWBOATS</a></td>
+        <td>21–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>5.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/70.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
+        <td>29–28</td>
         
         <td></td>
         
@@ -959,14 +1061,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 9</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>8</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w8-showboats.html" class="game-id">GENERALS @ SHOWBOATS</a></td>
-        <td>16–25</td>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/74.html" class="game-id">STALLIONS @ PANTHERS</a></td>
+        <td>26–22</td>
         
         <td></td>
         
@@ -987,14 +1089,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 10</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-showboats.html" class="game-id">SHOWBOATS @ BREAKERS</a></td>
-        <td>3–31</td>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/77.html" class="game-id">BRAHMAS @ RENEGADES</a></td>
+        <td>6–23</td>
         
         <td></td>
         
@@ -1012,34 +1114,6 @@
         
       </tr>
       
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2023 Wk 10</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>10</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w10-showboats.html" class="game-id">SHOWBOATS @ STALLIONS</a></td>
-        <td>20–27</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>5.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>5.0</td>
-        
-      </tr>
-      
     </tbody>
   </table>
   
@@ -1050,7 +1124,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/juwan-washington.json">JSON</a> ·

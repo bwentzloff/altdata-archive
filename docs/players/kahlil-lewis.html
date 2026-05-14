@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kahlil Lewis Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Kahlil Lewis (WR) across USFL, CFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Kahlil Lewis (WR) across USFL, CFL, XFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/kahlil-lewis.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Kahlil Lewis — AltSports Stats">
-  <meta property="og:description" content="Career stats for Kahlil Lewis: lost_fumbles 0.0">
+  <meta property="og:description" content="Career stats for Kahlil Lewis: kick_returns 3.0, kr_long 46.0, kr_yards 71.0, lost_fumbles 0.0, receiving_tds 1.0, receiving_yards 220.0, receptions 24.0, targets 9.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/kahlil-lewis.html">
   
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Kahlil Lewis",
-  "description": "Kahlil Lewis played WR in USFL, CFL.",
+  "description": "Kahlil Lewis played WR in USFL, CFL, XFL.",
   "url": "https://archive.altfantasysports.com/players/kahlil-lewis.html",
   "sameAs": [],
   "hasOccupation": {
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "USFL 2022",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       WR
       <span class="sep">·</span>
-      USFL, CFL
+      USFL, CFL, XFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -214,6 +228,25 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
           
@@ -237,6 +270,25 @@
   </div>
 
   
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">67.4</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#590</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">79.0</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#12</div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
 
@@ -251,14 +303,42 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="kr_long">Kr Long</th>
+        
+        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
         
+        <td>3</td>
+        
+        <td>46</td>
+        
+        <td>71</td>
+        
         <td>0</td>
+        
+        <td>1</td>
+        
+        <td>220</td>
+        
+        <td>24</td>
+        
+        <td>9</td>
         
       </tr>
     </tbody>
@@ -269,11 +349,51 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"XFL-2020": {"receptions": 24.0, "receiving_yards": 220.0, "receiving_tds": 1.0, "targets": 9.0, "kick_returns": 3.0, "kr_yards": 71.0, "kr_long": 46.0}, "USFL-2022": {"lost_fumbles": 0.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -286,16 +406,65 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="kr_long">Kr Long</th>
+        
+        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>XFL 2020</td>
+        
+        <td>3</td>
+        
+        <td>46</td>
+        
+        <td>71</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>220</td>
+        
+        <td>24</td>
+        
+        <td>9</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2022</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -416,6 +585,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Kahlil Lewis</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -437,7 +618,21 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="kick_returns">kick_returns</th>
+        
+        <th scope="col" data-stat="kr_long">kr_long</th>
+        
+        <th scope="col" data-stat="kr_yards">kr_yards</th>
+        
         <th scope="col" data-stat="lost_fumbles">lost_fumbles</th>
+        
+        <th scope="col" data-stat="receiving_tds">receiving_tds</th>
+        
+        <th scope="col" data-stat="receiving_yards">receiving_yards</th>
+        
+        <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="targets">targets</th>
         
       </tr>
     </thead>
@@ -447,7 +642,157 @@
       
       
       
-      <tr class="week-group-row"><td colspan="6">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="13">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-8-la-hou.html" class="game-id">LA @ HOU</a></td>
+        <td>17–37</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>45.0</td>
+        
+        <td>5.0</td>
+        
+        <td>3.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-16-stl-hou.html" class="game-id">STL @ HOU</a></td>
+        <td>24–28</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>50.0</td>
+        
+        <td>4.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-hou-tb.html" class="game-id">HOU @ TB</a></td>
+        <td>34–27</td>
+        
+        <td>2.0</td>
+        
+        <td>28.0</td>
+        
+        <td>53.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>41.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-1-hou-dal.html" class="game-id">HOU @ DAL</a></td>
+        <td>27–20</td>
+        
+        <td>1.0</td>
+        
+        <td>18.0</td>
+        
+        <td>18.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>53.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>31.0</td>
+        
+        <td>3.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -456,7 +801,21 @@
         <td><a href="../games/synthetic-usfl-2022-w6-phi.html" class="game-id">USFL 2022 — Wk 6 (PHI)</a></td>
         <td>—</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -465,12 +824,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/kahlil-lewis.json">JSON</a> ·

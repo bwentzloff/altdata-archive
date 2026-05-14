@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Nick Vogel — AltSports Stats">
-  <meta property="og:description" content="Career stats for Nick Vogel: extra_point 34.0, field_goal_yards 470.0, made_19 0.0, made_29 4.0, made_39 4.0, made_49 5.0, made_50 5.0, missed 9.0">
+  <meta property="og:description" content="Career stats for Nick Vogel: extra_point 34.0, field_goal_yards 470.0, made_19 0.0, made_29 4.0, made_39 4.0, made_49 5.0, made_50 5.0, missed 9.0, ret_lg 130.0, ret_num 9.0, ret_ret 8.0, ret_ryds 203.0, ret_yds 551.0, score_pts 30.0, stat_fga 8.0, stat_fgm 8.0, stat_lg 116.0, stat_pts 30.0, stat_xpa 9.0, stat_xpm 6.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/nick-vogel.html">
   
@@ -74,6 +74,20 @@
     
     {
       "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "USFL 2022",
       "description": "League-level player statistics for USFL 2022 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2022.json",
@@ -91,6 +105,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -194,9 +222,32 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'21</span>
+        
         <span class="ct-yr">'22</span>
         
         <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
@@ -204,7 +255,30 @@
         <span class="ct-label">USFL</span>
         
           
+          <span class="ct-cell"></span>
+          
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -215,6 +289,19 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">74.2</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#265</div>
+      </div>
+      
+      
+    </div>
+  </div>
   
 </div>
 
@@ -246,6 +333,30 @@
         
         <th scope="col" data-stat="missed">Missed</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_ret">Ret Ret</th>
+        
+        <th scope="col" data-stat="ret_ryds">Ret Ryds</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="stat_fga">Stat Fga</th>
+        
+        <th scope="col" data-stat="stat_fgm">Stat Fgm</th>
+        
+        <th scope="col" data-stat="stat_lg">Stat Lg</th>
+        
+        <th scope="col" data-stat="stat_pts">Stat Pts</th>
+        
+        <th scope="col" data-stat="stat_xpa">Stat Xpa</th>
+        
+        <th scope="col" data-stat="stat_xpm">Stat Xpm</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -266,6 +377,30 @@
         <td>5</td>
         
         <td>9</td>
+        
+        <td>130</td>
+        
+        <td>9</td>
+        
+        <td>8</td>
+        
+        <td>203</td>
+        
+        <td>551</td>
+        
+        <td>30</td>
+        
+        <td>8</td>
+        
+        <td>8</td>
+        
+        <td>116</td>
+        
+        <td>30</td>
+        
+        <td>9</td>
+        
+        <td>6</td>
         
       </tr>
     </tbody>
@@ -290,6 +425,40 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -329,9 +498,78 @@
         
         <th scope="col" data-stat="missed">Missed</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_ret">Ret Ret</th>
+        
+        <th scope="col" data-stat="ret_ryds">Ret Ryds</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
+        <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="stat_fga">Stat Fga</th>
+        
+        <th scope="col" data-stat="stat_fgm">Stat Fgm</th>
+        
+        <th scope="col" data-stat="stat_lg">Stat Lg</th>
+        
+        <th scope="col" data-stat="stat_pts">Stat Pts</th>
+        
+        <th scope="col" data-stat="stat_xpa">Stat Xpa</th>
+        
+        <th scope="col" data-stat="stat_xpm">Stat Xpm</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>130</td>
+        
+        <td>9</td>
+        
+        <td>8</td>
+        
+        <td>203</td>
+        
+        <td>551</td>
+        
+        <td>30</td>
+        
+        <td>8</td>
+        
+        <td>8</td>
+        
+        <td>116</td>
+        
+        <td>30</td>
+        
+        <td>9</td>
+        
+        <td>6</td>
+        
+      </tr>
       
       <tr>
         <td>USFL 2022</td>
@@ -352,14 +590,50 @@
         
         <td>5</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
       </tr>
       
       <tr>
         <td>USFL 2023</td>
         
-        <td>22</td>
+        <td>9</td>
         
-        <td>470</td>
+        <td>45</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
         
         <td>—</td>
         
@@ -371,7 +645,64 @@
         
         <td>—</td>
         
-        <td>4</td>
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>13</td>
+        
+        <td>425</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -442,6 +773,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Nick Vogel</td>
+        <td>—</td>
+        <td>K</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -479,6 +822,30 @@
         
         <th scope="col" data-stat="missed">missed</th>
         
+        <th scope="col" data-stat="ret_lg">ret_lg</th>
+        
+        <th scope="col" data-stat="ret_num">ret_num</th>
+        
+        <th scope="col" data-stat="ret_ret">ret_ret</th>
+        
+        <th scope="col" data-stat="ret_ryds">ret_ryds</th>
+        
+        <th scope="col" data-stat="ret_yds">ret_yds</th>
+        
+        <th scope="col" data-stat="score_pts">score_pts</th>
+        
+        <th scope="col" data-stat="stat_fga">stat_fga</th>
+        
+        <th scope="col" data-stat="stat_fgm">stat_fgm</th>
+        
+        <th scope="col" data-stat="stat_lg">stat_lg</th>
+        
+        <th scope="col" data-stat="stat_pts">stat_pts</th>
+        
+        <th scope="col" data-stat="stat_xpa">stat_xpa</th>
+        
+        <th scope="col" data-stat="stat_xpm">stat_xpm</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -487,7 +854,163 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="25">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-12-cgy-bc.html" class="game-id">CGY @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>80.0</td>
+        
+        <td>6.0</td>
+        
+        <td>5.0</td>
+        
+        <td>148.0</td>
+        
+        <td>404.0</td>
+        
+        <td>11.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td>39.0</td>
+        
+        <td>11.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-19-edm-bc.html" class="game-id">EDM @ BC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td>44.0</td>
+        
+        <td>13.0</td>
+        
+        <td>5.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-5-bc-ham.html" class="game-id">BC @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>50.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td>55.0</td>
+        
+        <td>147.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>33.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -512,12 +1035,36 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -542,12 +1089,36 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -572,12 +1143,36 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -602,12 +1197,36 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -632,12 +1251,36 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -662,12 +1305,36 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -692,12 +1359,36 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -722,12 +1413,36 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -752,12 +1467,36 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="25">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -782,12 +1521,36 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="25">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -812,23 +1575,15 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-gamblers.html" class="game-id">BREAKERS @ GAMBLERS</a></td>
-        <td>38–31</td>
+        <td></td>
         
-        <td>4.0</td>
+        <td></td>
         
-        <td>44.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -840,14 +1595,16 @@
         
         <td></td>
         
-        <td>1.0</td>
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="25">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -872,21 +1629,9 @@
         
         <td>1.0</td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-gamblers.html" class="game-id">STARS @ GAMBLERS</a></td>
-        <td>16–41</td>
+        <td></td>
         
-        <td>5.0</td>
+        <td></td>
         
         <td></td>
         
@@ -900,14 +1645,20 @@
         
         <td></td>
         
-        <td>1.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="25">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -932,23 +1683,17 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 6</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>6</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w6-gamblers.html" class="game-id">GAMBLERS @ GENERALS</a></td>
-        <td>16–10</td>
+        <td></td>
         
-        <td>1.0</td>
+        <td></td>
         
-        <td>109.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -967,37 +1712,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 7</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-gamblers.html" class="game-id">SHOWBOATS @ GAMBLERS</a></td>
-        <td>23–20</td>
-        
-        <td>2.0</td>
-        
-        <td>52.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="25">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1022,19 +1737,310 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="25">2025 Wk 2</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-gamblers.html" class="game-id">GAMBLERS @ STALLIONS</a></td>
-        <td>15–38</td>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/48.html" class="game-id">DEFENDERS @ SHOWBOATS</a></td>
+        <td>17–12</td>
+        
+        <td>4.0</td>
+        
+        <td>44.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/56.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
+        <td>30–15</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 7</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/67.html" class="game-id">STALLIONS @ ROUGHNECKS</a></td>
+        <td>33–25</td>
+        
+        <td>1.0</td>
+        
+        <td>109.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/70.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
+        <td>29–28</td>
+        
+        <td>2.0</td>
+        
+        <td>52.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/82.html" class="game-id">ROUGHNECKS @ PANTHERS</a></td>
+        <td>18–30</td>
+        
+        <td>1.0</td>
+        
+        <td>49.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2025 Wk 10</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/78.html" class="game-id">SHOWBOATS @ STALLIONS</a></td>
+        <td>9–46</td>
         
         <td></td>
         
@@ -1052,23 +2058,17 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 10</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>10</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w10-gamblers.html" class="game-id">GAMBLERS @ BREAKERS</a></td>
-        <td>10–17</td>
+        <td></td>
         
-        <td>1.0</td>
+        <td></td>
         
-        <td>49.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1089,12 +2089,18 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/nick-vogel.json">JSON</a> ·

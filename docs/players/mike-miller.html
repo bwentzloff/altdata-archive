@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Mike Miller — AltSports Stats">
-  <meta property="og:description" content="Career stats for Mike Miller: assists 0.0, blocks 0.0, drops 0.0, goals 0.0, misc_td 1.0, recv_lg 29.0, recv_rec 4.0, recv_tar 8.0, recv_yac 30.0, recv_yds 43.0, score_fr 1.0, score_pts 6.0, score_tot 1.0, throwaways 0.0, yardsReceived 0.0, yardsThrown 0.0">
+  <meta property="og:description" content="Career stats for Mike Miller: assists 0.0, blocks 0.0, def_solo 1.0, def_tot 1.0, drops 0.0, goals 0.0, misc_td 1.0, recv_lg 120.0, recv_rec 12.0, recv_tar 17.0, recv_yac 92.0, recv_yds 134.0, ret_num 1.0, rush_att 2.0, rush_lg 16.0, rush_yds 16.0, score_fr 1.0, score_pts 8.0, score_saf 1.0, score_tot 1.0, throwaways 0.0, yardsReceived 0.0, yardsThrown 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/mike-miller.html">
   
@@ -91,6 +91,34 @@
       "name": "CFL 2017",
       "description": "League-level player statistics for CFL 2017 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2017.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2018",
+      "description": "League-level player statistics for CFL 2018 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2018.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2019",
+      "description": "League-level player statistics for CFL 2019 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2019.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -232,9 +260,9 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell"></span>
           
@@ -289,6 +317,10 @@
         
         <th scope="col" data-stat="blocks">Blocks</th>
         
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
+        
         <th scope="col" data-stat="drops">Drops</th>
         
         <th scope="col" data-stat="goals">Goals</th>
@@ -305,9 +337,19 @@
         
         <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="score_fr">Score Fr</th>
         
         <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_saf">Score Saf</th>
         
         <th scope="col" data-stat="score_tot">Score Tot</th>
         
@@ -326,25 +368,39 @@
         
         <td>0</td>
         
+        <td>1</td>
+        
+        <td>1</td>
+        
         <td>0</td>
         
         <td>0</td>
         
         <td>1</td>
         
-        <td>29</td>
+        <td>120</td>
         
-        <td>4</td>
+        <td>12</td>
+        
+        <td>17</td>
+        
+        <td>92</td>
+        
+        <td>134</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>16</td>
+        
+        <td>16</td>
+        
+        <td>1</td>
         
         <td>8</td>
         
-        <td>30</td>
-        
-        <td>43</td>
-        
         <td>1</td>
-        
-        <td>6</td>
         
         <td>1</td>
         
@@ -402,6 +458,46 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -417,6 +513,10 @@
         <th scope="col" data-stat="assists">Assists</th>
         
         <th scope="col" data-stat="blocks">Blocks</th>
+        
+        <th scope="col" data-stat="def_solo">Def Solo</th>
+        
+        <th scope="col" data-stat="def_tot">Def Tot</th>
         
         <th scope="col" data-stat="drops">Drops</th>
         
@@ -434,9 +534,19 @@
         
         <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="rush_att">Rush Att</th>
+        
+        <th scope="col" data-stat="rush_lg">Rush Lg</th>
+        
+        <th scope="col" data-stat="rush_yds">Rush Yds</th>
+        
         <th scope="col" data-stat="score_fr">Score Fr</th>
         
         <th scope="col" data-stat="score_pts">Score Pts</th>
+        
+        <th scope="col" data-stat="score_saf">Score Saf</th>
         
         <th scope="col" data-stat="score_tot">Score Tot</th>
         
@@ -452,6 +562,10 @@
       
       <tr>
         <td>CFL 2016</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -485,6 +599,16 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -498,7 +622,19 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -514,7 +650,111 @@
         
         <td>6</td>
         
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2018</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>28</td>
+        
+        <td>2</td>
+        
+        <td>3</td>
+        
+        <td>20</td>
+        
+        <td>28</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>CFL 2019</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>63</td>
+        
+        <td>6</td>
+        
+        <td>6</td>
+        
+        <td>42</td>
+        
+        <td>63</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>16</td>
+        
+        <td>16</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -531,9 +771,23 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -629,6 +883,10 @@
         
         <th scope="col" data-stat="blocks">blocks</th>
         
+        <th scope="col" data-stat="def_solo">def_solo</th>
+        
+        <th scope="col" data-stat="def_tot">def_tot</th>
+        
         <th scope="col" data-stat="drops">drops</th>
         
         <th scope="col" data-stat="goals">goals</th>
@@ -645,9 +903,19 @@
         
         <th scope="col" data-stat="recv_yds">recv_yds</th>
         
+        <th scope="col" data-stat="ret_num">ret_num</th>
+        
+        <th scope="col" data-stat="rush_att">rush_att</th>
+        
+        <th scope="col" data-stat="rush_lg">rush_lg</th>
+        
+        <th scope="col" data-stat="rush_yds">rush_yds</th>
+        
         <th scope="col" data-stat="score_fr">score_fr</th>
         
         <th scope="col" data-stat="score_pts">score_pts</th>
+        
+        <th scope="col" data-stat="score_saf">score_saf</th>
         
         <th scope="col" data-stat="score_tot">score_tot</th>
         
@@ -665,7 +933,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2016 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2016 Wk 1</td></tr>
       
       <tr>
         <td>2016</td>
@@ -688,7 +956,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -727,6 +1009,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>19.0</td>
         
         <td>2.0</td>
@@ -736,6 +1022,16 @@
         <td>17.0</td>
         
         <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -774,7 +1070,21 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -813,6 +1123,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>10.0</td>
         
         <td>2.0</td>
@@ -835,12 +1149,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2017 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2017 Wk 1</td></tr>
       
       <tr>
         <td>2017</td>
@@ -857,7 +1181,19 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -873,6 +1209,8 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
@@ -886,7 +1224,640 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="28">2018 Wk 1</td></tr>
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-7-7-bc-wpg.html" class="game-id">BC @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-29-wpg-edm.html" class="game-id">WPG @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>22.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>20.0</td>
+        
+        <td>22.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2018</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2018.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2018-9-8-ssk-wpg.html" class="game-id">SSK @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2019 Wk 1</td></tr>
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-10-12-mtl-wpg.html" class="game-id">MTL @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>10.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-10-25-cgy-wpg.html" class="game-id">CGY @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>11.0</td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-11-17-wpg-ssk.html" class="game-id">WPG @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-7-5-wpg-ott.html" class="game-id">WPG @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>11.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-8-15-bc-wpg.html" class="game-id">BC @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-8-23-wpg-edm.html" class="game-id">WPG @ EDM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>9.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-9-1-wpg-ssk.html" class="game-id">WPG @ SSK</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>4.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2019</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2019.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2019-9-21-wpg-mtl.html" class="game-id">WPG @ MTL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>15.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>7.0</td>
+        
+        <td>15.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -899,9 +1870,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -932,7 +1917,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="28">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -945,9 +1930,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -978,7 +1977,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="28">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -991,9 +1990,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1024,7 +2037,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="28">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1037,9 +2050,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1070,7 +2097,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="28">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1083,9 +2110,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1116,7 +2157,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="28">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1129,9 +2170,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1169,7 +2224,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/mike-miller.json">JSON</a> ·

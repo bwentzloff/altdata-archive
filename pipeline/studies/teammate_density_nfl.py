@@ -55,6 +55,18 @@ def _short_name(full_name: str) -> str:
     return f"{parts[0]} {parts[-1]}"
 
 
+def _season_int(v) -> int | None:
+    if v is None:
+        return None
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        try:
+            return int(str(v)[:4])
+        except (TypeError, ValueError):
+            return None
+
+
 def compute(data_dir: Path) -> dict:
     players_dir = data_dir / "players"
     sport_map = _load_sport_map(data_dir)
@@ -82,9 +94,28 @@ def compute(data_dir: Path) -> dict:
         sport_names = {_norm_league(s) for s in (p.get("sport_names") or [])}
         in_nfl = "NFL" in sport_names
 
+        # Collect NFL seasons (as ints) so we can later distinguish players
+        # whose NFL stint came AFTER an alt-league team-season.
+        nfl_seasons: set[int] = set()
+        for app in (p.get("appearances") or []):
+            sid = app.get("sport_id")
+            sm = sport_map.get(sid) if sid is not None else None
+            if not sm:
+                continue
+            if sm.get("league") != "NFL":
+                continue
+            yr = _season_int(sm.get("season"))
+            if yr is not None:
+                nfl_seasons.add(yr)
+        min_nfl_season = min(nfl_seasons) if nfl_seasons else None
+        max_nfl_season = max(nfl_seasons) if nfl_seasons else None
+
         players_meta[cid] = {
             "name": name,
             "in_nfl": in_nfl,
+            "nfl_seasons": nfl_seasons,
+            "min_nfl_season": min_nfl_season,
+            "max_nfl_season": max_nfl_season,
         }
 
         for app in (p.get("appearances") or []):
@@ -112,18 +143,31 @@ def compute(data_dir: Path) -> dict:
             })
             g["players"].add(cid)
 
-    # League baseline: share with NFL history among alt-league team-season roster records.
+    # League baselines:
+    #   nfl  = share of roster records belonging to NFL veterans (ever in NFL)
+    #   after = share of roster records where the player reached the NFL AFTER
+    #           that team-season (the "incubator" signal)
     league_counts: dict[str, dict] = {}
     for g in groups.values():
         lg = g["league"]
-        c = league_counts.setdefault(lg, {"records": 0, "nfl": 0})
+        ts_year = _season_int(g.get("season"))
+        c = league_counts.setdefault(lg, {"records": 0, "nfl": 0, "after": 0})
         for cid in g["players"]:
             c["records"] += 1
-            if players_meta.get(cid, {}).get("in_nfl"):
+            meta = players_meta.get(cid, {})
+            if meta.get("in_nfl"):
                 c["nfl"] += 1
+            if ts_year is not None:
+                max_nfl = meta.get("max_nfl_season")
+                if max_nfl is not None and max_nfl > ts_year:
+                    c["after"] += 1
 
     league_baseline_pct = {
         lg: (100.0 * c["nfl"] / c["records"]) if c["records"] else 0.0
+        for lg, c in league_counts.items()
+    }
+    league_baseline_after_pct = {
+        lg: (100.0 * c["after"] / c["records"]) if c["records"] else 0.0
         for lg, c in league_counts.items()
     }
 
@@ -137,9 +181,20 @@ def compute(data_dir: Path) -> dict:
         if n < 2:
             continue
 
+        ts_year = _season_int(g.get("season"))
         nfl_in_group = sum(1 for cid in roster if players_meta.get(cid, {}).get("in_nfl"))
+        if ts_year is not None:
+            after_in_group = sum(
+                1 for cid in roster
+                if (players_meta.get(cid, {}).get("max_nfl_season") or -1) > ts_year
+            )
+        else:
+            after_in_group = 0
+
         conv_pct = 100.0 * nfl_in_group / n if n else 0.0
+        after_pct = 100.0 * after_in_group / n if n else 0.0
         base_pct = league_baseline_pct.get(g["league"], 0.0)
+        base_after_pct = league_baseline_after_pct.get(g["league"], 0.0)
 
         season_disp = "?" if g["season"] is None else str(g["season"])
         team_label = f"{g['league']} {season_disp} {g['team']}"
@@ -151,9 +206,13 @@ def compute(data_dir: Path) -> dict:
             "team": g["team"],
             "roster_size": n,
             "nfl_vets": nfl_in_group,
-            "conversion_pct": round(conv_pct, 1),
+            "nfl_after": after_in_group,
+            "veteran_pct": round(conv_pct, 1),
+            "after_pct": round(after_pct, 1),
             "league_baseline_pct": round(base_pct, 1),
-            "lift_pct_points": round(conv_pct - base_pct, 1),
+            "league_baseline_after_pct": round(base_after_pct, 1),
+            "lift_pct_points": round(after_pct - base_after_pct, 1),
+            "has_season": ts_year is not None,
             "sid": g["sid"],
         })
 
@@ -235,10 +294,12 @@ def compute(data_dir: Path) -> dict:
         "note": "D1 is the lowest-density group and D10 is the highest-density group.",
     }
 
-    # Incubator team-seasons table/chart
-    incubators = [r for r in team_rows if r["roster_size"] >= 15]
+    # Incubator team-seasons table/chart.
+    # Only consider team-seasons with a known season year; otherwise we cannot
+    # tell whether a player's NFL stint came AFTER this team-season.
+    incubators = [r for r in team_rows if r["roster_size"] >= 15 and r["has_season"]]
     incubators.sort(
-        key=lambda r: (r["lift_pct_points"], r["nfl_vets"], r["conversion_pct"]),
+        key=lambda r: (r["lift_pct_points"], r["nfl_after"], r["after_pct"]),
         reverse=True,
     )
     top_incubators = incubators[:15]
@@ -246,35 +307,39 @@ def compute(data_dir: Path) -> dict:
     chart_incubators = {
         "id": "chart-incubators",
         "type": "bar",
-        "title": "Top team-seasons by NFL conversion lift vs league baseline",
+        "title": "Top team-seasons by subsequent NFL rate vs league baseline",
         "labels": [r["team_season"] for r in top_incubators],
         "datasets": [
             {
-                "label": "Team-season NFL conversion %",
-                "data": [r["conversion_pct"] for r in top_incubators],
+                "label": "Reached NFL after this season (%)",
+                "data": [r["after_pct"] for r in top_incubators],
             },
             {
-                "label": "League baseline %",
-                "data": [r["league_baseline_pct"] for r in top_incubators],
+                "label": "League baseline (%)",
+                "data": [r["league_baseline_after_pct"] for r in top_incubators],
             },
         ],
         "indexAxis": "y",
         "value_suffix": "%",
-        "note": "Minimum roster size is 15 so very small teams do not dominate the ranking.",
+        "note": "Only counts players whose first NFL appearance came AFTER this team-season. Minimum roster size 15.",
     }
 
     # Bridge network among top incubators:
-    # Include players who appear in at least 2 top incubators and eventually reach NFL.
+    # Include players who appear in at least 2 top incubators and went on to
+    # the NFL after at least one of those team-seasons.
     top_keys = {(r["sid"], r["team"]) for r in top_incubators[:8]}
-    player_to_top_teams: dict[str, set[tuple[int, str]]] = {}
     key_to_row = {(r["sid"], r["team"]): r for r in top_incubators}
+    player_to_top_teams: dict[str, set[tuple[int, str]]] = {}
 
     for key in top_keys:
         g = groups.get(key)
         if not g:
             continue
+        ts_year = _season_int(g.get("season"))
         for cid in g["players"]:
-            if not players_meta.get(cid, {}).get("in_nfl"):
+            meta = players_meta.get(cid, {})
+            max_nfl = meta.get("max_nfl_season")
+            if ts_year is None or max_nfl is None or max_nfl <= ts_year:
                 continue
             player_to_top_teams.setdefault(cid, set()).add(key)
 
@@ -294,7 +359,7 @@ def compute(data_dir: Path) -> dict:
         network_nodes.append({
             "id": node_id,
             "label": row["team_season"],
-            "value": max(1, row["nfl_vets"]),
+            "value": max(1, row["nfl_after"]),
             "is_nfl": False,
         })
 
@@ -330,10 +395,10 @@ def compute(data_dir: Path) -> dict:
     chart_network = {
         "id": "chart-incubator-network",
         "type": "network",
-        "title": "Bridge players connecting high-yield team-seasons",
+        "title": "Bridge players who reached the NFL after multiple high-yield team-seasons",
         "nodes": network_nodes,
         "edges": network_edges,
-        "note": "Team-season nodes connect to NFL-history players who appear in multiple top teams.",
+        "note": "Team-season nodes connect to players who reached the NFL after this team-season and appear in multiple top incubators.",
     }
 
     # Build output table rows
@@ -343,9 +408,11 @@ def compute(data_dir: Path) -> dict:
             "team_season": r["team_season"],
             "league": r["league"],
             "roster_size": r["roster_size"],
+            "nfl_after": r["nfl_after"],
+            "after_pct": r["after_pct"],
             "nfl_vets": r["nfl_vets"],
-            "conversion_pct": r["conversion_pct"],
-            "league_baseline_pct": r["league_baseline_pct"],
+            "veteran_pct": r["veteran_pct"],
+            "league_baseline_after_pct": r["league_baseline_after_pct"],
             "lift_pct_points": r["lift_pct_points"],
         })
 
@@ -369,17 +436,17 @@ def compute(data_dir: Path) -> dict:
             "label": "Top incubator team-season",
             "value": best["team_season"] if best else "None yet",
             "sub": (
-                f"{best['conversion_pct']}% have NFL history vs {best['league_baseline_pct']}% typical for that league"
+                f"{best['after_pct']}% of the roster reached the NFL afterward, vs {best['league_baseline_after_pct']}% typical for that league"
                 if best else "No team-seasons met minimum sample filter"
             ),
         },
         {
             "label": "Highest vs lowest density group",
             "value": f"{d10_pct}% vs {d1_pct}%",
-            "sub": "NFL-history rates for players in the most NFL-rich teammate environments vs the least",
+            "sub": "NFL veteran rates for players in the most NFL-rich teammate environments vs the least",
         },
         {
-            "label": "Overall NFL-history rate",
+            "label": "Overall NFL veteran rate",
             "value": f"{overall_pct}%",
             "sub": f"Across {total_player_records:,} alt-football team-season player records",
         },
@@ -405,8 +472,10 @@ def compute(data_dir: Path) -> dict:
         {
             "heading": "Team-season incubators",
             "html": (
-                "<p>The table ranks team-seasons by how far above or below their league's usual NFL reach rate they land. "
-                "That helps separate standout teams from leagues that are already NFL-heavy overall.</p>"
+                "<p>The table ranks team-seasons by how many roster players went on to reach the NFL <em>after</em> that season, "
+                "compared with the typical rate for the same league. That isolates teams that actually launched players into the NFL, "
+                "rather than teams that simply collected NFL veterans.</p>"
+                "<p>The right-most columns show the share of the roster who are NFL veterans (ever in the NFL, before or after) for context.</p>"
             ),
         },
     ]
@@ -415,19 +484,21 @@ def compute(data_dir: Path) -> dict:
         "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in "
         "<code>docs/data/sports.json</code>.</p>"
         "<p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. "
-        "Only non-NFL football leagues are included in environment construction. A player's NFL outcome is whether "
-        "their record includes <code>NFL</code> in <code>sport_names</code>.</p>"
+        "Only non-NFL football leagues are included in environment construction. \"NFL veteran\" means the player has any "
+        "NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one "
+        "NFL appearance whose season is later than the team-season in question; team-seasons without a known year are excluded "
+        "from the incubator ranking.</p>"
         "<p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, "
         "but that does not prove one directly causes the other.</p>"
     )
 
     history_row = {
         "player_records": total_player_records,
-        "overall_eventual_nfl_pct": overall_pct,
+        "overall_nfl_veteran_pct": overall_pct,
         "d10_pct": d10_pct,
         "d1_pct": d1_pct,
         "top_incubator": best["team_season"] if best else None,
-        "top_incubator_pct": best["conversion_pct"] if best else 0.0,
+        "top_incubator_after_pct": best["after_pct"] if best else 0.0,
     }
 
     return {
@@ -440,10 +511,12 @@ def compute(data_dir: Path) -> dict:
                 {"key": "team_season", "label": "Team-season"},
                 {"key": "league", "label": "League"},
                 {"key": "roster_size", "label": "Roster size", "numeric": True},
-                {"key": "nfl_vets", "label": "NFL vets on roster", "numeric": True},
-                {"key": "conversion_pct", "label": "Team NFL-history %", "numeric": True, "suffix": "%"},
-                {"key": "league_baseline_pct", "label": "League typical %", "numeric": True, "suffix": "%"},
+                {"key": "nfl_after", "label": "Reached NFL after", "numeric": True},
+                {"key": "after_pct", "label": "Reached NFL after %", "numeric": True, "suffix": "%"},
+                {"key": "league_baseline_after_pct", "label": "League typical %", "numeric": True, "suffix": "%"},
                 {"key": "lift_pct_points", "label": "Difference (points)", "numeric": True},
+                {"key": "nfl_vets", "label": "NFL veterans on roster", "numeric": True},
+                {"key": "veteran_pct", "label": "NFL veteran %", "numeric": True, "suffix": "%"},
             ],
             "rows": table_rows,
         },

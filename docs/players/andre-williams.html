@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andre Williams Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Andre Williams (WR) across 50 Yard. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Andre Williams (RB, WR) across 50 Yard, XFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/andre-williams.html">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Andre Williams — AltSports Stats">
-  <meta property="og:description" content="Career stats for Andre Williams: receiving_yards 9.0, receptions 1.0">
+  <meta property="og:description" content="Career stats for Andre Williams: receiving_yards 28.0, receptions 4.0, rush_attempts 23.0, rushing_yards 92.0, targets 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/andre-williams.html">
   
@@ -33,12 +33,12 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Andre Williams",
-  "description": "Andre Williams played WR in 50 Yard.",
+  "description": "Andre Williams played RB, WR in 50 Yard, XFL.",
   "url": "https://archive.altfantasysports.com/players/andre-williams.html",
   "sameAs": [],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional WR",
+    "name": "Professional RB",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "50YARD 2026",
@@ -133,9 +147,9 @@
       
     </h1>
     <p class="player-meta">
-      WR
+      RB / WR
       <span class="sep">·</span>
-      50 Yard
+      50 Yard, XFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -246,6 +260,41 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">50YARD</span>
         
           
@@ -285,6 +334,25 @@
   </div>
 
   
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">44.0</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1837</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">42.3</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#79</div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
 
@@ -303,12 +371,24 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_attempts">Rush Attempts</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>9</td>
+        <td>28</td>
+        
+        <td>4</td>
+        
+        <td>23</td>
+        
+        <td>92</td>
         
         <td>1</td>
         
@@ -321,11 +401,47 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"XFL-2020": {"rush_attempts": 23.0, "receptions": 3.0, "receiving_yards": 19.0, "rushing_yards": 92.0, "targets": 1.0}, "50YARD-2026": {"receptions": 1.0, "receiving_yards": 9.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -344,9 +460,30 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_attempts">Rush Attempts</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>19</td>
+        
+        <td>3</td>
+        
+        <td>23</td>
+        
+        <td>92</td>
+        
+        <td>1</td>
+        
+      </tr>
       
       <tr>
         <td>50YARD 2026</td>
@@ -354,6 +491,12 @@
         <td>9</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -420,6 +563,41 @@
 
 
 
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Andre Williams</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Andre Williams</td>
+        <td>IOWA BARNSTORMERS</td>
+        <td>WR</td>
+        <td>IFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Andre Williams</td>
+        <td>—</td>
+        <td>RB</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
 
 <section>
   <h2>Game Log</h2>
@@ -441,6 +619,12 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="rush_attempts">rush_attempts</th>
+        
+        <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+        <th scope="col" data-stat="targets">targets</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -449,7 +633,127 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="10">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-8-la-hou.html" class="game-id">LA @ HOU</a></td>
+        <td>17–37</td>
+        
+        <td>7.0</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-16-stl-hou.html" class="game-id">STL @ HOU</a></td>
+        <td>24–28</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-hou-tb.html" class="game-id">HOU @ TB</a></td>
+        <td>34–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-1-hou-dal.html" class="game-id">HOU @ DAL</a></td>
+        <td>27–20</td>
+        
+        <td>12.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>18.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>10.0</td>
+        
+        <td>54.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -462,6 +766,12 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
@@ -469,12 +779,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/andre-williams.json">JSON</a> ·

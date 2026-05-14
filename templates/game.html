@@ -120,6 +120,62 @@
   <tr><th>Players</th><td>{{ game.player_count }}</td></tr>
 </table>
 
+{% if game.scoring_drives %}
+<section class="pbp-section">
+  <h2>Scoring Drives</h2>
+  <div id="drive-viz" class="drive-viz"></div>
+  <div class="pbp-drives">
+    {% for drive in game.scoring_drives %}
+    <div class="drive">
+      <div class="drive-header">
+        <span class="drive-team">
+          {% if drive.team and drive.team.alias %}
+            {{ drive.team.alias }}
+          {% elif drive.team and drive.team.name %}
+            {{ drive.team.name }}
+          {% else %}
+            Drive
+          {% endif %}
+        </span>
+        <span class="drive-result">{{ drive.result or "—" }}</span>
+      </div>
+      {% if drive.plays %}
+      <div class="drive-plays">
+        {% for play in drive.plays[:15] %}
+        <div class="play">
+          <span class="play-desc">{{ play.description or play.type or "—" }}</span>
+        </div>
+        {% endfor %}
+        {% if drive.plays|length > 15 %}
+        <div class="play-more">+{{ drive.plays|length - 15 }} more plays</div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% elif game.scoring_plays %}
+<section class="pbp-section">
+  <h2>Scoring Plays</h2>
+  <div class="scoring-plays">
+    {% for play in game.scoring_plays %}
+    <div class="scoring-play">
+      <span class="play-type">{{ play.category or "—" }}</span>
+      <span class="play-result">{{ play.result or "—" }}</span>
+      {% if play.details %}
+      <span class="play-players">
+        {% for detail in play.details[:3] %}
+          {% if detail.player and detail.player.name %}{{ detail.player.name }}{% if not loop.last %}, {% endif %}{% endif %}
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% set ABBR = {
   "completions": "CMP", "passing_yards": "YDS", "passing_tds": "TD",
   "interceptions_lost": "INT", "intereceptions_lost": "INT",
@@ -264,4 +320,17 @@
 <a href="{{ root }}data/games/{{ game.slug }}.json">JSON</a> ·
 <a href="{{ root }}data/games/{{ game.slug }}.xml">XML</a> ·
 <a href="{{ root }}data/games/{{ game.slug }}.csv">CSV</a>
+{% endblock %}
+
+{% block scripts %}
+{% if game.scoring_drives %}
+<script>
+  window._driveVizData = {
+    away: {{ (game.away_team or '') | tojson }},
+    home: {{ (game.home_team or '') | tojson }},
+    drives: {{ game.scoring_drives | tojson }}
+  };
+</script>
+<script src="{{ root }}assets/drive-viz.js"></script>
+{% endif %}
 {% endblock %}

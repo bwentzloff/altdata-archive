@@ -101,9 +101,14 @@ def make_env():
     env.filters["stat_label"] = stat_label
 
     import json as _json
+    from markupsafe import Markup
 
-    def tojson(v) -> str:
-        return _json.dumps(v, ensure_ascii=False)
+    def tojson(v):
+        # Encode as JSON and mark safe so autoescape doesn't HTML-escape the
+        # quotes/ampersands when embedded inside <script> blocks. We escape
+        # the script-terminator just in case data contains "</script>".
+        s = _json.dumps(v, ensure_ascii=False).replace("</", "<\\/")
+        return Markup(s)
 
     def sort_seasons(items):
         """Sort (season_slug, stats_dict) pairs chronologically by trailing year."""

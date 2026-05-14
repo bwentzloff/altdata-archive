@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Lorenzo Brown — AltSports Stats">
-  <meta property="og:description" content="Career stats for Lorenzo Brown: assisted_tackles 0.0, completion_pct 6603.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 3.0, pass_attempts 221.0, pass_completions 132.0, pass_incompletions 89.0, pass_long 253.0, pass_yards_per_attempt 121.0, passing_rate 1171.0, passing_sacks 8.0, passing_td_pass 31.0, passing_td_pass_pct 1780.0, passing_yards 1439.0, passing_yds_lost 45.0, rush_avg 51.0, rush_long 109.0, rushing_attempts 69.0, rushing_fum 3.0, rushing_tds 7.0, rushing_yards 235.0, sacks 0.0, safeties 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Lorenzo Brown: assisted_tackles 0.0, completion_pct 6603.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 3.0, pass_attempts 221.0, pass_completions 132.0, pass_incompletions 89.0, pass_long 253.0, pass_td 9.0, pass_yards_per_attempt 121.0, passing_rate 1171.0, passing_sacks 8.0, passing_td_pass 31.0, passing_td_pass_pct 1780.0, passing_yards 1439.0, passing_yds_lost 45.0, pat_made 3.0, rush_avg 51.0, rush_long 109.0, rush_td 2.0, rushing_attempts 69.0, rushing_fum 3.0, rushing_tds 7.0, rushing_yards 235.0, sacks 0.0, safeties 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/lorenzo-brown.html">
   
@@ -74,9 +74,37 @@
     
     {
       "@type": "Dataset",
+      "name": "UFL 2024",
+      "description": "League-level player statistics for UFL 2024 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2024.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -194,6 +222,8 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'24</span>
+        
         <span class="ct-yr">'25</span>
         
         <span class="ct-yr">'26</span>
@@ -201,8 +231,23 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -220,16 +265,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">59.7</div>
+        <div class="badge-number">60.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#886</div>
+        <div class="badge-rank">#1015</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">62.0</div>
         <div class="badge-label">QB</div>
-        <div class="badge-rank">#21</div>
+        <div class="badge-rank">#25</div>
       </div>
       
     </div>
@@ -275,6 +320,8 @@
         
         <th scope="col" data-stat="pass_long">Pass Long</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
         
         <th scope="col" data-stat="passing_rate">Passing Rate</th>
@@ -289,9 +336,13 @@
         
         <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
+        <th scope="col" data-stat="pat_made">Pat Made</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -338,6 +389,8 @@
         
         <td>253</td>
         
+        <td>9</td>
+        
         <td>121</td>
         
         <td>1,171</td>
@@ -352,9 +405,13 @@
         
         <td>45</td>
         
+        <td>3</td>
+        
         <td>51</td>
         
         <td>109</td>
+        
+        <td>2</td>
         
         <td>69</td>
         
@@ -386,7 +443,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"NAL-2025": {"completion_pct": 2774.0, "interceptions": 1.0, "pass_attempts": 105.0, "pass_completions": 59.0, "pass_incompletions": 46.0, "pass_long": 111.0, "pass_yards_per_attempt": 49.0, "passing_rate": 480.0, "passing_sacks": 2.0, "passing_td_pass": 11.0, "passing_td_pass_pct": 608.0, "passing_yards": 598.0, "passing_yds_lost": 11.0, "rush_avg": 15.0, "rush_long": 40.0, "rushing_attempts": 36.0, "rushing_fum": 2.0, "rushing_tds": 4.0, "rushing_yards": 82.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "NAL-2026": {"completion_pct": 3829.0, "interceptions": 2.0, "pass_attempts": 116.0, "pass_completions": 73.0, "pass_incompletions": 43.0, "pass_long": 142.0, "pass_yards_per_attempt": 72.0, "passing_rate": 691.0, "passing_sacks": 6.0, "passing_td_pass": 20.0, "passing_td_pass_pct": 1172.0, "passing_yards": 841.0, "passing_yds_lost": 34.0, "rush_avg": 36.0, "rush_long": 69.0, "rushing_attempts": 33.0, "rushing_fum": 1.0, "rushing_tds": 3.0, "rushing_yards": 153.0}};
+    var seasons = {"UFL-2024": {"pass_td": 4.0, "pat_made": 1.0, "rush_td": 2.0}, "NAL-2025": {"completion_pct": 2774.0, "interceptions": 1.0, "pass_attempts": 105.0, "pass_completions": 59.0, "pass_incompletions": 46.0, "pass_long": 111.0, "pass_yards_per_attempt": 49.0, "passing_rate": 480.0, "passing_sacks": 2.0, "passing_td_pass": 11.0, "passing_td_pass_pct": 608.0, "passing_yards": 598.0, "passing_yds_lost": 11.0, "rush_avg": 15.0, "rush_long": 40.0, "rushing_attempts": 36.0, "rushing_fum": 2.0, "rushing_tds": 4.0, "rushing_yards": 82.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "UFL-2025": {"pass_td": 5.0, "pat_made": 2.0}, "NAL-2026": {"completion_pct": 3829.0, "interceptions": 2.0, "pass_attempts": 116.0, "pass_completions": 73.0, "pass_incompletions": 43.0, "pass_long": 142.0, "pass_yards_per_attempt": 72.0, "passing_rate": 691.0, "passing_sacks": 6.0, "passing_td_pass": 20.0, "passing_td_pass_pct": 1172.0, "passing_yards": 841.0, "passing_yds_lost": 34.0, "rush_avg": 36.0, "rush_long": 69.0, "rushing_attempts": 33.0, "rushing_fum": 1.0, "rushing_tds": 3.0, "rushing_yards": 153.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -416,7 +473,7 @@
     
       
     
-      
+  
     
       
     
@@ -463,6 +520,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -542,6 +613,8 @@
         
         <th scope="col" data-stat="pass_long">Pass Long</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
         
         <th scope="col" data-stat="passing_rate">Passing Rate</th>
@@ -556,9 +629,13 @@
         
         <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
+        <th scope="col" data-stat="pat_made">Pat Made</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -577,6 +654,75 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
       <tr>
         <td>NAL 2025</td>
@@ -607,6 +753,8 @@
         
         <td>111</td>
         
+        <td>—</td>
+        
         <td>49</td>
         
         <td>480</td>
@@ -621,9 +769,13 @@
         
         <td>11</td>
         
+        <td>—</td>
+        
         <td>15</td>
         
         <td>40</td>
+        
+        <td>—</td>
         
         <td>36</td>
         
@@ -638,6 +790,75 @@
         <td>0</td>
         
         <td>1</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>5</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -670,6 +891,8 @@
         
         <td>142</td>
         
+        <td>—</td>
+        
         <td>72</td>
         
         <td>691</td>
@@ -684,9 +907,13 @@
         
         <td>34</td>
         
+        <td>—</td>
+        
         <td>36</td>
         
         <td>69</td>
+        
+        <td>—</td>
         
         <td>33</td>
         
@@ -759,6 +986,8 @@
         
         <th scope="col" data-stat="pass_long">pass_long</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
         <th scope="col" data-stat="pass_yards_per_attempt">pass_yards_per_attempt</th>
         
         <th scope="col" data-stat="passing_rate">passing_rate</th>
@@ -773,9 +1002,13 @@
         
         <th scope="col" data-stat="passing_yds_lost">passing_yds_lost</th>
         
+        <th scope="col" data-stat="pat_made">pat_made</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
+        
+        <th scope="col" data-stat="rush_td">rush_td</th>
         
         <th scope="col" data-stat="rushing_attempts">rushing_attempts</th>
         
@@ -799,7 +1032,397 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="37">2024 Wk 1</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-6-8-mich-bham.html" class="game-id">MICH @ BHAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2024 Wk 4</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-20-mich-sa.html" class="game-id">MICH @ SA</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2024 Wk 5</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-28-mich-mem.html" class="game-id">MICH @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2024 Wk 6</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-5-5-arl-mich.html" class="game-id">ARL @ MICH</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2024 Wk 10</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-6-1-mich-bham.html" class="game-id">MICH @ BHAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -834,6 +1457,8 @@
         
         <td>13.0</td>
         
+        <td></td>
+        
         <td>9.0</td>
         
         <td>82.0</td>
@@ -848,9 +1473,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -871,7 +1500,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="37">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -906,6 +1535,8 @@
         
         <td>9.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
         <td>67.0</td>
@@ -920,9 +1551,13 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>8.0</td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -943,7 +1578,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="37">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -978,6 +1613,8 @@
         
         <td>39.0</td>
         
+        <td></td>
+        
         <td>10.0</td>
         
         <td>82.0</td>
@@ -992,9 +1629,13 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
         <td>9.0</td>
         
         <td>20.0</td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1015,7 +1656,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="37">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1050,6 +1691,8 @@
         
         <td>14.0</td>
         
+        <td></td>
+        
         <td>8.0</td>
         
         <td>105.0</td>
@@ -1064,9 +1707,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>9.0</td>
+        
+        <td></td>
         
         <td>14.0</td>
         
@@ -1087,7 +1734,163 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="37">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-17-mich-hou.html" class="game-id">MICH @ HOU</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2025 Wk 9</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-24-mich-bhm.html" class="game-id">MICH @ BHM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="37">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1122,6 +1925,8 @@
         
         <td>36.0</td>
         
+        <td></td>
+        
         <td>17.0</td>
         
         <td>144.0</td>
@@ -1136,9 +1941,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -1159,7 +1968,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1194,6 +2003,8 @@
         
         <td>32.0</td>
         
+        <td></td>
+        
         <td>20.0</td>
         
         <td>149.0</td>
@@ -1208,9 +2019,13 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
         <td>17.0</td>
         
         <td>22.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -1231,7 +2046,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1266,6 +2081,8 @@
         
         <td>11.0</td>
         
+        <td></td>
+        
         <td>7.0</td>
         
         <td>130.0</td>
@@ -1280,9 +2097,13 @@
         
         <td>14.0</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>13.0</td>
+        
+        <td></td>
         
         <td>7.0</td>
         
@@ -1303,7 +2124,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1338,6 +2159,8 @@
         
         <td>24.0</td>
         
+        <td></td>
+        
         <td>10.0</td>
         
         <td>105.0</td>
@@ -1352,9 +2175,13 @@
         
         <td>8.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
         <td>10.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1375,7 +2202,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1410,6 +2237,8 @@
         
         <td>18.0</td>
         
+        <td></td>
+        
         <td>9.0</td>
         
         <td>83.0</td>
@@ -1424,9 +2253,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
         <td>12.0</td>
+        
+        <td></td>
         
         <td>11.0</td>
         
@@ -1447,7 +2280,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1482,6 +2315,8 @@
         
         <td>21.0</td>
         
+        <td></td>
+        
         <td>12.0</td>
         
         <td>68.0</td>
@@ -1496,9 +2331,13 @@
         
         <td>8.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>5.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1519,7 +2358,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="37">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1554,6 +2393,8 @@
         
         <td>36.0</td>
         
+        <td></td>
+        
         <td>14.0</td>
         
         <td>156.0</td>
@@ -1568,9 +2409,13 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>7.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1606,7 +2451,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/lorenzo-brown.json">JSON</a> ·

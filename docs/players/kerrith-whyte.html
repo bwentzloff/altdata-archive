@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kerrith Whyte Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Kerrith Whyte (RB) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Kerrith Whyte (RB) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/kerrith-whyte.html">
 
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Kerrith Whyte",
-  "description": "Kerrith Whyte played RB in USFL, UFL.",
+  "description": "Kerrith Whyte played RB in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/kerrith-whyte.html",
   "sameAs": [],
   "hasOccupation": {
@@ -77,6 +77,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       RB
       <span class="sep">·</span>
-      USFL, UFL
+      UFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -192,6 +206,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -210,12 +228,43 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">USFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -285,11 +334,47 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"rushing_yards": 35.0, "rushing_tds": 0.0, "receptions": 5.0, "receiving_yards": 50.0, "receiving_tds": 1.0}, "UFL-2025": {"receptions": 6.0, "receiving_yards": 48.0, "receiving_tds": 0.0, "rushing_yards": 246.0, "rushing_tds": 1.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -329,13 +414,28 @@
         
         <td>1</td>
         
-        <td>98</td>
+        <td>50</td>
         
-        <td>11</td>
+        <td>5</td>
+        
+        <td>0</td>
+        
+        <td>35</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>0</td>
+        
+        <td>48</td>
+        
+        <td>6</td>
         
         <td>1</td>
         
-        <td>281</td>
+        <td>246</td>
         
       </tr>
       
@@ -508,30 +608,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-showboats.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
-        <td>10–29</td>
-        
-        <td>0.0</td>
-        
-        <td>27.0</td>
-        
-        <td>3.0</td>
-        
-        <td>0.0</td>
-        
-        <td>54.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="10">2023 Wk 5</td></tr>
       
       <tr>
@@ -556,14 +632,38 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="10">2025 Wk 4</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-showboats.html" class="game-id">SHOWBOATS @ GAMBLERS</a></td>
-        <td>23–20</td>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/57.html" class="game-id">DEFENDERS @ BRAHMAS</a></td>
+        <td>18–24</td>
+        
+        <td>0.0</td>
+        
+        <td>27.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>54.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/70.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
+        <td>29–28</td>
         
         <td>0.0</td>
         
@@ -580,14 +680,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="10">2025 Wk 9</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>8</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w8-showboats.html" class="game-id">GENERALS @ SHOWBOATS</a></td>
-        <td>16–25</td>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/74.html" class="game-id">STALLIONS @ PANTHERS</a></td>
+        <td>26–22</td>
         
         <td>0.0</td>
         
@@ -604,14 +704,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="10">2025 Wk 10</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-showboats.html" class="game-id">SHOWBOATS @ BREAKERS</a></td>
-        <td>3–31</td>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/77.html" class="game-id">BRAHMAS @ RENEGADES</a></td>
+        <td>6–23</td>
         
         <td>0.0</td>
         
@@ -635,7 +735,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/kerrith-whyte.json">JSON</a> ·

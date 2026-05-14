@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T.J. Pledger Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for T.J. Pledger (RB) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for T.J. Pledger (RB) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/tj-pledger.html">
 
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "T.J. Pledger",
-  "description": "T.J. Pledger played RB in USFL, UFL.",
+  "description": "T.J. Pledger played RB in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/tj-pledger.html",
   "sameAs": [],
   "hasOccupation": {
@@ -77,6 +77,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       RB
       <span class="sep">·</span>
-      USFL, UFL
+      UFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -174,6 +188,47 @@
     })();
     </script>
 
+    
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
     
   </div>
 
@@ -226,11 +281,47 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"rushing_yards": 103.0, "rushing_tds": 2.0, "receptions": 5.0, "receiving_yards": 32.0, "receiving_tds": 0.0}, "UFL-2025": {"rushing_yards": 94.0, "rushing_tds": 1.0, "receptions": 2.0, "receiving_yards": 26.0, "receiving_tds": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -270,13 +361,28 @@
         
         <td>0</td>
         
-        <td>58</td>
+        <td>32</td>
         
-        <td>7</td>
+        <td>5</td>
         
-        <td>3</td>
+        <td>2</td>
         
-        <td>197</td>
+        <td>103</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>0</td>
+        
+        <td>26</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>94</td>
         
       </tr>
       
@@ -410,30 +516,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-gamblers.html" class="game-id">BREAKERS @ GAMBLERS</a></td>
-        <td>38–31</td>
-        
-        <td>0.0</td>
-        
-        <td>26.0</td>
-        
-        <td>2.0</td>
-        
-        <td>1.0</td>
-        
-        <td>94.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="10">2023 Wk 3</td></tr>
       
       <tr>
@@ -479,6 +561,30 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/48.html" class="game-id">DEFENDERS @ SHOWBOATS</a></td>
+        <td>17–12</td>
+        
+        <td>0.0</td>
+        
+        <td>26.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>94.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -489,7 +595,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/tj-pledger.json">JSON</a> ·

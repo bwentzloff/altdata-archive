@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Calvin Lowe — AltSports Stats">
-  <meta property="og:description" content="Career stats for Calvin Lowe: rec_avg 26.0, rec_long 33.0, receiving_fum 0.0, receiving_tds 1.0, receiving_yards 60.0, receptions 10.0">
+  <meta property="og:description" content="Career stats for Calvin Lowe: pass_td 2.0, rec_avg 26.0, rec_long 33.0, receiving_fum 0.0, receiving_tds 1.0, receiving_yards 60.0, receptions 10.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/calvin-lowe.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +225,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">40.8</div>
+        <div class="badge-number">43.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1521</div>
+        <div class="badge-rank">#1858</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">50.3</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#122</div>
+        <div class="badge-rank">#160</div>
       </div>
       
     </div>
@@ -211,6 +254,8 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -227,6 +272,8 @@
     </thead>
     <tbody>
       <tr>
+        
+        <td>2</td>
         
         <td>26</td>
         
@@ -249,6 +296,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"rec_avg": 26.0, "rec_long": 33.0, "receiving_fum": 0.0, "receiving_tds": 1.0, "receiving_yards": 60.0, "receptions": 10.0}, "UFL-2025": {"pass_td": 2.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -269,12 +340,18 @@
       
     
   
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Calvin Lowe stats by season</caption>
     <thead>
       <tr>
         <th scope="col">Season</th>
+        
+        <th scope="col" data-stat="pass_td">Pass Td</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -295,6 +372,8 @@
       <tr>
         <td>NAL 2025</td>
         
+        <td>—</td>
+        
         <td>26</td>
         
         <td>33</td>
@@ -306,6 +385,25 @@
         <td>60</td>
         
         <td>10</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -338,6 +436,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
         <th scope="col" data-stat="rec_avg">rec_avg</th>
         
         <th scope="col" data-stat="rec_long">rec_long</th>
@@ -358,7 +458,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -366,6 +466,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-3-29-t425358g979260-t425360.html" class="game-id">Idaho Horsemen @ Omaha Beef</a></td>
         <td>24–28</td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -384,7 +486,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -392,6 +494,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-3-t450150g979261-t425358.html" class="game-id">Shreveport Rouxgaroux @ Idaho Horsemen</a></td>
         <td>40–50</td>
+        
+        <td></td>
         
         <td>7.0</td>
         
@@ -410,7 +514,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -418,6 +522,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-10-t425356g979264-t425358.html" class="game-id">Carolina Cobras @ Idaho Horsemen</a></td>
         <td>21–34</td>
+        
+        <td></td>
         
         <td>10.0</td>
         
@@ -436,7 +542,35 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="12">2025 Wk 7</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-10-dc-sa.html" class="game-id">DC @ SA</a></td>
+        <td>—</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -444,6 +578,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-5-4-t425361g981353-t425358.html" class="game-id">Sioux City Bandits @ Idaho Horsemen</a></td>
         <td>78–42</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -477,7 +613,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/calvin-lowe.json">JSON</a> ·

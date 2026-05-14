@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Reggie Young — AltSports Stats">
-  <meta property="og:description" content="Career stats for Reggie Young: assisted_tackles 1.0, completion_pct 667.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 1.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 0.0, kick_returns 3.0, kr_avg 9.0, kr_long 17.0, kr_tds 0.0, kr_yards 29.0, pass_attempts 3.0, pass_completions 2.0, pass_incompletions 1.0, pass_long 13.0, pass_yards_per_attempt 10.0, passing_rate 125.0, passing_sacks 0.0, passing_td_pass 2.0, passing_td_pass_pct 667.0, passing_yards 20.0, passing_yds_lost 0.0, rush_avg 5.0, rush_long 6.0, rushing_attempts 2.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 10.0, sacks 0.0, safeties 0.0, tackles 5.0">
+  <meta property="og:description" content="Career stats for Reggie Young: assisted_tackles 1.0, completion_pct 667.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 1.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 0.0, kick_returns 3.0, kr_avg 9.0, kr_long 17.0, kr_tds 0.0, kr_yards 29.0, pass_attempts 3.0, pass_completions 2.0, pass_incompletions 1.0, pass_long 13.0, pass_yards_per_attempt 10.0, passing_rate 125.0, passing_sacks 0.0, passing_td_pass 2.0, passing_td_pass_pct 667.0, passing_yards 20.0, passing_yds_lost 0.0, recv_td 2.0, rush_avg 5.0, rush_long 6.0, rushing_attempts 2.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 10.0, sacks 0.0, safeties 0.0, tackles 5.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/reggie-young.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2025",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,9 +225,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">52.1</div>
+        <div class="badge-number">55.3</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1211</div>
+        <div class="badge-rank">#1359</div>
       </div>
       
       
@@ -254,6 +297,8 @@
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -328,6 +373,8 @@
         
         <td>0</td>
         
+        <td>2</td>
+        
         <td>5</td>
         
         <td>6</td>
@@ -355,11 +402,39 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2025": {"recv_td": 2.0}, "NAL-2025": {"assisted_tackles": 1.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 1.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 5.0, "completion_pct": 667.0, "interceptions": 0.0, "kick_returns": 3.0, "kr_avg": 9.0, "kr_long": 17.0, "kr_tds": 0.0, "kr_yards": 29.0, "pass_attempts": 3.0, "pass_completions": 2.0, "pass_incompletions": 1.0, "pass_long": 13.0, "pass_yards_per_attempt": 10.0, "passing_rate": 125.0, "passing_sacks": 0.0, "passing_td_pass": 2.0, "passing_td_pass_pct": 667.0, "passing_yards": 20.0, "passing_yds_lost": 0.0, "rush_avg": 5.0, "rush_long": 6.0, "rushing_attempts": 2.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 10.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
   
     
       
@@ -488,6 +563,8 @@
         
         <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
@@ -563,6 +640,8 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
         <td>5</td>
         
         <td>6</td>
@@ -580,6 +659,81 @@
         <td>0</td>
         
         <td>5</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -662,6 +816,8 @@
         
         <th scope="col" data-stat="passing_yds_lost">passing_yds_lost</th>
         
+        <th scope="col" data-stat="recv_td">recv_td</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
@@ -688,7 +844,91 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 1</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-6-8-dc-stl.html" class="game-id">DC @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="40">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -759,6 +999,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -770,7 +1012,91 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 10</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-31-stl-dc.html" class="game-id">STL @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="40">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -829,6 +1155,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
         <td>6.0</td>
@@ -865,7 +1193,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/reggie-young.json">JSON</a> ·

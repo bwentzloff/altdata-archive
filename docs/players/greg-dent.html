@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Greg Dent — AltSports Stats">
-  <meta property="og:description" content="Career stats for Greg Dent: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 1.0, kr_avg 17.0, kr_long 17.0, kr_tds 0.0, kr_yards 17.0, rec_avg 62.0, rec_long 86.0, receiving_fum 0.0, receiving_tds 5.0, receiving_yards 180.0, receptions 12.0, rush_avg 19.0, rush_long 35.0, rushing_attempts 11.0, rushing_fum 1.0, rushing_tds 1.0, rushing_yards 42.0, sacks 0.0, safeties 0.0, tackles 5.0">
+  <meta property="og:description" content="Career stats for Greg Dent: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 1.0, kr_avg 17.0, kr_long 17.0, kr_tds 0.0, kr_yards 17.0, rec_avg 62.0, rec_long 86.0, receiving_fum 0.0, receiving_tds 5.0, receiving_yards 180.0, receptions 12.0, recv_td 1.0, rush_avg 19.0, rush_long 35.0, rushing_attempts 11.0, rushing_fum 1.0, rushing_tds 1.0, rushing_yards 42.0, sacks 0.0, safeties 0.0, tackles 5.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/greg-dent.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "UFL 2024",
+      "description": "League-level player statistics for UFL 2024 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2024.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2025",
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -227,6 +276,8 @@
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -287,6 +338,8 @@
         
         <td>12</td>
         
+        <td>1</td>
+        
         <td>19</td>
         
         <td>35</td>
@@ -314,11 +367,39 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2024": {"recv_td": 1.0}, "NAL-2025": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 5.0, "kick_returns": 1.0, "kr_avg": 17.0, "kr_long": 17.0, "kr_tds": 0.0, "kr_yards": 17.0, "rec_avg": 62.0, "rec_long": 86.0, "receiving_fum": 0.0, "receiving_tds": 5.0, "receiving_yards": 180.0, "receptions": 12.0, "rush_avg": 19.0, "rush_long": 35.0, "rushing_attempts": 11.0, "rushing_fum": 1.0, "rushing_tds": 1.0, "rushing_yards": 42.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
   
     
       
@@ -419,6 +500,8 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
@@ -440,6 +523,67 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>UFL 2024</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
       <tr>
         <td>NAL 2025</td>
@@ -479,6 +623,8 @@
         <td>180</td>
         
         <td>12</td>
+        
+        <td>—</td>
         
         <td>19</td>
         
@@ -565,6 +711,8 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="recv_td">recv_td</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
@@ -591,7 +739,77 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="33">2024 Wk 2</td></tr>
+      
+      <tr>
+        <td>2024</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2024.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2024-4-6-sa-mem.html" class="game-id">SA @ MEM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="33">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -648,6 +866,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -659,7 +879,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -704,6 +924,8 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
         <td>6.0</td>
@@ -727,7 +949,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -790,12 +1012,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -840,6 +1064,8 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>7.0</td>
@@ -863,7 +1089,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -871,6 +1097,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-26-t434514g979274-t425357.html" class="game-id">Columbus Lions @ Colorado Spartans</a></td>
         <td>38–42</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -931,7 +1159,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -976,6 +1204,8 @@
         
         <td>2.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
@@ -999,7 +1229,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1007,6 +1237,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-5-15-t425357g979285-t425358.html" class="game-id">Colorado Spartans @ Idaho Horsemen</a></td>
         <td>68–20</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1074,7 +1306,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/greg-dent.json">JSON</a> ·

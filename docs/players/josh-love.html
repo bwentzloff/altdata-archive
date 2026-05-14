@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Josh Love Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Josh Love (QB) across USFL, UFL, CFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Josh Love (QB) across UFL, USFL, CFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/josh-love.html">
 
@@ -33,9 +33,9 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Josh Love",
-  "description": "Josh Love played QB in USFL, UFL, CFL.",
+  "description": "Josh Love played QB in UFL, USFL, CFL.",
   "url": "https://archive.altfantasysports.com/players/josh-love.html",
-  "sameAs": [&#34;https://www.sports-reference.com/cfb/players/josh-love-1.html&#34;],
+  "sameAs": ["https://www.sports-reference.com/cfb/players/josh-love-1.html"],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional QB",
@@ -116,6 +116,20 @@
     ,
     {
       "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "CFL 2025",
       "description": "League-level player statistics for CFL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2025.json",
@@ -177,7 +191,7 @@
     <p class="player-meta">
       QB
       <span class="sep">·</span>
-      USFL, UFL, CFL
+      UFL, USFL, CFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -304,7 +318,7 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
         
       </div>
@@ -404,7 +418,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"passing_yards": 787.0, "passing_tds": 4.0, "interceptions_lost": 4.0, "rushing_yards": 32.0, "rushing_tds": 0.0, "lost_fumbles": 0.0, "conversions": 0.0}, "USFL-2023": {"passing_yards": 1556.0, "passing_tds": 13.0, "rushing_yards": 50.0, "interceptions_lost": 10.0, "rushing_tds": 0.0, "lost_fumbles": 1.0}, "UFL-2024": {"passing_yards": 313.0, "passing_tds": 2.0, "interceptions_lost": 3.0, "rushing_yards": 10.0, "rushing_tds": 1.0, "1pt_conversion": 2.0, "conversions": 1.0}, "CFL-2025": {"passing_yards": 67.0, "passing_tds": 0.0, "interceptions_lost": 0.0}};
+    var seasons = {"USFL-2022": {"passing_yards": 787.0, "passing_tds": 4.0, "interceptions_lost": 4.0, "rushing_yards": 32.0, "rushing_tds": 0.0, "lost_fumbles": 0.0, "conversions": 0.0}, "USFL-2023": {"passing_yards": 505.0, "passing_tds": 5.0, "rushing_yards": 8.0, "interceptions_lost": 1.0, "rushing_tds": 0.0}, "UFL-2024": {"passing_yards": 313.0, "passing_tds": 2.0, "interceptions_lost": 3.0, "rushing_yards": 10.0, "rushing_tds": 1.0, "1pt_conversion": 2.0, "conversions": 1.0}, "UFL-2025": {"passing_yards": 1051.0, "passing_tds": 8.0, "interceptions_lost": 9.0, "rushing_yards": 42.0, "rushing_tds": 0.0, "lost_fumbles": 1.0}, "CFL-2025": {"passing_yards": 67.0, "passing_tds": 0.0, "interceptions_lost": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -454,11 +468,23 @@
     
       
     
-      
-    
   
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -536,17 +562,17 @@
         
         <td>—</td>
         
-        <td>10</td>
-        
         <td>1</td>
         
-        <td>13</td>
+        <td>—</td>
         
-        <td>1556</td>
+        <td>5</td>
+        
+        <td>505</td>
         
         <td>0</td>
         
-        <td>50</td>
+        <td>8</td>
         
       </tr>
       
@@ -589,6 +615,27 @@
         <td>—</td>
         
         <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>1</td>
+        
+        <td>8</td>
+        
+        <td>1051</td>
+        
+        <td>0</td>
+        
+        <td>42</td>
         
       </tr>
       
@@ -970,96 +1017,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-panthers.html" class="game-id">STARS @ PANTHERS</a></td>
-        <td>10–24</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>174.0</td>
-        
-        <td>0.0</td>
-        
-        <td>-2.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 3</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>3</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w3-panthers.html" class="game-id">PANTHERS @ GENERALS</a></td>
-        <td>13–28</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>101.0</td>
-        
-        <td>0.0</td>
-        
-        <td>13.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-panthers.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
-        <td>10–29</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>58.0</td>
-        
-        <td>0.0</td>
-        
-        <td>4.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
       
       <tr>
@@ -1120,103 +1077,13 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2023 Wk 7</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-panthers.html" class="game-id">GENERALS @ PANTHERS</a></td>
-        <td>22–25</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td>264.0</td>
-        
-        <td>0.0</td>
-        
-        <td>3.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 8</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>8</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w8-panthers.html" class="game-id">BREAKERS @ PANTHERS</a></td>
-        <td>24–20</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td>221.0</td>
-        
-        <td>0.0</td>
-        
-        <td>8.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="13">2023 Wk 9</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-panthers.html" class="game-id">MAULERS @ PANTHERS</a></td>
-        <td>19–7</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>4.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>233.0</td>
-        
-        <td>0.0</td>
-        
-        <td>16.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="13">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
         <td>8</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w8-showboats.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
+        <td><a href="../games/29.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
         <td>24–18</td>
         
         <td></td>
@@ -1246,7 +1113,7 @@
         <td>2024</td>
         <td>9</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w9-showboats.html" class="game-id">SHOWBOATS @ DEFENDERS</a></td>
+        <td><a href="../games/35.html" class="game-id">SHOWBOATS @ DEFENDERS</a></td>
         <td>21–36</td>
         
         <td>1.0</td>
@@ -1276,7 +1143,7 @@
         <td>2024</td>
         <td>10</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w10-showboats.html" class="game-id">SHOWBOATS @ ROUGHNECKS</a></td>
+        <td><a href="../games/40.html" class="game-id">SHOWBOATS @ ROUGHNECKS</a></td>
         <td>19–12</td>
         
         <td>1.0</td>
@@ -1300,13 +1167,187 @@
       
       
       
+      <tr class="week-group-row"><td colspan="13">2025 Wk 3</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/51.html" class="game-id">STALLIONS @ RENEGADES</a></td>
+        <td>10–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>174.0</td>
+        
+        <td>0.0</td>
+        
+        <td>-2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/55.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
+        <td>27–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>101.0</td>
+        
+        <td>0.0</td>
+        
+        <td>13.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/57.html" class="game-id">DEFENDERS @ BRAHMAS</a></td>
+        <td>18–24</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>58.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/71.html" class="game-id">DEFENDERS @ RENEGADES</a></td>
+        <td>33–30</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>264.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2025 Wk 10</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/75.html" class="game-id">DEFENDERS @ BATTLEHAWKS</a></td>
+        <td>8–13</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>221.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/76.html" class="game-id">PANTHERS @ ROUGHNECKS</a></td>
+        <td>12–19</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>233.0</td>
+        
+        <td>0.0</td>
+        
+        <td>16.0</td>
+        
+      </tr>
+      
+      
+      
+      
       <tr class="week-group-row"><td colspan="13">2025 Wk 20</td></tr>
       
       <tr>
         <td>2025</td>
         <td>20</td>
         <td><a href="../leagues/cfl-2025.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2025-w20-cgy.html" class="game-id">TOR @ CGY</a></td>
+        <td><a href="../games/11824121.html" class="game-id">TOR @ CGY</a></td>
         <td>13–44</td>
         
         <td></td>
@@ -1337,7 +1378,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/josh-love.json">JSON</a> ·

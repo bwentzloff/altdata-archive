@@ -35,7 +35,7 @@
   "name": "Brady White",
   "description": "Brady White played QB in USFL.",
   "url": "https://archive.altfantasysports.com/players/brady-white.html",
-  "sameAs": [&#34;https://www.sports-reference.com/cfb/players/brady-white-1.html&#34;],
+  "sameAs": ["https://www.sports-reference.com/cfb/players/brady-white-1.html"],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional QB",
@@ -91,6 +91,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -206,6 +220,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -217,6 +235,10 @@
           <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -240,6 +262,33 @@
           <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -310,7 +359,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"passing_yards": 59.0, "passing_tds": 0.0, "interceptions_lost": 1.0, "rushing_yards": -3.0, "rushing_tds": 0.0, "lost_fumbles": 0.0}, "USFL-2023": {"passing_yards": 323.0, "passing_tds": 2.0, "interceptions_lost": 2.0, "rushing_yards": 41.0, "rushing_tds": 0.0}};
+    var seasons = {"USFL-2022": {"passing_yards": 59.0, "passing_tds": 0.0, "interceptions_lost": 1.0, "rushing_yards": -3.0, "rushing_tds": 0.0, "lost_fumbles": 0.0}, "USFL-2023": {"passing_yards": 182.0, "passing_tds": 2.0, "interceptions_lost": 1.0, "rushing_yards": 29.0, "rushing_tds": 0.0}, "UFL-2025": {"passing_yards": 141.0, "passing_tds": 0.0, "interceptions_lost": 1.0, "rushing_yards": 12.0, "rushing_tds": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -335,6 +384,18 @@
   
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -402,17 +463,34 @@
       <tr>
         <td>USFL 2023</td>
         
-        <td>2</td>
+        <td>1</td>
         
         <td>—</td>
         
         <td>2</td>
         
-        <td>323</td>
+        <td>182</td>
         
         <td>0</td>
         
-        <td>41</td>
+        <td>29</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>141</td>
+        
+        <td>0</td>
+        
+        <td>12</td>
         
       </tr>
       
@@ -681,14 +759,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 2</td></tr>
       
       <tr>
-        <td>2023</td>
+        <td>2025</td>
         <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-showboats.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
-        <td>42–2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/49.html" class="game-id">RENEGADES @ ROUGHNECKS</a></td>
+        <td>11–9</td>
         
         <td>1.0</td>
         
@@ -714,7 +792,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/brady-white.json">JSON</a> ·

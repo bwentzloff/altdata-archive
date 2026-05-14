@@ -1012,6 +1012,7 @@ def main():
         ("xleague_players.json",        "xleague_stats.json",        "X-League"),
         ("au_players.json",             "au_stats.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "dgpt_stats.json",           "DGPT"),
+        ("ufl_players.json",            "ufl_stats.json",            "UFL"),
     ]
     for _pfile, _sfile, _label in _new_league_pairs:
         _pf = RAW / _pfile
@@ -1059,6 +1060,23 @@ def main():
     if xfl_2020_games_file.exists():
         xfl_2020_games = json.loads(xfl_2020_games_file.read_text())
         raw_games.extend(xfl_2020_games)
+
+    ufl_games_file = RAW / "ufl_games.json"
+    if ufl_games_file.exists():
+        ufl_games = json.loads(ufl_games_file.read_text())
+        raw_games.extend(ufl_games)
+        print(f"Loaded {len(ufl_games)} UFL game records")
+    
+    # Load play-by-play data by game_id for rendering
+    pbp_by_game_id = {}
+    ufl_pbp_file = RAW / "ufl_pbp.json"
+    if ufl_pbp_file.exists():
+        ufl_pbp_records = json.loads(ufl_pbp_file.read_text())
+        for pbp in ufl_pbp_records:
+            game_id = pbp.get("game_id")
+            if game_id:
+                pbp_by_game_id[str(game_id)] = pbp
+        print(f"Loaded {len(pbp_by_game_id)} UFL play-by-play records")
     
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
     db_game_by_id = {}
@@ -1070,7 +1088,8 @@ def main():
         sid = g.get("sport_id")
         wk = g.get("week")
         if sid and wk:
-            for team_field in ("team_home", "team_away"):
+            # Support both naming conventions: DB uses team_home/team_away, scrapers use home_team/away_team
+            for team_field in ("team_home", "team_away", "home_team", "away_team"):
                 t = (g.get(team_field) or "").upper().replace(" ", "")
                 if t:
                     key = (sid, wk, t)
@@ -1158,7 +1177,15 @@ def main():
             pid_int = int(pid) if pid.isdigit() else -1
             sport_id = pid_sport_map.get(pid_int)
             team = pid_team_map.get(pid_int, "")
-            if sport_id and sport_id in sport_map and week is not None and team:
+            # Prefer a real per-game id from raw_games if one exists for this
+            # (sport, week, team) — avoids creating a synthetic week-aggregate
+            # game that duplicates a real game from a scraper.
+            real_match = None
+            if sport_id and week is not None and team:
+                real_match = db_game_by_sport_week_team.get((sport_id, week, team))
+            if real_match and real_match.get("game_id"):
+                gid_str = str(real_match["game_id"])
+            elif sport_id and sport_id in sport_map and week is not None and team:
                 s = sport_map[sport_id]
                 sname = re.sub(r"[^A-Z0-9]", "", (s.get("name") or "").upper())
                 sse = s.get("season") or ""
@@ -1719,6 +1746,14 @@ def main():
             "stat_keys": all_stat_keys,
             "players": player_entries,
         }
+        
+        # Inject play-by-play data if available
+        game_id_str = str(meta.get("game_id", gslug))
+        if game_id_str in pbp_by_game_id:
+            pbp = pbp_by_game_id[game_id_str]
+            game_data["scoring_plays"] = pbp.get("scoring_plays", [])
+            game_data["scoring_drives"] = pbp.get("scoring_drives", [])
+        
         write_json_xml(SITE_DATA / "games" / gslug, game_data, root_tag="game")
 
         if player_entries:

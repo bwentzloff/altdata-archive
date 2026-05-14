@@ -35,7 +35,7 @@
   "name": "Tre Walker",
   "description": "Tre Walker played WR in USFL.",
   "url": "https://archive.altfantasysports.com/players/tre-walker.html",
-  "sameAs": [&#34;https://www.sports-reference.com/cfb/players/tre-walker-3.html&#34;],
+  "sameAs": ["https://www.sports-reference.com/cfb/players/tre-walker-3.html"],
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Professional WR",
@@ -91,6 +91,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -204,6 +218,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -213,6 +231,10 @@
           <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -234,6 +256,31 @@
           <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -296,7 +343,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"receiving_yards": 362.0, "receptions": 33.0, "receiving_tds": 1.0}, "USFL-2023": {"receptions": 19.0, "receiving_yards": 224.0, "receiving_tds": 0.0, "rushing_yards": 17.0}};
+    var seasons = {"USFL-2022": {"receiving_yards": 362.0, "receptions": 33.0, "receiving_tds": 1.0}, "USFL-2023": {"receptions": 11.0, "receiving_yards": 94.0, "rushing_yards": 14.0}, "UFL-2025": {"receptions": 8.0, "receiving_yards": 130.0, "receiving_tds": 0.0, "rushing_yards": 3.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -318,6 +365,14 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -372,13 +427,26 @@
       <tr>
         <td>USFL 2023</td>
         
+        <td>—</td>
+        
+        <td>94</td>
+        
+        <td>11</td>
+        
+        <td>14</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
         <td>0</td>
         
-        <td>224</td>
+        <td>130</td>
         
-        <td>19</td>
+        <td>8</td>
         
-        <td>17</td>
+        <td>3</td>
         
       </tr>
       
@@ -722,50 +790,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-maulers.html" class="game-id">MAULERS @ GENERALS</a></td>
-        <td>3–20</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="9">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-maulers.html" class="game-id">MAULERS @ STALLIONS</a></td>
-        <td>20–24</td>
-        
-        <td></td>
-        
-        <td>41.0</td>
-        
-        <td>3.0</td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="9">2023 Wk 5</td></tr>
       
       <tr>
@@ -804,50 +828,6 @@
         <td>3.0</td>
         
         <td>3.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="9">2023 Wk 9</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-maulers.html" class="game-id">MAULERS @ PANTHERS</a></td>
-        <td>19–7</td>
-        
-        <td></td>
-        
-        <td>66.0</td>
-        
-        <td>3.0</td>
-        
-        <td>3.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="9">2023 Wk 10</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>10</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w10-maulers.html" class="game-id">GENERALS @ MAULERS</a></td>
-        <td>6–26</td>
-        
-        <td></td>
-        
-        <td>23.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
         
       </tr>
       
@@ -895,6 +875,94 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/50.html" class="game-id">BATTLEHAWKS @ BRAHMAS</a></td>
+        <td>26–9</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/80.html" class="game-id">ROUGHNECKS @ STALLIONS</a></td>
+        <td>16–23</td>
+        
+        <td></td>
+        
+        <td>23.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2025 Wk 5</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/59.html" class="game-id">BATTLEHAWKS @ PANTHERS</a></td>
+        <td>32–27</td>
+        
+        <td></td>
+        
+        <td>41.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="9">2025 Wk 10</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>10</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/76.html" class="game-id">PANTHERS @ ROUGHNECKS</a></td>
+        <td>12–19</td>
+        
+        <td></td>
+        
+        <td>66.0</td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -905,7 +973,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/tre-walker.json">JSON</a> ·

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jacques Patrick — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jacques Patrick: 1pt_conversion 1.0, conversions 0.0, lost_fumbles 1.0, receiving_yards 238.0, receptions 30.0, rushing_tds 5.0, rushing_yards 443.0">
+  <meta property="og:description" content="Career stats for Jacques Patrick: 1pt_conversion 1.0, conversions 0.0, lost_fumbles 1.0, receiving_yards 287.0, receptions 35.0, rush_attempts 60.0, rushing_tds 7.0, rushing_yards 697.0, solo_tackles 1.0, tackles 1.0, targets 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jacques-patrick.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "XFL 2023",
@@ -175,8 +189,59 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">XFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">65.3</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#709</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">63.9</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#21</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -202,9 +267,17 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_attempts">Rush Attempts</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
         
       </tr>
     </thead>
@@ -217,13 +290,21 @@
         
         <td>1</td>
         
-        <td>238</td>
+        <td>287</td>
         
-        <td>30</td>
+        <td>35</td>
         
-        <td>5</td>
+        <td>60</td>
         
-        <td>443</td>
+        <td>7</td>
+        
+        <td>697</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
         
       </tr>
     </tbody>
@@ -234,11 +315,53 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"XFL-2020": {"rush_attempts": 60.0, "rushing_yards": 254.0, "receptions": 5.0, "receiving_yards": 49.0, "solo_tackles": 1.0, "tackles": 1.0, "targets": 2.0, "rushing_tds": 2.0}, "XFL-2023": {"rushing_yards": 443.0, "receiving_yards": 238.0, "receptions": 30.0, "rushing_tds": 5.0, "lost_fumbles": 1.0, "conversions": 0.0, "1pt_conversion": 1.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -273,13 +396,48 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_attempts">Rush Attempts</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>49</td>
+        
+        <td>5</td>
+        
+        <td>60</td>
+        
+        <td>2</td>
+        
+        <td>254</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+      </tr>
       
       <tr>
         <td>XFL 2023</td>
@@ -294,9 +452,17 @@
         
         <td>30</td>
         
+        <td>—</td>
+        
         <td>5</td>
         
         <td>443</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -311,6 +477,41 @@
 
 
 
+
+<section>
+  <h2>Roster Appearances</h2>
+  <table>
+    <caption>Roster appearances for Jacques Patrick</caption>
+    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
+    <tbody>
+      
+      <tr>
+        <td>Jacques Patrick</td>
+        <td>BRAHMAS</td>
+        <td>RB</td>
+        <td>—</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+      <tr>
+        <td>Jacques Patrick</td>
+        <td>—</td>
+        <td>RB</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
 
 
 <section>
@@ -339,9 +540,17 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="rush_attempts">rush_attempts</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
+        
+        <th scope="col" data-stat="solo_tackles">solo_tackles</th>
+        
+        <th scope="col" data-stat="tackles">tackles</th>
+        
+        <th scope="col" data-stat="targets">targets</th>
         
       </tr>
     </thead>
@@ -351,7 +560,187 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="16">2020 Wk 1</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>1</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-9-tb-ny.html" class="game-id">TB @ NY</a></td>
+        <td>3–23</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>-1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>32.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-15-tb-sea.html" class="game-id">TB @ SEA</a></td>
+        <td>9–17</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td>1.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>73.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-hou-tb.html" class="game-id">HOU @ TB</a></td>
+        <td>34–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td>2.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-1-dc-tb.html" class="game-id">DC @ TB</a></td>
+        <td>0–25</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>1.0</td>
+        
+        <td>108.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-8-tb-la.html" class="game-id">TB @ LA</a></td>
+        <td>34–41</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>1.0</td>
+        
+        <td>7.0</td>
+        
+        <td>1.0</td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="16">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -372,14 +761,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>38.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -400,14 +797,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>19.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -426,16 +831,24 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>36.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -456,14 +869,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -484,14 +905,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -512,14 +941,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>82.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -540,14 +977,22 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>20.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -566,16 +1011,24 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>96.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -594,9 +1047,17 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>80.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -623,12 +1084,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="16">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -647,9 +1116,17 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>41.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -658,12 +1135,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/jacques-patrick.json">JSON</a> ·

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Blake Jackson — AltSports Stats">
-  <meta property="og:description" content="Career stats for Blake Jackson: 1pt_conversion 1.0, 3pt_pass 1.0, conversions 1.0, lost_fumbles 1.0, passing_tds 1.0, passing_yards 57.0, receiving_tds 2.0, receiving_yards 775.0, receptions 81.0, rushing_tds 0.0, rushing_yards 35.0">
+  <meta property="og:description" content="Career stats for Blake Jackson: 1pt_conversion 1.0, 3pt_pass 1.0, conversions 1.0, lost_fumbles 1.0, passing_tds 1.0, passing_yards 57.0, receiving_tds 3.0, receiving_yards 825.0, receptions 86.0, rushing_tds 0.0, rushing_yards 35.0, targets 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/blake-jackson.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "XFL 2020",
+      "description": "League-level player statistics for XFL 2020 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/xfl-2020.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "XFL 2023",
@@ -222,6 +236,12 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
         <span class="ct-yr">'23</span>
         
         <span class="ct-yr">'24</span>
@@ -242,6 +262,12 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
           <span class="ct-cell"></span>
           
         
@@ -250,6 +276,12 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">UFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -266,6 +298,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">62.1</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#937</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">61.2</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#88</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -303,6 +354,8 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -320,15 +373,17 @@
         
         <td>57</td>
         
-        <td>2</td>
+        <td>3</td>
         
-        <td>775</td>
+        <td>825</td>
         
-        <td>81</td>
+        <td>86</td>
         
         <td>0</td>
         
         <td>35</td>
+        
+        <td>2</td>
         
       </tr>
     </tbody>
@@ -346,7 +401,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"XFL-2023": {"receiving_yards": 440.0, "receptions": 45.0, "receiving_tds": 2.0, "conversions": 1.0, "1pt_conversion": 1.0, "3pt_pass": 1.0}, "UFL-2024": {"rushing_yards": 1.0, "rushing_tds": 0.0, "receptions": 7.0, "receiving_yards": 20.0, "receiving_tds": 0.0, "lost_fumbles": 1.0}, "UFL-2025": {"rushing_yards": 26.0, "rushing_tds": 0.0, "receptions": 14.0, "receiving_yards": 194.0, "receiving_tds": 0.0, "passing_yards": 57.0, "passing_tds": 1.0}, "UFL-2026": {"receptions": 15.0, "receiving_yards": 121.0, "receiving_tds": 0.0, "rushing_yards": 8.0, "rushing_tds": 0.0}};
+    var seasons = {"XFL-2020": {"receptions": 5.0, "receiving_yards": 50.0, "receiving_tds": 1.0, "targets": 2.0}, "XFL-2023": {"receiving_yards": 440.0, "receptions": 45.0, "receiving_tds": 2.0, "conversions": 1.0, "1pt_conversion": 1.0, "3pt_pass": 1.0}, "UFL-2024": {"rushing_yards": 1.0, "rushing_tds": 0.0, "receptions": 7.0, "receiving_yards": 20.0, "receiving_tds": 0.0, "lost_fumbles": 1.0}, "UFL-2025": {"rushing_yards": 26.0, "rushing_tds": 0.0, "receptions": 14.0, "receiving_yards": 194.0, "receiving_tds": 0.0, "passing_yards": 57.0, "passing_tds": 1.0}, "UFL-2026": {"receptions": 15.0, "receiving_yards": 121.0, "receiving_tds": 0.0, "rushing_yards": 8.0, "rushing_tds": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -368,6 +423,16 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -454,9 +519,40 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="targets">Targets</th>
+        
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>XFL 2020</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>50</td>
+        
+        <td>5</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+      </tr>
       
       <tr>
         <td>XFL 2023</td>
@@ -478,6 +574,8 @@
         <td>440</td>
         
         <td>45</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -510,6 +608,8 @@
         
         <td>1</td>
         
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -537,6 +637,8 @@
         
         <td>26</td>
         
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -563,6 +665,8 @@
         <td>0</td>
         
         <td>8</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -657,6 +761,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Blake Jackson</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>XFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -700,6 +816,8 @@
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
         
+        <th scope="col" data-stat="targets">targets</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -708,7 +826,159 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="17">2020 Wk 2</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>2</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-16-stl-hou.html" class="game-id">STL @ HOU</a></td>
+        <td>24–28</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2020 Wk 3</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>3</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-2-22-hou-tb.html" class="game-id">HOU @ TB</a></td>
+        <td>34–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2020 Wk 4</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>4</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-1-hou-dal.html" class="game-id">HOU @ DAL</a></td>
+        <td>27–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>26.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2020 Wk 5</td></tr>
+      
+      <tr>
+        <td>2020</td>
+        <td>5</td>
+        <td><a href="../leagues/xfl-2020.html">XFL</a></td>
+        <td><a href="../games/football-xfl-2020-3-7-sea-hou.html" class="game-id">SEA @ HOU</a></td>
+        <td>23–32</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -739,12 +1009,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -775,12 +1047,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -811,12 +1085,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -847,12 +1123,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -883,12 +1161,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -919,12 +1199,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -955,12 +1237,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -986,6 +1270,8 @@
         <td>53.0</td>
         
         <td>4.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1024,12 +1310,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1060,12 +1348,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="17">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1091,6 +1381,8 @@
         <td>44.0</td>
         
         <td>5.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1129,18 +1421,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
         <td>1</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w1-battlehawks.html" class="game-id">PANTHERS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/2.html" class="game-id">PANTHERS @ BATTLEHAWKS</a></td>
         <td>18–16</td>
         
         <td></td>
@@ -1165,18 +1459,20 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
         <td>2</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w2-battlehawks.html" class="game-id">BATTLEHAWKS @ RENEGADES</a></td>
+        <td><a href="../games/6.html" class="game-id">BATTLEHAWKS @ RENEGADES</a></td>
         <td>27–24</td>
         
         <td></td>
@@ -1201,18 +1497,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
         <td>3</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w3-battlehawks.html" class="game-id">BRAHMAS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/12.html" class="game-id">BRAHMAS @ BATTLEHAWKS</a></td>
         <td>24–31</td>
         
         <td></td>
@@ -1237,18 +1535,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
         <td>4</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w4-battlehawks.html" class="game-id">BATTLEHAWKS @ SHOWBOATS</a></td>
+        <td><a href="../games/13.html" class="game-id">BATTLEHAWKS @ SHOWBOATS</a></td>
         <td>32–17</td>
         
         <td></td>
@@ -1273,18 +1573,20 @@
         
         <td>-4.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
         <td>6</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w6-battlehawks.html" class="game-id">BATTLEHAWKS @ ROUGHNECKS</a></td>
+        <td><a href="../games/22.html" class="game-id">BATTLEHAWKS @ ROUGHNECKS</a></td>
         <td>22–6</td>
         
         <td></td>
@@ -1309,18 +1611,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2024 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="17">2024 Wk 9</td></tr>
       
       <tr>
         <td>2024</td>
         <td>9</td>
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2024-w9-battlehawks.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
+        <td><a href="../games/33.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
         <td>36–22</td>
         
         <td></td>
@@ -1345,18 +1649,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
         <td>1</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w1-battlehawks.html" class="game-id">ROUGHNECKS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/79.html" class="game-id">ROUGHNECKS @ BATTLEHAWKS</a></td>
         <td>6–31</td>
         
         <td></td>
@@ -1381,18 +1687,20 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
         <td>2</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w2-battlehawks.html" class="game-id">BATTLEHAWKS @ BRAHMAS</a></td>
+        <td><a href="../games/50.html" class="game-id">BATTLEHAWKS @ BRAHMAS</a></td>
         <td>26–9</td>
         
         <td></td>
@@ -1417,18 +1725,20 @@
         
         <td>-2.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
         <td>4</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w4-battlehawks.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
+        <td><a href="../games/56.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
         <td>30–15</td>
         
         <td></td>
@@ -1453,18 +1763,20 @@
         
         <td>18.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
         <td>5</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w5-battlehawks.html" class="game-id">BATTLEHAWKS @ PANTHERS</a></td>
+        <td><a href="../games/59.html" class="game-id">BATTLEHAWKS @ PANTHERS</a></td>
         <td>32–27</td>
         
         <td></td>
@@ -1489,18 +1801,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
         <td>6</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w6-battlehawks.html" class="game-id">BATTLEHAWKS @ RENEGADES</a></td>
+        <td><a href="../games/62.html" class="game-id">BATTLEHAWKS @ RENEGADES</a></td>
         <td>12–6</td>
         
         <td></td>
@@ -1525,18 +1839,20 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
         <td>7</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w7-battlehawks.html" class="game-id">SHOWBOATS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/68.html" class="game-id">SHOWBOATS @ BATTLEHAWKS</a></td>
         <td>9–19</td>
         
         <td></td>
@@ -1561,18 +1877,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
         <td>8</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w8-battlehawks.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
+        <td><a href="../games/70.html" class="game-id">BATTLEHAWKS @ STALLIONS</a></td>
         <td>29–28</td>
         
         <td></td>
@@ -1597,18 +1915,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
         <td>9</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w9-battlehawks.html" class="game-id">BRAHMAS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/72.html" class="game-id">BRAHMAS @ BATTLEHAWKS</a></td>
         <td>13–39</td>
         
         <td></td>
@@ -1633,18 +1953,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="17">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
         <td>10</td>
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2025-w10-battlehawks.html" class="game-id">DEFENDERS @ BATTLEHAWKS</a></td>
+        <td><a href="../games/75.html" class="game-id">DEFENDERS @ BATTLEHAWKS</a></td>
         <td>8–13</td>
         
         <td></td>
@@ -1669,18 +1991,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
         <td>1</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w1-st-louisbattlehawks.html" class="game-id">DC DEFENDERS @ ST. LOUIS BATTLEHAWKS</a></td>
+        <td><a href="../games/88.html" class="game-id">DC DEFENDERS @ ST. LOUIS BATTLEHAWKS</a></td>
         <td>10–16</td>
         
         <td></td>
@@ -1705,18 +2029,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
         <td>2</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w2-st-louisbattlehawks.html" class="game-id">ST. LOUIS BATTLEHAWKS @ DALLAS RENEGADES</a></td>
+        <td><a href="../games/94.html" class="game-id">ST. LOUIS BATTLEHAWKS @ DALLAS RENEGADES</a></td>
         <td>15–31</td>
         
         <td></td>
@@ -1741,18 +2067,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
         <td>3</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w3-st-louisbattlehawks.html" class="game-id">BIRMINGHAM STALLIONS @ ST. LOUIS BATTLEHAWKS</a></td>
+        <td><a href="../games/98.html" class="game-id">BIRMINGHAM STALLIONS @ ST. LOUIS BATTLEHAWKS</a></td>
         <td>30–34</td>
         
         <td></td>
@@ -1777,18 +2105,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
         <td>4</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w4-st-louisbattlehawks.html" class="game-id">ST. LOUIS BATTLEHAWKS @ DC DEFENDERS</a></td>
+        <td><a href="../games/101.html" class="game-id">ST. LOUIS BATTLEHAWKS @ DC DEFENDERS</a></td>
         <td>22–28</td>
         
         <td></td>
@@ -1813,18 +2143,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
         <td>5</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w5-st-louisbattlehawks.html" class="game-id">ST. LOUIS BATTLEHAWKS @ ORLANDO STORM</a></td>
+        <td><a href="../games/104.html" class="game-id">ST. LOUIS BATTLEHAWKS @ ORLANDO STORM</a></td>
         <td>25–17</td>
         
         <td></td>
@@ -1849,18 +2181,20 @@
         
         <td>7.0</td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
         <td>6</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w6-st-louisbattlehawks.html" class="game-id">ST. LOUIS BATTLEHAWKS @ LOUISVILLE KINGS</a></td>
+        <td><a href="../games/107.html" class="game-id">ST. LOUIS BATTLEHAWKS @ LOUISVILLE KINGS</a></td>
         <td>16–3</td>
         
         <td></td>
@@ -1885,18 +2219,20 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
         <td>7</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/synthetic-ufl-2026-w7-st-louisbattlehawks.html" class="game-id">COLUMBUS AVIATORS @ ST. LOUIS BATTLEHAWKS</a></td>
+        <td><a href="../games/111.html" class="game-id">COLUMBUS AVIATORS @ ST. LOUIS BATTLEHAWKS</a></td>
         <td>20–31</td>
         
         <td></td>
@@ -1921,6 +2257,8 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
       </tr>
       
     </tbody>
@@ -1928,12 +2266,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/blake-jackson.json">JSON</a> ·

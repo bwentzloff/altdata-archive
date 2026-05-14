@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Fred Bruno — AltSports Stats">
-  <meta property="og:description" content="Career stats for Fred Bruno: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 18.0, kr_avg 247.0, kr_long 288.0, kr_tds 2.0, kr_yards 425.0, rec_avg 153.0, rec_long 189.0, receiving_fum 0.0, receiving_tds 7.0, receiving_yards 306.0, receptions 21.0, rush_avg 46.0, rush_long 96.0, rushing_attempts 30.0, rushing_fum 0.0, rushing_tds 8.0, rushing_yards 158.0, sacks 0.0, safeties 0.0, tackles 3.0">
+  <meta property="og:description" content="Career stats for Fred Bruno: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 18.0, kr_avg 247.0, kr_long 288.0, kr_tds 2.0, kr_yards 425.0, pass_td 1.0, rec_avg 153.0, rec_long 189.0, receiving_fum 0.0, receiving_tds 7.0, receiving_yards 306.0, receptions 21.0, rush_avg 46.0, rush_long 96.0, rushing_attempts 30.0, rushing_fum 0.0, rushing_tds 8.0, rushing_yards 158.0, sacks 0.0, safeties 0.0, tackles 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/fred-bruno.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -211,6 +225,17 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -222,14 +247,14 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">60.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#842</div>
+        <div class="badge-rank">#1042</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">52.8</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#108</div>
+        <div class="badge-rank">#145</div>
       </div>
       
     </div>
@@ -272,6 +297,8 @@
         <th scope="col" data-stat="kr_tds">Kr Tds</th>
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
+        <th scope="col" data-stat="pass_td">Pass Td</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -332,6 +359,8 @@
         
         <td>425</td>
         
+        <td>1</td>
+        
         <td>153</td>
         
         <td>189</td>
@@ -378,7 +407,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"NAL-2025": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 11.0, "kr_avg": 140.0, "kr_long": 158.0, "kr_tds": 0.0, "kr_yards": 248.0, "rec_avg": 79.0, "rec_long": 96.0, "receiving_fum": 0.0, "receiving_tds": 4.0, "receiving_yards": 127.0, "receptions": 9.0, "rush_avg": 33.0, "rush_long": 50.0, "rushing_attempts": 18.0, "rushing_fum": 0.0, "rushing_tds": 4.0, "rushing_yards": 98.0, "sacks": 0.0, "safeties": 0.0, "tackles": 3.0}, "NAL-2026": {"kick_returns": 7.0, "kr_avg": 107.0, "kr_long": 130.0, "kr_tds": 2.0, "kr_yards": 177.0, "rec_avg": 74.0, "rec_long": 93.0, "receiving_fum": 0.0, "receiving_tds": 3.0, "receiving_yards": 179.0, "receptions": 12.0, "rush_avg": 13.0, "rush_long": 46.0, "rushing_attempts": 12.0, "rushing_fum": 0.0, "rushing_tds": 4.0, "rushing_yards": 60.0}};
+    var seasons = {"NAL-2025": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 11.0, "kr_avg": 140.0, "kr_long": 158.0, "kr_tds": 0.0, "kr_yards": 248.0, "rec_avg": 79.0, "rec_long": 96.0, "receiving_fum": 0.0, "receiving_tds": 4.0, "receiving_yards": 127.0, "receptions": 9.0, "rush_avg": 33.0, "rush_long": 50.0, "rushing_attempts": 18.0, "rushing_fum": 0.0, "rushing_tds": 4.0, "rushing_yards": 98.0, "sacks": 0.0, "safeties": 0.0, "tackles": 3.0}, "UFL-2025": {"pass_td": 1.0}, "NAL-2026": {"kick_returns": 7.0, "kr_avg": 107.0, "kr_long": 130.0, "kr_tds": 2.0, "kr_yards": 177.0, "rec_avg": 74.0, "rec_long": 93.0, "receiving_fum": 0.0, "receiving_tds": 3.0, "receiving_yards": 179.0, "receptions": 12.0, "rush_avg": 13.0, "rush_long": 46.0, "rushing_attempts": 12.0, "rushing_fum": 0.0, "rushing_tds": 4.0, "rushing_yards": 60.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -460,6 +489,10 @@
     
       
     
+  
+    
+      
+    
       
     
       
@@ -524,6 +557,8 @@
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -585,6 +620,8 @@
         
         <td>248</td>
         
+        <td>—</td>
+        
         <td>79</td>
         
         <td>96</td>
@@ -618,6 +655,67 @@
       </tr>
       
       <tr>
+        <td>UFL 2025</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
         <td>—</td>
@@ -643,6 +741,8 @@
         <td>2</td>
         
         <td>177</td>
+        
+        <td>—</td>
         
         <td>74</td>
         
@@ -729,6 +829,8 @@
         
         <th scope="col" data-stat="kr_yards">kr_yards</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
         <th scope="col" data-stat="rec_avg">rec_avg</th>
         
         <th scope="col" data-stat="rec_long">rec_long</th>
@@ -767,7 +869,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -799,6 +901,8 @@
         <td>0.0</td>
         
         <td>20.0</td>
+        
+        <td></td>
         
         <td>19.0</td>
         
@@ -835,7 +939,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -867,6 +971,8 @@
         <td>0.0</td>
         
         <td>39.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -903,7 +1009,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -948,6 +1054,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>4.0</td>
@@ -971,7 +1079,77 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 5</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-26-mich-stl.html" class="game-id">MICH @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="33">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1004,6 +1182,8 @@
         
         <td>32.0</td>
         
+        <td></td>
+        
         <td>7.0</td>
         
         <td>7.0</td>
@@ -1039,7 +1219,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1071,6 +1251,8 @@
         <td>0.0</td>
         
         <td>77.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1107,7 +1289,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1139,6 +1321,8 @@
         <td>0.0</td>
         
         <td>36.0</td>
+        
+        <td></td>
         
         <td>34.0</td>
         
@@ -1175,7 +1359,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="33">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1183,6 +1367,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-5-10-t425360g979281-t425361.html" class="game-id">Omaha Beef @ Sioux City Bandits</a></td>
         <td>55–42</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1243,7 +1429,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="33">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1275,6 +1461,8 @@
         <td>0.0</td>
         
         <td>42.0</td>
+        
+        <td></td>
         
         <td>14.0</td>
         
@@ -1311,7 +1499,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="33">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1343,6 +1531,8 @@
         <td>1.0</td>
         
         <td>73.0</td>
+        
+        <td></td>
         
         <td>16.0</td>
         
@@ -1379,7 +1569,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="33">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1411,6 +1601,8 @@
         <td>0.0</td>
         
         <td>22.0</td>
+        
+        <td></td>
         
         <td>12.0</td>
         
@@ -1447,7 +1639,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="33">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1479,6 +1671,8 @@
         <td>1.0</td>
         
         <td>40.0</td>
+        
+        <td></td>
         
         <td>13.0</td>
         
@@ -1515,7 +1709,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="33">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1523,6 +1717,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-9-t566773g1127168-t570666.html" class="game-id">Amarillo Warbirds @ Sioux City Bandits</a></td>
         <td>18–65</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1598,7 +1794,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/fred-bruno.json">JSON</a> ·

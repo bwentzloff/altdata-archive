@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>John Mitchell Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for John Mitchell (TE, WR) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for John Mitchell (WR, TE) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/john-mitchell.html">
 
@@ -33,12 +33,12 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "John Mitchell",
-  "description": "John Mitchell played TE, WR in USFL, UFL.",
+  "description": "John Mitchell played WR, TE in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/john-mitchell.html",
   "sameAs": [],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Professional TE",
+    "name": "Professional WR",
     "occupationalCategory": "Athletes, Coaches, Umpires, and Related Workers"
   }
 }
@@ -77,6 +77,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -133,9 +147,9 @@
       
     </h1>
     <p class="player-meta">
-      TE / WR
+      WR / TE
       <span class="sep">·</span>
-      USFL, UFL
+      UFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -174,6 +188,47 @@
     })();
     </script>
 
+    
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
     
   </div>
 
@@ -214,11 +269,41 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"receptions": 1.0, "receiving_yards": 7.0}, "UFL-2025": {"receptions": 1.0, "receiving_yards": 12.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
   
     
       
@@ -244,9 +329,18 @@
       <tr>
         <td>USFL 2023</td>
         
-        <td>19</td>
+        <td>7</td>
         
-        <td>2</td>
+        <td>1</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>12</td>
+        
+        <td>1</td>
         
       </tr>
       
@@ -338,24 +432,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-showboats.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
-        <td>42–2</td>
-        
-        <td>12.0</td>
-        
-        <td>1.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="7">2023 Wk 6</td></tr>
       
       <tr>
@@ -371,6 +447,24 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/49.html" class="game-id">RENEGADES @ ROUGHNECKS</a></td>
+        <td>11–9</td>
+        
+        <td>12.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -381,7 +475,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/john-mitchell.json">JSON</a> ·

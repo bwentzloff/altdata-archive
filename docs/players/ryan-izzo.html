@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryan Izzo Stats — AltSports Archive</title>
-  <meta name="description" content="Career and season stats for Ryan Izzo (TE) across USFL, UFL. Free historical alternative sports data.">
+  <meta name="description" content="Career and season stats for Ryan Izzo (TE) across UFL, USFL. Free historical alternative sports data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://archive.altfantasysports.com/players/ryan-izzo.html">
 
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ryan Izzo",
-  "description": "Ryan Izzo played TE in USFL, UFL.",
+  "description": "Ryan Izzo played TE in UFL, USFL.",
   "url": "https://archive.altfantasysports.com/players/ryan-izzo.html",
   "sameAs": [],
   "hasOccupation": {
@@ -77,6 +77,20 @@
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -135,7 +149,7 @@
     <p class="player-meta">
       TE
       <span class="sep">·</span>
-      USFL, UFL
+      UFL, USFL
     </p>
 
     <!-- Share buttons (only show if OG image exists) -->
@@ -174,6 +188,47 @@
     })();
     </script>
 
+    
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">USFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
     
   </div>
 
@@ -218,11 +273,43 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"USFL-2023": {"receptions": 1.0, "receiving_yards": 1.0, "receiving_tds": 1.0}, "UFL-2025": {"receptions": 1.0, "receiving_yards": 22.0, "receiving_tds": 0.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -254,9 +341,20 @@
         
         <td>1</td>
         
-        <td>23</td>
+        <td>1</td>
         
-        <td>2</td>
+        <td>1</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>0</td>
+        
+        <td>22</td>
+        
+        <td>1</td>
         
       </tr>
       
@@ -350,46 +448,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 4</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>4</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w4-stars.html" class="game-id">STARS @ GAMBLERS</a></td>
-        <td>16–41</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="8">2023 Wk 7</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-stars.html" class="game-id">MAULERS @ STARS</a></td>
-        <td>31–37</td>
-        
-        <td>0.0</td>
-        
-        <td>22.0</td>
-        
-        <td>1.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="8">2023 Wk 8</td></tr>
       
       <tr>
@@ -410,20 +468,60 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="8">2025 Wk 1</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>9</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w9-stars.html" class="game-id">GENERALS @ STARS</a></td>
-        <td>37–33</td>
+        <td>2025</td>
+        <td>1</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/79.html" class="game-id">ROUGHNECKS @ BATTLEHAWKS</a></td>
+        <td>6–31</td>
         
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="8">2025 Wk 4</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/56.html" class="game-id">RENEGADES @ BATTLEHAWKS</a></td>
+        <td>30–15</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="8">2025 Wk 8</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/69.html" class="game-id">BRAHMAS @ SHOWBOATS</a></td>
+        <td>22–24</td>
+        
+        <td>0.0</td>
+        
+        <td>22.0</td>
+        
+        <td>1.0</td>
         
       </tr>
       
@@ -437,7 +535,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/ryan-izzo.json">JSON</a> ·

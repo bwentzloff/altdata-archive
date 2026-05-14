@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Billy Reagins Jr. — AltSports Stats">
-  <meta property="og:description" content="Career stats for Billy Reagins Jr.: rush_avg 5.0, rush_long 9.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0">
+  <meta property="og:description" content="Career stats for Billy Reagins Jr.: pass_td 2.0, rush_avg 5.0, rush_long 9.0, rush_td 1.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/billy-reagins-jr.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "UFL 2026",
+      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,9 +225,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">28.8</div>
+        <div class="badge-number">37.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1704</div>
+        <div class="badge-rank">#2003</div>
       </div>
       
       
@@ -205,9 +248,13 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -222,9 +269,13 @@
     <tbody>
       <tr>
         
+        <td>2</td>
+        
         <td>5</td>
         
         <td>9</td>
+        
+        <td>1</td>
         
         <td>4</td>
         
@@ -243,11 +294,41 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2026": {"pass_td": 2.0, "rush_td": 1.0}, "NAL-2026": {"rush_avg": 5.0, "rush_long": 9.0, "rushing_attempts": 4.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 11.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
   
     
       
@@ -270,9 +351,13 @@
       <tr>
         <th scope="col">Season</th>
         
+        <th scope="col" data-stat="pass_td">Pass Td</th>
+        
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
         <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
@@ -289,9 +374,13 @@
       <tr>
         <td>NAL 2026</td>
         
+        <td>—</td>
+        
         <td>5</td>
         
         <td>9</td>
+        
+        <td>—</td>
         
         <td>4</td>
         
@@ -300,6 +389,27 @@
         <td>0</td>
         
         <td>11</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2026</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -332,9 +442,13 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="pass_td">pass_td</th>
+        
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
         <th scope="col" data-stat="rush_long">rush_long</th>
+        
+        <th scope="col" data-stat="rush_td">rush_td</th>
         
         <th scope="col" data-stat="rushing_attempts">rushing_attempts</th>
         
@@ -352,7 +466,37 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="13">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-11-hou-dc.html" class="game-id">HOU @ DC</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -361,9 +505,13 @@
         <td><a href="../games/football-nal-2026-3-28-t570666g1127148-t577047.html" class="game-id">Sioux City Bandits @ Pueblo Punishers</a></td>
         <td>34–39</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -377,8 +525,35 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-17-lou-hou.html" class="game-id">LOU @ HOU</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 6</td></tr>
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -387,9 +562,13 @@
         <td><a href="../games/football-nal-2026-4-11-t573852g1127153-t577047.html" class="game-id">Louisiana Rouxgaroux @ Pueblo Punishers</a></td>
         <td>38–55</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>7.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -398,6 +577,33 @@
         <td>0.0</td>
         
         <td>9.0</td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-5-2-hou-clb.html" class="game-id">HOU @ CLB</a></td>
+        <td>—</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -417,7 +623,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/billy-reagins-jr.json">JSON</a> ·

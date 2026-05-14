@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Marcus Green — AltSports Stats">
-  <meta property="og:description" content="Career stats for Marcus Green: receiving_tds 0.0, receiving_yards 71.0, receptions 4.0, rushing_tds 0.0, rushing_yards 21.0">
+  <meta property="og:description" content="Career stats for Marcus Green: receiving_tds 0.0, receiving_yards 71.0, receptions 4.0, ret_lg 20.0, ret_num 3.0, ret_yds 56.0, rushing_tds 0.0, rushing_yards 21.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/marcus-green.html">
   
@@ -74,9 +74,37 @@
     
     {
       "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "USFL 2023",
       "description": "League-level player statistics for USFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/usfl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -198,6 +226,10 @@
         
         <span class="ct-yr">'23</span>
         
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -213,6 +245,39 @@
           <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell"></span>
           
@@ -247,6 +312,39 @@
           
           <span class="ct-cell ct-on"></span>
           
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
         
       </div>
       
@@ -254,6 +352,25 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">44.7</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1812</div>
+      </div>
+      
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">44.3</div>
+        <div class="badge-label">WR</div>
+        <div class="badge-rank">#181</div>
+      </div>
+      
+    </div>
+  </div>
   
 </div>
 
@@ -275,6 +392,12 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -290,6 +413,12 @@
         
         <td>4</td>
         
+        <td>20</td>
+        
+        <td>3</td>
+        
+        <td>56</td>
+        
         <td>0</td>
         
         <td>21</td>
@@ -303,11 +432,53 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2021": {"ret_num": 3.0, "ret_yds": 56.0, "ret_lg": 20.0}, "USFL-2023": {"receptions": 1.0, "receiving_yards": 20.0, "rushing_yards": 0.0, "rushing_tds": 0.0}, "UFL-2025": {"rushing_yards": 21.0, "rushing_tds": 0.0, "receptions": 3.0, "receiving_yards": 51.0, "receiving_tds": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -334,6 +505,12 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -343,13 +520,61 @@
     <tbody>
       
       <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>20</td>
+        
+        <td>3</td>
+        
+        <td>56</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>USFL 2023</td>
+        
+        <td>—</td>
+        
+        <td>20</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
-        <td>71</td>
+        <td>0</td>
         
-        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>0</td>
+        
+        <td>51</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -486,6 +711,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Marcus Green</td>
+        <td>—</td>
+        <td>WR</td>
+        <td>CFL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -513,6 +750,12 @@
         
         <th scope="col" data-stat="receptions">receptions</th>
         
+        <th scope="col" data-stat="ret_lg">ret_lg</th>
+        
+        <th scope="col" data-stat="ret_num">ret_num</th>
+        
+        <th scope="col" data-stat="ret_yds">ret_yds</th>
+        
         <th scope="col" data-stat="rushing_tds">rushing_tds</th>
         
         <th scope="col" data-stat="rushing_yards">rushing_yards</th>
@@ -525,7 +768,37 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="13">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-10-11-tor-ham.html" class="game-id">TOR @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>20.0</td>
+        
+        <td>3.0</td>
+        
+        <td>56.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -544,19 +817,61 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="13">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
-        <td>2</td>
+        <td>5</td>
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-generals.html" class="game-id">MAULERS @ GENERALS</a></td>
-        <td>3–20</td>
+        <td><a href="../games/synthetic-usfl-2023-w5-generals.html" class="game-id">STARS @ GENERALS</a></td>
+        <td>21–21</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="13">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/50.html" class="game-id">BATTLEHAWKS @ BRAHMAS</a></td>
+        <td>26–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -573,20 +888,26 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="13">2025 Wk 4</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>3</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w3-generals.html" class="game-id">PANTHERS @ GENERALS</a></td>
-        <td>13–28</td>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/55.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
+        <td>27–9</td>
         
         <td>0.0</td>
         
         <td>11.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -596,39 +917,42 @@
       
       
       
-      
-      <tr class="week-group-row"><td colspan="10">2023 Wk 5</td></tr>
-      
       <tr>
-        <td>2023</td>
-        <td>5</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w5-generals.html" class="game-id">STARS @ GENERALS</a></td>
-        <td>21–21</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
+        <td>2025</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/80.html" class="game-id">ROUGHNECKS @ STALLIONS</a></td>
+        <td>16–23</td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="13">2025 Wk 7</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>6</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w6-generals.html" class="game-id">GAMBLERS @ GENERALS</a></td>
-        <td>16–10</td>
+        <td>2025</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/67.html" class="game-id">STALLIONS @ ROUGHNECKS</a></td>
+        <td>33–25</td>
         
         <td>0.0</td>
         
@@ -640,19 +964,25 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="13">2025 Wk 8</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>7</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w7-generals.html" class="game-id">GENERALS @ PANTHERS</a></td>
-        <td>22–25</td>
+        <td>2025</td>
+        <td>8</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/71.html" class="game-id">DEFENDERS @ RENEGADES</a></td>
+        <td>33–30</td>
         
         <td>0.0</td>
         
@@ -664,19 +994,25 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="10">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="13">2025 Wk 9</td></tr>
       
       <tr>
-        <td>2023</td>
-        <td>8</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w8-generals.html" class="game-id">GENERALS @ SHOWBOATS</a></td>
-        <td>16–25</td>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/74.html" class="game-id">STALLIONS @ PANTHERS</a></td>
+        <td>26–22</td>
         
         <td>0.0</td>
         
@@ -688,25 +1024,7 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2023 Wk 10</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>10</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w10-generals.html" class="game-id">GENERALS @ MAULERS</a></td>
-        <td>6–26</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
         
@@ -719,12 +1037,20 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/marcus-green.json">JSON</a> ·

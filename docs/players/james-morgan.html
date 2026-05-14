@@ -88,6 +88,20 @@
     ,
     {
       "@type": "Dataset",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
       "name": "CFL 2025",
       "description": "League-level player statistics for CFL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2025.json",
@@ -297,6 +311,33 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -361,7 +402,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2023": {"passing_yards": 210.0, "passing_tds": 0.0, "interceptions_lost": 3.0, "rushing_yards": 7.0, "rushing_tds": 0.0, "lost_fumbles": 2.0}, "CFL-2025": {"passing_yards": 547.0, "passing_tds": 2.0, "interceptions_lost": 4.0, "rushing_yards": 17.0, "rushing_tds": 0.0}};
+    var seasons = {"USFL-2023": {"passing_yards": 156.0, "passing_tds": 0.0, "interceptions_lost": 2.0, "rushing_yards": 13.0, "rushing_tds": 0.0}, "UFL-2025": {"passing_yards": 54.0, "passing_tds": 0.0, "interceptions_lost": 1.0, "rushing_yards": -6.0, "rushing_tds": 0.0, "lost_fumbles": 2.0}, "CFL-2025": {"passing_yards": 547.0, "passing_tds": 2.0, "interceptions_lost": 4.0, "rushing_yards": 17.0, "rushing_tds": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -383,6 +424,18 @@
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -436,17 +489,17 @@
       <tr>
         <td>USFL 2023</td>
         
-        <td>3</td>
-        
         <td>2</td>
         
-        <td>0</td>
-        
-        <td>210</td>
+        <td>—</td>
         
         <td>0</td>
         
-        <td>7</td>
+        <td>156</td>
+        
+        <td>0</td>
+        
+        <td>13</td>
         
       </tr>
       
@@ -464,6 +517,23 @@
         <td>0</td>
         
         <td>17</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2025</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>54</td>
+        
+        <td>0</td>
+        
+        <td>-6</td>
         
       </tr>
       
@@ -704,32 +774,6 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2023 Wk 2</td></tr>
-      
-      <tr>
-        <td>2023</td>
-        <td>2</td>
-        <td><a href="../leagues/usfl-2023.html">USFL</a></td>
-        <td><a href="../games/synthetic-usfl-2023-w2-maulers.html" class="game-id">MAULERS @ GENERALS</a></td>
-        <td>3–20</td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>54.0</td>
-        
-        <td>0.0</td>
-        
-        <td>-6.0</td>
-        
-      </tr>
-      
-      
-      
-      
       <tr class="week-group-row"><td colspan="11">2023 Wk 6</td></tr>
       
       <tr>
@@ -756,13 +800,39 @@
       
       
       
+      <tr class="week-group-row"><td colspan="11">2025 Wk 2</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>2</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/50.html" class="game-id">BATTLEHAWKS @ BRAHMAS</a></td>
+        <td>26–9</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>54.0</td>
+        
+        <td>0.0</td>
+        
+        <td>-6.0</td>
+        
+      </tr>
+      
+      
+      
+      
       <tr class="week-group-row"><td colspan="11">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
         <td>11</td>
         <td><a href="../leagues/cfl-2025.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2025-w11-mtl.html" class="game-id">MTL @ BC</a></td>
+        <td><a href="../games/11824087.html" class="game-id">MTL @ BC</a></td>
         <td>18–36</td>
         
         <td>1.0</td>
@@ -788,7 +858,7 @@
         <td>2025</td>
         <td>12</td>
         <td><a href="../leagues/cfl-2025.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2025-w12-mtl.html" class="game-id">WPG @ MTL</a></td>
+        <td><a href="../games/11824088.html" class="game-id">WPG @ MTL</a></td>
         <td>26–13</td>
         
         <td>2.0</td>
@@ -814,7 +884,7 @@
         <td>2025</td>
         <td>14</td>
         <td><a href="../leagues/cfl-2025.html">CFL</a></td>
-        <td><a href="../games/synthetic-cfl-2025-w14-mtl.html" class="game-id">HAM @ MTL</a></td>
+        <td><a href="../games/11824096.html" class="game-id">HAM @ MTL</a></td>
         <td>26–9</td>
         
         <td>1.0</td>
@@ -841,7 +911,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-13.
+      Data updated: 2026-05-14.
       Formats:
       
 <a href="../data/players/james-morgan.json">JSON</a> ·
