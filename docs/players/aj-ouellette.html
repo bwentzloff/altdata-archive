@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="A.J. OUELLETTE — AltSports Stats">
-  <meta property="og:description" content="Career stats for A.J. OUELLETTE: interceptions_lost 0.0, lost_fumbles 1.0, passing_tds 1.0, passing_yards 26.0, receiving_tds 4.0, receiving_yards 929.0, receptions 118.0, recv_lg 5.0, recv_rec 7.0, recv_tar 8.0, recv_td 1.0, recv_yac 30.0, recv_yds 46.0, rush_att 33.0, rush_fd 1.0, rush_lg 62.0, rush_yds 138.0, rushing_tds 27.0, rushing_yards 3974.0, score_p 1.0, score_pts 6.0, score_tot 1.0">
+  <meta property="og:description" content="Career stats for A.J. OUELLETTE: interceptions_lost 0.0, lost_fumbles 1.0, passing_tds 1.0, passing_yards 26.0, receiving_tds 4.0, receiving_yards 929.0, receptions 118.0, recv_lg 5.0, recv_rec 7.0, recv_tar 8.0, recv_td 1.0, recv_yac 30.0, recv_yds 46.0, ret_lg 27.0, ret_num 4.0, ret_yds 34.0, rush_att 60.0, rush_fd 1.0, rush_lg 123.0, rush_yds 289.0, rushing_tds 27.0, rushing_yards 3974.0, score_p 1.0, score_pts 6.0, score_tot 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/aj-ouellette.html">
   
@@ -77,6 +77,20 @@
       "name": "CFL 2019",
       "description": "League-level player statistics for CFL 2019 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2019.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2021",
+      "description": "League-level player statistics for CFL 2021 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2021.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -311,7 +325,7 @@
           
           <span class="ct-cell"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -369,6 +383,12 @@
         
         <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
         <th scope="col" data-stat="rush_att">Rush Att</th>
         
         <th scope="col" data-stat="rush_fd">Rush Fd</th>
@@ -418,13 +438,19 @@
         
         <td>46</td>
         
-        <td>33</td>
+        <td>27</td>
+        
+        <td>4</td>
+        
+        <td>34</td>
+        
+        <td>60</td>
         
         <td>1</td>
         
-        <td>62</td>
+        <td>123</td>
         
-        <td>138</td>
+        <td>289</td>
         
         <td>27</td>
         
@@ -452,7 +478,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2019": {"rush_att": 33.0, "rush_yds": 138.0, "rush_lg": 62.0, "recv_rec": 7.0, "recv_yds": 46.0, "recv_td": 1.0, "recv_tar": 8.0, "recv_yac": 30.0, "score_tot": 1.0, "score_p": 1.0, "score_pts": 6.0, "recv_lg": 5.0, "rush_fd": 1.0}, "CFL-2022": {"rushing_yards": 454.0, "rushing_tds": 2.0, "receiving_yards": 264.0, "receiving_tds": 1.0, "receptions": 31.0}, "CFL-2023": {"rushing_yards": 1009.0, "rushing_tds": 9.0, "receptions": 15.0, "receiving_yards": 140.0, "passing_yards": 26.0, "passing_tds": 1.0, "receiving_tds": 1.0}, "CFL-2024": {"rushing_yards": 1289.0, "rushing_tds": 8.0, "lost_fumbles": 1.0, "receptions": 37.0, "receiving_yards": 275.0, "receiving_tds": 1.0, "passing_yards": 0.0, "passing_tds": 0.0, "interceptions_lost": 0.0}, "CFL-2025": {"rushing_yards": 1222.0, "rushing_tds": 8.0, "receptions": 35.0, "receiving_yards": 250.0, "receiving_tds": 1.0}};
+    var seasons = {"CFL-2019": {"rush_att": 33.0, "rush_yds": 138.0, "rush_lg": 62.0, "recv_rec": 7.0, "recv_yds": 46.0, "recv_td": 1.0, "recv_tar": 8.0, "recv_yac": 30.0, "score_tot": 1.0, "score_p": 1.0, "score_pts": 6.0, "recv_lg": 5.0, "rush_fd": 1.0}, "CFL-2021": {"rush_att": 27.0, "rush_yds": 151.0, "rush_lg": 61.0, "ret_num": 4.0, "ret_yds": 34.0, "ret_lg": 27.0}, "CFL-2022": {"rushing_yards": 454.0, "rushing_tds": 2.0, "receiving_yards": 264.0, "receiving_tds": 1.0, "receptions": 31.0}, "CFL-2023": {"rushing_yards": 1009.0, "rushing_tds": 9.0, "receptions": 15.0, "receiving_yards": 140.0, "passing_yards": 26.0, "passing_tds": 1.0, "receiving_tds": 1.0}, "CFL-2024": {"rushing_yards": 1289.0, "rushing_tds": 8.0, "lost_fumbles": 1.0, "receptions": 37.0, "receiving_yards": 275.0, "receiving_tds": 1.0, "passing_yards": 0.0, "passing_tds": 0.0, "interceptions_lost": 0.0}, "CFL-2025": {"rushing_yards": 1222.0, "rushing_tds": 8.0, "receptions": 35.0, "receiving_yards": 250.0, "receiving_tds": 1.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -489,6 +515,20 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -596,6 +636,12 @@
         
         <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
+        <th scope="col" data-stat="ret_lg">Ret Lg</th>
+        
+        <th scope="col" data-stat="ret_num">Ret Num</th>
+        
+        <th scope="col" data-stat="ret_yds">Ret Yds</th>
+        
         <th scope="col" data-stat="rush_att">Rush Att</th>
         
         <th scope="col" data-stat="rush_fd">Rush Fd</th>
@@ -647,6 +693,12 @@
         
         <td>46</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>33</td>
         
         <td>1</td>
@@ -668,6 +720,61 @@
       </tr>
       
       <tr>
+        <td>CFL 2021</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>27</td>
+        
+        <td>4</td>
+        
+        <td>34</td>
+        
+        <td>27</td>
+        
+        <td>—</td>
+        
+        <td>61</td>
+        
+        <td>151</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>CFL 2022</td>
         
         <td>—</td>
@@ -683,6 +790,12 @@
         <td>264</td>
         
         <td>31</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -753,6 +866,12 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>9</td>
         
         <td>1009</td>
@@ -802,6 +921,12 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>8</td>
         
         <td>1289</td>
@@ -830,6 +955,12 @@
         <td>250</td>
         
         <td>35</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -1062,6 +1193,12 @@
         
         <th scope="col" data-stat="recv_yds">recv_yds</th>
         
+        <th scope="col" data-stat="ret_lg">ret_lg</th>
+        
+        <th scope="col" data-stat="ret_num">ret_num</th>
+        
+        <th scope="col" data-stat="ret_yds">ret_yds</th>
+        
         <th scope="col" data-stat="rush_att">rush_att</th>
         
         <th scope="col" data-stat="rush_fd">rush_fd</th>
@@ -1088,7 +1225,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2019 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2019 Wk 1</td></tr>
       
       <tr>
         <td>2019</td>
@@ -1096,6 +1233,12 @@
         <td><a href="../leagues/cfl-2019.html">CFL</a></td>
         <td><a href="../games/football-cfl-2019-10-18-tor-mtl.html" class="game-id">TOR @ MTL</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1178,6 +1321,12 @@
         
         <td>39.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>11.0</td>
         
         <td></td>
@@ -1206,6 +1355,12 @@
         <td><a href="../leagues/cfl-2019.html">CFL</a></td>
         <td><a href="../games/football-cfl-2019-11-2-tor-ham.html" class="game-id">TOR @ HAM</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1288,6 +1443,12 @@
         
         <td>7.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>7.0</td>
         
         <td></td>
@@ -1343,6 +1504,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td>1.0</td>
@@ -1366,7 +1533,376 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2021 Wk 1</td></tr>
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-10-11-tor-ham.html" class="game-id">TOR @ HAM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td>2.0</td>
+        
+        <td>15.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-12-ham-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-11-6-tor-ott.html" class="game-id">TOR @ OTT</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>30.0</td>
+        
+        <td>107.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-12-5-ham-tor.html" class="game-id">HAM @ TOR</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td>2.0</td>
+        
+        <td>19.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-8-13-tor-wpg.html" class="game-id">TOR @ WPG</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2021</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2021.html">CFL</a></td>
+        <td><a href="../games/football-cfl-2021-8-7-tor-cgy.html" class="game-id">TOR @ CGY</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="30">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1374,6 +1910,12 @@
         <td><a href="../leagues/cfl-2022.html">CFL</a></td>
         <td><a href="../games/6244.html" class="game-id">HAM @ TOR</a></td>
         <td>20–34</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1424,7 +1966,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1467,6 +2009,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>47.0</td>
@@ -1482,7 +2030,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1525,6 +2073,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>18.0</td>
@@ -1540,7 +2094,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 14</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1583,6 +2137,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>29.0</td>
@@ -1598,7 +2158,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 16</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1641,6 +2201,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>57.0</td>
@@ -1656,7 +2222,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 17</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1699,6 +2265,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>66.0</td>
@@ -1714,7 +2286,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 18</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1757,6 +2329,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>44.0</td>
@@ -1772,7 +2350,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 19</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1815,6 +2393,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>91.0</td>
@@ -1830,7 +2414,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2022 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 20</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1873,6 +2457,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>92.0</td>
@@ -1888,7 +2478,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 2</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1896,6 +2486,12 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889290.html" class="game-id">HAM @ TOR</a></td>
         <td>14–32</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1946,7 +2542,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1954,6 +2550,12 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889294.html" class="game-id">TOR @ EDM</a></td>
         <td>43–31</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2004,7 +2606,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 4</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2047,6 +2649,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>70.0</td>
@@ -2062,7 +2670,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 6</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2107,6 +2715,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>95.0</td>
         
         <td></td>
@@ -2120,7 +2734,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 7</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2165,6 +2779,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>84.0</td>
         
         <td></td>
@@ -2178,7 +2798,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 8</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2223,6 +2843,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>34.0</td>
         
         <td></td>
@@ -2236,7 +2862,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 9</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2281,6 +2907,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>32.0</td>
         
         <td></td>
@@ -2294,7 +2926,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 10</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2339,6 +2971,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>90.0</td>
         
         <td></td>
@@ -2352,7 +2990,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 12</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2397,6 +3035,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>82.0</td>
         
         <td></td>
@@ -2410,7 +3054,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 13</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2455,6 +3099,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>79.0</td>
         
         <td></td>
@@ -2468,7 +3118,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 14</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2476,6 +3126,12 @@
         <td><a href="../leagues/cfl-2023.html">CFL</a></td>
         <td><a href="../games/9889335.html" class="game-id">MTL @ TOR</a></td>
         <td>10–39</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2526,7 +3182,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 15</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2569,6 +3225,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>53.0</td>
@@ -2584,7 +3246,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 17</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2629,6 +3291,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>26.0</td>
         
         <td></td>
@@ -2642,7 +3310,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 18</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2685,6 +3353,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>65.0</td>
@@ -2700,7 +3374,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2023 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 20</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2743,6 +3417,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>50.0</td>
@@ -2758,7 +3438,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2801,6 +3481,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>21.0</td>
@@ -2816,7 +3502,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2859,6 +3545,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>96.0</td>
@@ -2874,7 +3566,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2917,6 +3609,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>91.0</td>
@@ -2932,7 +3630,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2975,6 +3673,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>139.0</td>
@@ -2990,7 +3694,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 5</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3033,6 +3737,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>67.0</td>
@@ -3048,7 +3758,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3091,6 +3801,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>9.0</td>
@@ -3106,7 +3822,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3149,6 +3865,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>72.0</td>
@@ -3164,7 +3886,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3207,6 +3929,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>62.0</td>
@@ -3222,7 +3950,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 9</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3265,6 +3993,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>74.0</td>
@@ -3280,7 +4014,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 11</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3323,6 +4057,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>84.0</td>
@@ -3338,7 +4078,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 12</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3381,6 +4121,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>65.0</td>
@@ -3396,7 +4142,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 13</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3439,6 +4185,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>89.0</td>
@@ -3454,7 +4206,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 14</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3497,6 +4249,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>50.0</td>
@@ -3512,7 +4270,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 15</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3555,6 +4313,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>90.0</td>
@@ -3570,7 +4334,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 17</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3613,6 +4377,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>115.0</td>
@@ -3628,7 +4398,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 18</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3671,6 +4441,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>53.0</td>
@@ -3686,7 +4462,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 19</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3729,6 +4505,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>69.0</td>
@@ -3744,7 +4526,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2024 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 21</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3787,6 +4569,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>43.0</td>
@@ -3802,7 +4590,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3847,6 +4635,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>21.0</td>
         
         <td></td>
@@ -3860,7 +4654,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3868,6 +4662,12 @@
         <td><a href="../leagues/cfl-2025.html">CFL</a></td>
         <td><a href="../games/11824052.html" class="game-id">SSK @ HAM</a></td>
         <td>28–23</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3918,7 +4718,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3961,6 +4761,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>91.0</td>
@@ -3976,7 +4782,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4019,6 +4825,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>139.0</td>
@@ -4034,7 +4846,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4079,6 +4891,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>9.0</td>
         
         <td></td>
@@ -4092,7 +4910,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4137,6 +4955,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>72.0</td>
         
         <td></td>
@@ -4150,7 +4974,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4195,6 +5019,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>62.0</td>
         
         <td></td>
@@ -4208,7 +5038,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4253,6 +5083,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>74.0</td>
         
         <td></td>
@@ -4266,7 +5102,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4311,6 +5147,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>84.0</td>
         
         <td></td>
@@ -4324,7 +5166,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 12</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4369,6 +5211,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>65.0</td>
         
         <td></td>
@@ -4382,7 +5230,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 13</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4425,6 +5273,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>89.0</td>
@@ -4440,7 +5294,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4483,6 +5337,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>50.0</td>
@@ -4498,7 +5358,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 15</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4541,6 +5401,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>90.0</td>
@@ -4556,7 +5422,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 17</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4599,6 +5465,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>115.0</td>
@@ -4614,7 +5486,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 18</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4657,6 +5529,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>53.0</td>
@@ -4672,7 +5550,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 19</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4717,6 +5595,12 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>69.0</td>
         
         <td></td>
@@ -4730,7 +5614,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 21</td></tr>
       
       <tr>
         <td>2025</td>
@@ -4752,6 +5636,12 @@
         <td>9.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
