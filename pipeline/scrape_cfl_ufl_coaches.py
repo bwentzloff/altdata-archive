@@ -156,13 +156,30 @@ _ROLE_FIRST_WORDS = {kw.split()[0] for kw in ROLE_KEYWORDS}
 _ROLE_FIRST_WORDS.update({"Front", "Coaches", "Co"})
 
 # Match optional "Role/Subrole" before the dash, then up to 4 capitalized
-# name tokens after the dash.
+# name tokens after the dash. The role part is matched case-insensitively
+# (Wikipedia infoboxes write "Head coach" with a lowercase 'c'); the name
+# part keeps its strict capitalization requirement.
 PAIR_RE = re.compile(
     r"(?P<role>(?:" + _ROLE_ALT + r")(?:\s*/\s*[A-Za-z][\w\s\-&]*?)?)"
     r"\s+[–-]\s+"
     r"(?P<name>[A-Z][A-Za-z'\.\-]+"
     r"(?:\s+(?:[A-Z][A-Za-z'\.\-]+|Jr\.?|Sr\.?|II|III|IV)){1,2})",
+    re.IGNORECASE,
 )
+# Same alternation, used for trim/cleanup logic.
+_ROLE_ALT_RE = re.compile(r"\s+(?:" + _ROLE_ALT + r")\b", re.IGNORECASE)
+_ROLE_FIRST_WORDS_LC = {w.lower() for w in _ROLE_FIRST_WORDS}
+_ROLE_CANON = {kw.lower(): kw for kw in ROLE_KEYWORDS}
+
+
+def _canonicalize_role(role: str) -> str:
+    """Title-case a captured role, preferring the canonical ROLE_KEYWORDS spelling."""
+    parts = re.split(r"\s*/\s*", role.strip())
+    out = []
+    for p in parts:
+        canon = _ROLE_CANON.get(p.lower())
+        out.append(canon if canon else p.strip().title())
+    return "/".join(out)
 
 
 def extract_coaches_from_html(html: str, league: str, year: int, team_abbr: str) -> list[dict]:
@@ -176,7 +193,13 @@ def extract_coaches_from_html(html: str, league: str, year: int, team_abbr: str)
 
     for header in soup.find_all(["h2", "h3", "h4"]):
         title = header.get_text(" ", strip=True).lower()
-        if "coaching staff" not in title and "coaches" not in title:
+        # UFL pages use just "Staff"; CFL pages use "Coaching staff" or
+        # "Coaches". Match any of these.
+        if not (
+            "coaching staff" in title
+            or "coaches" in title
+            or title.strip() == "staff"
+        ):
             continue
 
         # Collect the text from siblings until the next same-or-higher heading.
@@ -201,17 +224,14 @@ def extract_coaches_from_html(html: str, league: str, year: int, team_abbr: str)
         # Collapse runs of whitespace to a single space.
         text = re.sub(r"\s+", " ", text)
         for m in PAIR_RE.finditer(text):
-            role = m.group("role").strip()
+            role = _canonicalize_role(m.group("role"))
             name = m.group("name").strip()
 
             # Truncate the name at the first occurrence of any role keyword
             # bleeding in from the next pair (e.g. "Stephen Sorrells Running
             # Backs" → "Stephen Sorrells").
-            cut = re.search(
-                r"\s+(?:" + _ROLE_ALT + r")\b",
-                " " + name,  # leading space so a name that *starts* with a
-                                # role-word isn't mangled
-            )
+            cut = _ROLE_ALT_RE.search(" " + name)  # leading space so a name
+                                # that *starts* with a role-word isn't mangled
             if cut:
                 name = (" " + name)[: cut.start()].strip()
 
@@ -219,7 +239,7 @@ def extract_coaches_from_html(html: str, league: str, year: int, team_abbr: str)
             # (catches single-word bleed like "Jason Tucker Running" where
             # only the leading token of "Running Backs" got captured).
             tokens = name.split()
-            while len(tokens) >= 2 and tokens[-1] in _ROLE_FIRST_WORDS:
+            while len(tokens) >= 2 and tokens[-1].lower() in _ROLE_FIRST_WORDS_LC:
                 tokens.pop()
             name = " ".join(tokens)
 

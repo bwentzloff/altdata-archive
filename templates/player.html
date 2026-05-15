@@ -235,7 +235,51 @@
 {% if is_coach %}
 <section class="coaching-career-section">
   <h2>Coaching Career</h2>
-  <p>{{ player.canonical_name }} has served as a coach in alternative sports leagues, managing teams and developing players across multiple seasons.</p>
+  {% set summary = player.coach_summary or {} %}
+  {% if summary %}
+  <p>
+    {{ player.canonical_name }} has coached
+    {{ summary.season_count }} team-season{{ "s" if summary.season_count != 1 else "" }}
+    {% if summary.year_span %}({{ summary.year_span }}){% endif %}
+    across {{ summary.team_count }} team{{ "s" if summary.team_count != 1 else "" }}
+    in {{ summary.leagues | join(", ") }}.
+  </p>
+  {% endif %}
+
+  {% if player.coaching_appearances %}
+  <table class="data-table">
+    <caption>{{ player.canonical_name }} coaching appearances</caption>
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">League</th>
+        <th scope="col">Team</th>
+        <th scope="col">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in player.coaching_appearances %}
+      <tr>
+        <td>{{ a.year }}</td>
+        <td>{{ a.league }}</td>
+        <td>{{ a.team }}</td>
+        <td>{{ a.role }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if player.players_coached %}
+  <details class="coached-roster">
+    <summary><strong>Players coached</strong> ({{ player.players_coached | length }})</summary>
+    <ul class="player-list-inline">
+      {% for p in player.players_coached %}
+      <li><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.name }}</a><span class="muted"> ({{ p.team }} {{ p.year }}{% if p.position %}, {{ p.position }}{% endif %})</span></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
 </section>
 {% endif %}
 
@@ -314,6 +358,9 @@
     <thead>
       <tr>
         <th scope="col">Season</th>
+        {% if player.season_coaches %}
+        <th scope="col">Coach</th>
+        {% endif %}
         {% for k in all_stat_keys %}
         <th scope="col" data-stat="{{ k }}">{{ k | stat_label }}</th>
         {% endfor %}
@@ -323,6 +370,31 @@
       {% for season_key, stats in player.season_totals.items() | sort_seasons %}
       <tr>
         <td>{{ season_key.replace("-", " ") }}</td>
+        {% if player.season_coaches %}
+        <td>
+          {% set staff_groups = player.season_coaches.get(season_key, []) %}
+          {% if staff_groups %}
+            {% for group in staff_groups %}
+              {% set hc = namespace(c=none) %}
+              {% for c in group.coaches %}
+                {% if hc.c is none and 'head coach' in c.role | lower and 'assistant' not in c.role | lower %}
+                  {% set hc.c = c %}
+                {% endif %}
+              {% endfor %}
+              {% if hc.c %}
+                <a href="{{ root }}players/{{ hc.c.canonical_id }}.html">{{ hc.c.name }}</a>{% if not loop.last %}; {% endif %}
+              {% else %}
+                {% set first_coach = group.coaches | first %}
+                {% if first_coach %}
+                  <a href="{{ root }}players/{{ first_coach.canonical_id }}.html">{{ first_coach.name }}</a>{% if not loop.last %}; {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            —
+          {% endif %}
+        </td>
+        {% endif %}
         {% for k in all_stat_keys %}
         <td>{{ stats.get(k, "") | smart_num if stats.get(k) is not none and stats.get(k) != "" else "—" }}</td>
         {% endfor %}

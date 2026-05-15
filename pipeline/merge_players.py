@@ -444,27 +444,28 @@ def main():
             if px != py:
                 coach_parent[px] = py
 
-        # Coaches should be matched more strictly — same name and same/compatible role
+        # Coach clustering: same normalized name = same person.
+        # Coaches reuse a name far less often than players, and they
+        # legitimately change roles year-over-year (assistant → coordinator
+        # → HC) and across teams. Requiring role equality (the old
+        # behaviour) fragmented Rick Campbell into 3 separate canonical
+        # coaches, one per role string.
         all_coach_norms = list(coaches_by_norm_name.keys())
         coach_merged_count = 0
 
-        # Pass 1: exact name + role matches
+        # Pass 1: union every record sharing an exact normalized name.
         for norm, group in coaches_by_norm_name.items():
             if len(group) < 2:
                 continue
-            for i in range(len(group)):
-                for j in range(i + 1, len(group)):
-                    c1, c2 = group[i], group[j]
-                    # Merge if same name and role (head coaches, coordinators, etc.)
-                    role1 = c1.get("position", "").lower()
-                    role2 = c2.get("position", "").lower()
-                    if role1 == role2:
-                        i1, i2 = coach_id_to_idx[c1["id"]], coach_id_to_idx[c2["id"]]
-                        if coach_find(i1) != coach_find(i2):
-                            coach_union(i1, i2)
-                            coach_merged_count += 1
+            base = coach_id_to_idx[group[0]["id"]]
+            for c in group[1:]:
+                idx = coach_id_to_idx[c["id"]]
+                if coach_find(base) != coach_find(idx):
+                    coach_union(base, idx)
+                    coach_merged_count += 1
 
-        # Pass 2: fuzzy match similar names (less strict than players)
+        # Pass 2: fuzzy-merge near-identical names (handles "J.C. Sherritt"
+        # vs "J. C. Sherritt", "Bob Dyce" vs "Bobby Dyce", etc.).
         for norm, group in coaches_by_norm_name.items():
             if len(norm) < 4:
                 continue
@@ -472,7 +473,7 @@ def main():
                 norm,
                 all_coach_norms,
                 scorer=fuzz.token_sort_ratio,
-                score_cutoff=95,  # Higher threshold for coaches
+                score_cutoff=92,
                 limit=5,
             )
             for match_name, score, _ in matches:
@@ -482,14 +483,11 @@ def main():
                     for c2 in coaches_by_norm_name[match_name]:
                         if c1["id"] == c2["id"]:
                             continue
-                        role1 = c1.get("position", "").lower()
-                        role2 = c2.get("position", "").lower()
-                        if role1 == role2:
-                            i1 = coach_id_to_idx[c1["id"]]
-                            i2 = coach_id_to_idx[c2["id"]]
-                            if coach_find(i1) != coach_find(i2):
-                                coach_union(i1, i2)
-                                coach_merged_count += 1
+                        i1 = coach_id_to_idx[c1["id"]]
+                        i2 = coach_id_to_idx[c2["id"]]
+                        if coach_find(i1) != coach_find(i2):
+                            coach_union(i1, i2)
+                            coach_merged_count += 1
 
         print(f"Merged {coach_merged_count} coach record pairs")
 

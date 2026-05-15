@@ -768,6 +768,52 @@ def main():
     if coaches_merged:
         print(f"Loaded {len(coaches_merged)} canonical coaches")
 
+    # Build (league, year, team) -> [coach summary] index. Used to attach
+    # per-season coaching staff to player pages, and to render coach-of
+    # rosters on coach pages. Each coach summary has the canonical id +
+    # name + role string from that team-season appearance.
+    team_season_coaches: dict[tuple[str, int, str], list[dict]] = {}
+    # Priority order for sorting roles within a team-season (HC first,
+    # coordinators next, position coaches last).
+    _ROLE_PRIORITY = [
+        ("head coach", 0),
+        ("offensive coordinator", 1),
+        ("defensive coordinator", 1),
+        ("special teams coordinator", 2),
+        ("assistant head coach", 3),
+    ]
+
+    def _role_rank(role: str) -> int:
+        rl = (role or "").lower()
+        for needle, rank in _ROLE_PRIORITY:
+            if needle in rl:
+                # Demote "assistant head coach" since it contains "head coach".
+                if "assistant" in rl and needle == "head coach":
+                    continue
+                return rank
+        return 9
+
+    for _coach in coaches_merged:
+        for _app in _coach.get("appearances", []):
+            _league = _app.get("league")
+            _year = _app.get("year")
+            _team = _app.get("team")
+            if not (_league and _year and _team):
+                continue
+            key = (_league, int(_year), _team)
+            team_season_coaches.setdefault(key, []).append({
+                "canonical_id": _coach["canonical_id"],
+                "name": _coach["canonical_name"],
+                "role": _app.get("role") or "",
+            })
+
+    # Sort each team-season's coach list by role priority then name.
+    for _k, _coaches in team_season_coaches.items():
+        _coaches.sort(key=lambda c: (_role_rank(c["role"]), c["name"]))
+
+    if team_season_coaches:
+        print(f"Built coach-of-team-season index: {len(team_season_coaches)} team-seasons")
+
     def _register_injected_players(_players):
         """Register synthetic/injected player IDs into canonical lookup maps."""
         for _p in _players:
@@ -1285,6 +1331,11 @@ def main():
     print("Writing player files ...")
     search_index = []
 
+    # Collected as a side-effect of player processing: which players were
+    # on which (league, year, team). Used later to build "players coached"
+    # rosters on coach pages.
+    league_year_team_players: dict[tuple[str, int, str], list[dict]] = {}
+
     for cp in players_merged:
         cid = cp["canonical_id"]
         totals = dict(player_stat_totals.get(cid, {}))
@@ -1327,6 +1378,89 @@ def main():
                     by_season[skey][stat] += val
         season_totals = {k: dict(v) for k, v in by_season.items()}
 
+        # Attach coaching staff per (league-season). For each season the
+        # player has stats in, derive the team(s) they were on by looking
+        # at which team appears most often in their game_log entries
+        # for that league-season (a player is on one team all year, so
+        # that team appears in every game's home_team or away_team).
+        # season_coaches: { "UFL-2024": [ {team, coaches:[{canonical_id,name,role}]} ] }
+        season_coaches: dict[str, list[dict]] = {}
+        if team_season_coaches:
+            # Pre-bucket games by (league, season) and tally team frequencies.
+            from collections import Counter as _Counter
+            _games_by_ls: dict[tuple[str, int], list[dict]] = {}
+            for _g in game_log_by_game:
+                _l = _g.get("league") or ""
+                _s = _g.get("season")
+                if not _l or _s in (None, ""):
+                    continue
+                try:
+                    _yr_g = int(_s)
+                except (TypeError, ValueError):
+                    continue
+                _games_by_ls.setdefault((_l, _yr_g), []).append(_g)
+
+            # Also accept appearance-derived (league, team) when game_log is
+            # absent (e.g. coach-as-player synthetic appearances or pure
+            # roster injects with team set).
+            _app_teams_by_lg: dict[str, set[str]] = {}
+            for _app in cp.get("appearances", []):
+                _al = _app.get("league") or ""
+                _at = _app.get("team") or ""
+                if _al and _at:
+                    _app_teams_by_lg.setdefault(_al, set()).add(_at)
+
+            for skey in season_totals.keys():
+                if "-" not in skey:
+                    continue
+                _league, _season_str = skey.split("-", 1)
+                try:
+                    _yr = int(_season_str)
+                except ValueError:
+                    continue
+
+                _player_teams: list[str] = []
+                _games = _games_by_ls.get((_league, _yr), [])
+                if _games:
+                    _tally: _Counter = _Counter()
+                    for _g in _games:
+                        for _side in ("away_team", "home_team"):
+                            _t = _g.get(_side) or ""
+                            if _t:
+                                _tally[_t] += 1
+                    if _tally:
+                        # Player's team = most-frequent team across the
+                        # season's games. Take all teams tied for max in
+                        # case of mid-season trade (rare but possible).
+                        _max_n = max(_tally.values())
+                        _player_teams = [
+                            t for t, n in _tally.items() if n == _max_n
+                        ]
+                # Fallback to appearance teams if no game_log evidence.
+                if not _player_teams:
+                    _player_teams = sorted(_app_teams_by_lg.get(_league, set()))
+
+                _by_team: dict[str, list[dict]] = {}
+                for _team in _player_teams:
+                    if _team in _by_team:
+                        continue
+                    # Record this player as having played for this
+                    # team-season (used by coach pages).
+                    league_year_team_players.setdefault(
+                        (_league, _yr, _team), []
+                    ).append({
+                        "canonical_id": cid,
+                        "name": cp["canonical_name"],
+                        "position": (cp.get("positions") or [None])[0],
+                    })
+                    _staff = team_season_coaches.get((_league, _yr, _team))
+                    if _staff:
+                        _by_team[_team] = _staff
+                if _by_team:
+                    season_coaches[skey] = [
+                        {"team": t, "coaches": s} for t, s in _by_team.items()
+                    ]
+
         player_data = {
             "canonical_id": cid,
             "canonical_name": cp["canonical_name"],
@@ -1340,6 +1474,7 @@ def main():
             ],
             "career_totals": totals,
             "season_totals": season_totals,
+            "season_coaches": season_coaches,
             "game_log": game_log_by_game,
             "college": _match_college(cp, college_name_index, college_stats_data),
             "nfl":     nfl_stats_data.get(cid),
@@ -1384,10 +1519,63 @@ def main():
     print(f"Written {len(players_merged)} player files")
 
     # ─── Coach player files ───────────────────────────────────────────────
-    # Write coaches as player JSON files so they can be linked from league pages
+    # Write coaches as player JSON files so they can be linked from league pages.
+    # We use league_year_team_players (built during the player loop) to
+    # surface "players coached" rosters per coaching appearance.
+
     for coach in coaches_merged:
         cid = coach["canonical_id"]
-        
+
+        # Enrich coaching appearances: sort chronologically, include role,
+        # and attach the per-team-season player roster.
+        _apps_raw = coach.get("appearances", [])
+        coaching_appearances = sorted(
+            [
+                {
+                    "year": a.get("year"),
+                    "league": a.get("league"),
+                    "team": a.get("team"),
+                    "role": a.get("role") or "",
+                }
+                for a in _apps_raw
+                if a.get("year") and a.get("league") and a.get("team")
+            ],
+            key=lambda a: (a["year"] or 0, a["league"] or "", a["team"] or ""),
+        )
+
+        # Roster of players the coach was on staff with. Dedup by canonical_id;
+        # keep the earliest year/team they appeared for as their "coached as".
+        _player_seen: dict[str, dict] = {}
+        for _ca in coaching_appearances:
+            _key = (_ca["league"], _ca["year"], _ca["team"])
+            for _p in league_year_team_players.get(_key, []):
+                if _p["canonical_id"] in _player_seen:
+                    continue
+                _player_seen[_p["canonical_id"]] = {
+                    "canonical_id": _p["canonical_id"],
+                    "name": _p["name"],
+                    "position": _p["position"],
+                    "year": _ca["year"],
+                    "team": _ca["team"],
+                    "league": _ca["league"],
+                }
+        players_coached = sorted(_player_seen.values(), key=lambda p: p["name"])
+
+        # Summary aggregates.
+        _years = sorted({a["year"] for a in coaching_appearances if a["year"]})
+        _teams = sorted({a["team"] for a in coaching_appearances if a["team"]})
+        _leagues = sorted({a["league"] for a in coaching_appearances if a["league"]})
+        coach_summary = {
+            "year_span": (
+                f"{_years[0]}–{_years[-1]}" if len(_years) >= 2
+                else (str(_years[0]) if _years else "")
+            ),
+            "team_count": len(_teams),
+            "season_count": len(coaching_appearances),
+            "leagues": _leagues,
+            "teams": _teams,
+        }
+
         # Build coach player data in same format as regular players
         coach_data = {
             "canonical_id": cid,
@@ -1399,11 +1587,17 @@ def main():
             "appearances": coach.get("appearances", []),
             "career_totals": {},  # Coaches don't have stat totals
             "season_totals": {},
+            "season_coaches": {},
             "game_log": [],  # Coaches don't have game logs
             "college": None,
             "nfl": None,
+            # Coach-specific enrichment
+            "coach_summary": coach_summary,
+            "coaching_appearances": coaching_appearances,
+            "players_coached": players_coached,
+            "roles": coach.get("roles", []),
         }
-        
+
         write_json_xml(SITE_DATA / "players" / cid, coach_data, root_tag="player")
     
     # Add coaches to search index
