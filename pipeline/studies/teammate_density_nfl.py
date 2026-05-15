@@ -591,8 +591,17 @@ def compute(data_dir: Path) -> dict:
 
     if box_rows:
         league_dispersion_leader = box_rows[0]
+        league_dispersion_trailer = box_rows[-1]
     else:
         league_dispersion_leader = None
+        league_dispersion_trailer = None
+
+    if league_rows:
+        league_top_after = max(league_rows, key=lambda r: r["after_pct"])
+        league_low_after = min(league_rows, key=lambda r: r["after_pct"])
+    else:
+        league_top_after = None
+        league_low_after = None
 
     headline_stats = [
         {
@@ -672,6 +681,32 @@ def compute(data_dir: Path) -> dict:
                     f"after-rate among leagues with enough observations (median {league_dispersion_leader['median']}%, n={league_dispersion_leader['n']}).</p>"
                     if league_dispersion_leader else ""
                 )
+            ),
+        },
+        {
+            "heading": "Conclusions",
+            "html": (
+                "<ol>"
+                f"<li><strong>NFL-heavy locker rooms are associated with better NFL outcomes later.</strong> "
+                f"Across player-density groups, the top-density cohort is at {d10_pct}% versus {d1_pct}% at the bottom. "
+                "That is a large practical gap.</li>"
+                + (
+                    f"<li><strong>League context is not uniform.</strong> On pooled eligible team-seasons, "
+                    f"{league_top_after['league']} shows the highest reached-after rate ({league_top_after['after_pct']}%), "
+                    f"while {league_low_after['league']} is lowest ({league_low_after['after_pct']}%).</li>"
+                    if league_top_after and league_low_after else ""
+                )
+                + (
+                    f"<li><strong>Typical team-season performance differs from single-year spikes.</strong> "
+                    f"The strongest median league in the box plot is {league_dispersion_leader['label']} "
+                    f"(median {league_dispersion_leader['median']}%), while the weakest median is "
+                    f"{league_dispersion_trailer['label']} (median {league_dispersion_trailer['median']}%).</li>"
+                    if league_dispersion_leader and league_dispersion_trailer else ""
+                )
+                +
+                "<li><strong>Caveat:</strong> these are <em>associations</em>, not causal estimates. "
+                "The study can show that team environment and NFL outcomes move together, but it cannot prove that adding NFL veterans by itself causes later NFL conversion.</li>"
+                "</ol>"
             ),
         },
     ]
