@@ -193,8 +193,12 @@
     var bg2 = css('--bg2') || '#1f2937';
     var accent = PALETTE[1];
 
+    canvas.style.display = 'block';
+    canvas.style.width = '100%';
+
+    var parent = canvas.parentElement;
     var dpr = window.devicePixelRatio || 1;
-    var cssW = canvas.clientWidth || 760;
+    var cssW = (parent && parent.clientWidth) || canvas.clientWidth || 760;
     var cssH = Math.max(280, 58 + boxes.length * 34);
     canvas.style.height = cssH + 'px';
     canvas.width = Math.floor(cssW * dpr);
