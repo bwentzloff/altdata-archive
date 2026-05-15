@@ -180,6 +180,13 @@ def compute(data_dir: Path) -> dict:
             })
             g["players"].add(cid)
 
+    # Determine the most recent NFL season in the data to exclude incomplete seasons.
+    # (e.g., 2026 UFL teams mid-season have not had time for players to move to NFL yet)
+    max_nfl_season_in_data = max(
+        (meta.get("max_nfl_season") for meta in players_meta.values() if meta.get("max_nfl_season")),
+        default=None
+    )
+
     # League baselines:
     #   nfl  = share of roster records belonging to NFL veterans (ever in NFL)
     #   after = share of roster records where the player reached the NFL AFTER
@@ -188,6 +195,9 @@ def compute(data_dir: Path) -> dict:
     for g in groups.values():
         lg = g["league"]
         ts_year = _season_int(g.get("season"))
+        # Skip incomplete team-seasons (same year as max NFL data — players haven't had time yet)
+        if max_nfl_season_in_data is not None and ts_year is not None and ts_year >= max_nfl_season_in_data:
+            continue
         c = league_counts.setdefault(lg, {"records": 0, "nfl": 0, "after": 0})
         for cid in g["players"]:
             c["records"] += 1
@@ -219,6 +229,9 @@ def compute(data_dir: Path) -> dict:
             continue
 
         ts_year = _season_int(g.get("season"))
+        # Skip incomplete team-seasons
+        if max_nfl_season_in_data is not None and ts_year is not None and ts_year >= max_nfl_season_in_data:
+            continue
         nfl_in_group = sum(1 for cid in roster if players_meta.get(cid, {}).get("in_nfl"))
         if ts_year is not None:
             after_in_group = sum(
