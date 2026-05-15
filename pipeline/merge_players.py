@@ -349,10 +349,10 @@ def main():
         canonical_id = base_slug if count == 1 else f"{base_slug}-{count}"
 
         # Collect all positions, leagues, sport_ids
-        positions = list({r.get("position", "") for r in records if r.get("position")})
-        leagues = list({r.get("league") for r in records if r.get("league")})
-        sport_ids = list({r.get("sport_id") for r in records if r.get("sport_id")})
-        sport_names = list({
+        positions = sorted({r.get("position", "") for r in records if r.get("position")})
+        leagues = sorted({r.get("league") for r in records if r.get("league")})
+        sport_ids = sorted({r.get("sport_id") for r in records if r.get("sport_id")})
+        sport_names = sorted({
             sport_map[sid]["name"] for sid in sport_ids if sid in sport_map
         })
 
@@ -507,8 +507,8 @@ def main():
             canonical_id = base_slug if count == 1 else f"{base_slug}-{count}"
 
             # Collect roles, leagues
-            roles = list({r.get("position", "") for r in records if r.get("position")})
-            leagues = list({r.get("league") for r in records if r.get("league")})
+            roles = sorted({r.get("position", "") for r in records if r.get("position")})
+            leagues = sorted({r.get("league") for r in records if r.get("league")})
             years = sorted(set(r.get("_year") for r in records if r.get("_year")))
 
             canonical_coaches.append({
