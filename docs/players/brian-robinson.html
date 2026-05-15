@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Brian Robinson — AltSports Stats">
-  <meta property="og:description" content="Career stats for Brian Robinson: assisted_tackles 7.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 2.0, kr_avg 29.0, kr_long 29.0, kr_tds 0.0, kr_yards 29.0, rec_avg 94.0, rec_long 105.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 231.0, receptions 19.0, rush_avg 4.0, rush_long 4.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 4.0, sacks 0.0, safeties 0.0, tackles 19.0">
+  <meta property="og:description" content="Career stats for Brian Robinson: assisted_tackles 7.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, games_played 8.0, kick_returns 85.0, kr_avg 29.0, kr_long 29.0, kr_tds 20.0, kr_yards 42.8, pr_avg 0.0, pr_tds 0.0, punt_returns 3.0, rec_avg 102.3, rec_long 128.0, receiving_fum 0.0, receiving_tds 3.0, receiving_yards 456.0, receiving_yards_per_game 28.1, receptions 46.0, receptions_per_game 3.4, rush_avg 4.0, rush_long 4.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 5.0, sacks 0.0, safeties 0.0, tackles 19.0, total_yards 308.0, yards_per_game 38.5">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/brian-robinson.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "NAL",
+      "description": "League-level player statistics for NAL from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2025",
@@ -222,14 +236,14 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">60.4</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1051</div>
+        <div class="badge-rank">#1127</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">60.6</div>
         <div class="badge-label">RB</div>
-        <div class="badge-rank">#30</div>
+        <div class="badge-rank">#32</div>
       </div>
       
     </div>
@@ -263,6 +277,8 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="games_played">Games Played</th>
+        
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
         <th scope="col" data-stat="kr_avg">Kr Avg</th>
@@ -272,6 +288,12 @@
         <th scope="col" data-stat="kr_tds">Kr Tds</th>
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
+        <th scope="col" data-stat="pr_avg">Pr Avg</th>
+        
+        <th scope="col" data-stat="pr_tds">Pr Tds</th>
+        
+        <th scope="col" data-stat="punt_returns">Punt Returns</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -283,7 +305,11 @@
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
+        <th scope="col" data-stat="receiving_yards_per_game">Receiving Yards Per Game</th>
+        
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="receptions_per_game">Receptions Per Game</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -302,6 +328,10 @@
         <th scope="col" data-stat="safeties">Safeties</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="total_yards">Total Yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">Yards Per Game</th>
         
       </tr>
     </thead>
@@ -322,27 +352,39 @@
         
         <td>0</td>
         
-        <td>2</td>
+        <td>8</td>
+        
+        <td>85</td>
         
         <td>29</td>
         
         <td>29</td>
+        
+        <td>20</td>
+        
+        <td>42.8</td>
         
         <td>0</td>
         
-        <td>29</td>
+        <td>0</td>
         
-        <td>94</td>
+        <td>3</td>
         
-        <td>105</td>
+        <td>102.3</td>
+        
+        <td>128</td>
         
         <td>0</td>
         
-        <td>2</td>
+        <td>3</td>
         
-        <td>231</td>
+        <td>456</td>
         
-        <td>19</td>
+        <td>28.1</td>
+        
+        <td>46</td>
+        
+        <td>3.4</td>
         
         <td>4</td>
         
@@ -354,13 +396,17 @@
         
         <td>0</td>
         
-        <td>4</td>
+        <td>5</td>
         
         <td>0</td>
         
         <td>0</td>
         
         <td>19</td>
+        
+        <td>308</td>
+        
+        <td>38.5</td>
         
       </tr>
     </tbody>
@@ -729,6 +775,18 @@
         </td>
       </tr>
       
+      <tr>
+        <td>Brian Robinson</td>
+        <td>JERSEY FLIGHT</td>
+        <td>WR</td>
+        <td>NAL</td>
+        <td>
+          
+          —
+          
+        </td>
+      </tr>
+      
     </tbody>
   </table>
 </section>
@@ -764,6 +822,8 @@
         
         <th scope="col" data-stat="fumble_recoveries">fumble_recoveries</th>
         
+        <th scope="col" data-stat="games_played">games_played</th>
+        
         <th scope="col" data-stat="kick_returns">kick_returns</th>
         
         <th scope="col" data-stat="kr_avg">kr_avg</th>
@@ -773,6 +833,12 @@
         <th scope="col" data-stat="kr_tds">kr_tds</th>
         
         <th scope="col" data-stat="kr_yards">kr_yards</th>
+        
+        <th scope="col" data-stat="pr_avg">pr_avg</th>
+        
+        <th scope="col" data-stat="pr_tds">pr_tds</th>
+        
+        <th scope="col" data-stat="punt_returns">punt_returns</th>
         
         <th scope="col" data-stat="rec_avg">rec_avg</th>
         
@@ -784,7 +850,11 @@
         
         <th scope="col" data-stat="receiving_yards">receiving_yards</th>
         
+        <th scope="col" data-stat="receiving_yards_per_game">receiving_yards_per_game</th>
+        
         <th scope="col" data-stat="receptions">receptions</th>
+        
+        <th scope="col" data-stat="receptions_per_game">receptions_per_game</th>
         
         <th scope="col" data-stat="rush_avg">rush_avg</th>
         
@@ -804,6 +874,10 @@
         
         <th scope="col" data-stat="tackles">tackles</th>
         
+        <th scope="col" data-stat="total_yards">total_yards</th>
+        
+        <th scope="col" data-stat="yards_per_game">yards_per_game</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -812,7 +886,91 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="40">—</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>—</td>
+        <td><a href="../leagues/nal.html">nal</a></td>
+        <td><a href="../games/football-nal-2021-jersey-flight-season-total.html" class="game-id">FOOTBALL_NAL_2021_jersey-flight_SEASON_TOTAL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>83.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>20.0</td>
+        
+        <td>13.8</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>8.3</td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>225.0</td>
+        
+        <td>28.1</td>
+        
+        <td>27.0</td>
+        
+        <td>3.4</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>308.0</td>
+        
+        <td>38.5</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="40">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -820,6 +978,14 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-3-21-t425356g979257-t434514.html" class="game-id">Carolina Cobras @ Columbus Lions</a></td>
         <td>0–25</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -855,7 +1021,15 @@
         
         <td>55.0</td>
         
+        <td></td>
+        
         <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -880,7 +1054,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -913,6 +1087,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>34.0</td>
         
         <td>0.0</td>
@@ -922,8 +1104,16 @@
         <td>0.0</td>
         
         <td>34.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -948,7 +1138,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -956,6 +1146,14 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-18-t463723g979268-t434514.html" class="game-id">Beaumont Renegades @ Columbus Lions</a></td>
         <td>44–37</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -991,7 +1189,15 @@
         
         <td>67.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1016,7 +1222,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1049,6 +1255,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>24.0</td>
         
         <td>40.0</td>
@@ -1058,6 +1272,8 @@
         <td>1.0</td>
         
         <td>47.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -1073,18 +1289,24 @@
         
         <td></td>
         
-        <td>0.0</td>
+        <td></td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="40">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1092,6 +1314,14 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-5-10-t450150g979282-t434514.html" class="game-id">Shreveport Rouxgaroux @ Columbus Lions</a></td>
         <td>20–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1127,7 +1357,11 @@
         
         <td>15.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1147,12 +1381,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1185,6 +1423,14 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>7.0</td>
         
         <td>12.0</td>
@@ -1195,7 +1441,11 @@
         
         <td>13.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1215,12 +1465,16 @@
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1243,6 +1497,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>10.0</td>
@@ -1277,18 +1533,32 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>2.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1345,18 +1615,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>6.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1413,18 +1699,34 @@
         
         <td></td>
         
-        <td>0.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1447,6 +1749,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>19.0</td>
@@ -1481,18 +1785,32 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1549,18 +1867,34 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>6.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="40">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1617,11 +1951,27 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1643,7 +1993,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-14.
+      Data updated: 2026-05-15.
       Formats:
       
 <a href="../data/players/brian-robinson.json">JSON</a> ·

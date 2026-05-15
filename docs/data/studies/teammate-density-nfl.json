@@ -10,7 +10,7 @@
     "team-season",
     "network"
   ],
-  "computed_at": "2026-05-14T20:18:57+00:00",
+  "computed_at": "2026-05-15T01:15:49+00:00",
   "headline_stats": [
     {
       "label": "Top incubator team-season",
@@ -133,61 +133,41 @@
       "note": "Only counts players whose first NFL appearance came AFTER this team-season. Minimum roster size 15."
     },
     {
-      "id": "chart-incubator-network",
-      "type": "network",
-      "title": "Bridge players who reached the NFL after multiple high-yield team-seasons",
-      "nodes": [
+      "id": "chart-league-distribution",
+      "type": "bar",
+      "title": "NFL footprint by league (team-seasons with a chance to reach the NFL afterward)",
+      "labels": [
+        "XFL",
+        "USFL",
+        "CFL",
+        "ELF",
+        "IFL"
+      ],
+      "datasets": [
         {
-          "id": "team:1:HOU",
-          "label": "USFL 2022 HOU",
-          "value": 6,
-          "is_nfl": false
+          "label": "NFL veterans on roster (%)",
+          "data": [
+            5.7,
+            3.4,
+            0.9,
+            0.1,
+            0.0
+          ]
         },
         {
-          "id": "team:1:PIT",
-          "label": "USFL 2022 PIT",
-          "value": 5,
-          "is_nfl": false
-        },
-        {
-          "id": "team:5:BC",
-          "label": "CFL 2022 BC",
-          "value": 2,
-          "is_nfl": false
-        },
-        {
-          "id": "team:11:BATTLEHAWKS",
-          "label": "XFL 2023 BATTLEHAWKS",
-          "value": 5,
-          "is_nfl": false
-        },
-        {
-          "id": "team:11:DEFENDERS",
-          "label": "XFL 2023 DEFENDERS",
-          "value": 4,
-          "is_nfl": false
-        },
-        {
-          "id": "team:12:PANTHERS",
-          "label": "USFL 2023 PANTHERS",
-          "value": 5,
-          "is_nfl": false
-        },
-        {
-          "id": "team:12:STALLIONS",
-          "label": "USFL 2023 STALLIONS",
-          "value": 7,
-          "is_nfl": false
-        },
-        {
-          "id": "team:16:KINGS",
-          "label": "ELF 2023 KINGS",
-          "value": 1,
-          "is_nfl": false
+          "label": "Reached NFL after this team-season (%)",
+          "data": [
+            5.7,
+            3.4,
+            0.9,
+            0.1,
+            0.0
+          ]
         }
       ],
-      "edges": [],
-      "note": "Team-season nodes connect to players who reached the NFL after this team-season and appear in multiple top incubators."
+      "indexAxis": "y",
+      "value_suffix": "%",
+      "note": "Each league pools every team-season strictly before the latest NFL season in the data (2024). Team-seasons from 2024 or later are excluded because no later NFL season exists yet for players to reach. Minimum 30 roster records per league."
     }
   ],
   "sections": [

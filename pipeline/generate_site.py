@@ -268,7 +268,15 @@ def build_player_timeline(player_data: dict) -> dict | None:
                      "years": sorted(league_years["College"])})
 
     if nfl:
-        rows.append({"label": "NFL", "type": "nfl", "years": []})
+        nfl_years = set()
+        for row in (nfl.get("seasons") or []):
+            try:
+                yr = int(row.get("year"))
+            except (TypeError, ValueError):
+                continue
+            nfl_years.add(yr)
+            all_years.add(yr)
+        rows.append({"label": "NFL", "type": "nfl", "years": sorted(nfl_years)})
 
     alt = [(lbl, yrs) for lbl, yrs in league_years.items() if lbl != "College"]
     alt.sort(key=lambda x: (min(x[1]) if x[1] else 9999, x[0]))

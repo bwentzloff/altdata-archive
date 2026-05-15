@@ -349,12 +349,60 @@ tr:nth-child(even) { background: var(--tr-even); }
 }
 .ct-on                         { background: var(--accent); opacity: 0.9; }
 [data-type="college"] .ct-on  { background: #6b7280; opacity: 0.85; }
-[data-type="nfl"]     .ct-on  { background: #1a3557; opacity: 0.9; }
+[data-type="nfl"]     .ct-on  { background: #4f8fd6; opacity: 1; }
 [data-type="nfl"] .ct-nfl-badge {
   font-size: 0.68rem;
   color: var(--text-dim);
   font-style: italic;
   padding-left: 2px;
+}
+
+.nfl-season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.nfl-season-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg2);
+  padding: 0.5rem;
+}
+
+.nfl-season-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.nfl-season-year {
+  font-weight: 700;
+}
+
+.nfl-season-team {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.nfl-season-pos {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 0.35rem;
+}
+
+.nfl-season-table {
+  font-size: 0.82rem;
+}
+
+.nfl-section h3 {
+  margin: 0.7rem 0 0.45rem;
+  font-size: 1rem;
 }
 
 /*  Career totals — single-column wide table  */

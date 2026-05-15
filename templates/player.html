@@ -374,12 +374,47 @@
 </section>
 {% endif %}
 
-{% if player.nfl and player.nfl.stats %}
+{% if player.nfl and (player.nfl.stats or player.nfl.seasons) %}
 <section class="nfl-section">
   <h2>NFL Career
     <small>— <a href="https://www.espn.com/nfl/player/_/id/{{ player.nfl.espn_id }}"
         target="_blank" rel="noopener noreferrer">ESPN</a></small>
   </h2>
+  {% if player.nfl.seasons %}
+  <h3>NFL By Season</h3>
+  <div class="nfl-season-grid">
+    {% for season in player.nfl.seasons | sort(attribute='year', reverse=true) %}
+    <article class="nfl-season-card">
+      <header class="nfl-season-head">
+        <span class="nfl-season-year">{{ season.year }}</span>
+        <span class="nfl-season-team">
+          {% if season.team_slug %}{{ season.team_slug | replace('-', ' ') | title }}{% else %}Team {{ season.team_id or '—' }}{% endif %}
+        </span>
+        {% if season.position %}<span class="nfl-season-pos">{{ season.position }}</span>{% endif %}
+      </header>
+      <table class="data-table nfl-season-table">
+        <thead>
+          <tr><th scope="col">Group</th><th scope="col">Stat</th><th scope="col">Value</th></tr>
+        </thead>
+        <tbody>
+          {% for group in season.stats | group_nfl_stats %}
+          {% for k, v in group.rows %}
+          <tr>
+            <td>{% if loop.first %}{{ group.label }}{% endif %}</td>
+            <td>{{ k | camel_to_label }}</td>
+            <td>{{ v | smart_num }}</td>
+          </tr>
+          {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if player.nfl.stats %}
+  <h3>NFL Career Totals</h3>
   <table class="data-table" id="nfl-career-table">
     <caption>{{ player.canonical_name }} NFL career statistics</caption>
     <thead>
@@ -397,7 +432,8 @@
       {% endfor %}
     </tbody>
   </table>
-  <p class="data-note">NFL career statistics sourced from <a href="https://www.espn.com/nfl/player/_/id/{{ player.nfl.espn_id }}" target="_blank" rel="noopener noreferrer">ESPN</a>.</p>
+  {% endif %}
+  <p class="data-note">NFL career and seasonal statistics sourced from <a href="https://www.espn.com/nfl/player/_/id/{{ player.nfl.espn_id }}" target="_blank" rel="noopener noreferrer">ESPN</a>.</p>
 </section>
 {% endif %}
 

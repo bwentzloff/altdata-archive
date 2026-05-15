@@ -324,81 +324,73 @@ def compute(data_dir: Path) -> dict:
         "note": "Only counts players whose first NFL appearance came AFTER this team-season. Minimum roster size 15.",
     }
 
-    # Bridge network among top incubators:
-    # Include players who appear in at least 2 top incubators and went on to
-    # the NFL after at least one of those team-seasons.
-    top_keys = {(r["sid"], r["team"]) for r in top_incubators[:8]}
-    key_to_row = {(r["sid"], r["team"]): r for r in top_incubators}
-    player_to_top_teams: dict[str, set[tuple[int, str]]] = {}
+    # League-level distribution.
+    # Aggregate every team-season of each league into a single number per
+    # league: what share of all roster records belong to NFL veterans, and
+    # what share went on to reach the NFL after that team-season.
+    # Only include team-seasons where there is at least one NFL season AFTER
+    # them in the data — otherwise the after-rate is structurally zero and
+    # would unfairly drag down recent leagues like the UFL.
+    nfl_seasons_in_data = {
+        _season_int(s.get("season"))
+        for s in sport_map.values()
+        if s.get("league") == "NFL"
+    }
+    nfl_seasons_in_data.discard(None)
+    max_nfl_season_in_data = max(nfl_seasons_in_data) if nfl_seasons_in_data else None
 
-    for key in top_keys:
-        g = groups.get(key)
-        if not g:
-            continue
+    league_dist_counts: dict[str, dict] = {}
+    for g in groups.values():
+        lg = g["league"]
         ts_year = _season_int(g.get("season"))
-        for cid in g["players"]:
-            meta = players_meta.get(cid, {})
-            max_nfl = meta.get("max_nfl_season")
-            if ts_year is None or max_nfl is None or max_nfl <= ts_year:
-                continue
-            player_to_top_teams.setdefault(cid, set()).add(key)
-
-    bridge_players = [
-        cid for cid, ks in player_to_top_teams.items()
-        if len(ks) >= 2
-    ]
-
-    network_nodes = []
-    network_edges = []
-
-    for key in sorted(top_keys):
-        row = key_to_row.get(key)
-        if not row:
+        if ts_year is None:
             continue
-        node_id = f"team:{row['sid']}:{row['team']}"
-        network_nodes.append({
-            "id": node_id,
-            "label": row["team_season"],
-            "value": max(1, row["nfl_after"]),
-            "is_nfl": False,
+        if max_nfl_season_in_data is None or ts_year >= max_nfl_season_in_data:
+            continue  # no NFL seasons after this team-season exist in the data
+        c = league_dist_counts.setdefault(lg, {"records": 0, "nfl": 0, "after": 0})
+        for cid in g["players"]:
+            c["records"] += 1
+            meta = players_meta.get(cid, {})
+            if meta.get("in_nfl"):
+                c["nfl"] += 1
+            max_nfl = meta.get("max_nfl_season")
+            if max_nfl is not None and max_nfl > ts_year:
+                c["after"] += 1
+
+    league_rows = []
+    for lg, c in league_dist_counts.items():
+        if c["records"] < 30:
+            continue
+        league_rows.append({
+            "league": lg,
+            "records": c["records"],
+            "veteran_pct": round(100.0 * c["nfl"] / c["records"], 1),
+            "after_pct": round(100.0 * c["after"] / c["records"], 1),
         })
+    league_rows.sort(key=lambda r: r["veteran_pct"], reverse=True)
 
-    # Keep network readable.
-    bridge_players = sorted(
-        bridge_players,
-        key=lambda cid: len(player_to_top_teams.get(cid, set())),
-        reverse=True,
-    )[:18]
-
-    for cid in bridge_players:
-        name = players_meta.get(cid, {}).get("name", cid)
-        short = _short_name(name)
-        pnode_id = f"player:{cid}"
-        network_nodes.append({
-            "id": pnode_id,
-            "label": short,
-            "value": len(player_to_top_teams.get(cid, set())),
-            "is_nfl": True,
-        })
-        for key in sorted(player_to_top_teams.get(cid, set())):
-            row = key_to_row.get(key)
-            if not row:
-                continue
-            tnode_id = f"team:{row['sid']}:{row['team']}"
-            network_edges.append({
-                "source": tnode_id,
-                "target": pnode_id,
-                "value": 1,
-                "directed": False,
-            })
-
-    chart_network = {
-        "id": "chart-incubator-network",
-        "type": "network",
-        "title": "Bridge players who reached the NFL after multiple high-yield team-seasons",
-        "nodes": network_nodes,
-        "edges": network_edges,
-        "note": "Team-season nodes connect to players who reached the NFL after this team-season and appear in multiple top incubators.",
+    chart_leagues = {
+        "id": "chart-league-distribution",
+        "type": "bar",
+        "title": "NFL footprint by league (team-seasons with a chance to reach the NFL afterward)",
+        "labels": [r["league"] for r in league_rows],
+        "datasets": [
+            {
+                "label": "NFL veterans on roster (%)",
+                "data": [r["veteran_pct"] for r in league_rows],
+            },
+            {
+                "label": "Reached NFL after this team-season (%)",
+                "data": [r["after_pct"] for r in league_rows],
+            },
+        ],
+        "indexAxis": "y",
+        "value_suffix": "%",
+        "note": (
+            f"Each league pools every team-season strictly before the latest NFL season in the data "
+            f"({max_nfl_season_in_data}). Team-seasons from {max_nfl_season_in_data} or later are excluded "
+            "because no later NFL season exists yet for players to reach. Minimum 30 roster records per league."
+        ),
     }
 
     # Build output table rows
@@ -503,7 +495,7 @@ def compute(data_dir: Path) -> dict:
 
     return {
         "headline_stats": headline_stats,
-        "charts": [chart_decile, chart_incubators, chart_network],
+        "charts": [chart_decile, chart_incubators, chart_leagues],
         "sections": sections,
         "methodology": methodology,
         "table": {
