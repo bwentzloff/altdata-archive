@@ -120,21 +120,26 @@ def compute(data_dir: Path) -> dict:
 
         name = p.get("canonical_name") or cid
         sport_names = {_norm_league(s) for s in (p.get("sport_names") or [])}
-        in_nfl = "NFL" in sport_names
 
-        # Collect NFL seasons (as ints) so we can later distinguish players
-        # whose NFL stint came AFTER an alt-league team-season.
+        # Primary source: ESPN-derived NFL season rows in player.nfl.seasons.
+        # Fallback: inferred NFL appearances from sport_id -> sports.json map.
         nfl_seasons: set[int] = set()
+        nfl_block = p.get("nfl") or {}
+        for srow in (nfl_block.get("seasons") or []):
+            yr = _season_int(srow.get("year"))
+            if yr is not None:
+                nfl_seasons.add(yr)
+
         for app in (p.get("appearances") or []):
             sid = app.get("sport_id")
             sm = sport_map.get(sid) if sid is not None else None
-            if not sm:
-                continue
-            if sm.get("league") != "NFL":
+            if not sm or sm.get("league") != "NFL":
                 continue
             yr = _season_int(sm.get("season"))
             if yr is not None:
                 nfl_seasons.add(yr)
+
+        in_nfl = bool(nfl_seasons) or ("NFL" in sport_names)
         min_nfl_season = min(nfl_seasons) if nfl_seasons else None
         max_nfl_season = max(nfl_seasons) if nfl_seasons else None
 
@@ -358,6 +363,8 @@ def compute(data_dir: Path) -> dict:
         for s in sport_map.values()
         if s.get("league") == "NFL"
     }
+    for pm in players_meta.values():
+        nfl_seasons_in_data.update(pm.get("nfl_seasons") or set())
     nfl_seasons_in_data.discard(None)
     max_nfl_season_in_data = max(nfl_seasons_in_data) if nfl_seasons_in_data else None
 
@@ -672,6 +679,8 @@ def compute(data_dir: Path) -> dict:
     methodology = (
         "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in "
         "<code>docs/data/sports.json</code>.</p>"
+        "<p>NFL season timing is taken from <code>player.nfl.seasons</code> when available (ESPN season rows), "
+        "with NFL appearances inferred from <code>sport_id</code> metadata as a fallback for legacy records.</p>"
         "<p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. "
         "Only non-NFL football leagues are included in environment construction. \"NFL veteran\" means the player has any "
         "NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one "
