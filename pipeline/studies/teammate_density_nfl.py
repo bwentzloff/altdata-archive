@@ -9,6 +9,7 @@ higher rates?
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 SLUG = "teammate-density-nfl"
@@ -65,6 +66,33 @@ def _season_int(v) -> int | None:
             return int(str(v)[:4])
         except (TypeError, ValueError):
             return None
+
+
+def _quantile(sorted_vals: list[float], q: float) -> float:
+    if not sorted_vals:
+        return 0.0
+    if len(sorted_vals) == 1:
+        return float(sorted_vals[0])
+    pos = (len(sorted_vals) - 1) * q
+    lo = int(math.floor(pos))
+    hi = int(math.ceil(pos))
+    if lo == hi:
+        return float(sorted_vals[lo])
+    w = pos - lo
+    return float(sorted_vals[lo] * (1 - w) + sorted_vals[hi] * w)
+
+
+def _pearson(xs: list[float], ys: list[float]) -> float | None:
+    if len(xs) != len(ys) or len(xs) < 2:
+        return None
+    mx = sum(xs) / len(xs)
+    my = sum(ys) / len(ys)
+    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    den_x = math.sqrt(sum((x - mx) ** 2 for x in xs))
+    den_y = math.sqrt(sum((y - my) ** 2 for y in ys))
+    if den_x == 0 or den_y == 0:
+        return None
+    return num / (den_x * den_y)
 
 
 def compute(data_dir: Path) -> dict:
@@ -324,13 +352,7 @@ def compute(data_dir: Path) -> dict:
         "note": "Only counts players whose first NFL appearance came AFTER this team-season. Minimum roster size 15.",
     }
 
-    # League-level distribution.
-    # Aggregate every team-season of each league into a single number per
-    # league: what share of all roster records belong to NFL veterans, and
-    # what share went on to reach the NFL after that team-season.
-    # Only include team-seasons where there is at least one NFL season AFTER
-    # them in the data — otherwise the after-rate is structurally zero and
-    # would unfairly drag down recent leagues like the UFL.
+    # Reference NFL observation window used for right-censor adjustments.
     nfl_seasons_in_data = {
         _season_int(s.get("season"))
         for s in sport_map.values()
@@ -339,6 +361,94 @@ def compute(data_dir: Path) -> dict:
     nfl_seasons_in_data.discard(None)
     max_nfl_season_in_data = max(nfl_seasons_in_data) if nfl_seasons_in_data else None
 
+    # Team-season scatter: do NFL-veteran-heavy rosters actually translate to
+    # post-season NFL conversion?
+    eligible_team_rows = [
+        r for r in team_rows
+        if r["roster_size"] >= 15 and r["has_season"]
+    ]
+    scatter_points = [
+        {
+            "x": r["veteran_pct"],
+            "y": r["after_pct"],
+            "team_season": r["team_season"],
+            "league": r["league"],
+            "roster_size": r["roster_size"],
+        }
+        for r in eligible_team_rows
+    ]
+    chart_scatter = {
+        "id": "chart-team-scatter",
+        "type": "scatter",
+        "title": "Team-season signal: NFL veteran share vs players who reached the NFL afterward",
+        "datasets": [{
+            "label": "Team-seasons",
+            "data": scatter_points,
+        }],
+        "x_label": "NFL veterans on roster (%)",
+        "y_label": "Reached NFL after this season (%)",
+        "value_suffix": "%",
+        "note": "Each dot is one team-season (minimum roster size 15, known year). X-axis is veteran share on roster; Y-axis is share that reached the NFL after that season.",
+    }
+
+    # Year-level trend: does the after-rate drift by calendar season?
+    season_counts: dict[int, dict[str, int]] = {}
+    for g in groups.values():
+        ts_year = _season_int(g.get("season"))
+        if ts_year is None:
+            continue
+        if max_nfl_season_in_data is None or ts_year >= max_nfl_season_in_data:
+            continue
+        roster = g["players"]
+        if len(roster) < 2:
+            continue
+        c = season_counts.setdefault(ts_year, {"records": 0, "nfl": 0, "after": 0})
+        for cid in roster:
+            c["records"] += 1
+            meta = players_meta.get(cid, {})
+            if meta.get("in_nfl"):
+                c["nfl"] += 1
+            max_nfl = meta.get("max_nfl_season")
+            if max_nfl is not None and max_nfl > ts_year:
+                c["after"] += 1
+
+    season_rows = [
+        {
+            "year": yr,
+            "records": c["records"],
+            "veteran_pct": round(100.0 * c["nfl"] / c["records"], 1) if c["records"] else 0.0,
+            "after_pct": round(100.0 * c["after"] / c["records"], 1) if c["records"] else 0.0,
+        }
+        for yr, c in season_counts.items()
+        if c["records"] >= 60
+    ]
+    season_rows.sort(key=lambda r: r["year"])
+    chart_season_trend = {
+        "id": "chart-season-trend",
+        "type": "line",
+        "title": "League-wide trend by season cohort",
+        "labels": [str(r["year"]) for r in season_rows],
+        "datasets": [
+            {
+                "label": "NFL veterans on roster (%)",
+                "data": [r["veteran_pct"] for r in season_rows],
+            },
+            {
+                "label": "Reached NFL after this season (%)",
+                "data": [r["after_pct"] for r in season_rows],
+            },
+        ],
+        "value_suffix": "%",
+        "note": "Each season pools all eligible non-NFL football rosters that year (minimum 60 player-records). This shows whether context and outcomes move together over time.",
+    }
+
+    # League-level distribution.
+    # Aggregate every team-season of each league into a single number per
+    # league: what share of all roster records belong to NFL veterans, and
+    # what share went on to reach the NFL after that team-season.
+    # Only include team-seasons where there is at least one NFL season AFTER
+    # them in the data — otherwise the after-rate is structurally zero and
+    # would unfairly drag down recent leagues like the UFL.
     league_dist_counts: dict[str, dict] = {}
     for g in groups.values():
         lg = g["league"]
@@ -393,6 +503,50 @@ def compute(data_dir: Path) -> dict:
         ),
     }
 
+    # Box-and-whisker by league for distribution (not just averages).
+    league_after_values: dict[str, list[float]] = {}
+    for r in eligible_team_rows:
+        ts_year = _season_int(r.get("season"))
+        if ts_year is None:
+            continue
+        if max_nfl_season_in_data is None or ts_year >= max_nfl_season_in_data:
+            continue
+        league_after_values.setdefault(r["league"], []).append(float(r["after_pct"]))
+
+    box_rows = []
+    for lg, vals in league_after_values.items():
+        if len(vals) < 6:
+            continue
+        svals = sorted(vals)
+        q1 = _quantile(svals, 0.25)
+        med = _quantile(svals, 0.50)
+        q3 = _quantile(svals, 0.75)
+        iqr = q3 - q1
+        lo_fence = q1 - 1.5 * iqr
+        hi_fence = q3 + 1.5 * iqr
+        inlier = [v for v in svals if lo_fence <= v <= hi_fence]
+        outlier = [v for v in svals if v < lo_fence or v > hi_fence]
+        box_rows.append({
+            "label": lg,
+            "n": len(svals),
+            "min": round(min(inlier) if inlier else min(svals), 1),
+            "q1": round(q1, 1),
+            "median": round(med, 1),
+            "q3": round(q3, 1),
+            "max": round(max(inlier) if inlier else max(svals), 1),
+            "outliers": [round(v, 1) for v in outlier],
+        })
+
+    box_rows.sort(key=lambda r: r["median"], reverse=True)
+    chart_league_box = {
+        "id": "chart-league-box",
+        "type": "boxplot",
+        "title": "League spread in team-season NFL-after rates (box-and-whisker)",
+        "boxes": box_rows,
+        "value_suffix": "%",
+        "note": "Box = interquartile range (Q1 to Q3), center line = median, whiskers = non-outlier range, dots = outliers. Includes leagues with at least six eligible team-seasons.",
+    }
+
     # Build output table rows
     table_rows = []
     for r in top_incubators:
@@ -423,6 +577,16 @@ def compute(data_dir: Path) -> dict:
     d10_pct = round((100.0 * d10["nfl"] / d10["players"]) if d10["players"] else 0.0, 1)
     d1_pct = round((100.0 * d1["nfl"] / d1["players"]) if d1["players"] else 0.0, 1)
 
+    scatter_x = [p["x"] for p in scatter_points]
+    scatter_y = [p["y"] for p in scatter_points]
+    team_corr = _pearson(scatter_x, scatter_y)
+    team_corr_disp = f"{team_corr:.2f}" if team_corr is not None else "n/a"
+
+    if box_rows:
+        league_dispersion_leader = box_rows[0]
+    else:
+        league_dispersion_leader = None
+
     headline_stats = [
         {
             "label": "Top incubator team-season",
@@ -442,6 +606,11 @@ def compute(data_dir: Path) -> dict:
             "value": f"{overall_pct}%",
             "sub": f"Across {total_player_records:,} alt-football team-season player records",
         },
+        {
+            "label": "Team-season association",
+            "value": f"r = {team_corr_disp}",
+            "sub": "Correlation between roster NFL-veteran share and post-season NFL conversion across team-seasons",
+        },
     ]
 
     sections = [
@@ -459,6 +628,21 @@ def compute(data_dir: Path) -> dict:
                 "<p>Each player gets an average teammate-density score based on the teams they played on. "
                 "We sort players into 10 groups from D1 (lowest) to D10 (highest), then compare NFL reach rates "
                 "across those groups.</p>"
+                f"<p>In this snapshot, the gap between the endpoints is large: D10 sits at <strong>{d10_pct}%</strong> "
+                f"while D1 is <strong>{d1_pct}%</strong>. That spread is descriptive rather than causal, but it is too "
+                "large to ignore when ranking environments.</p>"
+            ),
+        },
+        {
+            "heading": "What the new NFL season depth adds",
+            "html": (
+                "<p>This version uses expanded NFL season coverage in player records, which sharpens the "
+                "<em>reached NFL after</em> signal. Earlier snapshots often collapsed this into a coarse NFL/non-NFL "
+                "flag. With season-level dating, we can now ask whether a player reached the league <em>after</em> a given "
+                "alt-league stop rather than merely whether they ever appeared there.</p>"
+                "<p>That change matters most for timing: newer alt seasons are right-censored until later NFL years "
+                "arrive in the data. For that reason, the league-comparison charts only include alt team-seasons that "
+                "still have at least one later NFL season available for observation.</p>"
             ),
         },
         {
@@ -467,7 +651,20 @@ def compute(data_dir: Path) -> dict:
                 "<p>The table ranks team-seasons by how many roster players went on to reach the NFL <em>after</em> that season, "
                 "compared with the typical rate for the same league. That isolates teams that actually launched players into the NFL, "
                 "rather than teams that simply collected NFL veterans.</p>"
-                "<p>The right-most columns show the share of the roster who are NFL veterans (ever in the NFL, before or after) for context.</p>"
+                "<p>The right-most columns show the share of the roster who are NFL veterans (ever in the NFL, before or after) for context. "
+                "Read this jointly with the scatter and box plots: one chart captures central tendency, the others show variance and outliers.</p>"
+            ),
+        },
+        {
+            "heading": "Variance across leagues",
+            "html": (
+                "<p>League averages can hide structure. Box-and-whisker views show whether a league is consistently strong or just carrying a "
+                "small number of unusually productive team-seasons. In practical terms, evaluators care about both: median environment and tail upside.</p>"
+                + (
+                    f"<p>In the current sample, <strong>{league_dispersion_leader['label']}</strong> posts the highest median team-season "
+                    f"after-rate among leagues with enough observations (median {league_dispersion_leader['median']}%, n={league_dispersion_leader['n']}).</p>"
+                    if league_dispersion_leader else ""
+                )
             ),
         },
     ]
@@ -480,6 +677,10 @@ def compute(data_dir: Path) -> dict:
         "NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one "
         "NFL appearance whose season is later than the team-season in question; team-seasons without a known year are excluded "
         "from the incubator ranking.</p>"
+        "<p>League-wide and season-cohort comparisons are right-censor adjusted: alt team-seasons are only included if at least "
+        "one later NFL season exists in the source data, so recent cohorts are not penalized for lack of elapsed time.</p>"
+        "<p>Chart notes: scatter plots show one point per team-season; box plots summarize distributions at league level; "
+        "line charts show pooled season cohorts and are weighted by roster records (not by number of teams).</p>"
         "<p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, "
         "but that does not prove one directly causes the other.</p>"
     )
@@ -495,7 +696,7 @@ def compute(data_dir: Path) -> dict:
 
     return {
         "headline_stats": headline_stats,
-        "charts": [chart_decile, chart_incubators, chart_leagues],
+        "charts": [chart_decile, chart_season_trend, chart_scatter, chart_incubators, chart_league_box, chart_leagues],
         "sections": sections,
         "methodology": methodology,
         "table": {

@@ -1,6 +1,6 @@
 /**
  * study-charts.js — renders charts on study pages from window._studyCharts.
- * Supports type: "bar" (single dataset) and "stacked-bar" (multi dataset).
+ * Supports type: bar, stacked-bar, line, scatter, network, and boxplot.
  */
 (function () {
   'use strict';
@@ -101,6 +101,190 @@
     _charts.push(chart);
   }
 
+  function renderLine(spec) {
+    var el = document.getElementById(spec.id);
+    if (!el) return;
+    var textDim = css('--text-dim');
+    var borderColor = css('--border');
+    var opts = baseOpts(textDim, borderColor, spec.value_suffix);
+    opts.plugins.legend.display = (spec.datasets || []).length > 1;
+    if (spec.x_label) opts.scales.x.title = { display: true, text: spec.x_label, color: textDim };
+    if (spec.y_label) opts.scales.y.title = { display: true, text: spec.y_label, color: textDim };
+
+    var datasets = (spec.datasets || []).map(function (ds, i) {
+      var c = PALETTE[i % PALETTE.length];
+      return {
+        label: ds.label,
+        data: ds.data,
+        borderColor: c,
+        backgroundColor: c + '44',
+        tension: 0.2,
+        pointRadius: 3,
+        pointHoverRadius: 4,
+        borderWidth: 2,
+        fill: false,
+      };
+    });
+
+    var chart = new Chart(el, {
+      type: 'line',
+      data: { labels: spec.labels, datasets: datasets },
+      options: opts,
+    });
+    _charts.push(chart);
+  }
+
+  function renderScatter(spec) {
+    var el = document.getElementById(spec.id);
+    if (!el) return;
+    var textDim = css('--text-dim');
+    var borderColor = css('--border');
+    var opts = baseOpts(textDim, borderColor, spec.value_suffix);
+    opts.plugins.legend.display = false;
+    if (spec.x_label) opts.scales.x.title = { display: true, text: spec.x_label, color: textDim };
+    if (spec.y_label) opts.scales.y.title = { display: true, text: spec.y_label, color: textDim };
+    opts.plugins.tooltip.callbacks = {
+      label: function (ctx) {
+        var p = ctx.raw || {};
+        var lines = [];
+        if (p.team_season) lines.push(p.team_season);
+        if (p.league) lines.push('League: ' + p.league + (p.roster_size ? ' (n=' + p.roster_size + ')' : ''));
+        lines.push('Veteran share: ' + p.x + (spec.value_suffix || ''));
+        lines.push('Reached NFL after: ' + p.y + (spec.value_suffix || ''));
+        return lines;
+      },
+    };
+
+    var points = (((spec.datasets || [])[0] || {}).data || []).map(function (p) {
+      return Object.assign({}, p);
+    });
+    var chart = new Chart(el, {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          label: (((spec.datasets || [])[0] || {}).label) || 'Points',
+          data: points,
+          pointBackgroundColor: PALETTE[0] + 'cc',
+          pointBorderColor: PALETTE[0],
+          pointRadius: 4,
+          pointHoverRadius: 5,
+        }],
+      },
+      options: opts,
+    });
+    _charts.push(chart);
+  }
+
+  function renderBoxPlot(spec) {
+    var canvas = document.getElementById(spec.id);
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var boxes = spec.boxes || [];
+    if (!boxes.length) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
+
+    var borderColor = css('--border') || '#374151';
+    var textColor = css('--text') || '#e5e7eb';
+    var textDim = css('--text-dim') || '#9ca3af';
+    var bg2 = css('--bg2') || '#1f2937';
+    var accent = PALETTE[1];
+
+    var dpr = window.devicePixelRatio || 1;
+    var cssW = canvas.clientWidth || 760;
+    var cssH = Math.max(280, 58 + boxes.length * 34);
+    canvas.style.height = cssH + 'px';
+    canvas.width = Math.floor(cssW * dpr);
+    canvas.height = Math.floor(cssH * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    ctx.clearRect(0, 0, cssW, cssH);
+    ctx.fillStyle = bg2;
+    ctx.fillRect(0, 0, cssW, cssH);
+
+    var left = 96;
+    var right = 18;
+    var top = 18;
+    var bottom = 28;
+    var rowH = (cssH - top - bottom) / boxes.length;
+
+    var allVals = [];
+    boxes.forEach(function (b) {
+      allVals.push(b.min, b.q1, b.median, b.q3, b.max);
+      (b.outliers || []).forEach(function (v) { allVals.push(v); });
+    });
+    var maxVal = Math.max.apply(null, allVals.concat([1]));
+    var minVal = Math.min.apply(null, allVals.concat([0]));
+    var span = Math.max(1, maxVal - minVal);
+    function x(v) { return left + ((v - minVal) / span) * (cssW - left - right); }
+
+    // Grid + x ticks
+    ctx.strokeStyle = borderColor;
+    ctx.fillStyle = textDim;
+    ctx.font = '11px Inter, Helvetica Neue, Arial, sans-serif';
+    var tickCount = 5;
+    for (var i = 0; i <= tickCount; i++) {
+      var val = minVal + (span * i / tickCount);
+      var xx = x(val);
+      ctx.globalAlpha = 0.35;
+      ctx.beginPath();
+      ctx.moveTo(xx, top - 6);
+      ctx.lineTo(xx, cssH - bottom);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.fillText(val.toFixed(1) + (spec.value_suffix || ''), xx - 18, cssH - 8);
+    }
+
+    // Rows
+    boxes.forEach(function (b, idx) {
+      var y = top + rowH * idx + rowH / 2;
+      var boxTop = y - Math.min(10, rowH * 0.32);
+      var boxH = Math.min(20, rowH * 0.64);
+
+      ctx.fillStyle = textDim;
+      ctx.fillText(b.label + ' (n=' + b.n + ')', 6, y + 4);
+
+      // whisker line
+      ctx.strokeStyle = accent;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x(b.min), y);
+      ctx.lineTo(x(b.max), y);
+      ctx.stroke();
+
+      // whisker caps
+      ctx.beginPath();
+      ctx.moveTo(x(b.min), y - 6); ctx.lineTo(x(b.min), y + 6);
+      ctx.moveTo(x(b.max), y - 6); ctx.lineTo(x(b.max), y + 6);
+      ctx.stroke();
+
+      // box (Q1-Q3)
+      ctx.fillStyle = accent + '66';
+      ctx.strokeStyle = accent;
+      ctx.fillRect(x(b.q1), boxTop, Math.max(1, x(b.q3) - x(b.q1)), boxH);
+      ctx.strokeRect(x(b.q1), boxTop, Math.max(1, x(b.q3) - x(b.q1)), boxH);
+
+      // median
+      ctx.strokeStyle = textColor;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x(b.median), boxTop);
+      ctx.lineTo(x(b.median), boxTop + boxH);
+      ctx.stroke();
+
+      // outliers
+      ctx.fillStyle = PALETTE[2] + 'cc';
+      (b.outliers || []).forEach(function (v) {
+        ctx.beginPath();
+        ctx.arc(x(v), y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    });
+  }
+
   function initAll() {
     if (typeof Chart === 'undefined') return;
     destroyAll();
@@ -108,6 +292,18 @@
     specs.forEach(function (spec) {
       if (spec.type === 'network') {
         renderNetwork(spec);
+        return;
+      }
+      if (spec.type === 'line') {
+        renderLine(spec);
+        return;
+      }
+      if (spec.type === 'scatter') {
+        renderScatter(spec);
+        return;
+      }
+      if (spec.type === 'boxplot') {
+        renderBoxPlot(spec);
         return;
       }
       var idx = spec.indexAxis || 'x';
