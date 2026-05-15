@@ -224,6 +224,13 @@ def main():
         ids = [c["id"] for c in coaches_list]
         print(f"Loaded {len(coaches_list)} coaches (IDs {min(ids) if ids else 'none'}–{max(ids) if ids else 'none'})")
 
+    cfl_ufl_coaches_file = RAW / "cfl_ufl_coaches.json"
+    if cfl_ufl_coaches_file.exists():
+        cfl_ufl_list = json.loads(cfl_ufl_coaches_file.read_text())
+        coaches_list.extend(cfl_ufl_list)
+        ids = [c["id"] for c in cfl_ufl_list]
+        print(f"Loaded {len(cfl_ufl_list)} CFL/UFL coaches (IDs {min(ids) if ids else 'none'}–{max(ids) if ids else 'none'})")
+
     print(f"Loaded {len(players)} player records + {len(coaches_list)} coaches (including injected)")
 
     # Group by normalized name for fast candidate lookup
@@ -526,6 +533,14 @@ def main():
                         "role": r.get("position"),
                         "league": r.get("league"),
                         "year": r.get("_year"),
+                        # Fields the player.html template expects on every
+                        # appearance — coaches don't have them, but we
+                        # populate as None so template attribute lookups
+                        # don't blow up on Undefined.
+                        "college_stats": None,
+                        "college": None,
+                        "height": None,
+                        "weight": None,
                     }
                     for r in records
                 ],
