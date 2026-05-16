@@ -206,6 +206,8 @@ def main():
         ("nal_players.json",            "NAL"),
         ("au_players.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "DGPT"),
+        ("unrivaled_players.json",      "Unrivaled"),
+        ("wnba_players.json",           "WNBA"),
     ]
     for fname, label in _new_league_files:
         _f = RAW / fname

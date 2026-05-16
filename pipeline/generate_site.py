@@ -142,7 +142,7 @@ def _build_sport_groups(leagues_index):
     SPORT_ORDER = ["Football", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
     FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
-    BASKETBALL = {"BIG3", "SLAMBALL"}
+    BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
     DISCGOLF = {"DGPT"}
@@ -167,7 +167,7 @@ def _build_sport_groups(leagues_index):
             return "Curling"
         if name in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
             return "Ultimate Disc"
-        if name in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:
+        if name in BASKETBALL or "BIG3" in up or "SLAMBALL" in up or "UNRIVALED" in up or "WNBA" in up:
             return "Basketball"
         return "Other"
 

@@ -39,7 +39,7 @@ FOOTBALL_LEAGUES = {
 DISC_GOLF_LEAGUES = {"DGPT"}
 LACROSSE_LEAGUES = {"NLL", "PLL"}
 ULTIMATE_LEAGUES = {"AUDL", "UFA", "PUL"}
-BASKETBALL_LEAGUES = {"BIG3", "SLAMBALL"}
+BASKETBALL_LEAGUES = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
 SOCCER_LEAGUES  = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
 CRICKET_LEAGUES = {"T20I", "ODI", "Tests", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
 CURLING_LEAGUES = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
@@ -170,6 +170,21 @@ def parse_game_meta(game_id):
 
     if re.match(r"^\d+$", gid):
         result.update({"sport_type": "basketball", "display": f"Game #{gid}"})
+        return result
+
+    # Basketball-reference WNBA box score id: WNBA_YYYYMMDD0HOM
+    m = re.match(r"WNBA_(\d{4})(\d{2})(\d{2})\d([A-Z]{2,4})$", gid)
+    if m:
+        result.update({
+            "sport_type": "basketball",
+            "league": "WNBA",
+            "season": int(m.group(1)),
+            "month": int(m.group(2)),
+            "day": int(m.group(3)),
+            "home_team": m.group(4),
+            "date_str": f"{m.group(1)}-{m.group(2)}-{m.group(3)}",
+            "display": f"@ {m.group(4)} ({m.group(1)}-{m.group(2)}-{m.group(3)})",
+        })
         return result
 
     # Synthetic key: SYNTHETIC_{LEAGUE}_{SEASON}_W{week}_{TEAM}
@@ -527,7 +542,7 @@ def build_this_week(game_index: list) -> None:
 
     SPORT_ORDER = ["Football", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
     FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-LEAGUE", "XLEAGUE", "MLFB", "FCF"}
-    BASKETBALL = {"BIG3", "SLAMBALL"}
+    BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
     DISCGOLF = {"DGPT"}
@@ -553,7 +568,7 @@ def build_this_week(game_index: list) -> None:
             return "Curling"
         if token in DISC or base in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
             return "Ultimate Disc"
-        if token in BASKETBALL or base in BASKETBALL or "BIG3" in up or "SLAMBALL" in up:
+        if token in BASKETBALL or base in BASKETBALL or "BIG3" in up or "SLAMBALL" in up or "UNRIVALED" in up or "WNBA" in up:
             return "Basketball"
         return "Other"
 
@@ -1069,6 +1084,8 @@ def main():
         ("au_players.json",             "au_stats.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "dgpt_stats.json",           "DGPT"),
         ("ufl_players.json",            "ufl_stats.json",            "UFL"),
+        ("unrivaled_players.json",      "unrivaled_stats.json",      "Unrivaled"),
+        ("wnba_players.json",           "wnba_stats.json",           "WNBA"),
     ]
     for _pfile, _sfile, _label in _new_league_pairs:
         _pf = RAW / _pfile
@@ -1122,6 +1139,12 @@ def main():
         ufl_games = json.loads(ufl_games_file.read_text())
         raw_games.extend(ufl_games)
         print(f"Loaded {len(ufl_games)} UFL game records")
+
+    wnba_games_file = RAW / "wnba_games.json"
+    if wnba_games_file.exists():
+        wnba_games = json.loads(wnba_games_file.read_text())
+        raw_games.extend(wnba_games)
+        print(f"Loaded {len(wnba_games)} WNBA game records")
     
     # Load play-by-play data by game_id for rendering
     pbp_by_game_id = {}
