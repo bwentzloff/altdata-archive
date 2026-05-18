@@ -69,34 +69,6 @@
 <h1>{{ league.display_name }}</h1>
 <p>{{ league.player_count }} players with recorded stats{% if league.game_count %}, {{ league.game_count }} games{% endif %}.</p>
 
-{% if chart_top10 %}
-<section class="chart-section">
-  <h2>Top Performers — {{ chart_top10.stat | stat_label }}</h2>
-  <div class="chart-wrap chart-wrap--horiz">
-    <canvas id="league-chart"></canvas>
-  </div>
-  <script>
-  window._leagueChartData = {{ chart_top10 | tojson | safe }};
-  </script>
-</section>
-{% endif %}
-
-{% if coaches %}
-<section class="coaches-section">
-  <h2>Coaching Staff</h2>
-  <div class="coaches-grid">
-    {% for coach in coaches %}
-    <div class="coach-card">
-      <h3><a href="{{ root }}players/{{ coach.canonical_id }}.html">{{ coach.name }}</a></h3>
-      {% if coach.roles %}
-      <p class="roles">{{ coach.roles | join(", ") }}</p>
-      {% endif %}
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
 {% if league.get('games') %}
 <section>
   <h2>Games</h2>
@@ -154,6 +126,39 @@
       {% endfor %}
     </tbody>
   </table>
+</section>
+{% endif %}
+
+{% if chart_top10 %}
+<section class="chart-section">
+  <h2>Top Performers — {{ chart_top10.stat | stat_label }}</h2>
+  <div class="chart-wrap chart-wrap--horiz">
+    <canvas id="league-chart"></canvas>
+  </div>
+  <script>
+  window._leagueChartData = {{ chart_top10 | tojson | safe }};
+  </script>
+</section>
+{% endif %}
+
+{% if coaches %}
+<section class="coaches-section">
+  <details>
+    <summary>Coaching Staff ({{ coaches | length }})</summary>
+    <div class="coaches-grid">
+      {% for coach in coaches %}
+      <div class="coach-card">
+        <h3><a href="{{ root }}players/{{ coach.canonical_id }}.html">{{ coach.name }}</a></h3>
+        {% if coach.teams %}
+        <p class="coach-teams">Team{% if coach.teams|length > 1 %}s{% endif %}: {{ coach.teams | join(", ") }}</p>
+        {% endif %}
+        {% if coach.roles %}
+        <p class="roles">{{ coach.roles | join(", ") }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </details>
 </section>
 {% endif %}
 

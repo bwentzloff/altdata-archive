@@ -583,6 +583,61 @@ tr.week-group-row td {
   border-top: 1px solid var(--border);
 }
 
+/* League page coaches section (de-emphasized) */
+.coaches-section details {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 0.8rem 0 1.25rem;
+  background: var(--bg2);
+}
+
+.coaches-section summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.45rem 0.7rem;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.coaches-section summary::-webkit-details-marker { display: none; }
+
+.coaches-grid {
+  padding: 0 0.7rem 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.45rem;
+}
+
+.coach-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 0.5rem;
+  background: var(--bg);
+}
+
+.coach-card h3 {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.coach-card .roles {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.coach-card .coach-teams {
+  margin: 0.2rem 0 0;
+  font-size: 0.76rem;
+  color: var(--accent);
+}
+
 /* League index table on homepage */
 .league-index-table td:first-child { font-weight: 500; }
 .league-index-table { margin-bottom: 1.5rem; }

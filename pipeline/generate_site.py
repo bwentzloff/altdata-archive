@@ -128,6 +128,64 @@ def write_page(path: Path, content: str):
     path.write_text(content, encoding="utf-8")
 
 
+def _has_real_score(game: dict) -> bool:
+    """True when both score fields are present and non-empty."""
+    sa = game.get("score_away")
+    sh = game.get("score_home")
+    return sa is not None and sh is not None and sa != "" and sh != ""
+
+
+def _team_name_is_abbrev(team: str | None) -> bool:
+    """Treat very short team labels as abbreviations (e.g. STL, BHM)."""
+    if not team:
+        return False
+    cleaned = "".join(ch for ch in str(team).upper() if ch.isalnum())
+    return 1 <= len(cleaned) <= 4
+
+
+def _dedupe_league_games(games: list[dict]) -> list[dict]:
+    """Drop low-fidelity duplicate league game rows when richer rows exist.
+
+    Some sources include duplicate weekly rows with abbreviated teams and no
+    score (e.g. "BHM @ STL") alongside full rows that include full team names
+    and final scores. Keep the richer rows and suppress the abbreviated rows
+    within weeks that already have richer records.
+    """
+    if not games:
+        return []
+
+    from collections import defaultdict
+
+    by_week: dict = defaultdict(list)
+    for idx, g in enumerate(games):
+        by_week[g.get("week")].append((idx, g))
+
+    keep_indices = set()
+    for _, items in by_week.items():
+        has_rich_rows = any(
+            _has_real_score(g)
+            or str(g.get("slug", "")).isdigit()
+            or not (
+                _team_name_is_abbrev(g.get("away_team"))
+                and _team_name_is_abbrev(g.get("home_team"))
+            )
+            for _, g in items
+        )
+
+        for idx, g in items:
+            looks_abbrev_duplicate = (
+                not _has_real_score(g)
+                and _team_name_is_abbrev(g.get("away_team"))
+                and _team_name_is_abbrev(g.get("home_team"))
+                and str(g.get("slug", "")).startswith("football-")
+            )
+            if has_rich_rows and looks_abbrev_duplicate:
+                continue
+            keep_indices.add(idx)
+
+    return [g for idx, g in enumerate(games) if idx in keep_indices]
+
+
 def render(env, template_name, out_path, root="../", **kwargs):
     tmpl = env.get_template(template_name)
     html = tmpl.render(root=root, build_date=BUILD_DATE, **kwargs)
@@ -472,6 +530,11 @@ def main():
     print(f"Rendering {len(league_files)} league pages ...")
     for lf in league_files:
         league_data = json.loads(lf.read_text())
+        league_games = _dedupe_league_games(league_data.get("games", []))
+        league_data["games"] = league_games
+        if league_games:
+            league_data["game_count"] = len(league_games)
+
         # Pre-compute top-10 chart data (primary stat, sorted descending)
         chart_top10 = None
         if league_data.get("players"):
@@ -497,6 +560,15 @@ def main():
             try:
                 coaches_data = json.loads(coaches_file.read_text())
                 coaches = coaches_data.get("coaches", [])
+                for c in coaches:
+                    seen = set()
+                    teams = []
+                    for app in c.get("appearances", []):
+                        t = str(app.get("team", "")).strip()
+                        if t and t not in seen:
+                            seen.add(t)
+                            teams.append(t)
+                    c["teams"] = teams
             except (json.JSONDecodeError, KeyError):
                 pass
         
