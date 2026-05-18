@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jaylin Marshall — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jaylin Marshall: completions 1.0, interceptions_lost 0.0, pass_attempts 2.0, passing_tds 1.0, passing_yards 5.0, receiving_tds 3.0, receiving_yards 388.0, receptions 31.0, rush_attempts 1.0, rushing_tds 0.0, rushing_yards 2.0, targets 44.0">
+  <meta property="og:description" content="Career stats for Jaylin Marshall: completions 1.0, interceptions_lost 0.0, pass_attempts 2.0, passing_tds 1.0, passing_yards 5.0, receiving_tds 5.0, receiving_yards 492.0, receptions 37.0, rush_attempts 1.0, rushing_tds 0.0, rushing_yards 2.0, targets 44.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jaylin-marshall.html">
   
@@ -77,6 +77,20 @@
       "name": "AAF 2019",
       "description": "League-level player statistics for AAF 2019 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/aaf-2019.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "50YARD 2026",
+      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,77 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'19</span>
+        
+        <span class="ct-yr">'20</span>
+        
+        <span class="ct-yr">'21</span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AAF</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -250,11 +335,11 @@
         
         <td>5</td>
         
-        <td>3</td>
+        <td>5</td>
         
-        <td>388</td>
+        <td>492</td>
         
-        <td>31</td>
+        <td>37</td>
         
         <td>1</td>
         
@@ -272,6 +357,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AAF-2019": {"pass_attempts": 2.0, "completions": 1.0, "passing_yards": 5.0, "passing_tds": 1.0, "interceptions_lost": 0.0, "receptions": 26.0, "receiving_yards": 364.0, "receiving_tds": 3.0, "targets": 44.0, "rush_attempts": 1.0, "rushing_yards": 2.0, "rushing_tds": 0.0}, "50YARD-2026": {"receptions": 6.0, "receiving_yards": 104.0, "receiving_tds": 2.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -297,6 +406,14 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -368,6 +485,36 @@
         <td>2</td>
         
         <td>44</td>
+        
+      </tr>
+      
+      <tr>
+        <td>50YARD 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>104</td>
+        
+        <td>6</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -804,6 +951,44 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
+        <td><a href="../games/synthetic-50yard-2026-w3-kentuckybarrels.html" class="game-id">BEAUMONT RENEGADES @ KENTUCKY BARRELS</a></td>
+        <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>104.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -822,7 +1007,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-17.
+      Data updated: 2026-05-18.
       Formats:
       
 <a href="../data/players/jaylin-marshall.json">JSON</a> ·
