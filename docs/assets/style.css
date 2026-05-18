@@ -638,6 +638,49 @@ tr.week-group-row td {
   color: var(--accent);
 }
 
+/* Synthetic season-summary game pages */
+.season-leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.leader-card {
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  border-radius: 6px;
+  padding: 0.55rem 0.65rem;
+}
+
+.leader-card h3 {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.leader-card ol {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.leader-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.45rem;
+  margin: 0.18rem 0;
+}
+
+.leader-val {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 /* League index table on homepage */
 .league-index-table td:first-child { font-weight: 500; }
 .league-index-table { margin-bottom: 1.5rem; }

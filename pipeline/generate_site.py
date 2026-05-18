@@ -97,8 +97,17 @@ def make_env():
     def stat_label(key: str) -> str:
         return _STAT_LABELS.get(key, key.replace("_", " ").title())
 
+    def sort_by_stat(players, stat_key: str):
+        """Sort player dicts by stats[stat_key] descending, missing values last."""
+        return sorted(
+            players or [],
+            key=lambda p: float((p.get("stats", {}) or {}).get(stat_key, 0) or 0),
+            reverse=True,
+        )
+
     env.filters["intcomma"]   = intcomma
     env.filters["stat_label"] = stat_label
+    env.filters["sort_by_stat"] = sort_by_stat
 
     import json as _json
     from markupsafe import Markup
@@ -530,10 +539,27 @@ def main():
     print(f"Rendering {len(league_files)} league pages ...")
     for lf in league_files:
         league_data = json.loads(lf.read_text())
+        import re
+        base_league_slug = re.sub(r"-\d{4}$", "", league_data['slug'])
+
         league_games = _dedupe_league_games(league_data.get("games", []))
         league_data["games"] = league_games
         if league_games:
             league_data["game_count"] = len(league_games)
+
+        basketball_leagues = {"big3", "slamball", "unrivaled", "wnba"}
+        weeks_present = {
+            g.get("week")
+            for g in league_games
+            if g.get("week") not in (None, "")
+        }
+        league_data["use_weeks"] = (
+            base_league_slug not in basketball_leagues
+            and len(weeks_present) > 1
+        )
+        league_data["has_only_synthetic_games"] = bool(league_games) and all(
+            bool(g.get("synthetic")) for g in league_games
+        )
 
         # Pre-compute top-10 chart data (primary stat, sorted descending)
         chart_top10 = None
@@ -553,8 +579,6 @@ def main():
         # Load coaches for this league if available
         coaches = []
         # Extract base league slug (remove year from slug like "xfl-2023" -> "xfl")
-        import re
-        base_league_slug = re.sub(r"-\d{4}$", "", league_data['slug'])
         coaches_file = DATA_DIR / "coaches" / f"{base_league_slug}.json"
         if coaches_file.exists():
             try:

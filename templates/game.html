@@ -82,6 +82,16 @@
 {% block content %}
 <h1>{{ game.display }}</h1>
 
+{% set is_season_summary = (
+  game.synthetic
+  and not game.away_team
+  and not game.home_team
+  and (
+    (game.game_id and game.game_id.endswith('_SEASON_TOTAL'))
+    or (game.slug and 'season-total' in game.slug)
+  )
+) %}
+
 {% if game.away_team and game.home_team and game.score_away is not none and game.score_home is not none and game.score_away != "" and game.score_home != "" %}
 <div class="score-banner">
   <span class="score-team">{{ game.away_team }}</span>
@@ -108,13 +118,15 @@
   {% if game.date_str %}
   <tr><th>Date</th><td>{{ game.date_str }}</td></tr>
   {% endif %}
-  {% if game.week %}
+  {% if game.week and not is_season_summary %}
   <tr><th>Week</th><td>{{ game.week }}</td></tr>
   {% endif %}
   {% if game.channel %}
   <tr><th>Channel</th><td>{{ game.channel }}</td></tr>
   {% endif %}
-  {% if game.synthetic %}
+  {% if game.synthetic and is_season_summary %}
+  <tr><th>Note</th><td>Season aggregate entry - source provides season-level stats, not individual game IDs.</td></tr>
+  {% elif game.synthetic %}
   <tr><th>Note</th><td>Stats aggregated by week — no per-game ID in source data</td></tr>
   {% endif %}
   <tr><th>Players</th><td>{{ game.player_count }}</td></tr>
@@ -222,6 +234,83 @@
 {# Build per-group key lists and track which keys are covered #}
 {% set covered = namespace(ckeys=[]) %}
 
+{% if is_season_summary %}
+<section>
+  <h2>Season Leaders</h2>
+  {% set leader_stats = [
+    {'key': 'points', 'label': 'Points', 'abbr': 'PTS'},
+    {'key': 'rebounds', 'label': 'Rebounds', 'abbr': 'REB'},
+    {'key': 'assists', 'label': 'Assists', 'abbr': 'AST'},
+    {'key': 'steals', 'label': 'Steals', 'abbr': 'STL'},
+    {'key': 'blocks', 'label': 'Blocks', 'abbr': 'BLK'},
+    {'key': 'fg3m', 'label': '3PT Made', 'abbr': '3PM'}
+  ] %}
+  <div class="season-leaders-grid">
+    {% for ls in leader_stats %}
+    {% set leaders = game.players | sort_by_stat(ls.key) %}
+    <article class="leader-card">
+      <h3>{{ ls.label }}</h3>
+      <ol>
+        {% set shown = namespace(n=0) %}
+        {% for p in leaders %}
+          {% set v = p.stats.get(ls.key) %}
+          {% if v is not none and v != '' and shown.n < 5 %}
+          <li>
+            <a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>
+            <span class="leader-val">{{ v | smart_num }} {{ ls.abbr }}</span>
+          </li>
+          {% set shown.n = shown.n + 1 %}
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="box-score">
+  <h2>Season Stat Table</h2>
+  {% set season_rows = game.players | sort_by_stat('points') %}
+  <table class="data-table box-score-table sortable">
+    <thead>
+      <tr>
+        <th scope="col">Player</th>
+        <th scope="col">Pos</th>
+        <th scope="col" data-stat="games_played">GP</th>
+        <th scope="col" data-stat="minutes">MIN</th>
+        <th scope="col" data-stat="points">PTS</th>
+        <th scope="col" data-stat="rebounds">REB</th>
+        <th scope="col" data-stat="assists">AST</th>
+        <th scope="col" data-stat="steals">STL</th>
+        <th scope="col" data-stat="blocks">BLK</th>
+        <th scope="col" data-stat="fg_pct">FG%</th>
+        <th scope="col" data-stat="fg3m">3PM</th>
+        <th scope="col" data-stat="fg3_pct">3P%</th>
+        <th scope="col" data-stat="ft_pct">FT%</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in season_rows %}
+      <tr>
+        <td><a href="{{ root }}players/{{ p.canonical_id }}.html">{{ p.canonical_name }}</a>{% if p.ambiguous %}<span class="ambiguous-tag" title="May represent multiple individuals">?</span>{% endif %}</td>
+        <td>{{ p.positions | join(', ') }}</td>
+        <td>{{ p.stats.get('games_played', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('minutes', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('points', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('rebounds', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('assists', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('steals', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('blocks', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('fg_pct', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('fg3m', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('fg3_pct', '—') | smart_num }}</td>
+        <td>{{ p.stats.get('ft_pct', '—') | smart_num }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% else %}
 <section class="box-score">
   <h2>Box Score</h2>
 
@@ -314,6 +403,7 @@
   <p>No player stats recorded for this game.</p>
   {% endif %}
 </section>
+{% endif %}
 {% endblock %}
 
 {% block formats %}

@@ -123,6 +123,8 @@
 
 
 
+
+
 <table class="info-table">
   
   <tr>
@@ -134,11 +136,9 @@
   
   
   
-  <tr><th>Week</th><td>1</td></tr>
   
   
-  
-  <tr><th>Note</th><td>Stats aggregated by week — no per-game ID in source data</td></tr>
+  <tr><th>Note</th><td>Season aggregate entry - source provides season-level stats, not individual game IDs.</td></tr>
   
   <tr><th>Players</th><td>2</td></tr>
 </table>
@@ -152,253 +152,164 @@
 
 
 
-<section class="box-score">
-  <h2>Box Score</h2>
 
+<section>
+  <h2>Season Leaders</h2>
   
-
-  
+  <div class="season-leaders-grid">
     
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-  
-
-  
-  
-  
-    
-      
-    
-  
-  
-  <div class="box-score-section">
-    <h3 class="box-score-category">Other Stats</h3>
-    <table class="data-table box-score-table sortable">
-      <thead>
-        <tr>
-          <th scope="col">Player</th>
-          <th scope="col">Pos</th>
-          <th scope="col" data-stat="award_mvp">award_mvp</th>
-        </tr>
-      </thead>
-      <tbody>
+    <article class="leader-card">
+      <h3>Points</h3>
+      <ol>
+        
         
           
-          
-            
-          
-          
-          <tr>
-            <td><a href="../players/asahi-soft-drinks-challengers.html">Asahi Soft Drinks Challengers</a></td>
-            <td></td>
-            <td>1.0</td>
-          </tr>
           
         
           
           
-            
+        
+      </ol>
+    </article>
+    
+    
+    <article class="leader-card">
+      <h3>Rebounds</h3>
+      <ol>
+        
+        
           
-          
-          <tr>
-            <td><a href="../players/nissan-prince-tokyo.html">Nissan Prince Tokyo</a></td>
-            <td></td>
-            <td>1.0</td>
-          </tr>
           
         
-      </tbody>
-    </table>
+          
+          
+        
+      </ol>
+    </article>
+    
+    
+    <article class="leader-card">
+      <h3>Assists</h3>
+      <ol>
+        
+        
+          
+          
+        
+          
+          
+        
+      </ol>
+    </article>
+    
+    
+    <article class="leader-card">
+      <h3>Steals</h3>
+      <ol>
+        
+        
+          
+          
+        
+          
+          
+        
+      </ol>
+    </article>
+    
+    
+    <article class="leader-card">
+      <h3>Blocks</h3>
+      <ol>
+        
+        
+          
+          
+        
+          
+          
+        
+      </ol>
+    </article>
+    
+    
+    <article class="leader-card">
+      <h3>3PT Made</h3>
+      <ol>
+        
+        
+          
+          
+        
+          
+          
+        
+      </ol>
+    </article>
+    
   </div>
-  
-
-  
 </section>
+
+<section class="box-score">
+  <h2>Season Stat Table</h2>
+  
+  <table class="data-table box-score-table sortable">
+    <thead>
+      <tr>
+        <th scope="col">Player</th>
+        <th scope="col">Pos</th>
+        <th scope="col" data-stat="games_played">GP</th>
+        <th scope="col" data-stat="minutes">MIN</th>
+        <th scope="col" data-stat="points">PTS</th>
+        <th scope="col" data-stat="rebounds">REB</th>
+        <th scope="col" data-stat="assists">AST</th>
+        <th scope="col" data-stat="steals">STL</th>
+        <th scope="col" data-stat="blocks">BLK</th>
+        <th scope="col" data-stat="fg_pct">FG%</th>
+        <th scope="col" data-stat="fg3m">3PM</th>
+        <th scope="col" data-stat="fg3_pct">3P%</th>
+        <th scope="col" data-stat="ft_pct">FT%</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><a href="../players/asahi-soft-drinks-challengers.html">Asahi Soft Drinks Challengers</a></td>
+        <td></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td><a href="../players/nissan-prince-tokyo.html">Nissan Prince Tokyo</a></td>
+        <td></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>
+
 
   </main>
 

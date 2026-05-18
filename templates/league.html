@@ -70,29 +70,43 @@
 <p>{{ league.player_count }} players with recorded stats{% if league.game_count %}, {{ league.game_count }} games{% endif %}.</p>
 
 {% if league.get('games') %}
+{% set show_weeks = league.get('use_weeks', true) %}
+{% set summary_only = league.get('has_only_synthetic_games', false) %}
 <section>
-  <h2>Games</h2>
+  <h2>{% if summary_only %}Season Summary{% else %}Games{% endif %}</h2>
   {% set ns = namespace(cur_week=none) %}
   <table class="data-table">
-    <caption>{{ league.display_name }} game log — {{ league.game_count or 0 }} games</caption>
+    <caption>
+      {% if summary_only %}
+      {{ league.display_name }} season entries — {{ league.game_count or 0 }} records
+      {% else %}
+      {{ league.display_name }} game log — {{ league.game_count or 0 }} games
+      {% endif %}
+    </caption>
     <thead>
       <tr>
+        {% if show_weeks and not summary_only %}
         <th scope="col">Wk</th>
+        {% endif %}
         <th scope="col">Matchup</th>
+        {% if not summary_only %}
         <th scope="col">Score</th>
         <th scope="col">Result</th>
         <th scope="col">Date</th>
+        {% endif %}
         <th scope="col">Players</th>
       </tr>
     </thead>
     <tbody>
       {% for g in (league.get('games') or []) %}
-      {% if g.week != ns.cur_week %}
+      {% if show_weeks and not summary_only and g.week != ns.cur_week %}
       {% set ns.cur_week = g.week %}
-      <tr class="week-group-row"><td colspan="6">{% if g.week %}Week {{ g.week }}{% else %}—{% endif %}</td></tr>
+      <tr class="week-group-row"><td colspan="{% if show_weeks %}6{% else %}5{% endif %}">{% if g.week %}Week {{ g.week }}{% else %}—{% endif %}</td></tr>
       {% endif %}
       <tr>
+        {% if show_weeks and not summary_only %}
         <td>{{ g.week or "—" }}</td>
+        {% endif %}
         <td>
           <a href="{{ root }}games/{{ g.slug }}.html">
             {%- if g.away_team and g.home_team -%}
@@ -104,6 +118,7 @@
             {%- endif -%}
           </a>
         </td>
+        {% if not summary_only %}
         <td>
           {%- if g.score_away is not none and g.score_home is not none and g.score_away != "" and g.score_home != "" -%}
             {{ g.score_away }}–{{ g.score_home }}
@@ -121,6 +136,7 @@
           {%- else -%}—{%- endif -%}
         </td>
         <td>{{ g.date_str or "—" }}</td>
+        {% endif %}
         <td>{{ g.player_count }}</td>
       </tr>
       {% endfor %}
