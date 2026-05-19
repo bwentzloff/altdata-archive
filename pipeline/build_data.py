@@ -33,7 +33,7 @@ for d in ["players", "leagues", "hof", "games"]:
 # ─── Sport classification ───────────────────────────────────────────────────
 
 FOOTBALL_LEAGUES = {
-    "UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", 
+    "UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "EFA", "AFL",
     "IFL", "NAL", "LFA", "X-League", "MLFB", "FCF"
 }
 DISC_GOLF_LEAGUES = {"DGPT"}
@@ -711,7 +711,7 @@ def build_this_week(game_index: list) -> None:
     }
 
     SPORT_ORDER = ["Football", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Basketball", "Disc Golf", "Other"]
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-LEAGUE", "XLEAGUE", "MLFB", "FCF"}
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "EFA", "AFL", "IFL", "NAL", "LFA", "X-LEAGUE", "XLEAGUE", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
@@ -1290,6 +1290,7 @@ def main():
         ("ufl_players.json",            "ufl_stats.json",            "UFL"),
         ("unrivaled_players.json",      "unrivaled_stats.json",      "Unrivaled"),
         ("wnba_players.json",           "wnba_stats.json",           "WNBA"),
+        ("efa_players.json",            "efa_stats.json",            "EFA"),
     ]
     for _pfile, _sfile, _label in _new_league_pairs:
         _pf = RAW / _pfile
@@ -1360,6 +1361,18 @@ def main():
         ufl_games = json.loads(ufl_games_file.read_text())
         raw_games.extend(ufl_games)
         print(f"Loaded {len(ufl_games)} UFL game records")
+
+    efa_games_file = RAW / "efa_games.json"
+    if efa_games_file.exists():
+        efa_games = json.loads(efa_games_file.read_text())
+        raw_games.extend(efa_games)
+        print(f"Loaded {len(efa_games)} EFA game records")
+
+    elf_games_file = RAW / "elf_games.json"
+    if elf_games_file.exists():
+        elf_games = json.loads(elf_games_file.read_text())
+        raw_games.extend(elf_games)
+        print(f"Loaded {len(elf_games)} ELF game records")
 
     wnba_games_file = RAW / "wnba_games.json"
     if wnba_games_file.exists():
@@ -1885,6 +1898,61 @@ def main():
     print("Writing league files ...")
     league_index = []
 
+    # Seed game pages for football leagues whose stats are season-totals only
+    # (EFA scrape_efa, etc.) so per-game schedules still surface on the league
+    # page. Stats-driven seeding only sees the SEASON_TOTAL stub; this loop
+    # adds the real per-game entries from raw_games.
+    for rg in raw_games:
+        league_name = (rg.get("league") or "")
+        if league_name.upper() not in FOOTBALL_LEAGUES:
+            continue
+        game_id = rg.get("game_id") or ""
+        if not game_id or "SEASON_TOTAL" in game_id.upper():
+            continue
+        gslug = game_id_slug(game_id)
+        if gslug in game_meta:
+            continue
+        # Football scrapers may use either {start_date, home_team, home_score}
+        # or the soccer-style {start_time, team_home, score_home} naming.
+        start = rg.get("start_date") or rg.get("start_time") or ""
+        date_str = start[:10] if isinstance(start, str) else ""
+        season = rg.get("season") or rg.get("_year") or ""
+        if not season and len(date_str) >= 4:
+            try:
+                season = int(date_str[:4])
+            except ValueError:
+                season = ""
+        away_team = rg.get("away_team") or rg.get("team_away") or ""
+        home_team = rg.get("home_team") or rg.get("team_home") or ""
+        score_away = rg.get("away_score")
+        if score_away is None:
+            score_away = rg.get("score_away")
+        score_home = rg.get("home_score")
+        if score_home is None:
+            score_home = rg.get("score_home")
+        game_meta[gslug] = {
+            "game_id": game_id,
+            "slug": gslug,
+            "display": f"{away_team} @ {home_team}" if away_team and home_team else game_id,
+            "league": league_name,
+            "season": season,
+            "week": rg.get("week", ""),
+            "away_team": away_team,
+            "home_team": home_team,
+            "score_away": "" if score_away is None else score_away,
+            "score_home": "" if score_home is None else score_home,
+            "date_str": date_str,
+            "channel": rg.get("channel") or "",
+            "sport_slug": slugify(f"{league_name}-{season}" if season else league_name),
+            "synthetic": False,
+            "venue": rg.get("venue") or "",
+        }
+        game_sport_slug[gslug] = game_meta[gslug]["sport_slug"]
+        game_players_seen[gslug] = set()
+        # Make sure the league appears in league_stats even if it had no per-game
+        # stat rows, so the league page is still written for the season.
+        league_stats[game_meta[gslug]["sport_slug"]]  # touch defaultdict
+
     for sport_slug, player_totals in league_stats.items():
         display = sport_slug.replace("-", " ").upper()
         all_stat_keys = sorted({sk for pt in player_totals.values() for sk in pt})
@@ -1926,7 +1994,7 @@ def main():
         # Deduplicate: if two entries share (away_team, home_team, week, season), merge them
         seen_matchups = {}
         league_games = []
-        for g in sorted(league_games_raw, key=lambda x: (x.get("season") or 0, x.get("week") or 0, x.get("slug", ""))):
+        for g in sorted(league_games_raw, key=lambda x: (x.get("season") or 0, int(x.get("week") or 0) if str(x.get("week") or "").lstrip("-").isdigit() else 0, x.get("slug", ""))):
             away = (g.get("away_team") or "").upper()
             home = (g.get("home_team") or "").upper()
             wk = g.get("week")

@@ -24,7 +24,7 @@ TAGS     = ["football", "nfl", "career"]
 # Pro football leagues we track in this archive (sport_names values).
 FOOTBALL_LEAGUES = {
     "NFL", "CFL", "USFL", "XFL", "UFL", "AAF", "AFL", "IFL", "MLFB",
-    "ELF", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
+    "ELF", "EFA", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
 }
 
 # Display names + a short description for each alt league.
@@ -38,6 +38,7 @@ LEAGUE_INFO = {
     "IFL":      ("IFL",          "Indoor Football League."),
     "MLFB":     ("MLFB",         "Major League Football."),
     "ELF":      ("ELF",          "European League of Football."),
+    "EFA":      ("EFA",          "European Football Alliance — six-team breakaway from the ELF (debut 2026)."),
     "AF1":      ("AF1",          "Arena Football One."),
     "FCF":      ("FCF",          "Fan Controlled Football."),
     "NAL":      ("NAL",          "National Arena League."),

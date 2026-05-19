@@ -32,7 +32,7 @@ TAGS = ["football", "journeyman", "cross-league", "career"]
 # 50 YARD is excluded as an internal/accounting bucket.
 FOOTBALL_LEAGUES = {
     "CFL", "USFL", "XFL", "UFL", "AAF", "AFL", "IFL", "MLFB",
-    "ELF", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
+    "ELF", "EFA", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
 }
 
 # Used to detect any football appearance (so we can skip non-football players).

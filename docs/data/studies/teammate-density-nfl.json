@@ -10,7 +10,7 @@
     "team-season",
     "network"
   ],
-  "computed_at": "2026-05-19T19:05:47+00:00",
+  "computed_at": "2026-05-19T20:10:39+00:00",
   "headline_stats": [
     {
       "label": "Top incubator team-season",
@@ -25,7 +25,7 @@
     {
       "label": "Overall NFL veteran rate",
       "value": "8.6%",
-      "sub": "Across 3,398 alt-football team-season player records"
+      "sub": "Across 3,393 alt-football team-season player records"
     },
     {
       "label": "Team-season association",
@@ -55,14 +55,14 @@
           "label": "Has NFL history (%)",
           "data": [
             2.6,
-            2.6,
-            4.4,
+            3.2,
+            3.8,
             10.6,
             4.4,
             9.7,
             2.9,
             10.0,
-            18.5,
+            18.6,
             20.4
           ]
         }
@@ -123,18 +123,18 @@
               "roster_size": 60
             },
             {
-              "x": 9.8,
+              "x": 9.9,
               "y": 1.2,
               "team_season": "CFL 2022 HAM",
               "league": "CFL",
-              "roster_size": 82
+              "roster_size": 81
             },
             {
               "x": 3.1,
               "y": 1.0,
               "team_season": "CFL 2023 HAM",
               "league": "CFL",
-              "roster_size": 97
+              "roster_size": 96
             },
             {
               "x": 3.5,
@@ -148,7 +148,7 @@
               "y": 0.0,
               "team_season": "CFL 2023 OTT",
               "league": "CFL",
-              "roster_size": 111
+              "roster_size": 110
             },
             {
               "x": 22.7,
@@ -158,18 +158,18 @@
               "roster_size": 66
             },
             {
-              "x": 6.4,
+              "x": 6.5,
               "y": 0.0,
               "team_season": "CFL 2024 WPG",
               "league": "CFL",
-              "roster_size": 125
+              "roster_size": 124
             },
             {
-              "x": 6.8,
+              "x": 6.9,
               "y": 1.4,
               "team_season": "CFL 2022 WPG",
               "league": "CFL",
-              "roster_size": 73
+              "roster_size": 72
             },
             {
               "x": 9.5,
@@ -193,11 +193,11 @@
               "roster_size": 46
             },
             {
-              "x": 5.1,
+              "x": 5.2,
               "y": 0.0,
               "team_season": "CFL 2022 OTT",
               "league": "CFL",
-              "roster_size": 78
+              "roster_size": 77
             },
             {
               "x": 9.1,
@@ -214,11 +214,11 @@
               "roster_size": 119
             },
             {
-              "x": 3.0,
+              "x": 3.1,
               "y": 0.0,
               "team_season": "CFL 2023 EDM",
               "league": "CFL",
-              "roster_size": 99
+              "roster_size": 98
             },
             {
               "x": 29.4,
@@ -354,25 +354,25 @@
               "roster_size": 113
             },
             {
-              "x": 6.8,
+              "x": 6.9,
               "y": 1.0,
               "team_season": "CFL 2023 BC",
               "league": "CFL",
-              "roster_size": 103
+              "roster_size": 102
             },
             {
-              "x": 5.1,
+              "x": 5.2,
               "y": 1.0,
               "team_season": "CFL 2023 WPG",
               "league": "CFL",
-              "roster_size": 98
+              "roster_size": 97
             },
             {
-              "x": 10.7,
+              "x": 10.6,
               "y": 2.4,
               "team_season": "CFL 2022 TOR",
               "league": "CFL",
-              "roster_size": 84
+              "roster_size": 85
             },
             {
               "x": 7.1,
@@ -414,7 +414,7 @@
               "y": 0.0,
               "team_season": "CFL 2024 EDM",
               "league": "CFL",
-              "roster_size": 123
+              "roster_size": 122
             },
             {
               "x": 21.0,
@@ -463,7 +463,7 @@
               "y": 0.0,
               "team_season": "CFL 2022 EDM",
               "league": "CFL",
-              "roster_size": 70
+              "roster_size": 69
             },
             {
               "x": 16.2,
@@ -757,7 +757,7 @@
       "html": "<ol><li><strong>NFL-heavy locker rooms are associated with better NFL outcomes later.</strong> Across player-density groups, the top-density cohort is at 20.4% versus 2.6% at the bottom. That is a large practical gap.</li><li><strong>League context is not uniform.</strong> On pooled eligible team-seasons, XFL shows the highest reached-after rate (5.7%), while IFL is lowest (0.0%).</li><li><strong>Typical team-season performance differs from single-year spikes.</strong> The strongest median league in the box plot is XFL (median 6.0%), while the weakest median is CFL (median 0.0%).</li><li><strong>Caveat:</strong> these are <em>associations</em>, not causal estimates. The study can show that team environment and NFL outcomes move together, but it cannot prove that adding NFL veterans by itself causes later NFL conversion.</li></ol>"
     }
   ],
-  "methodology": "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in <code>docs/data/sports.json</code>.</p><p>NFL season timing is taken from <code>player.nfl.seasons</code> when available (ESPN season rows), with NFL appearances inferred from <code>sport_id</code> metadata as a fallback for legacy records.</p><p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. Only non-NFL North American football leagues are included in environment construction. ELF (European League of Football) and X-League (Japan) are excluded because their player pools are predominantly non-American, so near-zero NFL linkage in those leagues is structural rather than environmental. \"NFL veteran\" means the player has any NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one NFL appearance whose season is later than the team-season in question; team-seasons without a known year are excluded from the incubator ranking.</p><p>League-wide and season-cohort comparisons are right-censor adjusted: alt team-seasons are only included if at least one later NFL season exists in the source data, so recent cohorts are not penalized for lack of elapsed time.</p><p>Chart notes: scatter plots show one point per team-season; box plots summarize distributions at league level; line charts show pooled season cohorts and are weighted by roster records (not by number of teams).</p><p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, but that does not prove one directly causes the other.</p>",
+  "methodology": "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in <code>docs/data/sports.json</code>.</p><p>NFL season timing is taken from <code>player.nfl.seasons</code> when available (ESPN season rows), with NFL appearances inferred from <code>sport_id</code> metadata as a fallback for legacy records.</p><p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. Only non-NFL North American football leagues are included in environment construction. ELF (European League of Football), EFA (European Football Alliance), and X-League (Japan) are excluded because their player pools are predominantly non-American, so near-zero NFL linkage in those leagues is structural rather than environmental. \"NFL veteran\" means the player has any NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one NFL appearance whose season is later than the team-season in question; team-seasons without a known year are excluded from the incubator ranking.</p><p>League-wide and season-cohort comparisons are right-censor adjusted: alt team-seasons are only included if at least one later NFL season exists in the source data, so recent cohorts are not penalized for lack of elapsed time.</p><p>Chart notes: scatter plots show one point per team-season; box plots summarize distributions at league level; line charts show pooled season cohorts and are weighted by roster records (not by number of teams).</p><p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, but that does not prove one directly causes the other.</p>",
   "table": {
     "columns": [
       {
@@ -921,11 +921,11 @@
       {
         "team_season": "CFL 2022 TOR",
         "league": "CFL",
-        "roster_size": 84,
+        "roster_size": 85,
         "nfl_after": 2,
         "after_pct": 2.4,
         "nfl_vets": 9,
-        "veteran_pct": 10.7,
+        "veteran_pct": 10.6,
         "league_baseline_after_pct": 0.6,
         "lift_pct_points": 1.8
       },
@@ -965,18 +965,18 @@
       {
         "team_season": "CFL 2022 WPG",
         "league": "CFL",
-        "roster_size": 73,
+        "roster_size": 72,
         "nfl_after": 1,
         "after_pct": 1.4,
         "nfl_vets": 5,
-        "veteran_pct": 6.8,
+        "veteran_pct": 6.9,
         "league_baseline_after_pct": 0.6,
         "lift_pct_points": 0.8
       }
     ]
   },
   "history_row": {
-    "player_records": 3398,
+    "player_records": 3393,
     "overall_nfl_veteran_pct": 8.6,
     "d10_pct": 20.4,
     "d1_pct": 2.6,

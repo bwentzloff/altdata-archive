@@ -207,8 +207,7 @@ def main():
         ("au_players.json",             "Athletes Unlimited"),
         ("dgpt_players.json",           "DGPT"),
         ("unrivaled_players.json",      "Unrivaled"),
-        ("wnba_players.json",           "WNBA"),
-    ]
+        ("wnba_players.json",           "WNBA"),        ("efa_players.json",             "EFA"),    ]
     for fname, label in _new_league_files:
         _f = RAW / fname
         if _f.exists():
@@ -361,9 +360,14 @@ def main():
         positions = sorted({r.get("position", "") for r in records if r.get("position")})
         leagues = sorted({r.get("league") for r in records if r.get("league")})
         sport_ids = sorted({r.get("sport_id") for r in records if r.get("sport_id")})
-        sport_names = sorted({
-            sport_map[sid]["name"] for sid in sport_ids if sid in sport_map
-        })
+        sport_names = sorted(
+            {sport_map[sid]["name"] for sid in sport_ids if sid in sport_map}
+            # Brand-new leagues (e.g. EFA) have no row in sports.json yet, so
+            # sport_id resolution returns nothing. Fall back to the league code
+            # carried on each scraped record so studies and league pages can
+            # still see the league via sport_names.
+            | {lg for lg in leagues if lg}
+        )
 
         # Flag ambiguous: multiple records with differing positions (different person risk)
         unique_positions = {(r.get("position") or "").upper() for r in records}

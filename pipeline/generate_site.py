@@ -218,7 +218,7 @@ def _build_sport_groups(leagues_index):
     """
     SPORT_ORDER = ["Football", "Basketball", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
+    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "EFA", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
     BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
     DISC = {"AUDL", "UFA", "PUL"}
     LACROSSE = {"NLL", "PLL"}
@@ -234,7 +234,7 @@ def _build_sport_groups(leagues_index):
             return "Lacrosse"
         if name in DISCGOLF or "DGPT" in up:
             return "Disc Golf"
-        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED")):
+        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED", "EFA")):
             return "Football"
         if name in SOCCER:
             return "Soccer"

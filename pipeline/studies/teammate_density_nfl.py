@@ -22,10 +22,11 @@ FOOTBALL_LEAGUES = {
     "NFL", "CFL", "USFL", "XFL", "UFL", "AAF", "AFL", "IFL", "MLFB",
     "AF1", "FCF", "NAL", "LFA",
 }
-# ELF and X-LEAGUE are excluded: both are predominantly non-American leagues
-# (European League of Football and Japan's X-League respectively), so their
-# near-zero NFL-linkage rate reflects the player pool, not the environment
-# quality. Including them would structurally distort league comparisons.
+# ELF, EFA, and X-LEAGUE are excluded: all three are predominantly non-American
+# leagues (European League of Football, European Football Alliance, and Japan's
+# X-League respectively), so their near-zero NFL-linkage rate reflects the
+# player pool, not the environment quality. Including them would structurally
+# distort league comparisons.
 
 
 def _norm_league(name: str) -> str:
@@ -735,7 +736,7 @@ def compute(data_dir: Path) -> dict:
         "with NFL appearances inferred from <code>sport_id</code> metadata as a fallback for legacy records.</p>"
         "<p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. "
         "Only non-NFL North American football leagues are included in environment construction. "
-        "ELF (European League of Football) and X-League (Japan) are excluded because their player pools are predominantly "
+        "ELF (European League of Football), EFA (European Football Alliance), and X-League (Japan) are excluded because their player pools are predominantly "
         "non-American, so near-zero NFL linkage in those leagues is structural rather than environmental. "
         "\"NFL veteran\" means the player has any "
         "NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one "

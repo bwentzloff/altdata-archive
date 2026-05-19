@@ -20,7 +20,7 @@ TAGS = ["football", "qb", "receiving", "chemistry", "cross-league"]
 
 FOOTBALL_LEAGUES = {
     "NFL", "CFL", "USFL", "XFL", "UFL", "AAF", "AFL", "IFL", "MLFB",
-    "ELF", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
+    "ELF", "EFA", "AF1", "FCF", "NAL", "LFA", "X-LEAGUE",
 }
 
 QB_POS = {"QB"}
