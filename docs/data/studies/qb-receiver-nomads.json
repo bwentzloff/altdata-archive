@@ -10,21 +10,21 @@
     "chemistry",
     "cross-league"
   ],
-  "computed_at": "2026-05-19T21:11:31+00:00",
+  "computed_at": "2026-05-19T21:55:41+00:00",
   "headline_stats": [
     {
       "label": "Top cross-league QB-receiver duo",
       "value": "2 leagues",
-      "sub": "Luis Perez -> Sal Cannella across 3 team-seasons"
+      "sub": "Luis Perez -> Sal Cannella across 4 team-seasons"
     },
     {
       "label": "Most durable duo",
       "value": "4 team-seasons",
-      "sub": "Jordan Ta\\'amu -> Abram Smith"
+      "sub": "Luis Perez -> Sal Cannella"
     },
     {
       "label": "Top OL-linked unit",
-      "value": "Jordan Ta\\'amu + Abram Smith + Liam Fornadel (2 shared team-seasons)",
+      "value": "Luis Perez + Sal Cannella + Teton Saltes (2 shared team-seasons)",
       "sub": "60 cross-league duos found"
     }
   ],
@@ -51,7 +51,7 @@
         {
           "label": "Chemistry score",
           "data": [
-            8988.0,
+            10836.0,
             8986.0,
             8936.0,
             8309.0,
@@ -87,7 +87,7 @@
         {
           "label": "UFL",
           "data": [
-            2,
+            3,
             3,
             2,
             2,
@@ -122,19 +122,19 @@
         {
           "id": "qb:luis-perez",
           "label": "QB Luis Perez",
-          "value": 15,
+          "value": 16,
           "is_nfl": false
         },
         {
           "id": "rec:sal-cannella",
           "label": "REC Sal Cannella",
-          "value": 3,
+          "value": 4,
           "is_nfl": false
         },
         {
-          "id": "ol:Cameron Hunt",
-          "label": "OL Cameron Hunt",
-          "value": 5.0,
+          "id": "ol:Teton Saltes",
+          "label": "OL Teton Saltes",
+          "value": 2,
           "is_nfl": false
         },
         {
@@ -159,6 +159,12 @@
           "id": "rec:tyler-vaughns",
           "label": "REC Tyler Vaughns",
           "value": 3,
+          "is_nfl": false
+        },
+        {
+          "id": "ol:Cameron Hunt",
+          "label": "OL Cameron Hunt",
+          "value": 4.0,
           "is_nfl": false
         },
         {
@@ -224,12 +230,6 @@
       ],
       "edges": [
         {
-          "source": "rec:sal-cannella",
-          "target": "ol:Cameron Hunt",
-          "value": 1.0,
-          "directed": false
-        },
-        {
           "source": "rec:tyler-vaughns",
           "target": "ol:Cameron Hunt",
           "value": 1.0,
@@ -284,6 +284,18 @@
           "directed": false
         },
         {
+          "source": "qb:luis-perez",
+          "target": "ol:Teton Saltes",
+          "value": 2.0,
+          "directed": false
+        },
+        {
+          "source": "rec:sal-cannella",
+          "target": "ol:Teton Saltes",
+          "value": 2.0,
+          "directed": false
+        },
+        {
           "source": "rec:abram-smith",
           "target": "ol:Liam Fornadel",
           "value": 2.0,
@@ -305,12 +317,6 @@
           "source": "qb:aj-mccarron",
           "target": "rec:darrius-shepherd",
           "value": 2.0,
-          "directed": true
-        },
-        {
-          "source": "qb:luis-perez",
-          "target": "rec:sal-cannella",
-          "value": 3.0,
           "directed": true
         },
         {
@@ -356,6 +362,12 @@
           "directed": true
         },
         {
+          "source": "qb:luis-perez",
+          "target": "rec:sal-cannella",
+          "value": 4.0,
+          "directed": true
+        },
+        {
           "source": "qb:jordan-taamu",
           "target": "rec:abram-smith",
           "value": 4.0,
@@ -364,7 +376,7 @@
         {
           "source": "qb:luis-perez",
           "target": "ol:Cameron Hunt",
-          "value": 5.0,
+          "value": 4.0,
           "directed": false
         }
       ],
@@ -444,16 +456,16 @@
         "duo": "Luis Perez -> Sal Cannella",
         "qb": "Luis Perez",
         "receiver": "Sal Cannella",
-        "team_seasons": 3,
+        "team_seasons": 4,
         "leagues_count": 2,
         "leagues": "UFL, XFL",
-        "total_score": 8988.0,
-        "avg_score": 2996.0,
-        "pass_yards": 6376,
-        "rec_yards": 1392,
+        "total_score": 10836.0,
+        "avg_score": 2709.0,
+        "pass_yards": 6888,
+        "rec_yards": 2363,
         "best_team_season": "UFL 2024 RENEGADES",
-        "best_ol": "Cameron Hunt",
-        "unit_context": "Luis Perez + Sal Cannella + Cameron Hunt shared 1 team-seasons"
+        "best_ol": "Teton Saltes",
+        "unit_context": "Luis Perez + Sal Cannella + Teton Saltes shared 2 team-seasons"
       },
       {
         "duo": "Jordan Ta\\'amu -> Abram Smith",
@@ -1347,6 +1359,6 @@
     "repeat_duos": 796,
     "top_duo": "Luis Perez -> Sal Cannella",
     "top_duo_leagues": 2,
-    "top_duo_team_seasons": 3
+    "top_duo_team_seasons": 4
   }
 }
