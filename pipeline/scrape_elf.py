@@ -1,14 +1,20 @@
 """
 scrape_elf.py
-Fetches ELF historical player stats from the Wayback Machine archive of
-sportsmetrics.football and builds the pipeline/raw/elf_historical_*.json files.
+Fetches ELF (European League of Football) historical player stats from the
+league's live site (europeanleague.football) and builds the
+pipeline/raw/elf_historical_*.json files.
 
-Sources:
-  - 2021 + 2022 RS + PO: June 2023 snapshot (has complete prior-season totals)
-    https://web.archive.org/web/20230609180600/https://www.sportsmetrics.football/stats/player-stats
+Source:
+  https://europeanleague.football/stats/player/{year}   (one page per season)
 
-Years targeted:
-  2021, 2022   (ELF 2023 is already in the live database as sport id=16)
+The page is a Next.js App Router route; per-category player arrays
+(passers, rushers, receivers, tacklers, kickers, punters, returners,
+passdefs, qualpassers) are embedded in the RSC payload streamed via
+`self.__next_f.push([1, "..."])` script tags. Player UUIDs are stable
+across seasons and match the UUIDs in the original sportsmetrics.football
+dataset that previously seeded 2021/2022, so historical IDs carry forward.
+
+Years targeted: 2021..current. Years with no records are skipped.
 
 Synthetic player IDs start at 300000.
 Game ID format: FOOTBALL_ELF_{year}_SEASON_TOTAL
@@ -28,12 +34,10 @@ RAW.mkdir(exist_ok=True)
 
 PLAYERS_FILE = RAW / "elf_historical_players.json"
 STATS_FILE   = RAW / "elf_historical_stats.json"
-CACHE_FILE   = RAW / "elf_historical_raw.json"   # raw Wayback snapshot cache
+CACHE_DIR    = RAW / "elf_cache"
+CACHE_DIR.mkdir(exist_ok=True)
 
-WAYBACK_URL = (
-    "https://web.archive.org/web/20230609180600/"
-    "https://www.sportsmetrics.football/stats/player-stats"
-)
+BASE_URL = "https://europeanleague.football/stats/player/{year}"
 
 SYNTHETIC_ID_START = 300000
 
@@ -45,8 +49,15 @@ HEADERS = {
     )
 }
 
-# Years to include (ELF 2023 already in live DB)
-TARGET_YEARS = {2021, 2022}
+# Years to attempt. Years with no player records on the live page are skipped
+# (e.g. seasons that haven't started yet).
+TARGET_YEARS = [2021, 2022, 2023, 2024, 2025, 2026]
+
+# Category arrays inside the RSC payload that contain per-player stat rows.
+CATEGORY_KEYS = (
+    "passers", "qualpassers", "rushers", "receivers",
+    "tacklers", "passdefs", "kickers", "punters", "returners",
+)
 
 # ── Stat field mapping: sportsmetrics field → pipeline stat name ────────────
 STAT_MAP = {
@@ -128,94 +139,204 @@ def infer_position(row: dict) -> str:
     return ""
 
 
-def fetch_raw_data() -> dict:
-    """Fetch Wayback snapshot and return parsed NEXT_DATA."""
-    if CACHE_FILE.exists():
-        print(f"Loading from cache: {CACHE_FILE}")
-        return json.loads(CACHE_FILE.read_text())
-
-    print(f"Fetching Wayback snapshot (this may take 30-60s)...")
-    print(f"  {WAYBACK_URL}")
-    r = requests.get(WAYBACK_URL, headers=HEADERS, timeout=90)
-    r.raise_for_status()
-
-    m = re.search(
-        r'<script id="__NEXT_DATA__" type="application/json">(.+?)</script>',
-        r.text, re.DOTALL
-    )
-    if not m:
-        sys.exit("ERROR: Could not find __NEXT_DATA__ in archived page")
-
-    data = json.loads(m.group(1))
-    CACHE_FILE.write_text(json.dumps(data), encoding="utf-8")
-    print(f"  Saved cache to {CACHE_FILE.name}")
-    return data
+def _extract_rsc_body(html: str) -> str:
+    """Concatenate and decode every `self.__next_f.push([1, "..."])` chunk."""
+    parts = re.findall(r'self\.__next_f\.push\(\[1,"(.+?)"\]\)', html, re.DOTALL)
+    out = []
+    for p in parts:
+        try:
+            out.append(json.loads('"' + p + '"'))
+        except json.JSONDecodeError:
+            continue
+    return "".join(out)
 
 
-def build_players_and_stats(raw_data: dict):
+def _extract_array(body: str, key: str):
+    """Return the JSON array following `"<key>":[` in body, or [] if absent."""
+    needle = f'"{key}":[' + '{'
+    idx = body.find(needle)
+    if idx < 0:
+        return []
+    start = idx + len(key) + 3  # position of opening '['
+    depth = 0
+    in_str = False
+    esc = False
+    for i in range(start, len(body)):
+        c = body[i]
+        if esc:
+            esc = False
+            continue
+        if c == "\\":
+            esc = True
+            continue
+        if c == '"':
+            in_str = not in_str
+            continue
+        if in_str:
+            continue
+        if c == "[":
+            depth += 1
+        elif c == "]":
+            depth -= 1
+            if depth == 0:
+                try:
+                    return json.loads(body[start:i + 1])
+                except json.JSONDecodeError:
+                    return []
+    return []
+
+
+def fetch_year(year: int) -> list[dict]:
+    """Fetch one season's /stats/player/{year} page; return merged player rows."""
+    cache = CACHE_DIR / f"elf_{year}.html"
+    if cache.exists():
+        html = cache.read_text(encoding="utf-8")
+        print(f"  [{year}] loaded from cache ({len(html)} bytes)")
+    else:
+        url = BASE_URL.format(year=year)
+        print(f"  [{year}] fetching {url}")
+        r = requests.get(url, headers=HEADERS, timeout=60)
+        r.raise_for_status()
+        html = r.text
+        cache.write_text(html, encoding="utf-8")
+        time.sleep(1.0)  # be polite
+
+    body = _extract_rsc_body(html)
+    if not body:
+        print(f"  [{year}] WARN: empty RSC payload")
+        return []
+
+    # Merge per-player rows across all category arrays. Each record has
+    # {id, name, team, pos, gp, <stat fields>}. Different categories
+    # contribute disjoint stat fields for the same player.
+    merged: dict[str, dict] = {}
+    for key in CATEGORY_KEYS:
+        arr = _extract_array(body, key)
+        for rec in arr:
+            pid = rec.get("id")
+            if not pid:
+                continue
+            if pid not in merged:
+                merged[pid] = {
+                    "id":   pid,
+                    "name": rec.get("name", ""),
+                    "team": rec.get("team", ""),
+                    "pos":  rec.get("pos", ""),
+                    "year": year,
+                    "gp":   safe_float(rec.get("gp", 0)),
+                }
+            tgt = merged[pid]
+            # Prefer non-empty identity fields from any record
+            for f in ("name", "team", "pos"):
+                if not tgt.get(f) and rec.get(f):
+                    tgt[f] = rec[f]
+            tgt["gp"] = max(tgt["gp"], safe_float(rec.get("gp", 0)))
+            for src_field in NUMERIC_FIELDS:
+                if src_field == "gp":
+                    continue
+                v = safe_float(rec.get(src_field, 0))
+                if v:
+                    tgt[src_field] = tgt.get(src_field, 0.0) + v
+    rows = list(merged.values())
+    print(f"  [{year}] {len(rows)} players merged from {sum(1 for k in CATEGORY_KEYS if _extract_array(body, k))} category arrays")
+    return rows
+
+
+_POS_SHORT = {
+    "quarterback": "QB", "running back": "RB", "wide receiver": "WR",
+    "tight end": "TE", "fullback": "FB", "kicker": "K", "punter": "P",
+    "long snapper": "LS",
+    "offensive lineman": "OL", "offensive tackle": "OT",
+    "offensive guard": "OG", "center": "C",
+    "defensive lineman": "DL", "defensive end": "DE",
+    "defensive tackle": "DT", "nose tackle": "NT",
+    "linebacker": "LB", "cornerback": "CB", "safety": "S",
+    "defensive back": "DB", "return specialist": "RS",
+}
+
+
+def _normalize_pos(pos: str, row: dict) -> str:
+    if pos:
+        short = _POS_SHORT.get(pos.strip().lower())
+        if short:
+            return short
+    return infer_position(row)
+
+
+def build_players_and_stats(year_rows: dict[int, list[dict]]):
     """
-    Process the raw NEXT_DATA and write elf_historical_players.json
-    and elf_historical_stats.json.
+    Process per-year merged rows and write elf_historical_players.json and
+    elf_historical_stats.json.
     """
-    page_props = raw_data["props"]["pageProps"]
-    players_by_id = {
-        p["id"]: p
-        for p in page_props["players"]["data"]
-    }
-    totals = page_props["totals"]["data"]
-
-    # Filter to target years only
-    rows = [r for r in totals if r.get("year") in TARGET_YEARS]
-    print(f"Rows after year filter ({TARGET_YEARS}): {len(rows)}")
-
-    # Aggregate RS + PO per (player_id, year) into season totals
-    # Key: (leaguetool player id, year)
+    # Flatten into (lt_id, year) -> aggregated row
     season_totals: dict[tuple, dict] = {}
-    for row in rows:
-        pid = row["id"]
-        year = row["year"]
-        key = (pid, year)
-        if key not in season_totals:
-            season_totals[key] = {
-                "id": pid,
-                "year": year,
-                "team": row.get("team", ""),
-                "name": row.get("name", ""),
-            }
-            for f in NUMERIC_FIELDS:
-                season_totals[key][f] = 0.0
-        # Accumulate all seasons (RS + PO)
-        for f in NUMERIC_FIELDS:
-            season_totals[key][f] += safe_float(row.get(f, 0))
+    for year, rows in year_rows.items():
+        for row in rows:
+            pid = row["id"]
+            key = (pid, year)
+            if key in season_totals:
+                # Shouldn't happen (already merged inside fetch_year) but
+                # tolerate duplicate years defensively.
+                agg = season_totals[key]
+                for f in NUMERIC_FIELDS:
+                    agg[f] = agg.get(f, 0.0) + safe_float(row.get(f, 0))
+            else:
+                season_totals[key] = {
+                    "id":   pid,
+                    "year": year,
+                    "team": row.get("team", ""),
+                    "name": row.get("name", ""),
+                    "pos":  row.get("pos", ""),
+                    **{f: safe_float(row.get(f, 0)) for f in NUMERIC_FIELDS},
+                }
 
     print(f"Unique (player, year) season totals: {len(season_totals)}")
 
-    # Build synthetic player list (deduplicated across years)
-    # Use leaguetool UUID as deduplication key
-    seen_lt_ids: dict[str, int] = {}   # leaguetool id → synthetic int id
+    # Build synthetic player list (deduplicated across years).
+    # Use leaguetool UUID as deduplication key. To keep synthetic IDs stable
+    # across runs, reuse the IDs from any pre-existing players file.
+    seen_lt_ids: dict[str, int] = {}
     out_players = []
     synthetic_id = SYNTHETIC_ID_START
 
-    for (lt_id, year), agg in sorted(season_totals.items(), key=lambda x: x[0][0]):
-        if lt_id not in seen_lt_ids:
-            # Get full name from players dict if available
-            p_info = players_by_id.get(lt_id, {})
-            first = p_info.get("firstname", "")
-            last  = p_info.get("lastname", "")
-            if first and last:
-                full_name = f"{first} {last}"
-            else:
-                # Fall back to abbreviated name from stats (e.g. "A. Agackesen")
-                full_name = agg["name"]
+    if PLAYERS_FILE.exists():
+        try:
+            prior = json.loads(PLAYERS_FILE.read_text())
+            for p in prior:
+                lt = p.get("_elf_lt_id")
+                pid = p.get("id")
+                if lt and isinstance(pid, int):
+                    seen_lt_ids[lt] = pid
+                    synthetic_id = max(synthetic_id, pid + 1)
+            print(f"Preserving {len(seen_lt_ids)} existing synthetic IDs; "
+                  f"next new ID = {synthetic_id}")
+        except Exception as e:
+            print(f"Could not load prior {PLAYERS_FILE.name}: {e}")
 
-            position = infer_position(agg)
+    prior_players_by_synth = {}
+    if PLAYERS_FILE.exists():
+        try:
+            for p in json.loads(PLAYERS_FILE.read_text()):
+                if isinstance(p.get("id"), int):
+                    prior_players_by_synth[p["id"]] = p
+        except Exception:
+            pass
+
+    for (lt_id, year), agg in sorted(season_totals.items(), key=lambda x: (x[0][1], x[0][0])):
+        if lt_id not in seen_lt_ids:
+            # Source records carry abbreviated names like "A. Brown".
+            full_name = agg.get("name") or ""
+            first = full_name.split(".")[0].strip() if "." in full_name else (full_name.split()[0] if full_name else "")
+            last  = full_name.split()[-1] if full_name else ""
+
+            position = _normalize_pos(agg.get("pos", ""), agg)
 
             player = {
                 "id":          synthetic_id,
                 "full_name":   full_name,
                 "short_name":  full_name,
-                "first_name":  first or full_name.split()[0],
-                "last_name":   last or full_name.split()[-1],
+                "first_name":  first or (full_name.split()[0] if full_name else ""),
+                "last_name":   last,
                 "sport_id":    None,
                 "league":      "ELF",
                 "team":        "",
@@ -232,6 +353,11 @@ def build_players_and_stats(raw_data: dict):
             out_players.append(player)
             seen_lt_ids[lt_id] = synthetic_id
             synthetic_id += 1
+        else:
+            # Existing player: keep prior record unchanged on first sighting
+            syn = seen_lt_ids[lt_id]
+            if syn in prior_players_by_synth and not any(p["id"] == syn for p in out_players):
+                out_players.append(prior_players_by_synth[syn])
 
     print(f"Unique synthetic ELF players: {len(out_players)}")
 
@@ -290,8 +416,25 @@ def build_players_and_stats(raw_data: dict):
 
 def main():
     print("=== ELF Historical Stats Import ===")
-    raw_data = fetch_raw_data()
-    build_players_and_stats(raw_data)
+    year_rows: dict[int, list[dict]] = {}
+    for year in TARGET_YEARS:
+        try:
+            rows = fetch_year(year)
+        except requests.HTTPError as e:
+            print(f"  [{year}] HTTP error: {e}; skipping")
+            continue
+        except requests.RequestException as e:
+            print(f"  [{year}] request error: {e}; skipping")
+            continue
+        if rows:
+            year_rows[year] = rows
+        else:
+            print(f"  [{year}] no records on page; skipping")
+
+    if not year_rows:
+        sys.exit("ERROR: no ELF data fetched for any year")
+
+    build_players_and_stats(year_rows)
     print("\nDone.")
 
 

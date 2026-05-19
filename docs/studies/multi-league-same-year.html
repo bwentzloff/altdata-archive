@@ -79,7 +79,7 @@
     <p class="study-subtitle">Non-NFL players who pieced a season together across multiple pro leagues</p>
     <p class="study-meta">
       Last computed 2026-05-19.
-      1 historical snapshot.
+      2 historical snapshots.
     </p>
   </header>
 
@@ -87,9 +87,9 @@
   <section class="study-headline-stats">
     
     <div class="study-stat-card">
-      <div class="study-stat-value">67</div>
+      <div class="study-stat-value">69</div>
       <div class="study-stat-label">Multi-league player-years</div>
-      <div class="study-stat-sub">60 unique players in 5 different calendar years</div>
+      <div class="study-stat-sub">61 unique players in 6 different calendar years</div>
     </div>
     
     <div class="study-stat-card">
@@ -832,6 +832,34 @@
         
         <tr>
           
+          <td>Maxime Roger</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2,024</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (BC) · ELF (MUSKETEERS)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Maxime Roger</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2,023</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (BC) · ELF (MUSKETEERS)</td>
+          
+        </tr>
+        
+        <tr>
+          
           <td>Mike Rose</td>
           
           <td>DB, DL, LB</td>
@@ -1231,6 +1259,22 @@
           <td class="num">2</td>
           
           <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Maxime Roger</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2</td>
+          
+          <td>2023-2024</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, ELF</td>
           
         </tr>
         
@@ -2109,6 +2153,15 @@
   </section>
 
   
+  <section class="study-section">
+    <h2>Snapshot history</h2>
+    <p>How the headline numbers have moved over time.</p>
+    <details class="study-history-details">
+      <summary>Show 2 snapshots (2026-05-19 → 2026-05-19)</summary>
+      <pre class="study-history-json">{"slug": "multi-league-same-year", "snapshots": [{"computed_at": "2026-05-19T18:18:52+00:00", "multi_league_player_years": 67, "unique_players": 60, "max_leagues_in_year": 4, "top_player": "Joe Powell", "top_player_years": 2}, {"computed_at": "2026-05-19T19:05:47+00:00", "multi_league_player_years": 69, "unique_players": 61, "max_leagues_in_year": 4, "top_player": "Joe Powell", "top_player_years": 2}]}</pre>
+    </details>
+  </section>
+  
 
   <section class="study-section study-data">
     <h2>Underlying data</h2>
@@ -2145,7 +2198,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script>
-window._studyCharts = [{"id": "chart-multi-league-by-year", "type": "bar", "title": "Two-league player-years per calendar year", "labels": ["2019", "2022", "2023", "2025", "2026"], "datasets": [{"label": "Players with 2+ non-NFL leagues", "data": [17, 2, 1, 15, 32]}], "note": "Each bar counts distinct players who accumulated stats in two or more non-NFL pro football leagues during that calendar year."}, {"id": "chart-multi-league-pairs", "type": "bar", "title": "Most common two-league combinations", "labels": ["IFL + NAL", "NAL + UFL", "AAF + CFL", "IFL + UFL", "AF1 + IFL", "CFL + UFL", "AF1 + NAL", "CFL + USFL", "AF1 + UFL", "CFL + XFL"], "datasets": [{"label": "Player-years", "data": [29, 17, 17, 8, 5, 5, 3, 2, 1, 1]}], "indexAxis": "y", "note": "Counts each (player, year) instance once per league pair that appears together that year."}, {"id": "chart-multi-league-top-players", "type": "bar", "title": "Players with the most multi-league seasons", "labels": ["Joe Powell", "Alexis Rosario", "Deanthony  Hall-Steele", "John Williams", "Jonathan Adams", "LaDarius Galloway", "Simeon Burns", "A.J. Brown", "Aaron Dilworth", "Chris  Elmore", "DeQuan  Dudley", "Javin Kilgo"], "datasets": [{"label": "Years with 2+ non-NFL leagues", "data": [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]}], "indexAxis": "y", "note": "How many separate calendar years each player suited up in two or more non-NFL pro football leagues."}];
+window._studyCharts = [{"id": "chart-multi-league-by-year", "type": "bar", "title": "Two-league player-years per calendar year", "labels": ["2019", "2022", "2023", "2024", "2025", "2026"], "datasets": [{"label": "Players with 2+ non-NFL leagues", "data": [17, 2, 2, 1, 15, 32]}], "note": "Each bar counts distinct players who accumulated stats in two or more non-NFL pro football leagues during that calendar year."}, {"id": "chart-multi-league-pairs", "type": "bar", "title": "Most common two-league combinations", "labels": ["IFL + NAL", "NAL + UFL", "AAF + CFL", "IFL + UFL", "AF1 + IFL", "CFL + UFL", "AF1 + NAL", "CFL + ELF", "CFL + USFL", "AF1 + UFL", "CFL + XFL"], "datasets": [{"label": "Player-years", "data": [29, 17, 17, 8, 5, 5, 3, 2, 2, 1, 1]}], "indexAxis": "y", "note": "Counts each (player, year) instance once per league pair that appears together that year."}, {"id": "chart-multi-league-top-players", "type": "bar", "title": "Players with the most multi-league seasons", "labels": ["Joe Powell", "Alexis Rosario", "Deanthony  Hall-Steele", "John Williams", "Jonathan Adams", "LaDarius Galloway", "Maxime Roger", "Simeon Burns", "A.J. Brown", "Aaron Dilworth", "Chris  Elmore", "DeQuan  Dudley"], "datasets": [{"label": "Years with 2+ non-NFL leagues", "data": [2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1]}], "indexAxis": "y", "note": "How many separate calendar years each player suited up in two or more non-NFL pro football leagues."}];
 </script>
 <script src="../assets/study-charts.js"></script>
 
