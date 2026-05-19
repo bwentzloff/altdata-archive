@@ -19,7 +19,7 @@ Each study is a module exposing:
         }
 """
 
-from . import nfl_pipeline_leagues, qb_receiver_nomads, teammate_density_nfl
+from . import nfl_pipeline_leagues, qb_receiver_nomads, teammate_density_nfl, multi_league_same_year
 
 # Ordered list — dictates the studies index ordering.
-STUDIES = [nfl_pipeline_leagues, qb_receiver_nomads, teammate_density_nfl]
+STUDIES = [nfl_pipeline_leagues, qb_receiver_nomads, teammate_density_nfl, multi_league_same_year]

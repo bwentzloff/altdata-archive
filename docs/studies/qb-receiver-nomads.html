@@ -1757,6 +1757,8 @@
   </section>
   
 
+  
+
   <section class="study-section">
     <h2>Methodology</h2>
     <p>Data source: player JSON files in <code>docs/data/players/</code> plus season metadata from <code>docs/data/sports.json</code>.</p><p>A team-season is identified by <code>(sport_id, team)</code> roster membership. Because many feeds do not include direct passer-target links, this study uses shared team-season co-membership as a proxy for QB-receiver connection.</p><p>Chemistry score per team-season: <code>QB score + Receiver score</code>, where <code>QB score = passing_yards + 40*passing_tds - 45*interceptions</code> and <code>Receiver score = receiving_yards + 60*receiving_tds + 2*targets</code>.</p><p>Scores are descriptive and ranking-oriented, not causal estimates. This study reruns on each build as new rosters and statlines land.</p>

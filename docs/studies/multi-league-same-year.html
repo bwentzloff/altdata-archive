@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football journeymen: two leagues in one year — Studies — AltSports Archive</title>
+  <meta name="description" content="Non-NFL players who pieced a season together across multiple pro leagues">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://archive.altfantasysports.com/studies/multi-league-same-year.html">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="AltSports Archive">
+  <meta property="og:title" content="AltSports Archive">
+  <meta property="og:description" content="Historical player statistics from alternative football, ultimate, and basketball leagues. Free open data in JSON, XML, and HTML.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://archive.altfantasysports.com/studies/multi-league-same-year.html">
+  
+  
+
+
+  <!-- Alternate machine-readable formats -->
+  
+<link rel="alternate" type="application/json" href="../data/studies/multi-league-same-year.json">
+<link rel="alternate" type="application/json" href="../data/studies/multi-league-same-year-history.json" title="Snapshot history">
+
+
+  <link rel="stylesheet" href="../assets/style.css">
+
+  <!-- Structured data -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AltSports Archive",
+    "url": "https://archive.altfantasysports.com",
+    "description": "Historical player and game statistics from alternative sports leagues. Free open data.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://archive.altfantasysports.com/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJDSXPVYDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YJDSXPVYDT');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="site-header">
+      <a href="../index.html" class="site-title">AltSports Archive</a>
+      <nav>
+        <a href="../leagues/index.html">Leagues</a>
+        <a href="../hof/index.html">Hall of Fame</a>
+        <a href="../studies/index.html">Studies</a>
+        <a href="../search.html">Search</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme">◑</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+<article class="study">
+  <header class="study-header">
+    <p class="study-eyebrow"><a href="../studies/index.html">Studies</a> · Football</p>
+    <h1>Football journeymen: two leagues in one year</h1>
+    <p class="study-subtitle">Non-NFL players who pieced a season together across multiple pro leagues</p>
+    <p class="study-meta">
+      Last computed 2026-05-19.
+      1 historical snapshot.
+    </p>
+  </header>
+
+  
+  <section class="study-headline-stats">
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">67</div>
+      <div class="study-stat-label">Multi-league player-years</div>
+      <div class="study-stat-sub">60 unique players in 5 different calendar years</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">4</div>
+      <div class="study-stat-label">Most leagues in a single year</div>
+      <div class="study-stat-sub">Joe Powell in 2026 (AF1, IFL, NAL, UFL)</div>
+    </div>
+    
+    <div class="study-stat-card">
+      <div class="study-stat-value">Joe Powell — 2 years</div>
+      <div class="study-stat-label">Most multi-league seasons (career)</div>
+      <div class="study-stat-sub">2025-2026</div>
+    </div>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>What this study highlights</h2>
+    <p>Some football players don't wait for one league's season to end before suiting up in another. We surface players who recorded stats in <strong>two or more pro football leagues during the same calendar year</strong>, excluding the NFL.</p><p>That filter intentionally keeps the spotlight on journeymen carving out careers across the CFL, UFL/USFL/XFL, AFL, IFL, ELF, AF1 and other secondary circuits — rather than NFL veterans dropping down for a single appearance.</p>
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Charts</h2>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Two-league player-years per calendar year</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-multi-league-by-year"></canvas>
+      </div>
+      
+      <p class="study-chart-note">Each bar counts distinct players who accumulated stats in two or more non-NFL pro football leagues during that calendar year.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Most common two-league combinations</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-multi-league-pairs"></canvas>
+      </div>
+      
+      <p class="study-chart-note">Counts each (player, year) instance once per league pair that appears together that year.</p>
+    </figure>
+    
+    <figure class="study-chart">
+      <figcaption class="study-chart-title">Players with the most multi-league seasons</figcaption>
+      
+      <div class="chart-wrap chart-wrap--horiz">
+        <canvas id="chart-multi-league-top-players"></canvas>
+      </div>
+      
+      <p class="study-chart-note">How many separate calendar years each player suited up in two or more non-NFL pro football leagues.</p>
+    </figure>
+    
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Full data</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          
+          <th scope="col">Player</th>
+          
+          <th scope="col">Position(s)</th>
+          
+          <th scope="col" class="num">Year</th>
+          
+          <th scope="col" class="num">Leagues</th>
+          
+          <th scope="col">League — team</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td>Joe Powell</td>
+          
+          <td>DB, LB, SAF</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">4</td>
+          
+          <td>AF1 · IFL · NAL · UFL (DALLAS RENEGADES)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>A.J. Brown</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Aaron Dilworth</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>AF1 (Salina) · IFL (STORM) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alexis Rosario</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Chris  Elmore</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>DeQuan  Dudley</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Javin Kilgo</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Otis Odom</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>AF1 · IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Raheem Harvey</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL (SUGAR SKULLS) · NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brian Robinson</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Damond Powell</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Deanthony  Hall-Steele</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Demarius Washington</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Demry Croft</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL (STRIKE FORCE) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Devond Blair Jr.</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL (KNIGHT HAWKS) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Devontae Jackson</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Dillon Thomas</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Duke Williams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Giovanni Sanders</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL (KNIGHT HAWKS) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jeff Luc</td>
+          
+          <td>DB, DL</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jelani Baker</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jerrime Neal</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>AF1 · IFL (WRANGLERS)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>John Williams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL (STEAMWHEELERS) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jonathan Adams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>LaDarius Galloway</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Mason Pierce</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Matt Struck</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Paxton Lynch</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Simeon Burns</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>AF1 (Billings) · IFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Stanley Williams</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL (FIGHTERS) · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tabyus Taylor</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tracy Brooks</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL · NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alexis Rosario</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Andre Sale</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Deanthony  Hall-Steele</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>James Morgan</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (MTL) · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Joe Powell</td>
+          
+          <td>DB, LB, SAF</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL (DALLAS RENEGADES)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>John Williams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jonathan Adams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL (SHOWBOATS)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Josh Love</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (CGY) · UFL (SHOWBOATS)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>LaDarius Galloway</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>McLeod Bethel-Thompson</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (TOR) · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Rodell Rahmaan</td>
+          
+          <td>TE, WR</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Simeon Burns</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Stevie Scott III</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (MTL) · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Terry Wilson</td>
+          
+          <td>QB</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (WPG) · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tyler Clark</td>
+          
+          <td>DL, DT</td>
+          
+          <td class="num">2,025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL · UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Mike Rose</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">2,023</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (CGY) · XFL (BATTLEHAWKS)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brandon Barnes</td>
+          
+          <td>TE, WR</td>
+          
+          <td class="num">2,022</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (TOR) · USFL (HOU)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Matt Mengel</td>
+          
+          <td>K</td>
+          
+          <td class="num">2,022</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL (MTL) · USFL (PIT)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Antonio Simmons</td>
+          
+          <td>DB, DE</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ATL) · CFL (MTL)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Azeem Victor</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ORL) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Ciante Evans</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (SL) · CFL (HAM)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Da\&#39;Sean Downey</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>David Dean</td>
+          
+          <td>DB, DT</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ATL) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Dylan Wynn</td>
+          
+          <td>DB, DT</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL (HAM)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Earl Okine</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ORL) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Freddie Bishop</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (MEM) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jeremy Faulk</td>
+          
+          <td>DB, DL</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (BIR) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Josh Huff</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Larry Rose</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Marquis Bundy</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Meffy Koloamatangi</td>
+          
+          <td>DB, DE</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (SD) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Nick Temple</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (SA) · CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Quan Bray</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (BIR) · CFL (MTL)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Shaheed Salmon</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (BIR) · CFL (OTT)</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Shaquille Richardson</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2,019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF (ARI) · CFL (TOR)</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
+
+  
+  <section class="study-section">
+    <h2>Career leaderboard — most multi-league seasons</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          
+          <th scope="col">Player</th>
+          
+          <th scope="col">Position(s)</th>
+          
+          <th scope="col" class="num">Multi-league years</th>
+          
+          <th scope="col">Years</th>
+          
+          <th scope="col" class="num">Max leagues in a year</th>
+          
+          <th scope="col">Leagues seen</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td>Joe Powell</td>
+          
+          <td>DB, LB, SAF</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">4</td>
+          
+          <td>AF1, IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Alexis Rosario</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Deanthony  Hall-Steele</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>John Williams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jonathan Adams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>LaDarius Galloway</td>
+          
+          <td>RB</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Simeon Burns</td>
+          
+          <td>DB</td>
+          
+          <td class="num">2</td>
+          
+          <td>2025-2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>AF1, IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>A.J. Brown</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Aaron Dilworth</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>AF1, IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Chris  Elmore</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>DeQuan  Dudley</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Javin Kilgo</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Otis Odom</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>AF1, IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Raheem Harvey</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">3</td>
+          
+          <td>IFL, NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Andre Sale</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Antonio Simmons</td>
+          
+          <td>DB, DE</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Azeem Victor</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brandon Barnes</td>
+          
+          <td>TE, WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2022</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, USFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Brian Robinson</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Ciante Evans</td>
+          
+          <td>DB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Da\&#39;Sean Downey</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Damond Powell</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>David Dean</td>
+          
+          <td>DB, DT</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Demarius Washington</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Demry Croft</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Devond Blair Jr.</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Devontae Jackson</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Dillon Thomas</td>
+          
+          <td>DB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Duke Williams</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Dylan Wynn</td>
+          
+          <td>DB, DT</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Earl Okine</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Freddie Bishop</td>
+          
+          <td>DB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Giovanni Sanders</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>James Morgan</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jeff Luc</td>
+          
+          <td>DB, DL</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jelani Baker</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jeremy Faulk</td>
+          
+          <td>DB, DL</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Jerrime Neal</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>AF1, IFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Josh Huff</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Josh Love</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Larry Rose</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Marquis Bundy</td>
+          
+          <td>WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Mason Pierce</td>
+          
+          <td>DB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Matt Mengel</td>
+          
+          <td>K</td>
+          
+          <td class="num">1</td>
+          
+          <td>2022</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, USFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Matt Struck</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>McLeod Bethel-Thompson</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Meffy Koloamatangi</td>
+          
+          <td>DB, DE</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Mike Rose</td>
+          
+          <td>DB, DL, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2023</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, XFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Nick Temple</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Paxton Lynch</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Quan Bray</td>
+          
+          <td>RB, WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Rodell Rahmaan</td>
+          
+          <td>TE, WR</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Shaheed Salmon</td>
+          
+          <td>DB, LB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Shaquille Richardson</td>
+          
+          <td>DB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2019</td>
+          
+          <td class="num">2</td>
+          
+          <td>AAF, CFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Stanley Williams</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Stevie Scott III</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tabyus Taylor</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Terry Wilson</td>
+          
+          <td>QB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>CFL, UFL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tracy Brooks</td>
+          
+          <td>RB</td>
+          
+          <td class="num">1</td>
+          
+          <td>2026</td>
+          
+          <td class="num">2</td>
+          
+          <td>IFL, NAL</td>
+          
+        </tr>
+        
+        <tr>
+          
+          <td>Tyler Clark</td>
+          
+          <td>DL, DT</td>
+          
+          <td class="num">1</td>
+          
+          <td>2025</td>
+          
+          <td class="num">2</td>
+          
+          <td>NAL, UFL</td>
+          
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
+
+  <section class="study-section">
+    <h2>Methodology</h2>
+    <p>Source: <code>docs/data/players/*.json</code>, specifically the <code>season_totals</code> map. Keys in that map are formatted <code>&lt;LEAGUE&gt;-&lt;YEAR&gt;</code> (e.g. <code>IFL-2024</code>), which gives a per-year ledger of every league a player put stats up in.</p><p>Eligible leagues: AAF, AF1, AFL, CFL, ELF, FCF, IFL, LFA, MLFB, NAL, UFL, USFL, X-LEAGUE, XFL. NFL is excluded by design. Players flagged as ambiguous in the canonicalization step are dropped, as are obvious roster-placeholder names (e.g. <em>STALLIONS QB</em>).</p><p>Team assignments shown next to each league are best-effort — they come from the player's <code>appearances</code> list and may not be year-specific if a player suited up for multiple teams in the same league.</p>
+  </section>
+
+  
+
+  <section class="study-section study-data">
+    <h2>Underlying data</h2>
+    <ul>
+      <li><a href="../data/studies/multi-league-same-year.json">Latest snapshot (JSON)</a></li>
+      <li><a href="../data/studies/multi-league-same-year-history.json">Snapshot history (JSON)</a></li>
+    </ul>
+  </section>
+</article>
+
+  </main>
+
+  <footer>
+    <p>
+      Data updated: 2026-05-19.
+      Formats:
+      
+<a href="../data/studies/multi-league-same-year.json">JSON</a>
+
+    </p>
+    <p>
+      If you make money off this data, be cool and throw some back up the pipeline:
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+    </p>
+    <p class="disclaimer">
+      Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
+      <span class="ambiguous-tag">ambiguous</span> may represent multiple individuals.
+    </p>
+  </footer>
+
+  <script src="../assets/theme.js"></script>
+  <script src="../assets/tables.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+window._studyCharts = [{"id": "chart-multi-league-by-year", "type": "bar", "title": "Two-league player-years per calendar year", "labels": ["2019", "2022", "2023", "2025", "2026"], "datasets": [{"label": "Players with 2+ non-NFL leagues", "data": [17, 2, 1, 15, 32]}], "note": "Each bar counts distinct players who accumulated stats in two or more non-NFL pro football leagues during that calendar year."}, {"id": "chart-multi-league-pairs", "type": "bar", "title": "Most common two-league combinations", "labels": ["IFL + NAL", "NAL + UFL", "AAF + CFL", "IFL + UFL", "AF1 + IFL", "CFL + UFL", "AF1 + NAL", "CFL + USFL", "AF1 + UFL", "CFL + XFL"], "datasets": [{"label": "Player-years", "data": [29, 17, 17, 8, 5, 5, 3, 2, 1, 1]}], "indexAxis": "y", "note": "Counts each (player, year) instance once per league pair that appears together that year."}, {"id": "chart-multi-league-top-players", "type": "bar", "title": "Players with the most multi-league seasons", "labels": ["Joe Powell", "Alexis Rosario", "Deanthony  Hall-Steele", "John Williams", "Jonathan Adams", "LaDarius Galloway", "Simeon Burns", "A.J. Brown", "Aaron Dilworth", "Chris  Elmore", "DeQuan  Dudley", "Javin Kilgo"], "datasets": [{"label": "Years with 2+ non-NFL leagues", "data": [2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]}], "indexAxis": "y", "note": "How many separate calendar years each player suited up in two or more non-NFL pro football leagues."}];
+</script>
+<script src="../assets/study-charts.js"></script>
+
+</body>
+</html>

@@ -425,8 +425,10 @@
 {% if game.scoring_drives %}
 <script>
   window._driveVizData = {
-    away: {{ (game.away_team or '') | tojson }},
-    home: {{ (game.home_team or '') | tojson }},
+    away: {{ (game.viz_away_alias or game.away_team or '') | tojson }},
+    home: {{ (game.viz_home_alias or game.home_team or '') | tojson }},
+    {% if game.field_length %}fieldLength: {{ game.field_length | tojson }},{% endif %}
+    {% if game.field_endzone %}endzoneLength: {{ game.field_endzone | tojson }},{% endif %}
     drives: {{ game.scoring_drives | tojson }}
   };
 </script>

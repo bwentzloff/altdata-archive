@@ -1,0 +1,1291 @@
+{
+  "slug": "multi-league-same-year",
+  "title": "Football journeymen: two leagues in one year",
+  "subtitle": "Non-NFL players who pieced a season together across multiple pro leagues",
+  "category": "Football",
+  "tags": [
+    "football",
+    "journeyman",
+    "cross-league",
+    "career"
+  ],
+  "computed_at": "2026-05-19T18:45:48+00:00",
+  "headline_stats": [
+    {
+      "label": "Multi-league player-years",
+      "value": "67",
+      "sub": "60 unique players in 5 different calendar years"
+    },
+    {
+      "label": "Most leagues in a single year",
+      "value": "4",
+      "sub": "Joe Powell in 2026 (AF1, IFL, NAL, UFL)"
+    },
+    {
+      "label": "Most multi-league seasons (career)",
+      "value": "Joe Powell \u2014 2 years",
+      "sub": "2025-2026"
+    }
+  ],
+  "charts": [
+    {
+      "id": "chart-multi-league-by-year",
+      "type": "bar",
+      "title": "Two-league player-years per calendar year",
+      "labels": [
+        "2019",
+        "2022",
+        "2023",
+        "2025",
+        "2026"
+      ],
+      "datasets": [
+        {
+          "label": "Players with 2+ non-NFL leagues",
+          "data": [
+            17,
+            2,
+            1,
+            15,
+            32
+          ]
+        }
+      ],
+      "note": "Each bar counts distinct players who accumulated stats in two or more non-NFL pro football leagues during that calendar year."
+    },
+    {
+      "id": "chart-multi-league-pairs",
+      "type": "bar",
+      "title": "Most common two-league combinations",
+      "labels": [
+        "IFL + NAL",
+        "NAL + UFL",
+        "AAF + CFL",
+        "IFL + UFL",
+        "AF1 + IFL",
+        "CFL + UFL",
+        "AF1 + NAL",
+        "CFL + USFL",
+        "AF1 + UFL",
+        "CFL + XFL"
+      ],
+      "datasets": [
+        {
+          "label": "Player-years",
+          "data": [
+            29,
+            17,
+            17,
+            8,
+            5,
+            5,
+            3,
+            2,
+            1,
+            1
+          ]
+        }
+      ],
+      "indexAxis": "y",
+      "note": "Counts each (player, year) instance once per league pair that appears together that year."
+    },
+    {
+      "id": "chart-multi-league-top-players",
+      "type": "bar",
+      "title": "Players with the most multi-league seasons",
+      "labels": [
+        "Joe Powell",
+        "Alexis Rosario",
+        "Deanthony  Hall-Steele",
+        "John Williams",
+        "Jonathan Adams",
+        "LaDarius Galloway",
+        "Simeon Burns",
+        "A.J. Brown",
+        "Aaron Dilworth",
+        "Chris  Elmore",
+        "DeQuan  Dudley",
+        "Javin Kilgo"
+      ],
+      "datasets": [
+        {
+          "label": "Years with 2+ non-NFL leagues",
+          "data": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "indexAxis": "y",
+      "note": "How many separate calendar years each player suited up in two or more non-NFL pro football leagues."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What this study highlights",
+      "html": "<p>Some football players don't wait for one league's season to end before suiting up in another. We surface players who recorded stats in <strong>two or more pro football leagues during the same calendar year</strong>, excluding the NFL.</p><p>That filter intentionally keeps the spotlight on journeymen carving out careers across the CFL, UFL/USFL/XFL, AFL, IFL, ELF, AF1 and other secondary circuits \u2014 rather than NFL veterans dropping down for a single appearance.</p>"
+    }
+  ],
+  "methodology": "<p>Source: <code>docs/data/players/*.json</code>, specifically the <code>season_totals</code> map. Keys in that map are formatted <code>&lt;LEAGUE&gt;-&lt;YEAR&gt;</code> (e.g. <code>IFL-2024</code>), which gives a per-year ledger of every league a player put stats up in.</p><p>Eligible leagues: AAF, AF1, AFL, CFL, ELF, FCF, IFL, LFA, MLFB, NAL, UFL, USFL, X-LEAGUE, XFL. NFL is excluded by design. Players flagged as ambiguous in the canonicalization step are dropped, as are obvious roster-placeholder names (e.g. <em>STALLIONS QB</em>).</p><p>Team assignments shown next to each league are best-effort \u2014 they come from the player's <code>appearances</code> list and may not be year-specific if a player suited up for multiple teams in the same league.</p>",
+  "table": {
+    "columns": [
+      {
+        "key": "player",
+        "label": "Player"
+      },
+      {
+        "key": "positions",
+        "label": "Position(s)"
+      },
+      {
+        "key": "year",
+        "label": "Year",
+        "numeric": true
+      },
+      {
+        "key": "league_count",
+        "label": "Leagues",
+        "numeric": true
+      },
+      {
+        "key": "leagues_with_teams",
+        "label": "League \u2014 team"
+      }
+    ],
+    "rows": [
+      {
+        "player_id": "joe-powell",
+        "player": "Joe Powell",
+        "positions": "DB, LB, SAF",
+        "year": 2026,
+        "league_count": 4,
+        "leagues": "AF1, IFL, NAL, UFL",
+        "leagues_with_teams": "AF1 \u00b7 IFL \u00b7 NAL \u00b7 UFL (DALLAS RENEGADES)"
+      },
+      {
+        "player_id": "aj-brown",
+        "player": "A.J. Brown",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "aaron-dilworth",
+        "player": "Aaron Dilworth",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "AF1, IFL, NAL",
+        "leagues_with_teams": "AF1 (Salina) \u00b7 IFL (STORM) \u00b7 NAL"
+      },
+      {
+        "player_id": "alexis-rosario",
+        "player": "Alexis Rosario",
+        "positions": "RB, WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "chris-elmore",
+        "player": "Chris  Elmore",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "dequan-dudley",
+        "player": "DeQuan  Dudley",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "javin-kilgo",
+        "player": "Javin Kilgo",
+        "positions": "QB",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "otis-odom",
+        "player": "Otis Odom",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "AF1, IFL, NAL",
+        "leagues_with_teams": "AF1 \u00b7 IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "raheem-harvey",
+        "player": "Raheem Harvey",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 3,
+        "leagues": "IFL, NAL, UFL",
+        "leagues_with_teams": "IFL (SUGAR SKULLS) \u00b7 NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "brian-robinson",
+        "player": "Brian Robinson",
+        "positions": "RB, WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "damond-powell",
+        "player": "Damond Powell",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "deanthony-hall-steele",
+        "player": "Deanthony  Hall-Steele",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "demarius-washington",
+        "player": "Demarius Washington",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "demry-croft",
+        "player": "Demry Croft",
+        "positions": "QB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL (STRIKE FORCE) \u00b7 NAL"
+      },
+      {
+        "player_id": "devond-blair-jr",
+        "player": "Devond Blair Jr.",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL (KNIGHT HAWKS) \u00b7 NAL"
+      },
+      {
+        "player_id": "devontae-jackson",
+        "player": "Devontae Jackson",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "dillon-thomas",
+        "player": "Dillon Thomas",
+        "positions": "DB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "duke-williams",
+        "player": "Duke Williams",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "giovanni-sanders",
+        "player": "Giovanni Sanders",
+        "positions": "QB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL (KNIGHT HAWKS) \u00b7 NAL"
+      },
+      {
+        "player_id": "jeff-luc",
+        "player": "Jeff Luc",
+        "positions": "DB, DL",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "jelani-baker",
+        "player": "Jelani Baker",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "jerrime-neal",
+        "player": "Jerrime Neal",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "AF1, IFL",
+        "leagues_with_teams": "AF1 \u00b7 IFL (WRANGLERS)"
+      },
+      {
+        "player_id": "john-williams",
+        "player": "John Williams",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL (STEAMWHEELERS) \u00b7 NAL"
+      },
+      {
+        "player_id": "jonathan-adams",
+        "player": "Jonathan Adams",
+        "positions": "WR",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "ladarius-galloway",
+        "player": "LaDarius Galloway",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, UFL",
+        "leagues_with_teams": "IFL \u00b7 UFL"
+      },
+      {
+        "player_id": "mason-pierce",
+        "player": "Mason Pierce",
+        "positions": "DB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "matt-struck",
+        "player": "Matt Struck",
+        "positions": "QB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "paxton-lynch",
+        "player": "Paxton Lynch",
+        "positions": "QB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "simeon-burns",
+        "player": "Simeon Burns",
+        "positions": "DB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "AF1, IFL",
+        "leagues_with_teams": "AF1 (Billings) \u00b7 IFL"
+      },
+      {
+        "player_id": "stanley-williams",
+        "player": "Stanley Williams",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL (FIGHTERS) \u00b7 NAL"
+      },
+      {
+        "player_id": "tabyus-taylor",
+        "player": "Tabyus Taylor",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "tracy-brooks",
+        "player": "Tracy Brooks",
+        "positions": "RB",
+        "year": 2026,
+        "league_count": 2,
+        "leagues": "IFL, NAL",
+        "leagues_with_teams": "IFL \u00b7 NAL"
+      },
+      {
+        "player_id": "alexis-rosario",
+        "player": "Alexis Rosario",
+        "positions": "RB, WR",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "andre-sale",
+        "player": "Andre Sale",
+        "positions": "QB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "deanthony-hall-steele",
+        "player": "Deanthony  Hall-Steele",
+        "positions": "RB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "james-morgan",
+        "player": "James Morgan",
+        "positions": "QB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "CFL, UFL",
+        "leagues_with_teams": "CFL (MTL) \u00b7 UFL"
+      },
+      {
+        "player_id": "joe-powell",
+        "player": "Joe Powell",
+        "positions": "DB, LB, SAF",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL (DALLAS RENEGADES)"
+      },
+      {
+        "player_id": "john-williams",
+        "player": "John Williams",
+        "positions": "WR",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "jonathan-adams",
+        "player": "Jonathan Adams",
+        "positions": "WR",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL (SHOWBOATS)"
+      },
+      {
+        "player_id": "josh-love",
+        "player": "Josh Love",
+        "positions": "QB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "CFL, UFL",
+        "leagues_with_teams": "CFL (CGY) \u00b7 UFL (SHOWBOATS)"
+      },
+      {
+        "player_id": "ladarius-galloway",
+        "player": "LaDarius Galloway",
+        "positions": "RB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "mcleod-bethel-thompson",
+        "player": "McLeod Bethel-Thompson",
+        "positions": "QB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "CFL, UFL",
+        "leagues_with_teams": "CFL (TOR) \u00b7 UFL"
+      },
+      {
+        "player_id": "rodell-rahmaan",
+        "player": "Rodell Rahmaan",
+        "positions": "TE, WR",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "simeon-burns",
+        "player": "Simeon Burns",
+        "positions": "DB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "stevie-scott-iii",
+        "player": "Stevie Scott III",
+        "positions": "RB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "CFL, UFL",
+        "leagues_with_teams": "CFL (MTL) \u00b7 UFL"
+      },
+      {
+        "player_id": "terry-wilson",
+        "player": "Terry Wilson",
+        "positions": "QB",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "CFL, UFL",
+        "leagues_with_teams": "CFL (WPG) \u00b7 UFL"
+      },
+      {
+        "player_id": "tyler-clark",
+        "player": "Tyler Clark",
+        "positions": "DL, DT",
+        "year": 2025,
+        "league_count": 2,
+        "leagues": "NAL, UFL",
+        "leagues_with_teams": "NAL \u00b7 UFL"
+      },
+      {
+        "player_id": "mike-rose",
+        "player": "Mike Rose",
+        "positions": "DB, DL, LB",
+        "year": 2023,
+        "league_count": 2,
+        "leagues": "CFL, XFL",
+        "leagues_with_teams": "CFL (CGY) \u00b7 XFL (BATTLEHAWKS)"
+      },
+      {
+        "player_id": "brandon-barnes",
+        "player": "Brandon Barnes",
+        "positions": "TE, WR",
+        "year": 2022,
+        "league_count": 2,
+        "leagues": "CFL, USFL",
+        "leagues_with_teams": "CFL (TOR) \u00b7 USFL (HOU)"
+      },
+      {
+        "player_id": "matt-mengel",
+        "player": "Matt Mengel",
+        "positions": "K",
+        "year": 2022,
+        "league_count": 2,
+        "leagues": "CFL, USFL",
+        "leagues_with_teams": "CFL (MTL) \u00b7 USFL (PIT)"
+      },
+      {
+        "player_id": "antonio-simmons",
+        "player": "Antonio Simmons",
+        "positions": "DB, DE",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ATL) \u00b7 CFL (MTL)"
+      },
+      {
+        "player_id": "azeem-victor",
+        "player": "Azeem Victor",
+        "positions": "DB, DL, LB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ORL) \u00b7 CFL"
+      },
+      {
+        "player_id": "ciante-evans",
+        "player": "Ciante Evans",
+        "positions": "DB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (SL) \u00b7 CFL (HAM)"
+      },
+      {
+        "player_id": "dasean-downey",
+        "player": "Da\\'Sean Downey",
+        "positions": "DB, LB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL"
+      },
+      {
+        "player_id": "david-dean",
+        "player": "David Dean",
+        "positions": "DB, DT",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ATL) \u00b7 CFL"
+      },
+      {
+        "player_id": "dylan-wynn",
+        "player": "Dylan Wynn",
+        "positions": "DB, DT",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL (HAM)"
+      },
+      {
+        "player_id": "earl-okine",
+        "player": "Earl Okine",
+        "positions": "DB, DL, LB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ORL) \u00b7 CFL"
+      },
+      {
+        "player_id": "freddie-bishop",
+        "player": "Freddie Bishop",
+        "positions": "DB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (MEM) \u00b7 CFL"
+      },
+      {
+        "player_id": "jeremy-faulk",
+        "player": "Jeremy Faulk",
+        "positions": "DB, DL",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (BIR) \u00b7 CFL"
+      },
+      {
+        "player_id": "josh-huff",
+        "player": "Josh Huff",
+        "positions": "WR",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL"
+      },
+      {
+        "player_id": "larry-rose",
+        "player": "Larry Rose",
+        "positions": "RB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL"
+      },
+      {
+        "player_id": "marquis-bundy",
+        "player": "Marquis Bundy",
+        "positions": "WR",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL"
+      },
+      {
+        "player_id": "meffy-koloamatangi",
+        "player": "Meffy Koloamatangi",
+        "positions": "DB, DE",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (SD) \u00b7 CFL"
+      },
+      {
+        "player_id": "nick-temple",
+        "player": "Nick Temple",
+        "positions": "DB, LB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (SA) \u00b7 CFL"
+      },
+      {
+        "player_id": "quan-bray",
+        "player": "Quan Bray",
+        "positions": "RB, WR",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (BIR) \u00b7 CFL (MTL)"
+      },
+      {
+        "player_id": "shaheed-salmon",
+        "player": "Shaheed Salmon",
+        "positions": "DB, LB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (BIR) \u00b7 CFL (OTT)"
+      },
+      {
+        "player_id": "shaquille-richardson",
+        "player": "Shaquille Richardson",
+        "positions": "DB",
+        "year": 2019,
+        "league_count": 2,
+        "leagues": "AAF, CFL",
+        "leagues_with_teams": "AAF (ARI) \u00b7 CFL (TOR)"
+      }
+    ]
+  },
+  "secondary_table": {
+    "title": "Career leaderboard \u2014 most multi-league seasons",
+    "columns": [
+      {
+        "key": "player",
+        "label": "Player"
+      },
+      {
+        "key": "positions",
+        "label": "Position(s)"
+      },
+      {
+        "key": "years_count",
+        "label": "Multi-league years",
+        "numeric": true
+      },
+      {
+        "key": "years",
+        "label": "Years"
+      },
+      {
+        "key": "max_leagues_in_year",
+        "label": "Max leagues in a year",
+        "numeric": true
+      },
+      {
+        "key": "leagues_seen",
+        "label": "Leagues seen"
+      }
+    ],
+    "rows": [
+      {
+        "player": "Joe Powell",
+        "positions": "DB, LB, SAF",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 4,
+        "leagues_seen": "AF1, IFL, NAL, UFL"
+      },
+      {
+        "player": "Alexis Rosario",
+        "positions": "RB, WR",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Deanthony  Hall-Steele",
+        "positions": "RB",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "John Williams",
+        "positions": "WR",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Jonathan Adams",
+        "positions": "WR",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "LaDarius Galloway",
+        "positions": "RB",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Simeon Burns",
+        "positions": "DB",
+        "years_count": 2,
+        "years": "2025-2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AF1, IFL, NAL, UFL"
+      },
+      {
+        "player": "A.J. Brown",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Aaron Dilworth",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "AF1, IFL, NAL"
+      },
+      {
+        "player": "Chris  Elmore",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "DeQuan  Dudley",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Javin Kilgo",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Otis Odom",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "AF1, IFL, NAL"
+      },
+      {
+        "player": "Raheem Harvey",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 3,
+        "leagues_seen": "IFL, NAL, UFL"
+      },
+      {
+        "player": "Andre Sale",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "NAL, UFL"
+      },
+      {
+        "player": "Antonio Simmons",
+        "positions": "DB, DE",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Azeem Victor",
+        "positions": "DB, DL, LB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Brandon Barnes",
+        "positions": "TE, WR",
+        "years_count": 1,
+        "years": "2022",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, USFL"
+      },
+      {
+        "player": "Brian Robinson",
+        "positions": "RB, WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Ciante Evans",
+        "positions": "DB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Da\\'Sean Downey",
+        "positions": "DB, LB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Damond Powell",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "David Dean",
+        "positions": "DB, DT",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Demarius Washington",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Demry Croft",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Devond Blair Jr.",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Devontae Jackson",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Dillon Thomas",
+        "positions": "DB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Duke Williams",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Dylan Wynn",
+        "positions": "DB, DT",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Earl Okine",
+        "positions": "DB, DL, LB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Freddie Bishop",
+        "positions": "DB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Giovanni Sanders",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "James Morgan",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, UFL"
+      },
+      {
+        "player": "Jeff Luc",
+        "positions": "DB, DL",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Jelani Baker",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Jeremy Faulk",
+        "positions": "DB, DL",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Jerrime Neal",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AF1, IFL"
+      },
+      {
+        "player": "Josh Huff",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Josh Love",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, UFL"
+      },
+      {
+        "player": "Larry Rose",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Marquis Bundy",
+        "positions": "WR",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Mason Pierce",
+        "positions": "DB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Matt Mengel",
+        "positions": "K",
+        "years_count": 1,
+        "years": "2022",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, USFL"
+      },
+      {
+        "player": "Matt Struck",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "McLeod Bethel-Thompson",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, UFL"
+      },
+      {
+        "player": "Meffy Koloamatangi",
+        "positions": "DB, DE",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Mike Rose",
+        "positions": "DB, DL, LB",
+        "years_count": 1,
+        "years": "2023",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, XFL"
+      },
+      {
+        "player": "Nick Temple",
+        "positions": "DB, LB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Paxton Lynch",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Quan Bray",
+        "positions": "RB, WR",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Rodell Rahmaan",
+        "positions": "TE, WR",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "NAL, UFL"
+      },
+      {
+        "player": "Shaheed Salmon",
+        "positions": "DB, LB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Shaquille Richardson",
+        "positions": "DB",
+        "years_count": 1,
+        "years": "2019",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "AAF, CFL"
+      },
+      {
+        "player": "Stanley Williams",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Stevie Scott III",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, UFL"
+      },
+      {
+        "player": "Tabyus Taylor",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Terry Wilson",
+        "positions": "QB",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "CFL, UFL"
+      },
+      {
+        "player": "Tracy Brooks",
+        "positions": "RB",
+        "years_count": 1,
+        "years": "2026",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "IFL, NAL"
+      },
+      {
+        "player": "Tyler Clark",
+        "positions": "DL, DT",
+        "years_count": 1,
+        "years": "2025",
+        "max_leagues_in_year": 2,
+        "leagues_seen": "NAL, UFL"
+      }
+    ]
+  },
+  "history_row": {
+    "multi_league_player_years": 67,
+    "unique_players": 60,
+    "max_leagues_in_year": 4,
+    "top_player": "Joe Powell",
+    "top_player_years": 2
+  }
+}

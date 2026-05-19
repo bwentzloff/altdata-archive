@@ -90,6 +90,38 @@
   </section>
   {% endif %}
 
+  {% if study.secondary_table %}
+  <section class="study-section">
+    <h2>{{ study.secondary_table.title or "Additional data" }}</h2>
+    <table class="data-table study-table">
+      <thead>
+        <tr>
+          {% for c in study.secondary_table.columns %}
+          <th scope="col"{% if c.numeric %} class="num"{% endif %}>{{ c.label }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in study.secondary_table.rows %}
+        <tr>
+          {% for c in study.secondary_table.columns %}
+          <td{% if c.numeric %} class="num"{% endif %}>
+            {%- set val = row.get(c.key) -%}
+            {%- if val is none -%}—
+            {%- elif c.numeric and val is number -%}
+              {{ val | intcomma }}{{ c.suffix or "" }}
+            {%- else -%}
+              {{ val }}{{ c.suffix or "" }}
+            {%- endif -%}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
   <section class="study-section">
     <h2>Methodology</h2>
     {{ study.methodology | safe }}

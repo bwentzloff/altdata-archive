@@ -23,17 +23,17 @@
   }
 
   // ── Geometry ──────────────────────────────────────────────────────────────
-  // Field is 0..120 yards (10yd endzone + 100 + 10yd endzone).
-  // We map the AWAY team's goal line at x=10, HOME team's goal line at x=110.
-  // For a play with start_side/yardline, compute absolute x:
-  //   if side === HOME: x = 110 - yardline   (yardline 1 is at HOME goal)
-  //   if side === AWAY: x = 10 + yardline
+  // Field length (between goal lines) and endzone depth are configurable so
+  // we can render NFL-style 100yd fields or indoor 50yd fields (IFL, etc.).
+  var FIELD_YARDS = +(data.fieldLength) > 0 ? +data.fieldLength : 100;
+  var EZ_YARDS = +(data.endzoneLength) > 0 ? +data.endzoneLength : 10;
+  var TOTAL_YARDS = FIELD_YARDS + 2 * EZ_YARDS;
   var W = 1200;          // SVG viewport width
-  var H = 360;           // SVG viewport height
+  var H = 220;           // SVG viewport height (compact: one drive at a time)
   var FIELD_X0 = 0;
   var FIELD_X1 = W;
-  var EZ = W * (10 / 120);            // endzone pixel width
-  var YDPX = (W - 2 * EZ) / 100;      // pixels per yard
+  var EZ = W * (EZ_YARDS / TOTAL_YARDS);   // endzone pixel width
+  var YDPX = (W - 2 * EZ) / FIELD_YARDS;   // pixels per yard
 
   var away = (data.away || '').toUpperCase();
   var home = (data.home || '').toUpperCase();
@@ -53,9 +53,11 @@
     var out = [];
     data.drives.forEach(function (d, di) {
       var team = ((d.team && (d.team.alias || d.team.name)) || d.team || '').toString().toUpperCase();
+      var teamName = (d.team && d.team.name) || team;
       var isHome = team === home;
-      // Lane: home drives below midline, away above
-      var laneY = isHome ? H * 0.62 : H * 0.38;
+      // Single shared lane near midfield; we only show one drive at a time.
+      // Home drives sit just below center, away just above — keeps direction readable.
+      var laneY = isHome ? H * 0.58 : H * 0.42;
       var pts = [];
       (d.plays || []).forEach(function (p) {
         // Support both pre-shaped and raw shapes
@@ -82,8 +84,10 @@
       out.push({
         index: di,
         team: team,
+        teamName: teamName,
         isHome: isHome,
         result: d.result || '',
+        quarter: d.quarter || (d.plays && d.plays[0] && d.plays[0].quarter) || null,
         points: clean,
         startX: clean[0].x,
         endX: clean[clean.length - 1].x,
@@ -139,7 +143,8 @@
     }));
 
     // Alternating 10yd stripes (subtle)
-    for (var s = 0; s < 10; s++) {
+    var stripeCount = Math.floor(FIELD_YARDS / 10);
+    for (var s = 0; s < stripeCount; s++) {
       if (s % 2 === 0) {
         svg.appendChild(el('rect', {
           x: EZ + s * 10 * YDPX, y: 0,
@@ -160,15 +165,17 @@
     }));
 
     // Yard lines (every 10yd)
-    for (var y = 0; y <= 10; y++) {
+    var yardLineCount = Math.floor(FIELD_YARDS / 10);
+    for (var y = 0; y <= yardLineCount; y++) {
       var lx = EZ + y * 10 * YDPX;
       svg.appendChild(el('line', {
         x1: lx, y1: 18, x2: lx, y2: H - 18,
         stroke: border, 'stroke-width': 1, opacity: 0.7,
       }));
-      // Labels (10..50..10)
-      var num = y <= 5 ? y * 10 : (10 - y) * 10;
-      if (y > 0 && y < 10) {
+      // Labels: count up from each goal line to the midfield value, then back down.
+      var midYard = FIELD_YARDS / 2;
+      var num = y * 10 <= midYard ? y * 10 : (yardLineCount - y) * 10;
+      if (y > 0 && y < yardLineCount) {
         var t1 = el('text', {
           x: lx, y: 30, 'text-anchor': 'middle',
           fill: textDim, 'font-size': 14,
@@ -194,8 +201,8 @@
 
     // Endzone labels
     var ezA = el('text', {
-      x: EZ / 2, y: H / 2 + 6, 'text-anchor': 'middle',
-      fill: text, 'font-size': 22, 'font-weight': 700,
+      x: EZ / 2, y: H / 2 + 5, 'text-anchor': 'middle',
+      fill: text, 'font-size': 18, 'font-weight': 700,
       'font-family': 'Inter, Helvetica Neue, Arial, sans-serif',
       transform: 'rotate(-90 ' + (EZ / 2) + ' ' + (H / 2) + ')',
       opacity: 0.85,
@@ -204,8 +211,8 @@
     svg.appendChild(ezA);
 
     var ezH = el('text', {
-      x: W - EZ / 2, y: H / 2 + 6, 'text-anchor': 'middle',
-      fill: text, 'font-size': 22, 'font-weight': 700,
+      x: W - EZ / 2, y: H / 2 + 5, 'text-anchor': 'middle',
+      fill: text, 'font-size': 18, 'font-weight': 700,
       'font-family': 'Inter, Helvetica Neue, Arial, sans-serif',
       transform: 'rotate(90 ' + (W - EZ / 2) + ' ' + (H / 2) + ')',
       opacity: 0.85,
@@ -280,19 +287,23 @@
     var controls = document.createElement('div');
     controls.className = 'drive-viz-controls';
 
+    var prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'drive-viz-btn drive-viz-btn-secondary';
+    prevBtn.textContent = '\u2039 Prev';
+
     var playBtn = document.createElement('button');
     playBtn.type = 'button';
     playBtn.className = 'drive-viz-btn';
-    playBtn.textContent = '▶ Play drives';
+    playBtn.textContent = '\u25B6 Play all';
 
-    var resetBtn = document.createElement('button');
-    resetBtn.type = 'button';
-    resetBtn.className = 'drive-viz-btn drive-viz-btn-secondary';
-    resetBtn.textContent = '↺ Reset';
+    var nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'drive-viz-btn drive-viz-btn-secondary';
+    nextBtn.textContent = 'Next \u203A';
 
     var status = document.createElement('span');
     status.className = 'drive-viz-status';
-    status.textContent = drives.length + ' scoring drive' + (drives.length === 1 ? '' : 's');
 
     var legend = document.createElement('div');
     legend.className = 'drive-viz-legend';
@@ -300,24 +311,25 @@
       '<span class="drive-viz-legend-item"><span class="drive-viz-swatch" style="background:' + accent + '"></span>' + away + '</span>' +
       '<span class="drive-viz-legend-item"><span class="drive-viz-swatch" style="background:' + accent2 + '"></span>' + home + '</span>';
 
+    controls.appendChild(prevBtn);
     controls.appendChild(playBtn);
-    controls.appendChild(resetBtn);
+    controls.appendChild(nextBtn);
     controls.appendChild(status);
     controls.appendChild(legend);
     wrap.appendChild(controls);
 
-    // Show all drives instantly (initial static state)
-    function showAll() {
-      driveEls.forEach(function (e) {
-        e.path.style.transition = 'none';
-        e.path.style.strokeDashoffset = 0;
-        e.start.setAttribute('opacity', '1');
-        e.endMark.setAttribute('opacity', '1');
-        e.label.setAttribute('opacity', '0.95');
-      });
+    var currentIdx = 0;
+    var playing = false;
+
+    function statusText(i) {
+      var e = driveEls[i];
+      var label = e.d.teamName || e.d.team;
+      var q = e.d.quarter ? ' \u00B7 Q' + e.d.quarter : '';
+      return 'Drive ' + (i + 1) + ' of ' + driveEls.length + q +
+             ' \u2014 ' + label + ' (' + shortResult(e.d.result) + ')';
     }
 
-    function reset() {
+    function hideAll() {
       driveEls.forEach(function (e) {
         e.path.style.transition = 'none';
         e.path.style.strokeDashoffset = e.len;
@@ -325,52 +337,71 @@
         e.endMark.setAttribute('opacity', '0');
         e.label.setAttribute('opacity', '0');
       });
-      status.textContent = drives.length + ' scoring drive' + (drives.length === 1 ? '' : 's');
     }
 
-    var playing = false;
-    function play() {
-      if (playing) return;
-      playing = true;
-      playBtn.disabled = true;
-      reset();
-      var i = 0;
-      function next() {
-        if (i >= driveEls.length) {
-          playing = false;
-          playBtn.disabled = false;
-          status.textContent = 'Done — replay or reset';
-          return;
-        }
-        var e = driveEls[i];
-        var dur = Math.max(700, Math.min(2200, e.len * 3));
-        status.textContent = 'Drive ' + (i + 1) + ' of ' + driveEls.length + ' — ' +
-          e.d.team + ' (' + shortResult(e.d.result) + ')';
-        e.start.setAttribute('opacity', '1');
+    function showDrive(i, animate) {
+      if (i < 0 || i >= driveEls.length) return;
+      currentIdx = i;
+      hideAll();
+      var e = driveEls[i];
+      e.start.setAttribute('opacity', '1');
+      if (animate) {
+        var dur = Math.max(600, Math.min(1800, e.len * 2.5));
         e.path.style.transition = 'stroke-dashoffset ' + dur + 'ms cubic-bezier(.4,.0,.2,1)';
-        // Force reflow
-        // eslint-disable-next-line no-unused-expressions
         e.path.getBoundingClientRect();
         e.path.style.strokeDashoffset = 0;
         setTimeout(function () {
           e.endMark.setAttribute('opacity', '1');
           e.label.setAttribute('opacity', '0.95');
-          i++;
-          setTimeout(next, 220);
         }, dur);
+        status.textContent = statusText(i);
+        return dur;
+      } else {
+        e.path.style.transition = 'none';
+        e.path.style.strokeDashoffset = 0;
+        e.endMark.setAttribute('opacity', '1');
+        e.label.setAttribute('opacity', '0.95');
+        status.textContent = statusText(i);
+        return 0;
       }
-      next();
     }
 
-    playBtn.addEventListener('click', play);
-    resetBtn.addEventListener('click', function () {
-      reset();
+    function stopPlaying() {
       playing = false;
-      playBtn.disabled = false;
-    });
+      playBtn.textContent = '\u25B6 Play all';
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+    }
 
-    // Initial state: show all drives (static), let user replay
-    showAll();
+    function playAll() {
+      if (playing) { stopPlaying(); return; }
+      playing = true;
+      playBtn.textContent = '\u25A0 Stop';
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      var i = 0;
+      function step() {
+        if (!playing) return;
+        if (i >= driveEls.length) { stopPlaying(); return; }
+        var dur = showDrive(i, true);
+        i++;
+        setTimeout(step, dur + 350);
+      }
+      step();
+    }
+
+    prevBtn.addEventListener('click', function () {
+      if (playing) stopPlaying();
+      if (currentIdx > 0) showDrive(currentIdx - 1, false);
+    });
+    nextBtn.addEventListener('click', function () {
+      if (playing) stopPlaying();
+      if (currentIdx < driveEls.length - 1) showDrive(currentIdx + 1, false);
+    });
+    playBtn.addEventListener('click', playAll);
+
+    // Initial state: show first drive
+    showDrive(0, false);
   }
 
   // ── Helpers ───────────────────────────────────────────────────────────────

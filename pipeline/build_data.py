@@ -117,6 +117,176 @@ def write_csv(path, rows, fieldnames):
     Path(str(path) + ".csv").write_text(buf.getvalue(), encoding="utf-8")
 
 
+# ---------------------------------------------------------------------------
+# IFL play-by-play -> UFL-compatible viz schema
+# ---------------------------------------------------------------------------
+
+_IFL_YL_RE = re.compile(r"^([A-Z][A-Z_]*[A-Z])(\d{1,2})$")
+_IFL_RESULT_BY_DIFF = {1: "PAT", 2: "Safety", 3: "FG", 4: "TD", 6: "TD",
+                       7: "TD", 8: "TD + 2PT"}
+
+
+def _ifl_team_match(full: str, candidate: str) -> bool:
+    if not full or not candidate:
+        return False
+    a = full.lower(); b = candidate.lower()
+    return a in b or b in a
+
+
+def _convert_ifl_pbp_to_viz(pbp: dict, game_meta: dict) -> dict | None:
+    """Convert IFL PBP (drive/play list) into the UFL-shaped viz schema.
+
+    Returns a dict with scoring_drives, viz aliases, and the IFL field
+    dimensions (50 between goal lines + 8-yard endzones) so the renderer
+    can draw the correct field size.
+    """
+    plays = pbp.get("plays") or []
+    drives = pbp.get("drives") or []
+    if not plays or not drives:
+        return None
+
+    # 1. Discover the two yard-line prefix tokens used in this game.
+    prefix_counts: dict[str, int] = {}
+    for p in plays:
+        m = _IFL_YL_RE.match(p.get("yardline") or "")
+        if m:
+            prefix_counts[m.group(1)] = prefix_counts.get(m.group(1), 0) + 1
+    if len(prefix_counts) < 2:
+        return None
+    prefixes = sorted(prefix_counts.keys(), key=lambda k: -prefix_counts[k])[:2]
+
+    # 2. Map each team name to its "own" prefix (where it most often
+    #    starts a drive).
+    team_prefix_score: dict[tuple, int] = {}
+    plays_by_drive: dict[int, list] = {}
+    for p in plays:
+        di = p.get("drive_index")
+        if di is None:
+            continue
+        plays_by_drive.setdefault(di, []).append(p)
+    for d in drives:
+        team = d.get("team") or ""
+        dp = plays_by_drive.get(d.get("index"))
+        if not dp:
+            continue
+        m = _IFL_YL_RE.match(dp[0].get("yardline") or "")
+        if not m:
+            continue
+        team_prefix_score[(team, m.group(1))] = (
+            team_prefix_score.get((team, m.group(1)), 0) + 1
+        )
+    teams = {t for (t, _) in team_prefix_score}
+    team_own_prefix: dict[str, str] = {}
+    for t in teams:
+        scored = sorted(
+            ((pfx, team_prefix_score.get((t, pfx), 0)) for pfx in prefixes),
+            key=lambda x: -x[1],
+        )
+        if scored:
+            team_own_prefix[t] = scored[0][0]
+
+    # 3. Resolve which discovered team is home / away.
+    home_full = game_meta.get("team_home") or game_meta.get("home_team") or ""
+    away_full = game_meta.get("team_away") or game_meta.get("away_team") or ""
+    home_team_name = next((t for t in teams if _ifl_team_match(home_full, t)), None)
+    away_team_name = next((t for t in teams if _ifl_team_match(away_full, t)), None)
+    if not home_team_name or not away_team_name:
+        ordered = sorted(teams)
+        home_team_name = home_team_name or (ordered[0] if ordered else "")
+        away_team_name = away_team_name or (ordered[-1] if ordered else "")
+    home_alias = team_own_prefix.get(home_team_name) or prefixes[0]
+    away_alias = team_own_prefix.get(away_team_name) or (
+        prefixes[1] if prefixes[1] != home_alias else prefixes[0]
+    )
+
+    # 4. Build scoring drives in UFL viz shape.
+    scoring_drives: list[dict] = []
+    prev_away = 0
+    prev_home = 0
+    for d in drives:
+        sa = d.get("score_after")
+        if not sa:
+            continue
+        new_away, new_home = prev_away, prev_home
+        for k in ("a", "b"):
+            tn = sa.get(f"team_{k}") or ""
+            sc = sa.get(f"score_{k}")
+            if sc is None:
+                continue
+            if _ifl_team_match(home_full, tn):
+                new_home = sc
+            elif _ifl_team_match(away_full, tn):
+                new_away = sc
+        diff_away = new_away - prev_away
+        diff_home = new_home - prev_home
+        prev_away, prev_home = new_away, new_home
+
+        team_name = d.get("team") or ""
+        if _ifl_team_match(home_full, team_name):
+            diff = diff_home
+            team_alias = home_alias
+        elif _ifl_team_match(away_full, team_name):
+            diff = diff_away
+            team_alias = away_alias
+        else:
+            diff = diff_home + diff_away
+            team_alias = home_alias
+        if diff <= 0:
+            # Defensive/return TD or safety scored by the other team -- skip.
+            continue
+        result = _IFL_RESULT_BY_DIFF.get(diff, f"{diff} pts")
+
+        dp = plays_by_drive.get(d.get("index")) or []
+        viz_plays: list[dict] = []
+        for idx, p in enumerate(dp):
+            m = _IFL_YL_RE.match(p.get("yardline") or "")
+            if not m:
+                continue
+            ss = m.group(1)
+            sy = int(m.group(2))
+            # End position = next play's start yardline (clean).
+            if idx + 1 < len(dp):
+                m2 = _IFL_YL_RE.match(dp[idx + 1].get("yardline") or "")
+                if m2:
+                    es = m2.group(1)
+                    ey = int(m2.group(2))
+                else:
+                    es, ey = ss, sy
+            else:
+                # Last play -- if a TD, end at opponent's goal line (0).
+                txt = (p.get("text") or "").upper()
+                if "TOUCHDOWN" in txt:
+                    es = away_alias if ss == home_alias else home_alias
+                    ey = 0
+                else:
+                    es, ey = ss, sy
+            viz_plays.append({
+                "startSide": ss,
+                "startYard": sy,
+                "endSide": es,
+                "endYard": ey,
+                "description": p.get("text") or "",
+                "type": "scoring" if p.get("scoring") else "play",
+            })
+
+        scoring_drives.append({
+            "team": {"alias": team_alias, "name": team_name},
+            "result": result,
+            "quarter": (dp[0].get("quarter") if dp else None),
+            "plays": viz_plays,
+        })
+
+    return {
+        "game_id": pbp.get("game_id"),
+        "scoring_drives": scoring_drives,
+        "scoring_plays": [],
+        "field_length": 50,
+        "field_endzone": 8,
+        "viz_away_alias": away_alias,
+        "viz_home_alias": home_alias,
+    }
+
+
 def parse_game_meta(game_id):
     """
     Parse various game_id formats into structured metadata.
@@ -1207,6 +1377,30 @@ def main():
             if game_id:
                 pbp_by_game_id[str(game_id)] = pbp
         print(f"Loaded {len(pbp_by_game_id)} UFL play-by-play records")
+
+    # IFL play-by-play (goifl.com) -- convert to UFL-compatible viz schema.
+    ifl_pbp_file = RAW / "ifl_official_pbp.json"
+    if ifl_pbp_file.exists():
+        ifl_pbp_records = json.loads(ifl_pbp_file.read_text())
+        # Index IFL games by game_id so we can look up home/away team names.
+        ifl_games_lookup = {}
+        ifl_games_file = RAW / "ifl_official_games.json"
+        if ifl_games_file.exists():
+            for g in json.loads(ifl_games_file.read_text()):
+                gid = g.get("game_id")
+                if gid:
+                    ifl_games_lookup[str(gid)] = g
+        converted = 0
+        for pbp in ifl_pbp_records:
+            gid = pbp.get("game_id")
+            if not gid:
+                continue
+            g_meta = ifl_games_lookup.get(str(gid)) or {}
+            viz = _convert_ifl_pbp_to_viz(pbp, g_meta)
+            if viz:
+                pbp_by_game_id[str(gid)] = viz
+                converted += 1
+        print(f"Loaded {converted} IFL play-by-play records")
     
     # Build lookups: direct by game_id string, and by (sport_id, week, team_upper) for synthetic matching
     db_game_by_id = {}
@@ -2031,6 +2225,11 @@ def main():
             pbp = pbp_by_game_id[game_id_str]
             game_data["scoring_plays"] = pbp.get("scoring_plays", [])
             game_data["scoring_drives"] = pbp.get("scoring_drives", [])
+            # Optional viz overrides (used for non-standard fields, e.g. IFL).
+            for k in ("field_length", "field_endzone",
+                      "viz_away_alias", "viz_home_alias"):
+                if k in pbp:
+                    game_data[k] = pbp[k]
         
         write_json_xml(SITE_DATA / "games" / gslug, game_data, root_tag="game")
 

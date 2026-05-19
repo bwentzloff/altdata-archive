@@ -36,6 +36,7 @@ CACHE_DIR = REPO_ROOT / ".cache" / "ifl_official"
 PLAYERS_FILE = RAW_DIR / "ifl_official_players.json"
 STATS_FILE = RAW_DIR / "ifl_official_stats.json"
 GAMES_FILE = RAW_DIR / "ifl_official_games.json"
+PBP_FILE = RAW_DIR / "ifl_official_pbp.json"
 RAW_FILE = RAW_DIR / "ifl_official_raw.json"
 
 BASE = "https://goifl.com"
@@ -553,11 +554,134 @@ def parse_boxscore(html_text: str, game: dict[str, Any],
 
 
 # ---------------------------------------------------------------------------
+# Play-by-play parsing (?view=plays&dec=printer-decorator)
+# ---------------------------------------------------------------------------
+
+_PBP_QUARTER_RE = re.compile(r"^(1st|2nd|3rd|4th|OT\d*|OT)$", re.IGNORECASE)
+_PBP_DRIVE_HEADER_RE = re.compile(r"^(.+?)\s+at\s+(\d{1,2}:\d{2})$")
+_PBP_DRIVE_SUMMARY_RE = re.compile(
+    r"^(\d+)\s+plays?,\s+(-?\d+)\s+yards?,\s+(\d{1,2}:\d{2})\s+elapsed$"
+)
+_PBP_SITUATION_RE = re.compile(
+    r"^(1st|2nd|3rd|4th)\s+and\s+(goal|\d+)\s+at\s+(\S+)$", re.IGNORECASE
+)
+_PBP_SCORE_UPDATE_RE = re.compile(r"^(.+?)\s+(\d+),\s+(.+?)\s+(\d+)$")
+
+
+def _find_pbp_table(soup: BeautifulSoup):
+    for tbl in soup.find_all("table"):
+        first_row = tbl.find("tr")
+        if first_row and "Quarters:" in first_row.get_text(" ", strip=True):
+            return tbl
+    return None
+
+
+def parse_pbp(box_html: str, game: dict[str, Any]) -> dict[str, Any] | None:
+    """Parse the printable play-by-play view into a structured dict.
+
+    Returns None if no PBP table is present.
+    """
+    soup = BeautifulSoup(box_html, "html.parser")
+    table = _find_pbp_table(soup)
+    if table is None:
+        return None
+
+    plays: list[dict[str, Any]] = []
+    drives: list[dict[str, Any]] = []
+    current_quarter: str | None = None
+    current_drive_index = -1
+    last_score: dict[str, Any] | None = None
+
+    for row in table.find_all("tr"):
+        cells = [
+            re.sub(r"\s+", " ", c.get_text(" ", strip=True)).strip()
+            for c in row.find_all(["td", "th"])
+        ]
+        if not cells or all(not c for c in cells):
+            continue
+
+        classes = row.get("class", []) or []
+        is_bold = "bold" in classes
+
+        # Single-cell rows: quarter headers, drive headers, drive summaries, score updates.
+        nonempty = [c for c in cells if c]
+        if len(nonempty) == 1:
+            text = nonempty[0]
+            if text.startswith("Quarters:"):
+                continue
+            if _PBP_QUARTER_RE.match(text):
+                current_quarter = text
+                continue
+            m = _PBP_DRIVE_SUMMARY_RE.match(text)
+            if m and drives:
+                drives[-1]["summary"] = {
+                    "plays": int(m.group(1)),
+                    "yards": int(m.group(2)),
+                    "elapsed": m.group(3),
+                }
+                continue
+            sm = _PBP_SCORE_UPDATE_RE.match(text)
+            if sm and is_bold:
+                last_score = {
+                    "team_a": sm.group(1),
+                    "score_a": int(sm.group(2)),
+                    "team_b": sm.group(3),
+                    "score_b": int(sm.group(4)),
+                }
+                if plays:
+                    plays[-1]["score_after"] = dict(last_score)
+                if drives:
+                    drives[-1]["score_after"] = dict(last_score)
+                continue
+            dm = _PBP_DRIVE_HEADER_RE.match(text)
+            if dm:
+                current_drive_index = len(drives)
+                drives.append({
+                    "index": current_drive_index,
+                    "quarter": current_quarter,
+                    "team": dm.group(1),
+                    "start_clock": dm.group(2),
+                })
+                continue
+            # Unknown / informational single-cell row -- skip.
+            continue
+
+        # Two-cell rows: situation + play description.
+        if len(cells) >= 2:
+            situation, text = cells[0], cells[1]
+            if not text:
+                continue
+            play: dict[str, Any] = {
+                "index": len(plays),
+                "quarter": current_quarter,
+                "drive_index": current_drive_index if current_drive_index >= 0 else None,
+                "text": text,
+                "scoring": is_bold,
+            }
+            sm2 = _PBP_SITUATION_RE.match(situation) if situation else None
+            if sm2:
+                play["down"] = sm2.group(1)
+                play["distance"] = sm2.group(2)
+                play["yardline"] = sm2.group(3)
+            if situation:
+                play["situation"] = situation
+            plays.append(play)
+
+    return {
+        "game_id": game["game_id"],
+        "source_game_key": game["source_game_key"],
+        "drives": drives,
+        "plays": plays,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Orchestration
 # ---------------------------------------------------------------------------
 
 
-def scrape(year: int, max_games: int | None = None) -> tuple[list, list, list, dict]:
+def scrape(year: int, max_games: int | None = None,
+           include_pbp: bool = True) -> tuple[list, list, list, list, dict]:
     client = Client()
 
     schedule_url = f"{BASE}/sports/fball/{year}/schedule"
@@ -574,9 +698,11 @@ def scrape(year: int, max_games: int | None = None) -> tuple[list, list, list, d
     players_by_id: dict[int, dict] = {}
     next_id_box = [SYNTHETIC_ID_START]
     all_stats: list[dict] = []
+    all_pbp: list[dict] = []
 
     fetched = 0
     failed: list[dict] = []
+    pbp_failures: list[dict] = []
     for game in final_games:
         if max_games is not None and fetched >= max_games:
             break
@@ -602,10 +728,37 @@ def scrape(year: int, max_games: int | None = None) -> tuple[list, list, list, d
             continue
 
         all_stats.extend(stat_rows)
+
+        if include_pbp:
+            pbp_url = f"{BASE}{game['boxscore_path']}?view=plays&dec=printer-decorator"
+            pbp_cache = CACHE_DIR / f"{year}_{game['source_game_key']}_plays.html"
+            if pbp_cache.exists():
+                pbp_html = pbp_cache.read_text(encoding="utf-8")
+            else:
+                try:
+                    pbp_html = client.get(pbp_url)
+                    pbp_cache.write_text(pbp_html, encoding="utf-8")
+                except Exception as exc:
+                    print(f"  PBP FAIL {game['boxscore_path']}: {exc}")
+                    pbp_failures.append({"game_id": game["game_id"], "error": str(exc)})
+                    pbp_html = None
+
+            if pbp_html:
+                try:
+                    pbp_obj = parse_pbp(pbp_html, game)
+                except Exception as exc:
+                    print(f"  PBP PARSE FAIL {game['boxscore_path']}: {exc}")
+                    pbp_failures.append({"game_id": game["game_id"],
+                                         "error": f"parse: {exc}"})
+                    pbp_obj = None
+                if pbp_obj and pbp_obj.get("plays"):
+                    all_pbp.append(pbp_obj)
+
         fetched += 1
         if fetched % 5 == 0:
             print(f"  processed {fetched}/{len(final_games)} games, "
-                  f"{len(players_by_id)} players, {len(all_stats)} stat rows")
+                  f"{len(players_by_id)} players, {len(all_stats)} stat rows, "
+                  f"{len(all_pbp)} pbp")
 
     players = sorted(players_by_id.values(), key=lambda p: p["id"])
     games_out = sorted(games, key=lambda g: (g.get("start_time") or "",
@@ -613,6 +766,7 @@ def scrape(year: int, max_games: int | None = None) -> tuple[list, list, list, d
     stats_out = sorted(all_stats, key=lambda r: (str(r.get("game_id", "")),
                                                  int(r.get("player_id", 0)),
                                                  str(r.get("stat", ""))))
+    pbp_out = sorted(all_pbp, key=lambda p: str(p.get("game_id", "")))
 
     raw_meta = {
         "source": "goifl.com (Googlebot UA)",
@@ -624,11 +778,14 @@ def scrape(year: int, max_games: int | None = None) -> tuple[list, list, list, d
             "games": len(games_out),
             "boxscores_fetched": fetched,
             "boxscore_failures": len(failed),
+            "pbp_games": len(pbp_out),
+            "pbp_failures": len(pbp_failures),
         },
         "failures": failed[:50],
+        "pbp_failures": pbp_failures[:50],
     }
 
-    return players, stats_out, games_out, raw_meta
+    return players, stats_out, games_out, pbp_out, raw_meta
 
 
 def main() -> None:
@@ -636,21 +793,27 @@ def main() -> None:
     ap.add_argument("--year", type=int, default=dt.date.today().year,
                     help="Season year (default: current year)")
     ap.add_argument("--max-games", type=int, help="Limit boxscores for quick tests")
+    ap.add_argument("--no-pbp", action="store_true",
+                    help="Skip play-by-play fetch/parse")
     args = ap.parse_args()
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    players, stats, games, raw_meta = scrape(args.year, max_games=args.max_games)
+    players, stats, games, pbp, raw_meta = scrape(
+        args.year, max_games=args.max_games, include_pbp=not args.no_pbp,
+    )
 
     PLAYERS_FILE.write_text(json.dumps(players, indent=2), encoding="utf-8")
     STATS_FILE.write_text(json.dumps(stats, indent=2), encoding="utf-8")
     GAMES_FILE.write_text(json.dumps(games, indent=2), encoding="utf-8")
+    PBP_FILE.write_text(json.dumps(pbp, indent=2), encoding="utf-8")
     RAW_FILE.write_text(json.dumps(raw_meta, indent=2), encoding="utf-8")
 
     print(f"Wrote {PLAYERS_FILE.name} ({len(players)}), "
           f"{STATS_FILE.name} ({len(stats)}), "
           f"{GAMES_FILE.name} ({len(games)}), "
+          f"{PBP_FILE.name} ({len(pbp)}), "
           f"{RAW_FILE.name}")
 
 
