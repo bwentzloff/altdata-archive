@@ -577,7 +577,7 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         {% for sk in all_stat_keys %}
-        <th scope="col" data-stat="{{ sk }}">{{ sk }}</th>
+        <th scope="col" data-stat="{{ sk }}">{{ sk | stat_label }}</th>
         {% endfor %}
       </tr>
     </thead>

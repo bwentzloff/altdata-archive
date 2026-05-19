@@ -86,6 +86,8 @@ def make_env():
         except (TypeError, ValueError):
             return str(val) if val is not None else ""
 
+    import re as _re
+
     _STAT_LABELS = {
         "passing_yards": "Pass Yds", "passing_tds": "TD", "completions": "Comp",
         "interceptions_lost": "INT", "rushing_yards": "Rush Yds", "rushing_tds": "TD",
@@ -95,7 +97,15 @@ def make_env():
     }
 
     def stat_label(key: str) -> str:
-        return _STAT_LABELS.get(key, key.replace("_", " ").title())
+        if key in _STAT_LABELS:
+            return _STAT_LABELS[key]
+        # Convert snake_case to Title Case
+        if "_" in key:
+            return key.replace("_", " ").title()
+        # Convert camelCase to Title Case by inserting spaces before capitals
+        # e.g., "yardsReceived" → "Yards Received"
+        camel_to_spaces = _re.sub(r'([a-z])([A-Z])', r'\1 \2', key)
+        return camel_to_spaces.title()
 
     def sort_by_stat(players, stat_key: str):
         """Sort player dicts by stats[stat_key] descending, missing values last."""
