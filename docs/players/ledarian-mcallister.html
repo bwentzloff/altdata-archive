@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ledarian Mcallister — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ledarian Mcallister: receiving_tds 7.0, receiving_yards 290.0, receptions 35.0, rushing_tds 1.0, rushing_yards 26.0">
+  <meta property="og:description" content="Career stats for Ledarian Mcallister: rec_avg 30.0, rec_long 42.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 7.0, receiving_yards 388.0, receptions 42.0, rushing_tds 1.0, rushing_yards 26.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/ledarian-mcallister.html">
   
@@ -77,6 +77,20 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -206,7 +220,7 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
         
       </div>
@@ -241,6 +255,14 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -256,11 +278,19 @@
     <tbody>
       <tr>
         
+        <td>30</td>
+        
+        <td>42</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
         <td>7</td>
         
-        <td>290</td>
+        <td>388</td>
         
-        <td>35</td>
+        <td>42</td>
         
         <td>1</td>
         
@@ -282,7 +312,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 30.0, "receiving_yards": 260.0, "receiving_tds": 5.0, "rushing_yards": 21.0, "rushing_tds": 1.0}, "50YARD-2026": {"receptions": 1.0, "receiving_yards": 9.0}};
+    var seasons = {"AF1-2025": {"receptions": 30.0, "receiving_yards": 260.0, "receiving_tds": 5.0, "rushing_yards": 21.0, "rushing_tds": 1.0}, "AF1-2026": {"rec_avg": 30.0, "rec_long": 42.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 98.0, "receptions": 7.0}, "50YARD-2026": {"receptions": 1.0, "receiving_yards": 9.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -322,6 +352,22 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
   
   
   <table class="data-table">
@@ -330,6 +376,14 @@
       <tr>
         <th scope="col">Season</th>
         
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
@@ -349,6 +403,14 @@
         <td>AF1 2025</td>
         
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>5</td>
         
         <td>260</td>
@@ -367,9 +429,41 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>9</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        
+        <td>30</td>
+        
+        <td>42</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>98</td>
+        
+        <td>7</td>
         
         <td>—</td>
         
@@ -441,6 +535,14 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -459,7 +561,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10"> Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="14"> Wk 2</td></tr>
       
       <tr>
         <td>—</td>
@@ -467,6 +569,14 @@
         <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
         <td><a href="../games/lightning-wolfpack-mar22.html" class="game-id">LIGHTNING-WOLFPACK-MAR22</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -483,7 +593,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025</td></tr>
       
       <tr>
         <td>2025</td>
@@ -491,6 +601,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/swkansas-nashville.html" class="game-id">NASHVILLE @ SW KANSAS</a></td>
         <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -507,7 +625,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -515,6 +633,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-billings-0403.html" class="game-id">BILLINGS @ WASHINGTON</a></td>
         <td>61–23</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -531,7 +657,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -539,6 +665,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-washington-0413.html" class="game-id">CORPUS CHRISTI @ WASHINGTON</a></td>
         <td>61–21</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -555,7 +689,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -563,6 +697,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-nashville-0417.html" class="game-id">NASHVILLE @ WASHINGTON</a></td>
         <td>68–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -579,7 +721,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -587,6 +729,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/oregon-washington-0425.html" class="game-id">WASHINGTON @ OREGON</a></td>
         <td>41–30</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -603,7 +753,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -611,6 +761,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-oregon-0504.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>37–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -627,7 +785,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -635,6 +793,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/billings-washington-0510.html" class="game-id">WASHINGTON @ BILLINGS</a></td>
         <td>10–69</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -651,7 +817,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -659,6 +825,14 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-oregon-0518.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>52–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -675,7 +849,36 @@
       
       
       
-      <tr class="week-group-row"><td colspan="10">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="14">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-11-t602555g1168200-t584635.html" class="game-id">Minnesota Monsters @ Albany Firebirds</a></td>
+        <td>23–50</td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -685,6 +888,78 @@
         <td>0–0</td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="14">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-25-t602555g1168209-t606163.html" class="game-id">Minnesota Monsters @ Michigan Arsenal</a></td>
+        <td>46–25</td>
+        
+        <td>17.0</td>
+        
+        <td>29.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>85.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="14">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-3-t602555g1168214-t612138.html" class="game-id">Minnesota Monsters @ Oceanside Bombers</a></td>
+        <td>40–36</td>
+        
+        <td>9.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>9.0</td>
         

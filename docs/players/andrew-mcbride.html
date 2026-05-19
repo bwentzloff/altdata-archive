@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Andrew McBride — AltSports Stats">
-  <meta property="og:description" content="Career stats for Andrew McBride: interceptions_lost 4.0, passing_tds 6.0, passing_yards 218.0">
+  <meta property="og:description" content="Career stats for Andrew McBride: assisted_tackles 0.0, completion_pct 2358.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 6.0, interceptions_lost 4.0, pass_attempts 99.0, pass_completions 54.0, pass_long 122.0, pass_yards_per_attempt 57.0, passing_2pt 0.0, passing_rate 362.0, passing_sacks 1.0, passing_td_pass 14.0, passing_tds 6.0, passing_yards 789.0, passing_yds_lost 0.0, rec_avg 10.0, rec_long 10.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 1.0, receiving_yards 10.0, receptions 1.0, rush_avg -1.0, rush_long 6.0, rushing_2pt 0.0, rushing_attempts 3.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards -3.0, sacks 0.0, tackles 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/andrew-mcbride.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "50YARD 2026",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -192,22 +235,162 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
+        
+        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
+        
+        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
+        
+        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
         <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>4</td>
+        <td>0</td>
+        
+        <td>2,358</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
         <td>6</td>
         
-        <td>218</td>
+        <td>4</td>
+        
+        <td>99</td>
+        
+        <td>54</td>
+        
+        <td>122</td>
+        
+        <td>57</td>
+        
+        <td>0</td>
+        
+        <td>362</td>
+        
+        <td>1</td>
+        
+        <td>14</td>
+        
+        <td>6</td>
+        
+        <td>789</td>
+        
+        <td>0</td>
+        
+        <td>10</td>
+        
+        <td>10</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>10</td>
+        
+        <td>1</td>
+        
+        <td>-1</td>
+        
+        <td>6</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>-3</td>
+        
+        <td>0</td>
+        
+        <td>2</td>
         
       </tr>
     </tbody>
@@ -218,11 +401,109 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AF1-2026": {"assisted_tackles": 0.0, "completion_pct": 2358.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "interceptions": 6.0, "pass_attempts": 99.0, "pass_completions": 54.0, "pass_long": 122.0, "pass_yards_per_attempt": 57.0, "passing_2pt": 0.0, "passing_rate": 362.0, "passing_sacks": 1.0, "passing_td_pass": 14.0, "passing_yards": 571.0, "passing_yds_lost": 0.0, "sacks": 0.0, "tackles": 2.0, "rec_avg": 10.0, "rec_long": 10.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 1.0, "receiving_yards": 10.0, "receptions": 1.0, "rush_avg": -1.0, "rush_long": 6.0, "rushing_2pt": 0.0, "rushing_attempts": 3.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": -3.0}, "50YARD-2026": {"passing_yards": 218.0, "passing_tds": 6.0, "interceptions_lost": 4.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -240,11 +521,81 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
+        
+        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
+        
+        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
+        
+        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
         <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
@@ -254,11 +605,163 @@
         <td>50YARD 2026</td>
         
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>6</td>
         
         <td>218</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        
+        <td>0</td>
+        
+        <td>2358</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>6</td>
+        
+        <td>—</td>
+        
+        <td>99</td>
+        
+        <td>54</td>
+        
+        <td>122</td>
+        
+        <td>57</td>
+        
+        <td>0</td>
+        
+        <td>362</td>
+        
+        <td>1</td>
+        
+        <td>14</td>
+        
+        <td>—</td>
+        
+        <td>571</td>
+        
+        <td>0</td>
+        
+        <td>10</td>
+        
+        <td>10</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>10</td>
+        
+        <td>1</td>
+        
+        <td>-1</td>
+        
+        <td>6</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>-3</td>
+        
+        <td>0</td>
+        
+        <td>2</td>
         
       </tr>
       
@@ -291,11 +794,81 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
+        
+        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
+        
+        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
+        
+        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
         <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
+        <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="sacks">Sacks</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
@@ -305,7 +878,184 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="43">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-12-t584761g1168201-t612138.html" class="game-id">Beaumont Renegades @ Oceanside Bombers</a></td>
+        <td>32–41</td>
+        
+        <td>0.0</td>
+        
+        <td>333.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="43">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-18-t584635g1168204-t584761.html" class="game-id">Albany Firebirds @ Beaumont Renegades</a></td>
+        <td>55–27</td>
+        
+        <td></td>
+        
+        <td>600.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>10.0</td>
+        
+        <td>6.0</td>
+        
+        <td>12.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.0</td>
+        
+        <td>110.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>45.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -314,18 +1064,175 @@
         <td><a href="../games/synthetic-50yard-2026-w2-beaumontrenegades.html" class="game-id">Washington Wolfpack @ Beaumont Renegades</a></td>
         <td>0–0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
         <td>47.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="8">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="43">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-26-t612138g1168208-t584761.html" class="game-id">Oceanside Bombers @ Beaumont Renegades</a></td>
+        <td>55–64</td>
+        
+        <td></td>
+        
+        <td>568.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>44.0</td>
+        
+        <td>25.0</td>
+        
+        <td>41.0</td>
+        
+        <td>12.0</td>
+        
+        <td>0.0</td>
+        
+        <td>108.0</td>
+        
+        <td>0.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>304.0</td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+        <td>10.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>10.0</td>
+        
+        <td>1.0</td>
+        
+        <td>-1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>-3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -334,11 +1241,261 @@
         <td><a href="../games/synthetic-50yard-2026-w3-beaumontrenegades.html" class="game-id">BEAUMONT RENEGADES @ KENTUCKY BARRELS</a></td>
         <td>0–0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>5.0</td>
         
         <td>171.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="43">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-9-t584641g1168216-t584761.html" class="game-id">Washington Wolfpack @ Beaumont Renegades</a></td>
+        <td>33–32</td>
+        
+        <td></td>
+        
+        <td>286.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>2.0</td>
+        
+        <td>39.0</td>
+        
+        <td>24.0</td>
+        
+        <td>0.0</td>
+        
+        <td>55.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>47.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="43">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-17-t584761g1168220-t584747.html" class="game-id">Beaumont Renegades @ Kentucky Barrels</a></td>
+        <td>36–55</td>
+        
+        <td>0.0</td>
+        
+        <td>571.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>35.0</td>
+        
+        <td>20.0</td>
+        
+        <td>26.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>86.0</td>
+        
+        <td>1.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td>171.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
         
       </tr>
       

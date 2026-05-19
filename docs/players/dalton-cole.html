@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Dalton Cole — AltSports Stats">
-  <meta property="og:description" content="Career stats for Dalton Cole: interceptions 18.0, interceptions_lost 3.0, passing_tds 46.0, passing_yards 2680.0, receiving_tds 0.0, receiving_yards -5.0, receptions 1.0, rushing_tds 15.0, rushing_yards 305.0">
+  <meta property="og:description" content="Career stats for Dalton Cole: completion_pct 1736.0, interceptions 21.0, interceptions_lost 3.0, pass_attempts 111.0, pass_completions 41.0, pass_long 136.0, pass_yards_per_attempt 64.0, passing_2pt 0.0, passing_rate 319.0, passing_sacks 4.0, passing_td_pass 8.0, passing_tds 46.0, passing_yards 3198.0, passing_yds_lost 0.0, receiving_tds 0.0, receiving_yards -5.0, receptions 1.0, rush_avg 18.0, rush_long 50.0, rushing_2pt 0.0, rushing_attempts 26.0, rushing_fum 0.0, rushing_tds 17.0, rushing_yards 385.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/dalton-cole.html">
   
@@ -77,6 +77,20 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -206,7 +220,7 @@
           
           <span class="ct-cell ct-on"></span>
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
           
         
       </div>
@@ -241,19 +255,49 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
+        
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
@@ -264,13 +308,33 @@
     <tbody>
       <tr>
         
-        <td>18</td>
+        <td>1,736</td>
+        
+        <td>21</td>
         
         <td>3</td>
         
+        <td>111</td>
+        
+        <td>41</td>
+        
+        <td>136</td>
+        
+        <td>64</td>
+        
+        <td>0</td>
+        
+        <td>319</td>
+        
+        <td>4</td>
+        
+        <td>8</td>
+        
         <td>46</td>
         
-        <td>2,680</td>
+        <td>3,198</td>
+        
+        <td>0</td>
         
         <td>0</td>
         
@@ -278,9 +342,19 @@
         
         <td>1</td>
         
-        <td>15</td>
+        <td>18</td>
         
-        <td>305</td>
+        <td>50</td>
+        
+        <td>0</td>
+        
+        <td>26</td>
+        
+        <td>0</td>
+        
+        <td>17</td>
+        
+        <td>385</td>
         
       </tr>
     </tbody>
@@ -298,7 +372,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"passing_yards": 1993.0, "passing_tds": 36.0, "interceptions": 16.0, "rushing_yards": 270.0, "rushing_tds": 12.0, "interceptions_lost": 3.0, "receptions": 1.0, "receiving_yards": -5.0, "receiving_tds": 0.0}, "50YARD-2026": {"passing_yards": 204.0, "passing_tds": 3.0, "rushing_yards": 29.0, "rushing_tds": 2.0}};
+    var seasons = {"AF1-2025": {"passing_yards": 1993.0, "passing_tds": 36.0, "interceptions": 16.0, "rushing_yards": 270.0, "rushing_tds": 12.0, "interceptions_lost": 3.0, "receptions": 1.0, "receiving_yards": -5.0, "receiving_tds": 0.0}, "AF1-2026": {"completion_pct": 1736.0, "interceptions": 3.0, "pass_attempts": 111.0, "pass_completions": 41.0, "pass_long": 136.0, "pass_yards_per_attempt": 64.0, "passing_2pt": 0.0, "passing_rate": 319.0, "passing_sacks": 4.0, "passing_td_pass": 8.0, "passing_yards": 518.0, "passing_yds_lost": 0.0, "rush_avg": 18.0, "rush_long": 50.0, "rushing_2pt": 0.0, "rushing_attempts": 26.0, "rushing_fum": 0.0, "rushing_tds": 2.0, "rushing_yards": 80.0}, "50YARD-2026": {"passing_yards": 204.0, "passing_tds": 3.0, "rushing_yards": 29.0, "rushing_tds": 2.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -350,6 +424,46 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   
   <table class="data-table">
@@ -359,19 +473,49 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
+        
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
@@ -385,19 +529,49 @@
         <td>AF1 2025</td>
         
         
+        <td>—</td>
+        
         <td>16</td>
         
         <td>3</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>36</td>
         
         <td>1993</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
         <td>-5</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>12</td>
         
@@ -413,6 +587,24 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>3</td>
         
         <td>204</td>
@@ -423,9 +615,75 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>2</td>
         
         <td>29</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        
+        <td>1736</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>111</td>
+        
+        <td>41</td>
+        
+        <td>136</td>
+        
+        <td>64</td>
+        
+        <td>0</td>
+        
+        <td>319</td>
+        
+        <td>4</td>
+        
+        <td>8</td>
+        
+        <td>—</td>
+        
+        <td>518</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>18</td>
+        
+        <td>50</td>
+        
+        <td>0</td>
+        
+        <td>26</td>
+        
+        <td>0</td>
+        
+        <td>2</td>
+        
+        <td>80</td>
         
       </tr>
       
@@ -493,19 +751,49 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="pass_yards_per_attempt">Pass Yards Per Attempt</th>
+        
+        <th scope="col" data-stat="passing_2pt">Passing 2Pt</th>
+        
+        <th scope="col" data-stat="passing_rate">Passing Rate</th>
+        
+        <th scope="col" data-stat="passing_sacks">Passing Sacks</th>
+        
+        <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
+        
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
@@ -519,7 +807,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="29"> Wk 1</td></tr>
       
       <tr>
         <td>—</td>
@@ -528,13 +816,43 @@
         <td><a href="../games/billings-oregon.html" class="game-id">BILLINGS-OREGON</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>3.0</td>
         
         <td>236.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -551,7 +869,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14"> Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="29"> Wk 2</td></tr>
       
       <tr>
         <td>—</td>
@@ -560,13 +878,43 @@
         <td><a href="../games/lightning-wolfpack-mar22.html" class="game-id">LIGHTNING-WOLFPACK-MAR22</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>4.0</td>
         
         <td>247.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -583,7 +931,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -592,13 +940,43 @@
         <td><a href="../games/storm-lightning-0330.html" class="game-id">OREGON @ SW KANSAS</a></td>
         <td>41–40</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>3.0</td>
         
         <td>258.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -615,7 +993,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -624,13 +1002,43 @@
         <td><a href="../games/nashville-oregon-0404.html" class="game-id">OREGON @ NASHVILLE</a></td>
         <td>32–40</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
         <td>188.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -647,7 +1055,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -658,11 +1066,41 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>4.0</td>
         
         <td>170.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -679,7 +1117,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -688,13 +1126,43 @@
         <td><a href="../games/oregon-washington-0425.html" class="game-id">WASHINGTON @ OREGON</a></td>
         <td>41–30</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>0.0</td>
         
         <td>84.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -711,7 +1179,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -720,13 +1188,43 @@
         <td><a href="../games/washington-oregon-0504.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>37–9</td>
         
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>3.0</td>
         
         <td>171.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -743,7 +1241,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -752,7 +1250,25 @@
         <td><a href="../games/oregon-corpuschristi-0512.html" class="game-id">CORPUS CHRISTI @ OREGON</a></td>
         <td>20–52</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -770,12 +1286,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -784,7 +1312,25 @@
         <td><a href="../games/washington-oregon-0518.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>52–20</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -792,11 +1338,23 @@
         
         <td>220.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-5.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -807,7 +1365,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -816,13 +1374,43 @@
         <td><a href="../games/oregon-nashville-0524.html" class="game-id">NASHVILLE @ OREGON</a></td>
         <td>50–36</td>
         
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>4.0</td>
         
         <td>200.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -839,7 +1427,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 12</td></tr>
       
       <tr>
         <td>2025</td>
@@ -848,13 +1436,43 @@
         <td><a href="../games/oregon-billings-0601.html" class="game-id">BILLINGS @ OREGON</a></td>
         <td>58–7</td>
         
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
         <td>0.0</td>
         
         <td>75.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -871,7 +1489,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 13</td></tr>
       
       <tr>
         <td>2025</td>
@@ -880,7 +1498,25 @@
         <td><a href="../games/corpuschristi-oregon-0608.html" class="game-id">OREGON @ CORPUS CHRISTI</a></td>
         <td>40–24</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -898,12 +1534,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="14">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -912,7 +1560,25 @@
         <td><a href="../games/billings-oregon-0614.html" class="game-id">OREGON @ BILLINGS</a></td>
         <td>38–40</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -930,12 +1596,83 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-12-t584638g1168203-t584641.html" class="game-id">Oregon Lightning @ Washington Wolfpack</a></td>
+        <td>33–16</td>
+        
+        <td>476.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>10.0</td>
+        
+        <td>35.0</td>
+        
+        <td>12.0</td>
+        
+        <td>0.0</td>
+        
+        <td>65.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>117.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>21.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>22.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -943,6 +1680,24 @@
         <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
         <td><a href="../games/synthetic-50yard-2026-w1-oregonlightning.html" class="game-id">Oregon Lightning @ Michigan Arsenal</a></td>
         <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -960,6 +1715,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -967,7 +1734,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -975,6 +1742,24 @@
         <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
         <td><a href="../games/synthetic-50yard-2026-w2-oregonlightning.html" class="game-id">Oregon Lightning @ Nashville Kats</a></td>
         <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -992,6 +1777,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>5.0</td>
         
       </tr>
@@ -999,7 +1796,66 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-25-t584635g1168207-t584638.html" class="game-id">Albany Firebirds @ Oregon Lightning</a></td>
+        <td>48–24</td>
+        
+        <td>405.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>37.0</td>
+        
+        <td>15.0</td>
+        
+        <td>25.0</td>
+        
+        <td>13.0</td>
+        
+        <td>0.0</td>
+        
+        <td>65.0</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>197.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>12.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>29.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -1014,6 +1870,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>26.0</td>
         
         <td></td>
@@ -1021,6 +1895,204 @@
         <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>22.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="29">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-2-t584638g1168213-t606163.html" class="game-id">Oregon Lightning @ Michigan Arsenal</a></td>
+        <td>36–46</td>
+        
+        <td>368.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>7.0</td>
+        
+        <td>25.0</td>
+        
+        <td>14.0</td>
+        
+        <td>0.0</td>
+        
+        <td>71.0</td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>96.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="29">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-9-t584638g1168218-t584637.html" class="game-id">Oregon Lightning @ Nashville Kats</a></td>
+        <td>21–64</td>
+        
+        <td>333.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>7.0</td>
+        
+        <td>33.0</td>
+        
+        <td>12.0</td>
+        
+        <td>0.0</td>
+        
+        <td>78.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>82.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>5.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="29">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-16-t584641g1168222-t584638.html" class="game-id">Washington Wolfpack @ Oregon Lightning</a></td>
+        <td>79–19</td>
+        
+        <td>154.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td>2.0</td>
+        
+        <td>18.0</td>
+        
+        <td>13.0</td>
+        
+        <td>0.0</td>
+        
+        <td>40.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>26.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.0</td>
         
         <td>2.0</td>
         

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Donovan Johnson — AltSports Stats">
-  <meta property="og:description" content="Career stats for Donovan Johnson: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rec_avg 13.0, rec_long 13.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 17.0, receptions 3.0, rush_avg 17.0, rush_long 17.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 17.0, sacks 0.0, safeties 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Donovan Johnson: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rec_avg 26.0, rec_long 33.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 1.0, receiving_yards 55.0, receptions 6.0, rush_avg 17.0, rush_long 17.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 17.0, sacks 0.0, safeties 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/donovan-johnson.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -184,7 +233,7 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">42.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2044</div>
+        <div class="badge-rank">#2043</div>
       </div>
       
       
@@ -228,6 +277,8 @@
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
         
         <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
         
@@ -274,17 +325,19 @@
         
         <td>0</td>
         
-        <td>13</td>
+        <td>26</td>
         
-        <td>13</td>
-        
-        <td>0</td>
+        <td>33</td>
         
         <td>0</td>
         
-        <td>17</td>
+        <td>0</td>
         
-        <td>3</td>
+        <td>1</td>
+        
+        <td>55</td>
+        
+        <td>6</td>
         
         <td>17</td>
         
@@ -312,6 +365,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "rec_avg": 13.0, "rec_long": 13.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 17.0, "receptions": 3.0, "rush_avg": 17.0, "rush_long": 17.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 17.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "AF1-2026": {"rec_avg": 13.0, "rec_long": 20.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 1.0, "receiving_yards": 38.0, "receptions": 3.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -365,6 +442,22 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Donovan Johnson stats by season</caption>
@@ -390,6 +483,8 @@
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
         
         <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
         
@@ -443,6 +538,8 @@
         
         <td>13</td>
         
+        <td>—</td>
+        
         <td>0</td>
         
         <td>0</td>
@@ -468,6 +565,58 @@
         <td>0</td>
         
         <td>1</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>13</td>
+        
+        <td>20</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>38</td>
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -553,6 +702,8 @@
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
         
+        <th scope="col" data-stat="receiving_2pt">Receiving 2Pt</th>
+        
         <th scope="col" data-stat="receiving_fum">Receiving Fum</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
@@ -587,7 +738,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -613,6 +764,8 @@
         <td>4.0</td>
         
         <td>4.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -645,7 +798,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -672,6 +825,8 @@
         
         <td>9.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -679,6 +834,66 @@
         <td>9.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-4-25-t602555g1168209-t606163.html" class="game-id">Minnesota Monsters @ Michigan Arsenal</a></td>
+        <td>46–25</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td>20.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>38.0</td>
+        
+        <td>3.0</td>
         
         <td></td>
         

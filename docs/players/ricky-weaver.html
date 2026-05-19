@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ricky Weaver — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ricky Weaver: rushing_tds 2.0, rushing_yards 54.0">
+  <meta property="og:description" content="Career stats for Ricky Weaver: rush_avg 9.0, rush_long 20.0, rushing_2pt 0.0, rushing_attempts 17.0, rushing_fum 0.0, rushing_tds 4.0, rushing_yards 109.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/ricky-weaver.html">
   
@@ -77,6 +77,20 @@
       "name": "50YARD 2026",
       "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">50YARD</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -192,6 +235,16 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -201,9 +254,19 @@
     <tbody>
       <tr>
         
-        <td>2</td>
+        <td>9</td>
         
-        <td>54</td>
+        <td>20</td>
+        
+        <td>0</td>
+        
+        <td>17</td>
+        
+        <td>0</td>
+        
+        <td>4</td>
+        
+        <td>109</td>
         
       </tr>
     </tbody>
@@ -214,12 +277,52 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"50YARD-2026": {"rushing_yards": 54.0, "rushing_tds": 2.0}, "AF1-2026": {"rush_avg": 9.0, "rush_long": 20.0, "rushing_2pt": 0.0, "rushing_attempts": 17.0, "rushing_fum": 0.0, "rushing_tds": 2.0, "rushing_yards": 55.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -234,6 +337,16 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -246,9 +359,39 @@
         <td>50YARD 2026</td>
         
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>2</td>
         
         <td>54</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        
+        <td>9</td>
+        
+        <td>20</td>
+        
+        <td>0</td>
+        
+        <td>17</td>
+        
+        <td>0</td>
+        
+        <td>2</td>
+        
+        <td>55</td>
         
       </tr>
       
@@ -281,6 +424,16 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
@@ -293,7 +446,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="12">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -301,6 +454,16 @@
         <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
         <td><a href="../games/synthetic-50yard-2026-w1-michiganarsenal.html" class="game-id">Oregon Lightning @ Michigan Arsenal</a></td>
         <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -311,7 +474,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="12">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -322,6 +485,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>30.0</td>
         
       </tr>
@@ -329,7 +502,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="7">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="12">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -340,7 +513,101 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-2-t584638g1168213-t606163.html" class="game-id">Oregon Lightning @ Michigan Arsenal</a></td>
+        <td>36–46</td>
+        
+        <td>3.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.0</td>
+        
+        <td>7.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>22.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-9-t602555g1168217-t606163.html" class="game-id">Minnesota Monsters @ Michigan Arsenal</a></td>
+        <td>31–28</td>
+        
+        <td>4.0</td>
+        
+        <td>10.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>30.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="12">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-16-t584635g1168219-t606163.html" class="game-id">Albany Firebirds @ Michigan Arsenal</a></td>
+        <td>60–57</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
         
       </tr>
       

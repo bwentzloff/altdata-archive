@@ -100,12 +100,17 @@ echo ""
 # requests.  AFL data from the source SQL is already in the system.
 # Revisit if a Playwright-based scraper is added later.
 
-# ── 3i. IFL (Indoor Football League, Wikipedia season articles) ──────────────
-echo "── IFL (Wikipedia season articles) ──────────────────────"
+# ── 3i. IFL (Indoor Football League, official site currently WAF-challenged) ──
+echo "── IFL (official site currently WAF-challenged) ─────────"
 $PYTHON pipeline/scrape_ifl.py --batch 2
 echo ""
 
-# ── 3j. NAL (National Arena League, Wikipedia season articles) ───────────────
+# ── 3j. AF1 (Arena Football One, official DigitalShift site) ─────────────────
+echo "── AF1 (official DigitalShift site) ─────────────────────"
+$PYTHON pipeline/scrape_af1.py
+echo ""
+
+# ── 3k. NAL (National Arena League, Wikipedia season articles) ───────────────
 echo "── NAL (Wikipedia season articles) ──────────────────────"
 $PYTHON pipeline/scrape_nal.py
 echo ""
