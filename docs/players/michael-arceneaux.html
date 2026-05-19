@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Michael Arceneaux — AltSports Stats">
-  <meta property="og:description" content="Career stats for Michael Arceneaux: assisted_tackles 3.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 2.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 19.0, kr_avg 90.0, kr_long 129.0, kr_tds 0.0, kr_yards 349.0, pass_td 1.0, rec_avg 8.0, rec_long 0.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 8.0, receptions 1.0, sacks 0.0, safeties 0.0, tackles 15.0">
+  <meta property="og:description" content="Career stats for Michael Arceneaux: assisted_tackles 3.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 2.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 19.0, kr_avg 90.0, kr_long 129.0, kr_tds 0.0, kr_yards 349.0, pass_td 1.0, rec_avg 8.0, rec_long 0.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 8.0, receptions 1.0, sacks 0.0, safeties 0.0, solo_tackles 0.0, tackles 15.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/michael-arceneaux.html">
   
@@ -91,6 +91,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -212,6 +226,17 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -233,7 +258,7 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">69.8</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#491</div>
+        <div class="badge-rank">#453</div>
       </div>
       
       
@@ -296,6 +321,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -345,6 +372,8 @@
         
         <td>0</td>
         
+        <td>0</td>
+        
         <td>15</td>
         
       </tr>
@@ -363,7 +392,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2025": {"pass_td": 1.0}, "NAL-2026": {"assisted_tackles": 3.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 2.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 19.0, "kr_avg": 90.0, "kr_long": 129.0, "kr_tds": 0.0, "kr_yards": 349.0, "sacks": 0.0, "safeties": 0.0, "tackles": 15.0, "rec_avg": 8.0, "rec_long": 0.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 8.0, "receptions": 1.0}};
+    var seasons = {"UFL-2025": {"pass_td": 1.0}, "NAL-2026": {"assisted_tackles": 3.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 2.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 19.0, "kr_avg": 90.0, "kr_long": 129.0, "kr_tds": 0.0, "kr_yards": 349.0, "sacks": 0.0, "safeties": 0.0, "tackles": 15.0, "rec_avg": 8.0, "rec_long": 0.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 8.0, "receptions": 1.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 0.0, "tackles": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -434,6 +463,14 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Michael Arceneaux stats by season</caption>
@@ -485,6 +522,8 @@
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -594,6 +633,67 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
       </tr>
       
       <tr>
@@ -648,6 +748,8 @@
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
         
         <td>15</td>
         
@@ -724,6 +826,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -734,7 +838,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -787,12 +891,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="27">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -843,6 +949,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -850,7 +958,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -901,6 +1009,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -908,7 +1018,67 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-29-tvegasknighthawksg20260329khxs-ttucsonsugarskulls.html" class="game-id">Vegas Knight Hawks @ Tucson Sugar Skulls</a></td>
+        <td>64.0–43.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -959,6 +1129,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
       </tr>
@@ -966,7 +1138,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1017,6 +1189,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>5.0</td>
         
       </tr>
@@ -1024,7 +1198,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="27">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1074,6 +1248,8 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         

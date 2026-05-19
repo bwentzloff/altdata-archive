@@ -100,9 +100,13 @@ echo ""
 # requests.  AFL data from the source SQL is already in the system.
 # Revisit if a Playwright-based scraper is added later.
 
-# ── 3i. IFL (Indoor Football League, official site currently WAF-challenged) ──
-echo "── IFL (official site currently WAF-challenged) ─────────"
+# ── 3i. IFL (Indoor Football League) ─────────────────────────────────────────
+# Wikipedia scraper covers historical season totals (2009-2025).
+# Official goifl.com scraper (PrestoSports printable decorator via Googlebot UA)
+# covers the current season's boxscores.
+echo "── IFL (Wikipedia historical + goifl.com current) ───────"
 $PYTHON pipeline/scrape_ifl.py --batch 2
+$PYTHON pipeline/scrape_ifl_official.py
 echo ""
 
 # ── 3j. AF1 (Arena Football One, official DigitalShift site) ─────────────────

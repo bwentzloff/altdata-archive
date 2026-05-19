@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Rhema Getter — AltSports Stats">
-  <meta property="og:description" content="Career stats for Rhema Getter: assisted_tackles 2.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, sacks 0.0, safeties 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Rhema Getter: assisted_tackles 2.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rush_avg 10.0, rush_long 10.0, rushing_attempts 1.0, rushing_tds 1.0, rushing_yards 10.0, sacks 0.0, safeties 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/rhema-getter.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,8 +189,50 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">57.7</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#1355</div>
+      </div>
+      
+      
+    </div>
+  </div>
   
 </div>
 
@@ -206,6 +262,16 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
@@ -231,6 +297,16 @@
         
         <td>0</td>
         
+        <td>10</td>
+        
+        <td>10</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>10</td>
+        
         <td>0</td>
         
         <td>0</td>
@@ -245,6 +321,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2026": {"assisted_tackles": 2.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "IFL-2026": {"rush_avg": 10.0, "rush_long": 10.0, "rushing_attempts": 1.0, "rushing_tds": 1.0, "rushing_yards": 10.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -262,6 +362,18 @@
       
     
       
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -296,6 +408,16 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
@@ -305,6 +427,42 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>10</td>
+        
+        <td>10</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>10</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
       
       <tr>
         <td>NAL 2026</td>
@@ -323,6 +481,16 @@
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>0</td>
         
@@ -375,6 +543,16 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
@@ -389,7 +567,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="15">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -412,6 +590,16 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -423,7 +611,48 @@
       
       
       
-      <tr class="week-group-row"><td colspan="15">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-4-tgreenbayblizzardg2026040443lq-tiowabarnstormers.html" class="game-id">Green Bay Blizzard @ Iowa Barnstormers</a></td>
+        <td>50.0–39.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>10.0</td>
+        
+        <td>10.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -446,6 +675,16 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -458,6 +697,12 @@
   </table>
   
 </section>
+  
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+  </footer>
   
 
   </main>

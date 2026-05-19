@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Billy Reagins Jr. — AltSports Stats">
-  <meta property="og:description" content="Career stats for Billy Reagins Jr.: pass_td 2.0, rush_avg 5.0, rush_long 9.0, rush_td 1.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0">
+  <meta property="og:description" content="Career stats for Billy Reagins Jr.: assisted_tackles 0.0, pass_td 2.0, rec_avg 9.0, rec_long 9.0, receiving_tds 0.0, receiving_yards 9.0, receptions 1.0, rush_avg 5.0, rush_long 9.0, rush_td 1.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 11.0, solo_tackles 1.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/billy-reagins-jr.html">
   
@@ -91,6 +91,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -199,6 +213,15 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -225,11 +248,17 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">37.2</div>
+        <div class="badge-number">34.0</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2181</div>
+        <div class="badge-rank">#2315</div>
       </div>
       
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">23.7</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#110</div>
+      </div>
       
     </div>
   </div>
@@ -248,7 +277,19 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -264,12 +305,28 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
+        <td>0</td>
+        
         <td>2</td>
+        
+        <td>9</td>
+        
+        <td>9</td>
+        
+        <td>0</td>
+        
+        <td>9</td>
+        
+        <td>1</td>
         
         <td>5</td>
         
@@ -284,6 +341,10 @@
         <td>0</td>
         
         <td>11</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
         
       </tr>
     </tbody>
@@ -301,7 +362,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2026": {"pass_td": 2.0, "rush_td": 1.0}, "NAL-2026": {"rush_avg": 5.0, "rush_long": 9.0, "rushing_attempts": 4.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 11.0}};
+    var seasons = {"UFL-2026": {"pass_td": 2.0, "rush_td": 1.0}, "NAL-2026": {"rush_avg": 5.0, "rush_long": 9.0, "rushing_attempts": 4.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 11.0}, "IFL-2026": {"assisted_tackles": 0.0, "rec_avg": 9.0, "rec_long": 9.0, "receiving_tds": 0.0, "receiving_yards": 9.0, "receptions": 1.0, "solo_tackles": 1.0, "tackles": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -344,6 +405,24 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Billy Reagins Jr. stats by season</caption>
@@ -352,7 +431,19 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -368,13 +459,67 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>9</td>
+        
+        <td>0</td>
+        
+        <td>9</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -392,11 +537,17 @@
         
         <td>11</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
       </tr>
       
       <tr>
         <td>UFL 2026</td>
         
+        
+        <td>—</td>
         
         <td>2</td>
         
@@ -404,7 +555,21 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -445,7 +610,19 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="pass_td">Pass Td</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -461,6 +638,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -469,7 +650,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -477,6 +658,8 @@
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
         <td><a href="../games/football-ufl-2026-4-11-hou-dc.html" class="game-id">HOU @ DC</a></td>
         <td>—</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -494,12 +677,26 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="13">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -510,6 +707,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>2.0</td>
@@ -523,6 +732,10 @@
         <td>0.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -541,7 +754,23 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -556,7 +785,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="13">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -564,6 +793,18 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-11-t573852g1127153-t577047.html" class="game-id">Louisiana Rouxgaroux @ Pueblo Punishers</a></td>
         <td>38–55</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -581,6 +822,10 @@
         
         <td>9.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
@@ -591,6 +836,8 @@
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
         <td><a href="../games/football-ufl-2026-5-2-hou-clb.html" class="game-id">HOU @ CLB</a></td>
         <td>—</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -608,6 +855,66 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="21">2026 Wk 9</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>9</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-9-tsanantoniogunslingersg20260509kpe3-tnazwranglers.html" class="game-id">San Antonio Gunslingers @ NAZ Wranglers</a></td>
+        <td>30.0–29.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>9.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>9.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
       </tr>
       
     </tbody>
@@ -618,6 +925,8 @@
   <footer class="score-footnote" id="score-footnote">
     <h3>Score Methodology</h3>
     <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
     
   </footer>
   

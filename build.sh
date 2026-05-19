@@ -55,6 +55,9 @@ $PYTHON pipeline/scrape_xfl_2020.py || echo "WARN: XFL 2020 scraper failed, cont
 echo "==> IFL ..."
 $PYTHON pipeline/scrape_ifl.py --batch 2 || echo "WARN: IFL scraper failed, continuing..."
 
+echo "==> IFL (official goifl.com) ..."
+$PYTHON pipeline/scrape_ifl_official.py || echo "WARN: IFL official scraper failed, continuing..."
+
 echo "==> AF1 ..."
 $PYTHON pipeline/scrape_af1.py || echo "WARN: AF1 scraper failed, continuing..."
 

@@ -892,7 +892,7 @@ def main():
     # need to map to canonical IDs. Since they're new, create canonical IDs
     # and register them so stats can be aggregated.
     _new_league_player_files = [
-        "ifl_players.json", "af1_players.json", "nal_players.json", "xleague_players.json", "lfa_players.json",
+        "ifl_players.json", "ifl_official_players.json", "af1_players.json", "nal_players.json", "xleague_players.json", "lfa_players.json",
         "xfl_2020_players.json",
     ]
     for _nlf in _new_league_player_files:
@@ -1078,6 +1078,7 @@ def main():
         ("fcf_players.json",            "fcf_stats.json",            "FCF"),
         ("xfl_2020_players.json",       "xfl_2020_stats.json",       "XFL 2020"),
         ("ifl_players.json",            "ifl_stats.json",            "IFL"),
+        ("ifl_official_players.json",   "ifl_official_stats.json",   "IFL (official)"),
         ("af1_players.json",            "af1_stats.json",            "AF1"),
         ("nal_players.json",            "nal_stats.json",            "NAL"),
         ("lfa_players.json",            "lfa_stats.json",            "LFA"),
@@ -1130,6 +1131,12 @@ def main():
         af1_games = json.loads(af1_games_file.read_text())
         raw_games.extend(af1_games)
         print(f"Loaded {len(af1_games)} AF1 game records")
+
+    ifl_official_games_file = RAW / "ifl_official_games.json"
+    if ifl_official_games_file.exists():
+        ifl_official_games = json.loads(ifl_official_games_file.read_text())
+        raw_games.extend(ifl_official_games)
+        print(f"Loaded {len(ifl_official_games)} IFL (official) game records")
 
     nal_games_file = RAW / "nal_games.json"
     if nal_games_file.exists():

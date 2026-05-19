@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Grant Russell (Injured Reserve) — AltSports Stats">
-  <meta property="og:description" content="Career stats for Grant Russell (Injured Reserve): completion_pct 2820.0, interceptions 7.0, pass_attempts 121.0, pass_completions 69.0, pass_incompletions 52.0, pass_long 49.0, pass_yards_per_attempt 52.0, passing_rate 389.0, passing_sacks 4.0, passing_td_pass 10.0, passing_td_pass_pct 398.0, passing_yards 696.0, passing_yds_lost 17.0, rush_avg 20.0, rush_long 14.0, rushing_attempts 49.0, rushing_fum 0.0, rushing_tds 11.0, rushing_yards 156.0">
+  <meta property="og:description" content="Career stats for Grant Russell (Injured Reserve): assisted_tackles 4.0, completion_pct 2820.0, interceptions 7.0, pass_attempts 121.0, pass_completions 69.0, pass_defended 1.0, pass_incompletions 52.0, pass_long 49.0, pass_yards_per_attempt 52.0, passing_rate 389.0, passing_sacks 4.0, passing_td_pass 10.0, passing_td_pass_pct 398.0, passing_yards 696.0, passing_yds_lost 17.0, rush_avg 20.0, rush_long 14.0, rushing_attempts 49.0, rushing_fum 0.0, rushing_tds 11.0, rushing_yards 156.0, solo_tackles 1.0, tackles 5.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/grant-russell-injured-reserve.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +231,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">67.1</div>
+        <div class="badge-number">66.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#644</div>
+        <div class="badge-rank">#649</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">68.7</div>
         <div class="badge-label">QB</div>
-        <div class="badge-rank">#14</div>
+        <div class="badge-rank">#15</div>
       </div>
       
     </div>
@@ -211,6 +260,8 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
@@ -218,6 +269,8 @@
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
         <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
         <th scope="col" data-stat="pass_incompletions">Pass Incompletions</th>
         
@@ -249,10 +302,16 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>4</td>
         
         <td>2,820</td>
         
@@ -261,6 +320,8 @@
         <td>121</td>
         
         <td>69</td>
+        
+        <td>1</td>
         
         <td>52</td>
         
@@ -292,6 +353,10 @@
         
         <td>156</td>
         
+        <td>1</td>
+        
+        <td>5</td>
+        
       </tr>
     </tbody>
   </table>
@@ -300,6 +365,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"completion_pct": 2820.0, "interceptions": 7.0, "pass_attempts": 121.0, "pass_completions": 69.0, "pass_incompletions": 52.0, "pass_long": 49.0, "pass_yards_per_attempt": 52.0, "passing_rate": 389.0, "passing_sacks": 4.0, "passing_td_pass": 10.0, "passing_td_pass_pct": 398.0, "passing_yards": 696.0, "passing_yds_lost": 17.0, "rush_avg": 20.0, "rush_long": 14.0, "rushing_attempts": 49.0, "rushing_fum": 0.0, "rushing_tds": 11.0, "rushing_yards": 156.0}, "IFL-2026": {"assisted_tackles": 4.0, "solo_tackles": 1.0, "tackles": 5.0, "pass_defended": 1.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -347,6 +436,16 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Grant Russell (Injured Reserve) stats by season</caption>
@@ -355,6 +454,8 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
@@ -362,6 +463,8 @@
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
         <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
         <th scope="col" data-stat="pass_incompletions">Pass Incompletions</th>
         
@@ -393,6 +496,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -401,6 +508,8 @@
         <td>NAL 2025</td>
         
         
+        <td>—</td>
+        
         <td>2820</td>
         
         <td>7</td>
@@ -408,6 +517,8 @@
         <td>121</td>
         
         <td>69</td>
+        
+        <td>—</td>
         
         <td>52</td>
         
@@ -438,6 +549,62 @@
         <td>11</td>
         
         <td>156</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>5</td>
         
       </tr>
       
@@ -470,6 +637,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
@@ -477,6 +646,8 @@
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
         <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
         <th scope="col" data-stat="pass_incompletions">Pass Incompletions</th>
         
@@ -508,6 +679,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -516,7 +691,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -525,6 +700,8 @@
         <td><a href="../games/football-nal-2025-3-10-t425357g979251-t425362.html" class="game-id">Colorado Spartans @ Wheeling Miners</a></td>
         <td>49–44</td>
         
+        <td></td>
+        
         <td>567.0</td>
         
         <td>1.0</td>
@@ -532,6 +709,8 @@
         <td>30.0</td>
         
         <td>17.0</td>
+        
+        <td></td>
         
         <td>13.0</td>
         
@@ -563,12 +742,16 @@
         
         <td>42.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -577,6 +760,8 @@
         <td><a href="../games/football-nal-2025-3-15-t425362g979253-t425356.html" class="game-id">Wheeling Miners @ Carolina Cobras</a></td>
         <td>26–41</td>
         
+        <td></td>
+        
         <td>591.0</td>
         
         <td>3.0</td>
@@ -584,6 +769,8 @@
         <td>22.0</td>
         
         <td>13.0</td>
+        
+        <td></td>
         
         <td>9.0</td>
         
@@ -615,12 +802,16 @@
         
         <td>16.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -629,6 +820,8 @@
         <td><a href="../games/football-nal-2025-4-5-t425362g979262-t425356.html" class="game-id">Wheeling Miners @ Carolina Cobras</a></td>
         <td>48–38</td>
         
+        <td></td>
+        
         <td>538.0</td>
         
         <td>1.0</td>
@@ -636,6 +829,8 @@
         <td>26.0</td>
         
         <td>14.0</td>
+        
+        <td></td>
         
         <td>12.0</td>
         
@@ -667,12 +862,16 @@
         
         <td>43.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -681,6 +880,8 @@
         <td><a href="../games/football-nal-2025-4-19-t425356g979270-t425362.html" class="game-id">Carolina Cobras @ Wheeling Miners</a></td>
         <td>18–46</td>
         
+        <td></td>
+        
         <td>680.0</td>
         
         <td>0.0</td>
@@ -688,6 +889,8 @@
         <td>25.0</td>
         
         <td>17.0</td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -719,12 +922,16 @@
         
         <td>25.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -733,6 +940,8 @@
         <td><a href="../games/football-nal-2025-5-3-t425362g979277-t425357.html" class="game-id">Wheeling Miners @ Colorado Spartans</a></td>
         <td>25–41</td>
         
+        <td></td>
+        
         <td>444.0</td>
         
         <td>2.0</td>
@@ -740,6 +949,8 @@
         <td>18.0</td>
         
         <td>8.0</td>
+        
+        <td></td>
         
         <td>10.0</td>
         
@@ -770,6 +981,130 @@
         <td>2.0</td>
         
         <td>30.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tquadcitysteamwheelersg20260502inst-tiowabarnstormers.html" class="game-id">Quad City Steamwheelers @ Iowa Barnstormers</a></td>
+        <td>25.0–35.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-21-tiowabarnstormersg20260321eitg-tquadcitysteamwheelers.html" class="game-id">Iowa Barnstormers @ Quad City Steamwheelers</a></td>
+        <td>25.0–46.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>4.0</td>
         
       </tr>
       

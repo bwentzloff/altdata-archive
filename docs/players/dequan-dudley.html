@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="DeQuan  Dudley — AltSports Stats">
-  <meta property="og:description" content="Career stats for DeQuan  Dudley: kick_returns 14.0, kr_avg 89.0, kr_long 110.0, kr_tds 0.0, kr_yards 234.0, rec_avg 101.0, rec_long 148.0, receiving_fum 1.0, receiving_tds 9.0, receiving_yards 288.0, receptions 17.0, recv_td 2.0, rush_avg 18.0, rush_long 25.0, rushing_attempts 7.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 31.0">
+  <meta property="og:description" content="Career stats for DeQuan  Dudley: assisted_tackles 1.0, kick_returns 14.0, kr_avg 89.0, kr_long 110.0, kr_tds 0.0, kr_yards 234.0, rec_avg 101.0, rec_long 148.0, receiving_fum 1.0, receiving_tds 9.0, receiving_yards 288.0, receptions 17.0, recv_td 2.0, rush_avg 18.0, rush_long 25.0, rushing_attempts 7.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 31.0, solo_tackles 1.0, tackles 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/dequan-dudley.html">
   
@@ -91,6 +91,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -199,6 +213,15 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -225,16 +248,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">63.0</div>
+        <div class="badge-number">62.3</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#918</div>
+        <div class="badge-rank">#973</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">53.4</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#156</div>
+        <div class="badge-rank">#161</div>
       </div>
       
     </div>
@@ -253,6 +276,8 @@
     <caption>DeQuan  Dudley career totals across all leagues</caption>
     <thead>
       <tr>
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -290,10 +315,16 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>1</td>
         
         <td>14</td>
         
@@ -331,6 +362,10 @@
         
         <td>31</td>
         
+        <td>1</td>
+        
+        <td>2</td>
+        
       </tr>
     </tbody>
   </table>
@@ -347,7 +382,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2026": {"recv_td": 2.0}, "NAL-2026": {"kick_returns": 14.0, "kr_avg": 89.0, "kr_long": 110.0, "kr_tds": 0.0, "kr_yards": 234.0, "rec_avg": 101.0, "rec_long": 148.0, "receiving_fum": 1.0, "receiving_tds": 9.0, "receiving_yards": 288.0, "receptions": 17.0, "rush_avg": 18.0, "rush_long": 25.0, "rushing_attempts": 7.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 31.0}};
+    var seasons = {"UFL-2026": {"recv_td": 2.0}, "NAL-2026": {"kick_returns": 14.0, "kr_avg": 89.0, "kr_long": 110.0, "kr_tds": 0.0, "kr_yards": 234.0, "rec_avg": 101.0, "rec_long": 148.0, "receiving_fum": 1.0, "receiving_tds": 9.0, "receiving_yards": 288.0, "receptions": 17.0, "rush_avg": 18.0, "rush_long": 25.0, "rushing_attempts": 7.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 31.0}, "IFL-2026": {"assisted_tackles": 1.0, "solo_tackles": 1.0, "tackles": 2.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -410,6 +445,14 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>DeQuan  Dudley stats by season</caption>
@@ -417,6 +460,8 @@
       <tr>
         <th scope="col">Season</th>
         
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -454,13 +499,67 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>2</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
         
         <td>14</td>
         
@@ -498,6 +597,10 @@
         
         <td>31</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
       </tr>
       
       <tr>
@@ -526,7 +629,13 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
         <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -618,6 +727,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
         <th scope="col" data-stat="kr_avg">Kr Avg</th>
@@ -654,6 +765,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -662,7 +777,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -670,6 +785,8 @@
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
         <td><a href="../games/football-ufl-2026-3-28-bhm-lou.html" class="game-id">BHM @ LOU</a></td>
         <td>—</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -707,12 +824,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -720,6 +841,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-21-t566774g1127144-t600411.html" class="game-id">Omaha Beef @ Salina Liberty</a></td>
         <td>22–60</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -757,12 +880,16 @@
         
         <td>20.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -770,6 +897,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-28-t566774g1127145-t600414.html" class="game-id">Omaha Beef @ Southwest Kansas Storm</a></td>
         <td>26–34</td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -807,12 +936,16 @@
         
         <td>-4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -820,6 +953,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-4-t570666g1127150-t566774.html" class="game-id">Sioux City Bandits @ Omaha Beef</a></td>
         <td>26–6</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -857,12 +992,16 @@
         
         <td>6.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -893,7 +1032,13 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -912,7 +1057,60 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-25-ttulsaoilersg20260425feqm-tarizonarattlers.html" class="game-id">Tulsa Oilers @ Arizona Rattlers</a></td>
+        <td>63.0–64.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -921,6 +1119,8 @@
         <td><a href="../games/football-nal-2026-4-18-t566774g1127156-t570667.html" class="game-id">Omaha Beef @ Colorado Spartans</a></td>
         <td>28–45</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>30.0</td>
@@ -957,12 +1157,16 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -970,6 +1174,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-25-t581933g1127161-t566774.html" class="game-id">Dallas Bulls @ Omaha Beef</a></td>
         <td>18–52</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1007,12 +1213,16 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1020,6 +1230,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-9-t573852g1127170-t566774.html" class="game-id">Louisiana Rouxgaroux @ Omaha Beef</a></td>
         <td>6–52</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1042,6 +1254,10 @@
         <td>76.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

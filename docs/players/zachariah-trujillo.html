@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Zachariah Trujillo — AltSports Stats">
-  <meta property="og:description" content="Career stats for Zachariah Trujillo: recv_td 1.0, rush_avg 9.0, rush_long 24.0, rushing_attempts 14.0, rushing_fum 0.0, rushing_tds 1.0, rushing_yards 91.0">
+  <meta property="og:description" content="Career stats for Zachariah Trujillo: assisted_tackles 0.0, recv_td 1.0, rush_avg 9.0, rush_long 24.0, rushing_attempts 14.0, rushing_fum 0.0, rushing_tds 1.0, rushing_yards 91.0, solo_tackles 1.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/zachariah-trujillo.html">
   
@@ -91,6 +91,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -212,6 +226,17 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -231,16 +256,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">59.7</div>
+        <div class="badge-number">55.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1171</div>
+        <div class="badge-rank">#1481</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">57.8</div>
         <div class="badge-label">RB</div>
-        <div class="badge-rank">#41</div>
+        <div class="badge-rank">#42</div>
       </div>
       
     </div>
@@ -260,6 +285,8 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
@@ -274,10 +301,16 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>0</td>
         
         <td>1</td>
         
@@ -292,6 +325,10 @@
         <td>1</td>
         
         <td>91</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
         
       </tr>
     </tbody>
@@ -309,7 +346,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2025": {"recv_td": 1.0}, "NAL-2026": {"rush_avg": 9.0, "rush_long": 24.0, "rushing_attempts": 14.0, "rushing_fum": 0.0, "rushing_tds": 1.0, "rushing_yards": 91.0}};
+    var seasons = {"UFL-2025": {"recv_td": 1.0}, "NAL-2026": {"rush_avg": 9.0, "rush_long": 24.0, "rushing_attempts": 14.0, "rushing_fum": 0.0, "rushing_tds": 1.0, "rushing_yards": 91.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -350,6 +387,14 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Zachariah Trujillo stats by season</caption>
@@ -359,6 +404,8 @@
         
         <th scope="col">Coach</th>
         
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
@@ -373,6 +420,10 @@
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
@@ -441,7 +492,13 @@
         </td>
         
         
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -458,6 +515,39 @@
       </tr>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
         <td>
@@ -467,6 +557,8 @@
           
         </td>
         
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -481,6 +573,10 @@
         <td>1</td>
         
         <td>91</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -513,6 +609,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
@@ -527,6 +625,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -535,7 +637,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="15">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -543,6 +645,8 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/football-ufl-2025-4-6-mem-dc.html" class="game-id">MEM @ DC</a></td>
         <td>—</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -558,12 +662,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="15">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -571,6 +679,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-7-t566773g1127137-t573852.html" class="game-id">Amarillo Warbirds @ Louisiana Rouxgaroux</a></td>
         <td>33–32</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -586,12 +696,16 @@
         
         <td>89.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="15">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -599,6 +713,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-13-t600414g1127142-t573852.html" class="game-id">Southwest Kansas Storm @ Louisiana Rouxgaroux</a></td>
         <td>24–18</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -613,6 +729,44 @@
         <td>0.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="15">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-4-ttucsonsugarskullsg202604045n9l-tnewmexicochupacabras.html" class="game-id">Tucson Sugar Skulls @ New Mexico Chupacabras</a></td>
+        <td>45.0–40.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
         
       </tr>
       

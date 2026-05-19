@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jonathan Adams — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jonathan Adams: 1pt_conversion 1.0, assisted_tackles 4.0, conversions 4.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 3.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 11.0, kr_avg 48.0, kr_long 66.0, kr_tds 0.0, kr_yards 146.0, lost_fumbles 1.0, receiving_tds 8.0, receiving_yards 1838.0, receptions 144.0, rushing_tds 0.0, rushing_yards 10.0, sacks 0.0, safeties 0.0, tackles 22.0">
+  <meta property="og:description" content="Career stats for Jonathan Adams: 1pt_conversion 1.0, assisted_tackles 4.0, conversions 4.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 3.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 22.0, kr_avg 123.3, kr_long 165.0, kr_tds 0.0, kr_yards 285.0, lost_fumbles 1.0, rec_avg 89.0, rec_long 126.0, receiving_tds 14.0, receiving_yards 2084.0, receptions 160.0, rushing_tds 0.0, rushing_yards 10.0, sacks 0.0, safeties 0.0, tackles 22.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jonathan-adams.html">
   
@@ -133,6 +133,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -365,6 +379,23 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -414,6 +445,10 @@
         
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
         
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -453,23 +488,27 @@
         
         <td>0</td>
         
-        <td>11</td>
+        <td>22</td>
         
-        <td>48</td>
+        <td>123.3</td>
         
-        <td>66</td>
+        <td>165</td>
         
         <td>0</td>
         
-        <td>146</td>
+        <td>285</td>
         
         <td>1</td>
         
-        <td>8</td>
+        <td>89</td>
         
-        <td>1,838</td>
+        <td>126</td>
         
-        <td>144</td>
+        <td>14</td>
+        
+        <td>2,084</td>
+        
+        <td>160</td>
         
         <td>0</td>
         
@@ -497,7 +536,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"receiving_yards": 430.0, "receptions": 33.0, "receiving_tds": 3.0, "conversions": 1.0, "rushing_yards": -13.0, "rushing_tds": 0.0, "lost_fumbles": 1.0}, "USFL-2023": {"receptions": 18.0, "receiving_yards": 209.0, "receiving_tds": 1.0}, "UFL-2024": {"receptions": 33.0, "receiving_yards": 441.0, "receiving_tds": 1.0, "1pt_conversion": 1.0, "conversions": 1.0}, "UFL-2025": {"receptions": 60.0, "receiving_yards": 758.0, "receiving_tds": 3.0, "rushing_yards": 23.0, "rushing_tds": 0.0, "conversions": 2.0}, "NAL-2025": {"assisted_tackles": 1.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 1.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 5.0, "kr_avg": 25.0, "kr_long": 35.0, "kr_tds": 0.0, "kr_yards": 79.0, "sacks": 0.0, "safeties": 0.0, "tackles": 3.0}, "NAL-2026": {"assisted_tackles": 3.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 2.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 19.0, "kick_returns": 6.0, "kr_avg": 23.0, "kr_long": 31.0, "kr_tds": 0.0, "kr_yards": 67.0}};
+    var seasons = {"USFL-2022": {"receiving_yards": 430.0, "receptions": 33.0, "receiving_tds": 3.0, "conversions": 1.0, "rushing_yards": -13.0, "rushing_tds": 0.0, "lost_fumbles": 1.0}, "USFL-2023": {"receptions": 18.0, "receiving_yards": 209.0, "receiving_tds": 1.0}, "UFL-2024": {"receptions": 33.0, "receiving_yards": 441.0, "receiving_tds": 1.0, "1pt_conversion": 1.0, "conversions": 1.0}, "UFL-2025": {"receptions": 60.0, "receiving_yards": 758.0, "receiving_tds": 3.0, "rushing_yards": 23.0, "rushing_tds": 0.0, "conversions": 2.0}, "NAL-2025": {"assisted_tackles": 1.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 1.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kick_returns": 5.0, "kr_avg": 25.0, "kr_long": 35.0, "kr_tds": 0.0, "kr_yards": 79.0, "sacks": 0.0, "safeties": 0.0, "tackles": 3.0}, "IFL-2026": {"rec_avg": 89.0, "rec_long": 126.0, "receiving_tds": 6.0, "receiving_yards": 246.0, "receptions": 16.0, "kick_returns": 11.0, "kr_avg": 75.3, "kr_long": 99.0, "kr_tds": 0.0, "kr_yards": 139.0}, "NAL-2026": {"assisted_tackles": 3.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 2.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 19.0, "kick_returns": 6.0, "kr_avg": 23.0, "kr_long": 31.0, "kr_tds": 0.0, "kr_yards": 67.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -623,6 +662,28 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -671,6 +732,10 @@
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
         
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
@@ -726,6 +791,10 @@
         
         <td>1</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>3</td>
         
         <td>430</td>
@@ -747,6 +816,10 @@
       <tr>
         <td>USFL 2023</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -805,6 +878,10 @@
         <td>—</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -892,6 +969,10 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>0</td>
         
         <td>0</td>
@@ -909,6 +990,10 @@
         <td>—</td>
         
         <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -953,6 +1038,62 @@
       </tr>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>11</td>
+        
+        <td>75.3</td>
+        
+        <td>99</td>
+        
+        <td>0</td>
+        
+        <td>139</td>
+        
+        <td>—</td>
+        
+        <td>89</td>
+        
+        <td>126</td>
+        
+        <td>6</td>
+        
+        <td>246</td>
+        
+        <td>16</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
         
@@ -983,6 +1124,10 @@
         <td>0</td>
         
         <td>67</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -1134,6 +1279,10 @@
         
         <th scope="col" data-stat="lost_fumbles">Lost Fumbles</th>
         
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
         <th scope="col" data-stat="receiving_tds">TD</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -1158,7 +1307,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1166,6 +1315,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w1-no.html" class="game-id">USFL 2022 — Wk 1 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1218,7 +1371,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 2</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1232,6 +1385,10 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1278,7 +1435,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 3</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1286,6 +1443,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w3-no.html" class="game-id">USFL 2022 — Wk 3 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1338,7 +1499,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1346,6 +1507,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w4-no.html" class="game-id">USFL 2022 — Wk 4 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1398,7 +1563,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 5</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1406,6 +1571,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w5-no.html" class="game-id">USFL 2022 — Wk 5 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1458,7 +1627,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1466,6 +1635,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w6-no.html" class="game-id">USFL 2022 — Wk 6 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1518,7 +1691,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 7</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1557,6 +1730,10 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>28.0</td>
@@ -1578,7 +1755,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 8</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1586,6 +1763,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w8-no.html" class="game-id">USFL 2022 — Wk 8 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1638,7 +1819,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 9</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1646,6 +1827,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w9-no.html" class="game-id">USFL 2022 — Wk 9 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1698,7 +1883,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 10</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1706,6 +1891,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w10-no.html" class="game-id">USFL 2022 — Wk 10 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1758,7 +1947,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2022 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="30">2022 Wk 11</td></tr>
       
       <tr>
         <td>2022</td>
@@ -1766,6 +1955,10 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w11-no.html" class="game-id">USFL 2022 — Wk 11 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1818,7 +2011,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1826,6 +2019,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w1-breakers.html" class="game-id">BREAKERS @ MAULERS</a></td>
         <td>22–15</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1878,7 +2075,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2023 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 3</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1886,6 +2083,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w3-breakers.html" class="game-id">STALLIONS @ BREAKERS</a></td>
         <td>31–45</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1938,7 +2139,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2023 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 5</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1946,6 +2147,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w5-breakers.html" class="game-id">BREAKERS @ SHOWBOATS</a></td>
         <td>10–17</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1998,7 +2203,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2023 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="30">2023 Wk 11</td></tr>
       
       <tr>
         <td>2023</td>
@@ -2006,6 +2211,10 @@
         <td><a href="../leagues/usfl-2023.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2023-w11-breakers.html" class="game-id">USFL 2023 — Wk 11 (BREAKERS)</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2058,7 +2267,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2066,6 +2275,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/4.html" class="game-id">ROUGHNECKS @ SHOWBOATS</a></td>
         <td>12–18</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2118,7 +2331,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2126,6 +2339,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/5.html" class="game-id">SHOWBOATS @ BRAHMAS</a></td>
         <td>19–20</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2178,7 +2395,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2186,6 +2403,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/10.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
         <td>33–14</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2238,7 +2459,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 5</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2246,6 +2467,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/20.html" class="game-id">SHOWBOATS @ PANTHERS</a></td>
         <td>18–35</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2298,7 +2523,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2306,6 +2531,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/21.html" class="game-id">SHOWBOATS @ STALLIONS</a></td>
         <td>21–39</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2358,7 +2587,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2366,6 +2595,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/25.html" class="game-id">RENEGADES @ SHOWBOATS</a></td>
         <td>47–23</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2418,7 +2651,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2426,6 +2659,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/29.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
         <td>24–18</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2478,7 +2715,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 9</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2492,6 +2729,10 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2538,7 +2779,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2024 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="30">2024 Wk 10</td></tr>
       
       <tr>
         <td>2024</td>
@@ -2546,6 +2787,10 @@
         <td><a href="../leagues/ufl-2024.html">UFL</a></td>
         <td><a href="../games/40.html" class="game-id">SHOWBOATS @ ROUGHNECKS</a></td>
         <td>19–12</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2598,7 +2843,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2606,6 +2851,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/45.html" class="game-id">SHOWBOATS @ PANTHERS</a></td>
         <td>12–26</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2658,7 +2907,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2666,6 +2915,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/48.html" class="game-id">DEFENDERS @ SHOWBOATS</a></td>
         <td>17–12</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2718,7 +2971,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2726,6 +2979,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/52.html" class="game-id">SHOWBOATS @ ROUGHNECKS</a></td>
         <td>17–18</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2778,7 +3035,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2786,6 +3043,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/55.html" class="game-id">PANTHERS @ SHOWBOATS</a></td>
         <td>27–9</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2884,6 +3145,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -2895,7 +3160,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2903,6 +3168,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/58.html" class="game-id">STALLIONS @ SHOWBOATS</a></td>
         <td>20–22</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2955,7 +3224,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2969,6 +3238,10 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3015,7 +3288,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3023,6 +3296,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/66.html" class="game-id">RENEGADES @ PANTHERS</a></td>
         <td>24–24</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3080,6 +3357,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/68.html" class="game-id">SHOWBOATS @ BATTLEHAWKS</a></td>
         <td>9–19</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3178,6 +3459,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3189,7 +3474,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3203,6 +3488,10 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3285,6 +3574,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>31.0</td>
@@ -3306,7 +3599,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="30">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3314,6 +3607,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/75.html" class="game-id">DEFENDERS @ BATTLEHAWKS</a></td>
         <td>8–13</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3402,6 +3699,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>3.0</td>
@@ -3428,6 +3729,10 @@
         <td><a href="../leagues/ufl-2025.html">UFL</a></td>
         <td><a href="../games/78.html" class="game-id">SHOWBOATS @ STALLIONS</a></td>
         <td>9–46</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3526,6 +3831,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3537,7 +3846,71 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="30">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-28-tjacksonvillesharksg202603289our-tnazwranglers.html" class="game-id">Jacksonville Sharks @ NAZ Wranglers</a></td>
+        <td>47.0–24.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>15.3</td>
+        
+        <td>19.0</td>
+        
+        <td>1.0</td>
+        
+        <td>46.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="30">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3586,6 +3959,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3597,7 +3974,68 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="30">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-12-tjacksonvillesharksg20260412gkf3-tvegasknighthawks.html" class="game-id">Jacksonville Sharks @ Vegas Knight Hawks</a></td>
+        <td>43.0–54.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>13.0</td>
+        
+        <td>23.0</td>
+        
+        <td>0.0</td>
+        
+        <td>39.0</td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>39.0</td>
+        
+        <td>1.0</td>
+        
+        <td>76.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -3646,6 +4084,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3657,7 +4099,132 @@
       
       
       
-      <tr class="week-group-row"><td colspan="28">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="30">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-17-torlandopiratesg202604173epg-tjacksonvillesharks.html" class="game-id">Orlando Pirates @ Jacksonville Sharks</a></td>
+        <td>33.0–69.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>29.0</td>
+        
+        <td>29.0</td>
+        
+        <td>0.0</td>
+        
+        <td>29.0</td>
+        
+        <td></td>
+        
+        <td>12.0</td>
+        
+        <td>15.0</td>
+        
+        <td>1.0</td>
+        
+        <td>24.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="30">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-26-tjacksonvillesharksg20260426me8m-tquadcitysteamwheelers.html" class="game-id">Jacksonville Sharks @ Quad City Steamwheelers</a></td>
+        <td>39.0–38.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>16.0</td>
+        
+        <td>22.0</td>
+        
+        <td>0.0</td>
+        
+        <td>32.0</td>
+        
+        <td></td>
+        
+        <td>14.7</td>
+        
+        <td>19.0</td>
+        
+        <td>1.0</td>
+        
+        <td>44.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -3706,11 +4273,143 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
         
         <td>12.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="30">2026 Wk 8</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>8</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tnewmexicochupacabrasg20260502ifqj-tjacksonvillesharks.html" class="game-id">New Mexico Chupacabras @ Jacksonville Sharks</a></td>
+        <td>32.0–43.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>7.3</td>
+        
+        <td>15.0</td>
+        
+        <td>0.0</td>
+        
+        <td>29.0</td>
+        
+        <td></td>
+        
+        <td>16.5</td>
+        
+        <td>19.0</td>
+        
+        <td>1.0</td>
+        
+        <td>33.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="30">2026 Wk 9</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>9</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-10-ttulsaoilersg202605100lpr-tjacksonvillesharks.html" class="game-id">Tulsa Oilers @ Jacksonville Sharks</a></td>
+        <td>34.0–41.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>10.0</td>
+        
+        <td>10.0</td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>11.5</td>
+        
+        <td>15.0</td>
+        
+        <td>1.0</td>
+        
+        <td>23.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       

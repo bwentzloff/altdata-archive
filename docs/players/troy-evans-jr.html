@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Troy Evans Jr. — AltSports Stats">
-  <meta property="og:description" content="Career stats for Troy Evans Jr.: kick_returns 3.0, kr_avg 14.0, kr_long 15.0, kr_tds 0.0, kr_yards 29.0, rec_avg 41.0, rec_long 43.0, receiving_fum 0.0, receiving_tds 4.0, receiving_yards 153.0, receptions 17.0, rush_avg 3.0, rush_long 8.0, rushing_attempts 6.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 7.0">
+  <meta property="og:description" content="Career stats for Troy Evans Jr.: assisted_tackles 0.0, kick_returns 3.0, kr_avg 14.0, kr_long 15.0, kr_tds 0.0, kr_yards 29.0, rec_avg 93.1, rec_long 127.0, receiving_fum 0.0, receiving_tds 8.0, receiving_yards 297.0, receptions 31.0, rush_avg 30.5, rush_long 37.0, rushing_attempts 15.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 46.0, solo_tackles 5.0, tackles 5.0, tackles_for_loss 2.0, tfl_yards 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/troy-evans-jr.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +231,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">45.9</div>
+        <div class="badge-number">48.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1933</div>
+        <div class="badge-rank">#1903</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">50.7</div>
+        <div class="badge-number">48.6</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#174</div>
+        <div class="badge-rank">#182</div>
       </div>
       
     </div>
@@ -210,6 +259,8 @@
     <caption>Troy Evans Jr. career totals across all leagues</caption>
     <thead>
       <tr>
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -245,10 +296,20 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
+        
+        <td>0</td>
         
         <td>3</td>
         
@@ -260,29 +321,37 @@
         
         <td>29</td>
         
-        <td>41</td>
+        <td>93.1</td>
         
-        <td>43</td>
+        <td>127</td>
         
         <td>0</td>
-        
-        <td>4</td>
-        
-        <td>153</td>
-        
-        <td>17</td>
-        
-        <td>3</td>
         
         <td>8</td>
         
-        <td>6</td>
+        <td>297</td>
+        
+        <td>31</td>
+        
+        <td>30.5</td>
+        
+        <td>37</td>
+        
+        <td>15</td>
         
         <td>0</td>
         
         <td>0</td>
         
-        <td>7</td>
+        <td>46</td>
+        
+        <td>5</td>
+        
+        <td>5</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
         
       </tr>
     </tbody>
@@ -292,6 +361,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"kick_returns": 3.0, "kr_avg": 14.0, "kr_long": 15.0, "kr_tds": 0.0, "kr_yards": 29.0, "rec_avg": 41.0, "rec_long": 43.0, "receiving_fum": 0.0, "receiving_tds": 4.0, "receiving_yards": 153.0, "receptions": 17.0, "rush_avg": 3.0, "rush_long": 8.0, "rushing_attempts": 6.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 7.0}, "IFL-2026": {"assisted_tackles": 0.0, "rec_avg": 52.099999999999994, "rec_long": 84.0, "receiving_tds": 4.0, "receiving_yards": 144.0, "receptions": 14.0, "rush_avg": 27.5, "rush_long": 29.0, "rushing_attempts": 9.0, "rushing_tds": 0.0, "rushing_yards": 39.0, "solo_tackles": 5.0, "tackles": 5.0, "tackles_for_loss": 2.0, "tfl_yards": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -335,6 +428,38 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Troy Evans Jr. stats by season</caption>
@@ -342,6 +467,8 @@
       <tr>
         <th scope="col">Season</th>
         
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -377,6 +504,14 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -384,6 +519,8 @@
       <tr>
         <td>NAL 2025</td>
         
+        
+        <td>—</td>
         
         <td>3</td>
         
@@ -418,6 +555,64 @@
         <td>0</td>
         
         <td>7</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>52.1</td>
+        
+        <td>84</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>144</td>
+        
+        <td>14</td>
+        
+        <td>27.5</td>
+        
+        <td>29</td>
+        
+        <td>9</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>39</td>
+        
+        <td>5</td>
+        
+        <td>5</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -485,6 +680,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
         <th scope="col" data-stat="kr_avg">Kr Avg</th>
@@ -519,6 +716,14 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -527,7 +732,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="22">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="27">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -535,6 +740,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-3-8-t425360g979249-t450150.html" class="game-id">Omaha Beef @ Shreveport Rouxgaroux</a></td>
         <td>41–18</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -570,12 +777,20 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="22">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="27">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -594,6 +809,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
@@ -617,13 +834,21 @@
         <td>0.0</td>
         
         <td>-4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="22">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="27">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -631,6 +856,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-13-t425360g979263-t463723.html" class="game-id">Omaha Beef @ Beaumont Renegades</a></td>
         <td>31–36</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -666,12 +893,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="22">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="27">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -679,6 +914,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-4-19-t425361g979267-t425360.html" class="game-id">Sioux City Bandits @ Omaha Beef</a></td>
         <td>17–24</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -714,12 +951,20 @@
         
         <td>9.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="22">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="27">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -727,6 +972,8 @@
         <td><a href="../leagues/nal-2025.html">NAL</a></td>
         <td><a href="../games/football-nal-2025-5-17-t425361g979283-t425362.html" class="game-id">Sioux City Bandits @ Wheeling Miners</a></td>
         <td>20–28</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -761,6 +1008,362 @@
         <td>0.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tquadcitysteamwheelersg20260502inst-tiowabarnstormers.html" class="game-id">Quad City Steamwheelers @ Iowa Barnstormers</a></td>
+        <td>25.0–35.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>12.0</td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>24.0</td>
+        
+        <td>2.0</td>
+        
+        <td>5.0</td>
+        
+        <td>5.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>5.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-14-tquadcitysteamwheelersg20260314ryy1-tfishersfreight.html" class="game-id">Quad City Steamwheelers @ Fishers Freight</a></td>
+        <td>27.0–45.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-5-tquadcitysteamwheelersg20260405ztcz-torlandopirates.html" class="game-id">Quad City Steamwheelers @ Orlando Pirates</a></td>
+        <td>46.0–49.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.7</td>
+        
+        <td>16.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>26.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-11-tgreenbayblizzardg20260411rzsm-tquadcitysteamwheelers.html" class="game-id">Green Bay Blizzard @ Quad City Steamwheelers</a></td>
+        <td>36.0–51.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>12.7</td>
+        
+        <td>21.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>38.0</td>
+        
+        <td>3.0</td>
+        
+        <td>5.5</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-17-tquadcitysteamwheelersg20260417a5v1-tsandiegostrikeforce.html" class="game-id">Quad City Steamwheelers @ San Diego Strike Force</a></td>
+        <td>59.0–73.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>12.7</td>
+        
+        <td>24.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>38.0</td>
+        
+        <td>3.0</td>
+        
+        <td>11.0</td>
+        
+        <td>11.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-26-tjacksonvillesharksg20260426me8m-tquadcitysteamwheelers.html" class="game-id">Jacksonville Sharks @ Quad City Steamwheelers</a></td>
+        <td>39.0–38.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>18.0</td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       

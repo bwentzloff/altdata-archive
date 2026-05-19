@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Andre Thomas-Cobb — AltSports Stats">
-  <meta property="og:description" content="Career stats for Andre Thomas-Cobb: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rec_avg 69.0, rec_long 99.0, receiving_fum 1.0, receiving_tds 3.0, receiving_yards 245.0, receptions 27.0, sacks 0.0, safeties 0.0, tackles 2.0">
+  <meta property="og:description" content="Career stats for Andre Thomas-Cobb: assisted_tackles 9.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, int_avg 8.0, int_long 16.0, int_yards 16.0, pass_defended 1.0, rec_avg 69.0, rec_long 99.0, receiving_fum 1.0, receiving_tds 3.0, receiving_yards 245.0, receptions 27.0, sacks 0.0, safeties 0.0, solo_tackles 9.0, tackles 20.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/andre-thomas-cobb.html">
   
@@ -72,6 +72,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -175,6 +189,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +225,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">54.4</div>
+        <div class="badge-number">61.0</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1519</div>
+        <div class="badge-rank">#1088</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">61.2</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#97</div>
+        <div class="badge-rank">#100</div>
       </div>
       
     </div>
@@ -225,6 +268,14 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -241,6 +292,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -248,7 +301,9 @@
     <tbody>
       <tr>
         
-        <td>0</td>
+        <td>9</td>
+        
+        <td>2</td>
         
         <td>0</td>
         
@@ -260,7 +315,13 @@
         
         <td>0</td>
         
-        <td>0</td>
+        <td>8</td>
+        
+        <td>16</td>
+        
+        <td>16</td>
+        
+        <td>1</td>
         
         <td>69</td>
         
@@ -278,7 +339,9 @@
         
         <td>0</td>
         
-        <td>2</td>
+        <td>9</td>
+        
+        <td>20</td>
         
       </tr>
     </tbody>
@@ -289,11 +352,55 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"IFL-2026": {"assisted_tackles": 9.0, "solo_tackles": 9.0, "tackles": 18.0, "def_interceptions": 2.0, "defensive_tds": 0.0, "int_avg": 8.0, "int_long": 16.0, "int_yards": 16.0, "pass_defended": 1.0}, "NAL-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "rec_avg": 69.0, "rec_long": 99.0, "receiving_fum": 1.0, "receiving_tds": 3.0, "receiving_yards": 245.0, "receptions": 27.0, "sacks": 0.0, "safeties": 0.0, "tackles": 2.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -351,6 +458,14 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -367,11 +482,61 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>9</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>8</td>
+        
+        <td>16</td>
+        
+        <td>16</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>18</td>
+        
+      </tr>
       
       <tr>
         <td>NAL 2026</td>
@@ -391,6 +556,14 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>69</td>
         
         <td>99</td>
@@ -406,6 +579,8 @@
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
         
         <td>2</td>
         
@@ -454,6 +629,14 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -470,6 +653,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -480,7 +665,63 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tquadcitysteamwheelersg20260502inst-tiowabarnstormers.html" class="game-id">Quad City Steamwheelers @ Iowa Barnstormers</a></td>
+        <td>25.0–35.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>6.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="26">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -503,6 +744,14 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>15.0</td>
         
         <td>24.0</td>
@@ -519,6 +768,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -526,7 +777,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -534,6 +785,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-14-t577047g1127139-t566774.html" class="game-id">Pueblo Punishers @ Omaha Beef</a></td>
         <td>44–31</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -567,12 +826,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -595,6 +856,14 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td>9.0</td>
@@ -611,6 +880,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -618,7 +889,60 @@
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-5-tquadcitysteamwheelersg20260405ztcz-torlandopirates.html" class="game-id">Quad City Steamwheelers @ Orlando Pirates</a></td>
+        <td>46.0–49.0</td>
+        
+        <td>3.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td>16.0</td>
+        
+        <td>16.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>6.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -626,6 +950,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-3-28-t570666g1127148-t577047.html" class="game-id">Sioux City Bandits @ Pueblo Punishers</a></td>
         <td>34–39</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -659,12 +991,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -672,6 +1006,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-4-t577047g1127185-t600411.html" class="game-id">Pueblo Punishers @ Salina Liberty</a></td>
         <td>34–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -705,12 +1047,67 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-17-tquadcitysteamwheelersg20260417a5v1-tsandiegostrikeforce.html" class="game-id">Quad City Steamwheelers @ San Diego Strike Force</a></td>
+        <td>59.0–73.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -718,6 +1115,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-11-t573852g1127153-t577047.html" class="game-id">Louisiana Rouxgaroux @ Pueblo Punishers</a></td>
         <td>38–55</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -751,12 +1156,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -764,6 +1171,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-2-t577047g1127165-t570667.html" class="game-id">Pueblo Punishers @ Colorado Spartans</a></td>
         <td>44–37</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -797,12 +1212,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="21">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -810,6 +1227,14 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-10-t577047g1127169-t570667.html" class="game-id">Pueblo Punishers @ Colorado Spartans</a></td>
         <td>44–57</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -836,6 +1261,8 @@
         <td>8.0</td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         

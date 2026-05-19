@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Rodrick Washington Jr — AltSports Stats">
-  <meta property="og:description" content="Career stats for Rodrick Washington Jr: rec_avg 9.0, rec_long 9.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 9.0, receptions 1.0, recv_td 1.0">
+  <meta property="og:description" content="Career stats for Rodrick Washington Jr: assisted_tackles 0.0, pass_defended 1.0, rec_avg 9.0, rec_long 9.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 9.0, receptions 1.0, recv_td 1.0, solo_tackles 2.0, tackles 2.0, tackles_for_loss 1.0, tfl_yards 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/rodrick-washington-jr.html">
   
@@ -91,6 +91,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -199,6 +213,15 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -225,9 +248,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">42.6</div>
+        <div class="badge-number">53.3</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2041</div>
+        <div class="badge-rank">#1631</div>
       </div>
       
       
@@ -248,6 +271,10 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -262,11 +289,23 @@
         
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
+        <td>0</td>
+        
+        <td>1</td>
+        
         <td>9</td>
         
         <td>9</td>
@@ -280,6 +319,14 @@
         <td>1</td>
         
         <td>1</td>
+        
+        <td>2</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
         
       </tr>
     </tbody>
@@ -297,7 +344,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2026": {"recv_td": 1.0}, "NAL-2026": {"rec_avg": 9.0, "rec_long": 9.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 9.0, "receptions": 1.0}};
+    var seasons = {"UFL-2026": {"recv_td": 1.0}, "NAL-2026": {"rec_avg": 9.0, "rec_long": 9.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 9.0, "receptions": 1.0}, "IFL-2026": {"assisted_tackles": 0.0, "pass_defended": 1.0, "solo_tackles": 2.0, "tackles": 2.0, "tackles_for_loss": 1.0, "tfl_yards": 0.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -338,6 +385,20 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Rodrick Washington Jr stats by season</caption>
@@ -345,6 +406,10 @@
       <tr>
         <th scope="col">Season</th>
         
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -360,13 +425,57 @@
         
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>2</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>9</td>
         
@@ -379,6 +488,14 @@
         <td>9</td>
         
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -400,7 +517,19 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -433,6 +562,10 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -447,6 +580,14 @@
         
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -455,7 +596,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="18">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -476,14 +617,26 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="12">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="18">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -491,6 +644,10 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-4-11-t570666g1127155-t600414.html" class="game-id">Sioux City Bandits @ Southwest Kansas Storm</a></td>
         <td>38–41</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>9.0</td>
         
@@ -505,6 +662,54 @@
         <td>1.0</td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="18">2026 Wk 10</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>10</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-18-tarizonarattlersg20260518e0uh-tnewmexicochupacabras.html" class="game-id">Arizona Rattlers @ New Mexico Chupacabras</a></td>
+        <td>61.0–15.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
         
       </tr>
       

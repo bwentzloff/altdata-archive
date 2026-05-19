@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Lorenzo Brown — AltSports Stats">
-  <meta property="og:description" content="Career stats for Lorenzo Brown: assisted_tackles 0.0, completion_pct 6603.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 3.0, pass_attempts 221.0, pass_completions 132.0, pass_incompletions 89.0, pass_long 253.0, pass_td 9.0, pass_yards_per_attempt 121.0, passing_rate 1171.0, passing_sacks 8.0, passing_td_pass 31.0, passing_td_pass_pct 1780.0, passing_yards 1439.0, passing_yds_lost 45.0, pat_made 3.0, rush_avg 51.0, rush_long 109.0, rush_td 2.0, rushing_attempts 69.0, rushing_fum 3.0, rushing_tds 7.0, rushing_yards 235.0, sacks 0.0, safeties 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Lorenzo Brown: assisted_tackles 1.0, completion_pct 6603.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, fumbles 3.0, fumbles_lost 1.0, interceptions 15.0, kicking_points 0.0, pass_attempts 451.0, pass_completions 265.0, pass_incompletions 89.0, pass_long 505.0, pass_td 9.0, pass_yards_per_attempt 121.0, passing_rate 1171.0, passing_sacks 8.0, passing_td_pass 31.0, passing_td_pass_pct 1780.0, passing_tds 33.0, passing_yards 3006.0, passing_yds_lost 45.0, pat_made 3.0, rush_avg 89.6, rush_long 234.0, rush_td 2.0, rushing_attempts 146.0, rushing_fum 3.0, rushing_tds 13.0, rushing_yards 598.0, sacks 0.0, safeties 0.0, solo_tackles 0.0, tackles 2.0, tackles_for_loss 0.5, tfl_yards 0.0, xp_attempts 0.0, xp_made 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/lorenzo-brown.html">
   
@@ -105,6 +105,20 @@
       "name": "UFL 2025",
       "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -256,6 +270,19 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -265,16 +292,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">60.9</div>
+        <div class="badge-number">64.8</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1086</div>
+        <div class="badge-rank">#765</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">62.0</div>
+        <div class="badge-number">68.2</div>
         <div class="badge-label">QB</div>
-        <div class="badge-rank">#27</div>
+        <div class="badge-rank">#17</div>
       </div>
       
     </div>
@@ -310,7 +337,15 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="fumble_recovery_yards">Fumble Recovery Yards</th>
+        
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="kicking_points">Kicking Points</th>
         
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
@@ -331,6 +366,8 @@
         <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_td_pass_pct">Passing Td Pass Pct</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
@@ -356,14 +393,24 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
+        <th scope="col" data-stat="xp_attempts">Xp Attempts</th>
+        
+        <th scope="col" data-stat="xp_made">Xp Made</th>
         
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>0</td>
+        <td>1</td>
         
         <td>6,603</td>
         
@@ -377,17 +424,25 @@
         
         <td>0</td>
         
+        <td>1</td>
+        
         <td>0</td>
         
         <td>3</td>
         
-        <td>221</td>
+        <td>1</td>
         
-        <td>132</td>
+        <td>15</td>
+        
+        <td>0</td>
+        
+        <td>451</td>
+        
+        <td>265</td>
         
         <td>89</td>
         
-        <td>253</td>
+        <td>505</td>
         
         <td>9</td>
         
@@ -401,31 +456,43 @@
         
         <td>1,780</td>
         
-        <td>1,439</td>
+        <td>33</td>
+        
+        <td>3,006</td>
         
         <td>45</td>
         
         <td>3</td>
         
-        <td>51</td>
+        <td>89.6</td>
         
-        <td>109</td>
+        <td>234</td>
         
         <td>2</td>
         
-        <td>69</td>
+        <td>146</td>
         
         <td>3</td>
         
-        <td>7</td>
+        <td>13</td>
         
-        <td>235</td>
+        <td>598</td>
+        
+        <td>0</td>
         
         <td>0</td>
         
         <td>0</td>
         
-        <td>1</td>
+        <td>2</td>
+        
+        <td>0.5</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
         
       </tr>
     </tbody>
@@ -443,7 +510,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2024": {"pass_td": 4.0, "pat_made": 1.0, "rush_td": 2.0}, "NAL-2025": {"completion_pct": 2774.0, "interceptions": 1.0, "pass_attempts": 105.0, "pass_completions": 59.0, "pass_incompletions": 46.0, "pass_long": 111.0, "pass_yards_per_attempt": 49.0, "passing_rate": 480.0, "passing_sacks": 2.0, "passing_td_pass": 11.0, "passing_td_pass_pct": 608.0, "passing_yards": 598.0, "passing_yds_lost": 11.0, "rush_avg": 15.0, "rush_long": 40.0, "rushing_attempts": 36.0, "rushing_fum": 2.0, "rushing_tds": 4.0, "rushing_yards": 82.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "UFL-2025": {"pass_td": 5.0, "pat_made": 2.0}, "NAL-2026": {"completion_pct": 3829.0, "interceptions": 2.0, "pass_attempts": 116.0, "pass_completions": 73.0, "pass_incompletions": 43.0, "pass_long": 142.0, "pass_yards_per_attempt": 72.0, "passing_rate": 691.0, "passing_sacks": 6.0, "passing_td_pass": 20.0, "passing_td_pass_pct": 1172.0, "passing_yards": 841.0, "passing_yds_lost": 34.0, "rush_avg": 36.0, "rush_long": 69.0, "rushing_attempts": 33.0, "rushing_fum": 1.0, "rushing_tds": 3.0, "rushing_yards": 153.0}};
+    var seasons = {"UFL-2024": {"pass_td": 4.0, "pat_made": 1.0, "rush_td": 2.0}, "NAL-2025": {"completion_pct": 2774.0, "interceptions": 1.0, "pass_attempts": 105.0, "pass_completions": 59.0, "pass_incompletions": 46.0, "pass_long": 111.0, "pass_yards_per_attempt": 49.0, "passing_rate": 480.0, "passing_sacks": 2.0, "passing_td_pass": 11.0, "passing_td_pass_pct": 608.0, "passing_yards": 598.0, "passing_yds_lost": 11.0, "rush_avg": 15.0, "rush_long": 40.0, "rushing_attempts": 36.0, "rushing_fum": 2.0, "rushing_tds": 4.0, "rushing_yards": 82.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "UFL-2025": {"pass_td": 5.0, "pat_made": 2.0}, "IFL-2026": {"interceptions": 12.0, "pass_attempts": 230.0, "pass_completions": 133.0, "pass_long": 252.0, "passing_tds": 33.0, "passing_yards": 1567.0, "rush_avg": 38.6, "rush_long": 125.0, "rushing_attempts": 77.0, "rushing_tds": 6.0, "rushing_yards": 363.0, "kicking_points": 0.0, "xp_attempts": 0.0, "xp_made": 0.0, "assisted_tackles": 1.0, "solo_tackles": 0.0, "tackles": 1.0, "tackles_for_loss": 0.5, "tfl_yards": 0.0, "fumbles": 3.0, "fumbles_lost": 1.0, "fumble_recoveries": 1.0, "fumble_recovery_yards": 0.0}, "NAL-2026": {"completion_pct": 3829.0, "interceptions": 2.0, "pass_attempts": 116.0, "pass_completions": 73.0, "pass_incompletions": 43.0, "pass_long": 142.0, "pass_yards_per_attempt": 72.0, "passing_rate": 691.0, "passing_sacks": 6.0, "passing_td_pass": 20.0, "passing_td_pass_pct": 1172.0, "passing_yards": 841.0, "passing_yds_lost": 34.0, "rush_avg": 36.0, "rush_long": 69.0, "rushing_attempts": 33.0, "rushing_fum": 1.0, "rushing_tds": 3.0, "rushing_yards": 153.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -579,6 +646,54 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   
   <table class="data-table">
@@ -604,7 +719,15 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="fumble_recovery_yards">Fumble Recovery Yards</th>
+        
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="kicking_points">Kicking Points</th>
         
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
@@ -625,6 +748,8 @@
         <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_td_pass_pct">Passing Td Pass Pct</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
@@ -650,7 +775,17 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
+        <th scope="col" data-stat="xp_attempts">Xp Attempts</th>
+        
+        <th scope="col" data-stat="xp_made">Xp Made</th>
         
       </tr>
     </thead>
@@ -659,6 +794,14 @@
       <tr>
         <td>UFL 2024</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -702,6 +845,8 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
         <td>1</td>
         
         <td>—</td>
@@ -709,6 +854,16 @@
         <td>—</td>
         
         <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -746,7 +901,15 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
         
         <td>105</td>
         
@@ -767,6 +930,8 @@
         <td>11</td>
         
         <td>608</td>
+        
+        <td>—</td>
         
         <td>598</td>
         
@@ -792,13 +957,31 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
         <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
       <tr>
         <td>UFL 2025</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -842,7 +1025,19 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
         <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -867,6 +1062,96 @@
       </tr>
       
       <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>0</td>
+        
+        <td>3</td>
+        
+        <td>1</td>
+        
+        <td>12</td>
+        
+        <td>0</td>
+        
+        <td>230</td>
+        
+        <td>133</td>
+        
+        <td>—</td>
+        
+        <td>252</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>33</td>
+        
+        <td>1567</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>38.6</td>
+        
+        <td>125</td>
+        
+        <td>—</td>
+        
+        <td>77</td>
+        
+        <td>—</td>
+        
+        <td>6</td>
+        
+        <td>363</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>1</td>
+        
+        <td>0.5</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
+      
+      <tr>
         <td>NAL 2026</td>
         
         
@@ -886,7 +1171,15 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
         <td>2</td>
+        
+        <td>—</td>
         
         <td>116</td>
         
@@ -908,6 +1201,8 @@
         
         <td>1172</td>
         
+        <td>—</td>
+        
         <td>841</td>
         
         <td>34</td>
@@ -927,6 +1222,16 @@
         <td>3</td>
         
         <td>153</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -981,7 +1286,15 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="fumble_recovery_yards">Fumble Recovery Yards</th>
+        
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
         <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="kicking_points">Kicking Points</th>
         
         <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
@@ -1002,6 +1315,8 @@
         <th scope="col" data-stat="passing_td_pass">Passing Td Pass</th>
         
         <th scope="col" data-stat="passing_td_pass_pct">Passing Td Pass Pct</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
@@ -1027,7 +1342,17 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
+        <th scope="col" data-stat="xp_attempts">Xp Attempts</th>
+        
+        <th scope="col" data-stat="xp_made">Xp Made</th>
         
       </tr>
     </thead>
@@ -1037,7 +1362,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="47">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1072,7 +1397,27 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1115,7 +1460,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="47">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1150,7 +1495,27 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1193,7 +1558,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2024 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="47">2024 Wk 5</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1244,6 +1609,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
@@ -1251,6 +1626,16 @@
         <td></td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1271,7 +1656,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="47">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1306,7 +1691,27 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1349,7 +1754,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2024 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="47">2024 Wk 10</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1384,6 +1789,38 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td></td>
@@ -1395,18 +1832,6 @@
         <td></td>
         
         <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
         
         <td></td>
         
@@ -1427,7 +1852,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1452,7 +1877,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>15.0</td>
         
@@ -1473,6 +1906,8 @@
         <td>2.0</td>
         
         <td>133.0</td>
+        
+        <td></td>
         
         <td>46.0</td>
         
@@ -1500,12 +1935,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1530,7 +1975,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
         
         <td>13.0</td>
         
@@ -1551,6 +2004,8 @@
         <td>2.0</td>
         
         <td>154.0</td>
+        
+        <td></td>
         
         <td>34.0</td>
         
@@ -1578,12 +2033,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1608,7 +2073,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>35.0</td>
         
@@ -1629,6 +2102,8 @@
         <td>2.0</td>
         
         <td>57.0</td>
+        
+        <td></td>
         
         <td>168.0</td>
         
@@ -1656,12 +2131,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1686,7 +2171,15 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>24.0</td>
         
@@ -1707,6 +2200,8 @@
         <td>1.0</td>
         
         <td>42.0</td>
+        
+        <td></td>
         
         <td>150.0</td>
         
@@ -1732,14 +2227,24 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1774,7 +2279,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1812,12 +2327,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1852,7 +2377,17 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1890,12 +2425,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="47">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1920,7 +2465,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>18.0</td>
         
@@ -1941,6 +2494,8 @@
         <td>4.0</td>
         
         <td>222.0</td>
+        
+        <td></td>
         
         <td>200.0</td>
         
@@ -1968,12 +2523,313 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tquadcitysteamwheelersg20260502inst-tiowabarnstormers.html" class="game-id">Quad City Steamwheelers @ Iowa Barnstormers</a></td>
+        <td>25.0–35.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>28.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>17.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>165.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.7</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="47">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-14-tquadcitysteamwheelersg20260314ryy1-tfishersfreight.html" class="game-id">Quad City Steamwheelers @ Fishers Freight</a></td>
+        <td>27.0–45.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>24.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>17.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>141.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.3</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>38.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="47">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-21-tiowabarnstormersg20260321eitg-tquadcitysteamwheelers.html" class="game-id">Iowa Barnstormers @ Quad City Steamwheelers</a></td>
+        <td>25.0–46.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>22.0</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>149.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.5</td>
+        
+        <td>19.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>22.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -1998,7 +2854,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>12.0</td>
         
@@ -2019,6 +2883,8 @@
         <td>5.0</td>
         
         <td>417.0</td>
+        
+        <td></td>
         
         <td>158.0</td>
         
@@ -2046,12 +2912,215 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-5-tquadcitysteamwheelersg20260405ztcz-torlandopirates.html" class="game-id">Quad City Steamwheelers @ Orlando Pirates</a></td>
+        <td>46.0–49.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>26.0</td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>34.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>175.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.9</td>
+        
+        <td>22.0</td>
+        
+        <td></td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>59.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.5</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="47">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-11-tgreenbayblizzardg20260411rzsm-tquadcitysteamwheelers.html" class="game-id">Green Bay Blizzard @ Quad City Steamwheelers</a></td>
+        <td>36.0–51.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>19.0</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>117.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.6</td>
+        
+        <td>14.0</td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>99.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -2076,7 +3145,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>17.0</td>
         
@@ -2097,6 +3174,8 @@
         <td>2.0</td>
         
         <td>118.0</td>
+        
+        <td></td>
         
         <td>98.0</td>
         
@@ -2124,12 +3203,117 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-17-tquadcitysteamwheelersg20260417a5v1-tsandiegostrikeforce.html" class="game-id">Quad City Steamwheelers @ San Diego Strike Force</a></td>
+        <td>59.0–73.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>31.0</td>
+        
+        <td>19.0</td>
+        
+        <td></td>
+        
+        <td>45.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>270.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>-0.7</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>-2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -2154,7 +3338,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>26.0</td>
         
@@ -2175,6 +3367,8 @@
         <td>2.0</td>
         
         <td>77.0</td>
+        
+        <td></td>
         
         <td>161.0</td>
         
@@ -2202,12 +3396,117 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-26-tjacksonvillesharksg20260426me8m-tquadcitysteamwheelers.html" class="game-id">Jacksonville Sharks @ Quad City Steamwheelers</a></td>
+        <td>39.0–38.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>27.0</td>
+        
+        <td>18.0</td>
+        
+        <td></td>
+        
+        <td>36.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>221.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.5</td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>8.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>28.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -2232,7 +3531,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
         
         <td>27.0</td>
         
@@ -2253,6 +3560,8 @@
         <td>3.0</td>
         
         <td>111.0</td>
+        
+        <td></td>
         
         <td>122.0</td>
         
@@ -2280,12 +3589,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2310,7 +3629,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
+        
+        <td></td>
         
         <td>15.0</td>
         
@@ -2331,6 +3658,8 @@
         <td>2.0</td>
         
         <td>133.0</td>
+        
+        <td></td>
         
         <td>73.0</td>
         
@@ -2358,12 +3687,215 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="37">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="47">2026 Wk 9</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>9</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-8-tquadcitysteamwheelersg202605081qhl-tgreenbayblizzard.html" class="game-id">Quad City Steamwheelers @ Green Bay Blizzard</a></td>
+        <td>40.0–65.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>32.0</td>
+        
+        <td>21.0</td>
+        
+        <td></td>
+        
+        <td>18.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>194.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.2</td>
+        
+        <td>12.0</td>
+        
+        <td></td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>46.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="47">2026 Wk 10</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>10</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-15-ttucsonsugarskullsg20260515ce9o-tquadcitysteamwheelers.html" class="game-id">Tucson Sugar Skulls @ Quad City Steamwheelers</a></td>
+        <td>38.0–40.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>21.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td>41.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>135.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.6</td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+        <td>13.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>47.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -2388,7 +3920,15 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
         
         <td>19.0</td>
         
@@ -2410,6 +3950,8 @@
         
         <td>316.0</td>
         
+        <td></td>
+        
         <td>229.0</td>
         
         <td>0.0</td>
@@ -2429,6 +3971,16 @@
         <td>1.0</td>
         
         <td>20.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

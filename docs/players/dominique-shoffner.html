@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Dominique Shoffner — AltSports Stats">
-  <meta property="og:description" content="Career stats for Dominique Shoffner: completion_pct 1076.0, interceptions 4.0, pass_attempts 64.0, pass_completions 26.0, pass_incompletions 38.0, pass_long 25.0, pass_yards_per_attempt 28.0, passing_rate 150.0, passing_sacks 1.0, passing_td_pass 1.0, passing_td_pass_pct 29.0, passing_yards 260.0, passing_yds_lost 1.0, rush_avg 11.0, rush_long 20.0, rushing_attempts 35.0, rushing_fum 0.0, rushing_tds 3.0, rushing_yards 98.0">
+  <meta property="og:description" content="Career stats for Dominique Shoffner: assisted_tackles 2.0, completion_pct 1076.0, def_interceptions 2.0, defensive_tds 0.0, int_avg 10.0, int_long 16.0, int_yards 20.0, interceptions 4.0, pass_attempts 64.0, pass_completions 26.0, pass_incompletions 38.0, pass_long 25.0, pass_yards_per_attempt 28.0, passing_rate 150.0, passing_sacks 1.0, passing_td_pass 1.0, passing_td_pass_pct 29.0, passing_yards 260.0, passing_yds_lost 1.0, rush_avg 11.0, rush_long 20.0, rushing_attempts 35.0, rushing_fum 0.0, rushing_tds 3.0, rushing_yards 98.0, solo_tackles 1.0, tackles 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/dominique-shoffner.html">
   
@@ -77,6 +77,20 @@
       "name": "NAL 2025",
       "description": "League-level player statistics for NAL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -175,6 +189,41 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -182,16 +231,16 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">47.7</div>
+        <div class="badge-number">50.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1863</div>
+        <div class="badge-rank">#1801</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">43.0</div>
         <div class="badge-label">QB</div>
-        <div class="badge-rank">#59</div>
+        <div class="badge-rank">#60</div>
       </div>
       
     </div>
@@ -211,7 +260,19 @@
     <thead>
       <tr>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -249,12 +310,28 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
+        <td>2</td>
+        
         <td>1,076</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>10</td>
+        
+        <td>16</td>
+        
+        <td>20</td>
         
         <td>4</td>
         
@@ -292,6 +369,10 @@
         
         <td>98</td>
         
+        <td>1</td>
+        
+        <td>3</td>
+        
       </tr>
     </tbody>
   </table>
@@ -300,6 +381,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"completion_pct": 1076.0, "interceptions": 4.0, "pass_attempts": 64.0, "pass_completions": 26.0, "pass_incompletions": 38.0, "pass_long": 25.0, "pass_yards_per_attempt": 28.0, "passing_rate": 150.0, "passing_sacks": 1.0, "passing_td_pass": 1.0, "passing_td_pass_pct": 29.0, "passing_yards": 260.0, "passing_yds_lost": 1.0, "rush_avg": 11.0, "rush_long": 20.0, "rushing_attempts": 35.0, "rushing_fum": 0.0, "rushing_tds": 3.0, "rushing_yards": 98.0}, "IFL-2026": {"assisted_tackles": 2.0, "def_interceptions": 2.0, "defensive_tds": 0.0, "int_avg": 10.0, "int_long": 16.0, "int_yards": 20.0, "solo_tackles": 1.0, "tackles": 3.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -347,6 +452,24 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Dominique Shoffner stats by season</caption>
@@ -355,7 +478,19 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -393,6 +528,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -401,7 +540,19 @@
         <td>NAL 2025</td>
         
         
+        <td>—</td>
+        
         <td>1076</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>4</td>
         
@@ -439,6 +590,70 @@
         
         <td>98</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>0</td>
+        
+        <td>10</td>
+        
+        <td>16</td>
+        
+        <td>20</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
       </tr>
       
     </tbody>
@@ -470,7 +685,19 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="completion_pct">Completion Pct</th>
+        
+        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        
+        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
+        
+        <th scope="col" data-stat="int_avg">Int Avg</th>
+        
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -508,6 +735,10 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -516,7 +747,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="32">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -525,7 +756,19 @@
         <td><a href="../games/football-nal-2025-3-21-t425356g979257-t434514.html" class="game-id">Carolina Cobras @ Columbus Lions</a></td>
         <td>0–25</td>
         
+        <td></td>
+        
         <td>200.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -563,12 +806,16 @@
         
         <td>16.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="32">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -577,7 +824,19 @@
         <td><a href="../games/football-nal-2025-3-28-t434514g979258-t425356.html" class="game-id">Columbus Lions @ Carolina Cobras</a></td>
         <td>20–40</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -615,12 +874,16 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="32">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -629,7 +892,19 @@
         <td><a href="../games/football-nal-2025-4-10-t425356g979264-t425358.html" class="game-id">Carolina Cobras @ Idaho Horsemen</a></td>
         <td>21–34</td>
         
+        <td></td>
+        
         <td>435.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -667,12 +942,16 @@
         
         <td>47.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="32">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -681,7 +960,19 @@
         <td><a href="../games/football-nal-2025-4-19-t425356g979270-t425362.html" class="game-id">Carolina Cobras @ Wheeling Miners</a></td>
         <td>18–46</td>
         
+        <td></td>
+        
         <td>441.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -718,6 +1009,78 @@
         <td>1.0</td>
         
         <td>30.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="32">2026 Wk 2</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>2</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-3-23-tnazwranglersg20260323wkqx-tsandiegostrikeforce.html" class="game-id">NAZ Wranglers @ San Diego Strike Force</a></td>
+        <td>40.0–42.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>10.0</td>
+        
+        <td>16.0</td>
+        
+        <td>20.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
         
       </tr>
       

@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Mason Pierce — AltSports Stats">
-  <meta property="og:description" content="Career stats for Mason Pierce: assisted_tackles 1.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_made 3.0, kick_returns 15.0, kr_avg 149.0, kr_long 163.0, kr_tds 0.0, kr_yards 330.0, rec_avg 90.0, rec_long 144.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 259.0, receptions 23.0, rush_avg 32.0, rush_long 73.0, rushing_attempts 31.0, rushing_fum 0.0, rushing_tds 3.0, rushing_yards 140.0, sacks 1.0, safeties 0.0, tackles 41.0">
+  <meta property="og:description" content="Career stats for Mason Pierce: assisted_tackles 1.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_made 3.0, kick_returns 15.0, kr_avg 149.0, kr_long 163.0, kr_tds 0.0, kr_yards 330.0, rec_avg 90.0, rec_long 144.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 259.0, receptions 23.0, rush_avg 32.0, rush_long 73.0, rushing_attempts 31.0, rushing_fum 0.0, rushing_tds 3.0, rushing_yards 140.0, sacks 1.0, safeties 0.0, solo_tackles 1.0, tackles 42.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/mason-pierce.html">
   
@@ -105,6 +105,20 @@
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -234,6 +248,21 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -321,6 +350,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -382,7 +413,9 @@
         
         <td>0</td>
         
-        <td>41</td>
+        <td>1</td>
+        
+        <td>42</td>
         
       </tr>
     </tbody>
@@ -400,7 +433,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2023": {"tackles": 32.0, "sacks": 1.0, "interceptions_made": 3.0}, "CFL-2024": {"tackles": 4.0}, "NAL-2026": {"rec_avg": 90.0, "rec_long": 144.0, "receiving_fum": 0.0, "receiving_tds": 2.0, "receiving_yards": 259.0, "receptions": 23.0, "rush_avg": 32.0, "rush_long": 73.0, "rushing_attempts": 31.0, "rushing_fum": 0.0, "rushing_tds": 3.0, "rushing_yards": 140.0, "kick_returns": 15.0, "kr_avg": 149.0, "kr_long": 163.0, "kr_tds": 0.0, "kr_yards": 330.0, "assisted_tackles": 1.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 5.0}};
+    var seasons = {"CFL-2023": {"tackles": 32.0, "sacks": 1.0, "interceptions_made": 3.0}, "CFL-2024": {"tackles": 4.0}, "NAL-2026": {"rec_avg": 90.0, "rec_long": 144.0, "receiving_fum": 0.0, "receiving_tds": 2.0, "receiving_yards": 259.0, "receptions": 23.0, "rush_avg": 32.0, "rush_long": 73.0, "rushing_attempts": 31.0, "rushing_fum": 0.0, "rushing_tds": 3.0, "rushing_yards": 140.0, "kick_returns": 15.0, "kr_avg": 149.0, "kr_long": 163.0, "kr_tds": 0.0, "kr_yards": 330.0, "assisted_tackles": 1.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 5.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -491,6 +524,14 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+  
   
   <table class="data-table">
     <caption>Mason Pierce stats by season</caption>
@@ -554,6 +595,8 @@
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -649,6 +692,8 @@
         <td>—</td>
         
         <td>1</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -785,7 +830,80 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
         <td>4</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
         
       </tr>
       
@@ -853,6 +971,8 @@
         <td>0</td>
         
         <td>0</td>
+        
+        <td>—</td>
         
         <td>5</td>
         
@@ -976,6 +1096,8 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -986,7 +1108,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 13</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1049,6 +1171,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
       </tr>
@@ -1056,7 +1180,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 14</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1119,6 +1243,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -1126,7 +1252,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 15</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1189,6 +1315,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>8.0</td>
         
       </tr>
@@ -1196,7 +1324,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 16</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1259,6 +1387,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -1266,7 +1396,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 17</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 17</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1329,6 +1459,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -1336,7 +1468,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 18</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 18</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1399,6 +1531,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -1406,7 +1540,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 19</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 19</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1469,6 +1603,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>5.0</td>
         
       </tr>
@@ -1476,7 +1612,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 20</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 20</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1539,6 +1675,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -1546,7 +1684,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2023 Wk 21</td></tr>
+      <tr class="week-group-row"><td colspan="34">2023 Wk 21</td></tr>
       
       <tr>
         <td>2023</td>
@@ -1609,6 +1747,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
       </tr>
@@ -1616,7 +1756,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="34">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1679,6 +1819,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
       </tr>
@@ -1686,7 +1828,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1751,12 +1893,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1821,12 +1965,83 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-11-tsanantoniogunslingersg20260411jrxf-tarizonarattlers.html" class="game-id">San Antonio Gunslingers @ Arizona Rattlers</a></td>
+        <td>31.0–44.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -1891,12 +2106,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1961,12 +2178,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2031,12 +2250,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2099,6 +2320,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
       </tr>
@@ -2106,7 +2329,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2169,6 +2392,8 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
       </tr>
@@ -2176,7 +2401,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="33">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2238,6 +2463,8 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
