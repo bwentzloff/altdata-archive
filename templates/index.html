@@ -70,6 +70,24 @@
 <h1>AltSports Archive</h1>
 <p>Historical player and game stats from alternative football leagues, ultimate disc, basketball 3-on-3, and more.</p>
 
+{% if in_season %}
+<aside class="in-season-strip" aria-label="Leagues currently in season">
+  <span class="in-season-label"><span class="in-season-dot" aria-hidden="true"></span>In season</span>
+  <div class="in-season-groups">
+    {% for group in in_season %}
+    <div class="in-season-group">
+      <span class="in-season-sport">{{ group.sport }}</span>
+      <ul class="in-season-list">
+        {% for lg in group.leagues %}
+        <li><a href="{{ root }}leagues/{{ lg.slug }}.html">{{ lg.display_name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</aside>
+{% endif %}
+
 <section>
   <h2>Browse by League</h2>
   {% for group in sport_groups %}

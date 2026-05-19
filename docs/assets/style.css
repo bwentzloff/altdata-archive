@@ -1873,3 +1873,82 @@ details[open].lineup-alts summary::before { content: '– '; }
   .drive-viz-svg { max-height: 170px; }
   .drive-viz-legend { margin-left: 0; }
 }
+
+/* In-season strip (homepage) */
+.in-season-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin: 0.5rem 0 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border, #2a2a2a);
+  border-left: 3px solid #2ecc71;
+  border-radius: 4px;
+  background: var(--bg-soft, rgba(46, 204, 113, 0.06));
+  font-size: 0.9rem;
+}
+.in-season-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--text-dim, #aaa);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.in-season-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  animation: in-season-pulse 2s infinite;
+}
+@keyframes in-season-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.55); }
+  70%  { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+.in-season-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+}
+.in-season-list li { display: inline; }
+.in-season-list a {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--border, #2a2a2a);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.in-season-list a:hover { border-color: #2ecc71; }
+
+.in-season-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: center;
+}
+.in-season-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.in-season-sport {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim, #888);
+  padding-right: 0.25rem;
+  border-right: 1px solid var(--border, #2a2a2a);
+}

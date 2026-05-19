@@ -211,42 +211,48 @@ def render(env, template_name, out_path, root="../", **kwargs):
     write_page(out_path, html)
 
 
+SPORT_ORDER = ["Football", "Basketball", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Disc Golf", "Other"]
+_FOOTBALL   = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "EFA", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
+_BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
+_DISC       = {"AUDL", "UFA", "PUL"}
+_LACROSSE   = {"NLL", "PLL"}
+_DISCGOLF   = {"DGPT"}
+_SOCCER     = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
+_CRICKET    = {"T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
+_CURLING    = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
+
+
+def _classify_sport(display: str) -> str:
+    up = (display or "").upper()
+    name = up.split()[0] if up else ""
+    if name in _LACROSSE or "NLL" in up or "PLL" in up:
+        return "Lacrosse"
+    if name in _DISCGOLF or "DGPT" in up:
+        return "Disc Golf"
+    if name in _FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED", "EFA")):
+        return "Football"
+    if name in _SOCCER:
+        return "Soccer"
+    if name in _CRICKET or up in _CRICKET or any(c in up for c in ("T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL")):
+        return "Cricket"
+    if name in _CURLING or name == "WCF" or up.startswith("WCF ") or any(c in up for c in ("WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS", "CURLING")):
+        return "Curling"
+    if name in _DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
+        return "Ultimate Disc"
+    if name in _BASKETBALL or "BIG3" in up or "SLAMBALL" in up or "UNRIVALED" in up or "WNBA" in up:
+        return "Basketball"
+    return "Other"
+
+
 def _build_sport_groups(leagues_index):
     """
     Classify each league into a sport group and collapse AUDL/UFA as one league.
     Returns a list of groups: [{name, leagues: [{name, years: [{slug, season, player_count, game_count}]}]}]
     """
-    SPORT_ORDER = ["Football", "Basketball", "Soccer", "Cricket", "Curling", "Lacrosse", "Ultimate Disc", "Disc Golf", "Other"]
     HIDDEN = {"50 YARD", "50YARD"}   # leagues to omit from the homepage index
-    FOOTBALL = {"UFL", "USFL", "XFL", "CFL", "AF1", "AAF", "ELF", "EFA", "AFL", "IFL", "NAL", "LFA", "X-League", "XLEAGUE", "MLFB", "FCF"}
-    BASKETBALL = {"BIG3", "SLAMBALL", "UNRIVALED", "WNBA"}
-    DISC = {"AUDL", "UFA", "PUL"}
-    LACROSSE = {"NLL", "PLL"}
-    DISCGOLF = {"DGPT"}
-    SOCCER = {"MLS", "NWSL", "USLC", "USL1", "USLS", "MLSNP", "NASL"}
-    CRICKET = {"T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL"}
-    CURLING = {"WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS"}
 
     def classify(slug, display):
-        up = display.upper()
-        name = up.split()[0]
-        if name in LACROSSE or "NLL" in up or "PLL" in up:
-            return "Lacrosse"
-        if name in DISCGOLF or "DGPT" in up:
-            return "Disc Golf"
-        if name in FOOTBALL or any(f in up for f in ("XFL", "USFL", "UFL", "CFL", "AF1", "YARD", "FCF", "FAN CONTROLLED", "EFA")):
-            return "Football"
-        if name in SOCCER:
-            return "Soccer"
-        if name in CRICKET or up in CRICKET or any(c in up for c in ("T20I", "ODI", "TESTS", "IPL", "BBL", "WBBL", "PSL", "MLC", "CPL", "WPL", "BPL", "LPL", "HND", "ILT20", "SA20", "NPL")):
-            return "Cricket"
-        if name in CURLING or name == "WCF" or up.startswith("WCF ") or any(c in up for c in ("WCF-WORLD", "WCF-EUROPE", "WCF-PANCONT", "WCF-OLYMPIC", "WCF-QUAL", "WCF-OTHER", "CURLING-EVENTS", "CURLING")):
-            return "Curling"
-        if name in DISC or "AUDL" in up or "UFA" in up or "PUL" in up or "PREMIER ULTIMATE" in up:
-            return "Ultimate Disc"
-        if name in BASKETBALL or "BIG3" in up or "SLAMBALL" in up or "UNRIVALED" in up or "WNBA" in up:
-            return "Basketball"
-        return "Other"
+        return _classify_sport(display)
 
     def league_name(slug, display):
         """Canonical league name without year (and AUDL/UFA unified)."""
@@ -295,6 +301,81 @@ def _build_sport_groups(leagues_index):
             leagues_in_sport.append({"name": name, "years": years})
         result.append({"sport": sport, "leagues": leagues_in_sport})
     return result
+
+
+def _build_in_season(leagues_index, window_days: int = 21):
+    """
+    Identify leagues currently in-season by scanning each league's games file
+    for non-synthetic games whose date falls within `window_days` of today
+    (past or future). Returns a list of groups:
+        [{"sport": "Football", "leagues": [{slug, display_name, next_game, last_game}, ...]}, ...]
+    Groups are ordered by SPORT_ORDER; leagues within a group are sorted by
+    upcoming game (soonest first), then by most recent game.
+    """
+    from datetime import date, datetime, timedelta
+    today = date.today()
+    lo = today - timedelta(days=window_days)
+    hi = today + timedelta(days=window_days)
+
+    in_season = []
+    for lg in leagues_index:
+        slug = lg["slug"]
+        # "all-time" rollups (no year) are noisy; skip
+        if not any(ch.isdigit() for ch in slug):
+            continue
+        path = DATA_DIR / "leagues" / f"{slug}.json"
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except Exception:
+            continue
+        upcoming = None
+        recent = None
+        hit = False
+        for g in data.get("games", []):
+            if g.get("synthetic"):
+                continue
+            ds = (g.get("date_str") or "").strip()
+            if not ds:
+                continue
+            try:
+                d = datetime.strptime(ds[:10], "%Y-%m-%d").date()
+            except ValueError:
+                continue
+            if lo <= d <= hi:
+                hit = True
+                if d >= today and (upcoming is None or d < upcoming):
+                    upcoming = d
+                if d <= today and (recent is None or d > recent):
+                    recent = d
+        if hit:
+            in_season.append({
+                "slug": slug,
+                "display_name": lg["display_name"],
+                "sport": _classify_sport(lg["display_name"]),
+                "next_game": upcoming.isoformat() if upcoming else None,
+                "last_game": recent.isoformat() if recent else None,
+            })
+
+    def _league_key(e):
+        return (
+            0 if e["next_game"] else 1,
+            e["next_game"] or "9999-99-99",
+            e["last_game"] or "",
+        )
+
+    by_sport: dict[str, list[dict]] = {}
+    for entry in in_season:
+        by_sport.setdefault(entry["sport"], []).append(entry)
+
+    groups = []
+    for sport in SPORT_ORDER:
+        if sport not in by_sport:
+            continue
+        leagues = sorted(by_sport[sport], key=_league_key)
+        groups.append({"sport": sport, "leagues": leagues})
+    return groups
 
 
 def build_player_timeline(player_data: dict) -> dict | None:
@@ -517,6 +598,7 @@ def main():
     # ── Load shared data ────────────────────────────────────────────────
     leagues_index = json.loads((DATA_DIR / "leagues" / "index.json").read_text())["leagues"]
     sport_groups = _build_sport_groups(leagues_index)
+    in_season = _build_in_season(leagues_index)
 
     this_week_path = DATA_DIR / "this-week.json"
     this_week = json.loads(this_week_path.read_text()) if this_week_path.exists() else None
@@ -525,6 +607,7 @@ def main():
     print("Rendering index ...")
     render(env, "index.html", SITE_DIR / "index.html", root="",
             leagues=leagues_index, sport_groups=sport_groups, this_week=this_week,
+            in_season=in_season,
             canonical_path="index.html")
 
     # ── Search page ─────────────────────────────────────────────────────
