@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ryan Hibbits — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ryan Hibbits: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, extra_point 3.0, fg_attempts 1.0, field_goal_long 26.0, field_goal_pct 1.0, field_goal_yards 26.0, field_goals_made 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, kicking_deuce 0.0, kicking_pat 3.0, kicking_pat_att 4.0, kicking_pat_pct 750.0, rush_avg 3.0, rush_long 3.0, rushing_2pt 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 3.0, sacks 0.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Ryan Hibbits: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, fg_attempts 1.0, field_goal_long 26.0, field_goal_pct 1.0, field_goals_made 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, kicking_deuce 0.0, kicking_pat 3.0, kicking_pat_att 4.0, kicking_pat_pct 750.0, rush_avg 3.0, rush_long 3.0, rushing_2pt 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 3.0, sacks 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/ryan-hibbits.html">
   
@@ -77,20 +77,6 @@
       "name": "AF1 2026",
       "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -189,35 +175,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">AF1</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -247,15 +204,11 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
-        <th scope="col" data-stat="extra_point">Extra Point</th>
-        
         <th scope="col" data-stat="fg_attempts">Fg Attempts</th>
         
         <th scope="col" data-stat="field_goal_long">Field Goal Long</th>
         
         <th scope="col" data-stat="field_goal_pct">Field Goal Pct</th>
-        
-        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
         
         <th scope="col" data-stat="field_goals_made">Field Goals Made</th>
         
@@ -306,15 +259,11 @@
         
         <td>0</td>
         
-        <td>3</td>
-        
         <td>1</td>
         
         <td>26</td>
         
         <td>1</td>
-        
-        <td>26</td>
         
         <td>1</td>
         
@@ -356,30 +305,6 @@
 
 
 
-
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"AF1-2026": {"rush_avg": 3.0, "rush_long": 3.0, "rushing_2pt": 0.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 3.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "fg_attempts": 1.0, "field_goal_long": 26.0, "field_goal_pct": 1.0, "field_goals_made": 1.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "kicking_deuce": 0.0, "kicking_pat": 3.0, "kicking_pat_att": 4.0, "kicking_pat_pct": 750.0, "sacks": 0.0, "tackles": 1.0}, "50YARD-2026": {"field_goal_yards": 26.0, "extra_point": 3.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
 
 
@@ -439,12 +364,6 @@
       
     
   
-    
-      
-    
-      
-    
-  
   
   <table class="data-table">
     <caption>Ryan Hibbits stats by season</caption>
@@ -465,15 +384,11 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
-        <th scope="col" data-stat="extra_point">Extra Point</th>
-        
         <th scope="col" data-stat="fg_attempts">Fg Attempts</th>
         
         <th scope="col" data-stat="field_goal_long">Field Goal Long</th>
         
         <th scope="col" data-stat="field_goal_pct">Field Goal Pct</th>
-        
-        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
         
         <th scope="col" data-stat="field_goals_made">Field Goals Made</th>
         
@@ -512,66 +427,6 @@
     <tbody>
       
       <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>26</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>AF1 2026</td>
         
         
@@ -587,15 +442,11 @@
         
         <td>0</td>
         
-        <td>—</td>
-        
         <td>1</td>
         
         <td>26</td>
         
         <td>1</td>
-        
-        <td>—</td>
         
         <td>1</td>
         
@@ -643,41 +494,6 @@
 
 
 
-<section>
-  <h2>Roster Appearances</h2>
-  <table>
-    <caption>Roster appearances for Ryan Hibbits</caption>
-    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
-    <tbody>
-      
-      <tr>
-        <td>Ryan Hibbits</td>
-        <td>BEAUMONT RENEGADES</td>
-        <td>K</td>
-        <td>AF1</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Ryan Hibbets</td>
-        <td>Beaumont Renegades</td>
-        <td>K</td>
-        <td>NAL</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</section>
-
 
 <section>
   <h2>Game Log</h2>
@@ -707,15 +523,11 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
-        <th scope="col" data-stat="extra_point">Extra Point</th>
-        
         <th scope="col" data-stat="fg_attempts">Fg Attempts</th>
         
         <th scope="col" data-stat="field_goal_long">Field Goal Long</th>
         
         <th scope="col" data-stat="field_goal_pct">Field Goal Pct</th>
-        
-        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
         
         <th scope="col" data-stat="field_goals_made">Field Goals Made</th>
         
@@ -757,7 +569,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="30">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -798,10 +610,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>3.0</td>
         
         <td>3.0</td>
@@ -824,73 +632,8 @@
       
       
       
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w3-beaumontrenegades.html" class="game-id">BEAUMONT RENEGADES @ KENTUCKY BARRELS</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>26.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
       
-      
-      
-      
-      <tr class="week-group-row"><td colspan="32">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="30">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -911,15 +654,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
         <td>1.0</td>
         
         <td>26.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
         
         <td>1.0</td>
         

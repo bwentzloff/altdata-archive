@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Derrick Rose — AltSports Stats">
-  <meta property="og:description" content="Career stats for Derrick Rose: fumble_recoveries 0.0, receiving_yards 18.0, receptions 1.0">
+  <meta property="og:description" content="Career stats for Derrick Rose: ">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/derrick-rose.html">
   
@@ -70,34 +70,6 @@
   "isPartOf": [
     
     
-    
-    
-    {
-      "@type": "Dataset",
-      "name": "50 YARD 2026",
-      "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
     
   ],
   "creator": {
@@ -189,35 +161,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50 Yard</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -230,122 +173,14 @@
 <section>
   <h2>Career Totals</h2>
   
-  <table class="data-table career-totals-table">
-    <caption>Derrick Rose career totals across all leagues</caption>
-    <thead>
-      <tr>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        
-        <td>0</td>
-        
-        <td>18</td>
-        
-        <td>1</td>
-        
-      </tr>
-    </tbody>
-  </table>
+  <p>No recorded stats.</p>
   
 </section>
 
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"50 Yard-2026": {"fumble_recoveries": 0.0}, "50YARD-2026": {"receptions": 1.0, "receiving_yards": 18.0}};
-    var stat    = "receiving_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
-
-
-<section>
-  <h2>By Season</h2>
-  
-  
-    
-      
-    
-  
-    
-      
-    
-      
-    
-  
-  
-  <table class="data-table">
-    <caption>Derrick Rose stats by season</caption>
-    <thead>
-      <tr>
-        <th scope="col">Season</th>
-        
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>50 Yard 2026</td>
-        
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>18</td>
-        
-        <td>1</td>
-        
-      </tr>
-      
-    </tbody>
-  </table>
-</section>
 
 
 
@@ -359,72 +194,7 @@
 <section>
   <h2>Game Log</h2>
   
-  
-  
-  
-  <table class="data-table">
-    <caption>Derrick Rose game-by-game statistics</caption>
-    <thead>
-      <tr>
-        <th scope="col">Season</th>
-        <th scope="col">Wk</th>
-        <th scope="col">League</th>
-        <th scope="col">Matchup</th>
-        <th scope="col">Score</th>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="8">2026 Wk 1</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>1</td>
-        <td><a href="../leagues/50-yard-2026.html">50 Yard</a></td>
-        <td><a href="../games/5pr1v6tabjsekhe4.html" class="game-id">San Antonio Gunslingers @ Tucson Sugar Skulls</a></td>
-        <td>35–17</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="8">2026 Wk 3</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w3-sanantoniogunslingers.html" class="game-id">SAN DIEGO STRIKE FORCE @ SAN ANTONIO GUNSLINGERS</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td>18.0</td>
-        
-        <td>1.0</td>
-        
-      </tr>
-      
-    </tbody>
-  </table>
+  <p>No game log recorded.</p>
   
 </section>
   

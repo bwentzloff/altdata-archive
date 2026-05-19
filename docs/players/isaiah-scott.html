@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Isaiah Scott — AltSports Stats">
-  <meta property="og:description" content="Career stats for Isaiah Scott: receiving_tds 20.0, receiving_yards 954.0, receptions 65.0, rushing_tds 0.0, rushing_yards 21.0">
+  <meta property="og:description" content="Career stats for Isaiah Scott: receiving_tds 16.0, receiving_yards 766.0, receptions 53.0, rushing_tds 0.0, rushing_yards 21.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/isaiah-scott.html">
   
@@ -77,34 +77,6 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50 YARD 2026",
-      "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -203,52 +175,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'25</span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">AF1</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50 Yard</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -281,11 +207,11 @@
     <tbody>
       <tr>
         
-        <td>20</td>
+        <td>16</td>
         
-        <td>954</td>
+        <td>766</td>
         
-        <td>65</td>
+        <td>53</td>
         
         <td>0</td>
         
@@ -300,30 +226,6 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"AF1-2025": {"receptions": 53.0, "receiving_yards": 766.0, "receiving_tds": 16.0, "rushing_yards": 21.0, "rushing_tds": 0.0}, "50 Yard-2026": {"receiving_yards": 41.0}, "50YARD-2026": {"receptions": 12.0, "receiving_yards": 147.0, "receiving_tds": 4.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
@@ -334,18 +236,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-  
     
       
     
@@ -389,38 +279,6 @@
         <td>0</td>
         
         <td>21</td>
-        
-      </tr>
-      
-      <tr>
-        <td>50 Yard 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>41</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>4</td>
-        
-        <td>147</td>
-        
-        <td>12</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
@@ -472,18 +330,6 @@
         <td>Albany</td>
         <td>WR</td>
         <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Isiah Scott</td>
-        <td>ALBANY FIREBIRDS</td>
-        <td>WR</td>
-        <td>AF1</td>
         <td>
           
           —
@@ -808,78 +654,6 @@
         <td>155.0</td>
         
         <td>8.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2026 Wk 1</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>1</td>
-        <td><a href="../leagues/50-yard-2026.html">50 Yard</a></td>
-        <td><a href="../games/4002611070524.html" class="game-id">Albany Firebirds @ Washington Wolfpack</a></td>
-        <td>42–34</td>
-        
-        <td></td>
-        
-        <td>41.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w2-albanyfirebirds.html" class="game-id">Kentucky Barrels @ Albany Firebirds</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td>40.0</td>
-        
-        <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="10">2026 Wk 3</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w3-albanyfirebirds.html" class="game-id">ALBANY FIREBIRDS @ MICHIGAN ARSENAL</a></td>
-        <td>0–0</td>
-        
-        <td>4.0</td>
-        
-        <td>107.0</td>
-        
-        <td>9.0</td>
         
         <td></td>
         

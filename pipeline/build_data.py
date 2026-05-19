@@ -749,6 +749,38 @@ def main():
     raw_stats = json.loads((RAW / "player_stats.json").read_text())
     sports = json.loads((RAW / "sports.json").read_text())
     raw_players = json.loads((RAW / "players.json").read_text())
+
+    # ── Drop internal-accounting sports (e.g. "50 Yard") from every artifact ───
+    # These leagues exist in source SQL exports for back-office bookkeeping only
+    # and should never appear on the public site (player pages, league index,
+    # game pages, sitemap, HOF, search index, etc.).
+    _EXCLUDED_SPORT_NAME_NORMS = {"50yard"}
+    _EXCLUDED_LEAGUE_NAMES = {"50 Yard", "50YARD", "50 YARD", "50-yard", "50-Yard"}
+    excluded_sport_ids = {
+        s["id"] for s in sports
+        if re.sub(r"\s+", "", (s.get("name") or "")).lower() in _EXCLUDED_SPORT_NAME_NORMS
+    }
+    if excluded_sport_ids:
+        excluded_pids = {p["id"] for p in raw_players if p.get("sport_id") in excluded_sport_ids}
+        _before_p = len(raw_players)
+        _before_s = len(raw_stats)
+        raw_players = [p for p in raw_players if p.get("sport_id") not in excluded_sport_ids]
+        raw_stats = [s for s in raw_stats if s.get("player_id") not in excluded_pids]
+        sports = [s for s in sports if s["id"] not in excluded_sport_ids]
+        # Scrub merged players: drop excluded appearances, prune league name
+        for _mp in players_merged:
+            _apps = _mp.get("appearances") or []
+            _kept = [a for a in _apps if a.get("sport_id") not in excluded_sport_ids]
+            if len(_kept) != len(_apps):
+                _mp["appearances"] = _kept
+            _lgs = _mp.get("leagues") or []
+            _mp["leagues"] = [lg for lg in _lgs if lg not in _EXCLUDED_LEAGUE_NAMES]
+        print(f"Excluded internal-accounting sports {excluded_sport_ids}: "
+              f"dropped {_before_p - len(raw_players)} players, "
+              f"{_before_s - len(raw_stats)} stat rows")
+    # Stash for later filtering of raw_games (loaded much later in main()).
+    _excluded_sport_ids = excluded_sport_ids
+    _excluded_league_names = _EXCLUDED_LEAGUE_NAMES
     
     # Load articles if available
     articles_raw_path = RAW / "articles_raw.json"
@@ -1104,6 +1136,11 @@ def main():
 
     # Load games table if available
     raw_games = json.loads((RAW / "games.json").read_text()) if (RAW / "games.json").exists() else []
+    if _excluded_sport_ids:
+        _before_g = len(raw_games)
+        raw_games = [g for g in raw_games if g.get("sport_id") not in _excluded_sport_ids]
+        if _before_g != len(raw_games):
+            print(f"Excluded {_before_g - len(raw_games)} games for internal-accounting sports")
     curling_games_file = RAW / "curling_games.json"
     if curling_games_file.exists():
         curling_games = json.loads(curling_games_file.read_text())

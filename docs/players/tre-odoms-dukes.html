@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Tre Odoms-Dukes — AltSports Stats">
-  <meta property="og:description" content="Career stats for Tre Odoms-Dukes: receiving_tds 1.0, receiving_yards 670.0, receptions 56.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Tre Odoms-Dukes: receiving_tds 1.0, receiving_yards 608.0, receptions 53.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/tre-odoms-dukes.html">
   
@@ -77,20 +77,6 @@
       "name": "CFL 2023",
       "description": "League-level player statistics for CFL 2023 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2023.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -189,53 +175,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'23</span>
-        
-        <span class="ct-yr">'24</span>
-        
-        <span class="ct-yr">'25</span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">CFL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -287,9 +226,9 @@
         
         <td>1</td>
         
-        <td>670</td>
+        <td>608</td>
         
-        <td>56</td>
+        <td>53</td>
         
         <td>1</td>
         
@@ -302,30 +241,6 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"CFL-2023": {"receiving_yards": 608.0, "receiving_tds": 1.0, "receptions": 53.0, "tackles": 1.0}, "50YARD-2026": {"receptions": 3.0, "receiving_yards": 62.0}};
-    var stat    = "receiving_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
@@ -336,12 +251,6 @@
       
     
       
-    
-      
-    
-      
-    
-  
     
       
     
@@ -425,27 +334,6 @@
         
       </tr>
       
-      <tr>
-        <td>50YARD 2026</td>
-        
-        <td>
-          
-          
-            —
-          
-        </td>
-        
-        
-        <td>—</td>
-        
-        <td>62</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
     </tbody>
   </table>
 </section>
@@ -494,18 +382,6 @@
         <td>CGY</td>
         <td>WR</td>
         <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Trey Odoms-Dukes</td>
-        <td>ARIZONA RATTLERS</td>
-        <td>WR</td>
-        <td>IFL</td>
         <td>
           
           —
@@ -828,50 +704,6 @@
         <td>23.0</td>
         
         <td>2.0</td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="9">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w2-arizonarattlers.html" class="game-id">Tucson Sugar Skulls @ Arizona Rattlers</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td>28.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="9">2026 Wk 3</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w3-arizonarattlers.html" class="game-id">ARIZONA RATTLERS @ NEW MEXICO CHUPACABRAS</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td>34.0</td>
-        
-        <td>1.0</td>
         
         <td></td>
         

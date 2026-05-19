@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Undra Hendrix — AltSports Stats">
-  <meta property="og:description" content="Career stats for Undra Hendrix: rec_avg -2.0, rec_long 0.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards -4.0, receptions 1.0, rush_avg 9.0, rush_long 12.0, rushing_2pt 0.0, rushing_attempts 13.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 26.0">
+  <meta property="og:description" content="Career stats for Undra Hendrix: rec_avg -2.0, rec_long 0.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards -2.0, receptions 1.0, rush_avg 9.0, rush_long 12.0, rushing_2pt 0.0, rushing_attempts 13.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 15.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/undra-hendrix.html">
   
@@ -74,37 +74,9 @@
     
     {
       "@type": "Dataset",
-      "name": "50 YARD 2026",
-      "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
       "name": "AF1 2026",
       "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -203,44 +175,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50 Yard</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">AF1</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -301,7 +235,7 @@
         
         <td>0</td>
         
-        <td>-4</td>
+        <td>-2</td>
         
         <td>1</td>
         
@@ -317,7 +251,7 @@
         
         <td>0</td>
         
-        <td>26</td>
+        <td>15</td>
         
       </tr>
     </tbody>
@@ -327,30 +261,6 @@
 
 
 
-
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"50 Yard-2026": {"rushing_yards": 7.0, "receiving_yards": -2.0}, "AF1-2026": {"rush_avg": 9.0, "rush_long": 12.0, "rushing_2pt": 0.0, "rushing_attempts": 13.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 15.0, "rec_avg": -2.0, "rec_long": 0.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": -2.0, "receptions": 1.0}, "50YARD-2026": {"rushing_yards": 4.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
 
 
@@ -363,8 +273,6 @@
     
       
     
-  
-    
       
     
       
@@ -386,14 +294,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -437,74 +337,6 @@
       </tr>
     </thead>
     <tbody>
-      
-      <tr>
-        <td>50 Yard 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>-2</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>7</td>
-        
-      </tr>
-      
-      <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>4</td>
-        
-      </tr>
       
       <tr>
         <td>AF1 2026</td>
@@ -610,45 +442,6 @@
       <tr>
         <td>2026</td>
         <td>1</td>
-        <td><a href="../leagues/50-yard-2026.html">50 Yard</a></td>
-        <td><a href="../games/4002611070524.html" class="game-id">Albany Firebirds @ Washington Wolfpack</a></td>
-        <td>42–34</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>-2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>7.0</td>
-        
-      </tr>
-      
-      
-      
-      <tr>
-        <td>2026</td>
-        <td>1</td>
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-4-12-t584638g1168203-t584641.html" class="game-id">Oregon Lightning @ Washington Wolfpack</a></td>
         <td>33–16</td>
@@ -680,48 +473,6 @@
         <td>0.0</td>
         
         <td>-1.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="19">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w2-washingtonwolfpack.html" class="game-id">Washington Wolfpack @ Beaumont Renegades</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>4.0</td>
         
       </tr>
       

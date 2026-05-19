@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Fred Payton — AltSports Stats">
-  <meta property="og:description" content="Career stats for Fred Payton: fumble_recoveries 1.0, interceptions 4.0, interceptions_lost 12.0, passing_tds 36.0, passing_yards 1623.0, rushing_tds 8.0, rushing_yards 209.0">
+  <meta property="og:description" content="Career stats for Fred Payton: interceptions 4.0, interceptions_lost 9.0, passing_tds 27.0, passing_yards 1229.0, rushing_tds 7.0, rushing_yards 89.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/fred-payton.html">
   
@@ -77,34 +77,6 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50 YARD 2026",
-      "description": "League-level player statistics for 50 YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50-yard-2026.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -203,52 +175,6 @@
     </script>
 
     
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'25</span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">AF1</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50 Yard</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
-    
   </div>
 
   
@@ -265,8 +191,6 @@
     <caption>Fred Payton career totals across all leagues</caption>
     <thead>
       <tr>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -285,19 +209,17 @@
     <tbody>
       <tr>
         
-        <td>1</td>
-        
         <td>4</td>
         
-        <td>12</td>
+        <td>9</td>
         
-        <td>36</td>
+        <td>27</td>
         
-        <td>1,623</td>
+        <td>1,229</td>
         
-        <td>8</td>
+        <td>7</td>
         
-        <td>209</td>
+        <td>89</td>
         
       </tr>
     </tbody>
@@ -307,30 +229,6 @@
 
 
 
-
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"AF1-2025": {"passing_yards": 1086.0, "passing_tds": 25.0, "interceptions": 4.0, "rushing_yards": 78.0, "rushing_tds": 5.0, "interceptions_lost": 9.0}, "50 Yard-2026": {"passing_yards": 194.0, "passing_tds": 3.0, "interceptions_lost": 1.0, "rushing_yards": 61.0, "rushing_tds": 1.0, "fumble_recoveries": 1.0}, "50YARD-2026": {"passing_yards": 200.0, "passing_tds": 6.0, "rushing_yards": 59.0, "interceptions_lost": 2.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
 
 
@@ -352,30 +250,6 @@
       
     
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
   
   <table class="data-table">
     <caption>Fred Payton stats by season</caption>
@@ -383,8 +257,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -406,8 +278,6 @@
         <td>AF1 2025</td>
         
         
-        <td>—</td>
-        
         <td>4</td>
         
         <td>9</td>
@@ -422,46 +292,6 @@
         
       </tr>
       
-      <tr>
-        <td>50 Yard 2026</td>
-        
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>3</td>
-        
-        <td>194</td>
-        
-        <td>1</td>
-        
-        <td>61</td>
-        
-      </tr>
-      
-      <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>2</td>
-        
-        <td>6</td>
-        
-        <td>200</td>
-        
-        <td>—</td>
-        
-        <td>59</td>
-        
-      </tr>
-      
     </tbody>
   </table>
 </section>
@@ -473,41 +303,6 @@
 
 
 
-
-<section>
-  <h2>Roster Appearances</h2>
-  <table>
-    <caption>Roster appearances for Fred Payton</caption>
-    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
-    <tbody>
-      
-      <tr>
-        <td>Fred Payton</td>
-        <td>Corpus Christi</td>
-        <td>QB</td>
-        <td>—</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Fred Payton Jr</td>
-        <td>SAN ANTONIO GUNSLINGERS</td>
-        <td>QB</td>
-        <td>IFL</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</section>
 
 
 <section>
@@ -525,8 +320,6 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
         <th scope="col" data-stat="interceptions">Interceptions</th>
         
@@ -548,7 +341,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="11"> Wk 1</td></tr>
       
       <tr>
         <td>—</td>
@@ -556,8 +349,6 @@
         <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
         <td><a href="../games/salina-corpus.html" class="game-id">SALINA-CORPUS</a></td>
         <td>—</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -576,7 +367,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -584,8 +375,6 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/tritons-liberty-0328.html" class="game-id">SALINA @ CORPUS CHRISTI</a></td>
         <td>37–51</td>
-        
-        <td></td>
         
         <td>0.0</td>
         
@@ -604,7 +393,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -612,8 +401,6 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-washington-0413.html" class="game-id">CORPUS CHRISTI @ WASHINGTON</a></td>
         <td>61–21</td>
-        
-        <td></td>
         
         <td>4.0</td>
         
@@ -632,7 +419,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -640,8 +427,6 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-swkansas-0419.html" class="game-id">SW KANSAS @ CORPUS CHRISTI</a></td>
         <td>47–40</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -660,7 +445,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -668,8 +453,6 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-albany-0524.html" class="game-id">ALBANY @ CORPUS CHRISTI</a></td>
         <td>64–27</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -688,7 +471,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="12">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="11">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -696,8 +479,6 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-nashville-0614.html" class="game-id">NASHVILLE @ CORPUS CHRISTI</a></td>
         <td>80–18</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -710,90 +491,6 @@
         <td>1.0</td>
         
         <td>32.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2026 Wk 1</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>1</td>
-        <td><a href="../leagues/50-yard-2026.html">50 Yard</a></td>
-        <td><a href="../games/5pr1v6tabjsekhe4.html" class="game-id">San Antonio Gunslingers @ Tucson Sugar Skulls</a></td>
-        <td>35–17</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>3.0</td>
-        
-        <td>194.0</td>
-        
-        <td>1.0</td>
-        
-        <td>61.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w2-sanantoniogunslingers.html" class="game-id">San Antonio Gunslingers @ Northern Arizona Wranglers</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td>95.0</td>
-        
-        <td></td>
-        
-        <td>43.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="12">2026 Wk 3</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w3-sanantoniogunslingers.html" class="game-id">SAN DIEGO STRIKE FORCE @ SAN ANTONIO GUNSLINGERS</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td>3.0</td>
-        
-        <td>105.0</td>
-        
-        <td></td>
-        
-        <td>16.0</td>
         
       </tr>
       

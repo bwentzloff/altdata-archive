@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Donovan Rasberry — AltSports Stats">
-  <meta property="og:description" content="Career stats for Donovan Rasberry: completion_pct 100.0, field_goal_attempts 1.0, field_goal_long 0.0, field_goal_pct 0.0, field_goals_made 0.0, games_played 36.0, interceptions 0.0, kick_returns 15.0, kr_avg 0.0, kr_long 0.0, kr_tds 15.0, kr_yards 15.0, pass_attempts 1.0, pass_completions 1.0, pass_long 17.0, pass_yards_per_attempt 17.0, passer_rating 242.8, passing_tds 0.0, passing_yards 17.0, passing_yards_per_game 2.1, points 0.0, pr_avg 0.0, pr_tds 0.0, punt_returns 8.0, rec_avg 19.6, rec_long 45.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 8.0, receiving_yards 346.0, receiving_yards_per_game 36.0, receptions 36.0, receptions_per_game 3.8, rushing_yards 7.0, total_yards 303.0, xp_attempts 1.0, xp_made 0.0, xp_pct 0.0, yards_per_game 37.9">
+  <meta property="og:description" content="Career stats for Donovan Rasberry: completion_pct 100.0, field_goal_attempts 1.0, field_goal_long 0.0, field_goal_pct 0.0, field_goals_made 0.0, games_played 36.0, interceptions 0.0, kick_returns 15.0, kr_avg 0.0, kr_long 0.0, kr_tds 15.0, kr_yards 15.0, pass_attempts 1.0, pass_completions 1.0, pass_long 17.0, pass_yards_per_attempt 17.0, passer_rating 242.8, passing_tds 0.0, passing_yards 17.0, passing_yards_per_game 2.1, points 0.0, pr_avg 0.0, pr_tds 0.0, punt_returns 8.0, rec_avg 19.6, rec_long 45.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 7.0, receiving_yards 317.0, receiving_yards_per_game 36.0, receptions 33.0, receptions_per_game 3.8, rushing_yards 7.0, total_yards 303.0, xp_attempts 1.0, xp_made 0.0, xp_pct 0.0, yards_per_game 37.9">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/donovan-rasberry.html">
   
@@ -77,20 +77,6 @@
       "name": "NAL",
       "description": "League-level player statistics for NAL from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "50YARD 2026",
-      "description": "League-level player statistics for 50YARD 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/50yard-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -202,35 +188,6 @@
     })();
     </script>
 
-    
-
-    <div class="career-timeline" aria-label="Career timeline">
-      <div class="ct-years">
-        <span class="ct-label"></span>
-        
-        <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">50YARD</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">AF1</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
-    </div>
     
   </div>
 
@@ -388,13 +345,13 @@
         
         <td>0</td>
         
-        <td>8</td>
+        <td>7</td>
         
-        <td>346</td>
-        
-        <td>36</td>
+        <td>317</td>
         
         <td>36</td>
+        
+        <td>33</td>
         
         <td>3.8</td>
         
@@ -419,43 +376,11 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"50YARD-2026": {"receptions": 3.0, "receiving_yards": 29.0, "receiving_tds": 1.0}, "AF1-2026": {"rec_avg": 10.0, "rec_long": 15.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 1.0, "receiving_yards": 29.0, "receptions": 3.0}};
-    var stat    = "passing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
-  
-    
-      
-    
-      
-    
-      
-    
   
     
       
@@ -500,26 +425,6 @@
     <tbody>
       
       <tr>
-        <td>50YARD 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>29</td>
-        
-        <td>3</td>
-        
-      </tr>
-      
-      <tr>
         <td>AF1 2026</td>
         
         
@@ -550,41 +455,6 @@
 
 
 
-
-<section>
-  <h2>Roster Appearances</h2>
-  <table>
-    <caption>Roster appearances for Donovan Rasberry</caption>
-    <thead><tr><th scope="col">Name on Roster</th><th scope="col">Team</th><th scope="col">Position</th><th scope="col">League</th><th scope="col">College</th></tr></thead>
-    <tbody>
-      
-      <tr>
-        <td>Donovan Rasberry</td>
-        <td>OREGON LIGHTNING</td>
-        <td>WR</td>
-        <td>AF1</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-      <tr>
-        <td>Donovan Rasberry</td>
-        <td>ORLANDO PREDATORS</td>
-        <td>WR</td>
-        <td>NAL</td>
-        <td>
-          
-          —
-          
-        </td>
-      </tr>
-      
-    </tbody>
-  </table>
-</section>
 
 
 <section>
@@ -775,98 +645,6 @@
         <td>0.0</td>
         
         <td>37.9</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="44">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/50yard-2026.html">50YARD</a></td>
-        <td><a href="../games/synthetic-50yard-2026-w2-oregonlightning.html" class="game-id">Oregon Lightning @ Nashville Kats</a></td>
-        <td>0–0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>29.0</td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
       </tr>
       
