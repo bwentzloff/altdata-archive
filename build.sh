@@ -68,7 +68,10 @@ echo "==> LFA ..."
 $PYTHON pipeline/scrape_lfa.py --batch 2 || echo "WARN: LFA scraper failed, continuing..."
 
 echo "==> X-League Japan ..."
+
 $PYTHON pipeline/scrape_xleague.py --all-pdf || echo "WARN: X-League scraper failed, continuing..."
+# Remove Wikipedia-only X-League players before merge/build
+$PYTHON pipeline/filter_xleague_players.py || echo "WARN: X-League filter failed, continuing..."
 
 echo "==> Player social media ..."
 $PYTHON pipeline/scrape_player_socials.py --batch 10 || echo "WARN: Player socials scraper failed, continuing..."
