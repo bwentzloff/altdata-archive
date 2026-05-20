@@ -20,7 +20,7 @@ echo "==> College stats backfill (footballdb.com) ..."
 $PYTHON pipeline/scrape_college.py --batch 20 || echo "WARN: College scraper failed, continuing..."
 
 echo "==> NFL stats backfill (ESPN API) ..."
-$PYTHON pipeline/scrape_nfl.py --batch 200 || echo "WARN: NFL scraper failed, continuing..."
+$PYTHON pipeline/scrape_nfl.py --batch 2000 || echo "WARN: NFL scraper failed, continuing..."
 
 #echo "==> AAF historical backfill (footballdb.com) ..."
 #$PYTHON pipeline/scrape_aaf.py --batch 5 || echo "WARN: AAF scraper failed, continuing..."
