@@ -77,7 +77,11 @@
             {%- set val = row.get(c.key) -%}
             {%- if val is none -%}—
             {%- elif c.numeric and val is number -%}
-              {{ val | intcomma }}{{ c.suffix or "" }}
+              {%- if 2000 <= val <= 2030 -%}
+                {{ val }}{{ c.suffix or "" }}
+              {%- else -%}
+                {{ val | intcomma }}{{ c.suffix or "" }}
+              {%- endif -%}
             {%- else -%}
               {{ val }}{{ c.suffix or "" }}
             {%- endif -%}
