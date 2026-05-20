@@ -10,7 +10,7 @@
     "team-season",
     "network"
   ],
-  "computed_at": "2026-05-20T16:50:32+00:00",
+  "computed_at": "2026-05-20T18:40:07+00:00",
   "headline_stats": [
     {
       "label": "Top incubator team-season",
@@ -19,12 +19,12 @@
     },
     {
       "label": "Highest vs lowest density group",
-      "value": "24.5% vs 2.4%",
+      "value": "20.6% vs 1.8%",
       "sub": "NFL veteran rates for players in the most NFL-rich teammate environments vs the least"
     },
     {
       "label": "Overall NFL veteran rate",
-      "value": "10.2%",
+      "value": "11.7%",
       "sub": "Across 3,393 alt-football team-season player records"
     },
     {
@@ -54,16 +54,16 @@
         {
           "label": "Has NFL history (%)",
           "data": [
-            2.4,
+            1.8,
             6.5,
             5.0,
-            9.4,
-            10.6,
-            4.7,
-            5.6,
-            11.5,
-            22.1,
-            24.5
+            9.1,
+            6.8,
+            6.2,
+            10.0,
+            20.9,
+            30.1,
+            20.6
           ]
         }
       ],
@@ -735,7 +735,7 @@
     },
     {
       "heading": "How to read the groups",
-      "html": "<p>Each player gets an average teammate-density score based on the teams they played on. We sort players into 10 groups from D1 (lowest) to D10 (highest), then compare NFL reach rates across those groups.</p><p>In this snapshot, the gap between the endpoints is large: D10 sits at <strong>24.5%</strong> while D1 is <strong>2.4%</strong>. That spread is descriptive rather than causal, but it is too large to ignore when ranking environments.</p>"
+      "html": "<p>Each player gets an average teammate-density score based on the teams they played on. We sort players into 10 groups from D1 (lowest) to D10 (highest), then compare NFL reach rates across those groups.</p><p>In this snapshot, the gap between the endpoints is large: D10 sits at <strong>20.6%</strong> while D1 is <strong>1.8%</strong>. That spread is descriptive rather than causal, but it is too large to ignore when ranking environments.</p>"
     },
     {
       "heading": "What the new NFL season depth adds",
@@ -751,7 +751,7 @@
     },
     {
       "heading": "Conclusions",
-      "html": "<ol><li><strong>NFL-heavy locker rooms are associated with better NFL outcomes later.</strong> Across player-density groups, the top-density cohort is at 24.5% versus 2.4% at the bottom. That is a large practical gap.</li><li><strong>League context is not uniform.</strong> On pooled eligible team-seasons, XFL shows the highest reached-after rate (5.7%), while IFL is lowest (0.0%).</li><li><strong>Typical team-season performance differs from single-year spikes.</strong> The strongest median league in the box plot is XFL (median 6.0%), while the weakest median is CFL (median 0.0%).</li><li><strong>Caveat:</strong> these are <em>associations</em>, not causal estimates. The study can show that team environment and NFL outcomes move together, but it cannot prove that adding NFL veterans by itself causes later NFL conversion.</li></ol>"
+      "html": "<ol><li><strong>NFL-heavy locker rooms are associated with better NFL outcomes later.</strong> Across player-density groups, the top-density cohort is at 20.6% versus 1.8% at the bottom. That is a large practical gap.</li><li><strong>League context is not uniform.</strong> On pooled eligible team-seasons, XFL shows the highest reached-after rate (5.7%), while IFL is lowest (0.0%).</li><li><strong>Typical team-season performance differs from single-year spikes.</strong> The strongest median league in the box plot is XFL (median 6.0%), while the weakest median is CFL (median 0.0%).</li><li><strong>Caveat:</strong> these are <em>associations</em>, not causal estimates. The study can show that team environment and NFL outcomes move together, but it cannot prove that adding NFL veterans by itself causes later NFL conversion.</li></ol>"
     }
   ],
   "methodology": "<p>Data source: player files under <code>docs/data/players/</code> and league-season metadata in <code>docs/data/sports.json</code>.</p><p>NFL season timing is taken from <code>player.nfl.seasons</code> when available (ESPN season rows), with NFL appearances inferred from <code>sport_id</code> metadata as a fallback for legacy records.</p><p>Team-season identity is inferred from roster appearances keyed by <code>(sport_id, team)</code>. Only non-NFL North American football leagues are included in environment construction. ELF (European League of Football), EFA (European Football Alliance), and X-League (Japan) are excluded because their player pools are predominantly non-American, so near-zero NFL linkage in those leagues is structural rather than environmental. \"NFL veteran\" means the player has any NFL appearance on record (before or after the team-season). \"Reached NFL after\" means the player has at least one NFL appearance whose season is later than the team-season in question; team-seasons without a known year are excluded from the incubator ranking.</p><p>League-wide and season-cohort comparisons are right-censor adjusted: alt team-seasons are only included if at least one later NFL season exists in the source data, so recent cohorts are not penalized for lack of elapsed time.</p><p>Chart notes: scatter plots show one point per team-season; box plots summarize distributions at league level; line charts show pooled season cohorts and are weighted by roster records (not by number of teams).</p><p>This is pattern-tracking, not proof of cause and effect. Team context and NFL outcomes move together here, but that does not prove one directly causes the other.</p>",
@@ -974,9 +974,9 @@
   },
   "history_row": {
     "player_records": 3393,
-    "overall_nfl_veteran_pct": 10.2,
-    "d10_pct": 24.5,
-    "d1_pct": 2.4,
+    "overall_nfl_veteran_pct": 11.7,
+    "d10_pct": 20.6,
+    "d1_pct": 1.8,
     "top_incubator": "USFL 2023 STALLIONS",
     "top_incubator_after_pct": 13.7
   }
