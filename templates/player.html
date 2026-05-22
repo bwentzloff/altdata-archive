@@ -292,15 +292,20 @@
     <caption>{{ player.canonical_name }} career totals across all leagues</caption>
     <thead>
       <tr>
-        {% for stat, val in player.career_totals.items() | sort %}
-        <th scope="col" data-stat="{{ stat }}">{{ stat | stat_label }}</th>
+        {% set stat_order = ['rushing_yards', 'rushing_tds', 'receptions', 'receiving_yards', 'receiving_tds', 'recv_rec', 'recv_yds','recv_td','passing_yards', 'passing_tds', 'interceptions_lost','yardsThrown', 'yardsReceived'] %}
+        {% for stat in stat_order %}
+          {% if stat in player.career_totals %}
+            <th scope="col" data-stat="{{ stat }}">{{ stat | stat_label }}</th>
+          {% endif %}
         {% endfor %}
       </tr>
     </thead>
     <tbody>
       <tr>
-        {% for stat, val in player.career_totals.items() | sort %}
-        <td>{{ val | intcomma }}</td>
+        {% for stat in stat_order %}
+          {% if stat in player.career_totals %}
+            <td>{{ player.career_totals[stat] | intcomma }}</td>
+          {% endif %}
         {% endfor %}
       </tr>
     </tbody>

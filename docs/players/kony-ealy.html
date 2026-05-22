@@ -156,6 +156,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Kony Ealy"
+            data-src="../assets/player-images/kony-ealy.jpg"
+            data-caption="Jeffrey Beall / Wikimedia Commons (CC BY 4.0)">
+      <img src="../assets/player-images/kony-ealy.jpg"
+           alt="Kony Ealy"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Jeffrey Beall /
+      <a href="https://commons.wikimedia.org/wiki/File:Kony_Ealy_2017.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY 4.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -289,46 +341,63 @@
     <thead>
       <tr>
         
-        <th scope="col" data-stat="assist_tackles">Assist Tackles</th>
         
-        <th scope="col" data-stat="def_sack">Def Sack</th>
+          
         
-        <th scope="col" data-stat="def_solo">Def Solo</th>
+          
         
-        <th scope="col" data-stat="def_tot">Def Tot</th>
+          
         
-        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
+          
         
-        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+          
         
-        <th scope="col" data-stat="sacks">Sacks</th>
+          
         
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+          
         
-        <th scope="col" data-stat="tackles">Tackles</th>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
       </tr>
     </thead>
     <tbody>
       <tr>
         
-        <td>4</td>
+          
         
-        <td>5</td>
+          
         
-        <td>15</td>
+          
         
-        <td>15</td>
+          
         
-        <td>44</td>
+          
         
-        <td>0</td>
+          
         
-        <td>1.5</td>
+          
         
-        <td>5</td>
+          
         
-        <td>15</td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
       </tr>
     </tbody>
@@ -1459,7 +1528,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-21.
+      Data updated: 2026-05-22.
       Formats:
       
 <a href="../data/players/kony-ealy.json">JSON</a> ·
