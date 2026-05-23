@@ -24,11 +24,29 @@
   {% endif %}
   {% if game.date_str %}
   "startDate": "{{ game.date_str }}",
+    "endDate": "{{ game.end_date_str or game.date_str }}",
   {% endif %}
+    "location": {
+      "@type": "Place",
+      "name": "{{ game.venue or 'TBD' }}"
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "performer": [
+      {% if game.away_team %}{"@type": "SportsTeam", "name": "{{ game.away_team }}"}}{% if game.home_team %}, {% endif %}{% endif %}
+      {% if game.home_team %}{"@type": "SportsTeam", "name": "{{ game.home_team }}"}{% endif %}
+    ],
+    "offers": {
+      "@type": "Offer",
+      "url": "https://archive.altfantasysports.com/games/{{ game.slug }}.html",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
   "organizer": {
     "@type": "Organization",
-    "name": "{{ game.league or 'AltSports Archive' }}"
-  }
+      "name": "{{ game.league or 'AltSports Archive' }}",
+      "url": "https://archive.altfantasysports.com/leagues/{{ game.league|lower|replace(' ', '-') if game.league else '' }}.html"
+    }
 }
 </script>
 <script type="application/ld+json">
