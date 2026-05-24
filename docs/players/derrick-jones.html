@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Derrick Jones — AltSports Stats">
-  <meta property="og:description" content="Career stats for Derrick Jones: assisted_tackles 0.0, assists 4.0, assists_minus_xa -0.5, avg_pass_distance 229.7, avg_pass_vertical 29.4, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, goals 7.0, goals_minus_xg -1.8, goals_plus_assists 11.0, key_passes 48.0, lost_fumbles 0.0, minutes_played 10433.0, pass_completion_pct 10.8, passes_attempted 4488.0, passes_over_expected -69.4, passes_over_expected_p100 -20.8, points_added 2.7, sacks 0.0, shots 75.0, shots_on_target 22.0, solo_tackles 1.0, tackles 28.0, xa 4.5, xg 8.8, xg_place -1.7, xg_plus_xa 13.3, xpass_completion_pct 11.0, xpoints_added 4.9">
+  <meta property="og:description" content="Career stats for Derrick Jones: assisted_tackles 0.0, assists 4.0, assists_minus_xa -0.5, avg_pass_distance 229.7, avg_pass_vertical 29.4, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, field_goal_yards 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, goals 7.0, goals_minus_xg -1.8, goals_plus_assists 11.0, interceptions_lost 1.0, key_passes 48.0, lost_fumbles 0.0, minutes_played 10433.0, pass_completion_pct 10.8, passes_attempted 4488.0, passes_over_expected -69.4, passes_over_expected_p100 -20.8, passing_tds 4.0, passing_yards 243.0, patkick 0.0, points_added 2.7, receiving_tds 1.0, receiving_yards 104.0, receptions 9.0, rushing_tds 0.0, rushing_yards 0.0, sacks 0.0, shots 75.0, shots_on_target 22.0, solo_tackles 1.0, tackles 28.0, xa 4.5, xg 8.8, xg_place -1.7, xg_plus_xa 13.3, xpass_completion_pct 11.0, xpoints_added 4.9">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/derrick-jones.html">
   
@@ -73,6 +73,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "IFL 2023",
+      "description": "League-level player statistics for IFL 2023 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "MLS 2017",
@@ -556,7 +570,23 @@
         
         
           
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
+          
+        
+          
+            <th scope="col" data-stat="receptions">Rec</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -566,15 +596,15 @@
           
         
           
-        
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
           
         
           
-        
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
-        
+            <th scope="col" data-stat="interceptions_lost">INT</th>
           
         
           
@@ -587,7 +617,23 @@
       <tr>
         
           
+            <td>0</td>
+          
         
+          
+            <td>0</td>
+          
+        
+          
+            <td>9</td>
+          
+        
+          
+            <td>104</td>
+          
+        
+          
+            <td>1</td>
           
         
           
@@ -597,15 +643,15 @@
           
         
           
-        
+            <td>243</td>
           
         
           
-        
+            <td>4</td>
           
         
           
-        
+            <td>1</td>
           
         
           
@@ -620,6 +666,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"MLS-2017": {"minutes_played": 778.0, "shots": 5.0, "shots_on_target": 1.0, "goals": 0.0, "xg": 0.1571, "xg_place": -0.1084, "goals_minus_xg": -0.1571, "key_passes": 2.0, "assists": 0.0, "xa": 0.116, "assists_minus_xa": -0.116, "goals_plus_assists": 0.0, "xg_plus_xa": 0.2731, "points_added": 0.0, "xpoints_added": 0.11, "passes_attempted": 328.0, "pass_completion_pct": 0.7561, "xpass_completion_pct": 0.8092, "passes_over_expected": -17.4158, "passes_over_expected_p100": -5.3097, "avg_pass_distance": 19.6947, "avg_pass_vertical": 4.2515}, "USLC-2017": {"minutes_played": 1164.0, "shots": 6.0, "shots_on_target": 2.0, "goals": 1.0, "xg": 1.0639, "xg_place": -0.2987, "goals_minus_xg": -0.0639, "key_passes": 12.0, "assists": 0.0, "xa": 0.9838, "assists_minus_xa": -0.9838, "goals_plus_assists": 1.0, "xg_plus_xa": 2.0477, "points_added": 0.0703, "xpoints_added": 0.3269, "passes_attempted": 498.0, "pass_completion_pct": 0.8052, "xpass_completion_pct": 0.8116, "passes_over_expected": -3.1616, "passes_over_expected_p100": -0.6349, "avg_pass_distance": 20.7281, "avg_pass_vertical": 6.2862}, "MLS-2018": {"minutes_played": 468.0, "shots": 6.0, "shots_on_target": 1.0, "goals": 0.0, "xg": 0.3028, "xg_place": -0.1258, "goals_minus_xg": -0.3028, "key_passes": 2.0, "assists": 0.0, "xa": 0.0488, "assists_minus_xa": -0.0488, "goals_plus_assists": 0.0, "xg_plus_xa": 0.3516, "points_added": 0.0, "xpoints_added": 0.258, "passes_attempted": 230.0, "pass_completion_pct": 0.8391, "xpass_completion_pct": 0.8491, "passes_over_expected": -2.301, "passes_over_expected_p100": -1.0005, "avg_pass_distance": 18.3773, "avg_pass_vertical": 3.3222}, "USLC-2018": {"minutes_played": 1363.0, "shots": 15.0, "shots_on_target": 7.0, "goals": 4.0, "xg": 2.3338, "xg_place": 0.9959, "goals_minus_xg": 1.6662, "key_passes": 11.0, "assists": 0.0, "xa": 0.8365, "assists_minus_xa": -0.8365, "goals_plus_assists": 4.0, "xg_plus_xa": 3.1704, "points_added": 2.5669, "xpoints_added": 1.6788, "passes_attempted": 708.0, "pass_completion_pct": 0.7585, "xpass_completion_pct": 0.7887, "passes_over_expected": -21.3772, "passes_over_expected_p100": -3.0194, "avg_pass_distance": 20.7555, "avg_pass_vertical": 6.207}, "MLS-2019": {"minutes_played": 66.0, "shots": 0.0, "shots_on_target": 0.0, "goals": 0.0, "xg": 0.0, "xg_place": 0.0, "goals_minus_xg": 0.0, "key_passes": 0.0, "assists": 0.0, "xa": 0.0, "assists_minus_xa": 0.0, "goals_plus_assists": 0.0, "xg_plus_xa": 0.0, "points_added": 0.0, "xpoints_added": 0.0, "passes_attempted": 14.0, "pass_completion_pct": 0.8571, "xpass_completion_pct": 0.8611, "passes_over_expected": -0.0547, "passes_over_expected_p100": -0.3909, "avg_pass_distance": 12.1404, "avg_pass_vertical": 3.5107}, "USLC-2019": {"minutes_played": 530.0, "shots": 4.0, "shots_on_target": 1.0, "goals": 1.0, "xg": 0.5603, "xg_place": 0.3476, "goals_minus_xg": 0.4397, "key_passes": 5.0, "assists": 0.0, "xa": 0.3051, "assists_minus_xa": -0.3051, "goals_plus_assists": 1.0, "xg_plus_xa": 0.8654000000000001, "points_added": 0.0, "xpoints_added": 0.0937, "passes_attempted": 234.0, "pass_completion_pct": 1.6193, "xpass_completion_pct": 1.6394, "passes_over_expected": -3.3319000000000005, "passes_over_expected_p100": -2.0060000000000002, "avg_pass_distance": 33.8571, "avg_pass_vertical": 3.0218000000000003}, "MLS-2020": {"minutes_played": 1073.0, "shots": 9.0, "shots_on_target": 3.0, "goals": 0.0, "xg": 0.7764, "xg_place": -0.1375, "goals_minus_xg": -0.7764, "key_passes": 6.0, "assists": 2.0, "xa": 0.9687, "assists_minus_xa": 1.0313, "goals_plus_assists": 2.0, "xg_plus_xa": 1.745, "points_added": 0.0, "xpoints_added": 0.4531, "passes_attempted": 385.0, "pass_completion_pct": 0.7896, "xpass_completion_pct": 0.8064, "passes_over_expected": -6.452, "passes_over_expected_p100": -1.6758, "avg_pass_distance": 15.9594, "avg_pass_vertical": -0.3693}, "XFL-2020": {"solo_tackles": 1.0, "tackles": 1.0}, "MLS-2021": {"minutes_played": 1238.0, "shots": 2.0, "shots_on_target": 0.0, "goals": 0.0, "xg": 0.4633, "xg_place": -0.4633, "goals_minus_xg": -0.4633, "key_passes": 4.0, "assists": 1.0, "xa": 0.5642, "assists_minus_xa": 0.4358, "goals_plus_assists": 1.0, "xg_plus_xa": 1.0276, "points_added": 0.0, "xpoints_added": 0.48, "passes_attempted": 477.0, "pass_completion_pct": 0.8281, "xpass_completion_pct": 0.8576, "passes_over_expected": -14.081, "passes_over_expected_p100": -2.952, "avg_pass_distance": 19.8702, "avg_pass_vertical": 4.9136}, "MLS-2022": {"minutes_played": 1053.0, "shots": 7.0, "shots_on_target": 1.0, "goals": 1.0, "xg": 1.2401, "xg_place": -0.4461, "goals_minus_xg": -0.2401, "key_passes": 2.0, "assists": 0.0, "xa": 0.0774, "assists_minus_xa": -0.0774, "goals_plus_assists": 1.0, "xg_plus_xa": 1.3175, "points_added": 0.0394, "xpoints_added": 0.3044, "passes_attempted": 467.0, "pass_completion_pct": 0.863, "xpass_completion_pct": 0.8737, "passes_over_expected": -5.0001, "passes_over_expected_p100": -1.0707, "avg_pass_distance": 18.6783, "avg_pass_vertical": 1.2527}, "USFL-2022": {"lost_fumbles": 0.0}, "MLS-2023": {"minutes_played": 2094.0, "shots": 17.0, "shots_on_target": 4.0, "goals": 0.0, "xg": 1.7983, "xg_place": -1.4855, "goals_minus_xg": -1.7983, "key_passes": 1.0, "assists": 0.0, "xa": 0.0894, "assists_minus_xa": -0.0894, "goals_plus_assists": 0.0, "xg_plus_xa": 1.8877, "points_added": 0.0, "xpoints_added": 1.1637, "passes_attempted": 771.0, "pass_completion_pct": 0.8768, "xpass_completion_pct": 0.871, "passes_over_expected": 4.4404, "passes_over_expected_p100": 0.5759, "avg_pass_distance": 17.2896, "avg_pass_vertical": 1.4983}, "MLS-2024": {"minutes_played": 590.0, "shots": 3.0, "shots_on_target": 2.0, "goals": 0.0, "xg": 0.0845, "xg_place": 0.1049, "goals_minus_xg": -0.0845, "key_passes": 3.0, "assists": 1.0, "xa": 0.4828, "assists_minus_xa": 0.5172, "goals_plus_assists": 1.0, "xg_plus_xa": 0.5673, "points_added": 0.0, "xpoints_added": 0.0256, "passes_attempted": 364.0, "pass_completion_pct": 0.9148, "xpass_completion_pct": 0.9156, "passes_over_expected": -0.2948, "passes_over_expected_p100": -0.081, "avg_pass_distance": 16.7786, "avg_pass_vertical": 0.115}, "MLS-2025": {"minutes_played": 16.0, "shots": 1.0, "shots_on_target": 0.0, "goals": 0.0, "xg": 0.0429, "xg_place": -0.0429, "goals_minus_xg": -0.0429, "key_passes": 0.0, "assists": 0.0, "xa": 0.0, "assists_minus_xa": 0.0, "goals_plus_assists": 0.0, "xg_plus_xa": 0.0429, "points_added": 0.0, "xpoints_added": 0.0, "passes_attempted": 12.0, "pass_completion_pct": 0.9167, "xpass_completion_pct": 0.9495, "passes_over_expected": -0.3934, "passes_over_expected_p100": -3.2786, "avg_pass_distance": 15.5546, "avg_pass_vertical": -4.6366}, "AF1-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "tackles": 27.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -2533,6 +2603,8 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
@@ -2542,6 +2614,8 @@
         <th scope="col" data-stat="goals_minus_xg">Goals Minus Xg</th>
         
         <th scope="col" data-stat="goals_plus_assists">Goals Plus Assists</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="key_passes">Key Passes</th>
         
@@ -2557,7 +2631,23 @@
         
         <th scope="col" data-stat="passes_over_expected_p100">Passes Over Expected P100</th>
         
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="patkick">Patkick</th>
+        
         <th scope="col" data-stat="points_added">Points Added</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -2589,7 +2679,109 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2017 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49"> Wk 4</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2023.html">ifl-2023</a></td>
+        <td><a href="../games/4002611110441.html" class="game-id">Game #4002611110441</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>243.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>104.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="49">2017 Wk 1</td></tr>
       
       <tr>
         <td>2017</td>
@@ -2622,11 +2814,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.1571</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -2642,7 +2838,23 @@
         
         <td>-5.3097</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2701,11 +2913,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>-0.0639</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>12.0</td>
         
@@ -2721,7 +2937,23 @@
         
         <td>-0.6349</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0703</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2750,7 +2982,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2018 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2018 Wk 1</td></tr>
       
       <tr>
         <td>2018</td>
@@ -2783,11 +3015,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.3028</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -2803,7 +3039,23 @@
         
         <td>-1.0005</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2862,11 +3114,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>1.6662</td>
         
         <td>4.0</td>
+        
+        <td></td>
         
         <td>11.0</td>
         
@@ -2882,7 +3138,23 @@
         
         <td>-3.0194</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.5669</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -2911,7 +3183,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2019 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2019 Wk 1</td></tr>
       
       <tr>
         <td>2019</td>
@@ -2944,11 +3216,15 @@
         
         <td></td>
         
-        <td>0.0</td>
+        <td></td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -2964,7 +3240,23 @@
         
         <td>-0.3909</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3023,11 +3315,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.4732</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -3043,7 +3339,23 @@
         
         <td>3.1002</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3102,11 +3414,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.0335</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -3122,7 +3438,23 @@
         
         <td>-5.1062</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3151,7 +3483,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2020 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2020 Wk 1</td></tr>
       
       <tr>
         <td>2020</td>
@@ -3184,11 +3516,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.7764</td>
         
         <td>2.0</td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -3204,7 +3540,23 @@
         
         <td>-1.6758</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3233,7 +3585,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2020 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="49">2020 Wk 5</td></tr>
       
       <tr>
         <td>2020</td>
@@ -3294,6 +3646,26 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
@@ -3315,7 +3687,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2021 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2021 Wk 1</td></tr>
       
       <tr>
         <td>2021</td>
@@ -3348,11 +3720,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.4633</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -3368,7 +3744,23 @@
         
         <td>-2.952</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3397,7 +3789,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -3430,11 +3822,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>-0.2401</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -3450,7 +3846,23 @@
         
         <td>-1.0707</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0394</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3479,7 +3891,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="49">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -3520,7 +3932,27 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3561,7 +3993,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2023 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2023 Wk 1</td></tr>
       
       <tr>
         <td>2023</td>
@@ -3594,11 +4026,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-1.7983</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -3614,7 +4050,23 @@
         
         <td>0.5759</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3643,7 +4095,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2024 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2024 Wk 1</td></tr>
       
       <tr>
         <td>2024</td>
@@ -3676,11 +4128,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.0845</td>
         
         <td>1.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -3696,7 +4152,23 @@
         
         <td>-0.081</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3725,7 +4197,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="49">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -3758,11 +4230,15 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>-0.0429</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -3778,7 +4254,23 @@
         
         <td>-3.2786</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3807,7 +4299,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3836,9 +4328,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3889,7 +4401,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3918,9 +4430,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -3971,7 +4503,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -4000,9 +4532,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -4053,7 +4605,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -4082,9 +4634,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -4135,7 +4707,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -4164,9 +4736,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -4217,7 +4809,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="39">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="49">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -4246,9 +4838,29 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -4306,7 +4918,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-23.
+      Data updated: 2026-05-24.
       Formats:
       
 <a href="../data/players/derrick-jones.json">JSON</a> ·

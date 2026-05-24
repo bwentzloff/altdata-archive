@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Desmond  Maxwell — AltSports Stats">
-  <meta property="og:description" content="Career stats for Desmond  Maxwell: fumbles 1.0, fumbles_lost 1.0, games_played 42.0, kick_returns 0.0, punt_returns 0.0, rec_avg 34.0, rec_long 35.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 75.0, receiving_yards_per_game -0.1, receptions 6.0, receptions_per_game 0.1, rush_avg 13.8, rush_long 38.0, rushing_2pt 0.0, rushing_attempts 66.0, rushing_fum 0.0, rushing_tds 14.0, rushing_yards 354.0, rushing_yards_per_game 30.1, total_yards 210.0, yards_per_game 30.0">
+  <meta property="og:description" content="Career stats for Desmond  Maxwell: field_goal_yards 0.0, fumbles 1.0, fumbles_lost 1.0, games_played 42.0, interceptions_lost 1.0, kick_returns 0.0, passing_tds 4.0, passing_yards 243.0, patkick 0.0, punt_returns 0.0, rec_avg 34.0, rec_long 35.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 91.0, receiving_yards_per_game -0.1, receptions 8.0, receptions_per_game 0.1, rush_avg 13.8, rush_long 38.0, rushing_2pt 0.0, rushing_attempts 66.0, rushing_fum 0.0, rushing_tds 15.0, rushing_yards 357.0, rushing_yards_per_game 30.1, total_yards 210.0, yards_per_game 30.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/desmond-maxwell.html">
   
@@ -78,6 +78,20 @@
       "name": "NAL",
       "description": "League-level player statistics for NAL from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2023",
+      "description": "League-level player statistics for IFL 2023 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2023.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -274,9 +288,15 @@
           
         
           
-        
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
           
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
+          
+        
+          
+            <th scope="col" data-stat="interceptions_lost">INT</th>
           
         
           
@@ -289,19 +309,19 @@
       <tr>
         
           
-            <td>354</td>
+            <td>357</td>
           
         
           
-            <td>14</td>
+            <td>15</td>
           
         
           
-            <td>6</td>
+            <td>8</td>
           
         
           
-            <td>75</td>
+            <td>91</td>
           
         
           
@@ -315,9 +335,15 @@
           
         
           
-        
+            <td>243</td>
           
         
+          
+            <td>4</td>
+          
+        
+          
+            <td>1</td>
           
         
           
@@ -341,7 +367,7 @@
   <script>
   (function(){
     var seasons = {"AF1-2025": {"rushing_yards": 89.0, "rushing_tds": 2.0, "receptions": 3.0, "receiving_yards": 33.0, "receiving_tds": 1.0}, "AF1-2026": {"rush_avg": 10.0, "rush_long": 14.0, "rushing_2pt": 0.0, "rushing_attempts": 10.0, "rushing_fum": 0.0, "rushing_tds": 5.0, "rushing_yards": 28.0, "rec_avg": 35.0, "rec_long": 35.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 1.0, "receiving_yards": 35.0, "receptions": 2.0}};
-    var stat    = "rushing_yards";
+    var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -589,13 +615,23 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
         <th scope="col" data-stat="fumbles">Fumbles</th>
         
         <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
         
         <th scope="col" data-stat="games_played">Games Played</th>
         
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="patkick">Patkick</th>
         
         <th scope="col" data-stat="punt_returns">Punt Returns</th>
         
@@ -645,7 +681,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">—</td></tr>
+      <tr class="week-group-row"><td colspan="34">—</td></tr>
       
       <tr>
         <td>—</td>
@@ -654,13 +690,23 @@
         <td><a href="../games/football-nal-2021-orlando-predators-season-total.html" class="game-id">FOOTBALL_NAL_2021_orlando-predators_SEASON_TOTAL</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
         
         <td>42.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -707,7 +753,79 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="34"> Wk 4</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2023.html">ifl-2023</a></td>
+        <td><a href="../games/4002611110441.html" class="game-id">Game #4002611110441</a></td>
+        <td>—</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>243.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>16.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="34">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -715,6 +833,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/billings-albany-0413.html" class="game-id">BILLINGS @ ALBANY</a></td>
         <td>24–62</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -769,7 +897,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -777,6 +905,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-albany-0425.html" class="game-id">CORPUS CHRISTI @ ALBANY</a></td>
         <td>12–100</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -831,7 +969,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -839,6 +977,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/albany-salina-0504.html" class="game-id">SALINA @ ALBANY</a></td>
         <td>58–64</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -893,7 +1041,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -901,6 +1049,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/albany-nashville-0510.html" class="game-id">NASHVILLE @ ALBANY</a></td>
         <td>55–71</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -955,7 +1113,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -963,6 +1121,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/corpuschristi-albany-0524.html" class="game-id">ALBANY @ CORPUS CHRISTI</a></td>
         <td>64–27</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1017,7 +1185,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1025,6 +1193,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-albany-0614.html" class="game-id">ALBANY @ WASHINGTON</a></td>
         <td>98–12</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1079,7 +1257,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 15</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 15</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1087,6 +1265,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/salina-albany-0621.html" class="game-id">ALBANY @ SALINA</a></td>
         <td>75–44</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1141,7 +1329,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2025 Wk 16</td></tr>
+      <tr class="week-group-row"><td colspan="34">2025 Wk 16</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1149,6 +1337,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/nashville-albany-0628.html" class="game-id">ALBANY @ NASHVILLE</a></td>
         <td>60–57</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1203,7 +1401,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1240,6 +1438,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>2.0</td>
@@ -1265,7 +1473,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1284,6 +1492,16 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>24.0</td>
         
         <td>24.0</td>
@@ -1327,7 +1545,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1335,6 +1553,16 @@
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-5-16-t612138g1168221-t584637.html" class="game-id">Oceanside Bombers @ Nashville Kats</a></td>
         <td>49–63</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1389,7 +1617,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="29">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="34">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1397,6 +1625,16 @@
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-5-22-t584637g1168386-t602555.html" class="game-id">Nashville Kats @ Minnesota Monsters</a></td>
         <td>58–28</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1458,7 +1696,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-23.
+      Data updated: 2026-05-24.
       Formats:
       
 <a href="../data/players/desmond-maxwell.json">JSON</a> ·
