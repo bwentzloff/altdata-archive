@@ -783,20 +783,18 @@ def main():
         player_data = json.loads(pf.read_text())
         cid = player_data["canonical_id"]
         img_meta = player_images.get(cid)  # None if no image
-        
+
+        # Filter out '50 Yard' and '50YARD' (case-insensitive, ignore spaces) from sport_names
+        sport_names = player_data.get("sport_names", [])
+        filtered_sport_names = [s for s in sport_names if s.replace(" ", "").lower() != "50yard"]
+        player_data["sport_names"] = filtered_sport_names
+
         # Check if this player is a coach
         is_coach = cid in coaches_merged
-        
+
         # OG image generation disabled
-        # og_image_path = SITE_DIR / "assets" / "og-images" / f"{cid}.png"
-        # og_image_exists = og_image_path.exists() or (cid in og_images_generated)
-        # if cid not in og_images_generated and og_images_generated_count < og_images_batch_limit:
-        #     if generate_player_og_image(player_data, og_image_path):
-        #         og_images_generated.add(cid)
-        #         og_images_generated_count += 1
-        #         og_image_exists = True
         og_image_exists = False
-        
+
         render(
             env, "player.html",
             SITE_DIR / "players" / f"{cid}.html",
