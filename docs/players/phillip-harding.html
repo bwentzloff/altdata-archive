@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Phillip Harding — AltSports Stats">
-  <meta property="og:description" content="Career stats for Phillip Harding: rec_avg 14.0, rec_long 24.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 88.0, receptions 7.0">
+  <meta property="og:description" content="Career stats for Phillip Harding: assisted_tackles 3.0, rec_avg 14.0, rec_long 24.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 88.0, receptions 7.0, solo_tackles 1.0, tackles 4.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/phillip-harding.html">
   
@@ -78,6 +78,20 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -214,6 +228,17 @@
       </div>
       
       <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
           
@@ -228,6 +253,19 @@
     
   </div>
 
+  
+  <div class="player-scores-box">
+    <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
+    <div class="score-badges-container">
+      <div class="score-badge all-around-badge">
+        <div class="badge-number">74.4</div>
+        <div class="badge-label">All-Around</div>
+        <div class="badge-rank">#310</div>
+      </div>
+      
+      
+    </div>
+  </div>
   
 </div>
 
@@ -329,7 +367,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 3.0, "receiving_yards": 34.0, "receiving_tds": 0.0}, "NAL-2026": {"rec_avg": 14.0, "rec_long": 24.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 54.0, "receptions": 4.0}};
+    var seasons = {"AF1-2025": {"receptions": 3.0, "receiving_yards": 34.0, "receiving_tds": 0.0}, "IFL-2026": {"assisted_tackles": 3.0, "solo_tackles": 1.0, "tackles": 4.0}, "NAL-2026": {"rec_avg": 14.0, "rec_long": 24.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 54.0, "receptions": 4.0}};
     var stat    = "receiving_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -367,6 +405,14 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -382,6 +428,8 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -393,6 +441,10 @@
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
@@ -408,17 +460,49 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
         <td>0</td>
         
         <td>34</td>
         
         <td>3</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>3</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>4</td>
+        
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
         
         <td>14</td>
         
@@ -431,6 +515,10 @@
         <td>54</td>
         
         <td>4</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -510,6 +598,8 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
         <th scope="col" data-stat="rec_long">Rec Long</th>
@@ -522,6 +612,10 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -530,7 +624,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="11">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -545,18 +639,56 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>34.0</td>
         
         <td>3.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="11">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="14">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-24-tnewmexicochupacabrasg20260524hn6i-torlandopirates.html" class="game-id">New Mexico Chupacabras @ Orlando Pirates</a></td>
+        <td>11.0–41.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="14">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -564,6 +696,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-2-t600411g1127164-t573852.html" class="game-id">Salina Liberty @ Louisiana Rouxgaroux</a></td>
         <td>48–30</td>
+        
+        <td></td>
         
         <td>14.0</td>
         
@@ -577,6 +711,10 @@
         
         <td>4.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
@@ -584,12 +722,18 @@
   
 </section>
   
+  <footer class="score-footnote" id="score-footnote">
+    <h3>Score Methodology</h3>
+    <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
+    
+  </footer>
+  
 
   </main>
 
   <footer>
     <p>
-      Data updated: 2026-05-24.
+      Data updated: 2026-05-25.
       Formats:
       
 <a href="../data/players/phillip-harding.json">JSON</a> ·

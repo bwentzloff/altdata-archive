@@ -32,7 +32,7 @@
     },
     "eventStatus": "https://schema.org/EventScheduled",
     "performer": [
-      {% if game.away_team %}{"@type": "SportsTeam", "name": "{{ game.away_team }}"}}{% if game.home_team %}, {% endif %}{% endif %}
+      {% if game.away_team %}{"@type": "SportsTeam", "name": "{{ game.away_team }}"}{% if game.home_team %}, {% endif %}{% endif %}
       {% if game.home_team %}{"@type": "SportsTeam", "name": "{{ game.home_team }}"}{% endif %}
     ],
     "offers": {
