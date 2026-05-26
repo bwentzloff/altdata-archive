@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Chris  Elmore — AltSports Stats">
-  <meta property="og:description" content="Career stats for Chris  Elmore: assisted_tackles 17.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 2.0, kr_avg -3.0, kr_long 0.0, kr_tds 0.0, kr_yards -3.0, return_td 1.0, rush_avg 4.0, rush_long 5.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 2.0, rushing_yards 6.0, sacks 0.5, safeties 0.0, solo_tackles 1.0, tackles 12.0">
+  <meta property="og:description" content="Career stats for Chris  Elmore: assisted_tackles 17.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 2.0, kr_avg -3.0, kr_long 0.0, kr_tds 0.0, kr_yards -3.0, recv_td 2.0, rush_avg 3.0, rush_long 4.0, rushing_attempts 3.0, rushing_fum 0.0, rushing_tds 2.0, rushing_yards 5.0, sacks 0.5, safeties 0.0, solo_tackles 1.0, tackles 12.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/chris-elmore.html">
   
@@ -75,20 +75,6 @@
     
     {
       "@type": "Dataset",
-      "name": "UFL 2025",
-      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
       "name": "NAL 2026",
       "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
@@ -106,6 +92,20 @@
       "name": "IFL 2026",
       "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2026",
+      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -210,28 +210,13 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
-        <span class="ct-yr">'25</span>
-        
         <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">UFL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">IFL</span>
         
-          
-          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -242,7 +227,14 @@
         <span class="ct-label">NAL</span>
         
           
-          <span class="ct-cell"></span>
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
           
           <span class="ct-cell ct-on"></span>
           
@@ -288,6 +280,8 @@
           
         
           
+            <th scope="col" data-stat="recv_td">Recv Td</th>
+          
         
           
         
@@ -328,7 +322,7 @@
         
           
             <td>
-              6
+              5
             </td>
           
         
@@ -348,6 +342,10 @@
         
           
         
+          
+            <td>
+              2
+            </td>
           
         
           
@@ -398,7 +396,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2025": {"return_td": 1.0}, "NAL-2026": {"assisted_tackles": 17.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.5, "safeties": 0.0, "tackles": 11.0, "kick_returns": 2.0, "kr_avg": -3.0, "kr_long": 0.0, "kr_tds": 0.0, "kr_yards": -3.0, "rush_avg": 3.0, "rush_long": 4.0, "rushing_attempts": 3.0, "rushing_fum": 0.0, "rushing_tds": 2.0, "rushing_yards": 5.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0, "rush_avg": 1.0, "rush_long": 1.0, "rushing_attempts": 1.0, "rushing_tds": 0.0, "rushing_yards": 1.0}};
+    var seasons = {"NAL-2026": {"assisted_tackles": 17.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.5, "safeties": 0.0, "tackles": 11.0, "kick_returns": 2.0, "kr_avg": -3.0, "kr_long": 0.0, "kr_tds": 0.0, "kr_yards": -3.0, "rush_avg": 3.0, "rush_long": 4.0, "rushing_attempts": 3.0, "rushing_fum": 0.0, "rushing_tds": 2.0, "rushing_yards": 5.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}, "UFL-2026": {"recv_td": 2.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -620,113 +618,48 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col">Coach</th>
-        
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
       </tr>
     </thead>
     <tbody>
       
       <tr>
-        <td>UFL 2025</td>
-        
-        <td>
-          
-          
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/payton-pardee.html">Payton Pardee</a>; 
-              
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/shannon-harris.html">Shannon Harris</a>
-              
-            
-          
-        </td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>IFL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
         
+        <td>—</td>
         
-        <td>1</td>
+        <td>—</td>
         
-        <td>0</td>
+        <td>—</td>
         
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
-        
         
         <td>5</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>2</td>
         
@@ -742,13 +675,23 @@
         
         
           
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
         
           
             
           
         
           
-            
+        
           
         
         
@@ -757,8 +700,6 @@
         
           
         
-          
-            
           
         
           
@@ -769,13 +710,21 @@
       
       <tr>
         <th>Total</th>
-        <td></td>
+        
         
           
           
           <td>
             
-              6<br>
+              5<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              2<br>
             
           </td>
         
@@ -790,26 +739,7 @@
       </tr>
       <tr>
         <th>Avg</th>
-        <td></td>
         
-          
-          <td>
-            
-              3
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-      </tr>
-      <tr>
-        <th>Max</th>
-        <td></td>
         
           
           <td>
@@ -825,41 +755,88 @@
             
           </td>
         
+          
+          <td>
+            
+              2
+            
+          </td>
+        
       </tr>
       <tr>
-        <th>Min</th>
-        <td></td>
+        <th>Max</th>
+        
         
           
           <td>
             
-              1
+              5
             
           </td>
         
           
           <td>
             
-              0
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              2
             
           </td>
         
       </tr>
       <tr>
         <th>Std Dev</th>
-        <td></td>
+        
         
           <td>
             
             
-              2.8
+              —
             
           </td>
         
           <td>
             
             
-              1.4
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
             
           </td>
         
@@ -918,7 +895,7 @@
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
         
-        <th scope="col" data-stat="return_td">Return Td</th>
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -944,66 +921,6 @@
     </thead>
     <tbody>
       
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="28">2025 Wk 4</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>4</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-4-20-sa-dc.html" class="game-id">SA @ DC</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
       
       
       
@@ -1364,6 +1281,63 @@
       
       
       
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-25-dc-bhm.html" class="game-id">DC @ BHM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
       
       <tr class="week-group-row"><td colspan="28">2026 Wk 6</td></tr>
       
@@ -1419,6 +1393,66 @@
         <td></td>
         
         <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-5-9-lou-dc.html" class="game-id">LOU @ DC</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1550,63 +1584,6 @@
       <tr>
         <td>2026</td>
         <td>10</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-18-tarizonarattlersg20260518e0uh-tnewmexicochupacabras.html" class="game-id">Arizona Rattlers @ New Mexico Chupacabras</a></td>
-        <td>61.0–15.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      <tr>
-        <td>2026</td>
-        <td>10</td>
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-10-t577047g1127169-t570667.html" class="game-id">Pueblo Punishers @ Colorado Spartans</a></td>
         <td>44–57</td>
@@ -1669,7 +1646,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-25.
+      Data updated: 2026-05-26.
       Formats:
       
 <a href="../data/players/chris-elmore.json">JSON</a> ·

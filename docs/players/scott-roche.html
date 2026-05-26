@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Scott Roche — AltSports Stats">
-  <meta property="og:description" content="Career stats for Scott Roche: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, fg_attempts 1.0, field_goal_long 49.0, field_goal_pct 1.0, field_goals_made 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, kicking_deuce 1.0, kicking_pat 8.0, kicking_pat_att 14.0, sacks 0.0, safeties 0.0, solo_tackles 1.0, tackles 3.0">
+  <meta property="og:description" content="Career stats for Scott Roche: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, fg_attempts 1.0, field_goal_long 49.0, field_goal_pct 1.0, field_goals_made 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 1.0, kicking_deuce 1.0, kicking_pat 8.0, kicking_pat_att 14.0, kr_avg 32.0, kr_long 32.0, kr_tds 0.0, kr_yards 32.0, rec_avg 15.0, rec_long 19.0, receiving_tds 1.0, receiving_yards 22.0, receptions 3.0, sacks 0.0, safeties 0.0, tackles 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/scott-roche.html">
   
@@ -236,9 +236,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">55.0</div>
+        <div class="badge-number">50.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1921</div>
+        <div class="badge-rank">#2252</div>
       </div>
       
       
@@ -265,9 +265,15 @@
           
         
           
-        
+            <th scope="col" data-stat="receptions">Rec</th>
           
         
+          
+            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -318,9 +324,21 @@
           
         
           
-        
+            <td>
+              3
+            </td>
           
         
+          
+            <td>
+              22
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
           
         
           
@@ -369,6 +387,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2026": {"fg_attempts": 1.0, "field_goal_long": 49.0, "field_goal_pct": 1.0, "field_goals_made": 1.0, "kicking_deuce": 1.0, "kicking_pat": 8.0, "kicking_pat_att": 14.0, "assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 2.0}, "IFL-2026": {"kick_returns": 1.0, "kr_avg": 32.0, "kr_long": 32.0, "kr_tds": 0.0, "kr_yards": 32.0, "rec_avg": 15.0, "rec_long": 19.0, "receiving_tds": 1.0, "receiving_yards": 22.0, "receptions": 3.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -528,6 +570,12 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -536,11 +584,23 @@
         <td>IFL 2026</td>
         
         
+        <td>3</td>
+        
+        <td>22</td>
+        
+        <td>1</td>
+        
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -551,29 +611,167 @@
       
       
       
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
       <tr>
         <th>Total</th>
         
+        
+          
+          
+          <td>
+            
+              3<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              22<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
         
         
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              22
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Max</th>
         
+        
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              22
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
         
       </tr>
       <tr>
         <th>Min</th>
         
         
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              22
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
       </tr>
     </tfoot>
@@ -869,17 +1067,35 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        
         <th scope="col" data-stat="kicking_deuce">Kicking Deuce</th>
         
         <th scope="col" data-stat="kicking_pat">Kicking Pat</th>
         
         <th scope="col" data-stat="kicking_pat_att">Kicking Pat Att</th>
         
+        <th scope="col" data-stat="kr_avg">Kr Avg</th>
+        
+        <th scope="col" data-stat="kr_long">Kr Long</th>
+        
+        <th scope="col" data-stat="kr_tds">Kr Tds</th>
+        
+        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
-        
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -891,7 +1107,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="32">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -922,6 +1138,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>2.0</td>
@@ -936,12 +1154,28 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="32">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -972,17 +1206,35 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>3.0</td>
         
         <td>4.0</td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>1.0</td>
         
@@ -991,7 +1243,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="32">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1022,17 +1274,35 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>3.0</td>
         
         <td>5.0</td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>1.0</td>
         
@@ -1041,50 +1311,68 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="32">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
         <td>6</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-4-17-torlandopiratesg202604173epg-tjacksonvillesharks.html" class="game-id">Orlando Pirates @ Jacksonville Sharks</a></td>
-        <td>33.0–69.0</td>
+        <td><a href="../games/football-ifl-2026-4-18-tiowabarnstormersg20260418bifv-tgreenbayblizzard.html" class="game-id">Iowa Barnstormers @ Green Bay Blizzard</a></td>
+        <td>19.0–55.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>32.0</td>
+        
+        <td>32.0</td>
         
         <td>0.0</td>
         
-        <td></td>
+        <td>32.0</td>
         
-        <td></td>
+        <td>8.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
+        <td>8.0</td>
         
         <td>1.0</td>
         
+        <td>8.0</td>
+        
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
@@ -1119,6 +1407,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1126,6 +1416,90 @@
         <td>2.0</td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="32">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-25-tfishersfreightg202604259u64-tiowabarnstormers.html" class="game-id">Fishers Freight @ Iowa Barnstormers</a></td>
+        <td>53.0–31.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.0</td>
+        
+        <td>11.0</td>
+        
+        <td>0.0</td>
+        
+        <td>14.0</td>
+        
+        <td>2.0</td>
         
         <td></td>
         
@@ -1151,7 +1525,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-25.
+      Data updated: 2026-05-26.
       Formats:
       
 <a href="../data/players/scott-roche.json">JSON</a> ·

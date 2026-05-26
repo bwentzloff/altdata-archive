@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Monalo Caldwell — AltSports Stats">
-  <meta property="og:description" content="Career stats for Monalo Caldwell: assisted_tackles 0.0, rush_avg 3.0, rush_long 3.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 3.0, solo_tackles 1.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Monalo Caldwell: fumbles 2.0, fumbles_lost 1.0, interceptions 1.0, pass_attempts 64.0, pass_completions 33.0, pass_long 81.0, passing_tds 5.0, passing_yards 383.0, rush_avg 12.7, rush_long 41.0, rushing_attempts 33.0, rushing_fum 0.0, rushing_tds 5.0, rushing_yards 124.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/monalo-caldwell.html">
   
@@ -75,9 +75,9 @@
     
     {
       "@type": "Dataset",
-      "name": "NAL 2026",
-      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -89,9 +89,9 @@
     ,
     {
       "@type": "Dataset",
-      "name": "IFL 2026",
-      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "name": "NAL 2026",
+      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -227,11 +227,17 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">27.2</div>
+        <div class="badge-number">61.6</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#3178</div>
+        <div class="badge-rank">#1297</div>
       </div>
       
+      
+      <div class="score-badge position-badge">
+        <div class="badge-number">66.3</div>
+        <div class="badge-label">RB</div>
+        <div class="badge-rank">#15</div>
+      </div>
       
     </div>
   </div>
@@ -272,7 +278,11 @@
           
         
           
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
+          
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
@@ -310,13 +320,13 @@
         
           
             <td>
-              3
+              124
             </td>
           
         
           
             <td>
-              0
+              5
             </td>
           
         
@@ -333,7 +343,15 @@
           
         
           
+            <td>
+              383
+            </td>
+          
         
+          
+            <td>
+              5
+            </td>
           
         
           
@@ -380,8 +398,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"NAL-2026": {"rush_avg": 3.0, "rush_long": 3.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 3.0}, "IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}};
-    var stat    = "rushing_yards";
+    var seasons = {"IFL-2026": {"fumbles": 2.0, "fumbles_lost": 1.0, "interceptions": 1.0, "pass_attempts": 64.0, "pass_completions": 33.0, "pass_long": 81.0, "passing_tds": 5.0, "passing_yards": 383.0, "rush_avg": 9.7, "rush_long": 38.0, "rushing_attempts": 32.0, "rushing_tds": 5.0, "rushing_yards": 121.0}, "NAL-2026": {"rush_avg": 3.0, "rush_long": 3.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 3.0}};
+    var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -559,6 +577,10 @@
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -567,9 +589,13 @@
         <td>IFL 2026</td>
         
         
-        <td>—</td>
+        <td>121</td>
         
-        <td>—</td>
+        <td>5</td>
+        
+        <td>383</td>
+        
+        <td>5</td>
         
       </tr>
       
@@ -581,6 +607,10 @@
         
         <td>0</td>
         
+        <td>—</td>
+        
+        <td>—</td>
+        
       </tr>
       
     </tbody>
@@ -589,6 +619,30 @@
       
       
       
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
       
         
         
@@ -618,7 +672,7 @@
           
           <td>
             
-              3<br>
+              124<br>
             
           </td>
         
@@ -626,7 +680,23 @@
           
           <td>
             
-              0<br>
+              5<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              383<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              5<br>
             
           </td>
         
@@ -638,14 +708,28 @@
           
           <td>
             
-              3
+              62
             
           </td>
         
           
           <td>
             
-              0
+              2.5
+            
+          </td>
+        
+          
+          <td>
+            
+              383
+            
+          </td>
+        
+          
+          <td>
+            
+              5
             
           </td>
         
@@ -657,14 +741,28 @@
           
           <td>
             
-              3
+              121
             
           </td>
         
           
           <td>
             
-              0
+              5
+            
+          </td>
+        
+          
+          <td>
+            
+              383
+            
+          </td>
+        
+          
+          <td>
+            
+              5
             
           </td>
         
@@ -687,10 +785,38 @@
             
           </td>
         
+          
+          <td>
+            
+              383
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              83.4
+            
+          </td>
+        
+          <td>
+            
+            
+              3.5
+            
+          </td>
         
           <td>
             
@@ -737,7 +863,21 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
-        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -751,10 +891,6 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
-        
       </tr>
     </thead>
     <tbody>
@@ -763,7 +899,49 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="19">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-17-tiowabarnstormersg202605177dl7-tnazwranglers.html" class="game-id">Iowa Barnstormers @ NAZ Wranglers</a></td>
+        <td>33.0–57.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>20.0</td>
+        
+        <td>15.0</td>
+        
+        <td>27.0</td>
+        
+        <td>3.0</td>
+        
+        <td>154.0</td>
+        
+        <td>2.7</td>
+        
+        <td>9.0</td>
+        
+        <td>10.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>27.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -774,6 +952,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td>3.0</td>
@@ -785,42 +977,90 @@
         <td>0.0</td>
         
         <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="19">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
         <td>9</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-8-tquadcitysteamwheelersg202605081qhl-tgreenbayblizzard.html" class="game-id">Quad City Steamwheelers @ Green Bay Blizzard</a></td>
-        <td>40.0–65.0</td>
+        <td><a href="../games/football-ifl-2026-5-9-tsanantoniogunslingersg20260509kpe3-tnazwranglers.html" class="game-id">San Antonio Gunslingers @ NAZ Wranglers</a></td>
+        <td>30.0–29.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>14.0</td>
+        
+        <td>4.0</td>
+        
+        <td>18.0</td>
         
         <td>0.0</td>
         
-        <td></td>
+        <td>46.0</td>
+        
+        <td>4.7</td>
+        
+        <td>21.0</td>
+        
+        <td>18.0</td>
         
         <td></td>
         
-        <td></td>
+        <td>2.0</td>
         
-        <td></td>
+        <td>85.0</td>
         
-        <td></td>
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2026 Wk 11</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>11</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-23-tnazwranglersg20260523tybs-tsandiegostrikeforce.html" class="game-id">NAZ Wranglers @ San Diego Strike Force</a></td>
+        <td>35.0–67.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>30.0</td>
+        
+        <td>14.0</td>
+        
+        <td>36.0</td>
+        
+        <td>2.0</td>
+        
+        <td>183.0</td>
+        
+        <td>2.3</td>
+        
+        <td>8.0</td>
+        
+        <td>4.0</td>
         
         <td></td>
         
         <td>1.0</td>
         
-        <td>1.0</td>
+        <td>9.0</td>
         
       </tr>
       
@@ -833,6 +1073,8 @@
     <h3>Score Methodology</h3>
     <p><strong>All-Around Score:</strong> Percentile average across all statistical categories in football leagues. Calculated by ranking each player against peers for every stat in their league-season, then averaging those percentiles. Higher scores indicate consistent excellence across multiple positions and metrics.</p>
     
+    <p><strong>Position Score:</strong> Similar ranking methodology applied exclusively to statistics relevant to the player's primary position. Provides a focused measure of excellence at their specific role.</p>
+    
   </footer>
   
 
@@ -840,7 +1082,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-25.
+      Data updated: 2026-05-26.
       Formats:
       
 <a href="../data/players/monalo-caldwell.json">JSON</a> ·

@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="KESHAUN TAYLOR — AltSports Stats">
-  <meta property="og:description" content="Career stats for KESHAUN TAYLOR: assisted_tackles 2.0, rec_avg 47.0, rec_long 77.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 154.0, receptions 9.0, solo_tackles 3.0, tackles 5.0, tackles_for_loss 1.0, tfl_yards 0.0">
+  <meta property="og:description" content="Career stats for KESHAUN TAYLOR: assisted_tackles 0.0, rec_avg 55.3, rec_long 88.0, receiving_fum 0.0, receiving_tds 3.0, receiving_yards 179.0, receptions 12.0, rush_avg 2.3, rush_long 5.0, rushing_attempts 6.0, rushing_tds 1.0, rushing_yards 14.0, solo_tackles 1.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/keshaun-taylor.html">
   
@@ -75,9 +75,9 @@
     
     {
       "@type": "Dataset",
-      "name": "NAL 2026",
-      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -89,9 +89,9 @@
     ,
     {
       "@type": "Dataset",
-      "name": "IFL 2026",
-      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "name": "NAL 2026",
+      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -239,7 +239,11 @@
         
         
           
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -298,24 +302,32 @@
       <tr>
         
           
-        
-          
-        
-          
             <td>
-              9
+              14
             </td>
           
         
           
             <td>
-              154
+              1
             </td>
           
         
           
             <td>
-              2
+              12
+            </td>
+          
+        
+          
+            <td>
+              179
+            </td>
+          
+        
+          
+            <td>
+              3
             </td>
           
         
@@ -373,8 +385,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"NAL-2026": {"rec_avg": 47.0, "rec_long": 77.0, "receiving_fum": 0.0, "receiving_tds": 2.0, "receiving_yards": 154.0, "receptions": 9.0}, "IFL-2026": {"assisted_tackles": 2.0, "solo_tackles": 3.0, "tackles": 5.0, "tackles_for_loss": 1.0, "tfl_yards": 0.0}};
-    var stat    = "receiving_yards";
+    var seasons = {"IFL-2026": {"assisted_tackles": 0.0, "rec_avg": 8.3, "rec_long": 11.0, "receiving_tds": 1.0, "receiving_yards": 25.0, "receptions": 3.0, "rush_avg": 2.3, "rush_long": 5.0, "rushing_attempts": 6.0, "rushing_tds": 1.0, "rushing_yards": 14.0, "solo_tackles": 1.0, "tackles": 1.0}, "NAL-2026": {"rec_avg": 47.0, "rec_long": 77.0, "receiving_fum": 0.0, "receiving_tds": 2.0, "receiving_yards": 154.0, "receptions": 9.0}};
+    var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -548,6 +560,10 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
         <th scope="col" data-stat="receptions">Rec</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
@@ -562,17 +578,25 @@
         <td>IFL 2026</td>
         
         
-        <td>—</td>
+        <td>14</td>
         
-        <td>—</td>
+        <td>1</td>
         
-        <td>—</td>
+        <td>3</td>
+        
+        <td>25</td>
+        
+        <td>1</td>
         
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>9</td>
         
@@ -616,6 +640,32 @@
           
         
           
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
         
         
       
@@ -627,7 +677,7 @@
           
           <td>
             
-              9<br>
+              14<br>
             
           </td>
         
@@ -635,7 +685,7 @@
           
           <td>
             
-              154<br>
+              1<br>
             
           </td>
         
@@ -643,7 +693,23 @@
           
           <td>
             
-              2<br>
+              12<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              179<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              3<br>
             
           </td>
         
@@ -655,21 +721,35 @@
           
           <td>
             
-              9
+              14
             
           </td>
         
           
           <td>
             
-              154
+              1
             
           </td>
         
           
           <td>
             
-              2
+              6
+            
+          </td>
+        
+          
+          <td>
+            
+              89.5
+            
+          </td>
+        
+          
+          <td>
+            
+              1.5
             
           </td>
         
@@ -677,6 +757,20 @@
       <tr>
         <th>Max</th>
         
+        
+          
+          <td>
+            
+              14
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
         
           
           <td>
@@ -707,21 +801,35 @@
           
           <td>
             
-              9
+              14
             
           </td>
         
           
           <td>
             
-              154
+              1
             
           </td>
         
           
           <td>
             
-              2
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              25
+            
+          </td>
+        
+          
+          <td>
+            
+              1
             
           </td>
         
@@ -747,7 +855,21 @@
           <td>
             
             
-              —
+              4.2
+            
+          </td>
+        
+          <td>
+            
+            
+              91.2
+            
+          </td>
+        
+          <td>
+            
+            
+              0.7
             
           </td>
         
@@ -831,13 +953,19 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
-        
-        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
-        
-        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
         
       </tr>
     </thead>
@@ -847,7 +975,49 @@
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="19">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-24-tnewmexicochupacabrasg20260524hn6i-torlandopirates.html" class="game-id">New Mexico Chupacabras @ Orlando Pirates</a></td>
+        <td>11.0–41.0</td>
+        
+        <td>0.0</td>
+        
+        <td>8.3</td>
+        
+        <td>11.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>25.0</td>
+        
+        <td>3.0</td>
+        
+        <td>2.3</td>
+        
+        <td>5.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>14.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="19">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -878,12 +1048,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="19">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -914,12 +1090,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="16">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="19">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -950,41 +1132,11 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="16">2026 Wk 11</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>11</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-22-tjacksonvillesharksg20260522tjew-tiowabarnstormers.html" class="game-id">Jacksonville Sharks @ Iowa Barnstormers</a></td>
-        <td>60.0–48.0</td>
-        
-        <td>2.0</td>
-        
         <td></td>
         
         <td></td>
         
         <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td>5.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
         
       </tr>
       
@@ -998,7 +1150,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-25.
+      Data updated: 2026-05-26.
       Formats:
       
 <a href="../data/players/keshaun-taylor.json">JSON</a> ·

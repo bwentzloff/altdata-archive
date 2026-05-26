@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Michael Cotton — AltSports Stats">
-  <meta property="og:description" content="Career stats for Michael Cotton: assisted_tackles 4.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, rec_avg 17.5, rec_long 29.0, receiving_tds 0.0, receiving_yards 35.0, receptions 2.0, sacks 0.0, safeties 0.0, tackles 5.0">
+  <meta property="og:description" content="Career stats for Michael Cotton: assisted_tackles 6.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 1.0, forced_fumbles 0.0, fumble_recoveries 0.0, sacks 0.0, safeties 0.0, solo_tackles 4.0, tackles 11.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/michael-cotton.html">
   
@@ -227,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">71.9</div>
+        <div class="badge-number">75.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#453</div>
+        <div class="badge-rank">#271</div>
       </div>
       
       
@@ -256,15 +256,9 @@
           
         
           
-            <th scope="col" data-stat="receptions">Rec</th>
-          
         
           
-            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-          
         
-          
-            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -315,21 +309,9 @@
           
         
           
-            <td>
-              2
-            </td>
-          
         
           
-            <td>
-              35
-            </td>
-          
         
-          
-            <td>
-              0
-            </td>
           
         
           
@@ -378,30 +360,6 @@
 
 
 
-
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"NAL-2026": {"assisted_tackles": 4.0, "def_interceptions": 2.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 1.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 5.0}, "IFL-2026": {"rec_avg": 17.5, "rec_long": 29.0, "receiving_tds": 0.0, "receiving_yards": 35.0, "receptions": 2.0}};
-    var stat    = "receiving_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
 
 
@@ -561,12 +519,6 @@
         <th scope="col">Season</th>
         
         
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
       </tr>
     </thead>
     <tbody>
@@ -575,23 +527,11 @@
         <td>IFL 2026</td>
         
         
-        <td>2</td>
-        
-        <td>35</td>
-        
-        <td>0</td>
-        
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
@@ -602,167 +542,29 @@
       
       
       
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
       <tr>
         <th>Total</th>
         
-        
-          
-          
-          <td>
-            
-              2<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              35<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              0<br>
-            
-          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
         
         
-          
-          <td>
-            
-              2
-            
-          </td>
-        
-          
-          <td>
-            
-              35
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
       </tr>
       <tr>
         <th>Max</th>
         
-        
-          
-          <td>
-            
-              2
-            
-          </td>
-        
-          
-          <td>
-            
-              35
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
         
       </tr>
       <tr>
         <th>Min</th>
         
         
-          
-          <td>
-            
-              2
-            
-          </td>
-        
-          
-          <td>
-            
-              35
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
       </tr>
       <tr>
         <th>Std Dev</th>
         
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
         
       </tr>
     </tfoot>
@@ -809,19 +611,11 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="rec_avg">Rec Avg</th>
-        
-        <th scope="col" data-stat="rec_long">Rec Long</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -833,7 +627,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="20">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="16">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -856,19 +650,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -877,7 +663,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="20">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -900,19 +686,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -921,7 +699,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="20">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="16">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -944,19 +722,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -965,36 +735,14 @@
       
       
       
-      <tr class="week-group-row"><td colspan="20">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="16">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
-        <td>6</td>
+        <td>7</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-4-19-tarizonarattlersg20260419rlty-tnazwranglers.html" class="game-id">Arizona Rattlers @ NAZ Wranglers</a></td>
-        <td>44.0–32.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>17.5</td>
-        
-        <td>29.0</td>
-        
-        <td>0.0</td>
-        
-        <td>35.0</td>
+        <td><a href="../games/football-ifl-2026-4-24-torlandopiratesg20260424r5xa-tgreenbayblizzard.html" class="game-id">Orlando Pirates @ Green Bay Blizzard</a></td>
+        <td>68.0–71.0</td>
         
         <td>2.0</td>
         
@@ -1003,6 +751,20 @@
         <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>6.0</td>
         
       </tr>
       
@@ -1022,7 +784,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-25.
+      Data updated: 2026-05-26.
       Formats:
       
 <a href="../data/players/michael-cotton.json">JSON</a> ·
