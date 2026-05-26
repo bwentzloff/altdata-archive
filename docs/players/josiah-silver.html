@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Josiah Silver — AltSports Stats">
-  <meta property="og:description" content="Career stats for Josiah Silver: assisted_tackles 9.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, fg_made 11.0, forced_fumbles 0.0, fumble_recoveries 1.0, sacks 3.0, safeties 0.0, solo_tackles 0.0, tackles 10.0">
+  <meta property="og:description" content="Career stats for Josiah Silver: assisted_tackles 7.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, fg_made 5.0, forced_fumbles 0.0, fumble_recoveries 1.0, rush_avg 4.3, rush_long 11.0, rushing_attempts 4.0, rushing_tds 0.0, rushing_yards 17.0, sacks 3.0, safeties 0.0, tackles 8.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/josiah-silver.html">
   
@@ -250,9 +250,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">62.3</div>
+        <div class="badge-number">63.7</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1218</div>
+        <div class="badge-rank">#1090</div>
       </div>
       
       
@@ -273,6 +273,32 @@
     <thead>
       <tr>
         
+        
+          
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -304,6 +330,36 @@
     </thead>
     <tbody>
       <tr>
+        
+          
+            <td>
+              17
+            </td>
+          
+        
+          
+            <td>
+              0
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -340,15 +396,36 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2026": {"fg_made": 5.0}, "NAL-2026": {"assisted_tackles": 7.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 1.0, "sacks": 3.0, "safeties": 0.0, "tackles": 8.0}, "IFL-2026": {"rush_avg": 4.3, "rush_long": 11.0, "rushing_attempts": 4.0, "rushing_tds": 0.0, "rushing_yards": 17.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
-    
-      
-    
   
     
       
@@ -357,13 +434,7 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
+  
     
       
     
@@ -380,6 +451,173 @@
       
     
   
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Josiah Silver stats by season</caption>
@@ -388,29 +626,9 @@
         <th scope="col">Season</th>
         
         
-        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
-        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
-        
-        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
-        
-        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
-        
-        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
-        
-        <th scope="col" data-stat="fg_made">Fg Made</th>
-        
-        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="sacks">Sacks</th>
-        
-        <th scope="col" data-stat="safeties">Safeties</th>
-        
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
+        <th scope="col" data-stat="rushing_tds">TD</th>
         
       </tr>
     </thead>
@@ -420,29 +638,9 @@
         <td>IFL 2026</td>
         
         
-        <td>2</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>17</td>
         
         <td>0</td>
-        
-        <td>2</td>
         
       </tr>
       
@@ -450,29 +648,9 @@
         <td>NAL 2026</td>
         
         
-        <td>7</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
         <td>—</td>
         
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>3</td>
-        
-        <td>0</td>
-        
         <td>—</td>
-        
-        <td>8</td>
         
       </tr>
       
@@ -484,29 +662,138 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>11</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        
+        
+          
+          
+          <td>
+            
+              17<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        
+        
+          
+          <td>
+            
+              17
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        
+        
+          
+          <td>
+            
+              17
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        
+        
+          
+          <td>
+            
+              17
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 
@@ -551,11 +838,19 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
-        
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -567,13 +862,59 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
         <td>1</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
         <td><a href="../games/football-ufl-2026-3-30-clb-orl.html" class="game-id">CLB @ ORL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="21">2026 Wk 3</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>3</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-12-clb-dal.html" class="game-id">CLB @ DAL</a></td>
         <td>—</td>
         
         <td></td>
@@ -600,36 +941,6 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="17">2026 Wk 2</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>2</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-4-5-lou-orl.html" class="game-id">LOU @ ORL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td></td>
         
         <td></td>
@@ -643,45 +954,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>3</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-4-11-orl-lou.html" class="game-id">ORL @ LOU</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="17">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -706,55 +979,28 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.5</td>
         
         <td>0.0</td>
         
-        <td></td>
-        
         <td>0.0</td>
         
       </tr>
       
       
       
-      <tr>
-        <td>2026</td>
-        <td>4</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-4-18-orl-bhm.html" class="game-id">ORL @ BHM</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
       
-      
-      
-      
-      <tr class="week-group-row"><td colspan="17">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -779,55 +1025,28 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.5</td>
         
         <td>0.0</td>
         
-        <td></td>
-        
         <td>0.0</td>
         
       </tr>
       
       
       
-      <tr>
-        <td>2026</td>
-        <td>5</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-4-25-stl-orl.html" class="game-id">STL @ ORL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
       
-      
-      
-      
-      <tr class="week-group-row"><td colspan="17">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -852,11 +1071,19 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>0.0</td>
         
@@ -868,7 +1095,7 @@
         <td>2026</td>
         <td>6</td>
         <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-5-3-bhm-orl.html" class="game-id">BHM @ ORL</a></td>
+        <td><a href="../games/football-ufl-2026-5-2-hou-clb.html" class="game-id">HOU @ CLB</a></td>
         <td>—</td>
         
         <td></td>
@@ -895,36 +1122,6 @@
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="17">2026 Wk 7</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>7</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-5-10-orl-hou.html" class="game-id">ORL @ HOU</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td></td>
         
         <td></td>
@@ -938,7 +1135,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -947,8 +1144,6 @@
         <td><a href="../games/football-ifl-2026-5-2-tsandiegostrikeforceg20260502s5ms-ttulsaoilers.html" class="game-id">San Diego Strike Force @ Tulsa Oilers</a></td>
         <td>42.0–51.0</td>
         
-        <td>2.0</td>
-        
         <td></td>
         
         <td></td>
@@ -965,18 +1160,28 @@
         
         <td></td>
         
-        <td></td>
+        <td>4.3</td>
+        
+        <td>11.0</td>
+        
+        <td>4.0</td>
         
         <td>0.0</td>
         
-        <td>2.0</td>
+        <td>17.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1001,11 +1206,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
         
         <td>4.0</td>
         
@@ -1014,7 +1227,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="21">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1039,11 +1252,19 @@
         
         <td>0.0</td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>4.0</td>
         

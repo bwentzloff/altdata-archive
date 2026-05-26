@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Brandon Munoz — AltSports Stats">
-  <meta property="og:description" content="Career stats for Brandon Munoz: assisted_tackles 35.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, pass_td 52.0, pat_made 3.0, recv_td 1.0, rush_avg 1.0, rush_long 1.0, rush_td 4.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 1.0, rushing_yards 1.0, sack_yards 12.0, sacks 11.0, safeties 3.0, solo_tackles 14.0, tackles 74.0, tackles_for_loss 6.0, tfl_yards 5.0">
+  <meta property="og:description" content="Career stats for Brandon Munoz: assisted_tackles 31.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 4.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, pass_td 52.0, pat_made 3.0, recv_td 1.0, rush_td 4.0, sack_yards 12.0, sacks 9.0, safeties 3.0, solo_tackles 14.0, tackles 68.0, tackles_for_loss 6.0, tfl_yards 5.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/brandon-munoz.html">
   
@@ -308,9 +308,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">72.0</div>
+        <div class="badge-number">74.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#441</div>
+        <div class="badge-rank">#324</div>
       </div>
       
       
@@ -333,11 +333,7 @@
         
         
           
-            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-          
         
-          
-            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -364,17 +360,35 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
           
-            <td>1</td>
-          
         
-          
-            <td>1</td>
           
         
           
@@ -388,7 +402,31 @@
           
         
           
-            <td>1</td>
+            <td>
+              1
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
           
         
           
@@ -410,94 +448,13 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"UFL-2024": {"pass_td": 17.0, "pat_made": 1.0, "rush_td": 1.0}, "NAL-2025": {"assisted_tackles": 13.0, "def_interceptions": 2.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 5.0, "safeties": 0.0, "tackles": 35.0, "rush_avg": 1.0, "rush_long": 1.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 1.0, "rushing_yards": 1.0}, "UFL-2025": {"pass_td": 22.0, "rush_td": 3.0, "pat_made": 2.0, "recv_td": 1.0}, "IFL-2026": {"assisted_tackles": 11.0, "sack_yards": 12.0, "sacks": 3.0, "solo_tackles": 14.0, "tackles": 25.0, "tackles_for_loss": 6.0, "tfl_yards": 5.0, "fumble_recoveries": 1.0, "fumble_recovery_yards": 0.0}, "NAL-2026": {"assisted_tackles": 11.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 4.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 3.0, "safeties": 3.0, "tackles": 14.0}, "UFL-2026": {"pass_td": 13.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
   <h2>By Season</h2>
   
   
-    
-      
-    
-      
-    
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
-    
-      
-    
-      
     
       
     
@@ -525,6 +482,12 @@
     
       
     
+  
+    
+      
+    
+      
+    
       
     
       
@@ -537,7 +500,296 @@
     
       
     
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Brandon Munoz stats by season</caption>
@@ -548,55 +800,7 @@
         <th scope="col">Coach</th>
         
         
-        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
-        
-        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
-        
-        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
-        
-        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
-        
-        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
-        
-        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="fumble_recovery_yards">Fumble Recovery Yards</th>
-        
-        <th scope="col" data-stat="pass_td">Pass Td</th>
-        
-        <th scope="col" data-stat="pat_made">Pat Made</th>
-        
         <th scope="col" data-stat="recv_td">Recv Td</th>
-        
-        <th scope="col" data-stat="rush_avg">Rush Avg</th>
-        
-        <th scope="col" data-stat="rush_long">Rush Long</th>
-        
-        <th scope="col" data-stat="rush_td">Rush Td</th>
-        
-        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
-        
-        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
-        <th scope="col" data-stat="sack_yards">Sack Yards</th>
-        
-        <th scope="col" data-stat="sacks">Sacks</th>
-        
-        <th scope="col" data-stat="safeties">Safeties</th>
-        
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
-        
-        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
-        
-        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
         
       </tr>
     </thead>
@@ -637,54 +841,6 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>17</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
       </tr>
       
       <tr>
@@ -697,54 +853,6 @@
           
         </td>
         
-        
-        <td>13</td>
-        
-        <td>2</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>5</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>35</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -785,55 +893,7 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>22</td>
-        
-        <td>2</td>
-        
         <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
@@ -848,55 +908,7 @@
         </td>
         
         
-        <td>11</td>
-        
         <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>12</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-        <td>14</td>
-        
-        <td>25</td>
-        
-        <td>6</td>
-        
-        <td>5</td>
         
       </tr>
       
@@ -910,54 +922,6 @@
           
         </td>
         
-        
-        <td>11</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>4</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>3</td>
-        
-        <td>3</td>
-        
-        <td>—</td>
-        
-        <td>14</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -976,57 +940,96 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>13</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        <td></td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        <td></td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 
@@ -1077,19 +1080,7 @@
         
         <th scope="col" data-stat="recv_td">Recv Td</th>
         
-        <th scope="col" data-stat="rush_avg">Rush Avg</th>
-        
-        <th scope="col" data-stat="rush_long">Rush Long</th>
-        
         <th scope="col" data-stat="rush_td">Rush Td</th>
-        
-        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
-        
-        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sack_yards">Sack Yards</th>
         
@@ -1113,7 +1104,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 2</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1160,24 +1151,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 3</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1224,24 +1203,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 4</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1288,24 +1255,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 5</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1352,24 +1307,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 6</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1416,24 +1359,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 7</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1480,24 +1411,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 8</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1544,24 +1463,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 9</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1592,19 +1499,7 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1625,7 +1520,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2024 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="24">2024 Wk 10</td></tr>
       
       <tr>
         <td>2024</td>
@@ -1672,24 +1567,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1711,18 +1594,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1797,18 +1668,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
@@ -1858,24 +1717,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1897,18 +1744,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1983,18 +1818,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
@@ -2028,19 +1851,7 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2061,7 +1872,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2083,18 +1894,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2169,24 +1968,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2217,19 +2004,7 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2250,7 +2025,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2272,18 +2047,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2342,19 +2105,7 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2375,7 +2126,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2422,24 +2173,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2461,18 +2200,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2547,24 +2274,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2611,85 +2326,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 9</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>9</td>
-        <td><a href="../leagues/nal-2025.html">NAL</a></td>
-        <td><a href="../games/football-nal-2025-5-3-t425362g979277-t425357.html" class="game-id">Wheeling Miners @ Colorado Spartans</a></td>
-        <td>25–41</td>
-        
-        <td>2.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td>4.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
+      <tr class="week-group-row"><td colspan="24">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2736,88 +2378,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2025 Wk 10</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>10</td>
-        <td><a href="../leagues/nal-2025.html">NAL</a></td>
-        <td><a href="../games/football-nal-2025-5-10-t463723g979279-t425362.html" class="game-id">Beaumont Renegades @ Wheeling Miners</a></td>
-        <td>41–26</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="30">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="24">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -2852,18 +2418,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>2.0</td>
         
         <td>0.0</td>
@@ -2881,7 +2435,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -2891,18 +2445,6 @@
         <td>42.0–51.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -2977,18 +2519,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3050,24 +2580,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3089,18 +2607,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3175,24 +2681,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3202,18 +2696,6 @@
         <td>50.0–39.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3288,18 +2770,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3361,24 +2831,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3400,18 +2858,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3486,24 +2932,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3527,18 +2961,6 @@
         <td>1.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3611,24 +3033,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3638,18 +3048,6 @@
         <td>68.0–71.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3724,18 +3122,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -3797,24 +3183,12 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3824,18 +3198,6 @@
         <td>57.0–52.0</td>
         
         <td>6.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -3910,18 +3272,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>2.0</td>
         
         <td>2.0</td>
@@ -3939,7 +3289,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -3949,18 +3299,6 @@
         <td>40.0–65.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -4003,7 +3341,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="30">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="24">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -4013,18 +3351,6 @@
         <td>41.0–35.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -4086,18 +3412,6 @@
         <td>0.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         

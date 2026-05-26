@@ -198,6 +198,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Monshadrik Hunter"
+            data-src="../assets/player-images/monshadrik-hunter.jpg"
+            data-caption="Cmm3 / Wikimedia Commons (CC BY-SA 4.0)">
+      <img src="../assets/player-images/monshadrik-hunter.jpg"
+           alt="Monshadrik Hunter"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Cmm3 /
+      <a href="https://commons.wikimedia.org/wiki/File:2024%2C_04%2C_Monshadrik_Hunter.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 4.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -300,7 +352,7 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">65.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#890</div>
+        <div class="badge-rank">#894</div>
       </div>
       
       
@@ -354,6 +406,30 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+          
+        
       </tr>
     </thead>
     <tbody>
@@ -364,31 +440,63 @@
           
         
           
-            <td>1</td>
+            <td>
+              1
+            </td>
           
         
           
-            <td>0</td>
+            <td>
+              0
+            </td>
           
         
           
-            <td>0</td>
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            <td>
+              0
+            </td>
           
         
           
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <td>
+              0
+            </td>
           
         
       </tr>
@@ -406,26 +514,7 @@
   <h2>By Season</h2>
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
     
       
     
@@ -453,6 +542,14 @@
     
       
     
+  
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -471,12 +568,6 @@
     
       
     
-  
-    
-      
-    
-      
-    
       
     
   
@@ -487,7 +578,278 @@
     
       
     
+      
+    
+      
+    
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Monshadrik Hunter stats by season</caption>
@@ -498,41 +860,13 @@
         <th scope="col">Coach</th>
         
         
-        <th scope="col" data-stat="def_int">INT</th>
-        
-        <th scope="col" data-stat="def_lg">Def Lg</th>
-        
-        <th scope="col" data-stat="def_sack">Def Sack</th>
-        
-        <th scope="col" data-stat="def_solo">Def Solo</th>
-        
-        <th scope="col" data-stat="def_tot">Def Tot</th>
-        
-        <th scope="col" data-stat="def_yds">Def Yds</th>
-        
-        <th scope="col" data-stat="def_ydsl">Def Ydsl</th>
-        
-        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
+        <th scope="col" data-stat="receptions">Rec</th>
         
         <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
-        <th scope="col" data-stat="receptions">Rec</th>
+        <th scope="col" data-stat="receiving_tds">TD</th>
         
-        <th scope="col" data-stat="ret_lg">Ret Lg</th>
-        
-        <th scope="col" data-stat="ret_num">Ret Num</th>
-        
-        <th scope="col" data-stat="ret_yds">Ret Yds</th>
-        
-        <th scope="col" data-stat="sacks">Sacks</th>
-        
-        <th scope="col" data-stat="score_pts">Score Pts</th>
-        
-        <th scope="col" data-stat="score_saf">Score Saf</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
       </tr>
     </thead>
@@ -548,34 +882,6 @@
           
         </td>
         
-        
-        <td>2</td>
-        
-        <td>28</td>
-        
-        <td>—</td>
-        
-        <td>26</td>
-        
-        <td>26</td>
-        
-        <td>28</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -597,34 +903,6 @@
           
         </td>
         
-        
-        <td>2</td>
-        
-        <td>25</td>
-        
-        <td>1</td>
-        
-        <td>59</td>
-        
-        <td>59</td>
-        
-        <td>25</td>
-        
-        <td>8</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>9</td>
-        
-        <td>2</td>
-        
-        <td>9</td>
         
         <td>—</td>
         
@@ -673,39 +951,11 @@
         </td>
         
         
-        <td>2</td>
-        
-        <td>12</td>
-        
-        <td>1</td>
-        
-        <td>48</td>
-        
-        <td>48</td>
-        
-        <td>13</td>
-        
-        <td>8</td>
-        
         <td>—</td>
         
         <td>—</td>
         
         <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>2</td>
-        
-        <td>1</td>
         
         <td>—</td>
         
@@ -747,34 +997,6 @@
           
         </td>
         
-        
-        <td>4</td>
-        
-        <td>63</td>
-        
-        <td>—</td>
-        
-        <td>38</td>
-        
-        <td>38</td>
-        
-        <td>74</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -837,35 +1059,7 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
         <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>11</td>
         
       </tr>
       
@@ -940,45 +1134,266 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
         <td>1</td>
         
-        <td>—</td>
+        <td>0</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>0</td>
         
         <td>—</td>
         
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        <td></td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        <td></td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        <td></td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 

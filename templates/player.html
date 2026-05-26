@@ -292,7 +292,7 @@
     <caption>{{ player.canonical_name }} career totals across all leagues</caption>
     <thead>
       <tr>
-        {% set stat_order = ['rushing_yards', 'rushing_tds', 'receptions', 'receiving_yards', 'receiving_tds', 'recv_rec', 'recv_yds','recv_td','passing_yards', 'passing_tds', 'interceptions_lost','yardsThrown', 'yardsReceived'] %}
+        {% set stat_order = ['rushing_yards', 'rushing_tds', 'receptions', 'receiving_yards', 'receiving_tds', 'recv_rec', 'recv_yds','recv_td','passing_yards', 'passing_tds', 'interceptions_lost','yardsThrown', 'yardsReceived','assist_tackles','fumble_rec_yards','fumbles_forced','fumbles_lost_game','fumbles_opp_rec','fumbles_own_rec','int_avg','int_long','int_tds','int_yards','interceptions_made'] %}
         {% for stat in stat_order %}
           {% if stat in player.career_totals %}
             <th scope="col" data-stat="{{ stat }}">{{ stat | stat_label }}</th>
@@ -304,7 +304,9 @@
       <tr>
         {% for stat in stat_order %}
           {% if stat in player.career_totals %}
-            <td>{{ player.career_totals[stat] | intcomma }}</td>
+            <td>
+              {{ player.career_totals[stat] | intcomma }}
+            </td>
           {% endif %}
         {% endfor %}
       </tr>
@@ -351,13 +353,13 @@
 {% if player.season_totals %}
 <section>
   <h2>By Season</h2>
+  {% set stat_order = ['rushing_yards', 'rushing_tds', 'receptions', 'receiving_yards', 'receiving_tds', 'recv_rec', 'recv_yds','recv_td','passing_yards', 'passing_tds', 'interceptions_lost','yardsThrown', 'yardsReceived','assist_tackles','fumble_rec_yards','fumbles_forced','fumbles_lost_game','fumbles_opp_rec','fumbles_own_rec','int_avg','int_long','int_tds','int_yards','interceptions_made'] %}
   {% set all_stat_keys = [] %}
-  {% for sk, stats in player.season_totals.items() %}
-    {% for k in stats.keys() %}
-      {% if k not in all_stat_keys %}{% set _ = all_stat_keys.append(k) %}{% endif %}
+  {% for stat in stat_order %}
+    {% for sk, stats in player.season_totals.items() %}
+      {% if stat in stats and stat not in all_stat_keys %}{% set _ = all_stat_keys.append(stat) %}{% endif %}
     {% endfor %}
   {% endfor %}
-  {% set all_stat_keys = all_stat_keys | sort %}
   <table class="data-table">
     <caption>{{ player.canonical_name }} stats by season</caption>
     <thead>
@@ -406,6 +408,93 @@
       </tr>
       {% endfor %}
     </tbody>
+    {% if player.season_totals %}
+    <tfoot>
+      {% set season_stats = player.season_totals.values() %}
+      {# Build per-stat lists for summary calculations #}
+      {% set stat_lists = {} %}
+      {% for k in all_stat_keys %}
+        {% set vals = [] %}
+        {% for s in season_stats %}
+          {% if s.get(k) is not none %}
+            {% set _ = vals.append(s.get(k, 0)) %}
+          {% endif %}
+        {% endfor %}
+        {% set _ = stat_lists.update({k: vals}) %}
+      {% endfor %}
+      <tr>
+        <th>Total</th>
+        {% if player.season_coaches %}<td></td>{% endif %}
+        {% for k in all_stat_keys %}
+          {% set vals = stat_lists[k] %}
+          {% set stddev = season_stddevs.get(k) %}
+          <td>
+            {% if vals|length > 0 %}
+              {{ vals|sum|intcomma }}<br>
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th>Avg</th>
+        {% if player.season_coaches %}<td></td>{% endif %}
+        {% for k in all_stat_keys %}
+          {% set vals = stat_lists[k] %}
+          <td>
+            {% if vals|length > 0 %}
+              {{ (vals|sum / vals|length) | round(1) | intcomma }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th>Max</th>
+        {% if player.season_coaches %}<td></td>{% endif %}
+        {% for k in all_stat_keys %}
+          {% set vals = stat_lists[k] %}
+          <td>
+            {% if vals|length > 0 %}
+              {{ vals|max | intcomma }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th>Min</th>
+        {% if player.season_coaches %}<td></td>{% endif %}
+        {% for k in all_stat_keys %}
+          {% set vals = stat_lists[k] %}
+          <td>
+            {% if vals|length > 0 %}
+              {{ vals|min | intcomma }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        {% if player.season_coaches %}<td></td>{% endif %}
+        {% for k in all_stat_keys %}
+          <td>
+            {% set stddev = season_stddevs.get(k) %}
+            {% if stddev is not none %}
+              {{ stddev|round(2)|intcomma }}
+            {% else %}
+              —
+            {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+    </tfoot>
+    {% endif %}
   </table>
 </section>
 {% endif %}

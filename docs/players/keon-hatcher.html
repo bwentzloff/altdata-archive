@@ -184,6 +184,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Keon HATCHER"
+            data-src="../assets/player-images/keon-hatcher.jpg"
+            data-caption="Cmm3 / Wikimedia Commons (CC BY-SA 4.0)">
+      <img src="../assets/player-images/keon-hatcher.jpg"
+           alt="Keon HATCHER"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Cmm3 /
+      <a href="https://commons.wikimedia.org/wiki/File:2025%2C_04%2C_Keon_Hatcher.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 4.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -302,7 +354,7 @@
       <div class="score-badge position-badge">
         <div class="badge-number">75.8</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#17</div>
+        <div class="badge-rank">#16</div>
       </div>
       
     </div>
@@ -367,6 +419,30 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+          
+        
       </tr>
     </thead>
     <tbody>
@@ -377,43 +453,87 @@
           
         
           
-            <td>279</td>
+            <td>
+              279
+            </td>
           
         
           
-            <td>4,473</td>
+            <td>
+              4,473
+            </td>
           
         
           
-            <td>20</td>
+            <td>
+              20
+            </td>
           
         
           
-            <td>102</td>
+            <td>
+              102
+            </td>
           
         
           
-            <td>1,552</td>
+            <td>
+              1,552
+            </td>
           
         
           
-            <td>8</td>
+            <td>
+              8
+            </td>
           
         
           
-            <td>0</td>
+            <td>
+              0
+            </td>
           
         
           
-            <td>0</td>
+            <td>
+              0
+            </td>
           
         
           
-            <td>0</td>
+            <td>
+              0
+            </td>
           
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <td>
+              0
+            </td>
           
         
       </tr>
@@ -455,16 +575,7 @@
   <h2>By Season</h2>
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+  
     
       
     
@@ -488,19 +599,7 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+  
     
       
     
@@ -524,6 +623,10 @@
     
       
     
+  
+    
+      
+    
       
     
       
@@ -540,6 +643,10 @@
     
       
     
+      
+    
+      
+    
   
     
       
@@ -548,7 +655,214 @@
     
       
     
+      
+    
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Keon HATCHER stats by season</caption>
@@ -559,53 +873,25 @@
         <th scope="col">Coach</th>
         
         
-        <th scope="col" data-stat="def_solo">Def Solo</th>
+        <th scope="col" data-stat="receptions">Rec</th>
         
-        <th scope="col" data-stat="def_tot">Def Tot</th>
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
+        
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
-        
-        <th scope="col" data-stat="pass_att">Pass Att</th>
-        
-        <th scope="col" data-stat="passing_tds">TD</th>
-        
-        <th scope="col" data-stat="passing_yards">Pass Yds</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="recv_lg">Recv Lg</th>
-        
-        <th scope="col" data-stat="recv_rec">Recv Rec</th>
-        
-        <th scope="col" data-stat="recv_tar">Recv Tar</th>
-        
-        <th scope="col" data-stat="recv_td">Recv Td</th>
-        
-        <th scope="col" data-stat="recv_yac">Recv Yac</th>
-        
-        <th scope="col" data-stat="recv_yds">Recv Yds</th>
-        
-        <th scope="col" data-stat="ret_lg">Ret Lg</th>
-        
-        <th scope="col" data-stat="ret_num">Ret Num</th>
-        
-        <th scope="col" data-stat="ret_yds">Ret Yds</th>
-        
-        <th scope="col" data-stat="sacks">Sacks</th>
-        
-        <th scope="col" data-stat="score_p">Score P</th>
-        
-        <th scope="col" data-stat="score_pts">Score Pts</th>
-        
-        <th scope="col" data-stat="score_tot">Score Tot</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
     </thead>
@@ -660,45 +946,17 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>110</td>
-        
         <td>17</td>
-        
-        <td>29</td>
-        
-        <td>2</td>
-        
-        <td>58</td>
         
         <td>214</td>
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
         <td>2</td>
         
-        <td>12</td>
+        <td>—</td>
         
-        <td>2</td>
+        <td>—</td>
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -742,51 +1000,23 @@
         </td>
         
         
-        <td>2</td>
-        
-        <td>2</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>5</td>
+        <td>61</td>
         
         <td>951</td>
         
-        <td>61</td>
-        
-        <td>390</td>
+        <td>5</td>
         
         <td>85</td>
         
-        <td>126</td>
-        
-        <td>6</td>
-        
-        <td>424</td>
-        
         <td>1338</td>
         
-        <td>20</td>
-        
-        <td>4</td>
-        
-        <td>53</td>
+        <td>6</td>
         
         <td>—</td>
         
-        <td>6</td>
+        <td>—</td>
         
-        <td>36</td>
-        
-        <td>6</td>
+        <td>—</td>
         
         <td>—</td>
         
@@ -831,37 +1061,11 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>6</td>
+        <td>78</td>
         
         <td>1226</td>
         
-        <td>78</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>6</td>
         
         <td>—</td>
         
@@ -871,13 +1075,11 @@
         
         <td>0</td>
         
-        <td>—</td>
+        <td>0</td>
         
-        <td>—</td>
+        <td>0</td>
         
-        <td>—</td>
-        
-        <td>1</td>
+        <td>0</td>
         
       </tr>
       
@@ -924,39 +1126,11 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
+        <td>38</td>
         
         <td>608</td>
         
-        <td>38</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>0</td>
         
         <td>—</td>
         
@@ -1012,39 +1186,11 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>9</td>
+        <td>102</td>
         
         <td>1688</td>
         
-        <td>102</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>9</td>
         
         <td>—</td>
         
@@ -1063,6 +1209,583 @@
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        <td></td>
+        
+          
+          
+          <td>
+            
+              279<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              4,473<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              20<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              102<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1,552<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              8<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        <td></td>
+        
+          
+          <td>
+            
+              69.8
+            
+          </td>
+        
+          
+          <td>
+            
+              1,118.2
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
+          
+          <td>
+            
+              51
+            
+          </td>
+        
+          
+          <td>
+            
+              776
+            
+          </td>
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        <td></td>
+        
+          
+          <td>
+            
+              102
+            
+          </td>
+        
+          
+          <td>
+            
+              1,688
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              85
+            
+          </td>
+        
+          
+          <td>
+            
+              1,338
+            
+          </td>
+        
+          
+          <td>
+            
+              6
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        <td></td>
+        
+          
+          <td>
+            
+              38
+            
+          </td>
+        
+          
+          <td>
+            
+              608
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              17
+            
+          </td>
+        
+          
+          <td>
+            
+              214
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        <td></td>
+        
+          <td>
+            
+            
+              27.0
+            
+          </td>
+        
+          <td>
+            
+            
+              456.3
+            
+          </td>
+        
+          <td>
+            
+            
+              3.7
+            
+          </td>
+        
+          <td>
+            
+            
+              48.1
+            
+          </td>
+        
+          <td>
+            
+            
+              794.8
+            
+          </td>
+        
+          <td>
+            
+            
+              2.8
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 

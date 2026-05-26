@@ -170,6 +170,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Alexander HOLLINS"
+            data-src="../assets/player-images/alexander-hollins.jpg"
+            data-caption="Cmm3 / Wikimedia Commons (CC BY-SA 4.0)">
+      <img src="../assets/player-images/alexander-hollins.jpg"
+           alt="Alexander HOLLINS"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Cmm3 /
+      <a href="https://commons.wikimedia.org/wiki/File:2023%2C_13%2C_Alexander_Hollins.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY-SA 4.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -275,14 +327,14 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">65.3</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#936</div>
+        <div class="badge-rank">#942</div>
       </div>
       
       
       <div class="score-badge position-badge">
         <div class="badge-number">66.7</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#60</div>
+        <div class="badge-rank">#59</div>
       </div>
       
     </div>
@@ -345,41 +397,81 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
+          
+        
       </tr>
     </thead>
     <tbody>
       <tr>
         
           
-            <td>19</td>
+            <td>
+              19
+            </td>
           
         
           
-            <td>0</td>
+            <td>
+              0
+            </td>
           
         
           
-            <td>146</td>
+            <td>
+              146
+            </td>
           
         
           
-            <td>2,258</td>
+            <td>
+              2,258
+            </td>
           
         
           
-            <td>15</td>
+            <td>
+              15
+            </td>
           
         
           
-            <td>21</td>
+            <td>
+              21
+            </td>
           
         
           
-            <td>219</td>
+            <td>
+              219
+            </td>
           
         
           
-            <td>3</td>
+            <td>
+              3
+            </td>
           
         
           
@@ -390,6 +482,32 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <td>
+              0
+            </td>
           
         
       </tr>
@@ -431,20 +549,7 @@
   <h2>By Season</h2>
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+  
     
       
     
@@ -464,6 +569,8 @@
     
       
     
+  
+    
       
     
       
@@ -480,6 +587,18 @@
     
       
     
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
     
       
@@ -488,7 +607,188 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Alexander HOLLINS stats by season</caption>
@@ -499,43 +799,23 @@
         <th scope="col">Coach</th>
         
         
-        <th scope="col" data-stat="def_solo">Def Solo</th>
-        
-        <th scope="col" data-stat="def_tot">Def Tot</th>
-        
-        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="recv_lg">Recv Lg</th>
-        
-        <th scope="col" data-stat="recv_rec">Recv Rec</th>
-        
-        <th scope="col" data-stat="recv_tar">Recv Tar</th>
-        
-        <th scope="col" data-stat="recv_td">Recv Td</th>
-        
-        <th scope="col" data-stat="recv_yac">Recv Yac</th>
-        
-        <th scope="col" data-stat="recv_yds">Recv Yds</th>
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        <th scope="col" data-stat="receptions">Rec</th>
         
-        <th scope="col" data-stat="sacks">Sacks</th>
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
-        <th scope="col" data-stat="score_p">Score P</th>
+        <th scope="col" data-stat="receiving_tds">TD</th>
         
-        <th scope="col" data-stat="score_pts">Score Pts</th>
+        <th scope="col" data-stat="recv_rec">Recv Rec</th>
         
-        <th scope="col" data-stat="score_tot">Score Tot</th>
+        <th scope="col" data-stat="recv_yds">Recv Yds</th>
         
-        <th scope="col" data-stat="tackles">Tackles</th>
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="interceptions_made">Interceptions Made</th>
         
       </tr>
     </thead>
@@ -579,10 +859,6 @@
         </td>
         
         
-        <td>1</td>
-        
-        <td>1</td>
-        
         <td>—</td>
         
         <td>—</td>
@@ -591,27 +867,11 @@
         
         <td>—</td>
         
-        <td>62</td>
+        <td>—</td>
         
         <td>21</td>
         
-        <td>29</td>
-        
-        <td>3</td>
-        
-        <td>65</td>
-        
         <td>219</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>3</td>
-        
-        <td>18</td>
         
         <td>3</td>
         
@@ -658,35 +918,15 @@
         </td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
-        <td>9</td>
-        
-        <td>1158</td>
-        
-        <td>77</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>0</td>
-        
         <td>19</td>
         
         <td>0</td>
+        
+        <td>77</td>
+        
+        <td>1158</td>
+        
+        <td>9</td>
         
         <td>—</td>
         
@@ -745,31 +985,11 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>6</td>
+        <td>61</td>
         
         <td>937</td>
         
-        <td>61</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>6</td>
         
         <td>—</td>
         
@@ -828,31 +1048,11 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
-        <td>0</td>
+        <td>8</td>
         
         <td>163</td>
         
-        <td>8</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>0</td>
         
         <td>—</td>
         
@@ -865,6 +1065,501 @@
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        <td></td>
+        
+          
+          
+          <td>
+            
+              19<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              146<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              2,258<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              15<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              21<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              219<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              3<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        <td></td>
+        
+          
+          <td>
+            
+              19
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              48.7
+            
+          </td>
+        
+          
+          <td>
+            
+              752.7
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              219
+            
+          </td>
+        
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        <td></td>
+        
+          
+          <td>
+            
+              19
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              77
+            
+          </td>
+        
+          
+          <td>
+            
+              1,158
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              219
+            
+          </td>
+        
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        <td></td>
+        
+          
+          <td>
+            
+              19
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              8
+            
+          </td>
+        
+          
+          <td>
+            
+              163
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              219
+            
+          </td>
+        
+          
+          <td>
+            
+              3
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        <td></td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              36.1
+            
+          </td>
+        
+          <td>
+            
+            
+              522.5
+            
+          </td>
+        
+          <td>
+            
+            
+              4.6
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 

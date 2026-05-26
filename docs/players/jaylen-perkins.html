@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jaylen Perkins — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jaylen Perkins: assisted_tackles 12.0, def_interceptions 4.0, defensive_bk 0.0, defensive_pd 6.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, pass_defended 1.0, sacks 1.0, safeties 0.0, solo_tackles 5.0, tackles 34.0">
+  <meta property="og:description" content="Career stats for Jaylen Perkins: assisted_tackles 7.0, def_interceptions 4.0, defensive_bk 0.0, defensive_pd 6.0, defensive_tds 0.0, forced_fumbles 1.0, fumble_recoveries 0.0, rec_avg 22.5, rec_long 26.0, receiving_tds 1.0, receiving_yards 30.0, receptions 4.0, rush_avg 10.5, rush_long 13.0, rushing_attempts 3.0, rushing_tds 1.0, rushing_yards 20.0, sacks 1.0, safeties 0.0, solo_tackles 2.0, tackles 26.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jaylen-perkins.html">
   
@@ -227,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">75.8</div>
+        <div class="badge-number">54.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#250</div>
+        <div class="badge-rank">#2000</div>
       </div>
       
       
@@ -250,6 +250,38 @@
     <thead>
       <tr>
         
+        
+          
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
+          
+        
+          
+            <th scope="col" data-stat="receptions">Rec</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_tds">TD</th>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -281,6 +313,48 @@
     </thead>
     <tbody>
       <tr>
+        
+          
+            <td>
+              20
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
+          
+        
+          
+            <td>
+              4
+            </td>
+          
+        
+          
+            <td>
+              30
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
           
         
@@ -317,28 +391,37 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2026": {"assisted_tackles": 7.0, "def_interceptions": 4.0, "defensive_bk": 0.0, "defensive_pd": 6.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 1.0, "safeties": 0.0, "tackles": 24.0}, "IFL-2026": {"assisted_tackles": 0.0, "forced_fumbles": 1.0, "rec_avg": 22.5, "rec_long": 26.0, "receiving_tds": 1.0, "receiving_yards": 30.0, "receptions": 4.0, "rush_avg": 10.5, "rush_long": 13.0, "rushing_attempts": 3.0, "rushing_tds": 1.0, "rushing_yards": 20.0, "solo_tackles": 2.0, "tackles": 2.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
   <h2>By Season</h2>
   
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
+  
     
       
     
@@ -350,11 +433,138 @@
     
       
     
+  
+    
       
     
       
     
   
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
   
   <table class="data-table">
     <caption>Jaylen Perkins stats by season</caption>
@@ -363,29 +573,15 @@
         <th scope="col">Season</th>
         
         
-        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
-        <th scope="col" data-stat="def_interceptions">Def Interceptions</th>
+        <th scope="col" data-stat="rushing_tds">TD</th>
         
-        <th scope="col" data-stat="defensive_bk">Defensive Bk</th>
+        <th scope="col" data-stat="receptions">Rec</th>
         
-        <th scope="col" data-stat="defensive_pd">Defensive Pd</th>
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
         
-        <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
-        
-        <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
-        
-        <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
-        
-        <th scope="col" data-stat="pass_defended">Pass Defended</th>
-        
-        <th scope="col" data-stat="sacks">Sacks</th>
-        
-        <th scope="col" data-stat="safeties">Safeties</th>
-        
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
+        <th scope="col" data-stat="receiving_tds">TD</th>
         
       </tr>
     </thead>
@@ -395,29 +591,15 @@
         <td>IFL 2026</td>
         
         
-        <td>5</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
+        <td>20</td>
         
         <td>1</td>
         
-        <td>—</td>
+        <td>4</td>
         
-        <td>—</td>
+        <td>30</td>
         
-        <td>5</td>
-        
-        <td>10</td>
+        <td>1</td>
         
       </tr>
       
@@ -425,33 +607,282 @@
         <td>NAL 2026</td>
         
         
-        <td>7</td>
-        
-        <td>4</td>
-        
-        <td>0</td>
-        
-        <td>6</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
-        
-        <td>0</td>
+        <td>—</td>
         
         <td>—</td>
         
-        <td>1</td>
-        
-        <td>0</td>
+        <td>—</td>
         
         <td>—</td>
         
-        <td>24</td>
+        <td>—</td>
         
       </tr>
       
     </tbody>
+    
+    <tfoot>
+      
+      
+      
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+      <tr>
+        <th>Total</th>
+        
+        
+          
+          
+          <td>
+            
+              20<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              4<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              30<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Avg</th>
+        
+        
+          
+          <td>
+            
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              30
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        
+        
+          
+          <td>
+            
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              30
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        
+        
+          
+          <td>
+            
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              30
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Std Dev</th>
+        
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+      </tr>
+    </tfoot>
+    
   </table>
 </section>
 
@@ -494,7 +925,25 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        <th scope="col" data-stat="rec_avg">Rec Avg</th>
+        
+        <th scope="col" data-stat="rec_long">Rec Long</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -512,7 +961,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -537,6 +986,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -550,7 +1017,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -575,6 +1042,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -588,7 +1073,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -613,6 +1098,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -626,7 +1129,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -645,26 +1148,44 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
         
         <td></td>
         
+        <td>7.0</td>
+        
+        <td>7.0</td>
+        
+        <td>0.0</td>
+        
+        <td>7.0</td>
+        
+        <td>1.0</td>
+        
+        <td>9.5</td>
+        
+        <td>12.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>19.0</td>
+        
         <td></td>
         
-        <td>3.0</td>
+        <td></td>
         
-        <td>3.0</td>
+        <td>2.0</td>
+        
+        <td>2.0</td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -673,8 +1194,6 @@
         <td><a href="../games/football-ifl-2026-4-18-tvegasknighthawksg20260418ah7b-tsanantoniogunslingers.html" class="game-id">Vegas Knight Hawks @ San Antonio Gunslingers</a></td>
         <td>62.0–35.0</td>
         
-        <td>3.0</td>
-        
         <td></td>
         
         <td></td>
@@ -689,20 +1208,40 @@
         
         <td></td>
         
-        <td></td>
+        <td>8.0</td>
         
-        <td></td>
+        <td>8.0</td>
         
         <td>0.0</td>
         
-        <td>3.0</td>
+        <td>8.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -727,6 +1266,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
         <td>0.0</td>
@@ -740,42 +1297,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 8</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>8</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-3-tarizonarattlersg202605032rvu-tvegasknighthawks.html" class="game-id">Arizona Rattlers @ Vegas Knight Hawks</a></td>
-        <td>42.0–56.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td>4.0</td>
-        
-      </tr>
-      
-      
+      <tr class="week-group-row"><td colspan="26">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -800,6 +1322,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -813,7 +1353,60 @@
       
       
       
-      <tr class="week-group-row"><td colspan="17">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="26">2026 Wk 10</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>10</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-18-tvegasknighthawksg20260518l91r-torlandopirates.html" class="game-id">Vegas Knight Hawks @ Orlando Pirates</a></td>
+        <td>73.0–33.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>7.5</td>
+        
+        <td>11.0</td>
+        
+        <td>1.0</td>
+        
+        <td>15.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -835,6 +1428,24 @@
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         

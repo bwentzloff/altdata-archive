@@ -789,6 +789,31 @@ def main():
         filtered_sport_names = [s for s in sport_names if s.replace(" ", "").lower() != "50yard"]
         player_data["sport_names"] = filtered_sport_names
 
+        # Calculate standard deviation for career totals (single row, so not meaningful, but keep for API symmetry)
+        import math
+        def stddev(vals):
+            vals = [v for v in vals if v is not None]
+            n = len(vals)
+            if n < 2:
+                return None
+            mean = sum(vals) / n
+            ssd = sum((v - mean) ** 2 for v in vals)
+            return (ssd / (n - 1)) ** 0.5
+
+        # Season stats: build per-stat lists
+        season_totals = player_data.get("season_totals", {})
+        all_stat_keys = set()
+        for stats in season_totals.values():
+            all_stat_keys.update(stats.keys())
+        season_stat_lists = {k: [s.get(k, 0) for s in season_totals.values() if s.get(k) is not None] for k in all_stat_keys}
+        season_stddevs = {k: stddev(vals) for k, vals in season_stat_lists.items()}
+
+        # Career stats: only one value per stat, so stddev is None or 0
+        # But for compatibility, if you want to show stddev across seasons for each stat, reuse above
+        # If you want to show stddev across all seasons for each stat in career, do:
+        career_stat_lists = {k: [s.get(k, 0) for s in season_totals.values() if s.get(k) is not None] for k in all_stat_keys}
+        career_stddevs = {k: stddev(vals) for k, vals in career_stat_lists.items()}
+
         # Check if this player is a coach
         is_coach = cid in coaches_merged
 
@@ -805,6 +830,8 @@ def main():
             is_coach=is_coach,
             og_image_exists=og_image_exists,
             canonical_path=f"players/{cid}.html",
+            season_stddevs=season_stddevs,
+            career_stddevs=career_stddevs,
         )
     
     # OG manifest save disabled
