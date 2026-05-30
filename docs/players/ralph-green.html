@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ralph Green — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ralph Green: assisted_tackles 17.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 2.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, pass_defended 1.0, pass_td 4.0, pat_made 2.0, rush_td 6.0, sack_yards 13.0, sacks 2.5, safeties 0.0, solo_tackles 12.0, tackles 27.0, tackles_for_loss 7.5, tfl_yards 12.0">
+  <meta property="og:description" content="Career stats for Ralph Green: assisted_tackles 23.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 2.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, pass_defended 3.0, rush_avg 4.0, rush_long 4.0, rushing_attempts 1.0, rushing_tds 0.0, rushing_yards 4.0, sacks 0.0, safeties 0.0, solo_tackles 28.0, tackles 49.0, tackles_for_loss 2.0, tfl_yards 8.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/ralph-green.html">
   
@@ -73,20 +73,6 @@
     
     
     
-    {
-      "@type": "Dataset",
-      "name": "UFL 2025",
-      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
     {
       "@type": "Dataset",
       "name": "NAL 2025",
@@ -228,17 +214,6 @@
       </div>
       
       <div class="ct-row" data-type="alt">
-        <span class="ct-label">UFL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
         <span class="ct-label">IFL</span>
         
           
@@ -258,9 +233,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">70.5</div>
+        <div class="badge-number">72.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#539</div>
+        <div class="badge-rank">#438</div>
       </div>
       
       
@@ -283,7 +258,11 @@
         
         
           
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -336,7 +315,15 @@
       <tr>
         
           
+            <td>
+              4
+            </td>
+          
         
+          
+            <td>
+              0
+            </td>
           
         
           
@@ -392,6 +379,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2025": {"assisted_tackles": 2.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 0.0}, "IFL-2026": {"assisted_tackles": 21.0, "solo_tackles": 28.0, "tackles": 49.0, "tackles_for_loss": 2.0, "tfl_yards": 8.0, "forced_fumbles": 2.0, "pass_defended": 3.0, "rush_avg": 4.0, "rush_long": 4.0, "rushing_attempts": 1.0, "rushing_tds": 0.0, "rushing_yards": 4.0, "fumble_recoveries": 1.0, "fumble_recovery_yards": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -404,19 +415,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -428,19 +427,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -452,19 +439,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -476,19 +451,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -500,19 +463,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -524,19 +475,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -548,19 +487,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -572,6 +499,10 @@
     
       
     
+  
+    
+      
+    
       
     
   
@@ -580,11 +511,43 @@
     
       
     
+  
+    
+      
+    
       
     
   
     
       
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
     
       
     
@@ -597,8 +560,10 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col">Coach</th>
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
         
       </tr>
     </thead>
@@ -607,63 +572,20 @@
       <tr>
         <td>NAL 2025</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
         
+        <td>—</td>
         
-      </tr>
-      
-      <tr>
-        <td>UFL 2025</td>
-        
-        <td>
-          
-          
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/anthony-becht.html">Anthony Becht</a>
-              
-            
-          
-        </td>
-        
+        <td>—</td>
         
       </tr>
       
       <tr>
         <td>IFL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
         
+        <td>4</td>
+        
+        <td>0</td>
         
       </tr>
       
@@ -674,29 +596,121 @@
       
       
       
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
       <tr>
         <th>Total</th>
-        <td></td>
+        
+        
+          
+          
+          <td>
+            
+              4<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
-        <td></td>
+        
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
         
       </tr>
       <tr>
         <th>Max</th>
-        <td></td>
+        
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
         
       </tr>
       <tr>
         <th>Min</th>
-        <td></td>
+        
+        
+          
+          <td>
+            
+              4
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
         
       </tr>
       <tr>
         <th>Std Dev</th>
-        <td></td>
+        
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
       </tr>
     </tfoot>
@@ -747,13 +761,15 @@
         
         <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
-        <th scope="col" data-stat="pass_td">Pass Td</th>
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
-        <th scope="col" data-stat="pat_made">Pat Made</th>
+        <th scope="col" data-stat="rush_long">Rush Long</th>
         
-        <th scope="col" data-stat="rush_td">Rush Td</th>
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
         
-        <th scope="col" data-stat="sack_yards">Sack Yards</th>
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -775,368 +791,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2025 Wk 1</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>1</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-3-29-stl-hou.html" class="game-id">STL @ HOU</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      <tr>
-        <td>2025</td>
-        <td>1</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-6-8-dc-stl.html" class="game-id">DC @ STL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 5</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>5</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-4-26-mich-stl.html" class="game-id">MICH @ STL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 6</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>6</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-5-3-arl-stl.html" class="game-id">ARL @ STL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 7</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>7</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-5-11-stl-mem.html" class="game-id">STL @ MEM</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 8</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>8</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-5-17-bhm-stl.html" class="game-id">BHM @ STL</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 9</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>9</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-5-24-stl-sa.html" class="game-id">STL @ SA</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="25">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1171,6 +826,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -1188,7 +845,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1197,17 +854,7 @@
         <td><a href="../games/football-ifl-2026-3-29-ttulsaoilersg202603294ix1-tsanantoniogunslingers.html" class="game-id">Tulsa Oilers @ San Antonio Gunslingers</a></td>
         <td>29.0–22.0</td>
         
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
+        <td>5.0</td>
         
         <td></td>
         
@@ -1227,20 +874,32 @@
         
         <td></td>
         
-        <td>2.0</td>
+        <td></td>
         
-        <td>4.0</td>
+        <td></td>
         
-        <td>2.5</td>
+        <td></td>
         
-        <td>7.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>8.0</td>
+        
+        <td>0.5</td>
+        
+        <td>0.0</td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1249,59 +908,9 @@
         <td><a href="../games/football-ifl-2026-4-11-tsanantoniogunslingersg20260411jrxf-tarizonarattlers.html" class="game-id">San Antonio Gunslingers @ Arizona Rattlers</a></td>
         <td>31.0–44.0</td>
         
-        <td>3.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
         <td>4.0</td>
         
         <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2026 Wk 6</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>6</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-4-18-tvegasknighthawksg20260418ah7b-tsanantoniogunslingers.html" class="game-id">Vegas Knight Hawks @ San Antonio Gunslingers</a></td>
-        <td>62.0–35.0</td>
-        
-        <td>4.0</td>
         
         <td></td>
         
@@ -1335,16 +944,70 @@
         
         <td>5.0</td>
         
-        <td>0.5</td>
+        <td></td>
         
-        <td>1.0</td>
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-18-tvegasknighthawksg20260418ah7b-tsanantoniogunslingers.html" class="game-id">Vegas Knight Hawks @ San Antonio Gunslingers</a></td>
+        <td>62.0–35.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1353,7 +1016,15 @@
         <td><a href="../games/football-ifl-2026-4-25-tnazwranglersg20260425ht1s-tsanantoniogunslingers.html" class="game-id">NAZ Wranglers @ San Antonio Gunslingers</a></td>
         <td>14.0–32.0</td>
         
-        <td>4.0</td>
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1379,24 +1050,18 @@
         
         <td>3.0</td>
         
-        <td>0.5</td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
-        <td>6.0</td>
+        <td>5.0</td>
         
         <td>1.0</td>
         
-        <td>4.0</td>
+        <td>8.0</td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1405,61 +1070,17 @@
         <td><a href="../games/football-ifl-2026-5-2-tsanantoniogunslingersg202605025pr1-ttucsonsugarskulls.html" class="game-id">San Antonio Gunslingers @ Tucson Sugar Skulls</a></td>
         <td>35.0–17.0</td>
         
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>2.0</td>
-        
         <td>3.0</td>
         
         <td></td>
         
         <td></td>
         
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="24">2026 Wk 9</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>9</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-9-tsanantoniogunslingersg20260509kpe3-tnazwranglers.html" class="game-id">San Antonio Gunslingers @ NAZ Wranglers</a></td>
-        <td>30.0–29.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td>1.0</td>
         
         <td></td>
         
@@ -1483,24 +1104,72 @@
         
         <td>10.0</td>
         
-        <td>2.0</td>
+        <td>13.0</td>
         
         <td></td>
         
-        <td>3.0</td>
-        
-        <td>3.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 9</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>9</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-9-tsanantoniogunslingersg20260509kpe3-tnazwranglers.html" class="game-id">San Antonio Gunslingers @ NAZ Wranglers</a></td>
+        <td>30.0–29.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1525,11 +1194,45 @@
         
         <td></td>
         
-        <td></td>
+        <td>2.0</td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
         
         <td></td>
         
         <td></td>
+        
+        <td>4.0</td>
+        
+        <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 11</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>11</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-23-ttulsaoilersg20260523ivjk-tsanantoniogunslingers.html" class="game-id">Tulsa Oilers @ San Antonio Gunslingers</a></td>
+        <td>45.0–30.0</td>
+        
+        <td>3.0</td>
         
         <td></td>
         
@@ -1541,9 +1244,31 @@
         
         <td>1.0</td>
         
-        <td>2.0</td>
+        <td>1.0</td>
         
-        <td>1.5</td>
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.5</td>
         
         <td>0.0</td>
         
@@ -1565,7 +1290,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-26.
+      Data updated: 2026-05-29.
       Formats:
       
 <a href="../data/players/ralph-green.json">JSON</a> ·

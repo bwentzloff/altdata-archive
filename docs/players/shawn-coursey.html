@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Shawn Coursey — AltSports Stats">
-  <meta property="og:description" content="Career stats for Shawn Coursey: assisted_tackles 2.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 1.0, kr_avg 2.0, kr_long 2.0, kr_tds 0.0, kr_yards 2.0, pass_defended 1.0, sacks 0.0, safeties 0.0, solo_tackles 2.0, tackles 5.0">
+  <meta property="og:description" content="Career stats for Shawn Coursey: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 3.0, pass_attempts 33.0, pass_completions 19.0, pass_long 61.0, passing_tds 5.0, passing_yards 258.0, recv_td 2.0, rush_avg 8.2, rush_long 24.0, rushing_attempts 24.0, rushing_tds 1.0, rushing_yards 102.0, sacks 0.0, safeties 0.0, solo_tackles 1.0, tackles 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/shawn-coursey.html">
   
@@ -75,9 +75,9 @@
     
     {
       "@type": "Dataset",
-      "name": "NAL 2026",
-      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "name": "UFL 2025",
+      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -92,6 +92,20 @@
       "name": "IFL 2026",
       "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "NAL 2026",
+      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -196,13 +210,28 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
+        <span class="ct-yr">'25</span>
+        
         <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">IFL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -212,6 +241,8 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -227,9 +258,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">35.4</div>
+        <div class="badge-number">65.3</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2978</div>
+        <div class="badge-rank">#951</div>
       </div>
       
       
@@ -252,7 +283,11 @@
         
         
           
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -266,9 +301,15 @@
           
         
           
-        
+            <th scope="col" data-stat="recv_td">Recv Td</th>
           
         
+          
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
@@ -305,7 +346,15 @@
       <tr>
         
           
+            <td>
+              102
+            </td>
+          
         
+          
+            <td>
+              1
+            </td>
           
         
           
@@ -319,9 +368,21 @@
           
         
           
-        
+            <td>
+              2
+            </td>
           
         
+          
+            <td>
+              258
+            </td>
+          
+        
+          
+            <td>
+              5
+            </td>
           
         
           
@@ -361,6 +422,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"UFL-2025": {"recv_td": 2.0}, "IFL-2026": {"interceptions": 3.0, "pass_attempts": 33.0, "pass_completions": 19.0, "pass_long": 61.0, "passing_tds": 5.0, "passing_yards": 258.0, "rush_avg": 8.2, "rush_long": 24.0, "rushing_attempts": 24.0, "rushing_tds": 1.0, "rushing_yards": 102.0, "assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}, "NAL-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -373,19 +458,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -397,19 +474,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -421,19 +490,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -445,19 +506,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -469,19 +522,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -493,10 +538,6 @@
     
       
     
-  
-    
-      
-    
       
     
   
@@ -505,7 +546,99 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -519,19 +652,65 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
+        <td>UFL 2025</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
         <td>IFL 2026</td>
         
+        
+        <td>102</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>258</td>
+        
+        <td>5</td>
         
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -542,29 +721,269 @@
       
       
       
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+        
+        
+      
       <tr>
         <th>Total</th>
         
+        
+          
+          
+          <td>
+            
+              102<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              2<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              258<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              5<br>
+            
+          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
         
         
+          
+          <td>
+            
+              102
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              258
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Max</th>
         
+        
+          
+          <td>
+            
+              102
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              258
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
         
       </tr>
       <tr>
         <th>Min</th>
         
         
+          
+          <td>
+            
+              102
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              258
+            
+          </td>
+        
+          
+          <td>
+            
+              5
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
       </tr>
     </tfoot>
@@ -611,17 +1030,29 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="kick_returns">Kick Returns</th>
+        <th scope="col" data-stat="interceptions">Interceptions</th>
         
-        <th scope="col" data-stat="kr_avg">Kr Avg</th>
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
         
-        <th scope="col" data-stat="kr_long">Kr Long</th>
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
         
-        <th scope="col" data-stat="kr_tds">Kr Tds</th>
+        <th scope="col" data-stat="pass_long">Pass Long</th>
         
-        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        <th scope="col" data-stat="passing_tds">TD</th>
         
-        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -639,7 +1070,244 @@
       
       
       
-      <tr class="week-group-row"><td colspan="22">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="28">2025 Wk 5</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-4-26-mich-stl.html" class="game-id">MICH @ STL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2025 Wk 9</td></tr>
+      
+      <tr>
+        <td>2025</td>
+        <td>9</td>
+        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2025-5-24-mich-bhm.html" class="game-id">MICH @ BHM</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-17-tiowabarnstormersg202605177dl7-tnazwranglers.html" class="game-id">Iowa Barnstormers @ NAZ Wranglers</a></td>
+        <td>33.0–57.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>10.0</td>
+        
+        <td>3.0</td>
+        
+        <td>30.0</td>
+        
+        <td>1.0</td>
+        
+        <td>51.0</td>
+        
+        <td></td>
+        
+        <td>5.8</td>
+        
+        <td>15.0</td>
+        
+        <td>13.0</td>
+        
+        <td>1.0</td>
+        
+        <td>76.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-2-tquadcitysteamwheelersg20260502inst-tiowabarnstormers.html" class="game-id">Quad City Steamwheelers @ Iowa Barnstormers</a></td>
+        <td>25.0–35.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>23.0</td>
+        
+        <td>16.0</td>
+        
+        <td>31.0</td>
+        
+        <td>4.0</td>
+        
+        <td>207.0</td>
+        
+        <td></td>
+        
+        <td>2.4</td>
+        
+        <td>9.0</td>
+        
+        <td>11.0</td>
+        
+        <td>0.0</td>
+        
+        <td>26.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="28">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -674,6 +1342,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -687,7 +1367,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="22">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="28">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -720,42 +1400,6 @@
         
         <td></td>
         
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="22">2026 Wk 7</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>7</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-4-25-tfishersfreightg202604259u64-tiowabarnstormers.html" class="game-id">Fishers Freight @ Iowa Barnstormers</a></td>
-        <td>53.0–31.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td></td>
         
         <td></td>
@@ -777,102 +1421,6 @@
         <td>1.0</td>
         
         <td>1.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="22">2026 Wk 8</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>8</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-2-tgreenbayblizzardg20260502xipt-tfishersfreight.html" class="game-id">Green Bay Blizzard @ Fishers Freight</a></td>
-        <td>57.0–52.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>2.0</td>
-        
-        <td>2.0</td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="22">2026 Wk 9</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>9</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-9-tfishersfreightg202605096wj9-torlandopirates.html" class="game-id">Fishers Freight @ Orlando Pirates</a></td>
-        <td>57.0–60.0</td>
-        
-        <td>2.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>0.0</td>
-        
-        <td>2.0</td>
         
       </tr>
       
@@ -892,7 +1440,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-26.
+      Data updated: 2026-05-29.
       Formats:
       
 <a href="../data/players/shawn-coursey.json">JSON</a> ·

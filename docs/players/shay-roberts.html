@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Shay Roberts — AltSports Stats">
-  <meta property="og:description" content="Career stats for Shay Roberts: assisted_tackles 0.0, rush_avg 3.0, rush_long 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 3.0, solo_tackles 1.0, tackles 1.0">
+  <meta property="og:description" content="Career stats for Shay Roberts: fumbles 1.0, fumbles_lost 1.0, interceptions 0.0, pass_attempts 5.0, pass_completions 2.0, pass_long 6.0, passing_tds 1.0, passing_yards 9.0, recv_td 1.0, rush_avg 3.0, rush_long 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/shay-roberts.html">
   
@@ -78,6 +78,20 @@
       "name": "IFL 2026",
       "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "UFL 2026",
+      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -218,6 +232,15 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -227,9 +250,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">29.6</div>
+        <div class="badge-number">36.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#3144</div>
+        <div class="badge-rank">#2956</div>
       </div>
       
       
@@ -270,9 +293,15 @@
           
         
           
-        
+            <th scope="col" data-stat="recv_td">Recv Td</th>
           
         
+          
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
@@ -331,9 +360,21 @@
           
         
           
-        
+            <td>
+              1
+            </td>
           
         
+          
+            <td>
+              9
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
           
         
           
@@ -380,8 +421,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"IFL-2026": {"assisted_tackles": 0.0, "solo_tackles": 1.0, "tackles": 1.0}, "NAL-2026": {"rush_avg": 3.0, "rush_long": 0.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 3.0}};
-    var stat    = "rushing_yards";
+    var seasons = {"IFL-2026": {"interceptions": 0.0, "pass_attempts": 5.0, "pass_completions": 2.0, "pass_long": 6.0, "passing_tds": 1.0, "passing_yards": 9.0, "fumbles": 1.0, "fumbles_lost": 1.0}, "UFL-2026": {"recv_td": 1.0}, "NAL-2026": {"rush_avg": 3.0, "rush_long": 0.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 3.0}};
+    var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -409,19 +450,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -433,19 +466,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -457,19 +482,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -481,19 +498,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -505,19 +514,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -529,10 +530,6 @@
     
       
     
-  
-    
-      
-    
       
     
   
@@ -541,7 +538,99 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -559,6 +648,12 @@
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
+        <th scope="col" data-stat="recv_td">Recv Td</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -571,6 +666,12 @@
         
         <td>—</td>
         
+        <td>—</td>
+        
+        <td>9</td>
+        
+        <td>1</td>
+        
       </tr>
       
       <tr>
@@ -580,6 +681,28 @@
         <td>3</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>1</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -595,6 +718,20 @@
           
         
           
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
             
           
         
@@ -606,6 +743,32 @@
         
           
             
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
+          
+        
           
         
         
@@ -630,6 +793,30 @@
             
           </td>
         
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              9<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              1<br>
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Avg</th>
@@ -646,6 +833,27 @@
           <td>
             
               0
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              1
             
           </td>
         
@@ -668,6 +876,27 @@
             
           </td>
         
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Min</th>
@@ -687,10 +916,52 @@
             
           </td>
         
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
           <td>
             
@@ -737,7 +1008,23 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
-        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -751,10 +1038,6 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
-        <th scope="col" data-stat="tackles">Tackles</th>
-        
       </tr>
     </thead>
     <tbody>
@@ -763,7 +1046,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026</td></tr>
       
       <tr>
         <td>2026</td>
@@ -771,6 +1054,20 @@
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
         <td><a href="../games/football-ifl-2026-5-17-tiowabarnstormersg202605177dl7-tnazwranglers.html" class="game-id">Iowa Barnstormers @ NAZ Wranglers</a></td>
         <td>33.0–57.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>0.0</td>
         
@@ -786,16 +1083,58 @@
         
         <td></td>
         
-        <td>1.0</td>
-        
-        <td>1.0</td>
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="14">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 5</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>5</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-25-stl-orl.html" class="game-id">STL @ ORL</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="20">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -806,6 +1145,22 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
         <td>0.0</td>
@@ -817,6 +1172,46 @@
         <td>0.0</td>
         
         <td>3.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="20">2026 Wk 11</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>11</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-23-tnazwranglersg20260523tybs-tsandiegostrikeforce.html" class="game-id">NAZ Wranglers @ San Diego Strike Force</a></td>
+        <td>35.0–67.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+        <td>2.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>9.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -840,7 +1235,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-26.
+      Data updated: 2026-05-29.
       Formats:
       
 <a href="../data/players/shay-roberts.json">JSON</a> ·
