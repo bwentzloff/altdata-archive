@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Evan DiMaggio — AltSports Stats">
-  <meta property="og:description" content="Career stats for Evan DiMaggio: assisted_tackles 28.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 3.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 5.0, kr_avg 4.2, kr_long 8.0, kr_tds 0.0, kr_yards 21.0, rec_avg 1.0, rec_long 1.0, receiving_tds 0.0, receiving_yards 1.0, receptions 1.0, recv_td 1.0, rush_avg 5.0, rush_long 7.0, rushing_attempts 3.0, rushing_tds 0.0, rushing_yards 15.0, sacks 6.0, safeties 0.0, tackles 34.0">
+  <meta property="og:description" content="Career stats for Evan DiMaggio: assisted_tackles 31.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 3.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, pass_defended 6.0, sacks 6.0, safeties 0.0, solo_tackles 9.0, tackles 46.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/evan-dimaggio.html">
   
@@ -73,20 +73,6 @@
     
     
     
-    {
-      "@type": "Dataset",
-      "name": "UFL 2025",
-      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -210,28 +196,13 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
-        <span class="ct-yr">'25</span>
-        
         <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">UFL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">IFL</span>
         
-          
-          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -241,8 +212,6 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
-          
-          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -258,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">69.4</div>
+        <div class="badge-number">83.1</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#615</div>
+        <div class="badge-rank">#55</div>
       </div>
       
       
@@ -283,23 +252,11 @@
         
         
           
-            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
           
         
           
-            <th scope="col" data-stat="rushing_tds">TD</th>
-          
         
-          
-            <th scope="col" data-stat="receptions">Rec</th>
-          
-        
-          
-            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-          
-        
-          
-            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -307,7 +264,7 @@
           
         
           
-            <th scope="col" data-stat="recv_td">Recv Td</th>
+        
           
         
           
@@ -348,33 +305,11 @@
       <tr>
         
           
-            <td>
-              15
-            </td>
+        
           
         
           
-            <td>
-              0
-            </td>
-          
         
-          
-            <td>
-              1
-            </td>
-          
-        
-          
-            <td>
-              1
-            </td>
-          
-        
-          
-            <td>
-              0
-            </td>
           
         
           
@@ -382,9 +317,7 @@
           
         
           
-            <td>
-              1
-            </td>
+        
           
         
           
@@ -428,30 +361,6 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"UFL-2025": {"recv_td": 1.0}, "NAL-2026": {"assisted_tackles": 28.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 3.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 6.0, "safeties": 0.0, "tackles": 34.0}, "IFL-2026": {"kick_returns": 5.0, "kr_avg": 4.2, "kr_long": 8.0, "kr_tds": 0.0, "kr_yards": 21.0, "rec_avg": 1.0, "rec_long": 1.0, "receiving_tds": 0.0, "receiving_yards": 1.0, "receptions": 1.0, "rush_avg": 5.0, "rush_long": 7.0, "rushing_attempts": 3.0, "rushing_tds": 0.0, "rushing_yards": 15.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
@@ -464,19 +373,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -488,19 +385,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -512,19 +397,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -536,19 +409,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -560,19 +421,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -584,19 +433,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -608,19 +445,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -632,6 +457,10 @@
     
       
     
+  
+    
+      
+    
       
     
   
@@ -640,11 +469,43 @@
     
       
     
+  
+    
+      
+    
       
     
   
     
       
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
     
       
     
@@ -657,147 +518,20 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col">Coach</th>
-        
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="recv_td">Recv Td</th>
         
       </tr>
     </thead>
     <tbody>
       
       <tr>
-        <td>UFL 2025</td>
-        
-        <td>
-          
-          
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/shannon-harris.html">Shannon Harris</a>; 
-              
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/payton-pardee.html">Payton Pardee</a>
-              
-            
-          
-        </td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-      </tr>
-      
-      <tr>
         <td>IFL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
-        
-        
-        <td>15</td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>1</td>
-        
-        <td>0</td>
-        
-        <td>—</td>
         
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
         
       </tr>
       
@@ -808,317 +542,29 @@
       
       
       
-        
-        
-          
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-            
-          
-        
-          
-        
-          
-        
-        
-      
       <tr>
         <th>Total</th>
-        <td></td>
         
-          
-          
-          <td>
-            
-              15<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              0<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              1<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              1<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              0<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              1<br>
-            
-          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
-        <td></td>
         
-          
-          <td>
-            
-              15
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
         
       </tr>
       <tr>
         <th>Max</th>
-        <td></td>
         
-          
-          <td>
-            
-              15
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
         
       </tr>
       <tr>
         <th>Min</th>
-        <td></td>
         
-          
-          <td>
-            
-              15
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
         
       </tr>
       <tr>
         <th>Std Dev</th>
-        <td></td>
         
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
         
       </tr>
     </tfoot>
@@ -1165,41 +611,13 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="kick_returns">Kick Returns</th>
-        
-        <th scope="col" data-stat="kr_avg">Kr Avg</th>
-        
-        <th scope="col" data-stat="kr_long">Kr Long</th>
-        
-        <th scope="col" data-stat="kr_tds">Kr Tds</th>
-        
-        <th scope="col" data-stat="kr_yards">Kr Yards</th>
-        
-        <th scope="col" data-stat="rec_avg">Rec Avg</th>
-        
-        <th scope="col" data-stat="rec_long">Rec Long</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="recv_td">Recv Td</th>
-        
-        <th scope="col" data-stat="rush_avg">Rush Avg</th>
-        
-        <th scope="col" data-stat="rush_long">Rush Long</th>
-        
-        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -1211,73 +629,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2025 Wk 7</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>7</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-5-10-dc-sa.html" class="game-id">DC @ SA</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="31">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1302,39 +654,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>1.5</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1343,7 +667,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1368,39 +692,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>1.5</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -1409,14 +705,16 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
         <td>5</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-4-12-ttulsaoilersg20260412t2gx-torlandopirates.html" class="game-id">Tulsa Oilers @ Orlando Pirates</a></td>
-        <td>55.0–61.0</td>
+        <td><a href="../games/football-ifl-2026-4-11-tsandiegostrikeforceg202604116ljb-ttucsonsugarskulls.html" class="game-id">San Diego Strike Force @ Tucson Sugar Skulls</a></td>
+        <td>48.0–42.0</td>
+        
+        <td>2.0</td>
         
         <td></td>
         
@@ -1429,46 +727,16 @@
         <td></td>
         
         <td></td>
-        
-        <td></td>
-        
-        <td>5.0</td>
-        
-        <td>4.2</td>
-        
-        <td>8.0</td>
-        
-        <td>0.0</td>
-        
-        <td>21.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
         
         <td>1.0</td>
         
         <td></td>
         
-        <td>5.0</td>
-        
-        <td>7.0</td>
-        
-        <td>3.0</td>
-        
-        <td>0.0</td>
-        
-        <td>15.0</td>
-        
         <td></td>
         
-        <td></td>
+        <td>2.0</td>
         
-        <td></td>
+        <td>4.0</td>
         
       </tr>
       
@@ -1497,39 +765,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1538,7 +778,42 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-19-tnewmexicochupacabrasg20260419817y-ttucsonsugarskulls.html" class="game-id">New Mexico Chupacabras @ Tucson Sugar Skulls</a></td>
+        <td>26.0–33.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>4.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -1563,39 +838,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>2.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1604,7 +851,42 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 7</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>7</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-4-26-ttucsonsugarskullsg202604264v0i-tsandiegostrikeforce.html" class="game-id">Tucson Sugar Skulls @ San Diego Strike Force</a></td>
+        <td>25.0–48.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>4.0</td>
+        
+      </tr>
+      
+      
       
       <tr>
         <td>2026</td>
@@ -1629,39 +911,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>5.0</td>
         
@@ -1670,7 +924,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1695,39 +949,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>1.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>6.0</td>
         
@@ -1736,7 +962,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1761,39 +987,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1802,7 +1000,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="31">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="17">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1827,39 +1025,11 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>2.0</td>
         
@@ -1881,7 +1051,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-26.
+      Data updated: 2026-05-29.
       Formats:
       
 <a href="../data/players/evan-dimaggio.json">JSON</a> ·

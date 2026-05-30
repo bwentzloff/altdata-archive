@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Ivan Corbin — AltSports Stats">
-  <meta property="og:description" content="Career stats for Ivan Corbin: kick_returns 1.0, kr_avg 15.0, kr_long 15.0, kr_tds 0.0, kr_yards 15.0, rec_avg 11.0, rec_long 24.0, receiving_fum 1.0, receiving_tds 1.0, receiving_yards 43.0, receptions 4.0, rush_avg 4.0, rush_long 5.0, rushing_attempts 2.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 8.0">
+  <meta property="og:description" content="Career stats for Ivan Corbin: assisted_tackles 1.0, kick_returns 4.0, kr_avg 27.3, kr_long 32.0, kr_tds 0.0, kr_yards 52.0, rec_avg 25.8, rec_long 47.0, receiving_fum 1.0, receiving_tds 2.0, receiving_yards 102.0, receptions 8.0, rush_avg 4.0, rush_long 5.0, rushing_attempts 2.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 8.0, solo_tackles 0.0, tackles 1.0, tackles_for_loss 0.5, tfl_yards 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/ivan-corbin.html">
   
@@ -73,6 +73,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -177,6 +191,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">NAL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -184,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">55.9</div>
+        <div class="badge-number">57.6</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1839</div>
+        <div class="badge-rank">#1689</div>
       </div>
       
       
@@ -285,19 +328,19 @@
         
           
             <td>
-              4
+              8
             </td>
           
         
           
             <td>
-              43
+              102
             </td>
           
         
           
             <td>
-              1
+              2
             </td>
           
         
@@ -348,6 +391,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"IFL-2026": {"assisted_tackles": 1.0, "kick_returns": 3.0, "kr_avg": 12.3, "kr_long": 17.0, "kr_tds": 0.0, "kr_yards": 37.0, "rec_avg": 14.8, "rec_long": 23.0, "receiving_tds": 1.0, "receiving_yards": 59.0, "receptions": 4.0, "solo_tackles": 0.0, "tackles": 1.0, "tackles_for_loss": 0.5, "tfl_yards": 0.0}, "NAL-2026": {"kick_returns": 1.0, "kr_avg": 15.0, "kr_long": 15.0, "kr_tds": 0.0, "kr_yards": 15.0, "rec_avg": 11.0, "rec_long": 24.0, "receiving_fum": 1.0, "receiving_tds": 1.0, "receiving_yards": 43.0, "receptions": 4.0, "rush_avg": 4.0, "rush_long": 5.0, "rushing_attempts": 2.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 8.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -358,7 +425,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -366,7 +437,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -374,7 +449,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -382,7 +461,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -390,7 +473,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -398,7 +485,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -406,7 +497,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -414,7 +509,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -422,7 +521,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -430,7 +533,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -438,7 +545,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -446,7 +557,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -471,6 +586,22 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>4</td>
+        
+        <td>59</td>
+        
+        <td>1</td>
+        
+      </tr>
       
       <tr>
         <td>NAL 2026</td>
@@ -498,6 +629,18 @@
         
         
           
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
             
           
         
@@ -509,10 +652,6 @@
             
           
         
-        
-      
-        
-        
           
             
           
@@ -525,9 +664,17 @@
             
           
         
+          
+            
+          
+        
         
       
         
+        
+          
+            
+          
         
           
             
@@ -559,7 +706,7 @@
           
           <td>
             
-              4<br>
+              8<br>
             
           </td>
         
@@ -567,7 +714,7 @@
           
           <td>
             
-              43<br>
+              102<br>
             
           </td>
         
@@ -575,7 +722,7 @@
           
           <td>
             
-              1<br>
+              2<br>
             
           </td>
         
@@ -608,7 +755,7 @@
           
           <td>
             
-              43
+              51
             
           </td>
         
@@ -648,7 +795,7 @@
           
           <td>
             
-              43
+              59
             
           </td>
         
@@ -721,21 +868,21 @@
           <td>
             
             
-              —
+              0
             
           </td>
         
           <td>
             
             
-              —
+              11.3
             
           </td>
         
           <td>
             
             
-              —
+              0
             
           </td>
         
@@ -769,6 +916,8 @@
         <th scope="col">League</th>
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
+        
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -804,6 +953,14 @@
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -812,7 +969,65 @@
       
       
       
-      <tr class="week-group-row"><td colspan="22">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="27">2026</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>—</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-24-tarizonarattlersg2026052419qz-tvegasknighthawks.html" class="game-id">Arizona Rattlers @ Vegas Knight Hawks</a></td>
+        <td>44.0–48.0</td>
+        
+        <td>1.0</td>
+        
+        <td>3.0</td>
+        
+        <td>12.3</td>
+        
+        <td>17.0</td>
+        
+        <td>0.0</td>
+        
+        <td>37.0</td>
+        
+        <td>14.8</td>
+        
+        <td>23.0</td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>59.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.5</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -820,6 +1035,8 @@
         <td><a href="../leagues/nal-2026.html">NAL</a></td>
         <td><a href="../games/football-nal-2026-5-9-t573852g1127170-t566774.html" class="game-id">Louisiana Rouxgaroux @ Omaha Beef</a></td>
         <td>6–52</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -855,6 +1072,14 @@
         
         <td>8.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
     </tbody>
@@ -873,7 +1098,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-26.
+      Data updated: 2026-05-29.
       Formats:
       
 <a href="../data/players/ivan-corbin.json">JSON</a> ·
