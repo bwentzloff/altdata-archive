@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jordan Semanat — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jordan Semanat: assisted_tackles 3.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, fg_attempts 1.0, field_goal_long 0.0, field_goals_made 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kicking_points 5.0, kickoff_avg 50.0, kickoff_out_of_bounds 0.0, kickoff_touchbacks 1.0, kickoff_yards 350.0, kickoffs 7.0, sacks 0.0, safeties 0.0, tackles 2.0, xp_attempts 6.0, xp_made 5.0">
+  <meta property="og:description" content="Career stats for Jordan Semanat: assisted_tackles 3.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions 0.0, kick_returns 3.0, kr_avg 22.0, kr_long 30.0, kr_tds 0.0, kr_yards 38.0, pass_attempts 1.0, pass_completions 1.0, pass_long 6.0, passing_tds 0.0, passing_yards 6.0, rush_avg 5.8, rush_long 18.0, rushing_attempts 10.0, rushing_tds 2.0, rushing_yards 28.0, sacks 0.0, safeties 0.0, tackles 2.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jordan-semanat.html">
   
@@ -75,9 +75,9 @@
     
     {
       "@type": "Dataset",
-      "name": "IFL 2026",
-      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
+      "name": "NAL 2026",
+      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -89,9 +89,9 @@
     ,
     {
       "@type": "Dataset",
-      "name": "NAL 2026",
-      "description": "League-level player statistics for NAL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/nal-2026.json",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -227,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">60.9</div>
+        <div class="badge-number">43.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1373</div>
+        <div class="badge-rank">#2688</div>
       </div>
       
       
@@ -252,7 +252,11 @@
         
         
           
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+          
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -268,7 +272,11 @@
           
         
           
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
+          
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
@@ -305,7 +313,15 @@
       <tr>
         
           
+            <td>
+              28
+            </td>
+          
         
+          
+            <td>
+              2
+            </td>
           
         
           
@@ -321,7 +337,15 @@
           
         
           
+            <td>
+              6
+            </td>
+          
         
+          
+            <td>
+              0
+            </td>
           
         
           
@@ -360,6 +384,30 @@
 
 
 
+
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"NAL-2026": {"assisted_tackles": 3.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 2.0}, "IFL-2026": {"interceptions": 0.0, "kick_returns": 3.0, "kr_avg": 22.0, "kr_long": 30.0, "kr_tds": 0.0, "kr_yards": 38.0, "pass_attempts": 1.0, "pass_completions": 1.0, "pass_long": 6.0, "passing_tds": 0.0, "passing_yards": 6.0, "rush_avg": 5.8, "rush_long": 18.0, "rushing_attempts": 10.0, "rushing_tds": 2.0, "rushing_yards": 28.0}};
+    var stat    = "passing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
 
 
 
@@ -519,6 +567,14 @@
         <th scope="col">Season</th>
         
         
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -527,11 +583,27 @@
         <td>IFL 2026</td>
         
         
+        <td>28</td>
+        
+        <td>2</td>
+        
+        <td>6</td>
+        
+        <td>0</td>
+        
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -542,29 +614,213 @@
       
       
       
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+        
+      
       <tr>
         <th>Total</th>
         
+        
+          
+          
+          <td>
+            
+              28<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              2<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              6<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
         
         
+          
+          <td>
+            
+              28
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              6
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Max</th>
         
+        
+          
+          <td>
+            
+              28
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              6
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
         
       </tr>
       <tr>
         <th>Min</th>
         
         
+          
+          <td>
+            
+              28
+            
+          </td>
+        
+          
+          <td>
+            
+              2
+            
+          </td>
+        
+          
+          <td>
+            
+              6
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
       </tr>
     </tfoot>
@@ -607,37 +863,47 @@
         
         <th scope="col" data-stat="defensive_tds">Defensive Tds</th>
         
-        <th scope="col" data-stat="fg_attempts">Fg Attempts</th>
-        
-        <th scope="col" data-stat="field_goal_long">Field Goal Long</th>
-        
-        <th scope="col" data-stat="field_goals_made">Field Goals Made</th>
-        
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="kicking_points">Kicking Points</th>
+        <th scope="col" data-stat="interceptions">Interceptions</th>
         
-        <th scope="col" data-stat="kickoff_avg">Kickoff Avg</th>
+        <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
-        <th scope="col" data-stat="kickoff_out_of_bounds">Kickoff Out Of Bounds</th>
+        <th scope="col" data-stat="kr_avg">Kr Avg</th>
         
-        <th scope="col" data-stat="kickoff_touchbacks">Kickoff Touchbacks</th>
+        <th scope="col" data-stat="kr_long">Kr Long</th>
         
-        <th scope="col" data-stat="kickoff_yards">Kickoff Yards</th>
+        <th scope="col" data-stat="kr_tds">Kr Tds</th>
         
-        <th scope="col" data-stat="kickoffs">Kickoffs</th>
+        <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
-        
-        <th scope="col" data-stat="xp_attempts">Xp Attempts</th>
-        
-        <th scope="col" data-stat="xp_made">Xp Made</th>
         
       </tr>
     </thead>
@@ -647,63 +913,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="26">2026</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>—</td>
-        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-24-tnewmexicochupacabrasg20260524hn6i-torlandopirates.html" class="game-id">New Mexico Chupacabras @ Orlando Pirates</a></td>
-        <td>11.0–41.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>0.0</td>
-        
-        <td>0.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>5.0</td>
-        
-        <td>50.0</td>
-        
-        <td>0.0</td>
-        
-        <td>1.0</td>
-        
-        <td>350.0</td>
-        
-        <td>7.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>6.0</td>
-        
-        <td>5.0</td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="26">2026 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="31">2026 Wk 9</td></tr>
       
       <tr>
         <td>2026</td>
@@ -722,15 +932,29 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -750,16 +974,12 @@
         
         <td>2.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="26">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="31">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -778,12 +998,6 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -800,11 +1014,159 @@
         
         <td></td>
         
-        <td>0.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="31">2026 Wk 11</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>11</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-23-tnazwranglersg20260523tybs-tsandiegostrikeforce.html" class="game-id">NAZ Wranglers @ San Diego Strike Force</a></td>
+        <td>35.0–67.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>6.0</td>
+        
+        <td>0.0</td>
+        
+        <td>6.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td>0.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.8</td>
+        
+        <td>15.0</td>
+        
+        <td>8.0</td>
+        
+        <td>1.0</td>
+        
+        <td>22.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="31">2026 Wk 12</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>12</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-31-tsandiegostrikeforceg20260531b8vc-tnewmexicochupacabras.html" class="game-id">San Diego Strike Force @ New Mexico Chupacabras</a></td>
+        <td>55.0–45.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>16.0</td>
+        
+        <td>24.0</td>
+        
+        <td>0.0</td>
+        
+        <td>32.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>3.0</td>
+        
+        <td>3.0</td>
+        
+        <td>2.0</td>
+        
+        <td>1.0</td>
+        
+        <td>6.0</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -828,7 +1190,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/jordan-semanat.json">JSON</a> ·
@@ -838,7 +1200,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

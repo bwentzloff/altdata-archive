@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Maurice Ashley — AltSports Stats">
-  <meta property="og:description" content="Career stats for Maurice Ashley: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, kick_returns 4.0, kr_avg 13.0, kr_tds 0.0, kr_yards 52.0, rec_avg 20.0, rec_long 35.0, receiving_2pt 0.0, receiving_fum 2.0, receiving_tds 5.0, receiving_yards 436.0, receptions 43.0, returning_intr_td 0.0, rush_avg 3.0, rush_long 4.0, rushing_2pt 0.0, rushing_attempts 5.0, rushing_fum 0.0, rushing_tds 2.0, rushing_yards 43.0, sacks 0.0, tackles 3.0">
+  <meta property="og:description" content="Career stats for Maurice Ashley: assisted_tackles 1.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, field_goal_yards 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_lost 1.0, kick_returns 6.0, kr_avg 31.0, kr_tds 0.0, kr_yards 89.0, passing_tds 0.0, passing_yards 34.0, patkick 0.0, rec_avg 25.0, rec_long 61.0, receiving_2pt 0.0, receiving_fum 2.0, receiving_tds 7.0, receiving_yards 506.0, receptions 57.0, returning_intr_td 0.0, rush_avg 4.0, rush_long 6.0, rushing_2pt 0.0, rushing_attempts 8.0, rushing_fum 0.0, rushing_tds 2.0, rushing_yards 49.0, sacks 0.0, tackles 4.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/maurice-ashley.html">
   
@@ -73,6 +73,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "AFL 2024",
+      "description": "League-level player statistics for AFL 2024 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/afl-2024.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "AF1 2025",
@@ -260,9 +274,15 @@
           
         
           
-        
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
           
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
+          
+        
+          
+            <th scope="col" data-stat="interceptions_lost">INT</th>
           
         
           
@@ -298,7 +318,7 @@
         
           
             <td>
-              43
+              49
             </td>
           
         
@@ -310,19 +330,19 @@
         
           
             <td>
-              43
+              57
             </td>
           
         
           
             <td>
-              436
+              506
             </td>
           
         
           
             <td>
-              5
+              7
             </td>
           
         
@@ -333,9 +353,21 @@
           
         
           
-        
+            <td>
+              34
+            </td>
           
         
+          
+            <td>
+              0
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
           
         
           
@@ -380,8 +412,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 37.0, "receiving_yards": 382.0, "receiving_tds": 5.0, "rushing_yards": 35.0, "rushing_tds": 2.0}, "AF1-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "rec_avg": 20.0, "rec_long": 35.0, "receiving_2pt": 0.0, "receiving_fum": 2.0, "receiving_tds": 0.0, "receiving_yards": 54.0, "receptions": 6.0, "rush_avg": 3.0, "rush_long": 4.0, "rushing_2pt": 0.0, "rushing_attempts": 5.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 8.0, "sacks": 0.0, "tackles": 3.0, "kick_returns": 4.0, "kr_avg": 13.0, "kr_tds": 0.0, "kr_yards": 52.0, "returning_intr_td": 0.0}};
-    var stat    = "rushing_yards";
+    var seasons = {"AF1-2025": {"receptions": 37.0, "receiving_yards": 382.0, "receiving_tds": 5.0, "rushing_yards": 35.0, "rushing_tds": 2.0}, "AF1-2026": {"assisted_tackles": 1.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "rec_avg": 25.0, "rec_long": 61.0, "receiving_2pt": 0.0, "receiving_fum": 2.0, "receiving_tds": 1.0, "receiving_yards": 89.0, "receptions": 13.0, "rush_avg": 4.0, "rush_long": 6.0, "rushing_2pt": 0.0, "rushing_attempts": 8.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 11.0, "sacks": 0.0, "tackles": 4.0, "kick_returns": 6.0, "kr_avg": 31.0, "kr_tds": 0.0, "kr_yards": 89.0, "returning_intr_td": 0.0}};
+    var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -589,15 +621,15 @@
         <td>AF1 2026</td>
         
         
-        <td>8</td>
+        <td>11</td>
         
         <td>0</td>
         
-        <td>6</td>
+        <td>13</td>
         
-        <td>54</td>
+        <td>89</td>
         
-        <td>0</td>
+        <td>1</td>
         
       </tr>
       
@@ -676,7 +708,7 @@
           
           <td>
             
-              43<br>
+              46<br>
             
           </td>
         
@@ -692,7 +724,7 @@
           
           <td>
             
-              43<br>
+              50<br>
             
           </td>
         
@@ -700,7 +732,7 @@
           
           <td>
             
-              436<br>
+              471<br>
             
           </td>
         
@@ -708,7 +740,7 @@
           
           <td>
             
-              5<br>
+              6<br>
             
           </td>
         
@@ -720,7 +752,7 @@
           
           <td>
             
-              21.5
+              23
             
           </td>
         
@@ -734,21 +766,21 @@
           
           <td>
             
-              21.5
+              25
             
           </td>
         
           
           <td>
             
-              218
+              235.5
             
           </td>
         
           
           <td>
             
-              2.5
+              3
             
           </td>
         
@@ -800,7 +832,7 @@
           
           <td>
             
-              8
+              11
             
           </td>
         
@@ -814,21 +846,21 @@
           
           <td>
             
-              6
+              13
             
           </td>
         
           
           <td>
             
-              54
+              89
             
           </td>
         
           
           <td>
             
-              0
+              1
             
           </td>
         
@@ -840,7 +872,7 @@
           <td>
             
             
-              19.1
+              17.0
             
           </td>
         
@@ -854,21 +886,21 @@
           <td>
             
             
-              21.9
+              17.0
             
           </td>
         
           <td>
             
             
-              231.9
+              207.2
             
           </td>
         
           <td>
             
             
-              3.5
+              2.8
             
           </td>
         
@@ -915,9 +947,13 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
         
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
@@ -926,6 +962,12 @@
         <th scope="col" data-stat="kr_tds">Kr Tds</th>
         
         <th scope="col" data-stat="kr_yards">Kr Yards</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="patkick">Patkick</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -969,7 +1011,89 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="39"> Wk 5</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>5</td>
+        <td><a href="../leagues/afl-2024.html">afl-2024</a></td>
+        <td><a href="../games/4002611142239.html" class="game-id">Game #4002611142239</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>34.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>35.0</td>
+        
+        <td>7.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="39">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -977,6 +1101,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/storm-lightning-0330.html" class="game-id">OREGON @ SW KANSAS</a></td>
         <td>41–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1041,7 +1175,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1049,6 +1183,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/nashville-oregon-0404.html" class="game-id">OREGON @ NASHVILLE</a></td>
         <td>32–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1113,7 +1257,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1121,6 +1265,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/salina-oregon-0419.html" class="game-id">OREGON @ SALINA</a></td>
         <td>32–47</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1185,7 +1339,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1193,6 +1347,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/oregon-washington-0425.html" class="game-id">WASHINGTON @ OREGON</a></td>
         <td>41–30</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1257,7 +1421,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1265,6 +1429,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-oregon-0504.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>37–9</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1329,7 +1503,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 9</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 9</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1337,6 +1511,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/oregon-corpuschristi-0512.html" class="game-id">CORPUS CHRISTI @ OREGON</a></td>
         <td>20–52</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1401,7 +1585,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1409,6 +1593,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-oregon-0518.html" class="game-id">OREGON @ WASHINGTON</a></td>
         <td>52–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1473,7 +1667,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1481,6 +1675,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/oregon-nashville-0524.html" class="game-id">NASHVILLE @ OREGON</a></td>
         <td>50–36</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1545,7 +1749,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 12</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 12</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1553,6 +1757,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/oregon-billings-0601.html" class="game-id">BILLINGS @ OREGON</a></td>
         <td>58–7</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1617,7 +1831,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2025 Wk 14</td></tr>
+      <tr class="week-group-row"><td colspan="39">2025 Wk 14</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1625,6 +1839,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/billings-oregon-0614.html" class="game-id">OREGON @ BILLINGS</a></td>
         <td>38–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1689,7 +1913,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="39">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1710,9 +1934,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1761,7 +1995,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="34">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="39">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1786,6 +2020,10 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>4.0</td>
         
         <td>13.0</td>
@@ -1793,6 +2031,12 @@
         <td>0.0</td>
         
         <td>52.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>13.0</td>
         
@@ -1830,6 +2074,88 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="39">2026 Wk 8</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>8</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-30-t584641g1168389-t584638.html" class="game-id">Washington Wolfpack @ Oregon Lightning</a></td>
+        <td>26–23</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>2.0</td>
+        
+        <td>18.0</td>
+        
+        <td>0.0</td>
+        
+        <td>37.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>26.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>35.0</td>
+        
+        <td>7.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1840,7 +2166,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/maurice-ashley.json">JSON</a> ·
@@ -1850,7 +2176,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

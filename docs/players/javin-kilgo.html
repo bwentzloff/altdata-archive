@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Javin Kilgo — AltSports Stats">
-  <meta property="og:description" content="Career stats for Javin Kilgo: assisted_tackles 2.0, completion_pct 3550.0, interceptions 14.0, interceptions_lost 3.0, pass_attempts 121.0, pass_completions 84.0, pass_incompletions 37.0, pass_long 89.0, pass_yards_per_attempt 60.0, passing_rate 613.0, passing_sacks 5.0, passing_td_pass 25.0, passing_td_pass_pct 1306.0, passing_tds 22.0, passing_yards 2480.0, passing_yds_lost 22.0, recv_td 1.0, rush_avg 25.0, rush_long 38.0, rushing_attempts 17.0, rushing_fum 2.0, rushing_tds 6.0, rushing_yards 223.0, solo_tackles 1.0, tackles 3.0">
+  <meta property="og:description" content="Career stats for Javin Kilgo: assisted_tackles 2.0, completion_pct 3550.0, interceptions 14.0, interceptions_lost 3.0, pass_attempts 121.0, pass_completions 84.0, pass_defended 1.0, pass_incompletions 37.0, pass_long 89.0, pass_yards_per_attempt 60.0, passing_rate 613.0, passing_sacks 5.0, passing_td_pass 25.0, passing_td_pass_pct 1306.0, passing_tds 22.0, passing_yards 2480.0, passing_yds_lost 22.0, rush_avg 25.0, rush_long 38.0, rushing_attempts 17.0, rushing_fum 2.0, rushing_tds 6.0, rushing_yards 223.0, solo_tackles 1.0, tackles 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/javin-kilgo.html">
   
@@ -78,20 +78,6 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
-    {
-      "@type": "Dataset",
-      "name": "UFL 2026",
-      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -263,17 +249,6 @@
         
       </div>
       
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">UFL</span>
-        
-          
-          <span class="ct-cell"></span>
-          
-          <span class="ct-cell ct-on"></span>
-          
-        
-      </div>
-      
     </div>
     
   </div>
@@ -283,9 +258,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">70.4</div>
+        <div class="badge-number">70.2</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#548</div>
+        <div class="badge-rank">#556</div>
       </div>
       
       
@@ -331,8 +306,6 @@
         
           
         
-          
-            <th scope="col" data-stat="recv_td">Recv Td</th>
           
         
           
@@ -401,10 +374,6 @@
           
         
           
-            <td>
-              1
-            </td>
-          
         
           
             <td>
@@ -466,7 +435,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"passing_yards": 1439.0, "passing_tds": 21.0, "interceptions": 9.0, "rushing_yards": 125.0, "rushing_tds": 4.0, "interceptions_lost": 3.0}, "UFL-2026": {"recv_td": 1.0}, "NAL-2026": {"completion_pct": 3550.0, "interceptions": 5.0, "pass_attempts": 121.0, "pass_completions": 84.0, "pass_incompletions": 37.0, "pass_long": 89.0, "pass_yards_per_attempt": 60.0, "passing_rate": 613.0, "passing_sacks": 5.0, "passing_td_pass": 25.0, "passing_td_pass_pct": 1306.0, "passing_yards": 935.0, "passing_yds_lost": 22.0, "rush_avg": 25.0, "rush_long": 38.0, "rushing_attempts": 17.0, "rushing_fum": 2.0, "rushing_tds": 2.0, "rushing_yards": 80.0}, "IFL-2026": {"assisted_tackles": 2.0, "solo_tackles": 1.0, "tackles": 3.0}};
+    var seasons = {"AF1-2025": {"passing_yards": 1439.0, "passing_tds": 21.0, "interceptions": 9.0, "rushing_yards": 125.0, "rushing_tds": 4.0, "interceptions_lost": 3.0}, "NAL-2026": {"completion_pct": 3550.0, "interceptions": 5.0, "pass_attempts": 121.0, "pass_completions": 84.0, "pass_incompletions": 37.0, "pass_long": 89.0, "pass_yards_per_attempt": 60.0, "passing_rate": 613.0, "passing_sacks": 5.0, "passing_td_pass": 25.0, "passing_td_pass_pct": 1306.0, "passing_yards": 935.0, "passing_yds_lost": 22.0, "rush_avg": 25.0, "rush_long": 38.0, "rushing_attempts": 17.0, "rushing_fum": 2.0, "rushing_tds": 2.0, "rushing_yards": 80.0}, "IFL-2026": {"assisted_tackles": 2.0, "pass_defended": 1.0, "solo_tackles": 1.0, "tackles": 3.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -497,21 +466,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -527,21 +482,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -557,21 +498,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -587,21 +514,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -617,21 +530,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -647,21 +546,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -677,21 +562,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -707,6 +578,12 @@
     
       
     
+  
+    
+      
+    
+      
+    
       
     
   
@@ -717,11 +594,55 @@
     
       
     
+  
+    
+      
+    
+      
+    
       
     
   
     
       
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
     
       
     
@@ -741,8 +662,6 @@
         
         <th scope="col" data-stat="rushing_tds">TD</th>
         
-        <th scope="col" data-stat="recv_td">Recv Td</th>
-        
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="passing_tds">TD</th>
@@ -760,8 +679,6 @@
         <td>125</td>
         
         <td>4</td>
-        
-        <td>—</td>
         
         <td>1439</td>
         
@@ -785,8 +702,6 @@
         
         <td>—</td>
         
-        <td>—</td>
-        
       </tr>
       
       <tr>
@@ -797,27 +712,7 @@
         
         <td>2</td>
         
-        <td>—</td>
-        
         <td>935</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
-        <td>UFL 2026</td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>1</td>
-        
-        <td>—</td>
         
         <td>—</td>
         
@@ -839,8 +734,6 @@
           
         
           
-        
-          
             
           
         
@@ -855,8 +748,6 @@
           
         
           
-        
-          
             
           
         
@@ -867,23 +758,7 @@
         
         
           
-        
-          
             
-          
-        
-          
-        
-          
-        
-        
-      
-        
-        
-          
-            
-          
-        
           
         
           
@@ -904,16 +779,12 @@
         
           
         
-          
-        
         
       
         
         
           
             
-          
-        
           
         
           
@@ -939,14 +810,6 @@
           <td>
             
               6<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              1<br>
             
           </td>
         
@@ -996,13 +859,6 @@
           
           <td>
             
-              1
-            
-          </td>
-        
-          
-          <td>
-            
               1,187
             
           </td>
@@ -1037,13 +893,6 @@
           <td>
             
               4
-            
-          </td>
-        
-          
-          <td>
-            
-              1
             
           </td>
         
@@ -1090,13 +939,6 @@
           
           <td>
             
-              1
-            
-          </td>
-        
-          
-          <td>
-            
               935
             
           </td>
@@ -1131,13 +973,6 @@
             
             
               1.4
-            
-          </td>
-        
-          <td>
-            
-            
-              —
             
           </td>
         
@@ -1240,6 +1075,8 @@
         
         <th scope="col" data-stat="pass_completions">Pass Completions</th>
         
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="pass_incompletions">Pass Incompletions</th>
         
         <th scope="col" data-stat="pass_long">Pass Long</th>
@@ -1259,8 +1096,6 @@
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="passing_yds_lost">Passing Yds Lost</th>
-        
-        <th scope="col" data-stat="recv_td">Recv Td</th>
         
         <th scope="col" data-stat="rush_avg">Rush Avg</th>
         
@@ -1321,11 +1156,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>106.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1385,11 +1220,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>142.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1449,11 +1284,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>380.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1513,11 +1348,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>114.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1577,11 +1412,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>43.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1705,11 +1540,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>7.0</td>
         
         <td>319.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1769,11 +1604,11 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>119.0</td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1833,6 +1668,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>322.0</td>
@@ -1847,75 +1684,9 @@
         
         <td></td>
         
-        <td></td>
-        
         <td>2.0</td>
         
         <td>44.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="30">2026 Wk 4</td></tr>
-      
-      <tr>
-        <td>2026</td>
-        <td>4</td>
-        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2026-4-18-dal-clb.html" class="game-id">DAL @ CLB</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
         <td></td>
         
@@ -1947,6 +1718,8 @@
         
         <td>27.0</td>
         
+        <td></td>
+        
         <td>13.0</td>
         
         <td>0.0</td>
@@ -1966,8 +1739,6 @@
         <td>262.0</td>
         
         <td>9.0</td>
-        
-        <td></td>
         
         <td>7.0</td>
         
@@ -2011,6 +1782,8 @@
         
         <td>5.0</td>
         
+        <td></td>
+        
         <td>2.0</td>
         
         <td>0.0</td>
@@ -2030,8 +1803,6 @@
         <td>79.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
         
         <td>6.0</td>
         
@@ -2075,6 +1846,8 @@
         
         <td>19.0</td>
         
+        <td></td>
+        
         <td>11.0</td>
         
         <td>37.0</td>
@@ -2094,8 +1867,6 @@
         <td>213.0</td>
         
         <td>1.0</td>
-        
-        <td></td>
         
         <td>-1.0</td>
         
@@ -2139,6 +1910,8 @@
         
         <td>19.0</td>
         
+        <td></td>
+        
         <td>8.0</td>
         
         <td>24.0</td>
@@ -2158,8 +1931,6 @@
         <td>198.0</td>
         
         <td>12.0</td>
-        
-        <td></td>
         
         <td>8.0</td>
         
@@ -2188,8 +1959,8 @@
         <td>2026</td>
         <td>10</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-16-tjacksonvillesharksg20260516zv31-tfishersfreight.html" class="game-id">Jacksonville Sharks @ Fishers Freight</a></td>
-        <td>68.0–50.0</td>
+        <td><a href="../games/football-ifl-2026-5-15-ttucsonsugarskullsg20260515ce9o-tquadcitysteamwheelers.html" class="game-id">Tucson Sugar Skulls @ Quad City Steamwheelers</a></td>
+        <td>38.0–40.0</td>
         
         <td>2.0</td>
         
@@ -2203,7 +1974,7 @@
         
         <td></td>
         
-        <td></td>
+        <td>1.0</td>
         
         <td></td>
         
@@ -2264,6 +2035,8 @@
         
         <td>14.0</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>28.0</td>
@@ -2283,8 +2056,6 @@
         <td>183.0</td>
         
         <td>0.0</td>
-        
-        <td></td>
         
         <td>5.0</td>
         
@@ -2322,7 +2093,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/javin-kilgo.json">JSON</a> ·
@@ -2332,7 +2103,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

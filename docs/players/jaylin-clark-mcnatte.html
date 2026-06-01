@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Jaylin Clark-Mcnatte — AltSports Stats">
-  <meta property="og:description" content="Career stats for Jaylin Clark-Mcnatte: assisted_tackles 2.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 2.0, defensive_tds 0.0, forced_fumbles 1.0, fumble_recoveries 1.0, fumble_recovery_yards 0.0, pass_defended 1.0, rush_avg 9.0, rush_long 9.0, rushing_attempts 1.0, rushing_tds 0.0, rushing_yards 9.0, sacks 0.0, safeties 0.0, solo_tackles 4.0, tackles 12.0">
+  <meta property="og:description" content="Career stats for Jaylin Clark-Mcnatte: assisted_tackles 1.0, def_interceptions 2.0, defensive_bk 0.0, defensive_pd 2.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, int_avg 20.0, int_long 20.0, int_yards 20.0, rush_td 1.0, sacks 0.0, safeties 0.0, solo_tackles 1.0, tackles 8.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/jaylin-clark-mcnatte.html">
   
@@ -73,6 +73,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "UFL 2026",
+      "description": "League-level player statistics for UFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -218,6 +232,15 @@
         
       </div>
       
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">UFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
     </div>
     
   </div>
@@ -227,9 +250,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">66.1</div>
+        <div class="badge-number">70.0</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#888</div>
+        <div class="badge-rank">#580</div>
       </div>
       
       
@@ -252,12 +275,6 @@
         
         
           
-            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-          
-        
-          
-            <th scope="col" data-stat="rushing_tds">TD</th>
-          
         
           
         
@@ -296,9 +313,17 @@
           
         
           
+            <th scope="col" data-stat="int_avg">Int Avg</th>
+          
+        
+          
+            <th scope="col" data-stat="int_long">Int Long</th>
+          
         
           
         
+          
+            <th scope="col" data-stat="int_yards">Int Yards</th>
           
         
           
@@ -309,57 +334,61 @@
       <tr>
         
           
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
             <td>
-              9
+              20
             </td>
           
         
           
             <td>
-              0
+              20
             </td>
           
         
           
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            <td>
+              20
+            </td>
           
         
           
@@ -373,30 +402,6 @@
 
 
 
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"NAL-2026": {"assisted_tackles": 1.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 2.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 7.0}, "IFL-2026": {"assisted_tackles": 1.0, "pass_defended": 1.0, "rush_avg": 9.0, "rush_long": 9.0, "rushing_attempts": 1.0, "rushing_tds": 0.0, "rushing_yards": 9.0, "solo_tackles": 4.0, "tackles": 5.0, "forced_fumbles": 1.0, "fumble_recoveries": 1.0, "fumble_recovery_yards": 0.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
-
 
 
 <section>
@@ -409,19 +414,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -433,19 +430,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -457,19 +446,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -481,19 +462,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -505,19 +478,11 @@
     
       
     
-  
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-  
     
       
     
@@ -529,10 +494,6 @@
     
       
     
-  
-    
-      
-    
       
     
   
@@ -541,7 +502,99 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -555,9 +608,11 @@
         <th scope="col">Season</th>
         
         
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        <th scope="col" data-stat="int_avg">Int Avg</th>
         
-        <th scope="col" data-stat="rushing_tds">TD</th>
+        <th scope="col" data-stat="int_long">Int Long</th>
+        
+        <th scope="col" data-stat="int_yards">Int Yards</th>
         
       </tr>
     </thead>
@@ -567,15 +622,31 @@
         <td>IFL 2026</td>
         
         
-        <td>9</td>
+        <td>20</td>
         
-        <td>0</td>
+        <td>20</td>
+        
+        <td>20</td>
         
       </tr>
       
       <tr>
         <td>NAL 2026</td>
         
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
+      <tr>
+        <td>UFL 2026</td>
+        
+        
+        <td>—</td>
         
         <td>—</td>
         
@@ -595,12 +666,28 @@
           
         
           
+        
+          
             
           
         
         
       
         
+        
+          
+        
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
         
           
         
@@ -618,7 +705,7 @@
           
           <td>
             
-              9<br>
+              20<br>
             
           </td>
         
@@ -626,7 +713,15 @@
           
           <td>
             
-              0<br>
+              20<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              20<br>
             
           </td>
         
@@ -638,14 +733,21 @@
           
           <td>
             
-              9
+              20
             
           </td>
         
           
           <td>
             
-              0
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              20
             
           </td>
         
@@ -657,14 +759,21 @@
           
           <td>
             
-              9
+              20
             
           </td>
         
           
           <td>
             
-              0
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              20
             
           </td>
         
@@ -676,14 +785,21 @@
           
           <td>
             
-              9
+              20
             
           </td>
         
           
           <td>
             
-              0
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              20
             
           </td>
         
@@ -691,6 +807,13 @@
       <tr>
         <th>Std Dev</th>
         
+        
+          <td>
+            
+            
+              —
+            
+          </td>
         
           <td>
             
@@ -751,19 +874,13 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="fumble_recovery_yards">Fumble Recovery Yards</th>
+        <th scope="col" data-stat="int_avg">Int Avg</th>
         
-        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        <th scope="col" data-stat="int_long">Int Long</th>
         
-        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        <th scope="col" data-stat="int_yards">Int Yards</th>
         
-        <th scope="col" data-stat="rush_long">Rush Long</th>
-        
-        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        <th scope="col" data-stat="rush_td">Rush Td</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -781,7 +898,51 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/ufl-2026.html">UFL</a></td>
+        <td><a href="../games/football-ufl-2026-4-17-lou-hou.html" class="game-id">LOU @ HOU</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="20">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -812,12 +973,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -831,7 +986,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -862,12 +1017,6 @@
         
         <td></td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
@@ -881,14 +1030,22 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
         <td>10</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-16-tjacksonvillesharksg20260516zv31-tfishersfreight.html" class="game-id">Jacksonville Sharks @ Fishers Freight</a></td>
-        <td>68.0–50.0</td>
+        <td><a href="../games/football-ifl-2026-5-15-ttucsonsugarskullsg20260515ce9o-tquadcitysteamwheelers.html" class="game-id">Tucson Sugar Skulls @ Quad City Steamwheelers</a></td>
+        <td>38.0–40.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -896,63 +1053,35 @@
         
         <td></td>
         
-        <td></td>
+        <td>20.0</td>
+        
+        <td>20.0</td>
+        
+        <td>20.0</td>
         
         <td></td>
         
         <td></td>
         
         <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>9.0</td>
-        
-        <td>9.0</td>
-        
-        <td>1.0</td>
         
         <td>0.0</td>
         
-        <td>9.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
+        <td>0.0</td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="20">2026 Wk 12</td></tr>
       
       <tr>
         <td>2026</td>
-        <td>11</td>
+        <td>12</td>
         <td><a href="../leagues/ifl-2026.html">IFL</a></td>
-        <td><a href="../games/football-ifl-2026-5-22-tjacksonvillesharksg20260522tjew-tiowabarnstormers.html" class="game-id">Jacksonville Sharks @ Iowa Barnstormers</a></td>
-        <td>60.0–48.0</td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td>1.0</td>
+        <td><a href="../games/football-ifl-2026-5-31-tquadcitysteamwheelersg20260531jqpf-tvegasknighthawks.html" class="game-id">Quad City Steamwheelers @ Vegas Knight Hawks</a></td>
+        <td>28.0–61.0</td>
         
         <td>0.0</td>
         
@@ -972,9 +1101,17 @@
         
         <td></td>
         
-        <td>3.0</td>
+        <td></td>
         
-        <td>4.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
         
       </tr>
       
@@ -994,7 +1131,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/jaylin-clark-mcnatte.json">JSON</a> ·
@@ -1004,7 +1141,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
