@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Tyrell Thompson — AltSports Stats">
-  <meta property="og:description" content="Career stats for Tyrell Thompson: assisted_tackles 4.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 1.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, pat_made 1.0, rec_avg 20.5, rec_long 30.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 32.0, receptions 3.0, sacks 0.0, safeties 0.0, solo_tackles 2.0, tackles 4.0">
+  <meta property="og:description" content="Career stats for Tyrell Thompson: assisted_tackles 3.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 1.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, fumbles 1.0, fumbles_lost 1.0, interceptions 1.0, pass_attempts 4.0, pass_completions 3.0, pass_long 12.0, passing_tds 0.0, passing_yards 21.0, rec_avg 9.0, rec_long 9.0, receiving_fum 0.0, receiving_tds 0.0, receiving_yards 9.0, receptions 1.0, sacks 0.0, safeties 0.0, tackles 1.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/tyrell-thompson.html">
   
@@ -73,20 +73,6 @@
     
     
     
-    {
-      "@type": "Dataset",
-      "name": "UFL 2025",
-      "description": "League-level player statistics for UFL 2025 from AltSports Archive.",
-      "url": "https://archive.altfantasysports.com/data/leagues/ufl-2025.json",
-      "creator": {
-        "@type": "Organization",
-        "name": "AltSports Archive",
-        "url": "https://archive.altfantasysports.com"
-      },
-      "license": "https://creativecommons.org/licenses/by/4.0/"
-    }
-    
-    ,
     {
       "@type": "Dataset",
       "name": "NAL 2026",
@@ -210,28 +196,13 @@
       <div class="ct-years">
         <span class="ct-label"></span>
         
-        <span class="ct-yr">'25</span>
-        
         <span class="ct-yr">'26</span>
-        
-      </div>
-      
-      <div class="ct-row" data-type="alt">
-        <span class="ct-label">UFL</span>
-        
-          
-          <span class="ct-cell ct-on"></span>
-          
-          <span class="ct-cell"></span>
-          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">IFL</span>
         
-          
-          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -241,8 +212,6 @@
       <div class="ct-row" data-type="alt">
         <span class="ct-label">NAL</span>
         
-          
-          <span class="ct-cell"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -258,9 +227,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">52.1</div>
+        <div class="badge-number">45.0</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2159</div>
+        <div class="badge-rank">#2616</div>
       </div>
       
       
@@ -305,7 +274,11 @@
           
         
           
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
+          
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
           
         
           
@@ -347,13 +320,13 @@
         
           
             <td>
-              3
+              1
             </td>
           
         
           
             <td>
-              32
+              9
             </td>
           
         
@@ -370,7 +343,15 @@
           
         
           
+            <td>
+              21
+            </td>
+          
         
+          
+            <td>
+              0
+            </td>
           
         
           
@@ -417,8 +398,8 @@
   </div>
   <script>
   (function(){
-    var seasons = {"UFL-2025": {"pat_made": 1.0}, "NAL-2026": {"rec_avg": 9.0, "rec_long": 9.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 9.0, "receptions": 1.0, "assisted_tackles": 3.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 1.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "IFL-2026": {"assisted_tackles": 1.0, "rec_avg": 11.5, "rec_long": 21.0, "receiving_tds": 0.0, "receiving_yards": 23.0, "receptions": 2.0, "solo_tackles": 2.0, "tackles": 3.0}};
-    var stat    = "receiving_yards";
+    var seasons = {"NAL-2026": {"rec_avg": 9.0, "rec_long": 9.0, "receiving_fum": 0.0, "receiving_tds": 0.0, "receiving_yards": 9.0, "receptions": 1.0, "assisted_tackles": 3.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 1.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 1.0}, "IFL-2026": {"fumbles": 1.0, "fumbles_lost": 1.0, "interceptions": 1.0, "pass_attempts": 4.0, "pass_completions": 3.0, "pass_long": 12.0, "passing_tds": 0.0, "passing_yards": 21.0}};
+    var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
       var yb = (b.match(/\d{4}$/) || ['0000'])[0];
@@ -446,19 +427,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -470,19 +439,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -494,19 +451,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -518,19 +463,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -542,19 +475,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -566,19 +487,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -590,19 +499,7 @@
     
       
     
-      
-    
   
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      
     
       
     
@@ -614,6 +511,10 @@
     
       
     
+  
+    
+      
+    
       
     
   
@@ -622,11 +523,43 @@
     
       
     
+  
+    
+      
+    
       
     
   
     
       
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+  
     
       
     
@@ -639,8 +572,6 @@
       <tr>
         <th scope="col">Season</th>
         
-        <th scope="col">Coach</th>
-        
         
         <th scope="col" data-stat="receptions">Rec</th>
         
@@ -648,94 +579,25 @@
         
         <th scope="col" data-stat="receiving_tds">TD</th>
         
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
       </tr>
     </thead>
     <tbody>
       
       <tr>
-        <td>UFL 2025</td>
-        
-        <td>
-          
-          
-            
-              
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                
-                
-                  <a href="../players/corey-chamblin.html">Corey Chamblin</a>; 
-                
-              
-            
-              
-              
-                
-                  
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-              
-                <a href="../players/jim-turner.html">Jim Turner</a>
-              
-            
-          
-        </td>
-        
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-      </tr>
-      
-      <tr>
         <td>IFL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
         
+        <td>—</td>
         
-        <td>2</td>
+        <td>—</td>
         
-        <td>23</td>
+        <td>—</td>
+        
+        <td>21</td>
         
         <td>0</td>
         
@@ -744,19 +606,16 @@
       <tr>
         <td>NAL 2026</td>
         
-        <td>
-          
-          
-            —
-          
-        </td>
-        
         
         <td>1</td>
         
         <td>9</td>
         
         <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -770,13 +629,29 @@
         
         
           
+            
+          
+        
+          
+        
+        
+      
+        
         
           
             
           
         
           
+        
+        
+      
+        
+        
+          
             
+          
+        
           
         
         
@@ -789,18 +664,10 @@
             
           
         
-          
-            
-          
-        
         
       
         
         
-          
-        
-          
-            
           
         
           
@@ -811,13 +678,13 @@
       
       <tr>
         <th>Total</th>
-        <td></td>
+        
         
           
           
           <td>
             
-              3<br>
+              1<br>
             
           </td>
         
@@ -825,7 +692,23 @@
           
           <td>
             
-              32<br>
+              9<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              21<br>
             
           </td>
         
@@ -840,59 +723,7 @@
       </tr>
       <tr>
         <th>Avg</th>
-        <td></td>
         
-          
-          <td>
-            
-              1.5
-            
-          </td>
-        
-          
-          <td>
-            
-              16
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-      </tr>
-      <tr>
-        <th>Max</th>
-        <td></td>
-        
-          
-          <td>
-            
-              2
-            
-          </td>
-        
-          
-          <td>
-            
-              23
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-      </tr>
-      <tr>
-        <th>Min</th>
-        <td></td>
         
           
           <td>
@@ -915,29 +746,137 @@
             
           </td>
         
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Max</th>
+        
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+      </tr>
+      <tr>
+        <th>Min</th>
+        
+        
+          
+          <td>
+            
+              1
+            
+          </td>
+        
+          
+          <td>
+            
+              9
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
+          
+          <td>
+            
+              21
+            
+          </td>
+        
+          
+          <td>
+            
+              0
+            
+          </td>
+        
       </tr>
       <tr>
         <th>Std Dev</th>
-        <td></td>
+        
         
           <td>
             
             
-              0.7
+              —
             
           </td>
         
           <td>
             
             
-              9.9
+              —
             
           </td>
         
           <td>
             
             
-              0
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
+            
+          </td>
+        
+          <td>
+            
+            
+              —
             
           </td>
         
@@ -986,7 +925,21 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="pat_made">Pat Made</th>
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
+        <th scope="col" data-stat="interceptions">Interceptions</th>
+        
+        <th scope="col" data-stat="pass_attempts">Pass Attempts</th>
+        
+        <th scope="col" data-stat="pass_completions">Pass Completions</th>
+        
+        <th scope="col" data-stat="pass_long">Pass Long</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -1004,8 +957,6 @@
         
         <th scope="col" data-stat="safeties">Safeties</th>
         
-        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
-        
         <th scope="col" data-stat="tackles">Tackles</th>
         
       </tr>
@@ -1016,57 +967,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 10</td></tr>
-      
-      <tr>
-        <td>2025</td>
-        <td>10</td>
-        <td><a href="../leagues/ufl-2025.html">UFL</a></td>
-        <td><a href="../games/football-ufl-2025-6-1-bhm-mem.html" class="game-id">BHM @ MEM</a></td>
-        <td>—</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td>1.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-      </tr>
-      
-      
-      
-      
-      <tr class="week-group-row"><td colspan="23">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1091,6 +992,20 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>9.0</td>
         
         <td>9.0</td>
@@ -1109,14 +1024,12 @@
         
         <td></td>
         
-        <td></td>
-        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1153,11 +1066,23 @@
         
         <td></td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>0.0</td>
         
@@ -1166,7 +1091,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1175,48 +1100,60 @@
         <td><a href="../games/football-ifl-2026-4-25-tnazwranglersg20260425ht1s-tsanantoniogunslingers.html" class="game-id">NAZ Wranglers @ San Antonio Gunslingers</a></td>
         <td>14.0–32.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>1.0</td>
         
-        <td></td>
+        <td>1.0</td>
         
-        <td></td>
+        <td>1.0</td>
         
-        <td></td>
+        <td>4.0</td>
         
-        <td></td>
+        <td>3.0</td>
         
-        <td></td>
+        <td>12.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td>11.5</td>
+        <td>0.0</td>
         
         <td>21.0</td>
         
         <td></td>
         
-        <td>0.0</td>
+        <td></td>
         
-        <td>23.0</td>
-        
-        <td>2.0</td>
+        <td></td>
         
         <td></td>
         
         <td></td>
         
-        <td>2.0</td>
+        <td></td>
         
-        <td>3.0</td>
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 8</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1253,11 +1190,23 @@
         
         <td></td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>1.0</td>
         
@@ -1266,7 +1215,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 10</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1303,11 +1252,23 @@
         
         <td></td>
         
-        <td>0.0</td>
-        
-        <td>0.0</td>
+        <td></td>
         
         <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
         
         <td>0.0</td>
         
@@ -1329,7 +1290,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/tyrell-thompson.json">JSON</a> ·
@@ -1339,7 +1300,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

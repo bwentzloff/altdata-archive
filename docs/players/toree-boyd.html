@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Toree Boyd — AltSports Stats">
-  <meta property="og:description" content="Career stats for Toree Boyd: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_lost 0.0, passing_tds 0.0, passing_yards 17.0, sacks 1.0, tackles 2.0">
+  <meta property="og:description" content="Career stats for Toree Boyd: assisted_tackles 0.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, field_goal_yards 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_lost 1.0, passing_tds 8.0, passing_yards 275.0, patkick 0.0, receiving_tds 1.0, receiving_yards 19.0, receptions 1.0, rushing_tds 0.0, rushing_yards -1.0, sacks 1.0, tackles 4.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/toree-boyd.html">
   
@@ -73,6 +73,20 @@
     
     
     
+    {
+      "@type": "Dataset",
+      "name": "IFL 2023",
+      "description": "League-level player statistics for IFL 2023 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2023.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
     {
       "@type": "Dataset",
       "name": "USFL 2022",
@@ -263,13 +277,23 @@
         
         
           
-        
+            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
           
         
           
-        
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
+          
+            <th scope="col" data-stat="receptions">Rec</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+          
+        
+          
+            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -322,24 +346,8 @@
       <tr>
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
             <td>
-              17
+              -1
             </td>
           
         
@@ -351,7 +359,43 @@
         
           
             <td>
-              0
+              1
+            </td>
+          
+        
+          
+            <td>
+              19
+            </td>
+          
+        
+          
+            <td>
+              1
+            </td>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <td>
+              275
+            </td>
+          
+        
+          
+            <td>
+              8
+            </td>
+          
+        
+          
+            <td>
+              1
             </td>
           
         
@@ -397,7 +441,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"USFL-2022": {"passing_yards": 17.0, "passing_tds": 0.0, "interceptions_lost": 0.0}, "AF1-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 1.0, "tackles": 2.0}};
+    var seasons = {"USFL-2022": {"passing_yards": 17.0, "passing_tds": 0.0, "interceptions_lost": 0.0}, "AF1-2026": {"assisted_tackles": 0.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 1.0, "tackles": 4.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -818,6 +862,8 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
@@ -827,6 +873,18 @@
         <th scope="col" data-stat="passing_tds">TD</th>
         
         <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="patkick">Patkick</th>
+        
+        <th scope="col" data-stat="receiving_tds">TD</th>
+        
+        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
+        
+        <th scope="col" data-stat="receptions">Rec</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
+        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
         
@@ -840,7 +898,61 @@
       
       
       
-      <tr class="week-group-row"><td colspan="18">2022 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="25"> Wk 4</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2023.html">ifl-2023</a></td>
+        <td><a href="../games/4002611110441.html" class="game-id">Game #4002611110441</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>8.0</td>
+        
+        <td>258.0</td>
+        
+        <td>0.0</td>
+        
+        <td>1.0</td>
+        
+        <td>19.0</td>
+        
+        <td>1.0</td>
+        
+        <td>0.0</td>
+        
+        <td>-1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2022 Wk 4</td></tr>
       
       <tr>
         <td>2022</td>
@@ -848,6 +960,8 @@
         <td><a href="../leagues/usfl-2022.html">USFL</a></td>
         <td><a href="../games/synthetic-usfl-2022-w4-no.html" class="game-id">USFL 2022 — Wk 4 (NO)</a></td>
         <td>—</td>
+        
+        <td></td>
         
         <td></td>
         
@@ -875,12 +989,24 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="18">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -901,9 +1027,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -920,7 +1060,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="18">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="25">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -941,9 +1081,23 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -957,6 +1111,60 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 8</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>8</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-30-t584747g1168388-t602555.html" class="game-id">Kentucky Barrels @ Minnesota Monsters</a></td>
+        <td>32–69</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -967,7 +1175,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/toree-boyd.json">JSON</a> ·
@@ -977,7 +1185,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

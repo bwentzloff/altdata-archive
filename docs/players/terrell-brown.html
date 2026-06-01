@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Terrell Brown — AltSports Stats">
-  <meta property="og:description" content="Career stats for Terrell Brown: kick_returns 2.0, kr_avg 5.0, kr_tds 0.0, kr_yards 10.0, rec_avg 40.0, rec_long 64.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 2.0, receiving_yards 209.0, receptions 21.0, returning_intr_td 0.0, rush_avg 7.0, rush_long 7.0, rushing_2pt 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 7.0">
+  <meta property="og:description" content="Career stats for Terrell Brown: fumbles 1.0, fumbles_lost 1.0, kick_returns 3.0, kr_avg 16.0, kr_long 11.0, kr_tds 0.0, kr_yards 21.0, rec_avg 60.0, rec_long 86.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 3.0, receiving_yards 249.0, receptions 23.0, returning_intr_td 0.0, rush_avg 7.0, rush_long 7.0, rushing_2pt 0.0, rushing_attempts 1.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 7.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/terrell-brown.html">
   
@@ -78,6 +78,20 @@
       "name": "AF1 2026",
       "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -177,6 +191,35 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -272,19 +315,19 @@
         
           
             <td>
-              21
+              23
             </td>
           
         
           
             <td>
-              209
+              249
             </td>
           
         
           
             <td>
-              2
+              3
             </td>
           
         
@@ -335,6 +378,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"AF1-2026": {"rec_avg": 40.0, "rec_long": 64.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 2.0, "receiving_yards": 209.0, "receptions": 21.0, "rush_avg": 7.0, "rush_long": 7.0, "rushing_2pt": 0.0, "rushing_attempts": 1.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 7.0, "kick_returns": 2.0, "kr_avg": 5.0, "kr_tds": 0.0, "kr_yards": 10.0, "returning_intr_td": 0.0}, "IFL-2026": {"fumbles": 1.0, "fumbles_lost": 1.0, "kick_returns": 1.0, "kr_avg": 11.0, "kr_long": 11.0, "kr_tds": 0.0, "kr_yards": 11.0, "rec_avg": 20.0, "rec_long": 22.0, "receiving_tds": 1.0, "receiving_yards": 40.0, "receptions": 2.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -345,7 +412,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -353,7 +424,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -361,7 +436,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -369,7 +448,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -377,7 +460,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -385,7 +472,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -393,7 +484,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -401,7 +496,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -409,7 +508,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -417,7 +520,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -425,7 +532,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -433,7 +544,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -475,6 +590,22 @@
         
       </tr>
       
+      <tr>
+        <td>IFL 2026</td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>2</td>
+        
+        <td>40</td>
+        
+        <td>1</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -488,9 +619,25 @@
             
           
         
+          
+        
         
       
         
+        
+          
+            
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
         
           
             
@@ -504,10 +651,6 @@
             
           
         
-        
-      
-        
-        
           
             
           
@@ -515,6 +658,10 @@
         
       
         
+        
+          
+            
+          
         
           
             
@@ -546,7 +693,7 @@
           
           <td>
             
-              21<br>
+              23<br>
             
           </td>
         
@@ -554,7 +701,7 @@
           
           <td>
             
-              209<br>
+              249<br>
             
           </td>
         
@@ -562,7 +709,7 @@
           
           <td>
             
-              2<br>
+              3<br>
             
           </td>
         
@@ -588,21 +735,21 @@
           
           <td>
             
-              21
+              11.5
             
           </td>
         
           
           <td>
             
-              209
+              124.5
             
           </td>
         
           
           <td>
             
-              2
+              1.5
             
           </td>
         
@@ -668,21 +815,21 @@
           
           <td>
             
-              21
-            
-          </td>
-        
-          
-          <td>
-            
-              209
-            
-          </td>
-        
-          
-          <td>
-            
               2
+            
+          </td>
+        
+          
+          <td>
+            
+              40
+            
+          </td>
+        
+          
+          <td>
+            
+              1
             
           </td>
         
@@ -708,21 +855,21 @@
           <td>
             
             
-              —
+              13.4
             
           </td>
         
           <td>
             
             
-              —
+              119.5
             
           </td>
         
           <td>
             
             
-              —
+              0.7
             
           </td>
         
@@ -757,9 +904,15 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="fumbles">Fumbles</th>
+        
+        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
+        
         <th scope="col" data-stat="kick_returns">Kick Returns</th>
         
         <th scope="col" data-stat="kr_avg">Kr Avg</th>
+        
+        <th scope="col" data-stat="kr_long">Kr Long</th>
         
         <th scope="col" data-stat="kr_tds">Kr Tds</th>
         
@@ -803,7 +956,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="27">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -811,6 +964,12 @@
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-4-12-t584638g1168203-t584641.html" class="game-id">Oregon Lightning @ Washington Wolfpack</a></td>
         <td>33–16</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -855,7 +1014,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="27">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -864,9 +1023,15 @@
         <td><a href="../games/football-af1-2026-4-25-t584635g1168207-t584638.html" class="game-id">Albany Firebirds @ Oregon Lightning</a></td>
         <td>48–24</td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>5.0</td>
+        
+        <td></td>
         
         <td>0.0</td>
         
@@ -907,7 +1072,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="27">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -915,6 +1080,12 @@
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-5-2-t584638g1168213-t606163.html" class="game-id">Oregon Lightning @ Michigan Arsenal</a></td>
         <td>36–46</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -959,7 +1130,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="24">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="27">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -967,6 +1138,12 @@
         <td><a href="../leagues/af1-2026.html">AF1</a></td>
         <td><a href="../games/football-af1-2026-5-9-t584638g1168218-t584637.html" class="game-id">Oregon Lightning @ Nashville Kats</a></td>
         <td>21–64</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1008,6 +1185,64 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="27">2026 Wk 12</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>12</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-5-30-torlandopiratesg20260530j4e8-ttucsonsugarskulls.html" class="game-id">Orlando Pirates @ Tucson Sugar Skulls</a></td>
+        <td>37.0–55.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>1.0</td>
+        
+        <td>11.0</td>
+        
+        <td>11.0</td>
+        
+        <td>0.0</td>
+        
+        <td>11.0</td>
+        
+        <td>20.0</td>
+        
+        <td>22.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>40.0</td>
+        
+        <td>2.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -1018,7 +1253,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/terrell-brown.json">JSON</a> ·
@@ -1028,7 +1263,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked

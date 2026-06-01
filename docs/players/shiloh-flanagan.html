@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Shiloh Flanagan — AltSports Stats">
-  <meta property="og:description" content="Career stats for Shiloh Flanagan: assisted_tackles 1.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, rec_avg 44.0, rec_long 58.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 14.0, receiving_yards 676.0, receptions 60.0, rushing_yards 8.0, sacks 0.0, tackles 18.0">
+  <meta property="og:description" content="Career stats for Shiloh Flanagan: assisted_tackles 1.0, def_interceptions 1.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, defensive_tfl 0.0, field_goal_yards 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, interceptions_lost 0.0, passing_tds 0.0, passing_yards 0.0, patkick 0.0, rec_avg 50.0, rec_long 74.0, receiving_2pt 0.0, receiving_fum 0.0, receiving_tds 14.0, receiving_yards 722.0, receptions 68.0, rushing_tds 0.0, rushing_yards 8.0, sacks 0.0, tackles 21.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/shiloh-flanagan.html">
   
@@ -78,6 +78,20 @@
       "name": "AF1 2025",
       "description": "League-level player statistics for AF1 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/af1-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2023",
+      "description": "League-level player statistics for IFL 2023 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2023.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -238,6 +252,8 @@
           
         
           
+            <th scope="col" data-stat="rushing_tds">TD</th>
+          
         
           
             <th scope="col" data-stat="receptions">Rec</th>
@@ -258,9 +274,15 @@
           
         
           
-        
+            <th scope="col" data-stat="passing_yards">Pass Yds</th>
           
         
+          
+            <th scope="col" data-stat="passing_tds">TD</th>
+          
+        
+          
+            <th scope="col" data-stat="interceptions_lost">INT</th>
           
         
           
@@ -301,16 +323,20 @@
           
         
           
-        
-          
             <td>
-              60
+              0
             </td>
           
         
           
             <td>
-              676
+              68
+            </td>
+          
+        
+          
+            <td>
+              722
             </td>
           
         
@@ -327,9 +353,21 @@
           
         
           
-        
+            <td>
+              0
+            </td>
           
         
+          
+            <td>
+              0
+            </td>
+          
+        
+          
+            <td>
+              0
+            </td>
           
         
           
@@ -374,7 +412,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"AF1-2025": {"receptions": 35.0, "receiving_yards": 417.0, "receiving_tds": 7.0, "rushing_yards": 8.0}, "AF1-2026": {"assisted_tackles": 1.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "tackles": 18.0, "rec_avg": 44.0, "rec_long": 58.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 5.0, "receiving_yards": 174.0, "receptions": 16.0}};
+    var seasons = {"AF1-2025": {"receptions": 35.0, "receiving_yards": 417.0, "receiving_tds": 7.0, "rushing_yards": 8.0}, "AF1-2026": {"assisted_tackles": 1.0, "def_interceptions": 1.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "defensive_tfl": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "tackles": 21.0, "rec_avg": 50.0, "rec_long": 74.0, "receiving_2pt": 0.0, "receiving_fum": 0.0, "receiving_tds": 5.0, "receiving_yards": 197.0, "receptions": 20.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -581,9 +619,9 @@
         
         <td>—</td>
         
-        <td>16</td>
+        <td>20</td>
         
-        <td>174</td>
+        <td>197</td>
         
         <td>5</td>
         
@@ -658,7 +696,7 @@
           
           <td>
             
-              51<br>
+              55<br>
             
           </td>
         
@@ -666,7 +704,7 @@
           
           <td>
             
-              591<br>
+              614<br>
             
           </td>
         
@@ -693,14 +731,14 @@
           
           <td>
             
-              25.5
+              27.5
             
           </td>
         
           
           <td>
             
-              295.5
+              307
             
           </td>
         
@@ -759,14 +797,14 @@
           
           <td>
             
-              16
+              20
             
           </td>
         
           
           <td>
             
-              174
+              197
             
           </td>
         
@@ -792,14 +830,14 @@
           <td>
             
             
-              13.4
+              10.6
             
           </td>
         
           <td>
             
             
-              171.8
+              155.6
             
           </td>
         
@@ -853,9 +891,19 @@
         
         <th scope="col" data-stat="defensive_tfl">Defensive Tfl</th>
         
+        <th scope="col" data-stat="field_goal_yards">Field Goal Yards</th>
+        
         <th scope="col" data-stat="forced_fumbles">Forced Fumbles</th>
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
+        
+        <th scope="col" data-stat="interceptions_lost">INT</th>
+        
+        <th scope="col" data-stat="passing_tds">TD</th>
+        
+        <th scope="col" data-stat="passing_yards">Pass Yds</th>
+        
+        <th scope="col" data-stat="patkick">Patkick</th>
         
         <th scope="col" data-stat="rec_avg">Rec Avg</th>
         
@@ -871,6 +919,8 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
         <th scope="col" data-stat="sacks">Sacks</th>
@@ -885,7 +935,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23"> Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="29"> Wk 1</td></tr>
       
       <tr>
         <td>—</td>
@@ -893,6 +943,16 @@
         <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
         <td><a href="../games/salina-corpus.html" class="game-id">SALINA-CORPUS</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -930,12 +990,76 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23"> Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="29"> Wk 4</td></tr>
+      
+      <tr>
+        <td>—</td>
+        <td>4</td>
+        <td><a href="../leagues/ifl-2023.html">ifl-2023</a></td>
+        <td><a href="../games/4002611110441.html" class="game-id">Game #4002611110441</a></td>
+        <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>23.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="29"> Wk 7</td></tr>
       
       <tr>
         <td>—</td>
@@ -943,6 +1067,16 @@
         <td><a href="../leagues/af1-2025.html">af1-2025</a></td>
         <td><a href="../games/swkansas-nashville-0425.html" class="game-id">SWKANSAS @ NASHVILLE</a></td>
         <td>—</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -980,12 +1114,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025</td></tr>
       
       <tr>
         <td>2025</td>
@@ -993,6 +1129,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/swkansas-nashville.html" class="game-id">NASHVILLE @ SW KANSAS</a></td>
         <td>0–0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1030,12 +1176,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1043,6 +1191,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/storm-firebirds.html" class="game-id">SW KANSAS @ ALBANY</a></td>
         <td>20–78</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1080,12 +1238,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1093,6 +1253,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/storm-lightning-0330.html" class="game-id">OREGON @ SW KANSAS</a></td>
         <td>41–40</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1130,12 +1300,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 5</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1143,6 +1315,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/swkansas-oregon-0412.html" class="game-id">SW KANSAS @ SALINA</a></td>
         <td>22–20</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1180,12 +1362,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 6</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1218,11 +1402,23 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>2.0</td>
         
         <td>120.0</td>
         
         <td>9.0</td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -1235,7 +1431,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1243,6 +1439,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/swkansas-nashville-0426.html" class="game-id">NASHVILLE @ SW KANSAS</a></td>
         <td>41–37</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1280,12 +1486,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 8</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 8</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1293,6 +1501,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/swkansas-billings-0503.html" class="game-id">BILLINGS @ SW KANSAS</a></td>
         <td>31–49</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1330,12 +1548,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1343,6 +1563,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/washington-swkansas-05-25.html" class="game-id">SW KANSAS @ WASHINGTON</a></td>
         <td>63–7</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1380,12 +1610,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2025 Wk 13</td></tr>
+      <tr class="week-group-row"><td colspan="29">2025 Wk 13</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1393,6 +1625,16 @@
         <td><a href="../leagues/af1-2025.html">AF1</a></td>
         <td><a href="../games/salina-kansas-0607.html" class="game-id">SW KANSAS @ SALINA</a></td>
         <td>63–65</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1430,12 +1672,14 @@
         
         <td></td>
         
+        <td></td>
+        
       </tr>
       
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 1</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1456,9 +1700,21 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1485,7 +1741,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 2</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1506,9 +1762,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>11.0</td>
         
@@ -1526,6 +1792,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>2.0</td>
@@ -1535,7 +1803,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 4</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1556,9 +1824,21 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -1585,7 +1865,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 5</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 5</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1606,9 +1886,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>15.0</td>
         
@@ -1626,6 +1916,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>4.0</td>
@@ -1635,7 +1927,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 6</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1656,9 +1948,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>8.0</td>
         
@@ -1676,6 +1978,8 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>2.0</td>
@@ -1685,7 +1989,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="23">2026 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="29">2026 Wk 7</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1706,9 +2010,19 @@
         
         <td>0.0</td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td>10.0</td>
         
@@ -1726,9 +2040,73 @@
         
         <td></td>
         
+        <td></td>
+        
         <td>0.0</td>
         
         <td>2.0</td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="29">2026 Wk 8</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>8</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-5-30-t584747g1168388-t602555.html" class="game-id">Kentucky Barrels @ Minnesota Monsters</a></td>
+        <td>32–69</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>6.0</td>
+        
+        <td>16.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>23.0</td>
+        
+        <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
         
       </tr>
       
@@ -1742,7 +2120,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-05-29.
+      Data updated: 2026-06-01.
       Formats:
       
 <a href="../data/players/shiloh-flanagan.json">JSON</a> ·
@@ -1752,7 +2130,7 @@
     </p>
     <p>
       Feel free to throw us a tip:
-      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a>
+      <a href="https://buymeacoffee.com/altfantasysports" target="_blank" rel="noopener">buymeacoffee.com/altfantasysports</a> | &hearts; 901
     </p>
     <p class="disclaimer">
       Stats are best-effort aggregations across multiple sources. Player identity is matched by name — records marked
