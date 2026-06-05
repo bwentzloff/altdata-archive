@@ -128,6 +128,20 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2026",
+      "description": "League-level player statistics for CFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -232,11 +246,15 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">CFL</span>
         
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -416,7 +434,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"passing_yards": 2736.0, "passing_tds": 15.0, "interceptions_lost": 9.0}, "CFL-2023": {"passing_yards": 3637.0, "passing_tds": 18.0, "interceptions_lost": 13.0, "rushing_yards": 102.0, "rushing_tds": 1.0}, "CFL-2024": {"passing_yards": 4243.0, "passing_tds": 22.0, "rushing_yards": 283.0, "interceptions_lost": 19.0, "rushing_tds": 10.0}, "CFL-2025": {"passing_yards": 4714.0, "interceptions_lost": 19.0, "rushing_yards": 328.0, "passing_tds": 20.0, "rushing_tds": 45.0}};
+    var seasons = {"CFL-2022": {"passing_yards": 2736.0, "passing_tds": 15.0, "interceptions_lost": 9.0}, "CFL-2023": {"passing_yards": 3637.0, "passing_tds": 18.0, "interceptions_lost": 13.0, "rushing_yards": 102.0, "rushing_tds": 1.0}, "CFL-2024": {"passing_yards": 4243.0, "passing_tds": 22.0, "rushing_yards": 283.0, "interceptions_lost": 19.0, "rushing_tds": 10.0}, "CFL-2025": {"passing_yards": 4714.0, "interceptions_lost": 19.0, "rushing_yards": 328.0, "passing_tds": 20.0, "rushing_tds": 45.0}, "CFL-2026": {"passing_yards": 0.0, "passing_tds": 0.0, "interceptions_lost": 0.0, "rushing_yards": 0.0, "rushing_tds": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -449,27 +467,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -489,27 +491,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -529,27 +515,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -569,27 +539,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -609,27 +563,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -649,14 +587,6 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
@@ -669,7 +599,143 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -929,6 +995,29 @@
         
       </tr>
       
+      <tr>
+        <td>CFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -952,20 +1041,6 @@
             
           
         
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
           
             
           
@@ -973,6 +1048,8 @@
         
       
         
+        
+          
         
           
             
@@ -1010,9 +1087,41 @@
             
           
         
+          
+            
+          
+        
         
       
         
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+            
+          
         
           
             
@@ -1084,28 +1193,21 @@
           
           <td>
             
-              237.7
+              178.2
             
           </td>
         
           
           <td>
             
-              18.7
+              14
             
           </td>
         
           
           <td>
             
-              3,832.5
-            
-          </td>
-        
-          
-          <td>
-            
-              18.8
+              3,066
             
           </td>
         
@@ -1113,6 +1215,13 @@
           <td>
             
               15
+            
+          </td>
+        
+          
+          <td>
+            
+              12
             
           </td>
         
@@ -1164,35 +1273,35 @@
           
           <td>
             
-              102
+              0
             
           </td>
         
           
           <td>
             
-              1
+              0
             
           </td>
         
           
           <td>
             
-              2,736
+              0
             
           </td>
         
           
           <td>
             
-              15
+              0
             
           </td>
         
           
           <td>
             
-              9
+              0
             
           </td>
         
@@ -1204,35 +1313,35 @@
           <td>
             
             
-              119.6
+              153.8
             
           </td>
         
           <td>
             
             
-              23.2
+              21.1
             
           </td>
         
           <td>
             
             
-              853.6
+              1,866.6
             
           </td>
         
           <td>
             
             
-              3.0
+              8.8
             
           </td>
         
           <td>
             
             
-              4.9
+              7.9
             
           </td>
         
@@ -3249,6 +3358,30 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="10">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2026.html">CFL</a></td>
+        <td><a href="../games/13419675.html" class="game-id">WPG @ CGY</a></td>
+        <td>0–0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -3259,7 +3392,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-04.
+      Data updated: 2026-06-05.
       Formats:
       
 <a href="../data/players/cgy-qb.json">JSON</a> ·
