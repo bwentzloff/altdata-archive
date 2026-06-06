@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Dedrick MILLS — AltSports Stats">
-  <meta property="og:description" content="Career stats for Dedrick MILLS: interceptions_made 0.0, receiving_tds 0.0, receiving_yards 742.0, receptions 85.0, recv_lg 58.0, recv_rec 13.0, recv_tar 18.0, recv_yac 74.0, recv_yds 105.0, rush_att 69.0, rush_lg 142.0, rush_td 2.0, rush_yds 475.0, rushing_tds 16.0, rushing_yards 3130.0, sacks 0.0, score_pts 12.0, score_r 2.0, score_tot 2.0, tackles 0.0">
+  <meta property="og:description" content="Career stats for Dedrick MILLS: interceptions_made 0.0, receiving_tds 0.0, receiving_yards 745.0, receptions 86.0, recv_lg 58.0, recv_rec 13.0, recv_tar 18.0, recv_yac 74.0, recv_yds 105.0, rush_att 69.0, rush_lg 142.0, rush_td 2.0, rush_yds 475.0, rushing_tds 17.0, rushing_yards 3242.0, sacks 0.0, score_pts 12.0, score_r 2.0, score_tot 2.0, tackles 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/dedrick-mills.html">
   
@@ -128,6 +128,20 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2026",
+      "description": "League-level player statistics for CFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -232,11 +246,15 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">CFL</span>
         
+          
+          <span class="ct-cell ct-on"></span>
           
           <span class="ct-cell ct-on"></span>
           
@@ -258,14 +276,14 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">59.7</div>
+        <div class="badge-number">59.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1494</div>
+        <div class="badge-rank">#1508</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">56.4</div>
+        <div class="badge-number">56.3</div>
         <div class="badge-label">RB</div>
         <div class="badge-rank">#49</div>
       </div>
@@ -359,25 +377,25 @@
         
           
             <td>
-              3,130
+              3,242
             </td>
           
         
           
             <td>
-              16
+              17
             </td>
           
         
           
             <td>
-              85
+              86
             </td>
           
         
           
             <td>
-              742
+              745
             </td>
           
         
@@ -453,7 +471,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2022": {"rush_att": 69.0, "rush_yds": 475.0, "rush_lg": 142.0, "rush_td": 2.0, "recv_rec": 13.0, "recv_yds": 105.0, "recv_lg": 58.0, "recv_tar": 18.0, "recv_yac": 74.0, "score_tot": 2.0, "score_r": 2.0, "score_pts": 12.0}, "CFL-2023": {"rushing_yards": 798.0, "rushing_tds": 4.0, "receiving_yards": 123.0, "receiving_tds": 0.0, "receptions": 21.0, "tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}, "CFL-2024": {"rushing_yards": 923.0, "rushing_tds": 1.0, "receiving_yards": 327.0, "receiving_tds": 0.0, "receptions": 31.0}, "CFL-2025": {"rushing_yards": 1409.0, "rushing_tds": 11.0, "receiving_yards": 292.0, "receiving_tds": 0.0, "receptions": 33.0}};
+    var seasons = {"CFL-2022": {"rush_att": 69.0, "rush_yds": 475.0, "rush_lg": 142.0, "rush_td": 2.0, "recv_rec": 13.0, "recv_yds": 105.0, "recv_lg": 58.0, "recv_tar": 18.0, "recv_yac": 74.0, "score_tot": 2.0, "score_r": 2.0, "score_pts": 12.0}, "CFL-2023": {"rushing_yards": 798.0, "rushing_tds": 4.0, "receiving_yards": 123.0, "receiving_tds": 0.0, "receptions": 21.0, "tackles": 0.0, "sacks": 0.0, "interceptions_made": 0.0}, "CFL-2024": {"rushing_yards": 923.0, "rushing_tds": 1.0, "receiving_yards": 327.0, "receiving_tds": 0.0, "receptions": 31.0}, "CFL-2025": {"rushing_yards": 1409.0, "rushing_tds": 11.0, "receiving_yards": 292.0, "receiving_tds": 0.0, "receptions": 33.0}, "CFL-2026": {"rushing_yards": 112.0, "rushing_tds": 1.0, "receiving_yards": 3.0, "receiving_tds": 0.0, "receptions": 1.0}};
     var stat    = "rushing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -486,27 +504,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -526,27 +528,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -566,27 +552,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -606,27 +576,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -646,27 +600,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -686,14 +624,6 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
       
     
   
@@ -706,7 +636,143 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -996,6 +1062,35 @@
         
       </tr>
       
+      <tr>
+        <td>CFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>112</td>
+        
+        <td>1</td>
+        
+        <td>1</td>
+        
+        <td>3</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -1019,20 +1114,6 @@
             
           
         
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
           
             
           
@@ -1045,20 +1126,6 @@
         
           
             
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
           
         
           
@@ -1091,6 +1158,54 @@
             
           
         
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
         
       
         
@@ -1105,6 +1220,8 @@
         
           
         
+          
+        
         
       
         
@@ -1119,6 +1236,8 @@
         
           
         
+          
+        
         
       
         
@@ -1127,6 +1246,8 @@
         
           
             
+          
+        
           
         
           
@@ -1143,7 +1264,7 @@
           
           <td>
             
-              3,130<br>
+              3,242<br>
             
           </td>
         
@@ -1151,7 +1272,7 @@
           
           <td>
             
-              16<br>
+              17<br>
             
           </td>
         
@@ -1159,7 +1280,7 @@
           
           <td>
             
-              85<br>
+              86<br>
             
           </td>
         
@@ -1167,7 +1288,7 @@
           
           <td>
             
-              742<br>
+              745<br>
             
           </td>
         
@@ -1211,28 +1332,28 @@
           
           <td>
             
-              1,043.3
+              810.5
             
           </td>
         
           
           <td>
             
-              5.3
+              4.2
             
           </td>
         
           
           <td>
             
-              28.3
+              21.5
             
           </td>
         
           
           <td>
             
-              247.3
+              186.2
             
           </td>
         
@@ -1333,7 +1454,7 @@
           
           <td>
             
-              798
+              112
             
           </td>
         
@@ -1347,14 +1468,14 @@
           
           <td>
             
-              21
+              1
             
           </td>
         
           
           <td>
             
-              123
+              3
             
           </td>
         
@@ -1394,28 +1515,28 @@
           <td>
             
             
-              322.8
+              535.1
             
           </td>
         
           <td>
             
             
-              5.1
+              4.7
             
           </td>
         
           <td>
             
             
-              6.4
+              14.6
             
           </td>
         
           <td>
             
             
-              109.1
+              151.2
             
           </td>
         
@@ -1458,6 +1579,29 @@
 
 
 
+
+<section class="articles-section">
+  <h2>News & Coverage
+    <small>— 1 articles</small>
+  </h2>
+  <p class="articles-intro">Recent news and articles mentioning Dedrick MILLS.</p>
+  <div class="articles-list">
+    
+    <article class="article-item">
+      <div class="article-header">
+        <h3><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNQ2NKb0JLOW1mdDRLaHQ4ZUFsQmtfTWt3M0EzNHVkNzZiYXBBV0QyZ1FVeC1rbExzSFV0MEJzV011ano2dzNKNi1lNDMybnBCdnpMUDFnZmk4NV84SFVya21aSlYtSkR3WGVqYkVEU0pHeGU3bHhNSVJOaWVWRzdLLUVheXBGUmFfV3VjMGRvZUFLZGNPWXB5aXZ2eDlVZUU?oc=5" target="_blank" rel="noopener noreferrer">MASSIVE run by Dedrick Mills sets up an INSANE catch by Erik Brooks - CFL.ca</a></h3>
+        <span class="article-source-badge" data-trust="1.0">Google News</span>
+      </div>
+      <div class="article-meta">
+        <time datetime="2026-06-06">2026-06-06</time>
+      </div>
+      
+      <p class="article-summary">&lt;a href=&#34;https://news.google.com/rss/articles/CBMinwFBVV95cUxNQ2NKb0JLOW1mdDRLaHQ4ZUFsQmtfTWt3M0EzNHVkNzZiYXBBV0QyZ1FVeC1rbExzSFV0MEJzV011ano2dzNKNi1lNDMybnBCdnpMUDFnZmk4NV84SFVya21aSlYtSkR3WGVqYkVEU0pHeGU3bHhNSVJOaWVWRzdLLUVheXBGUmFfV3VjMGRvZUFLZGNPWXB5aXZ2eDlVZUU?oc=5&#34; target=&#34;_blank&#34;&gt;MASSIVE run by Dedrick Mills sets up an INSANE catch by Erik Brooks&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=&#34;#6f6f6f&#34;&gt;CFL.ca&lt;/font&gt;</p>
+      
+    </article>
+    
+  </div>
+</section>
 
 
 
@@ -4396,6 +4540,60 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="25">2026 Wk 1</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>1</td>
+        <td><a href="../leagues/cfl-2026.html">CFL</a></td>
+        <td><a href="../games/13419675.html" class="game-id">WPG @ CGY</a></td>
+        <td>30–28</td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>3.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td>112.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -4414,7 +4612,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-05.
+      Data updated: 2026-06-06.
       Formats:
       
 <a href="../data/players/dedrick-mills.json">JSON</a> ·
