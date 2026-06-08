@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Malik Sonnier — AltSports Stats">
-  <meta property="og:description" content="Career stats for Malik Sonnier: def_solo 14.0, def_tot 14.0, rushing_tds 0.0, rushing_yards 5.0">
+  <meta property="og:description" content="Career stats for Malik Sonnier: assisted_tackles 1.0, def_solo 14.0, def_tot 14.0, pass_defended 1.0, rushing_tds 0.0, rushing_yards 5.0, solo_tackles 5.0, tackles 6.0, tackles_for_loss 2.0, tfl_yards 0.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/malik-sonnier.html">
   
@@ -78,6 +78,20 @@
       "name": "CFL 2022",
       "description": "League-level player statistics for CFL 2022 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2022.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "IFL 2026",
+      "description": "League-level player statistics for IFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/ifl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -177,6 +191,59 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'22</span>
+        
+        <span class="ct-yr">'23</span>
+        
+        <span class="ct-yr">'24</span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">IFL</span>
+        
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -184,9 +251,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">62.6</div>
+        <div class="badge-number">68.5</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#1203</div>
+        <div class="badge-rank">#686</div>
       </div>
       
       
@@ -330,6 +397,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2022": {"def_solo": 14.0, "def_tot": 14.0, "rushing_yards": 5.0, "rushing_tds": 0.0}, "IFL-2026": {"assisted_tackles": 1.0, "pass_defended": 1.0, "solo_tackles": 5.0, "tackles": 6.0, "tackles_for_loss": 2.0, "tfl_yards": 0.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -340,7 +431,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -348,7 +443,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -356,7 +455,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -364,7 +467,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -372,7 +479,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -380,7 +491,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -388,7 +503,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -396,7 +515,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -404,7 +527,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -412,7 +539,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -420,7 +551,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -428,7 +563,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -497,6 +636,23 @@
         
       </tr>
       
+      <tr>
+        <td>IFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -510,12 +666,16 @@
             
           
         
+          
+        
         
       
         
         
           
             
+          
+        
           
         
         
@@ -694,13 +854,25 @@
         <th scope="col">Matchup</th>
         <th scope="col">Score</th>
         
+        <th scope="col" data-stat="assisted_tackles">Assisted Tackles</th>
+        
         <th scope="col" data-stat="def_solo">Def Solo</th>
         
         <th scope="col" data-stat="def_tot">Def Tot</th>
         
+        <th scope="col" data-stat="pass_defended">Pass Defended</th>
+        
         <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
+        
+        <th scope="col" data-stat="tackles">Tackles</th>
+        
+        <th scope="col" data-stat="tackles_for_loss">Tackles For Loss</th>
+        
+        <th scope="col" data-stat="tfl_yards">Tfl Yards</th>
         
       </tr>
     </thead>
@@ -710,7 +882,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2022 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 1</td></tr>
       
       <tr>
         <td>2022</td>
@@ -719,9 +891,21 @@
         <td><a href="../games/football-cfl-2022-6-11-edm-bc.html" class="game-id">EDM @ BC</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -738,9 +922,21 @@
         <td><a href="../games/football-cfl-2022-7-14-edm-mtl.html" class="game-id">EDM @ MTL</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -757,9 +953,21 @@
         <td><a href="../games/football-cfl-2022-7-22-wpg-edm.html" class="game-id">WPG @ EDM</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>3.0</td>
         
         <td>3.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -776,9 +984,21 @@
         <td><a href="../games/football-cfl-2022-8-13-ssk-edm.html" class="game-id">SSK @ EDM</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>1.0</td>
         
         <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -795,9 +1015,21 @@
         <td><a href="../games/football-cfl-2022-8-6-edm-bc.html" class="game-id">EDM @ BC</a></td>
         <td>—</td>
         
+        <td></td>
+        
         <td>4.0</td>
         
         <td>4.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
         
         <td></td>
         
@@ -808,7 +1040,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="9">2022 Wk 6</td></tr>
+      <tr class="week-group-row"><td colspan="15">2022 Wk 6</td></tr>
       
       <tr>
         <td>2022</td>
@@ -821,9 +1053,55 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
         <td>0.0</td>
         
         <td>5.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="15">2026 Wk 13</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>13</td>
+        <td><a href="../leagues/ifl-2026.html">IFL</a></td>
+        <td><a href="../games/football-ifl-2026-6-7-tnewmexicochupacabrasg20260607jmsk-ttucsonsugarskulls.html" class="game-id">New Mexico Chupacabras @ Tucson Sugar Skulls</a></td>
+        <td>22.0–48.0</td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>1.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>6.0</td>
+        
+        <td>2.0</td>
+        
+        <td>0.0</td>
         
       </tr>
       
@@ -843,7 +1121,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-07.
+      Data updated: 2026-06-08.
       Formats:
       
 <a href="../data/players/malik-sonnier.json">JSON</a> ·
