@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Miyan Williams — AltSports Stats">
-  <meta property="og:description" content="Career stats for Miyan Williams: receiving_yards 70.0, receptions 12.0, rushing_yards 102.0">
+  <meta property="og:description" content="Career stats for Miyan Williams: receiving_yards 70.0, receptions 12.0, rush_avg 5.0, rush_long 9.0, rushing_2pt 0.0, rushing_attempts 4.0, rushing_fum 0.0, rushing_tds 0.0, rushing_yards 122.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/miyan-williams.html">
   
@@ -78,6 +78,20 @@
       "name": "CFL 2025",
       "description": "League-level player statistics for CFL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "AF1 2026",
+      "description": "League-level player statistics for AF1 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/af1-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -190,6 +204,8 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="college">
@@ -204,12 +220,33 @@
           
           <span class="ct-cell"></span>
           
+          <span class="ct-cell"></span>
+          
         
       </div>
       
       <div class="ct-row" data-type="alt">
         <span class="ct-label">CFL</span>
         
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell"></span>
+          
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">AF1</span>
+        
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -246,6 +283,8 @@
             <th scope="col" data-stat="rushing_yards">Rush Yds</th>
           
         
+          
+            <th scope="col" data-stat="rushing_tds">TD</th>
           
         
           
@@ -303,10 +342,14 @@
         
           
             <td>
-              102
+              122
             </td>
           
         
+          
+            <td>
+              0
+            </td>
           
         
           
@@ -370,6 +413,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2025": {"receptions": 12.0, "receiving_yards": 70.0, "rushing_yards": 102.0}, "AF1-2026": {"rush_avg": 5.0, "rush_long": 9.0, "rushing_2pt": 0.0, "rushing_attempts": 4.0, "rushing_fum": 0.0, "rushing_tds": 0.0, "rushing_yards": 20.0}};
+    var stat    = "rushing_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -380,7 +447,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -388,7 +459,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -396,7 +471,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -404,7 +483,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -412,7 +495,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -420,7 +507,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -428,7 +519,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -436,7 +531,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -444,7 +543,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -452,7 +555,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -460,7 +567,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -468,7 +579,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -483,6 +598,8 @@
         
         
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
         
         <th scope="col" data-stat="receptions">Rec</th>
         
@@ -537,9 +654,32 @@
         
         <td>102</td>
         
+        <td>—</td>
+        
         <td>12</td>
         
         <td>70</td>
+        
+      </tr>
+      
+      <tr>
+        <td>AF1 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>20</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
         
       </tr>
       
@@ -556,9 +696,15 @@
             
           
         
+          
+            
+          
+        
         
       
         
+        
+          
         
           
             
@@ -570,6 +716,18 @@
         
           
             
+          
+        
+          
+        
+        
+      
+        
+        
+          
+            
+          
+        
           
         
         
@@ -582,7 +740,15 @@
           
           <td>
             
-              102<br>
+              122<br>
+            
+          </td>
+        
+          
+          
+          <td>
+            
+              0<br>
             
           </td>
         
@@ -610,7 +776,14 @@
           
           <td>
             
-              102
+              61
+            
+          </td>
+        
+          
+          <td>
+            
+              0
             
           </td>
         
@@ -643,6 +816,13 @@
           
           <td>
             
+              0
+            
+          </td>
+        
+          
+          <td>
+            
               12
             
           </td>
@@ -662,7 +842,14 @@
           
           <td>
             
-              102
+              20
+            
+          </td>
+        
+          
+          <td>
+            
+              0
             
           </td>
         
@@ -684,6 +871,13 @@
       <tr>
         <th>Std Dev</th>
         <td></td>
+        
+          <td>
+            
+            
+              58.0
+            
+          </td>
         
           <td>
             
@@ -792,6 +986,18 @@
         
         <th scope="col" data-stat="receptions">Rec</th>
         
+        <th scope="col" data-stat="rush_avg">Rush Avg</th>
+        
+        <th scope="col" data-stat="rush_long">Rush Long</th>
+        
+        <th scope="col" data-stat="rushing_2pt">Rushing 2Pt</th>
+        
+        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
+        
+        <th scope="col" data-stat="rushing_fum">Rushing Fum</th>
+        
+        <th scope="col" data-stat="rushing_tds">TD</th>
+        
         <th scope="col" data-stat="rushing_yards">Rush Yds</th>
         
       </tr>
@@ -802,7 +1008,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 1</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 1</td></tr>
       
       <tr>
         <td>2025</td>
@@ -815,6 +1021,18 @@
         
         <td>1.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>3.0</td>
         
       </tr>
@@ -822,7 +1040,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 2</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 2</td></tr>
       
       <tr>
         <td>2025</td>
@@ -835,6 +1053,18 @@
         
         <td>9.0</td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>62.0</td>
         
       </tr>
@@ -842,7 +1072,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 3</td></tr>
       
       <tr>
         <td>2025</td>
@@ -855,6 +1085,18 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
         <td>37.0</td>
         
       </tr>
@@ -862,7 +1104,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="8">2025 Wk 4</td></tr>
+      <tr class="week-group-row"><td colspan="14">2025 Wk 4</td></tr>
       
       <tr>
         <td>2025</td>
@@ -877,6 +1119,50 @@
         
         <td></td>
         
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
+      
+      
+      
+      <tr class="week-group-row"><td colspan="14">2026 Wk 10</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>10</td>
+        <td><a href="../leagues/af1-2026.html">AF1</a></td>
+        <td><a href="../games/football-af1-2026-6-12-t606163g1168394-t584635.html" class="game-id">Michigan Arsenal @ Albany Firebirds</a></td>
+        <td>57–39</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>5.0</td>
+        
+        <td>9.0</td>
+        
+        <td>0.0</td>
+        
+        <td>4.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>20.0</td>
+        
       </tr>
       
     </tbody>
@@ -889,7 +1175,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-12.
+      Data updated: 2026-06-13.
       Formats:
       
 <a href="../data/players/miyan-williams.json">JSON</a> ·
