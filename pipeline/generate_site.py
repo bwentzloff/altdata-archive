@@ -10,6 +10,7 @@ Usage:
 import json
 from datetime import date
 from pathlib import Path
+import re
 from xml.etree.ElementTree import Element, SubElement, ElementTree, indent as xml_indent
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -21,6 +22,8 @@ TEMPLATES_DIR = ROOT_DIR / "templates"
 MERGED_DIR = ROOT_DIR / "pipeline" / "merged"
 
 BUILD_DATE = date.today().isoformat()
+
+_LAST_UPDATED_RE = re.compile(r"Data updated:\s*\d{4}-\d{2}-\d{2}\.")
 
 
 def make_env():
@@ -144,6 +147,15 @@ def make_env():
 
 def write_page(path: Path, content: str):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        existing = path.read_text(encoding="utf-8")
+
+        # Avoid rewriting pages when the only change is the footer date.
+        existing_normalized = _LAST_UPDATED_RE.sub("Data updated: __DATE__.", existing)
+        content_normalized = _LAST_UPDATED_RE.sub("Data updated: __DATE__.", content)
+        if existing_normalized == content_normalized:
+            return
+
     path.write_text(content, encoding="utf-8")
 
 
