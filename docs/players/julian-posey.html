@@ -128,6 +128,58 @@
     
 <div class="player-header">
   
+  <figure class="player-photo">
+    <button class="photo-zoom-btn" aria-label="Zoom photo of Julian Posey"
+            data-src="../assets/player-images/julian-posey.jpg"
+            data-caption="Winnipeg Blue Bombers / Wikimedia Commons (CC BY 2.0)">
+      <img src="../assets/player-images/julian-posey.jpg"
+           alt="Julian Posey"
+           width="200" loading="lazy">
+      <span class="photo-zoom-icon" aria-hidden="true">&#x26F6;</span>
+    </button>
+    <figcaption>
+      Winnipeg Blue Bombers /
+      <a href="https://commons.wikimedia.org/wiki/File:Winnipeg_Blue_Bombers_Preseason_June_13_vs_OTT_%2827666080721%29_%28cropped%29.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+      (CC BY 2.0)
+    </figcaption>
+  </figure>
+
+  <div id="photo-lightbox" class="photo-lightbox" hidden aria-modal="true" role="dialog">
+    <button class="photo-lightbox-close" aria-label="Close">&times;</button>
+    <img class="photo-lightbox-img" src="" alt="">
+    <p class="photo-lightbox-caption"></p>
+  </div>
+  <script>
+  (function () {
+    var btn = document.querySelector('.photo-zoom-btn');
+    var lb  = document.getElementById('photo-lightbox');
+    if (!btn || !lb) return;
+    var lbImg = lb.querySelector('.photo-lightbox-img');
+    var lbCap = lb.querySelector('.photo-lightbox-caption');
+    var closeBtn = lb.querySelector('.photo-lightbox-close');
+
+    function open() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.querySelector('img').alt;
+      lbCap.textContent = btn.dataset.caption;
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function close() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      btn.focus();
+    }
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();
+    });
+  }());
+  </script>
+  
 
   <div class="player-header-text">
     <h1>
@@ -696,7 +748,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-21.
+      Data updated: 2026-06-24.
       Formats:
       
 <a href="../data/players/julian-posey.json">JSON</a> ·
