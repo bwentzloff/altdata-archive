@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="D\&#39;Sean Mimbs — AltSports Stats">
-  <meta property="og:description" content="Career stats for D\&#39;Sean Mimbs: receiving_yards 5.0, receptions 1.0">
+  <meta property="og:description" content="Career stats for D\&#39;Sean Mimbs: receiving_yards 18.0, receptions 3.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/dsean-mimbs.html">
   
@@ -78,6 +78,20 @@
       "name": "CFL 2025",
       "description": "League-level player statistics for CFL 2025 from AltSports Archive.",
       "url": "https://archive.altfantasysports.com/data/leagues/cfl-2025.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2026",
+      "description": "League-level player statistics for CFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2026.json",
       "creator": {
         "@type": "Organization",
         "name": "AltSports Archive",
@@ -177,6 +191,30 @@
     </script>
 
     
+
+    <div class="career-timeline" aria-label="Career timeline">
+      <div class="ct-years">
+        <span class="ct-label"></span>
+        
+        <span class="ct-yr">'25</span>
+        
+        <span class="ct-yr">'26</span>
+        
+      </div>
+      
+      <div class="ct-row" data-type="alt">
+        <span class="ct-label">CFL</span>
+        
+          
+          <span class="ct-cell ct-on"></span>
+          
+          <span class="ct-cell ct-on"></span>
+          
+        
+      </div>
+      
+    </div>
+    
   </div>
 
   
@@ -258,13 +296,13 @@
         
           
             <td>
-              1
+              3
             </td>
           
         
           
             <td>
-              5
+              18
             </td>
           
         
@@ -317,6 +355,30 @@
 
 
 
+<section class="chart-section">
+  <h2>Career Progression</h2>
+  <div class="chart-wrap">
+    <canvas id="career-chart"></canvas>
+  </div>
+  <script>
+  (function(){
+    var seasons = {"CFL-2025": {"receptions": 1.0, "receiving_yards": 5.0}, "CFL-2026": {"receptions": 2.0, "receiving_yards": 13.0}};
+    var stat    = "receiving_yards";
+    var keys    = Object.keys(seasons).sort(function(a,b){
+      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
+      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
+      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
+    });
+    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
+    if (vals.some(function(v){ return v > 0; })) {
+      window._careerChartData = { labels: keys, values: vals, stat: stat };
+    }
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="../assets/charts.js"></script>
+</section>
+
 
 
 <section>
@@ -327,7 +389,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -335,7 +401,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -343,7 +413,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -351,7 +425,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -359,7 +437,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -367,7 +449,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -375,7 +461,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -383,7 +473,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -391,7 +485,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -399,7 +497,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -407,7 +509,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -415,7 +521,11 @@
     
       
     
+      
+    
   
+    
+      
     
       
     
@@ -520,6 +630,23 @@
         
       </tr>
       
+      <tr>
+        <td>CFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>2</td>
+        
+        <td>13</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -533,9 +660,17 @@
             
           
         
+          
+            
+          
+        
         
       
         
+        
+          
+            
+          
         
           
             
@@ -551,7 +686,7 @@
           
           <td>
             
-              1<br>
+              3<br>
             
           </td>
         
@@ -559,7 +694,7 @@
           
           <td>
             
-              5<br>
+              18<br>
             
           </td>
         
@@ -571,14 +706,14 @@
           
           <td>
             
-              1
+              1.5
             
           </td>
         
           
           <td>
             
-              5
+              9
             
           </td>
         
@@ -590,14 +725,14 @@
           
           <td>
             
-              1
+              2
             
           </td>
         
           
           <td>
             
-              5
+              13
             
           </td>
         
@@ -628,14 +763,14 @@
           <td>
             
             
-              —
+              0.7
             
           </td>
         
           <td>
             
             
-              —
+              5.7
             
           </td>
         
@@ -732,6 +867,24 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="7">2026 Wk 4</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>4</td>
+        <td><a href="../leagues/cfl-2026.html">CFL</a></td>
+        <td><a href="../games/13419685.html" class="game-id">TOR @ SSK</a></td>
+        <td>0–0</td>
+        
+        <td>13.0</td>
+        
+        <td>2.0</td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -742,7 +895,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-06-21.
+      Data updated: 2026-06-30.
       Formats:
       
 <a href="../data/players/dsean-mimbs.json">JSON</a> ·
