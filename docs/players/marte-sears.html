@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:site_name" content="AltSports Archive">
   <meta property="og:title" content="Marte Sears — AltSports Stats">
-  <meta property="og:description" content="Career stats for Marte Sears: assisted_tackles 6.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, fumbles 1.0, fumbles_lost 1.0, kick_returns 3.0, kr_avg 6.7, kr_long 13.0, kr_tds 0.0, kr_yards 20.0, rec_avg 4.0, rec_long 4.0, receiving_tds 0.0, receiving_yards 4.0, receptions 1.0, rush_avg 1.9, rush_long 7.0, rushing_attempts 9.0, rushing_tds 0.0, rushing_yards 17.0, sacks 0.0, safeties 0.0, tackles 8.0">
+  <meta property="og:description" content="Career stats for Marte Sears: assisted_tackles 6.0, def_interceptions 0.0, defensive_bk 0.0, defensive_pd 0.0, defensive_tds 0.0, forced_fumbles 0.0, fumble_recoveries 0.0, sacks 0.0, safeties 0.0, solo_tackles 1.0, tackles 9.0">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://archive.altfantasysports.com/players/marte-sears.html">
   
@@ -233,9 +233,9 @@
     <a href="#score-footnote" class="scores-info-icon" title="View score explanation">ℹ️</a>
     <div class="score-badges-container">
       <div class="score-badge all-around-badge">
-        <div class="badge-number">51.2</div>
+        <div class="badge-number">63.9</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2270</div>
+        <div class="badge-rank">#1109</div>
       </div>
       
       
@@ -258,23 +258,13 @@
         
         
           
-            <th scope="col" data-stat="rushing_yards">Rush Yds</th>
+        
           
         
           
-            <th scope="col" data-stat="rushing_tds">TD</th>
-          
         
           
-            <th scope="col" data-stat="receptions">Rec</th>
-          
         
-          
-            <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-          
-        
-          
-            <th scope="col" data-stat="receiving_tds">TD</th>
           
         
           
@@ -321,33 +311,13 @@
       <tr>
         
           
-            <td>
-              17
-            </td>
+        
           
         
           
-            <td>
-              0
-            </td>
-          
         
           
-            <td>
-              1
-            </td>
-          
         
-          
-            <td>
-              4
-            </td>
-          
-        
-          
-            <td>
-              0
-            </td>
           
         
           
@@ -396,30 +366,6 @@
 
 
 
-
-<section class="chart-section">
-  <h2>Career Progression</h2>
-  <div class="chart-wrap">
-    <canvas id="career-chart"></canvas>
-  </div>
-  <script>
-  (function(){
-    var seasons = {"NAL-2025": {"assisted_tackles": 6.0, "def_interceptions": 0.0, "defensive_bk": 0.0, "defensive_pd": 0.0, "defensive_tds": 0.0, "forced_fumbles": 0.0, "fumble_recoveries": 0.0, "sacks": 0.0, "safeties": 0.0, "tackles": 8.0}, "IFL-2026": {"fumbles": 1.0, "fumbles_lost": 1.0, "kick_returns": 3.0, "kr_avg": 6.7, "kr_long": 13.0, "kr_tds": 0.0, "kr_yards": 20.0, "rec_avg": 4.0, "rec_long": 4.0, "receiving_tds": 0.0, "receiving_yards": 4.0, "receptions": 1.0, "rush_avg": 1.9, "rush_long": 7.0, "rushing_attempts": 9.0, "rushing_tds": 0.0, "rushing_yards": 17.0}};
-    var stat    = "rushing_yards";
-    var keys    = Object.keys(seasons).sort(function(a,b){
-      var ya = (a.match(/\d{4}$/) || ['0000'])[0];
-      var yb = (b.match(/\d{4}$/) || ['0000'])[0];
-      return ya < yb ? -1 : ya > yb ? 1 : a < b ? -1 : 1;
-    });
-    var vals = keys.map(function(k){ return seasons[k][stat] || 0; });
-    if (vals.some(function(v){ return v > 0; })) {
-      window._careerChartData = { labels: keys, values: vals, stat: stat };
-    }
-  })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="../assets/charts.js"></script>
-</section>
 
 
 
@@ -579,16 +525,6 @@
         <th scope="col">Season</th>
         
         
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
       </tr>
     </thead>
     <tbody>
@@ -597,31 +533,11 @@
         <td>NAL 2025</td>
         
         
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
-        <td>—</td>
-        
       </tr>
       
       <tr>
         <td>IFL 2026</td>
         
-        
-        <td>17</td>
-        
-        <td>0</td>
-        
-        <td>1</td>
-        
-        <td>4</td>
-        
-        <td>0</td>
         
       </tr>
       
@@ -632,259 +548,29 @@
       
       
       
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
-        
-        
-          
-        
-          
-            
-          
-        
-        
-      
       <tr>
         <th>Total</th>
         
-        
-          
-          
-          <td>
-            
-              17<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              0<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              1<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              4<br>
-            
-          </td>
-        
-          
-          
-          <td>
-            
-              0<br>
-            
-          </td>
         
       </tr>
       <tr>
         <th>Avg</th>
         
         
-          
-          <td>
-            
-              17
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              4
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
       </tr>
       <tr>
         <th>Max</th>
         
-        
-          
-          <td>
-            
-              17
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              4
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
         
       </tr>
       <tr>
         <th>Min</th>
         
         
-          
-          <td>
-            
-              17
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
-          
-          <td>
-            
-              1
-            
-          </td>
-        
-          
-          <td>
-            
-              4
-            
-          </td>
-        
-          
-          <td>
-            
-              0
-            
-          </td>
-        
       </tr>
       <tr>
         <th>Std Dev</th>
         
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
-        
-          <td>
-            
-            
-              —
-            
-          </td>
         
       </tr>
     </tfoot>
@@ -931,43 +617,11 @@
         
         <th scope="col" data-stat="fumble_recoveries">Fumble Recoveries</th>
         
-        <th scope="col" data-stat="fumbles">Fumbles</th>
-        
-        <th scope="col" data-stat="fumbles_lost">Fumbles Lost</th>
-        
-        <th scope="col" data-stat="kick_returns">Kick Returns</th>
-        
-        <th scope="col" data-stat="kr_avg">Kr Avg</th>
-        
-        <th scope="col" data-stat="kr_long">Kr Long</th>
-        
-        <th scope="col" data-stat="kr_tds">Kr Tds</th>
-        
-        <th scope="col" data-stat="kr_yards">Kr Yards</th>
-        
-        <th scope="col" data-stat="rec_avg">Rec Avg</th>
-        
-        <th scope="col" data-stat="rec_long">Rec Long</th>
-        
-        <th scope="col" data-stat="receiving_tds">TD</th>
-        
-        <th scope="col" data-stat="receiving_yards">Rec Yds</th>
-        
-        <th scope="col" data-stat="receptions">Rec</th>
-        
-        <th scope="col" data-stat="rush_avg">Rush Avg</th>
-        
-        <th scope="col" data-stat="rush_long">Rush Long</th>
-        
-        <th scope="col" data-stat="rushing_attempts">Rushing Attempts</th>
-        
-        <th scope="col" data-stat="rushing_tds">TD</th>
-        
-        <th scope="col" data-stat="rushing_yards">Rush Yds</th>
-        
         <th scope="col" data-stat="sacks">Sacks</th>
         
         <th scope="col" data-stat="safeties">Safeties</th>
+        
+        <th scope="col" data-stat="solo_tackles">Solo Tackles</th>
         
         <th scope="col" data-stat="tackles">Tackles</th>
         
@@ -979,7 +633,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 7</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 7</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1002,43 +656,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>1.0</td>
         
@@ -1047,7 +669,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 10</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 10</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1070,43 +692,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>4.0</td>
         
@@ -1115,7 +705,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2025 Wk 11</td></tr>
+      <tr class="week-group-row"><td colspan="16">2025 Wk 11</td></tr>
       
       <tr>
         <td>2025</td>
@@ -1138,43 +728,11 @@
         
         <td>0.0</td>
         
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
-        
         <td>0.0</td>
         
         <td>0.0</td>
+        
+        <td></td>
         
         <td>3.0</td>
         
@@ -1183,7 +741,7 @@
       
       
       
-      <tr class="week-group-row"><td colspan="32">2026 Wk 3</td></tr>
+      <tr class="week-group-row"><td colspan="16">2026 Wk 3</td></tr>
       
       <tr>
         <td>2026</td>
@@ -1192,6 +750,10 @@
         <td><a href="../games/football-ifl-2026-3-29-ttulsaoilersg202603294ix1-tsanantoniogunslingers.html" class="game-id">Tulsa Oilers @ San Antonio Gunslingers</a></td>
         <td>29.0–22.0</td>
         
+        <td>0.0</td>
+        
+        <td></td>
+        
         <td></td>
         
         <td></td>
@@ -1209,42 +771,6 @@
         <td>1.0</td>
         
         <td>1.0</td>
-        
-        <td>3.0</td>
-        
-        <td>6.7</td>
-        
-        <td>13.0</td>
-        
-        <td>0.0</td>
-        
-        <td>20.0</td>
-        
-        <td>4.0</td>
-        
-        <td>4.0</td>
-        
-        <td>0.0</td>
-        
-        <td>4.0</td>
-        
-        <td>1.0</td>
-        
-        <td>1.9</td>
-        
-        <td>7.0</td>
-        
-        <td>9.0</td>
-        
-        <td>0.0</td>
-        
-        <td>17.0</td>
-        
-        <td></td>
-        
-        <td></td>
-        
-        <td></td>
         
       </tr>
       
@@ -1264,7 +790,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-07-07.
+      Data updated: 2026-08-03.
       Formats:
       
 <a href="../data/players/marte-sears.json">JSON</a> ·

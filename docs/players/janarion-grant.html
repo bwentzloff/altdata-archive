@@ -142,6 +142,20 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     }
     
+    ,
+    {
+      "@type": "Dataset",
+      "name": "CFL 2026",
+      "description": "League-level player statistics for CFL 2026 from AltSports Archive.",
+      "url": "https://archive.altfantasysports.com/data/leagues/cfl-2026.json",
+      "creator": {
+        "@type": "Organization",
+        "name": "AltSports Archive",
+        "url": "https://archive.altfantasysports.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    }
+    
   ],
   "creator": {
     "@type": "Organization",
@@ -252,11 +266,15 @@
         
         <span class="ct-yr">'25</span>
         
+        <span class="ct-yr">'26</span>
+        
       </div>
       
       <div class="ct-row" data-type="nfl">
         <span class="ct-label">NFL</span>
         
+          
+          <span class="ct-cell"></span>
           
           <span class="ct-cell"></span>
           
@@ -293,6 +311,8 @@
           
           <span class="ct-cell ct-on"></span>
           
+          <span class="ct-cell ct-on"></span>
+          
         
       </div>
       
@@ -307,14 +327,14 @@
       <div class="score-badge all-around-badge">
         <div class="badge-number">43.8</div>
         <div class="badge-label">All-Around</div>
-        <div class="badge-rank">#2712</div>
+        <div class="badge-rank">#2763</div>
       </div>
       
       
       <div class="score-badge position-badge">
-        <div class="badge-number">23.2</div>
+        <div class="badge-number">23.4</div>
         <div class="badge-label">WR</div>
-        <div class="badge-rank">#246</div>
+        <div class="badge-rank">#252</div>
       </div>
       
     </div>
@@ -512,7 +532,7 @@
   </div>
   <script>
   (function(){
-    var seasons = {"CFL-2019": {"recv_rec": 3.0, "recv_yds": 17.0, "recv_lg": 17.0, "recv_tar": 3.0, "recv_yac": 17.0, "ret_num": 31.0, "ret_yds": 714.0, "ret_lg": 432.0, "score_pts": 20.0, "rush_att": 1.0, "rush_yds": 3.0, "rush_lg": 3.0, "ret_td": 3.0, "score_tot": 3.0, "score_pr": 3.0}, "CFL-2021": {"ret_num": 19.0, "ret_yds": 438.0, "ret_lg": 216.0, "ret_td": 1.0, "score_tot": 1.0, "score_pr": 1.0, "score_pts": 6.0}, "CFL-2022": {"recv_rec": 6.0, "recv_yds": 54.0, "recv_lg": 55.0, "recv_tar": 10.0, "recv_yac": 50.0, "ret_num": 45.0, "ret_yds": 1002.0, "ret_lg": 501.0, "ret_td": 5.0, "score_tot": 5.0, "score_pr": 4.0, "score_pts": 30.0, "rush_att": 8.0, "rush_yds": 74.0, "rush_lg": 62.0, "score_kr": 1.0, "def_solo": 3.0, "def_tot": 3.0}, "CFL-2024": {"receiving_yards": 52.0, "receiving_tds": 0.0, "receptions": 9.0, "rushing_yards": 31.0, "rushing_tds": 0.0}, "CFL-2025": {"receiving_yards": 5.0, "receiving_tds": 0.0, "receptions": 3.0, "passing_yards": 41.0, "passing_tds": 0.0, "interceptions_lost": 0.0, "rushing_yards": 3.0, "rushing_tds": 0.0}};
+    var seasons = {"CFL-2019": {"recv_rec": 3.0, "recv_yds": 17.0, "recv_lg": 17.0, "recv_tar": 3.0, "recv_yac": 17.0, "ret_num": 31.0, "ret_yds": 714.0, "ret_lg": 432.0, "score_pts": 20.0, "rush_att": 1.0, "rush_yds": 3.0, "rush_lg": 3.0, "ret_td": 3.0, "score_tot": 3.0, "score_pr": 3.0}, "CFL-2021": {"ret_num": 19.0, "ret_yds": 438.0, "ret_lg": 216.0, "ret_td": 1.0, "score_tot": 1.0, "score_pr": 1.0, "score_pts": 6.0}, "CFL-2022": {"recv_rec": 6.0, "recv_yds": 54.0, "recv_lg": 55.0, "recv_tar": 10.0, "recv_yac": 50.0, "ret_num": 45.0, "ret_yds": 1002.0, "ret_lg": 501.0, "ret_td": 5.0, "score_tot": 5.0, "score_pr": 4.0, "score_pts": 30.0, "rush_att": 8.0, "rush_yds": 74.0, "rush_lg": 62.0, "score_kr": 1.0, "def_solo": 3.0, "def_tot": 3.0}, "CFL-2024": {"receiving_yards": 52.0, "receiving_tds": 0.0, "receptions": 9.0, "rushing_yards": 31.0, "rushing_tds": 0.0}, "CFL-2025": {"receiving_yards": 5.0, "receiving_tds": 0.0, "receptions": 3.0, "passing_yards": 41.0, "passing_tds": 0.0, "interceptions_lost": 0.0, "rushing_yards": 3.0, "rushing_tds": 0.0}, "CFL-2026": {"receiving_yards": 0.0, "receiving_tds": 0.0, "receptions": 0.0}};
     var stat    = "passing_yards";
     var keys    = Object.keys(seasons).sort(function(a,b){
       var ya = (a.match(/\d{4}$/) || ['0000'])[0];
@@ -547,31 +567,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -595,31 +595,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -643,31 +623,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -691,31 +651,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -739,31 +679,11 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
     
       
     
@@ -787,16 +707,6 @@
     
       
     
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
   
@@ -811,7 +721,165 @@
     
       
     
+      
+    
   
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
     
       
     
@@ -1142,6 +1210,39 @@
         
       </tr>
       
+      <tr>
+        <td>CFL 2026</td>
+        
+        <td>
+          
+          
+            —
+          
+        </td>
+        
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>0</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+        <td>—</td>
+        
+      </tr>
+      
     </tbody>
     
     <tfoot>
@@ -1165,22 +1266,6 @@
             
           
         
-        
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-            
-          
-        
-          
-            
           
         
         
@@ -1201,22 +1286,6 @@
             
           
         
-        
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-            
-          
-        
-          
-            
           
         
         
@@ -1237,6 +1306,54 @@
             
           
         
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
         
       
         
@@ -1255,22 +1372,6 @@
         
           
         
-        
-      
-        
-        
-          
-            
-          
-        
-          
-        
-          
-            
-          
-        
-          
-        
           
         
         
@@ -1278,15 +1379,19 @@
         
         
           
-        
-          
-        
+            
           
         
           
         
           
             
+          
+        
+          
+        
+          
+        
           
         
         
@@ -1305,6 +1410,8 @@
             
           
         
+          
+        
         
       
         
@@ -1319,6 +1426,26 @@
         
           
             
+          
+        
+          
+        
+        
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
           
         
         
@@ -1429,14 +1556,14 @@
           
           <td>
             
-              6
+              4
             
           </td>
         
           
           <td>
             
-              28.5
+              19
             
           </td>
         
@@ -1579,14 +1706,14 @@
           
           <td>
             
-              3
+              0
             
           </td>
         
           
           <td>
             
-              5
+              0
             
           </td>
         
@@ -1654,14 +1781,14 @@
           <td>
             
             
-              4.2
+              4.6
             
           </td>
         
           <td>
             
             
-              33.2
+              28.7
             
           </td>
         
@@ -5326,6 +5453,72 @@
         
       </tr>
       
+      
+      
+      
+      <tr class="week-group-row"><td colspan="31">2026 Wk 6</td></tr>
+      
+      <tr>
+        <td>2026</td>
+        <td>6</td>
+        <td><a href="../leagues/cfl-2026.html">CFL</a></td>
+        <td><a href="../games/synthetic-cfl-2026-w6-tor.html" class="game-id">TOR @ WPG</a></td>
+        <td>21–30</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td>0.0</td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+        <td></td>
+        
+      </tr>
+      
     </tbody>
   </table>
   
@@ -5344,7 +5537,7 @@
 
   <footer>
     <p>
-      Data updated: 2026-07-07.
+      Data updated: 2026-08-03.
       Formats:
       
 <a href="../data/players/janarion-grant.json">JSON</a> ·
